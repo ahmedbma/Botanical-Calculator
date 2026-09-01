@@ -19,7 +19,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | **Low-Dose Reference** | Maximum single, chronic-daily and acute-daily doses for 31 low-dose (potentially toxic) botanicals. |
 | **Conditions** | 75 conditions A–Z, each with 4–7 herbs, why each is indicated, and clinical cautions. Searchable by condition, synonym (`reflux` → GERD, `TATT` → fatigue, `long covid` → CFS), niche, herb or action. Filter to the 30 seen most in ND practice or to one of eight clinical niches; sort A–Z or by ND frequency. |
 | **Homeopathy** | A remedy differentiator over 148 classical remedies and 42 presenting complaints. Pick the complaint; it asks the questions that best separate the remedies still in contention, and ranks them with the reasoning shown. Includes a searchable remedy reference. |
-| **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, the neurological exam, and the breast and female pelvic exam. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. |
+| **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. |
 | **Herb Reference** | 396 herbs — Latin and common names, plant part, actions, available dose forms, dispensary availability, tea density and substitutes. Searchable and filterable. |
 
 ### Beyond the spreadsheet
@@ -107,20 +107,20 @@ as protocols, and not with the authority of the dosing data in the other tabs.
 ### The physical exams tab
 
 **A source of its own: your coursework.** The exam sequence and the normal-findings wording are transcribed
-from six Physical Exam & Diagnosis documents — the head-to-toe objectives, the cardiovascular exam word list,
-the PED 2 abdominal exam chart, the MSK word list, the neuro exam word list, and the PED 3 objective female
-findings — plus the NMS3 cardiovascular competency form from the BU SNM Student Clinic Handbook. Nothing
-there comes from the Yarnell workbook.
+from seven Physical Exam & Diagnosis documents — the head-to-toe objectives, the cardiovascular exam word
+list, the PED 2 abdominal exam chart, the MSK word list, the neuro exam word list, the PED 3 objective female
+findings and the male objective chart — plus the NMS3 cardiovascular competency form from the BU SNM Student
+Clinic Handbook. Nothing there comes from the Yarnell workbook.
 
-**Organised by type of exam**, nine in all: a head-to-toe screen, the cardiovascular and peripheral vascular
+**Organised by type of exam**, ten in all: a head-to-toe screen, the cardiovascular and peripheral vascular
 exam, the abdominal exam, four musculoskeletal regions (cervical spine and TMJ, thoracic and lumbar spine,
-upper extremities, lower extremities), the neurological exam, and the breast and female pelvic exam — 128
-steps between them.
+upper extremities, lower extremities), the neurological exam, and — under Genitourinary — the breast and
+female pelvic exam and the male genitourinary and rectal exam. 140 steps between them.
 
 **Two layers, kept apart in the tab as they are here.** The *normal* line of each step is the source
 document's own wording, edited only for spelling, expanded abbreviations and consistent tense, so the
 write-up view reproduces what you would actually chart. The *technique* line and the *what an abnormal
-finding suggests* table (112 findings) were written for this tool from standard physical-diagnosis teaching.
+finding suggests* table (132 findings) were written for this tool from standard physical-diagnosis teaching.
 They are not in the notes, are not peer reviewed, and are study prompts for a differential rather than a
 diagnosis. Findings needing same-day assessment carry an **urgent** flag.
 

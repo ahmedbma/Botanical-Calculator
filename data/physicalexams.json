@@ -6,7 +6,8 @@
   "PED 2 Abdominal Exam Chart",
   "MSK PED Words",
   "PED Words for Neuro Exam",
-  "Objective Female Findings (PED 3)"
+  "Objective Female Findings (PED 3)",
+  "PED Male Objective Chart"
  ],
  "types": [
   "Screening",
@@ -14,7 +15,7 @@
   "Abdominal",
   "Musculoskeletal",
   "Neurological",
-  "Breast and pelvic"
+  "Genitourinary"
  ],
  "exams": [
   {
@@ -1492,7 +1493,7 @@
   },
   {
    "id": "breast-pelvic",
-   "type": "Breast and pelvic",
+   "type": "Genitourinary",
    "name": "Breast and Female Pelvic Exam",
    "region": "Breast, axilla and pelvis",
    "summary": "Breast and regional nodes, external genitalia, speculum and bimanual exam, and pelvic floor assessment.",
@@ -1634,6 +1635,195 @@
     {
      "finding": "Descent of the anterior or posterior wall or cervix on bearing down",
      "suggests": "Pelvic organ prolapse"
+    }
+   ]
+  },
+  {
+   "id": "male-gu",
+   "type": "Genitourinary",
+   "name": "Male Genitourinary and Rectal Exam",
+   "region": "Inguinal region, genitalia, rectum and prostate",
+   "summary": "Inguinal nodes and hernias, inspection and palpation of the genitalia, and the digital rectal exam with the prostate.",
+   "source": "PED Male Objective Chart",
+   "script": "This is a sensitive exam. Explain each step before it happens, offer a chaperone and record who was present, expose only what you are examining, and confirm consent before starting. The inguinal and genital exam is done with the patient standing where possible; the rectal exam is done left lateral decubitus with the knees drawn up, or bent over the table. Stop the moment the patient asks you to.",
+   "related": [
+    "Benign prostatic hyperplasia",
+    "Prostatitis",
+    "Hemorrhoids",
+    "Urinary tract infection",
+    "Herpes simplex",
+    "Urinary incontinence"
+   ],
+   "groups": [
+    {
+     "name": "Inguinal region",
+     "steps": [
+      {
+       "step": "Inguinal and femoral nodes",
+       "how": "Palpate along the inguinal ligament and over the femoral triangle bilaterally.",
+       "normal": "No inguinal or femoral lymphadenopathy."
+      },
+      {
+       "step": "Hernia",
+       "how": "Patient standing. Invaginate the scrotal skin with a gloved finger up to the external inguinal ring and ask the patient to bear down or cough; repeat on the other side, and palpate the femoral canal below the inguinal ligament.",
+       "normal": "No signs of indirect or direct hernias upon palpation."
+      }
+     ]
+    },
+    {
+     "name": "Genitalia — inspection",
+     "steps": [
+      {
+       "step": "Penis",
+       "how": "Inspect the skin of the shaft, the base and the pubic hair, noting circumcision status; retract the foreskin if present and replace it when you are done.",
+       "normal": "Inspection of the genitalia reveals a circumcised penis without edema, nodules, scars, ulcers, or abnormalities."
+      },
+      {
+       "step": "Glans and corona",
+       "how": "Inspect and palpate the glans and the coronal sulcus, where lesions are easily missed.",
+       "normal": "The glans and corona are without masses, edema, or induration."
+      },
+      {
+       "step": "Urethral meatus",
+       "how": "Compress the glans between thumb and forefinger to open the meatus; note its position and any discharge.",
+       "normal": "Meatus is in the center of the glans without stenosis, discharge, or abnormal discoloration."
+      }
+     ]
+    },
+    {
+     "name": "Genitalia — palpation",
+     "steps": [
+      {
+       "step": "Shaft and testes",
+       "how": "Palpate the shaft along its length, then each testis between thumb and first two fingers, comparing size, contour and consistency.",
+       "normal": "Palpation of the shaft of the penis and testes reveals no tenderness, nodules, rashes, or masses."
+      },
+      {
+       "step": "Vas deferens and epididymis",
+       "how": "Trace the epididymis along the posterolateral testis, then follow the cord and vas deferens up toward the external ring.",
+       "normal": "Vas deferens and epididymis are palpable without signs of masses, varicosities, or enlargement."
+      }
+     ]
+    },
+    {
+     "name": "Rectal and prostate",
+     "steps": [
+      {
+       "step": "Inspection",
+       "how": "Inspect the perineal skin, the anus and the perianal area, asking the patient to bear down to bring out haemorrhoids or a prolapse.",
+       "normal": "Inspection of the rectum, skin of the perineum, and anus reveals no signs of erythema, lesions, or hemorrhoids."
+      },
+      {
+       "step": "Sphincter tone",
+       "how": "Lubricate a gloved finger, rest it against the anus until the sphincter relaxes, then insert and assess resting tone and voluntary squeeze.",
+       "normal": "Digital rectal exam reveals normal tone in the sphincter."
+      },
+      {
+       "step": "Prostate",
+       "how": "Turn the finger anteriorly and sweep both lateral lobes and the median sulcus, noting size, consistency, symmetry, nodules and tenderness.",
+       "normal": "Upon palpation, the prostate is approximately 4 cm wide and is nontender, firm and symmetric with a palpable median sulcus, without masses or lesions."
+      },
+      {
+       "step": "Rectal wall",
+       "how": "Sweep the finger through 360 degrees over the rectal wall.",
+       "normal": "No signs of masses in the rectum and a smooth rectal wall was palpated."
+      },
+      {
+       "step": "Withdrawal",
+       "how": "Inspect the glove on withdrawal and test the stool for occult blood if indicated.",
+       "normal": "No blood or stool on the gloves."
+      }
+     ]
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Sudden severe testicular pain with a high-riding, transverse testis and an absent cremasteric reflex",
+     "suggests": "Testicular torsion — surgical emergency, salvage falls sharply after 6 hours",
+     "urgent": true
+    },
+    {
+     "finding": "Painless firm testicular mass that does not transilluminate",
+     "suggests": "Testicular cancer until proven otherwise — ultrasound",
+     "urgent": true
+    },
+    {
+     "finding": "Tender, swollen epididymis with pain eased by elevation",
+     "suggests": "Epididymitis"
+    },
+    {
+     "finding": "Soft “bag of worms” above the testis, usually left, emptying when supine",
+     "suggests": "Varicocele"
+    },
+    {
+     "finding": "Cystic scrotal swelling that transilluminates",
+     "suggests": "Hydrocele"
+    },
+    {
+     "finding": "Bulge felt at the fingertip on coughing, descending into the scrotum",
+     "suggests": "Indirect inguinal hernia"
+    },
+    {
+     "finding": "Bulge felt against the side of the finger, through the floor of the canal",
+     "suggests": "Direct inguinal hernia"
+    },
+    {
+     "finding": "Irreducible, tender hernia with vomiting or absent bowel sounds",
+     "suggests": "Incarcerated or strangulated hernia",
+     "urgent": true
+    },
+    {
+     "finding": "Foreskin that will not retract",
+     "suggests": "Phimosis"
+    },
+    {
+     "finding": "Retracted foreskin trapped behind the corona with a swollen glans",
+     "suggests": "Paraphimosis — reduce urgently",
+     "urgent": true
+    },
+    {
+     "finding": "Painless indurated ulcer with a clean base",
+     "suggests": "Primary syphilis — chancre"
+    },
+    {
+     "finding": "Painful grouped vesicles or shallow ulcers",
+     "suggests": "Herpes simplex"
+    },
+    {
+     "finding": "Urethral discharge",
+     "suggests": "Urethritis — test for gonorrhoea and chlamydia"
+    },
+    {
+     "finding": "Meatus on the ventral surface of the glans or shaft",
+     "suggests": "Hypospadias"
+    },
+    {
+     "finding": "Smoothly enlarged, rubbery prostate with the median sulcus preserved",
+     "suggests": "Benign prostatic hyperplasia"
+    },
+    {
+     "finding": "Hard, nodular or asymmetric prostate with the median sulcus lost",
+     "suggests": "Prostate carcinoma until proven otherwise",
+     "urgent": true
+    },
+    {
+     "finding": "Boggy, exquisitely tender prostate with fever",
+     "suggests": "Acute bacterial prostatitis — do not massage the prostate",
+     "urgent": true
+    },
+    {
+     "finding": "Reduced resting tone or absent voluntary squeeze",
+     "suggests": "Neurological cause — cauda equina or spinal cord lesion",
+     "urgent": true
+    },
+    {
+     "finding": "Blood on the glove",
+     "suggests": "GI bleeding — haemorrhoids, fissure, polyp or malignancy; investigate"
+    },
+    {
+     "finding": "Palpable rectal mass",
+     "suggests": "Rectal carcinoma until proven otherwise",
+     "urgent": true
     }
    ]
   }
