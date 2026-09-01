@@ -1461,6 +1461,13 @@
       (g.steps || []).forEach(function (st) { bits.push(st.step, st.how, st.normal, st.flag || ''); });
     });
     (x.findings || []).forEach(function (f) { bits.push(f.finding, f.suggests); });
+    if (x.competency) {
+      bits.push(x.competency.title, x.competency.source, x.competency.note || '');
+      (x.competency.sections || []).forEach(function (sec) {
+        bits.push(sec.name);
+        (sec.items || []).forEach(function (it) { bits.push(it.item, it.gap || ''); });
+      });
+    }
     x._hay = bits.join(' ').toLowerCase();
     x._steps = (x.groups || []).reduce(function (n, g) { return n + (g.steps || []).length; }, 0);
   });
@@ -1500,16 +1507,21 @@
 
   // The write-up view is the normal-findings sentences alone, in exam order —
   // what you would actually chart, ready to copy into a SOAP note.
+  // A group with no steps records a gap in the source notes; there is nothing to
+  // chart for it, so it stays out of the write-up.
+  function peWritten(x) {
+    return (x.groups || []).filter(function (g) { return (g.steps || []).length; });
+  }
   function peWriteup(x) {
-    return (x.groups || []).map(function (g) {
-      return g.name + '\n' + (g.steps || []).map(function (st) { return st.normal; }).join(' ');
+    return peWritten(x).map(function (g) {
+      return g.name + '\n' + g.steps.map(function (st) { return st.normal; }).join(' ');
     }).join('\n\n');
   }
 
   function peStepsNode(x, q) {
     var wrap = el('div', 'pe-groups');
     (x.groups || []).forEach(function (g) {
-      var sec = el('section', 'pe-group');
+      var sec = el('section', 'pe-group' + ((g.steps || []).length ? '' : ' pe-empty'));
       sec.appendChild(el('h4', null, g.name));
       if (g.note) sec.appendChild(el('p', 'pe-gnote', g.note));
       (g.steps || []).forEach(function (st) {
@@ -1539,10 +1551,10 @@
 
   function peWriteupNode(x, q) {
     var wrap = el('div', 'pe-writeup');
-    (x.groups || []).forEach(function (g) {
+    peWritten(x).forEach(function (g) {
       wrap.appendChild(el('h4', null, g.name));
       var p = el('p');
-      p.innerHTML = highlight((g.steps || []).map(function (st) { return st.normal; }).join(' '), q);
+      p.innerHTML = highlight(g.steps.map(function (st) { return st.normal; }).join(' '), q);
       wrap.appendChild(p);
     });
     var act = el('div', 'actions');
@@ -1560,8 +1572,8 @@
     var csv = el('button', 'btn ghost', 'Download CSV');
     csv.addEventListener('click', function () {
       var rows = [['Group', 'Step', 'Technique', 'Normal finding']];
-      (x.groups || []).forEach(function (g) {
-        (g.steps || []).forEach(function (st) { rows.push([g.name, st.step, st.how, st.normal]); });
+      peWritten(x).forEach(function (g) {
+        g.steps.forEach(function (st) { rows.push([g.name, st.step, st.how, st.normal]); });
       });
       downloadCSV(x.name + ' exam', rows);
     });
@@ -1588,6 +1600,132 @@
       grid.appendChild(row);
     });
     det.appendChild(grid);
+    return det;
+  }
+
+  /* The competency form is scored 0-2 per item; the running total and the band
+     it falls in are the whole point of the sheet, so they update as you tick. */
+  function peBand(comp, total) {
+    var bands = comp.bands || [];
+    for (var i = 0; i < bands.length; i++) {
+      if (total >= bands[i].min) return bands[i].label;
+    }
+    return bands.length ? bands[bands.length - 1].label : '';
+  }
+
+  function peCompScores(id) {
+    var all = load('pecomp') || {};
+    return all[id] || {};
+  }
+  function peCompSave(id, scores) {
+    var all = load('pecomp') || {};
+    all[id] = scores;
+    save('pecomp', all);
+  }
+
+  function peCompNode(x, q) {
+    var comp = x.competency;
+    var det = el('details', 'pe-comp');
+    det.appendChild(el('summary', null, 'Competency checklist — score yourself out of ' + comp.max));
+    if (q) det.open = true;
+
+    var head = el('div', 'pe-comphead');
+    var ttl = el('p', 'pe-comptitle');
+    ttl.innerHTML = highlight(comp.title, q);
+    head.appendChild(ttl);
+    var tally = el('div', 'pe-tally');
+    var score = el('span', 'pe-score', '0');
+    var outof = el('span', 'pe-outof', '/ ' + comp.max);
+    var band = el('span', 'pe-band', '');
+    tally.appendChild(score); tally.appendChild(outof); tally.appendChild(band);
+    head.appendChild(tally);
+    det.appendChild(head);
+
+    var key = el('ul', 'pe-key');
+    (comp.scale || []).forEach(function (sc) {
+      key.appendChild(el('li', null, sc.score + ' — ' + sc.label + ': ' + sc.desc));
+    });
+    det.appendChild(key);
+
+    var scores = peCompScores(x.id);
+    var buttons = [];
+
+    function recount() {
+      var total = 0, answered = 0;
+      buttons.forEach(function (b) {
+        if (scores[b.key] != null) { total += scores[b.key]; answered++; }
+      });
+      score.textContent = String(total);
+      band.textContent = answered ? peBand(comp, total) : 'nothing scored yet';
+      band.className = 'pe-band' + (!answered ? ' none'
+        : total >= (comp.bands[0] || {}).min ? ' good'
+        : total >= (comp.bands[1] || {}).min ? ' mid' : ' low');
+      outof.textContent = '/ ' + comp.max + (answered && answered < buttons.length
+        ? ' · ' + answered + ' of ' + buttons.length + ' scored' : '');
+    }
+
+    var n = 0;
+    (comp.sections || []).forEach(function (sec) {
+      var box = el('section', 'pe-compsec');
+      box.appendChild(el('h5', null, sec.name));
+      (sec.items || []).forEach(function (it) {
+        var k = String(n++);
+        var row = el('div', 'pe-compitem');
+        var txt = el('div', 'pe-comptext');
+        var line = el('p', null);
+        line.innerHTML = highlight(it.item, q);
+        txt.appendChild(line);
+        if (it.gap) {
+          var gp = el('p', 'pe-gap');
+          gp.innerHTML = '<span class="pe-gapmark">not in your word list</span> ' + highlight(it.gap, q);
+          txt.appendChild(gp);
+        }
+        row.appendChild(txt);
+
+        var seg = el('div', 'seg pe-seg');
+        seg.setAttribute('role', 'group');
+        seg.setAttribute('aria-label', 'Score: ' + it.item);
+        (comp.scale || []).forEach(function (sc) {
+          var b = el('button', 'segbtn', String(sc.score));
+          b.title = sc.label + ': ' + sc.desc;
+          b.addEventListener('click', function () {
+            // clicking the score already set clears it, so a half-filled sheet stays honest
+            if (scores[k] === sc.score) delete scores[k]; else scores[k] = sc.score;
+            $$('.segbtn', seg).forEach(function (o, i) {
+              o.classList.toggle('is-on', comp.scale[i].score === scores[k]);
+            });
+            peCompSave(x.id, scores);
+            recount();
+          });
+          if (scores[k] === sc.score) b.classList.add('is-on');
+          seg.appendChild(b);
+        });
+        row.appendChild(seg);
+        buttons.push({ key: k });
+        box.appendChild(row);
+      });
+      det.appendChild(box);
+    });
+
+    if (comp.note) {
+      var nt = el('p', 'pe-compnote');
+      nt.innerHTML = highlight(comp.note, q);
+      det.appendChild(nt);
+    }
+    det.appendChild(el('p', 'pe-compsrc', 'Source: ' + comp.source));
+
+    var act = el('div', 'actions');
+    var reset = el('button', 'btn ghost danger', 'Clear scores');
+    reset.addEventListener('click', function () {
+      Object.keys(scores).forEach(function (k) { delete scores[k]; });
+      peCompSave(x.id, scores);
+      $$('.pe-seg .segbtn', det).forEach(function (b) { b.classList.remove('is-on'); });
+      recount();
+    });
+    act.appendChild(reset);
+    det.appendChild(act);
+
+    recount();
     return det;
   }
 
@@ -1648,6 +1786,7 @@
       }
       body.appendChild(peView === 'writeup' ? peWriteupNode(x, q) : peStepsNode(x, q));
       if (x.findings && x.findings.length) body.appendChild(peFindingsNode(x, q));
+      if (x.competency) body.appendChild(peCompNode(x, q));
       var rel = peRelatedNode(x);
       if (rel) body.appendChild(rel);
       det.appendChild(body);

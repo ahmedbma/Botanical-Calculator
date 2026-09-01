@@ -1,6 +1,8 @@
 {
  "sources": [
   "Head-to-Toe Objectives (final)",
+  "Cardiovascular Exam PED Words",
+  "Cardiovascular and Peripheral Vascular Examination competency for NMS3 (BU SNM Student Clinic Handbook)",
   "PED 2 Abdominal Exam Chart",
   "MSK PED Words",
   "PED Words for Neuro Exam",
@@ -8,6 +10,7 @@
  ],
  "types": [
   "Screening",
+  "Cardiovascular",
   "Abdominal",
   "Musculoskeletal",
   "Neurological",
@@ -352,6 +355,297 @@
      "suggests": "Chronic hypoxia, bronchiectasis, lung malignancy, cirrhosis, IBD"
     }
    ]
+  },
+  {
+   "id": "cardiovascular",
+   "type": "Cardiovascular",
+   "name": "Cardiovascular and Peripheral Vascular Exam",
+   "region": "Neck, precordium and limbs",
+   "summary": "Blood pressure, the neck vessels and jugular venous pressure, inspection, palpation and auscultation of the precordium, and the peripheral pulses and perfusion. Carries the NMS3 competency checklist it is graded against.",
+   "source": "Cardiovascular Exam PED Words",
+   "script": "“Hello, my name is ___ and I will be your student clinician for today. I have just finished washing my hands and we will be starting with a cardiovascular exam. If at any point you have a question, please stop me and we will assess from there. Do I have your consent to continue?” Take the blood pressure with the patient seated, then gown them and lay the table back to about 30–45 degrees for the rest of the exam.",
+   "related": [
+    "Hypertension",
+    "Atherosclerosis",
+    "Congestive heart failure",
+    "Varicose veins",
+    "Edema",
+    "Raynaud's phenomenon"
+   ],
+   "groups": [
+    {
+     "name": "Blood pressure",
+     "steps": [
+      {
+       "step": "Seated blood pressure",
+       "how": "Patient sitting up with the feet flat on the ground and uncrossed, arm supported at heart level. Have the stethoscope, cuff and sphygmomanometer set up before you start.",
+       "normal": "Seated blood pressure measured at 120/70 mmHg, which is within normal range."
+      }
+     ]
+    },
+    {
+     "name": "Neck vessels",
+     "steps": [
+      {
+       "step": "Carotid arteries — inspection and palpation",
+       "how": "Inspect the carotid area for erythema, lesions and visible pulsation, then palpate one side at a time — never both together.",
+       "normal": "No signs of any erythema, no lesions, no visible pulsations. Palpation shows a normal rate and rhythm of the arteries."
+      },
+      {
+       "step": "Jugular venous pressure",
+       "how": "Start on the right with the patient's head turned slightly to the left and a penlight raked across the neck; find the internal jugular pulsation between the two heads of the sternocleidomastoid. Set a ruler vertically at the sternal angle, carry a straight edge horizontally from the top of the pulsation to the ruler, and read the height off it.",
+       "normal": "The jugular venous pressure measures 2 cm above the sternal angle, indicating normal pressure.",
+       "flag": "The source reads “the jugular venous distension measures 2 cm.” Distension is the abnormal state; what you measure is the jugular venous <em>pressure</em>, as a height above the sternal angle. Normal is 3 cm or less — about 8 cmH₂O once the 5 cm from the sternal angle to the right atrium is added."
+      }
+     ]
+    },
+    {
+     "name": "Precordium — inspection and palpation",
+     "steps": [
+      {
+       "step": "Inspection of the auscultation points",
+       "how": "Rake a light source across the chest wall and inspect the precordium at an angle for lifts and heaves.",
+       "normal": "No evidence of erythema, no visible elevations, colour is even."
+      },
+      {
+       "step": "Palpation of the auscultation points",
+       "how": "Palpate the pulmonic, aortic, Erb's point, tricuspid and mitral/PMI areas for lifts, heaves and thrills, and note the temperature of the skin.",
+       "normal": "No lifts, heaves or thrills at the auscultation points. Temperature is normal to touch.",
+       "flag": "The word list palpates and auscultates five points; the NMS3 competency below grades auscultation at <em>six</em>, counting the tricuspid area twice — the 4th and 5th intercostal spaces at the left sternal border. Work to six."
+      },
+      {
+       "step": "Point of maximal impulse",
+       "how": "Use a penlight to locate the PMI at the 5th intercostal space in the midclavicular line — it may or may not be visible — then palpate it, noting location, size and amplitude.",
+       "normal": "PMI is noted, palpated in the fifth intercostal space at the midclavicular line."
+      }
+     ]
+    },
+    {
+     "name": "Auscultation",
+     "steps": [
+      {
+       "step": "Temporal and carotid arteries",
+       "how": "Bell over the temporal arteries bilaterally first. Then turn the patient's head to the right, ask them to breathe in and hold it, and auscultate the carotid; repeat on the left. Tell them to exhale when you are done.",
+       "normal": "Normal rate and rhythm in the temporal and carotid arteries, no signs of bruits."
+      },
+      {
+       "step": "Precordial points",
+       "how": "Aortic (2nd ICS right), then pulmonic (2nd ICS left), then Erb's point (3rd ICS left), then tricuspid (4th ICS left) and finally mitral/apex (5th ICS left). Use both the diaphragm and the bell at each.",
+       "normal": "Normal rhythm heard at each point, no signs of clicks, gallops, murmurs or any extra sounds with the bell or diaphragm."
+      }
+     ]
+    },
+    {
+     "name": "Peripheral vascular",
+     "steps": [
+      {
+       "step": "Peripheral pulses",
+       "how": "Brachial, radial, femoral, popliteal, posterior tibial and dorsalis pedis, bilaterally. Grade each 0–4 and compare side to side.",
+       "normal": "All pulses are intact bilaterally with normal rate and rhythm, grade +2.",
+       "flag": "The source leaves the grade blank to fill in — “grade +__.” A normal pulse is +2 on the 0–4 scale, which is what is written here."
+      },
+      {
+       "step": "Upper extremities",
+       "how": "Feel the temperature, inspect skin colour, check capillary refill in the fingernails and assess skin turgor.",
+       "normal": "Even temperature and even skin tone. Skin is warm and dry to the touch. No signs of lesions or pallor. Capillary refill is intact bilaterally. Skin turgor is normal and hydrated."
+      },
+      {
+       "step": "Lower extremities",
+       "how": "Feel the temperature, inspect skin colour and hair distribution, check capillary refill, press over a bony prominence and watch for the skin to bounce back for oedema, and assess skin turgor.",
+       "normal": "Even temperature and even skin tone. Skin is warm and dry to the touch. No signs of lesions, pallor, mottling, varicosities or dilation. Capillary refill is intact bilaterally. No signs of edema. Normal hair distribution. Skin turgor is normal."
+      }
+     ]
+    },
+    {
+     "name": "Special manoeuvres",
+     "steps": [],
+     "note": "The word list ends at this heading with nothing recorded under it, so there is no wording of yours to transcribe. The manoeuvres usually paired with this exam are the Allen test before radial access, the ankle-brachial index where there is claudication, postural (orthostatic) blood pressures, and a check for pulsus paradoxus — worth adding to your notes."
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Jugular venous pressure above 3 cm from the sternal angle",
+     "suggests": "Raised right atrial pressure — right heart failure, fluid overload, tamponade or constriction",
+     "urgent": true
+    },
+    {
+     "finding": "Carotid bruit",
+     "suggests": "Carotid stenosis — raises stroke risk"
+    },
+    {
+     "finding": "Diffuse, sustained apical impulse displaced laterally",
+     "suggests": "Left ventricular hypertrophy or dilatation"
+    },
+    {
+     "finding": "Palpable thrill",
+     "suggests": "A murmur of at least grade 4/6 — a significant valvular lesion"
+    },
+    {
+     "finding": "Parasternal lift or heave",
+     "suggests": "Right ventricular hypertrophy or pulmonary hypertension"
+    },
+    {
+     "finding": "S3 gallop in an adult",
+     "suggests": "Volume overload — systolic heart failure, severe regurgitation"
+    },
+    {
+     "finding": "S4",
+     "suggests": "A stiff, non-compliant ventricle — hypertension, LVH, ischaemia"
+    },
+    {
+     "finding": "Fixed split S2",
+     "suggests": "Atrial septal defect"
+    },
+    {
+     "finding": "Systolic murmur radiating to the carotids with a slow-rising pulse",
+     "suggests": "Aortic stenosis"
+    },
+    {
+     "finding": "Holosystolic murmur at the apex radiating to the axilla",
+     "suggests": "Mitral regurgitation"
+    },
+    {
+     "finding": "Any diastolic murmur",
+     "suggests": "Always pathological — investigate",
+     "urgent": true
+    },
+    {
+     "finding": "Irregularly irregular pulse",
+     "suggests": "Atrial fibrillation"
+    },
+    {
+     "finding": "Pulsus paradoxus over 10 mmHg",
+     "suggests": "Cardiac tamponade, severe asthma or COPD",
+     "urgent": true
+    },
+    {
+     "finding": "Capillary refill over 3 seconds with a cool, pale limb",
+     "suggests": "Poor perfusion — shock or arterial occlusion",
+     "urgent": true
+    },
+    {
+     "finding": "Diminished or absent distal pulses with hair loss, cool skin and shiny atrophic changes",
+     "suggests": "Peripheral arterial disease"
+    },
+    {
+     "finding": "Bilateral pitting oedema",
+     "suggests": "Right heart failure, venous insufficiency or hypoalbuminaemia"
+    },
+    {
+     "finding": "Unilateral calf swelling, warmth and tenderness",
+     "suggests": "Deep vein thrombosis",
+     "urgent": true
+    },
+    {
+     "finding": "Blood pressure 140/90 or above on repeat measurement",
+     "suggests": "Hypertension"
+    },
+    {
+     "finding": "More than 15 mmHg difference between the arms",
+     "suggests": "Subclavian stenosis or aortic dissection",
+     "urgent": true
+    },
+    {
+     "finding": "Systolic drop of 20 mmHg or diastolic drop of 10 mmHg on standing",
+     "suggests": "Orthostatic hypotension"
+    }
+   ],
+   "competency": {
+    "title": "Cardiovascular and Peripheral Vascular Examination — NMS3 competency",
+    "source": "BU SNM Student Clinic Handbook, Competencies 7/10/23, p. 40",
+    "max": 26,
+    "scale": [
+     {
+      "score": 0,
+      "label": "Not competent",
+      "desc": "Failed to perform"
+     },
+     {
+      "score": 1,
+      "label": "Partial",
+      "desc": "Performed only after prompting, or improperly"
+     },
+     {
+      "score": 2,
+      "label": "Achieved",
+      "desc": "Performed properly without prompting"
+     }
+    ],
+    "bands": [
+     {
+      "label": "Achieved competence",
+      "min": 23
+     },
+     {
+      "label": "Partial competence",
+      "min": 18
+     },
+     {
+      "label": "Not competent",
+      "min": 0
+     }
+    ],
+    "note": "Thirteen items scored 0–2, 26 points in all. Below 18 points (70%) is not competent; 18–22 is partial competence; 23–26 is achieved competence. The form has to be signed by the supervising physician, kept in the handbook, and signed off electronically in the Competency Canvas course.",
+    "sections": [
+     {
+      "name": "Patient set up",
+      "items": [
+       {
+        "item": "Uses basic patient set-up procedures to prepare the patient for examination."
+       },
+       {
+        "item": "Washes hands prior to the examination."
+       },
+       {
+        "item": "Can explain the benefit of examining the patient in three positions: supine with the table at 30 degrees, left lateral decubitus, and seated and/or leaning forward, including Valsalva as needed.",
+        "gap": "Your word list only sets the table to 30–45 degrees. The repositioning this item grades is not in it."
+       }
+      ]
+     },
+     {
+      "name": "Inspection and palpation",
+      "items": [
+       {
+        "item": "Palpates the peripheral arteries (femoral, popliteal, posterior tibial, dorsalis pedis, brachial, radial)."
+       },
+       {
+        "item": "Inspects the neck for JVD."
+       },
+       {
+        "item": "Inspects the chest wall with a light source."
+       },
+       {
+        "item": "Palpates the precordial region and the PMI."
+       },
+       {
+        "item": "Describes lift, thrill and PMI."
+       },
+       {
+        "item": "Independently palpates the carotid arteries."
+       },
+       {
+        "item": "Evaluates capillary refill."
+       }
+      ]
+     },
+     {
+      "name": "Auscultation",
+      "items": [
+       {
+        "item": "Auscultates at 6 locations (aortic, pulmonic, tricuspid × 2, Erb's point, cardiac apex/mitral) with diaphragm and bell.",
+        "gap": "Your word list auscultates five points. The sixth is the second tricuspid position."
+       },
+       {
+        "item": "Describes one of the following: split S2, S3 or S4 sounds.",
+        "gap": "Your word list records only “no clicks, gallops, murmurs or extra sounds.” This item asks you to describe one of these sounds, not just exclude it."
+       },
+       {
+        "item": "Listens to the carotid arteries for bruits."
+       }
+      ]
+     }
+    ]
+   }
   },
   {
    "id": "abdominal",

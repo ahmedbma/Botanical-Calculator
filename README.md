@@ -19,7 +19,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | **Low-Dose Reference** | Maximum single, chronic-daily and acute-daily doses for 31 low-dose (potentially toxic) botanicals. |
 | **Conditions** | 75 conditions A–Z, each with 4–7 herbs, why each is indicated, and clinical cautions. Searchable by condition, synonym (`reflux` → GERD, `TATT` → fatigue, `long covid` → CFS), niche, herb or action. Filter to the 30 seen most in ND practice or to one of eight clinical niches; sort A–Z or by ND frequency. |
 | **Homeopathy** | A remedy differentiator over 148 classical remedies and 42 presenting complaints. Pick the complaint; it asks the questions that best separate the remedies still in contention, and ranks them with the reasoning shown. Includes a searchable remedy reference. |
-| **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the abdominal exam, four musculoskeletal regions, the neurological exam, and the breast and female pelvic exam. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. |
+| **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, the neurological exam, and the breast and female pelvic exam. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. |
 | **Herb Reference** | 396 herbs — Latin and common names, plant part, actions, available dose forms, dispensary availability, tea density and substitutes. Searchable and filterable. |
 
 ### Beyond the spreadsheet
@@ -107,23 +107,32 @@ as protocols, and not with the authority of the dosing data in the other tabs.
 ### The physical exams tab
 
 **A source of its own: your coursework.** The exam sequence and the normal-findings wording are transcribed
-from five Physical Exam & Diagnosis documents — the head-to-toe objectives, the PED 2 abdominal exam chart,
-the MSK word list, the neuro exam word list, and the PED 3 objective female findings. Nothing there comes
-from the Yarnell workbook.
+from six Physical Exam & Diagnosis documents — the head-to-toe objectives, the cardiovascular exam word list,
+the PED 2 abdominal exam chart, the MSK word list, the neuro exam word list, and the PED 3 objective female
+findings — plus the NMS3 cardiovascular competency form from the BU SNM Student Clinic Handbook. Nothing
+there comes from the Yarnell workbook.
 
-**Organised by type of exam**, eight in all: a head-to-toe screen, the abdominal exam, four musculoskeletal
-regions (cervical spine and TMJ, thoracic and lumbar spine, upper extremities, lower extremities), the
-neurological exam, and the breast and female pelvic exam — 117 steps between them.
+**Organised by type of exam**, nine in all: a head-to-toe screen, the cardiovascular and peripheral vascular
+exam, the abdominal exam, four musculoskeletal regions (cervical spine and TMJ, thoracic and lumbar spine,
+upper extremities, lower extremities), the neurological exam, and the breast and female pelvic exam — 128
+steps between them.
 
 **Two layers, kept apart in the tab as they are here.** The *normal* line of each step is the source
 document's own wording, edited only for spelling, expanded abbreviations and consistent tense, so the
 write-up view reproduces what you would actually chart. The *technique* line and the *what an abnormal
-finding suggests* table (92 findings) were written for this tool from standard physical-diagnosis teaching.
+finding suggests* table (112 findings) were written for this tool from standard physical-diagnosis teaching.
 They are not in the notes, are not peer reviewed, and are study prompts for a differential rather than a
 diagnosis. Findings needing same-day assessment carry an **urgent** flag.
 
-**Five places where the source wording was corrected** rather than transcribed, each marked in place with a
-*source note* saying what the notes read and why it was changed:
+**The competency form** is reproduced verbatim on the cardiovascular exam — 13 items scored 0–2 for 26
+points, with the handbook's own bands (below 18 not competent, 18–22 partial, 23–26 achieved). Scoring it in
+the tab is a self-check that saves to browser storage; the real form still needs a supervisor's signature.
+Three of its items ask for something the cardiovascular word list does not cover — the three examining
+positions, the sixth auscultation point, and describing a split S2, S3 or S4 rather than just excluding extra
+sounds — and each is marked where it appears.
+
+**Eight places where the source wording was corrected or filled in** rather than transcribed, each marked in
+place with a *source note* saying what the notes read and why it was changed:
 
 - The sclera recorded as normal "with yellow appearance" — a yellow sclera is icterus, an abnormal finding.
 - The chest "2:1 A/P ratio" — the normal adult chest is transverse:AP of about 2:1, i.e. AP:transverse of 1:2.
@@ -133,6 +142,16 @@ diagnosis. Findings needing same-day assessment carry an **urgent** flag.
   asymmetric rise or a deviated uvula.
 - The cranial nerves numbered 1–10 in the order performed. They are numbered anatomically here (CN I–XII,
   with III, IV and VI tested together as the extraocular movements) and the source's order is kept.
+- "The jugular venous distension measures 2 cm" — distension is the abnormal state; the measurement is the
+  jugular venous *pressure*, as a height above the sternal angle, normal at 3 cm or less.
+- Five auscultation points in the word list against the six the NMS3 competency grades — the tricuspid area
+  counts twice, at the 4th and 5th intercostal spaces.
+- The peripheral pulse grade left blank as "grade +__", written here as +2, a normal pulse on the 0–4 scale.
+
+**One gap is left as a gap.** The cardiovascular word list ends at a "Special Manoeuvre" heading with nothing
+under it. Rather than invent wording and attribute it to the notes, that section says so and names the
+manoeuvres usually paired with the exam — the Allen test, the ankle-brachial index, postural blood pressures
+and pulsus paradoxus. It is skipped in the write-up view, since there is nothing to chart.
 
 Where an exam raises a condition the **Conditions** index already covers, the tab links straight across to it.
 
