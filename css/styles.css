@@ -328,3 +328,8 @@ td.herb input{min-width:190px}
 .hxout-row .kn{margin:0;font-size:.84rem;line-height:1.5;color:var(--muted)}
 .hxout-row .sc{font-variant-numeric:tabular-nums;font-weight:700;font-size:.8rem;color:var(--muted)}
 @media (max-width:620px){.hxout-row{grid-template-columns:1fr}}
+
+/* common name shown under a recognised herb field */
+.cnhint{display:block;margin-top:5px;font-size:.75rem;line-height:1.3;color:var(--muted);
+  font-style:italic;text-transform:capitalize}
+.cnhint:empty{display:none}

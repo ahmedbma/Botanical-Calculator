@@ -144,6 +144,40 @@ The dataset is checked against 47 textbook cases whose expected remedy is well e
 dry painful cough, Ledum's puncture wound, Argentum nitricum's anticipatory panic, and so on — and all 47
 resolve to the expected remedy.
 
+### Why the tincture and tea herb lists differ
+
+They are drawn from different sheets, and neither is a subset of the other.
+
+The **tincture** picker offers 368 herbs, from the dispensary and herb-reference sheets — the ones
+stocked as liquid extracts. A tincture is calculated from the extract ratio alone, so no density is
+needed and every herb can be offered.
+
+The **tea** picker leads with the 94 herbs carrying a *measured dry-herb density*, because choosing
+one fills in g/Tbsp automatically; the full tincture list follows, and those need a density typed in
+or borrowed from a generic plant part. **56 of the measured herbs appear only in the tea list** —
+they come from the density sheet, which the dispensary sheets do not cover. Both pickers now say
+this in their *Assumptions & formulas* panel rather than leaving it to be discovered.
+
+### Common names
+
+Every herb field accepts either the Latin name or the common one — typing `valerian` enters
+*Valeriana officinalis*, `gotu kola` enters *Centella asiatica*. Common names come from the
+herb-reference and dispensary sheets, with a genus-and-species fallback for names that differ only by
+a parenthetical, covering 367 of the 368 herbs. They also label every autocomplete entry, and the
+recognised common name appears under the field as confirmation.
+
+Two data defects surfaced while building this and are handled on the way into the UI, not by editing
+the source data:
+
+- Two rows in the workbook are not herbs at all — a sheet footer and a column header that were parsed
+  as entries. They were appearing in the autocomplete and the herb reference; they are now filtered out.
+- The dispensary sheet lists valerian twice, as `Valerian officinalis` (a typo) for the tincture and
+  `Valeriana officinalis` for the glycerite. Where one common name maps to several spellings, the tool
+  prefers the spelling the botanical reference sheet uses, then one carrying a measured density, then
+  the fuller spelling. A handful of similar inconsistencies remain in the data itself — `Urtica diocia
+  seed` for one, and a capitalisation variant of *Arctostaphylos uva-ursi* — and are left as the
+  workbook has them.
+
 ### From the workbook
 
 Extracted from the workbook's reference sheets: 31 low-dose botanicals, 98 measured dry-herb
