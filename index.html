@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Botanical Calculator</title>
+<meta name="description" content="Herbal formulation calculators: tincture formulator, tea formulator, per-herb dosing, and low-dose safety reference.">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127807;</text></svg>">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <h1><span aria-hidden="true">🌿</span> Botanical Calculator</h1>
+    <p class="tagline">Formulation &amp; dosing tools for herbal medicine</p>
+  </div>
+</header>
+
+<nav class="tabs wrap" role="tablist" aria-label="Calculators">
+  <button role="tab" class="tab" data-panel="tincture" aria-selected="true">Tincture Formulator</button>
+  <button role="tab" class="tab" data-panel="tea" aria-selected="false">Tea Formulator</button>
+  <button role="tab" class="tab" data-panel="dose" aria-selected="false">Dose per Herb</button>
+  <button role="tab" class="tab" data-panel="lowdose" aria-selected="false">Low-Dose Reference</button>
+  <button role="tab" class="tab" data-panel="herbs" aria-selected="false">Herb Reference</button>
+</nav>
+
+<main class="wrap">
+
+<!-- ============================ TINCTURE ============================ -->
+<section id="panel-tincture" class="panel" role="tabpanel">
+  <div class="card">
+    <h2>Liquid Extract (Tincture) Formulator</h2>
+    <p class="hint">Enter the dose, frequency and duration, then list the herbs and their share of the formula.
+      The calculator works out how much of each extract to pour, the herb-equivalent dry weight per dose, and the running pour order.</p>
+
+    <div class="meta-grid">
+      <label>Formula name<input type="text" id="t-formula" placeholder="e.g. Sleep support"></label>
+      <label>Practitioner<input type="text" id="t-practitioner"></label>
+      <label>Patient<input type="text" id="t-patient"></label>
+      <label>Date<input type="date" id="t-date"></label>
+    </div>
+
+    <div class="input-grid">
+      <label>Amount per dose (ml)<input type="number" id="t-ml" min="0" step="0.1" value="5"></label>
+      <label>Doses per day<input type="number" id="t-freq" min="0" step="1" value="3"></label>
+      <label>Duration (days)<input type="number" id="t-days" min="0" step="1" value="30"></label>
+      <label>Total needed (ml)<output id="t-total" class="ro">—</output></label>
+      <label>Dispense (ml)
+        <select id="t-dispense" title="&#8224; 240 ml and 480 ml bottles do not come with a dropper top."></select>
+      </label>
+      <label>Custom dispense (ml)<input type="number" id="t-custom" min="0" step="1" placeholder="optional"></label>
+    </div>
+
+    <div class="row-head">
+      <h3>Herbs in formula</h3>
+      <div class="seg" role="group" aria-label="Proportion units">
+        <button class="segbtn is-on" id="t-mode-pct">Percent</button>
+        <button class="segbtn" id="t-mode-parts">Parts</button>
+      </div>
+    </div>
+
+    <div class="tablewrap">
+      <table id="t-table">
+        <thead>
+          <tr>
+            <th>Herb</th>
+            <th class="prop-h">%</th>
+            <th>Ratio 1:<span class="q" title="Weight-to-volume ratio of the extract. Enter 5 for a 1:5 tincture.">?</span></th>
+            <th>ml / dose</th>
+            <th>gtt / dose</th>
+            <th>g herb / dose</th>
+            <th>g herb / day</th>
+            <th>ml to dispense</th>
+            <th>Pour to (ml)<span class="q" title="Running total: pour each extract up to this mark in a graduated cylinder.">?</span></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <th>Total</th>
+            <th id="t-sum-prop">0</th>
+            <th></th><th id="t-sum-ml"></th><th id="t-sum-gtt"></th>
+            <th id="t-sum-gdose"></th><th id="t-sum-gday"></th><th id="t-sum-disp"></th><th></th><th></th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="actions">
+      <button class="btn" id="t-add">+ Add herb</button>
+      <button class="btn ghost" id="t-normalize">Normalize to 100%</button>
+      <button class="btn ghost" id="t-csv">Download CSV</button>
+      <button class="btn ghost" id="t-print">Print</button>
+      <button class="btn ghost danger" id="t-clear">Clear</button>
+    </div>
+
+    <div id="t-alerts" class="alerts"></div>
+  </div>
+
+  <details class="card notes">
+    <summary>Assumptions &amp; formulas</summary>
+    <ul>
+      <li>1 tsp = 5 ml &middot; 0.5 tsp = 2.5 ml &middot; 1 oz = 30 ml &middot; 1 ml = 25 gtt (varies with the dropper)</li>
+      <li>Total needed = dose (ml) &times; doses/day &times; days; dispensed amount rounds up to a stock bottle size.</li>
+      <li>g herb per dose = dose (ml) &divide; ratio &times; share of formula. g/day = g/dose &times; doses/day.</li>
+      <li>ml to dispense = dispensed total &times; share of formula.</li>
+      <li>Standard bottles: 15 ml (½ oz), 30 ml (1 oz), 60 ml (2 oz), 120 ml (4 oz), 240 ml (8 oz), 480 ml (16 oz).
+        &#8224; The 240 ml and 480 ml bottles do not come standard with a dropper top.</li>
+    </ul>
+  </details>
+</section>
+
+<!-- ============================ TEA ============================ -->
+<section id="panel-tea" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Tea Formulator</h2>
+    <p class="hint">Dry herb densities vary a great deal. Pick an herb to pull its measured density, or choose a plant part
+      for a generic value.</p>
+
+    <div class="meta-grid">
+      <label>Formula name<input type="text" id="te-formula" placeholder="e.g. Digestive tea"></label>
+      <label>Practitioner<input type="text" id="te-practitioner"></label>
+      <label>Patient<input type="text" id="te-patient"></label>
+      <label>Date<input type="date" id="te-date"></label>
+    </div>
+
+    <div class="input-grid">
+      <label>Amount per cup (tsp)<input type="number" id="te-tsp" min="0" step="0.25" value="1"></label>
+      <label>Cups per day<input type="number" id="te-cups" min="0" step="1" value="3"></label>
+      <label>Duration (days)<input type="number" id="te-days" min="0" step="1" value="30"></label>
+      <label>Total to dispense<output id="te-total" class="ro">—</output></label>
+    </div>
+
+    <div class="row-head">
+      <h3>Herbs in formula</h3>
+      <div class="seg" role="group" aria-label="Proportion units">
+        <button class="segbtn is-on" id="te-mode-pct">Percent</button>
+        <button class="segbtn" id="te-mode-parts">Parts</button>
+      </div>
+    </div>
+
+    <div class="tablewrap">
+      <table id="te-table">
+        <thead>
+          <tr>
+            <th>Herb</th>
+            <th class="prop-h">%</th>
+            <th>g / Tbsp<span class="q" title="Density of the cut-and-sifted dry herb. Auto-filled when the herb is in the density table.">?</span></th>
+            <th>tsp / cup</th>
+            <th>g / cup</th>
+            <th>g / day</th>
+            <th>g to dispense</th>
+            <th>oz to dispense</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <th>Total</th><th id="te-sum-prop">0</th><th></th>
+            <th id="te-sum-tsp"></th><th id="te-sum-gcup"></th><th id="te-sum-gday"></th>
+            <th id="te-sum-g"></th><th id="te-sum-oz"></th><th></th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="actions">
+      <button class="btn" id="te-add">+ Add herb</button>
+      <button class="btn ghost" id="te-normalize">Normalize to 100%</button>
+      <button class="btn ghost" id="te-csv">Download CSV</button>
+      <button class="btn ghost" id="te-print">Print</button>
+      <button class="btn ghost danger" id="te-clear">Clear</button>
+    </div>
+    <div id="te-alerts" class="alerts"></div>
+  </div>
+
+  <details class="card notes">
+    <summary>Assumptions &amp; formulas</summary>
+    <ul>
+      <li>1 Tbsp = 3 tsp &middot; 1 oz = 30 g</li>
+      <li>tsp of this herb per cup = tsp per cup &times; share of formula.</li>
+      <li>g per cup = tsp of herb &times; (g per Tbsp &divide; 3). g to dispense = g per cup &times; cups/day &times; days.</li>
+      <li>Generic densities when a specific herb is not listed (g per Tbsp): <span id="te-generic"></span></li>
+    </ul>
+  </details>
+</section>
+
+<!-- ============================ DOSE ============================ -->
+<section id="panel-dose" class="panel" hidden role="tabpanel">
+  <div class="card narrow">
+    <h2>Dose per Herb Calculator</h2>
+    <p class="hint">How much of one herb a patient actually receives from a combination formula.</p>
+    <div class="input-grid">
+      <label>Amount per dose (ml)<input type="number" id="d-ml" min="0" step="0.1" value="5"></label>
+      <label>Doses per day<input type="number" id="d-freq" min="0" step="1" value="3"></label>
+      <label>Herb (optional)<input type="text" id="d-herb" list="herb-list" placeholder="e.g. Lobelia inflata"></label>
+      <label>Share of formula (%)<input type="number" id="d-pct" min="0" max="100" step="1" value="20"></label>
+      <label>Extract ratio 1:<input type="number" id="d-ratio" min="0" step="0.5" value="5"></label>
+    </div>
+    <dl class="results" id="d-results"></dl>
+    <div id="d-alerts" class="alerts"></div>
+  </div>
+</section>
+
+<!-- ============================ LOW DOSE ============================ -->
+<section id="panel-lowdose" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Maximum Doses — Low-Dose Botanicals</h2>
+    <p class="hint">Upper limits for low-dose (potentially toxic) herbs. Doses vary with the patient, the dilution and the
+      potency of the batch; treat every figure as approximate.</p>
+    <label class="search">Filter<input type="search" id="ld-search" placeholder="Search by name…"></label>
+    <div class="tablewrap">
+      <table id="ld-table">
+        <thead><tr>
+          <th>Liquid herbal extract</th><th>Dilution</th><th>Single (ml)</th><th>Single (gtt)</th>
+          <th>Chronic daily (ml)</th><th>Acute daily (ml)</th><th>Long-term use</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <ul class="footnotes">
+      <li>Maximum acute daily dose assumes every-2-hours dosing over a 16-hour waking day; it generally should not be kept up more than a few days.</li>
+      <li>Maximum chronic daily dose is based on three times daily.</li>
+      <li>Doses vary by patient — general health status and body size among other variables.</li>
+      <li>Different dilutions give different doses, and natural extracts vary in potency batch to batch.</li>
+      <li>All doses are approximate, not absolute. Drops assume 25 gtt per ml.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ HERB REFERENCE ============================ -->
+<section id="panel-herbs" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Herb Reference</h2>
+    <p class="hint">Search by Latin or common name, plant part or action.</p>
+    <label class="search">Search<input type="search" id="hr-search" placeholder="e.g. nervine, root, Valeriana…"></label>
+    <div class="chips" id="hr-filters">
+      <button class="chip is-on" data-f="all">All</button>
+      <button class="chip" data-f="lowdose">Low dose only</button>
+      <button class="chip" data-f="glycerite">Glycerites</button>
+      <button class="chip" data-f="density">Has tea density</button>
+    </div>
+    <p class="count" id="hr-count"></p>
+    <div id="hr-results" class="cards"></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap site-foot">
+  <p>Calculations and reference data adapted from the Yarnell Formulator Tool (Eric Yarnell, ND) used at the
+     Bastyr Center for Natural Health dispensary.</p>
+  <p class="warn"><strong>For education and clinical reference only.</strong> This tool does not replace professional
+     judgement. Verify every dose independently before dispensing, and take particular care with low-dose botanicals.</p>
+</footer>
+
+<datalist id="herb-list"></datalist>
+<datalist id="tea-herb-list"></datalist>
+
+<script src="js/herbdata.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
