@@ -1,10 +1,12 @@
-# Botanical Calculator
+# Wellness with Noura
 
-Herbal formulation and dosing calculators, built from the **Yarnell Formulator Tool** workbook
-(Eric Yarnell, ND) used at the Bastyr Center for Natural Health dispensary.
+*Nourhan Shams's Clinical Notebook* — herbal formulation and dosing calculators, built from the
+**Yarnell Formulator Tool** workbook (Eric Yarnell, ND) used at the Bastyr Center for Natural Health
+dispensary, alongside a condition index and a homeopathic remedy differentiator.
 
-Static site — no build step, no dependencies, no network calls. Open `index.html` or serve the
-folder anywhere.
+Static site — no build step, no dependencies, no JavaScript libraries. Open `index.html` or serve the
+folder anywhere. The only network request is the Google Fonts stylesheet for Cormorant Garamond and
+Jost; offline the page falls back to system serif and sans stacks and works exactly the same.
 
 ## What it does
 
