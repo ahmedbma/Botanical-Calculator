@@ -22,6 +22,7 @@
   <button role="tab" class="tab" data-panel="dose" aria-selected="false">Dose per Herb</button>
   <button role="tab" class="tab" data-panel="lowdose" aria-selected="false">Low-Dose Reference</button>
   <button role="tab" class="tab" data-panel="conditions" aria-selected="false">Conditions</button>
+  <button role="tab" class="tab" data-panel="homeo" aria-selected="false">Homeopathy</button>
   <button role="tab" class="tab" data-panel="herbs" aria-selected="false">Herb Reference</button>
 </nav>
 
@@ -283,6 +284,122 @@
   </div>
 </section>
 
+<!-- ============================ HOMEOPATHY ============================ -->
+<section id="panel-homeo" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Homeopathic Remedy Differentiator</h2>
+    <div class="provenance">
+      <strong>A study tool, not a treatment plan &mdash; and not evidence-based medicine.</strong>
+      Homeopathic remedies at potency contain no measurable active substance, and systematic reviews
+      have not found them to work beyond placebo. Nothing here is a diagnosis or a substitute for
+      medical care. Anyone with a high fever, breathing difficulty, severe or worsening pain, a head
+      injury, a wound that will not stop bleeding, a stiff neck with a rash, dehydration in a child,
+      or any symptom that frightens them should be seen by a clinician now. Use this as a way to
+      learn and compare classical remedy pictures, and verify every result against a proper materia
+      medica and repertory.
+    </div>
+    <p class="hint">Pick the presenting complaint. The tool then asks the questions that best separate
+      the remedies still in play &mdash; onset, thermal state, thirst, time, modalities and the state of
+      the mind &mdash; choosing each next question for how much it discriminates, and stopping once one
+      remedy has pulled clear.</p>
+
+    <!-- step 1: choose the condition -->
+    <div id="hx-pick">
+      <label class="search"><span class="vh">Search conditions</span>
+        <input type="search" id="hx-search" placeholder="Search a complaint or a symptom&hellip;">
+      </label>
+      <p class="count" id="hx-count"></p>
+      <div id="hx-condlist" class="hxpick"></div>
+    </div>
+
+    <!-- step 2: the interview -->
+    <div id="hx-ask" hidden>
+      <div class="hxbar">
+        <div>
+          <h3 id="hx-condname"></h3>
+          <p class="hxprog" id="hx-progress"></p>
+        </div>
+        <button class="btn ghost" id="hx-change">Change complaint</button>
+      </div>
+      <p class="hxnote" id="hx-condnote" hidden></p>
+      <div id="hx-question" class="hxq"></div>
+      <div class="actions">
+        <button class="btn ghost" id="hx-skip">Not sure &mdash; skip this one</button>
+        <button class="btn ghost" id="hx-back" disabled>&larr; Back</button>
+        <button class="btn" id="hx-finish" disabled>Show the remedy</button>
+      </div>
+      <div id="hx-taken" class="hxtaken"></div>
+      <details class="hxlead" id="hx-leadbox">
+        <summary>Running tally</summary>
+        <div id="hx-leaders"></div>
+      </details>
+    </div>
+
+    <!-- step 3: the result -->
+    <div id="hx-result" hidden>
+      <div class="hxbar">
+        <div>
+          <h3 id="hx-rescond"></h3>
+          <p class="hxprog" id="hx-resprog"></p>
+        </div>
+      </div>
+      <div id="hx-ranking"></div>
+      <div id="hx-loose"></div>
+      <div id="hx-answers"></div>
+      <div class="actions">
+        <button class="btn" id="hx-more">Answer more questions</button>
+        <button class="btn ghost" id="hx-restart">Start over</button>
+        <button class="btn ghost" id="hx-csv">Download CSV</button>
+        <button class="btn ghost" id="hx-print">Print</button>
+      </div>
+    </div>
+
+    <details class="srcnote">
+      <summary>How the tool decides, and where the material comes from</summary>
+      <p><strong>The method.</strong> It follows the approach of C.M. Boger's
+        <em>A Synoptic Key of the Materia Medica</em> (1915, public domain): rank the generals &mdash;
+        manner of onset, thermal reaction, thirst, time of aggravation, what motion, pressure, open air
+        and position do, and the state of the mind &mdash; above the local symptoms, and let the
+        <em>differences</em> between remedies, rather than a count of matching symptoms, decide the case.</p>
+      <p><strong>The scoring.</strong> Every answer carries a grade for each remedy it points to:
+        <span class="gr g3">3</span> a keynote, characteristic of that remedy;
+        <span class="gr g2">2</span> strong; <span class="gr g1">1</span> present;
+        <span class="gr gn">&minus;</span> a counter-indication. Scores are summed, so a single keynote can
+        outweigh several weak agreements &mdash; which is the point of the method.</p>
+      <p><strong>Choosing the next question.</strong> After each answer the tool scores every question
+        still unasked by how far apart it would drive the remedies currently in contention, weighted by
+        how likely each of those is, and asks the one that separates them most. Skipped questions count
+        for nothing rather than against.</p>
+      <p><strong>The generals are asked of every case.</strong> Fourteen constitutional axes &mdash; onset,
+        thermal state, the state of the mind, causation, the hour, what open air, motion and the weather do,
+        thirst, sweat, prostration, company, food and sleep &mdash; are woven into every complaint alongside
+        its own local questions, and the interview will not stop early until at least three of them have been
+        answered, however clear the local symptoms look. That is the method's central claim: a case is decided
+        on the generals, and a remedy that fits the complaint but contradicts them is the wrong remedy.</p>
+      <p><strong>Remedies outside the pool.</strong> Each complaint carries a pool of remedies it usually
+        calls for, but every answer is scored against all 148. When the generals push a remedy from outside
+        that pool level with the leader &mdash; on the general questions alone, with the local symptoms
+        counting for nothing &mdash; it is shown separately as a prompt to look again.</p>
+      <p><strong>The material.</strong> The remedy pictures, the modality axes and the differentiations
+        were written for this tool from classical materia medica held in common across the standard
+        nineteenth- and twentieth-century texts. No text is reproduced from Boger or from any other work,
+        and this index carries none of the authority of the sourced dosing data in the other tabs.</p>
+      <p><strong>What it cannot do.</strong> It cannot examine anyone, cannot recognise a red flag, has
+        no view on potency or repetition, and knows only the remedies and conditions loaded into it.
+        A remedy it does not carry can easily be the right one.</p>
+    </details>
+  </div>
+
+  <div class="card">
+    <h2>Remedy Reference</h2>
+    <p class="hint">Every remedy in the differentiator, with its keynote and confirmatory generals.
+      Search by name, common name or symptom.</p>
+    <label class="search">Search<input type="search" id="hr2-search" placeholder="e.g. restless, midnight, Bryonia&hellip;"></label>
+    <p class="count" id="hr2-count"></p>
+    <div id="hr2-results" class="cards"></div>
+  </div>
+</section>
+
 <!-- ============================ HERB REFERENCE ============================ -->
 <section id="panel-herbs" class="panel" hidden role="tabpanel">
   <div class="card">
@@ -305,15 +422,22 @@
 <footer class="wrap site-foot">
   <p>Calculations, dosing and herb reference data adapted from the Yarnell Formulator Tool (Eric Yarnell, ND)
      used at the Bastyr Center for Natural Health dispensary. The <strong>Conditions</strong> index is not from
-     that workbook &mdash; it was compiled separately from general Western herbal and naturopathic materia medica.</p>
+     that workbook &mdash; it was compiled separately from general Western herbal and naturopathic materia medica.
+     The <strong>Homeopathy</strong> tab is separate again: it follows the method of C.M. Boger's
+     <em>A Synoptic Key of the Materia Medica</em> (1915, public domain), with remedy pictures written from
+     classical materia medica.</p>
   <p class="warn"><strong>For education and clinical reference only.</strong> This tool does not replace professional
-     judgement. Verify every dose independently before dispensing, and take particular care with low-dose botanicals.</p>
+     judgement. Verify every dose independently before dispensing, and take particular care with low-dose botanicals.
+     Homeopathy is not evidence-based medicine; that tab is a study aid for comparing classical remedy pictures,
+     not a treatment plan. Nothing here is a diagnosis &mdash; anyone whose symptoms are severe, worsening or
+     frightening should be seen by a clinician.</p>
 </footer>
 
 <datalist id="herb-list"></datalist>
 <datalist id="tea-herb-list"></datalist>
 
 <script src="js/herbdata.js"></script>
+<script src="js/homeopathydata.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
