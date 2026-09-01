@@ -430,12 +430,13 @@
   }
 
   /* ---------------- tabs ---------------- */
+  function showTab(name) {
+    $$('.tab').forEach(function (t) { t.setAttribute('aria-selected', String(t.dataset.panel === name)); });
+    $$('.panel').forEach(function (p) { p.hidden = p.id !== 'panel-' + name; });
+    try { localStorage.setItem('bc.tab', name); } catch (e) { /* storage may be blocked */ }
+  }
   $$('.tab').forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      $$('.tab').forEach(function (t) { t.setAttribute('aria-selected', String(t === tab)); });
-      $$('.panel').forEach(function (p) { p.hidden = p.id !== 'panel-' + tab.dataset.panel; });
-      try { localStorage.setItem('bc.tab', tab.dataset.panel); } catch (e) { /* storage may be blocked */ }
-    });
+    tab.addEventListener('click', function () { showTab(tab.dataset.panel); });
   });
 
   /* ---------------- persistence ---------------- */
@@ -1442,6 +1443,225 @@
   $('#cx-search').addEventListener('input', renderConditions);
 
   /* ==================================================================
+     PHYSICAL EXAMS & DIAGNOSES
+     Exam sequence and normal-findings wording transcribed from the PED
+     coursework; the technique lines and the abnormal-finding tables were
+     written for this tool and say so in the tab.
+     ================================================================== */
+  var PE = (window.PHYSEXAM_DATA || { exams: [], types: [] });
+  var PE_EXAMS = PE.exams || [];
+  var peType = 'all';
+  var peView = 'steps';
+
+  // One haystack per exam: name, region, summary, every step, every finding.
+  PE_EXAMS.forEach(function (x) {
+    var bits = [x.name, x.type, x.region, x.summary, x.source];
+    (x.groups || []).forEach(function (g) {
+      bits.push(g.name, g.note || '');
+      (g.steps || []).forEach(function (st) { bits.push(st.step, st.how, st.normal, st.flag || ''); });
+    });
+    (x.findings || []).forEach(function (f) { bits.push(f.finding, f.suggests); });
+    x._hay = bits.join(' ').toLowerCase();
+    x._steps = (x.groups || []).reduce(function (n, g) { return n + (g.steps || []).length; }, 0);
+  });
+
+  function peMatch(x, q) { return !q || x._hay.indexOf(q) !== -1; }
+
+  function buildExamChips() {
+    var box = $('#pe-filters');
+    if (!box) return;
+    box.innerHTML = '';
+    var all = el('button', 'chip is-on', 'All');
+    all.dataset.t = 'all';
+    box.appendChild(all);
+    (PE.types || []).forEach(function (t) {
+      var count = PE_EXAMS.filter(function (x) { return x.type === t; }).length;
+      if (!count) return;
+      var b = el('button', 'chip', t + (count > 1 ? ' (' + count + ')' : ''));
+      b.dataset.t = t;
+      box.appendChild(b);
+    });
+    box.addEventListener('click', function (e) {
+      if (!e.target.dataset.t) return;
+      peType = e.target.dataset.t;
+      $$('#pe-filters .chip').forEach(function (c) { c.classList.toggle('is-on', c === e.target); });
+      renderExams();
+    });
+    $('#pe-view-steps').addEventListener('click', function () { setExamView('steps'); });
+    $('#pe-view-writeup').addEventListener('click', function () { setExamView('writeup'); });
+  }
+
+  function setExamView(mode) {
+    peView = mode;
+    $('#pe-view-steps').classList.toggle('is-on', mode === 'steps');
+    $('#pe-view-writeup').classList.toggle('is-on', mode === 'writeup');
+    renderExams();
+  }
+
+  // The write-up view is the normal-findings sentences alone, in exam order —
+  // what you would actually chart, ready to copy into a SOAP note.
+  function peWriteup(x) {
+    return (x.groups || []).map(function (g) {
+      return g.name + '\n' + (g.steps || []).map(function (st) { return st.normal; }).join(' ');
+    }).join('\n\n');
+  }
+
+  function peStepsNode(x, q) {
+    var wrap = el('div', 'pe-groups');
+    (x.groups || []).forEach(function (g) {
+      var sec = el('section', 'pe-group');
+      sec.appendChild(el('h4', null, g.name));
+      if (g.note) sec.appendChild(el('p', 'pe-gnote', g.note));
+      (g.steps || []).forEach(function (st) {
+        var row = el('div', 'pe-step');
+        var nm = el('div', 'pe-nm');
+        nm.innerHTML = highlight(st.step, q);
+        row.appendChild(nm);
+        var body = el('div', 'pe-body');
+        var how = el('p', 'pe-how');
+        how.innerHTML = highlight(st.how, q);
+        body.appendChild(how);
+        var norm = el('p', 'pe-normal');
+        norm.innerHTML = '<span class="pe-lab">normal</span> ' + highlight(st.normal, q);
+        body.appendChild(norm);
+        if (st.flag) {
+          var fl = el('p', 'pe-flag');
+          fl.innerHTML = '<span class="pe-flagmark">source note</span> ' + st.flag;
+          body.appendChild(fl);
+        }
+        row.appendChild(body);
+        sec.appendChild(row);
+      });
+      wrap.appendChild(sec);
+    });
+    return wrap;
+  }
+
+  function peWriteupNode(x, q) {
+    var wrap = el('div', 'pe-writeup');
+    (x.groups || []).forEach(function (g) {
+      wrap.appendChild(el('h4', null, g.name));
+      var p = el('p');
+      p.innerHTML = highlight((g.steps || []).map(function (st) { return st.normal; }).join(' '), q);
+      wrap.appendChild(p);
+    });
+    var act = el('div', 'actions');
+    var copy = el('button', 'btn ghost', 'Copy write-up');
+    copy.addEventListener('click', function () {
+      var text = x.name + '\n\n' + peWriteup(x);
+      var done = function () { copy.textContent = 'Copied'; setTimeout(function () { copy.textContent = 'Copy write-up'; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { copy.textContent = 'Copy failed'; });
+      } else {
+        copy.textContent = 'Copy failed';
+      }
+    });
+    act.appendChild(copy);
+    var csv = el('button', 'btn ghost', 'Download CSV');
+    csv.addEventListener('click', function () {
+      var rows = [['Group', 'Step', 'Technique', 'Normal finding']];
+      (x.groups || []).forEach(function (g) {
+        (g.steps || []).forEach(function (st) { rows.push([g.name, st.step, st.how, st.normal]); });
+      });
+      downloadCSV(x.name + ' exam', rows);
+    });
+    act.appendChild(csv);
+    wrap.appendChild(act);
+    return wrap;
+  }
+
+  function peFindingsNode(x, q) {
+    var det = el('details', 'pe-dx');
+    var sum = el('summary', null, 'If it is not normal — ' + (x.findings || []).length + ' findings and what they suggest');
+    det.appendChild(sum);
+    if (q) det.open = true;
+    var grid = el('div', 'pe-dxgrid');
+    (x.findings || []).forEach(function (f) {
+      var row = el('div', 'pe-dxrow' + (f.urgent ? ' urgent' : ''));
+      var a = el('div', 'pe-find');
+      a.innerHTML = highlight(f.finding, q);
+      if (f.urgent) a.appendChild(el('span', 'pe-urgent', 'urgent'));
+      row.appendChild(a);
+      var b = el('div', 'pe-sugg');
+      b.innerHTML = highlight(f.suggests, q);
+      row.appendChild(b);
+      grid.appendChild(row);
+    });
+    det.appendChild(grid);
+    return det;
+  }
+
+  function peRelatedNode(x) {
+    if (!x.related || !x.related.length) return null;
+    var wrap = el('div', 'pe-related');
+    wrap.appendChild(el('span', 'pe-rlab', 'In the Conditions index'));
+    x.related.forEach(function (name) {
+      var b = el('button', 'chip', name);
+      b.title = 'Open ' + name + ' in the Conditions tab.';
+      b.addEventListener('click', function () {
+        showTab('conditions');
+        $('#cx-search').value = name;
+        renderConditions();
+        $('#panel-conditions').scrollIntoView({ block: 'start' });
+      });
+      wrap.appendChild(b);
+    });
+    return wrap;
+  }
+
+  function renderExams() {
+    if (!$('#pe-results')) return;
+    var q = $('#pe-search').value.toLowerCase().trim();
+    var list = PE_EXAMS.filter(function (x) {
+      return (peType === 'all' || x.type === peType) && peMatch(x, q);
+    });
+
+    $('#pe-count').textContent = list.length === PE_EXAMS.length
+      ? PE_EXAMS.length + ' exams, ' + PE_EXAMS.reduce(function (n, x) { return n + x._steps; }, 0) + ' steps'
+      : list.length + ' of ' + PE_EXAMS.length + ' exams';
+
+    var out = $('#pe-results');
+    out.innerHTML = '';
+    var frag = document.createDocumentFragment();
+
+    list.forEach(function (x) {
+      var det = el('details', 'exam');
+      if (q) det.open = true;
+
+      var sum = el('summary');
+      var name = el('span');
+      name.innerHTML = highlight(x.name, q);
+      sum.appendChild(name);
+      sum.appendChild(el('span', 'sys', x.type));
+      var meta = el('p', 'pe-meta');
+      meta.innerHTML = highlight(x.summary, q) +
+        ' <em>' + escapeHtml(x.region) + ' · ' + x._steps + ' steps · source: ' +
+        escapeHtml(x.source) + '</em>';
+      sum.appendChild(meta);
+      det.appendChild(sum);
+
+      var body = el('div', 'body');
+      if (x.script) {
+        var sc = el('p', 'pe-script');
+        sc.innerHTML = highlight(x.script, q);
+        body.appendChild(sc);
+      }
+      body.appendChild(peView === 'writeup' ? peWriteupNode(x, q) : peStepsNode(x, q));
+      if (x.findings && x.findings.length) body.appendChild(peFindingsNode(x, q));
+      var rel = peRelatedNode(x);
+      if (rel) body.appendChild(rel);
+      det.appendChild(body);
+      frag.appendChild(det);
+    });
+
+    out.appendChild(frag);
+    if (!list.length) {
+      out.appendChild(el('p', 'count', 'No exam matches that. Try a manoeuvre, a body part or a sign.'));
+    }
+  }
+  if ($('#pe-search')) $('#pe-search').addEventListener('input', renderExams);
+
+  /* ==================================================================
      HOMEOPATHY DIFFERENTIATOR
      Boger's synoptic method: the generals outrank the local symptoms, and
      the case is decided by what separates the remedies rather than by a
@@ -1995,6 +2215,8 @@
     renderRef();
     buildSystemChips();
     setSort('az');
+    buildExamChips();
+    renderExams();
 
     hxRenderPick();
     hxRenderRef();

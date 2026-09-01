@@ -2,7 +2,8 @@
 
 *Nourhan Shams's Clinical Notebook* — herbal formulation and dosing calculators, built from the
 **Yarnell Formulator Tool** workbook (Eric Yarnell, ND) used at the Bastyr Center for Natural Health
-dispensary, alongside a condition index and a homeopathic remedy differentiator.
+dispensary, alongside a condition index, a homeopathic remedy differentiator and a physical exam and
+diagnosis index built from Nourhan's own coursework.
 
 Static site — no build step, no dependencies, no JavaScript libraries. Open `index.html` or serve the
 folder anywhere. The only network request is the Google Fonts stylesheet for Cormorant Garamond and
@@ -18,6 +19,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | **Low-Dose Reference** | Maximum single, chronic-daily and acute-daily doses for 31 low-dose (potentially toxic) botanicals. |
 | **Conditions** | 75 conditions A–Z, each with 4–7 herbs, why each is indicated, and clinical cautions. Searchable by condition, synonym (`reflux` → GERD, `TATT` → fatigue, `long covid` → CFS), niche, herb or action. Filter to the 30 seen most in ND practice or to one of eight clinical niches; sort A–Z or by ND frequency. |
 | **Homeopathy** | A remedy differentiator over 148 classical remedies and 42 presenting complaints. Pick the complaint; it asks the questions that best separate the remedies still in contention, and ranks them with the reasoning shown. Includes a searchable remedy reference. |
+| **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the abdominal exam, four musculoskeletal regions, the neurological exam, and the breast and female pelvic exam. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. |
 | **Herb Reference** | 396 herbs — Latin and common names, plant part, actions, available dose forms, dispensary availability, tea density and substitutes. Searchable and filterable. |
 
 ### Beyond the spreadsheet
@@ -64,16 +66,18 @@ be kept up for more than a few days.
 ## Project layout
 
 ```
-index.html             markup for all seven tools
-css/styles.css         styling, light/dark, print rules
-js/herbdata.js         herbal reference data as a global (works from file://)
-js/homeopathydata.js   homeopathic remedy data as a global
-js/app.js              all calculators and the differentiator
-data/herbdata.json     the same herbal data as plain JSON, for reuse
-data/homeopathy.json   the same homeopathic data as plain JSON, for reuse
+index.html               markup for all eight tools
+css/styles.css           styling, light/dark, print rules
+js/herbdata.js           herbal reference data as a global (works from file://)
+js/homeopathydata.js     homeopathic remedy data as a global
+js/physicalexamdata.js   physical exam data as a global
+js/app.js                all calculators, the differentiator and the exam index
+data/herbdata.json       the same herbal data as plain JSON, for reuse
+data/homeopathy.json     the same homeopathic data as plain JSON, for reuse
+data/physicalexams.json  the same physical exam data as plain JSON, for reuse
 ```
 
-The two files under `js/` are generated from their counterparts in `data/`; edit the JSON and
+The three files under `js/` are generated from their counterparts in `data/`; edit the JSON and
 regenerate if you change the reference data.
 
 ## Data
@@ -99,6 +103,38 @@ low-dose table. The four that don't resolve are labelled *not in your data*.
 
 Treat those entries as starting points for formula design that you verify against your own references, not
 as protocols, and not with the authority of the dosing data in the other tabs.
+
+### The physical exams tab
+
+**A source of its own: your coursework.** The exam sequence and the normal-findings wording are transcribed
+from five Physical Exam & Diagnosis documents — the head-to-toe objectives, the PED 2 abdominal exam chart,
+the MSK word list, the neuro exam word list, and the PED 3 objective female findings. Nothing there comes
+from the Yarnell workbook.
+
+**Organised by type of exam**, eight in all: a head-to-toe screen, the abdominal exam, four musculoskeletal
+regions (cervical spine and TMJ, thoracic and lumbar spine, upper extremities, lower extremities), the
+neurological exam, and the breast and female pelvic exam — 117 steps between them.
+
+**Two layers, kept apart in the tab as they are here.** The *normal* line of each step is the source
+document's own wording, edited only for spelling, expanded abbreviations and consistent tense, so the
+write-up view reproduces what you would actually chart. The *technique* line and the *what an abnormal
+finding suggests* table (92 findings) were written for this tool from standard physical-diagnosis teaching.
+They are not in the notes, are not peer reviewed, and are study prompts for a differential rather than a
+diagnosis. Findings needing same-day assessment carry an **urgent** flag.
+
+**Five places where the source wording was corrected** rather than transcribed, each marked in place with a
+*source note* saying what the notes read and why it was changed:
+
+- The sclera recorded as normal "with yellow appearance" — a yellow sclera is icterus, an abnormal finding.
+- The chest "2:1 A/P ratio" — the normal adult chest is transverse:AP of about 2:1, i.e. AP:transverse of 1:2.
+- The liver edge palpated at the "costovertebral" margin — the liver edge is felt at the *costal* margin; the
+  costovertebral angle is where the kidney is percussed.
+- The palate and tonsillar pillars recorded as not rising — they should rise; what is abnormal is an
+  asymmetric rise or a deviated uvula.
+- The cranial nerves numbered 1–10 in the order performed. They are numbered anatomically here (CN I–XII,
+  with III, IV and VI tested together as the extraocular movements) and the source's order is kept.
+
+Where an exam raises a condition the **Conditions** index already covers, the tab links straight across to it.
 
 ### The homeopathy tab
 
@@ -190,6 +226,10 @@ Eric Yarnell, ND's; the tea density and herb reference sheets carry his notes an
 Doses vary with the patient, the dilution, and the potency of the batch — every figure is
 approximate, not absolute. Verify every dose independently before dispensing, and take particular
 care with low-dose botanicals.
+
+**The physical exams tab is a study and documentation aid, not a diagnostic authority.** The normal-findings
+wording is your own coursework; the differential tables were written for this tool and are not peer reviewed.
+An abnormal finding is a reason to look further, never a diagnosis on its own.
 
 **The homeopathy tab is not evidence-based medicine** and is included as a study aid for comparing
 classical remedy pictures, not as a treatment plan. Nothing in this project is a diagnosis. Anyone with a

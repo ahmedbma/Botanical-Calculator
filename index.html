@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
 <title>Wellness with Noura</title>
-<meta name="description" content="Nourhan Shams’s clinical notebook: herbal formulation and dosing calculators, a condition index, a homeopathic remedy differentiator and a 396-herb reference.">
+<meta name="description" content="Nourhan Shams’s clinical notebook: herbal formulation and dosing calculators, a condition index, a homeopathic remedy differentiator, a physical exam and diagnosis index and a 396-herb reference.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&amp;family=Jost:wght@400;500;600&amp;display=swap">
@@ -29,6 +29,7 @@
   <button role="tab" class="tab" data-panel="lowdose" aria-selected="false">Low-Dose Reference</button>
   <button role="tab" class="tab" data-panel="conditions" aria-selected="false">Conditions</button>
   <button role="tab" class="tab" data-panel="homeo" aria-selected="false">Homeopathy</button>
+  <button role="tab" class="tab" data-panel="exams" aria-selected="false">Physical Exams</button>
   <button role="tab" class="tab" data-panel="herbs" aria-selected="false">Herb Reference</button>
 </nav>
 
@@ -412,6 +413,56 @@
   </div>
 </section>
 
+<!-- ==================== PHYSICAL EXAMS & DIAGNOSES ==================== -->
+<section id="panel-exams" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Physical Exams &amp; Diagnoses</h2>
+    <div class="provenance">
+      <strong>From your PED coursework, not the workbook.</strong> The exam steps and the normal-findings
+      wording are transcribed from your own Physical Exam &amp; Diagnosis notes &mdash; the head-to-toe
+      objectives, the abdominal exam chart, the MSK and neuro word lists, and the female objective findings.
+      The <em>technique</em> lines and the <em>what an abnormal finding suggests</em> tables were written for
+      this tool from standard physical-diagnosis teaching; they are not in your notes and are not peer
+      reviewed. Treat them as study prompts for a differential, never as a diagnosis.
+    </div>
+    <p class="hint">Grouped by type of exam. Open one for the sequence to perform, the wording to document a
+      normal finding, and what the abnormal version of that finding points to. Search a manoeuvre, a body
+      part, a sign or a diagnosis &mdash; <em>Romberg</em>, <em>McBurney</em>, <em>tympanic</em>,
+      <em>appendicitis</em> all work.</p>
+    <label class="search"><span class="vh">Search physical exams</span>
+      <input type="search" id="pe-search" placeholder="Search exams, manoeuvres, findings&hellip;">
+    </label>
+    <div class="chips" id="pe-filters"></div>
+    <div class="sortrow">
+      <p class="count" id="pe-count"></p>
+      <div class="seg" role="group" aria-label="What to show">
+        <button class="segbtn is-on" id="pe-view-steps">Exam steps</button>
+        <button class="segbtn" id="pe-view-writeup">Normal write-up</button>
+      </div>
+    </div>
+    <div id="pe-results" class="examlist"></div>
+
+    <details class="srcnote">
+      <summary>Where this comes from, and what was changed</summary>
+      <p><strong>Exam sequence and normal findings:</strong> transcribed from the five PED documents listed
+        in the banner. The normal wording is kept close to the source so the write-up view reproduces what
+        you would actually chart; light edits fix spelling, expand abbreviations on first use and make the
+        tense consistent.</p>
+      <p><strong>Technique lines and abnormal-finding tables:</strong> written for this tool from standard
+        physical-diagnosis teaching. Not from your notes, not peer reviewed, and carrying none of the
+        authority of the dosing data in the other tabs.</p>
+      <p><strong>Five places where the source wording was corrected</strong> rather than transcribed as
+        written. Each is marked in place with a <span class="pe-flagmark">source note</span>: the sclera
+        described as normal &ldquo;with yellow appearance&rdquo;; the chest &ldquo;2:1 A/P ratio&rdquo;; the
+        liver edge palpated at the &ldquo;costovertebral&rdquo; rather than the costal margin; the palate and
+        tonsillar pillars recorded as not rising; and the cranial nerves numbered in the order performed
+        rather than anatomically.</p>
+      <p><strong>Red-flag findings</strong> are marked <span class="pe-urgent">urgent</span>. That flag means
+        the finding needs same-day assessment or referral, not that it is certainly present.</p>
+    </details>
+  </div>
+</section>
+
 <!-- ============================ HERB REFERENCE ============================ -->
 <section id="panel-herbs" class="panel" hidden role="tabpanel">
   <div class="card">
@@ -437,17 +488,21 @@
      that workbook &mdash; it was compiled separately from general Western herbal and naturopathic materia medica.
      The <strong>Homeopathy</strong> tab is separate again: it follows the method of C.M. Boger's
      <em>A Synoptic Key of the Materia Medica</em> (1915, public domain), with remedy pictures written from
-     classical materia medica.</p>
+     classical materia medica. The <strong>Physical Exams &amp; Diagnoses</strong> section is separate again:
+     the exam sequence and normal-findings wording are transcribed from Nourhan Shams&rsquo;s own Physical
+     Exam &amp; Diagnosis coursework, and the technique lines and abnormal-finding tables were written for
+     this tool from standard physical-diagnosis teaching.</p>
   <p class="warn"><strong>For education and clinical reference only.</strong> This tool does not replace professional
      judgement. Verify every dose independently before dispensing, and take particular care with low-dose botanicals.
      Homeopathy is not evidence-based medicine; that tab is a study aid for comparing classical remedy pictures,
-     not a treatment plan. Nothing here is a diagnosis &mdash; anyone whose symptoms are severe, worsening or
+     not a treatment plan. The physical exam findings are study prompts for a differential, not diagnoses. Nothing here is a diagnosis &mdash; anyone whose symptoms are severe, worsening or
      frightening should be seen by a clinician.</p>
 </footer>
 
 
 <script src="js/herbdata.js"></script>
 <script src="js/homeopathydata.js"></script>
+<script src="js/physicalexamdata.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
