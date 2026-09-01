@@ -1131,6 +1131,443 @@
   $('#cx-search').addEventListener('input', renderConditions);
 
   /* ==================================================================
+     HOMEOPATHY DIFFERENTIATOR
+     Boger's synoptic method: the generals outrank the local symptoms, and
+     the case is decided by what separates the remedies rather than by a
+     count of what they share. Each next question is chosen for how far it
+     would drive apart the remedies still in contention.
+     ================================================================== */
+  var H = window.HOMEO_DATA || { remedies: [], questions: [], conditions: [] };
+  var HR = {}, HQ = {};
+  H.remedies.forEach(function (r) { HR[r.id] = r; });
+
+  // "bry 3, rhus-t 2" -> { bry: 3, 'rhus-t': 2 }, parsed once at load.
+  H.questions.forEach(function (q) {
+    HQ[q.id] = q;
+    q.opts.forEach(function (o) {
+      o.wt = {};
+      (o.w || '').split(',').forEach(function (p) {
+        p = p.trim();
+        if (!p) return;
+        var cut = p.lastIndexOf(' ');
+        o.wt[p.slice(0, cut)] = parseInt(p.slice(cut + 1), 10);
+      });
+    });
+  });
+
+  var HX = { cond: null, answers: [], done: false };
+
+  function hxSave() {
+    save('homeo', HX.cond ? { cond: HX.cond.condition, answers: HX.answers, done: HX.done } : null);
+  }
+
+  /* ---------------- scoring ---------------- */
+  function hxScores() {
+    var pool = HX.cond.pool.split(' ');
+    var s = {}, hits = {};
+    pool.forEach(function (r) { s[r] = 0; hits[r] = []; });
+    HX.answers.forEach(function (a) {
+      if (a.opt == null) return;
+      var q = HQ[a.q], o = q.opts[a.opt];
+      pool.forEach(function (r) {
+        if (o.wt[r] == null) return;
+        s[r] += o.wt[r];
+        hits[r].push({ axis: q.axis, text: o.t, w: o.wt[r] });
+      });
+    });
+    var rank = pool.slice().sort(function (a, b) {
+      return (s[b] - s[a]) || HR[a].name.localeCompare(HR[b].name);
+    });
+    return { s: s, hits: hits, pool: pool, rank: rank };
+  }
+
+  // Soft weighting of who is still credibly in the running.
+  function hxProb(sc) {
+    var top = sc.s[sc.rank[0]] || 0, tot = 0, p = {};
+    sc.rank.forEach(function (r) { var e = Math.exp((sc.s[r] - top) / 2); p[r] = e; tot += e; });
+    sc.rank.forEach(function (r) { p[r] = p[r] / tot; });
+    return p;
+  }
+
+  // How far this question would drive apart the remedies still in contention.
+  function hxGain(qid, sc, p) {
+    var live = sc.rank.slice(0, 8), g = 0;
+    HQ[qid].opts.forEach(function (o) {
+      for (var i = 0; i < live.length; i++) {
+        for (var j = i + 1; j < live.length; j++) {
+          var a = live[i], b = live[j];
+          g += p[a] * p[b] * Math.abs((o.wt[a] || 0) - (o.wt[b] || 0));
+        }
+      }
+    });
+    return g;
+  }
+
+  function hxAsked() {
+    var m = {};
+    HX.answers.forEach(function (a) { m[a.q] = true; });
+    return m;
+  }
+
+  function hxNext() {
+    var asked = hxAsked(), sc = hxScores(), p = hxProb(sc);
+    var best = null, bestG = -1;
+    HX.cond.qs.forEach(function (qid) {
+      if (asked[qid]) return;
+      var g = hxGain(qid, sc, p);
+      if (g > bestG) { bestG = g; best = qid; }
+    });
+    return best;
+  }
+
+  function hxAnsweredCount() {
+    return HX.answers.filter(function (a) { return a.opt != null; }).length;
+  }
+
+  // Has one remedy pulled clear enough to stop asking?
+  function hxClear(sc) {
+    if (hxAnsweredCount() < 4) return false;
+    var top = sc.s[sc.rank[0]], second = sc.rank.length > 1 ? sc.s[sc.rank[1]] : 0;
+    return top >= 6 && top - second >= 4;
+  }
+
+  /* ---------------- step 1: choosing the complaint ---------------- */
+  function hxRenderPick() {
+    var q = $('#hx-search').value.toLowerCase().trim();
+    var list = H.conditions.filter(function (c) {
+      if (!q) return true;
+      return (c.condition + ' ' + c.system + ' ' + (c.aliases || []).join(' ') + ' ' +
+        c.pool.split(' ').map(function (r) { return HR[r] ? HR[r].name + ' ' + HR[r].common : ''; }).join(' ')
+      ).toLowerCase().indexOf(q) !== -1;
+    });
+    $('#hx-count').textContent = list.length === H.conditions.length
+      ? H.conditions.length + ' complaints, ' + H.remedies.length + ' remedies'
+      : list.length + ' of ' + H.conditions.length + ' complaints';
+
+    var box = $('#hx-condlist');
+    box.innerHTML = '';
+    if (!list.length) {
+      box.appendChild(el('p', 'count', 'No match. Try a symptom, or start from the general case.'));
+      return;
+    }
+    list.forEach(function (c) {
+      var b = el('button', 'hxcond');
+      b.appendChild(el('span', 'nm', c.condition));
+      b.appendChild(el('span', 'sys', c.system));
+      if (c.aliases && c.aliases.length) {
+        b.appendChild(el('span', 'akas', c.aliases.slice(0, 5).join(' · ')));
+      }
+      b.appendChild(el('span', 'pool', c.pool.split(' ').length + ' remedies · ' + c.qs.length + ' questions'));
+      b.addEventListener('click', function () { hxStart(c); });
+      box.appendChild(b);
+    });
+  }
+
+  function hxStart(cond) {
+    HX = { cond: cond, answers: [], done: false };
+    hxSave();
+    hxRenderAsk();
+  }
+
+  function hxShow(which) {
+    $('#hx-pick').hidden = which !== 'pick';
+    $('#hx-ask').hidden = which !== 'ask';
+    $('#hx-result').hidden = which !== 'result';
+  }
+
+  /* ---------------- step 2: the interview ---------------- */
+  function hxRenderAsk() {
+    var qid = hxNext();
+    if (!qid) { hxFinish(); return; }
+    HX.done = false;
+    hxShow('ask');
+
+    var c = HX.cond, asked = Object.keys(hxAsked()).length;
+    $('#hx-condname').textContent = c.condition;
+    $('#hx-progress').textContent = 'Question ' + (asked + 1) + ' of at most ' + c.qs.length +
+      ' · ' + c.pool.split(' ').length + ' remedies in play';
+    var note = $('#hx-condnote');
+    note.textContent = c.note || '';
+    note.hidden = !c.note;
+
+    var q = HQ[qid], box = $('#hx-question');
+    box.innerHTML = '';
+    box.appendChild(el('span', 'hxaxis', q.axis));
+    box.appendChild(el('h4', null, q.text));
+    if (q.help) box.appendChild(el('p', 'hxhelp', q.help));
+
+    var opts = el('div', 'hxopts');
+    q.opts.forEach(function (o, i) {
+      var b = el('button', 'hxopt', o.t);
+      b.addEventListener('click', function () {
+        HX.answers.push({ q: qid, opt: i });
+        hxSave();
+        var sc = hxScores();
+        if (hxClear(sc) || !hxNext()) hxFinish(); else hxRenderAsk();
+      });
+      opts.appendChild(b);
+    });
+    box.appendChild(opts);
+
+    $('#hx-back').disabled = !HX.answers.length;
+    var fin = $('#hx-finish');
+    fin.disabled = hxAnsweredCount() < 2;
+    fin.title = fin.disabled ? 'Answer at least two questions first — skipped ones do not count.' : '';
+    hxRenderTaken();
+    hxRenderLeaders();
+  }
+
+  function hxRenderTaken() {
+    var box = $('#hx-taken');
+    box.innerHTML = '';
+    if (!HX.answers.length) return;
+    box.appendChild(el('h4', 'hxsub', 'Answered so far'));
+    var list = el('div', 'hxchips');
+    HX.answers.forEach(function (a, idx) {
+      var q = HQ[a.q];
+      var chip = el('span', 'hxchip' + (a.opt == null ? ' skipped' : ''));
+      chip.appendChild(el('b', null, q.axis + ': '));
+      chip.appendChild(document.createTextNode(a.opt == null ? 'skipped' : q.opts[a.opt].t));
+      var x = el('button', 'hxx', '×');
+      x.title = 'Undo this answer';
+      x.setAttribute('aria-label', 'Undo answer to ' + q.axis);
+      x.addEventListener('click', function () {
+        HX.answers.splice(idx, 1);
+        hxSave();
+        if (HX.done) hxFinish(); else hxRenderAsk();
+      });
+      chip.appendChild(x);
+      list.appendChild(chip);
+    });
+    box.appendChild(list);
+  }
+
+  function hxBar(value, top) {
+    var wrap = el('span', 'hxbarwrap');
+    var fill = el('span', 'hxbarfill');
+    fill.style.width = Math.max(0, top > 0 ? (value / top) * 100 : 0) + '%';
+    wrap.appendChild(fill);
+    return wrap;
+  }
+
+  function hxRenderLeaders() {
+    var sc = hxScores(), box = $('#hx-leaders');
+    box.innerHTML = '';
+    if (!hxAnsweredCount()) {
+      box.appendChild(el('p', 'hxhelp', 'Nothing scored yet.'));
+      return;
+    }
+    var top = sc.s[sc.rank[0]];
+    sc.rank.slice(0, 5).forEach(function (r) {
+      var row = el('div', 'hxlead-row');
+      row.appendChild(el('span', 'nm', HR[r].name));
+      row.appendChild(hxBar(sc.s[r], top));
+      row.appendChild(el('span', 'sc', String(sc.s[r])));
+      box.appendChild(row);
+    });
+  }
+
+  /* ---------------- step 3: the result ---------------- */
+  function hxFinish() {
+    HX.done = true;
+    hxSave();
+    hxShow('result');
+
+    var sc = hxScores(), top = sc.s[sc.rank[0]];
+    $('#hx-rescond').textContent = HX.cond.condition;
+    $('#hx-resprog').textContent = hxAnsweredCount() + ' of ' + HX.cond.qs.length +
+      ' questions answered · ' + sc.pool.length + ' remedies considered';
+
+    var box = $('#hx-ranking');
+    box.innerHTML = '';
+
+    if (top <= 0) {
+      box.appendChild(alertBox('warn', '<strong>Nothing has scored.</strong> No answer so far points ' +
+        'anywhere in particular. Answer a few more questions, or reconsider the complaint you started from.'));
+      hxRenderLoose(sc);
+      hxRenderAnswers();
+      return;
+    }
+
+    var shown = sc.rank.filter(function (r) { return sc.s[r] > 0; }).slice(0, 6);
+    var second = shown.length > 1 ? sc.s[shown[1]] : 0;
+    var margin = top - second;
+
+    box.appendChild(alertBox(margin >= 4 ? 'info' : 'warn',
+      margin >= 4
+        ? '<strong>' + escapeHtml(HR[shown[0]].name) + '</strong> stands clear of the rest by ' +
+          margin + ' points on the answers given.'
+        : '<strong>No remedy has pulled clear.</strong> ' + escapeHtml(HR[shown[0]].name) + ' leads ' +
+          (second === top ? 'level with' : 'by only ' + margin + ' point' + (margin === 1 ? '' : 's') + ' over') +
+          ' ' + escapeHtml(HR[shown[1]].name) + '. Answer more questions before settling on either.'));
+
+    shown.forEach(function (r, i) {
+      var rem = HR[r];
+      var card = el('div', 'hxrem' + (i === 0 ? ' lead' : ''));
+
+      var head = el('div', 'hxrem-head');
+      head.appendChild(el('span', 'rk', String(i + 1)));
+      var nm = el('div', 'nmwrap');
+      nm.appendChild(el('h4', null, rem.name));
+      nm.appendChild(el('p', 'cn', rem.common));
+      head.appendChild(nm);
+      var scr = el('div', 'scwrap');
+      scr.appendChild(hxBar(sc.s[r], top));
+      scr.appendChild(el('span', 'sc', sc.s[r] + ' pts'));
+      head.appendChild(scr);
+      card.appendChild(head);
+
+      card.appendChild(el('p', 'kn', rem.keynote));
+
+      var hits = sc.hits[r].slice().sort(function (a, b) { return b.w - a.w; });
+      if (hits.length) {
+        card.appendChild(el('h5', 'hxsub', 'What put it here'));
+        var ul = el('ul', 'hxwhy');
+        hits.forEach(function (h) {
+          var li = el('li');
+          var g = el('span', 'gr ' + (h.w < 0 ? 'gn' : 'g' + h.w), h.w < 0 ? '−' : String(h.w));
+          g.title = h.w === 3 ? 'Keynote of this remedy' : h.w === 2 ? 'Strong' :
+                    h.w === 1 ? 'Present' : 'Counter-indication';
+          li.appendChild(g);
+          li.appendChild(el('b', null, h.axis + ': '));
+          li.appendChild(document.createTextNode(h.text));
+          ul.appendChild(li);
+        });
+        card.appendChild(ul);
+      }
+
+      if (rem.confirm && rem.confirm.length) {
+        card.appendChild(el('h5', 'hxsub', 'Confirm by looking for'));
+        var cl = el('ul', 'hxconf');
+        rem.confirm.forEach(function (t) { cl.appendChild(el('li', null, t)); });
+        card.appendChild(cl);
+      }
+      box.appendChild(card);
+    });
+
+    hxRenderLoose(sc);
+    hxRenderAnswers();
+  }
+
+  // Unasked questions that would still separate the leader from the runner-up.
+  function hxRenderLoose(sc) {
+    var box = $('#hx-loose');
+    box.innerHTML = '';
+    var asked = hxAsked();
+    var rest = HX.cond.qs.filter(function (q) { return !asked[q]; });
+    if (rest.length < 1 || sc.rank.length < 2) return;
+
+    var a = sc.rank[0], b = sc.rank[1], found = [];
+    rest.forEach(function (qid) {
+      HQ[qid].opts.forEach(function (o) {
+        var d = (o.wt[a] || 0) - (o.wt[b] || 0);
+        if (d !== 0) found.push({ q: qid, axis: HQ[qid].axis, text: o.t, d: d });
+      });
+    });
+    if (!found.length) return;
+    found.sort(function (x, y) { return Math.abs(y.d) - Math.abs(x.d); });
+
+    var wrap = el('details', 'hxloose');
+    wrap.appendChild(el('summary', null,
+      'Still separating ' + HR[a].name + ' from ' + HR[b].name + ' (' + rest.length + ' questions unasked)'));
+    var ul = el('ul', 'hxwhy');
+    found.slice(0, 6).forEach(function (f) {
+      var li = el('li');
+      li.appendChild(el('span', 'gr ' + (f.d > 0 ? 'g3' : 'g1'), f.d > 0 ? '↑' : '↓'));
+      li.appendChild(el('b', null, f.axis + ': '));
+      li.appendChild(document.createTextNode(f.text));
+      li.appendChild(el('em', null, ' — points to ' + HR[f.d > 0 ? a : b].name));
+      ul.appendChild(li);
+    });
+    wrap.appendChild(ul);
+    box.appendChild(wrap);
+  }
+
+  function hxRenderAnswers() {
+    var box = $('#hx-answers');
+    box.innerHTML = '';
+    if (!HX.answers.length) return;
+    var d = el('details', 'hxloose');
+    d.appendChild(el('summary', null, 'The case as taken (' + hxAnsweredCount() + ' answers)'));
+    var dl = el('dl', 'hxcase');
+    HX.answers.forEach(function (a) {
+      var q = HQ[a.q];
+      dl.appendChild(el('dt', null, q.axis));
+      dl.appendChild(el('dd', a.opt == null ? 'skipped' : null, a.opt == null ? 'skipped' : q.opts[a.opt].t));
+    });
+    d.appendChild(dl);
+    box.appendChild(d);
+  }
+
+  /* ---------------- remedy reference ---------------- */
+  function hxRenderRef() {
+    var q = $('#hr2-search').value.toLowerCase().trim();
+    var list = H.remedies.filter(function (r) {
+      if (!q) return true;
+      return (r.name + ' ' + r.common + ' ' + r.keynote + ' ' + (r.confirm || []).join(' '))
+        .toLowerCase().indexOf(q) !== -1;
+    });
+    $('#hr2-count').textContent = list.length === H.remedies.length
+      ? H.remedies.length + ' remedies'
+      : list.length + ' of ' + H.remedies.length + ' remedies';
+    var box = $('#hr2-results');
+    box.innerHTML = '';
+    list.forEach(function (r) {
+      var c = el('div', 'herbcard');
+      c.appendChild(el('h4', null, r.name));
+      c.appendChild(el('p', 'common', r.common));
+      c.appendChild(el('p', 'kn', r.keynote));
+      var acts = el('div', 'acts');
+      (r.confirm || []).forEach(function (t) { acts.appendChild(el('span', 'act', t)); });
+      c.appendChild(acts);
+      box.appendChild(c);
+    });
+  }
+
+  /* ---------------- wiring ---------------- */
+  $('#hx-search').addEventListener('input', hxRenderPick);
+  $('#hr2-search').addEventListener('input', hxRenderRef);
+  $('#hx-change').addEventListener('click', function () { hxShow('pick'); hxRenderPick(); });
+  $('#hx-restart').addEventListener('click', function () {
+    HX = { cond: null, answers: [], done: false };
+    hxSave();
+    hxShow('pick');
+    hxRenderPick();
+  });
+  $('#hx-skip').addEventListener('click', function () {
+    var qid = hxNext();
+    if (!qid) { hxFinish(); return; }
+    HX.answers.push({ q: qid, opt: null });
+    hxSave();
+    if (hxNext()) hxRenderAsk(); else hxFinish();
+  });
+  $('#hx-back').addEventListener('click', function () {
+    HX.answers.pop();
+    hxSave();
+    hxRenderAsk();
+  });
+  $('#hx-finish').addEventListener('click', hxFinish);
+  $('#hx-more').addEventListener('click', function () {
+    if (hxNext()) hxRenderAsk();
+    else hxFinish();
+  });
+  $('#hx-print').addEventListener('click', function () { window.print(); });
+  $('#hx-csv').addEventListener('click', function () {
+    var sc = hxScores();
+    var rows = [['Complaint', HX.cond.condition], []];
+    rows.push(['Rank', 'Remedy', 'Common name', 'Score', 'Keynote']);
+    sc.rank.filter(function (r) { return sc.s[r] > 0; }).forEach(function (r, i) {
+      rows.push([i + 1, HR[r].name, HR[r].common, sc.s[r], HR[r].keynote]);
+    });
+    rows.push([], ['The case as taken'], ['Axis', 'Answer']);
+    HX.answers.forEach(function (a) {
+      rows.push([HQ[a.q].axis, a.opt == null ? 'skipped' : HQ[a.q].opts[a.opt].t]);
+    });
+    rows.push([], ['A study tool only. Not a diagnosis, not a treatment plan, and not evidence-based medicine.']);
+    downloadCSV('remedy-differentiation-' + HX.cond.condition.toLowerCase().replace(/\s+/g, '-'), rows);
+  });
+
+  /* ==================================================================
      INIT
      ================================================================== */
   function init() {
@@ -1182,6 +1619,17 @@
     renderRef();
     buildSystemChips();
     setSort('az');
+
+    hxRenderPick();
+    hxRenderRef();
+    var sh = load('homeo');
+    if (sh && sh.cond) {
+      var saved = H.conditions.filter(function (c) { return c.condition === sh.cond; })[0];
+      if (saved) {
+        HX = { cond: saved, answers: (sh.answers || []).filter(function (a) { return HQ[a.q]; }), done: !!sh.done };
+        if (HX.done) hxFinish(); else hxRenderAsk();
+      }
+    }
 
     var tab = null;
     try { tab = localStorage.getItem('bc.tab'); } catch (e) { tab = null; }
