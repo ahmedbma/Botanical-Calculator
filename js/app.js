@@ -146,13 +146,17 @@
     } catch (e) { return null; }
   }
 
-  function downloadCSV(filename, rows) {
-    var csv = rows.map(function (r) {
-      return r.map(function (c) {
-        var s = c == null ? '' : String(c);
-        return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
-      }).join(',');
-    }).join('\n');
+  // Published on claude.ai the page must hand files to the host; opened from a
+  // file or a web server it saves through a link. Resolve the host's saver if
+  // there is one, and fall back to the link when there is not.
+  var hostSaver = null;
+  if (window.claude && typeof window.claude.use === 'function') {
+    try {
+      window.claude.use('downloads').then(function (d) { hostSaver = d; }, function () {});
+    } catch (e) { /* no capability host */ }
+  }
+
+  function linkDownload(filename, csv) {
     var blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
     var a = el('a');
     a.href = URL.createObjectURL(blob);
@@ -160,6 +164,25 @@
     document.body.appendChild(a);
     a.click();
     setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 0);
+  }
+
+  function downloadCSV(filename, rows) {
+    var csv = rows.map(function (r) {
+      return r.map(function (c) {
+        var s = c == null ? '' : String(c);
+        return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+      }).join(',');
+    }).join('\n');
+    var safe = filename.replace(/[\\/:*?"<>|]/g, '-').slice(0, 120);
+    if (!/\.csv$/i.test(safe)) safe += '.csv';
+    if (hostSaver) {
+      hostSaver.save({ filename: safe, data: csv })['catch'](function (err) {
+        if (err && err.code === 'declined') return;
+        linkDownload(safe, csv);
+      });
+      return;
+    }
+    linkDownload(safe, csv);
   }
 
   function alertBox(kind, html) {
@@ -447,7 +470,7 @@
     ];
     $$('#t-table tbody tr').forEach(function (tr) {
       var row = T.rows.filter(function (r) { return String(r.id) === tr.dataset.id; })[0];
-      if (!row) return;
+      if (!row || (!row.herb && !numOf(row.prop))) return;   // skip blank rows
       var c = function (k) { return tr.querySelector('[data-calc="' + k + '"]').textContent; };
       rows.push([row.herb, row.prop, row.ratio, c('mlDose'), c('gttDose'), c('gDose'), c('gDay'), c('mlDisp'), c('pour')]);
     });
@@ -703,7 +726,7 @@
     ];
     $$('#te-table tbody tr').forEach(function (tr) {
       var row = TE.rows.filter(function (r) { return String(r.id) === tr.dataset.id; })[0];
-      if (!row) return;
+      if (!row || (!row.herb && !numOf(row.prop))) return;   // skip blank rows
       var c = function (k) { return tr.querySelector('[data-calc="' + k + '"]').textContent; };
       rows.push([row.herb, row.prop, row.gTbsp, c('tsp'), c('gCup'), c('gDay'), c('gDisp'), c('ozDisp')]);
     });
