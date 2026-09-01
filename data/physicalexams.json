@@ -8,7 +8,8 @@
   "MSK PED Words",
   "PED Words for Neuro Exam",
   "Objective Female Findings (PED 3)",
-  "PED Male Objective Chart"
+  "PED Male Objective Chart",
+  "Mental Health Study Guide"
  ],
  "types": [
   "Screening",
@@ -17,7 +18,8 @@
   "Abdominal",
   "Musculoskeletal",
   "Neurological",
-  "Genitourinary"
+  "Genitourinary",
+  "Mental health"
  ],
  "exams": [
   {
@@ -297,65 +299,80 @@
    "findings": [
     {
      "finding": "Scleral icterus",
-     "suggests": "Hyperbilirubinaemia — hepatocellular disease, biliary obstruction or haemolysis"
+     "suggests": "Hyperbilirubinaemia — hepatocellular disease, biliary obstruction or haemolysis",
+     "workup": "LFTs with bilirubin (direct and indirect), CBC with reticulocytes and haptoglobin for haemolysis, abdominal ultrasound"
     },
     {
      "finding": "Conjunctival pallor",
-     "suggests": "Anaemia"
+     "suggests": "Anaemia",
+     "workup": "CBC, ferritin with iron studies, B12 and folate; find the bleeding source"
     },
     {
      "finding": "Sinus tenderness with purulent discharge and a blocked nose",
-     "suggests": "Acute bacterial rhinosinusitis"
+     "suggests": "Acute bacterial rhinosinusitis",
+     "workup": "Clinical diagnosis; CT sinuses only if refractory, and a bacterial and fungal nasal swab in resistant cases"
     },
     {
      "finding": "Bulging, immobile or erythematous tympanic membrane",
-     "suggests": "Acute otitis media"
+     "suggests": "Acute otitis media",
+     "workup": "Clinical diagnosis by otoscopy and pneumatic insufflation; tympanometry if effusion persists"
     },
     {
      "finding": "Non-tender, hard, fixed supraclavicular node (Virchow's)",
      "suggests": "Thoracic or abdominal malignancy",
-     "urgent": true
+     "urgent": true,
+     "workup": "CT chest, abdomen and pelvis; CBC, LDH; excisional biopsy — not fine needle"
     },
     {
      "finding": "Tender, mobile cervical nodes with a sore throat",
-     "suggests": "Reactive lymphadenopathy — viral or streptococcal pharyngitis"
+     "suggests": "Reactive lymphadenopathy — viral or streptococcal pharyngitis",
+     "workup": "Centor scoring, rapid strep or throat culture; monospot and CBC if prolonged"
     },
     {
      "finding": "Diffusely enlarged thyroid or a discrete nodule",
-     "suggests": "Goitre, thyroiditis or thyroid nodule — test TSH and image"
+     "suggests": "Goitre, thyroiditis or thyroid nodule — test TSH and image",
+     "workup": "TSH with free T4, thyroid antibodies, thyroid ultrasound; fine-needle aspiration by nodule criteria"
     },
     {
      "finding": "Papilloedema",
      "suggests": "Raised intracranial pressure",
-     "urgent": true
+     "urgent": true,
+     "workup": "Urgent CT or MRI head, then lumbar puncture with opening pressure once mass is excluded; blood pressure"
     },
     {
      "finding": "AV nicking, copper wiring, cotton-wool spots",
-     "suggests": "Hypertensive or diabetic retinopathy"
+     "suggests": "Hypertensive or diabetic retinopathy",
+     "workup": "Blood pressure, HbA1c, lipids, urine albumin-creatinine ratio; formal retinal screening"
     },
     {
      "finding": "Increased AP diameter approaching 1:1 (barrel chest)",
-     "suggests": "Air trapping — COPD or emphysema"
+     "suggests": "Air trapping — COPD or emphysema",
+     "workup": "Spirometry with bronchodilator response, chest X-ray, alpha-1 antitrypsin if young or a non-smoker"
     },
     {
      "finding": "Expiratory wheeze",
-     "suggests": "Lower airway obstruction — asthma, COPD"
+     "suggests": "Lower airway obstruction — asthma, COPD",
+     "workup": "Spirometry with reversibility, peak flow, FeNO, blood eosinophils, chest X-ray"
     },
     {
      "finding": "Fine late-inspiratory crackles at the bases",
-     "suggests": "Interstitial disease or pulmonary oedema"
+     "suggests": "Interstitial disease or pulmonary oedema",
+     "workup": "Chest X-ray then high-resolution chest CT, BNP, spirometry with diffusing capacity, echocardiogram"
     },
     {
      "finding": "Carotid bruit",
-     "suggests": "Carotid stenosis — raises stroke risk"
+     "suggests": "Carotid stenosis — raises stroke risk",
+     "workup": "Carotid duplex ultrasound, lipids, HbA1c, blood pressure"
     },
     {
      "finding": "PMI displaced laterally and inferiorly",
-     "suggests": "Left ventricular enlargement"
+     "suggests": "Left ventricular enlargement",
+     "workup": "Echocardiogram, EKG, BNP, chest X-ray"
     },
     {
      "finding": "Digital clubbing",
-     "suggests": "Chronic hypoxia, bronchiectasis, lung malignancy, cirrhosis, IBD"
+     "suggests": "Chronic hypoxia, bronchiectasis, lung malignancy, cirrhosis, IBD",
+     "workup": "Chest X-ray and chest CT, pulse oximetry, LFTs, CBC — lung malignancy, bronchiectasis, interstitial disease, cirrhosis and IBD"
     }
    ]
   },
@@ -477,89 +494,109 @@
    "findings": [
     {
      "finding": "Increased AP diameter approaching 1:1 (barrel chest)",
-     "suggests": "Air trapping — COPD or emphysema"
+     "suggests": "Air trapping — COPD or emphysema",
+     "workup": "Spirometry with bronchodilator response, chest X-ray, alpha-1 antitrypsin if young or a non-smoker"
     },
     {
      "finding": "Respiratory rate over 20 with accessory muscle use, retractions or a tripod posture",
      "suggests": "Respiratory distress",
-     "urgent": true
+     "urgent": true,
+     "workup": "Pulse oximetry and arterial blood gases now, chest X-ray, CBC, peak flow"
     },
     {
      "finding": "Central cyanosis of the lips or tongue",
      "suggests": "Hypoxaemia",
-     "urgent": true
+     "urgent": true,
+     "workup": "Pulse oximetry and arterial blood gases immediately, chest X-ray, EKG"
     },
     {
      "finding": "Digital clubbing",
-     "suggests": "Bronchiectasis, lung malignancy, interstitial disease, cyanotic heart disease"
+     "suggests": "Bronchiectasis, lung malignancy, interstitial disease, cyanotic heart disease",
+     "workup": "Chest X-ray and chest CT, pulse oximetry, LFTs, CBC — lung malignancy, bronchiectasis, interstitial disease, cirrhosis and IBD"
     },
     {
      "finding": "Trachea deviated toward the abnormal side",
-     "suggests": "Collapse, atelectasis or fibrosis pulling the trachea over"
+     "suggests": "Collapse, atelectasis or fibrosis pulling the trachea over",
+     "workup": "Chest X-ray; chest CT to characterise collapse or fibrosis"
     },
     {
      "finding": "Trachea deviated away from the abnormal side",
      "suggests": "Tension pneumothorax or a large effusion pushing the trachea over",
-     "urgent": true
+     "urgent": true,
+     "workup": "Immediate decompression if tension pneumothorax is suspected — do not delay for imaging; otherwise urgent chest X-ray"
     },
     {
      "finding": "Increased tactile fremitus with dullness",
-     "suggests": "Consolidation — pneumonia"
+     "suggests": "Consolidation — pneumonia",
+     "workup": "Chest X-ray for a lobar infiltrate, CBC, procalcitonin, sputum culture, pulse oximetry"
     },
     {
      "finding": "Decreased or absent fremitus",
-     "suggests": "Pleural effusion, pneumothorax or a thickened chest wall"
+     "suggests": "Pleural effusion, pneumothorax or a thickened chest wall",
+     "workup": "Chest X-ray, chest ultrasound, thoracentesis with fluid analysis to separate transudate from exudate"
     },
     {
      "finding": "Asymmetric chest expansion",
-     "suggests": "Effusion, pneumothorax, consolidation, or splinting from pain"
+     "suggests": "Effusion, pneumothorax, consolidation, or splinting from pain",
+     "workup": "Chest X-ray, pulse oximetry; chest CT if unresolved"
     },
     {
      "finding": "Hyperresonance on percussion",
-     "suggests": "Pneumothorax or emphysema"
+     "suggests": "Pneumothorax or emphysema",
+     "workup": "Chest X-ray for pneumothorax or hyperinflation; spirometry"
     },
     {
      "finding": "Stony dullness at a base",
-     "suggests": "Pleural effusion"
+     "suggests": "Pleural effusion",
+     "workup": "Chest X-ray and chest ultrasound, then thoracentesis with fluid analysis; BNP and albumin"
     },
     {
      "finding": "Expiratory wheeze",
-     "suggests": "Lower airway obstruction — asthma, COPD"
+     "suggests": "Lower airway obstruction — asthma, COPD",
+     "workup": "Spirometry with reversibility, peak flow, FeNO, blood eosinophils, chest X-ray"
     },
     {
      "finding": "Inspiratory stridor",
      "suggests": "Upper airway obstruction — secure the airway",
-     "urgent": true
+     "urgent": true,
+     "workup": "Secure the airway first; then imaging or laryngoscopy as the situation allows"
     },
     {
      "finding": "Fine late-inspiratory crackles at the bases",
-     "suggests": "Pulmonary oedema or interstitial lung disease"
+     "suggests": "Pulmonary oedema or interstitial lung disease",
+     "workup": "Chest X-ray then high-resolution chest CT, BNP, spirometry with diffusing capacity, echocardiogram"
     },
     {
      "finding": "Coarse crackles that change with coughing",
-     "suggests": "Secretions or bronchiectasis"
+     "suggests": "Secretions or bronchiectasis",
+     "workup": "Chest X-ray, sputum culture, chest CT for bronchiectasis, sweat chloride in a child"
     },
     {
      "finding": "Pleural friction rub",
-     "suggests": "Pleuritis, pulmonary embolism or pneumonia"
+     "suggests": "Pleuritis, pulmonary embolism or pneumonia",
+     "workup": "Chest X-ray, D-dimer or CT angiography for embolism, CBC and CRP"
     },
     {
      "finding": "Egophony, bronchophony or whispered pectoriloquy",
-     "suggests": "Consolidation"
+     "suggests": "Consolidation",
+     "workup": "Chest X-ray for consolidation, CBC, procalcitonin, sputum culture"
     },
     {
      "finding": "Forced expiratory time of 6 seconds or more",
-     "suggests": "Airflow obstruction"
+     "suggests": "Airflow obstruction",
+     "workup": "Spirometry with bronchodilator response; alpha-1 antitrypsin if young"
     },
     {
      "finding": "Unilaterally decreased or absent breath sounds",
      "suggests": "Effusion, pneumothorax or collapse",
-     "urgent": true
+     "urgent": true,
+     "workup": "Urgent chest X-ray; chest ultrasound at the bedside"
     },
     {
      "finding": "A silent chest in a patient known to wheeze",
      "suggests": "Life-threatening asthma — too little air moving to wheeze",
-     "urgent": true
+     "urgent": true,
+     "workup": "Treat as life-threatening asthma — oxygen and bronchodilators first, blood gases and chest X-ray alongside"
     }
    ]
   },
@@ -673,88 +710,108 @@
     {
      "finding": "Jugular venous pressure above 3 cm from the sternal angle",
      "suggests": "Raised right atrial pressure — right heart failure, fluid overload, tamponade or constriction",
-     "urgent": true
+     "urgent": true,
+     "workup": "BNP, echocardiogram, EKG, chest X-ray, CMP; urgent echo if tamponade is possible"
     },
     {
      "finding": "Carotid bruit",
-     "suggests": "Carotid stenosis — raises stroke risk"
+     "suggests": "Carotid stenosis — raises stroke risk",
+     "workup": "Carotid duplex ultrasound, lipids, HbA1c, blood pressure"
     },
     {
      "finding": "Diffuse, sustained apical impulse displaced laterally",
-     "suggests": "Left ventricular hypertrophy or dilatation"
+     "suggests": "Left ventricular hypertrophy or dilatation",
+     "workup": "Echocardiogram, EKG, BNP, blood pressure"
     },
     {
      "finding": "Palpable thrill",
-     "suggests": "A murmur of at least grade 4/6 — a significant valvular lesion"
+     "suggests": "A murmur of at least grade 4/6 — a significant valvular lesion",
+     "workup": "Echocardiogram — a thrill means at least a grade 4/6 murmur"
     },
     {
      "finding": "Parasternal lift or heave",
-     "suggests": "Right ventricular hypertrophy or pulmonary hypertension"
+     "suggests": "Right ventricular hypertrophy or pulmonary hypertension",
+     "workup": "Echocardiogram, EKG, chest X-ray; right heart catheterisation if pulmonary hypertension is confirmed"
     },
     {
      "finding": "S3 gallop in an adult",
-     "suggests": "Volume overload — systolic heart failure, severe regurgitation"
+     "suggests": "Volume overload — systolic heart failure, severe regurgitation",
+     "workup": "BNP, echocardiogram, EKG, CMP, chest X-ray"
     },
     {
      "finding": "S4",
-     "suggests": "A stiff, non-compliant ventricle — hypertension, LVH, ischaemia"
+     "suggests": "A stiff, non-compliant ventricle — hypertension, LVH, ischaemia",
+     "workup": "Echocardiogram, EKG, blood pressure, HbA1c and lipids"
     },
     {
      "finding": "Fixed split S2",
-     "suggests": "Atrial septal defect"
+     "suggests": "Atrial septal defect",
+     "workup": "Echocardiogram with bubble study, EKG"
     },
     {
      "finding": "Systolic murmur radiating to the carotids with a slow-rising pulse",
-     "suggests": "Aortic stenosis"
+     "suggests": "Aortic stenosis",
+     "workup": "Echocardiogram, EKG; do not give nitrates before the gradient is known"
     },
     {
      "finding": "Holosystolic murmur at the apex radiating to the axilla",
-     "suggests": "Mitral regurgitation"
+     "suggests": "Mitral regurgitation",
+     "workup": "Echocardiogram, EKG, BNP"
     },
     {
      "finding": "Any diastolic murmur",
      "suggests": "Always pathological — investigate",
-     "urgent": true
+     "urgent": true,
+     "workup": "Echocardiogram — always pathological"
     },
     {
      "finding": "Irregularly irregular pulse",
-     "suggests": "Atrial fibrillation"
+     "suggests": "Atrial fibrillation",
+     "workup": "12-lead EKG, and ambulatory monitoring if intermittent; TSH, CMP, echocardiogram, STOP-BANG"
     },
     {
      "finding": "Pulsus paradoxus over 10 mmHg",
      "suggests": "Cardiac tamponade, severe asthma or COPD",
-     "urgent": true
+     "urgent": true,
+     "workup": "Urgent echocardiogram for tamponade; peak flow and blood gases if respiratory"
     },
     {
      "finding": "Capillary refill over 3 seconds with a cool, pale limb",
      "suggests": "Poor perfusion — shock or arterial occlusion",
-     "urgent": true
+     "urgent": true,
+     "workup": "Ankle-brachial index, arterial duplex, CBC, lactate; urgent vascular opinion"
     },
     {
      "finding": "Diminished or absent distal pulses with hair loss, cool skin and shiny atrophic changes",
-     "suggests": "Peripheral arterial disease"
+     "suggests": "Peripheral arterial disease",
+     "workup": "Ankle-brachial index, arterial duplex ultrasound, lipids, HbA1c"
     },
     {
      "finding": "Bilateral pitting oedema",
-     "suggests": "Right heart failure, venous insufficiency or hypoalbuminaemia"
+     "suggests": "Right heart failure, venous insufficiency or hypoalbuminaemia",
+     "workup": "BNP, CMP with albumin, urinalysis for protein, LFTs, echocardiogram, TSH"
     },
     {
      "finding": "Unilateral calf swelling, warmth and tenderness",
      "suggests": "Deep vein thrombosis",
-     "urgent": true
+     "urgent": true,
+     "workup": "Wells score then venous duplex ultrasound; D-dimer where probability is low"
     },
     {
      "finding": "Blood pressure 140/90 or above on repeat measurement",
-     "suggests": "Hypertension"
+     "suggests": "Hypertension",
+     "workup": "Home blood pressure monitoring, CMP, lipids, HbA1c, urinalysis, EKG; STOP-BANG if resistant"
     },
     {
      "finding": "More than 15 mmHg difference between the arms",
      "suggests": "Subclavian stenosis or aortic dissection",
-     "urgent": true
+     "urgent": true,
+     "workup": "Repeat simultaneously in both arms; CT angiography urgently if dissection is possible; vascular imaging otherwise"
     },
     {
      "finding": "Systolic drop of 20 mmHg or diastolic drop of 10 mmHg on standing",
-     "suggests": "Orthostatic hypotension"
+     "suggests": "Orthostatic hypotension",
+     "workup": "Orthostatic vitals, CBC, CMP, medication review, EKG; consider autonomic testing"
     }
    ],
    "competency": {
@@ -980,65 +1037,79 @@
     {
      "finding": "Absent bowel sounds after five minutes of listening",
      "suggests": "Paralytic ileus or late bowel obstruction",
-     "urgent": true
+     "urgent": true,
+     "workup": "Abdominal X-ray or CT, CMP, CBC, lactate; surgical opinion"
     },
     {
      "finding": "High-pitched rushes and tinkling",
      "suggests": "Early mechanical bowel obstruction",
-     "urgent": true
+     "urgent": true,
+     "workup": "Abdominal X-ray or CT for obstruction, CMP, CBC, lactate; surgical opinion"
     },
     {
      "finding": "Bruit over the aorta or a renal artery",
-     "suggests": "Aneurysm or renal artery stenosis"
+     "suggests": "Aneurysm or renal artery stenosis",
+     "workup": "Abdominal aortic ultrasound, renal artery duplex, blood pressure, lipids, CMP"
     },
     {
      "finding": "Widened, expansile pulsation greater than about 3 cm",
      "suggests": "Abdominal aortic aneurysm",
-     "urgent": true
+     "urgent": true,
+     "workup": "Abdominal aortic ultrasound now; CT angiography if symptomatic"
     },
     {
      "finding": "Liver span greater than 12 cm at the midclavicular line",
-     "suggests": "Hepatomegaly — congestion, hepatitis, infiltration"
+     "suggests": "Hepatomegaly — congestion, hepatitis, infiltration",
+     "workup": "Abdominal ultrasound, LFTs, viral hepatitis serology, CBC, ferritin"
     },
     {
      "finding": "Palpable spleen tip",
-     "suggests": "Splenomegaly — portal hypertension, haematological or infectious cause"
+     "suggests": "Splenomegaly — portal hypertension, haematological or infectious cause",
+     "workup": "Abdominal ultrasound, CBC with differential and film, LFTs, viral serology"
     },
     {
      "finding": "Flank dullness that shifts with position",
-     "suggests": "Ascites"
+     "suggests": "Ascites",
+     "workup": "Abdominal ultrasound, LFTs with albumin, CMP; diagnostic paracentesis with serum-ascites albumin gradient"
     },
     {
      "finding": "Involuntary guarding, rigidity or rebound tenderness",
      "suggests": "Peritonitis",
-     "urgent": true
+     "urgent": true,
+     "workup": "Urgent CT abdomen and pelvis, CBC, CMP, lactate, lipase; surgical opinion — do not wait"
     },
     {
      "finding": "Tenderness at McBurney's point with a positive Rovsing, psoas or obturator sign",
      "suggests": "Appendicitis",
-     "urgent": true
+     "urgent": true,
+     "workup": "CT abdomen and pelvis (ultrasound first in children and pregnancy), CBC, CRP, urinalysis, pregnancy test"
     },
     {
      "finding": "Inspiratory arrest on right subcostal palpation (Murphy's sign)",
      "suggests": "Acute cholecystitis",
-     "urgent": true
+     "urgent": true,
+     "workup": "Right upper quadrant ultrasound, LFTs, CBC, lipase"
     },
     {
      "finding": "Costovertebral angle tenderness",
-     "suggests": "Pyelonephritis or renal colic"
+     "suggests": "Pyelonephritis or renal colic",
+     "workup": "Urinalysis and urine culture, CBC, CMP; non-contrast CT or renal ultrasound for stones"
     },
     {
      "finding": "Periumbilical (Cullen's) or flank (Grey Turner's) ecchymosis",
      "suggests": "Retroperitoneal haemorrhage",
-     "urgent": true
+     "urgent": true,
+     "workup": "Urgent CT abdomen, CBC, coagulation screen, lipase, type and crossmatch"
     },
     {
      "finding": "Dilated periumbilical veins (caput medusae)",
-     "suggests": "Portal hypertension"
+     "suggests": "Portal hypertension",
+     "workup": "Abdominal ultrasound with portal Doppler, LFTs with albumin, CBC, viral hepatitis serology"
     },
     {
      "finding": "Reducible bulge appearing on Valsalva",
-     "suggests": "Ventral, umbilical or incisional hernia"
+     "suggests": "Ventral, umbilical or incisional hernia",
+     "workup": "Clinical diagnosis; ultrasound or CT where uncertain, and surgical referral"
     }
    ]
   },
@@ -1105,37 +1176,45 @@
    "findings": [
     {
      "finding": "Anterior head carriage with rounded shoulders",
-     "suggests": "Upper-crossed postural pattern — deep neck flexor weakness"
+     "suggests": "Upper-crossed postural pattern — deep neck flexor weakness",
+     "workup": "Clinical assessment; imaging only if there is neurological deficit"
     },
     {
      "finding": "Loss of cervical lordosis with an antalgic head position",
-     "suggests": "Protective muscle spasm — whiplash, torticollis"
+     "suggests": "Protective muscle spasm — whiplash, torticollis",
+     "workup": "Cervical X-ray after trauma; otherwise clinical"
     },
     {
      "finding": "Midline cervical spinous tenderness after trauma",
      "suggests": "Possible fracture — immobilise and image",
-     "urgent": true
+     "urgent": true,
+     "workup": "Immobilise and image — CT cervical spine by the Canadian C-spine rule"
     },
     {
      "finding": "Arm pain reproduced by extension, rotation and axial load (Spurling's)",
-     "suggests": "Cervical radiculopathy"
+     "suggests": "Cervical radiculopathy",
+     "workup": "Cervical MRI if deficit or persistent; nerve conduction studies where the level is unclear"
     },
     {
      "finding": "Neck pain with fever and neck stiffness on passive flexion",
      "suggests": "Meningeal irritation",
-     "urgent": true
+     "urgent": true,
+     "workup": "Blood cultures, CBC, CRP; CT head then lumbar puncture — do not delay antibiotics"
     },
     {
      "finding": "Jaw click with deviation that corrects on opening",
-     "suggests": "TMJ disc displacement with reduction"
+     "suggests": "TMJ disc displacement with reduction",
+     "workup": "Clinical diagnosis; MRI of the TMJ only if surgery is contemplated"
     },
     {
      "finding": "Limited opening with locking and no click",
-     "suggests": "TMJ disc displacement without reduction"
+     "suggests": "TMJ disc displacement without reduction",
+     "workup": "TMJ MRI; dental or maxillofacial referral"
     },
     {
      "finding": "Crepitus on jaw movement",
-     "suggests": "Degenerative change in the TMJ"
+     "suggests": "Degenerative change in the TMJ",
+     "workup": "TMJ radiograph or cone-beam CT if persistent"
     }
    ]
   },
@@ -1193,38 +1272,46 @@
    "findings": [
     {
      "finding": "Lateral curvature with a rib hump on forward flexion",
-     "suggests": "Scoliosis — structural rather than functional"
+     "suggests": "Scoliosis — structural rather than functional",
+     "workup": "Standing full-spine radiograph with Cobb angle measurement"
     },
     {
      "finding": "Exaggerated thoracic kyphosis with loss of height",
-     "suggests": "Vertebral compression fracture, osteoporosis"
+     "suggests": "Vertebral compression fracture, osteoporosis",
+     "workup": "Thoracolumbar radiograph, DEXA, vitamin D, calcium, TSH, CMP"
     },
     {
      "finding": "Point percussion tenderness over a spinous process",
      "suggests": "Fracture, infection or metastatic disease",
-     "urgent": true
+     "urgent": true,
+     "workup": "Spine radiograph then MRI; CBC, CRP, ESR, blood cultures if infection is possible"
     },
     {
      "finding": "Saddle anaesthesia, bladder or bowel change, bilateral leg weakness",
      "suggests": "Cauda equina syndrome — surgical emergency",
-     "urgent": true
+     "urgent": true,
+     "workup": "Emergency MRI lumbosacral spine and immediate surgical referral — do not wait for anything else"
     },
     {
      "finding": "Leg pain reproduced by straight-leg raise at 30–70°",
-     "suggests": "Lumbar disc herniation with radiculopathy"
+     "suggests": "Lumbar disc herniation with radiculopathy",
+     "workup": "Clinical diagnosis; MRI only if deficit is progressive or surgery is being considered"
     },
     {
      "finding": "Positive FABER or thigh thrust",
-     "suggests": "Sacroiliac joint dysfunction"
+     "suggests": "Sacroiliac joint dysfunction",
+     "workup": "Clinical cluster; pelvic radiograph, and HLA-B27 with CRP if inflammatory features"
     },
     {
      "finding": "Morning stiffness over 30 minutes that eases with movement, reduced Schober",
-     "suggests": "Axial spondyloarthritis"
+     "suggests": "Axial spondyloarthritis",
+     "workup": "CRP and ESR, HLA-B27, sacroiliac MRI"
     },
     {
      "finding": "Back pain with fever, night pain or unexplained weight loss",
      "suggests": "Infection or malignancy — image before treating",
-     "urgent": true
+     "urgent": true,
+     "workup": "MRI spine, CBC, CRP, ESR, blood cultures; myeloma screen and prostate assessment as indicated"
     }
    ]
   },
@@ -1302,40 +1389,49 @@
    "findings": [
     {
      "finding": "Painful arc between 60° and 120° of abduction, positive empty-can",
-     "suggests": "Rotator cuff tendinopathy or tear"
+     "suggests": "Rotator cuff tendinopathy or tear",
+     "workup": "Shoulder ultrasound or MRI if not settling; radiograph to exclude bony cause"
     },
     {
      "finding": "Positive Hawkins-Kennedy or Neer",
-     "suggests": "Subacromial impingement"
+     "suggests": "Subacromial impingement",
+     "workup": "Clinical diagnosis; imaging if refractory to conservative care"
     },
     {
      "finding": "AC joint tenderness with a positive cross-body adduction test",
-     "suggests": "Acromioclavicular joint pathology"
+     "suggests": "Acromioclavicular joint pathology",
+     "workup": "Shoulder radiograph including an AC view"
     },
     {
      "finding": "Global loss of both active and passive shoulder motion",
-     "suggests": "Adhesive capsulitis"
+     "suggests": "Adhesive capsulitis",
+     "workup": "Shoulder radiograph, HbA1c and TSH — adhesive capsulitis tracks with diabetes and thyroid disease"
     },
     {
      "finding": "Lateral epicondyle tenderness on resisted wrist extension",
-     "suggests": "Lateral epicondylitis"
+     "suggests": "Lateral epicondylitis",
+     "workup": "Clinical diagnosis; ultrasound if refractory"
     },
     {
      "finding": "Thenar atrophy with a positive Phalen or Tinel sign",
-     "suggests": "Median nerve compression — carpal tunnel syndrome"
+     "suggests": "Median nerve compression — carpal tunnel syndrome",
+     "workup": "Nerve conduction studies and EMG; TSH, HbA1c, and pregnancy status"
     },
     {
      "finding": "Symmetric MCP and PIP synovitis with over an hour of morning stiffness",
-     "suggests": "Rheumatoid arthritis"
+     "suggests": "Rheumatoid arthritis",
+     "workup": "Rheumatoid factor and anti-CCP, CRP and ESR, CBC, hand radiographs; refer early"
     },
     {
      "finding": "Bony enlargement of the DIP joints (Heberden's nodes)",
-     "suggests": "Osteoarthritis"
+     "suggests": "Osteoarthritis",
+     "workup": "Hand radiographs if needed; clinical otherwise"
     },
     {
      "finding": "Acutely hot, red, exquisitely tender joint",
      "suggests": "Septic arthritis or crystal arthropathy — aspirate",
-     "urgent": true
+     "urgent": true,
+     "workup": "Joint aspiration with Gram stain, culture and crystal analysis before antibiotics; CBC, CRP, urate, blood cultures"
     }
    ]
   },
@@ -1399,50 +1495,61 @@
    "findings": [
     {
      "finding": "Antalgic gait — shortened stance phase on one side",
-     "suggests": "Pain avoidance on the affected limb"
+     "suggests": "Pain avoidance on the affected limb",
+     "workup": "Directed by the painful structure; weight-bearing radiograph of the affected joint"
     },
     {
      "finding": "Pelvis drops on the unsupported side (Trendelenburg)",
-     "suggests": "Hip abductor — gluteus medius — weakness"
+     "suggests": "Hip abductor — gluteus medius — weakness",
+     "workup": "Hip radiograph; assess abductor strength"
     },
     {
      "finding": "Loss of internal rotation and groin pain",
-     "suggests": "Hip osteoarthritis"
+     "suggests": "Hip osteoarthritis",
+     "workup": "Weight-bearing hip radiograph (AP pelvis and lateral)"
     },
     {
      "finding": "Knee effusion with a positive ballottement or bulge sign",
-     "suggests": "Intra-articular effusion"
+     "suggests": "Intra-articular effusion",
+     "workup": "Knee radiograph; aspiration if infection or crystals are possible; MRI for internal derangement"
     },
     {
      "finding": "Positive Lachman or anterior drawer",
-     "suggests": "Anterior cruciate ligament tear"
+     "suggests": "Anterior cruciate ligament tear",
+     "workup": "Knee MRI; radiograph first to exclude fracture"
     },
     {
      "finding": "Joint line tenderness with a positive McMurray",
-     "suggests": "Meniscal tear"
+     "suggests": "Meniscal tear",
+     "workup": "Knee MRI where symptoms persist or mechanical locking is present"
     },
     {
      "finding": "Absent plantarflexion on calf squeeze (Thompson's test)",
      "suggests": "Achilles tendon rupture",
-     "urgent": true
+     "urgent": true,
+     "workup": "Ankle ultrasound or MRI; urgent orthopaedic referral"
     },
     {
      "finding": "Heel pain worst on the first steps of the day with medial calcaneal tenderness",
-     "suggests": "Plantar fasciitis"
+     "suggests": "Plantar fasciitis",
+     "workup": "Clinical diagnosis; ultrasound or radiograph only if atypical or refractory"
     },
     {
      "finding": "Unilateral calf swelling, warmth and tenderness",
      "suggests": "Deep vein thrombosis",
-     "urgent": true
+     "urgent": true,
+     "workup": "Wells score then venous duplex ultrasound; D-dimer where probability is low"
     },
     {
      "finding": "Hot, swollen, exquisitely tender single joint with fever",
      "suggests": "Septic arthritis",
-     "urgent": true
+     "urgent": true,
+     "workup": "Joint aspiration with Gram stain, culture and crystals — before antibiotics; CBC, CRP, blood cultures"
     },
     {
      "finding": "Podagra — acute first MTP pain, redness and swelling",
-     "suggests": "Gout"
+     "suggests": "Gout",
+     "workup": "Serum urate (repeat in 2 weeks — it can be normal in a flare), CMP, aspiration if infection is possible"
     }
    ]
   },
@@ -1635,65 +1742,80 @@
     {
      "finding": "Sudden facial droop, arm drift or speech change",
      "suggests": "Acute stroke — time-critical",
-     "urgent": true
+     "urgent": true,
+     "workup": "Emergency CT or MRI head, glucose, CBC, coagulation screen, EKG — time-critical stroke pathway"
     },
     {
      "finding": "Positive pronator drift",
-     "suggests": "Contralateral upper motor neuron lesion"
+     "suggests": "Contralateral upper motor neuron lesion",
+     "workup": "MRI brain, and MRI cervical spine where the level suggests it"
     },
     {
      "finding": "Upgoing plantar response in an adult",
-     "suggests": "Upper motor neuron lesion"
+     "suggests": "Upper motor neuron lesion",
+     "workup": "MRI brain and spinal cord; B12 and copper"
     },
     {
      "finding": "Hyperreflexia with clonus and spasticity",
-     "suggests": "Upper motor neuron lesion"
+     "suggests": "Upper motor neuron lesion",
+     "workup": "MRI brain and spinal cord, B12, copper, TSH"
     },
     {
      "finding": "Hyporeflexia with atrophy and fasciculation",
-     "suggests": "Lower motor neuron lesion"
+     "suggests": "Lower motor neuron lesion",
+     "workup": "Nerve conduction studies and EMG, CBC, CMP, B12, HbA1c, TSH"
     },
     {
      "finding": "Steady with the eyes open, unsteady with them closed (positive Romberg)",
-     "suggests": "Proprioceptive or dorsal column loss — B12 deficiency, tabes dorsalis, peripheral neuropathy"
+     "suggests": "Proprioceptive or dorsal column loss — B12 deficiency, tabes dorsalis, peripheral neuropathy",
+     "workup": "B12 with methylmalonic acid, folate, HbA1c, copper, syphilis serology, TSH; MRI spinal cord if unresolved"
     },
     {
      "finding": "Unsteady with the eyes open as well",
-     "suggests": "Cerebellar ataxia — not a positive Romberg"
+     "suggests": "Cerebellar ataxia — not a positive Romberg",
+     "workup": "MRI brain with attention to the cerebellum and posterior fossa; alcohol history, B1, medication review"
     },
     {
      "finding": "Intention tremor, dysdiadochokinesia and past-pointing",
-     "suggests": "Cerebellar lesion, ipsilateral to the signs"
+     "suggests": "Cerebellar lesion, ipsilateral to the signs",
+     "workup": "MRI brain (posterior fossa); alcohol and drug review, TSH, B12"
     },
     {
      "finding": "Symmetric distal stocking-glove sensory loss",
-     "suggests": "Peripheral polyneuropathy — diabetes, B12, alcohol"
+     "suggests": "Peripheral polyneuropathy — diabetes, B12, alcohol",
+     "workup": "HbA1c and fasting glucose, B12 with methylmalonic acid, TSH, CBC, CMP, SPEP; nerve conduction studies"
     },
     {
      "finding": "Loss of vibration and position sense before pain and temperature",
-     "suggests": "Large-fibre or dorsal column disease"
+     "suggests": "Large-fibre or dorsal column disease",
+     "workup": "B12 with methylmalonic acid, copper, folate, syphilis serology; MRI spinal cord"
     },
     {
      "finding": "Anisocoria with ptosis and anhidrosis",
-     "suggests": "Horner's syndrome"
+     "suggests": "Horner's syndrome",
+     "workup": "CT or MR angiography of the head and neck to exclude carotid dissection; chest imaging for an apical lung lesion"
     },
     {
      "finding": "Fixed dilated pupil with ptosis and a down-and-out eye",
      "suggests": "Third nerve palsy — exclude aneurysm",
-     "urgent": true
+     "urgent": true,
+     "workup": "Emergency CT or MR angiography to exclude a posterior communicating artery aneurysm"
     },
     {
      "finding": "Uvula deviating to one side",
-     "suggests": "Vagus nerve palsy — the uvula deviates away from the weak side"
+     "suggests": "Vagus nerve palsy — the uvula deviates away from the weak side",
+     "workup": "MRI brain and brainstem; assess swallow safety"
     },
     {
      "finding": "Tongue deviating on protrusion",
-     "suggests": "Hypoglossal lesion — the tongue deviates toward the weak side"
+     "suggests": "Hypoglossal lesion — the tongue deviates toward the weak side",
+     "workup": "MRI brain and skull base"
     },
     {
      "finding": "Forehead spared in a facial droop",
      "suggests": "Central (upper motor neuron) facial palsy rather than Bell's palsy",
-     "urgent": true
+     "urgent": true,
+     "workup": "Emergency neuroimaging on the stroke pathway — a spared forehead means a central lesion"
     }
    ]
   },
@@ -1790,57 +1912,69 @@
     {
      "finding": "Skin dimpling, peau d'orange or new nipple retraction",
      "suggests": "Underlying breast malignancy — refer",
-     "urgent": true
+     "urgent": true,
+     "workup": "Diagnostic mammography with ultrasound and urgent breast clinic referral"
     },
     {
      "finding": "Hard, fixed, irregular, non-tender mass",
      "suggests": "Breast carcinoma until proven otherwise",
-     "urgent": true
+     "urgent": true,
+     "workup": "Triple assessment — examination, imaging and core biopsy"
     },
     {
      "finding": "Unilateral spontaneous bloody nipple discharge",
      "suggests": "Intraductal papilloma or carcinoma",
-     "urgent": true
+     "urgent": true,
+     "workup": "Mammography and ultrasound, ductography or MRI; surgical referral"
     },
     {
      "finding": "Eczematous, scaling nipple that does not resolve",
      "suggests": "Paget's disease of the breast",
-     "urgent": true
+     "urgent": true,
+     "workup": "Punch biopsy of the nipple and mammography — not a trial of steroid cream"
     },
     {
      "finding": "Mobile, rubbery, well-circumscribed mass in a younger patient",
-     "suggests": "Fibroadenoma"
+     "suggests": "Fibroadenoma",
+     "workup": "Ultrasound first under 40, with core biopsy where imaging is not clearly benign"
     },
     {
      "finding": "Cervical motion tenderness with adnexal tenderness and fever",
      "suggests": "Pelvic inflammatory disease",
-     "urgent": true
+     "urgent": true,
+     "workup": "NAAT for gonorrhoea and chlamydia, pregnancy test, CBC, CRP, pelvic ultrasound; treat empirically without waiting"
     },
     {
      "finding": "Unilateral adnexal mass with acute severe pain",
      "suggests": "Ovarian torsion or ectopic pregnancy",
-     "urgent": true
+     "urgent": true,
+     "workup": "Urgent transvaginal ultrasound with Doppler, beta-hCG, CBC — torsion and ectopic are both emergencies"
     },
     {
      "finding": "Friable cervix with mucopurulent discharge",
-     "suggests": "Cervicitis — test for chlamydia and gonorrhoea"
+     "suggests": "Cervicitis — test for chlamydia and gonorrhoea",
+     "workup": "NAAT for gonorrhoea and chlamydia, wet mount and pH, cervical cytology if due"
     },
     {
      "finding": "Fixed, retroverted uterus with nodular uterosacral ligaments",
-     "suggests": "Endometriosis"
+     "suggests": "Endometriosis",
+     "workup": "Transvaginal ultrasound, and pelvic MRI where deep disease is suspected"
     },
     {
      "finding": "Irregularly enlarged, firm uterus",
-     "suggests": "Uterine fibroids"
+     "suggests": "Uterine fibroids",
+     "workup": "Transvaginal ultrasound, CBC and ferritin if bleeding is heavy"
     },
     {
      "finding": "Any post-menopausal bleeding",
      "suggests": "Endometrial carcinoma until excluded",
-     "urgent": true
+     "urgent": true,
+     "workup": "Transvaginal ultrasound with endometrial thickness, then endometrial biopsy — carcinoma until excluded"
     },
     {
      "finding": "Descent of the anterior or posterior wall or cervix on bearing down",
-     "suggests": "Pelvic organ prolapse"
+     "suggests": "Pelvic organ prolapse",
+     "workup": "POP-Q staging, post-void residual, urinalysis; pelvic floor physiotherapy referral"
     }
    ]
   },
@@ -1946,90 +2080,310 @@
     {
      "finding": "Sudden severe testicular pain with a high-riding, transverse testis and an absent cremasteric reflex",
      "suggests": "Testicular torsion — surgical emergency, salvage falls sharply after 6 hours",
-     "urgent": true
+     "urgent": true,
+     "workup": "Immediate surgical exploration — imaging must not delay it; Doppler ultrasound only if it costs no time"
     },
     {
      "finding": "Painless firm testicular mass that does not transilluminate",
      "suggests": "Testicular cancer until proven otherwise — ultrasound",
-     "urgent": true
+     "urgent": true,
+     "workup": "Scrotal ultrasound, then tumour markers — AFP, beta-hCG, LDH — and urgent urology referral"
     },
     {
      "finding": "Tender, swollen epididymis with pain eased by elevation",
-     "suggests": "Epididymitis"
+     "suggests": "Epididymitis",
+     "workup": "Urinalysis and culture, NAAT for gonorrhoea and chlamydia, scrotal ultrasound if uncertain"
     },
     {
      "finding": "Soft “bag of worms” above the testis, usually left, emptying when supine",
-     "suggests": "Varicocele"
+     "suggests": "Varicocele",
+     "workup": "Scrotal ultrasound; a right-sided or non-emptying varicocele needs abdominal imaging"
     },
     {
      "finding": "Cystic scrotal swelling that transilluminates",
-     "suggests": "Hydrocele"
+     "suggests": "Hydrocele",
+     "workup": "Scrotal ultrasound to confirm and exclude an underlying mass"
     },
     {
      "finding": "Bulge felt at the fingertip on coughing, descending into the scrotum",
-     "suggests": "Indirect inguinal hernia"
+     "suggests": "Indirect inguinal hernia",
+     "workup": "Clinical diagnosis; ultrasound where uncertain, and surgical referral"
     },
     {
      "finding": "Bulge felt against the side of the finger, through the floor of the canal",
-     "suggests": "Direct inguinal hernia"
+     "suggests": "Direct inguinal hernia",
+     "workup": "Clinical diagnosis; surgical referral"
     },
     {
      "finding": "Irreducible, tender hernia with vomiting or absent bowel sounds",
      "suggests": "Incarcerated or strangulated hernia",
-     "urgent": true
+     "urgent": true,
+     "workup": "Urgent CT abdomen, CBC, CMP, lactate; immediate surgical referral"
     },
     {
      "finding": "Foreskin that will not retract",
-     "suggests": "Phimosis"
+     "suggests": "Phimosis",
+     "workup": "Clinical diagnosis; HbA1c, and swab if balanitis is recurrent"
     },
     {
      "finding": "Retracted foreskin trapped behind the corona with a swollen glans",
      "suggests": "Paraphimosis — reduce urgently",
-     "urgent": true
+     "urgent": true,
+     "workup": "Clinical — reduce urgently; no imaging"
     },
     {
      "finding": "Painless indurated ulcer with a clean base",
-     "suggests": "Primary syphilis — chancre"
+     "suggests": "Primary syphilis — chancre",
+     "workup": "Syphilis serology (RPR and treponemal), HIV, and full STI screen; dark-field microscopy where available"
     },
     {
      "finding": "Painful grouped vesicles or shallow ulcers",
-     "suggests": "Herpes simplex"
+     "suggests": "Herpes simplex",
+     "workup": "HSV PCR from the lesion, full STI screen including HIV and syphilis"
     },
     {
      "finding": "Urethral discharge",
-     "suggests": "Urethritis — test for gonorrhoea and chlamydia"
+     "suggests": "Urethritis — test for gonorrhoea and chlamydia",
+     "workup": "NAAT for gonorrhoea and chlamydia, urinalysis, and full STI screen"
     },
     {
      "finding": "Meatus on the ventral surface of the glans or shaft",
-     "suggests": "Hypospadias"
+     "suggests": "Hypospadias",
+     "workup": "Clinical; urology referral, and renal ultrasound where other anomalies are suspected"
     },
     {
      "finding": "Smoothly enlarged, rubbery prostate with the median sulcus preserved",
-     "suggests": "Benign prostatic hyperplasia"
+     "suggests": "Benign prostatic hyperplasia",
+     "workup": "PSA, urinalysis, IPSS symptom score, post-void residual, renal function"
     },
     {
      "finding": "Hard, nodular or asymmetric prostate with the median sulcus lost",
      "suggests": "Prostate carcinoma until proven otherwise",
-     "urgent": true
+     "urgent": true,
+     "workup": "PSA and urgent urology referral for MRI and biopsy — a normal PSA does not exclude it"
     },
     {
      "finding": "Boggy, exquisitely tender prostate with fever",
      "suggests": "Acute bacterial prostatitis — do not massage the prostate",
-     "urgent": true
+     "urgent": true,
+     "workup": "Urinalysis and culture, blood cultures, CBC — do not massage the prostate"
     },
     {
      "finding": "Reduced resting tone or absent voluntary squeeze",
      "suggests": "Neurological cause — cauda equina or spinal cord lesion",
-     "urgent": true
+     "urgent": true,
+     "workup": "Emergency MRI spine if acute with saddle anaesthesia; otherwise neurological assessment and anorectal physiology"
     },
     {
      "finding": "Blood on the glove",
-     "suggests": "GI bleeding — haemorrhoids, fissure, polyp or malignancy; investigate"
+     "suggests": "GI bleeding — haemorrhoids, fissure, polyp or malignancy; investigate",
+     "workup": "Colonoscopy, CBC and ferritin — not a repeat occult blood test"
     },
     {
      "finding": "Palpable rectal mass",
      "suggests": "Rectal carcinoma until proven otherwise",
-     "urgent": true
+     "urgent": true,
+     "workup": "Colonoscopy with biopsy, CT chest abdomen and pelvis, CEA"
+    }
+   ]
+  },
+  {
+   "id": "mse",
+   "type": "Mental health",
+   "name": "Mental Status Exam",
+   "region": "Psychiatric evaluation",
+   "summary": "The eight components of the MSE, the screening instruments that quantify them, and the medical workup that has to exclude an organic cause first.",
+   "source": "Mental Health Study Guide",
+   "normalsWritten": true,
+   "script": "Most of the MSE is gathered while you take the history — you are observing, not testing. Ask the cognitive and thought-content questions directly and without hedging. Asking about suicidal ideation does not plant the idea; not asking is what costs.",
+   "related": [
+    "Depression",
+    "Anxiety",
+    "Insomnia",
+    "Chronic fatigue syndrome",
+    "Cognitive decline"
+   ],
+   "groups": [
+    {
+     "name": "Observation",
+     "steps": [
+      {
+       "step": "Appearance and behaviour",
+       "how": "Note grooming, self-care, clothing and how it suits the setting, and motor activity — restless, slowed, guarded, agitated.",
+       "normal": "Appropriately groomed and dressed for the setting, with no psychomotor agitation or retardation."
+      },
+      {
+       "step": "Speech",
+       "how": "Rate, volume and flow — rapid, pressured, slowed, impoverished, or interrupted.",
+       "normal": "Speech is of normal rate, volume and flow."
+      }
+     ]
+    },
+    {
+     "name": "Emotional state",
+     "steps": [
+      {
+       "step": "Mood",
+       "how": "The patient's own subjective report, quoted where you can: “I feel sad,” “anxious.”",
+       "normal": "Mood is euthymic by the patient's own report."
+      },
+      {
+       "step": "Affect",
+       "how": "Your objective observation of their emotional expression — constricted, flat, labile, blunted — and whether it fits the stated mood.",
+       "normal": "Affect is full in range, reactive, and congruent with the stated mood."
+      }
+     ],
+     "note": "Mood is what the patient tells you; affect is what you observe. Recording them separately is the point of having both."
+    },
+    {
+     "name": "Thought",
+     "steps": [
+      {
+       "step": "Thought process",
+       "how": "The organisation and flow of thought, judged through speech: goal-directed, circumstantial, tangential, or loose associations.",
+       "normal": "Thought process is linear and goal-directed."
+      },
+      {
+       "step": "Thought content",
+       "how": "What they are thinking about. Ask directly about suicidal and homicidal ideation, delusions and obsessions — and about plan, means and intent if ideation is present.",
+       "normal": "No suicidal or homicidal ideation, no delusions and no obsessional content elicited."
+      }
+     ]
+    },
+    {
+     "name": "Cognition, insight and judgement",
+     "steps": [
+      {
+       "step": "Cognition",
+       "how": "Level of consciousness, attention, and short- and long-term memory.",
+       "normal": "Alert and oriented, with attention and short- and long-term memory intact."
+      },
+      {
+       "step": "Insight",
+       "how": "Their awareness of their own illness and situation.",
+       "normal": "Insight is intact — the patient recognises the problem and its effect on them."
+      },
+      {
+       "step": "Judgement",
+       "how": "Their grasp of the likely consequences of their own behaviour.",
+       "normal": "Judgement is intact and appropriate to the situation."
+      }
+     ]
+    },
+    {
+     "name": "Screening instruments",
+     "steps": [
+      {
+       "step": "PHQ-9",
+       "how": "Nine items screening for depression and tracking severity: 5–9 mild, 10–14 moderate, 15–19 moderately severe, 20–27 severe.",
+       "normal": "PHQ-9 score recorded, with item 9 (self-harm) asked directly."
+      },
+      {
+       "step": "GAD-7",
+       "how": "Seven items screening for generalised anxiety, with good utility in panic, social anxiety and PTSD: 5–9 mild, 10–14 moderate, 15+ severe. A score of 10 or more is the cutoff for further evaluation.",
+       "normal": "GAD-7 score recorded."
+      },
+      {
+       "step": "MDQ",
+       "how": "Thirteen questions on symptoms and functional status, screening for bipolar disorder. A positive screen means a full evaluation by a professional, not a diagnosis.",
+       "normal": "MDQ screen recorded before any antidepressant is considered."
+      }
+     ],
+     "note": "Screen with the MDQ before starting an antidepressant, and before recommending SAMe, St John's wort or rhodiola — each can trigger mania in an unrecognised bipolar patient."
+    },
+    {
+     "name": "Medical workup",
+     "steps": [
+      {
+       "step": "Excluding organic causes",
+       "how": "A physical exam with baseline labs — CBC, TSH, electrolytes and urine toxicology — before attributing symptoms to a primary psychiatric cause.",
+       "normal": "Physical exam and baseline labs unremarkable; organic and substance-related causes excluded."
+      }
+     ],
+     "note": "The MSE belongs to the psychiatric evaluation. Hyperthyroidism, substance use, anaemia and cardiac disease all present as psychiatric symptoms, and the labs are what rule them out."
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Suicidal ideation with a plan, means or intent",
+     "suggests": "Immediate risk — do not leave the patient alone; arrange urgent psychiatric assessment",
+     "urgent": true,
+     "workup": "No investigation delays safety — arrange urgent psychiatric assessment; CBC, TSH, CMP and urine toxicology alongside"
+    },
+    {
+     "finding": "Homicidal ideation toward an identified person",
+     "suggests": "Risk assessment and duty-to-warn obligations apply",
+     "urgent": true,
+     "workup": "Urgent psychiatric assessment; document the risk assessment fully"
+    },
+    {
+     "finding": "Pressured speech, decreased need for sleep, grandiosity, risk-taking",
+     "suggests": "Manic or hypomanic episode — a manic episode of at least a week means bipolar I",
+     "urgent": true,
+     "workup": "MDQ, TSH, urine toxicology, CMP, CBC; urgent psychiatric assessment"
+    },
+    {
+     "finding": "Flat or blunted affect incongruent with stated mood",
+     "suggests": "Severe depression, negative symptoms of psychosis, or medication effect",
+     "workup": "PHQ-9, TSH, CBC, B12, vitamin D, medication review"
+    },
+    {
+     "finding": "Labile affect",
+     "suggests": "Bipolar disorder, personality disorder, or an organic cause including delirium",
+     "workup": "Cognitive screening, TSH, CMP, urine toxicology; neuroimaging if new and unexplained"
+    },
+    {
+     "finding": "Loose associations, tangentiality or flight of ideas",
+     "suggests": "Psychosis, mania, or delirium",
+     "workup": "Urine toxicology, CBC, CMP, TSH; neuroimaging if new"
+    },
+    {
+     "finding": "Delusions or hallucinations",
+     "suggests": "Psychotic disorder, mania with psychotic features, substance effect, or delirium",
+     "urgent": true,
+     "workup": "Urine toxicology, CBC, CMP, TSH, B12, neuroimaging; urgent psychiatric assessment"
+    },
+    {
+     "finding": "Acute confusion with fluctuating consciousness and inattention",
+     "suggests": "Delirium — look for an organic cause before anything else",
+     "urgent": true,
+     "workup": "Full delirium screen — CBC, CMP, glucose, urinalysis and culture, chest X-ray, EKG, urine toxicology, medication review, neuroimaging"
+    },
+    {
+     "finding": "PHQ-9 of 20 or more",
+     "suggests": "Severe depression — treat actively and reassess risk",
+     "workup": "Reassess risk directly; TSH, CBC, vitamin D, B12, urine toxicology"
+    },
+    {
+     "finding": "GAD-7 of 10 or more",
+     "suggests": "The recommended cutoff for further evaluation",
+     "workup": "TSH, CBC, urine toxicology; MDQ before starting an antidepressant"
+    },
+    {
+     "finding": "Positive MDQ screen",
+     "suggests": "Possible bipolar disorder — full evaluation before any antidepressant, SAMe, St John's wort or rhodiola",
+     "urgent": true,
+     "workup": "Full psychiatric evaluation before any antidepressant; TSH, urine toxicology, CMP"
+    },
+    {
+     "finding": "Impaired insight and judgement",
+     "suggests": "Psychosis, mania, cognitive impairment, or intoxication — affects capacity to consent",
+     "workup": "Cognitive screening, urine toxicology, CBC, CMP, TSH; capacity assessment"
+    },
+    {
+     "finding": "Panic arriving reliably before meals",
+     "suggests": "Reactive hypoglycaemia rather than a primary anxiety disorder",
+     "workup": "Fasting glucose, HbA1c, and a symptom-timed glucose; review meal timing before escalating treatment"
+    },
+    {
+     "finding": "Anxiety with tremor, heat intolerance, weight loss and tachycardia",
+     "suggests": "Hyperthyroidism presenting as anxiety",
+     "workup": "TSH with free T4 and T3, thyroid antibodies, EKG, CBC"
+    },
+    {
+     "finding": "New psychiatric symptoms with brain fog and multiple systems involved",
+     "suggests": "Consider mould and mycotoxin exposure — the multi-system pattern is the clue",
+     "workup": "Urine mycotoxin panel and OAT, HLA-DQ, TSH, CBC, CMP, B12, vitamin D, ferritin"
     }
    ]
   }

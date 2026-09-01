@@ -1254,6 +1254,25 @@
       .concat(c.herbs.reduce(function (a, h) { return a.concat(h.actions || []); }, []))
       .join(' ').toLowerCase();
   });
+  // The therapeutics attached to a condition are searchable from the Conditions
+  // tab too, so "spirometry" or "metformin" finds the conditions that call for it.
+  function cxAddTherapeuticsToHaystack() {
+    var by = window.THERAPEUTICS_DATA && window.THERAPEUTICS_DATA.byCondition;
+    if (!by) return;
+    var look = {};
+    ['pharmaceuticals', 'supplements', 'therapies', 'labs'].forEach(function (k) {
+      (window.THERAPEUTICS_DATA[k] || []).forEach(function (x) { look[x.id] = x.name; });
+    });
+    CONDS.forEach(function (c) {
+      var rec = by[c.condition];
+      if (!rec) return;
+      var names = [];
+      ['pharm', 'supps', 'therapies', 'labs'].forEach(function (k) {
+        (rec[k] || []).forEach(function (i) { if (look[i]) names.push(look[i]); });
+      });
+      c._hay += ' ' + names.join(' ').toLowerCase() + ' ' + (rec.note || '').toLowerCase();
+    });
+  }
 
   function escapeHtml(str) {
     return String(str).replace(/[&<>"]/g, function (ch) {
@@ -1431,6 +1450,19 @@
       });
       body.appendChild(grid);
       if (c.notes) body.appendChild(el('p', 'note', c.notes));
+      var tx = typeof txForCondition === 'function' ? txForCondition(c.condition, q) : null;
+      if (tx) {
+        var txd = el('details', 'txdrop');
+        var counts = (TXBY[c.condition] || {});
+        var n = ['pharm', 'supps', 'therapies', 'labs'].reduce(function (a, k) {
+          return a + ((counts[k] || []).length);
+        }, 0);
+        txd.appendChild(el('summary', null,
+          'Pharmaceuticals, supplements, therapies and labs — ' + n + ' entries'));
+        if (q) txd.open = true;
+        txd.appendChild(tx);
+        body.appendChild(txd);
+      }
       det.appendChild(body);
       frag.appendChild(det);
     });
@@ -1460,7 +1492,7 @@
       bits.push(g.name, g.note || '');
       (g.steps || []).forEach(function (st) { bits.push(st.step, st.how, st.normal, st.flag || ''); });
     });
-    (x.findings || []).forEach(function (f) { bits.push(f.finding, f.suggests); });
+    (x.findings || []).forEach(function (f) { bits.push(f.finding, f.suggests, f.workup || ''); });
     if (x.competency) {
       bits.push(x.competency.title, x.competency.source, x.competency.note || '');
       (x.competency.sections || []).forEach(function (sec) {
@@ -1596,6 +1628,11 @@
       row.appendChild(a);
       var b = el('div', 'pe-sugg');
       b.innerHTML = highlight(f.suggests, q);
+      if (f.workup) {
+        var w = el('p', 'pe-workup');
+        w.innerHTML = '<span class="pe-wlab">run</span> ' + highlight(f.workup, q);
+        b.appendChild(w);
+      }
       row.appendChild(b);
       grid.appendChild(row);
     });
@@ -1779,6 +1816,14 @@
       det.appendChild(sum);
 
       var body = el('div', 'body');
+      if (x.normalsWritten) {
+        var nw = el('p', 'pe-written');
+        nw.innerHTML = '<span class="pe-flagmark">wording written for this tool</span> Your notes give the ' +
+          'components of this exam but no normal-findings wording, so the <em>normal</em> lines below were ' +
+          'written for this tool \u2014 unlike every other exam in this section, where they are transcribed ' +
+          'from your own charts.';
+        body.appendChild(nw);
+      }
       if (x.script) {
         var sc = el('p', 'pe-script');
         sc.innerHTML = highlight(x.script, q);
@@ -1799,6 +1844,315 @@
     }
   }
   if ($('#pe-search')) $('#pe-search').addEventListener('input', renderExams);
+
+  /* ==================================================================
+     THERAPEUTICS — pharmaceuticals, supplements, therapies, labs & imaging
+     One catalogue, three tabs. Every agent carries the conditions it is
+     indicated for, derived from the same map the Conditions tab reads, so the
+     two can never disagree.
+     ================================================================== */
+  var TX = window.THERAPEUTICS_DATA || {
+    pharmaceuticals: [], supplements: [], therapies: [], labs: [], byCondition: {},
+    pharmClasses: [], labKinds: [], therapyKinds: []
+  };
+  var TXBY = TX.byCondition || {};
+
+  // Condition order: the herb index first, A–Z, then the topics the new
+  // coursework covers that the herb index does not.
+  var TX_CONDS = Object.keys(TXBY).sort(function (a, b) {
+    var ea = TXBY[a].extra ? 1 : 0, eb = TXBY[b].extra ? 1 : 0;
+    return ea - eb || a.toLowerCase().localeCompare(b.toLowerCase());
+  });
+
+  var LAB_KIND_LABEL = {
+    blood: 'Blood', urine: 'Urine', stool: 'Stool', micro: 'Microbiology', imaging: 'Imaging',
+    "function": 'Function tests', screen: 'Screening tools', procedure: 'Procedures', specialty: 'Specialty panels'
+  };
+
+  function txIndex(list) {
+    var m = {};
+    (list || []).forEach(function (x) { m[x.id] = x; });
+    return m;
+  }
+  var TX_IDX = {
+    pharm: txIndex(TX.pharmaceuticals),
+    supps: txIndex(TX.supplements),
+    therapies: txIndex(TX.therapies),
+    labs: txIndex(TX.labs)
+  };
+
+  // Every searchable string for one agent, built once.
+  function txHay(x, kindLabel) {
+    return [x.name, x.cls || '', x.kind || '', kindLabel || '', x.examples || '', x.also || '',
+            x.use || '', x.mech || '', x.what || '', x.why || '', x.interpret || '',
+            x.dose || '', x.caution || '', (x.conditions || []).join(' ')].join(' ').toLowerCase();
+  }
+  TX.pharmaceuticals.forEach(function (x) { x._hay = txHay(x, x.cls); });
+  TX.supplements.forEach(function (x) { x._hay = txHay(x); });
+  TX.therapies.forEach(function (x) { x._hay = txHay(x, x.kind); });
+  TX.labs.forEach(function (x) { x._hay = txHay(x, LAB_KIND_LABEL[x.kind]); });
+
+  // One card shape for all four datasets; the fields differ, the layout does not.
+  function txCard(x, set, q) {
+    var card = el('article', 'txcard');
+    var head = el('div', 'txhead');
+    var nm = el('h4');
+    nm.innerHTML = highlight(x.name, q);
+    head.appendChild(nm);
+    var badge = set === 'pharm' ? x.cls
+      : set === 'labs' ? (LAB_KIND_LABEL[x.kind] || x.kind)
+      : x.kind || null;   // a therapy shows its kind; a supplement has none
+    if (badge) head.appendChild(el('span', 'txbadge', badge));
+    card.appendChild(head);
+
+    if (x.examples || x.also) {
+      var ex = el('p', 'txex');
+      ex.innerHTML = highlight(x.examples || x.also, q);
+      card.appendChild(ex);
+    }
+    if (x.dose) {
+      var d = el('p', 'txdose');
+      d.innerHTML = '<span class="txlab">dose</span> ' + highlight(x.dose, q);
+      card.appendChild(d);
+    }
+    var body = x.use || x.mech || x.what || x.why;
+    if (body) {
+      var b = el('p', 'txbody');
+      b.innerHTML = highlight(body, q);
+      card.appendChild(b);
+    }
+    if (x.interpret) {
+      var ip = el('p', 'txinterp');
+      ip.innerHTML = '<span class="txlab alt">reading it</span> ' + highlight(x.interpret, q);
+      card.appendChild(ip);
+    }
+    if (x.caution) {
+      var c = el('p', 'txcaution' + (/AVOID|contraindicat|Absolutely|boxed/i.test(x.caution) ? ' hard' : ''));
+      c.innerHTML = '<span class="txlab warn">caution</span> ' + highlight(x.caution, q);
+      card.appendChild(c);
+    }
+    if ((x.conditions || []).length) {
+      var cw = el('div', 'txconds');
+      x.conditions.forEach(function (name) {
+        var chip = el('button', 'txchip', name);
+        chip.title = 'Show everything indicated for ' + name;
+        chip.addEventListener('click', function () { txJumpToCondition(name); });
+        cw.appendChild(chip);
+      });
+      card.appendChild(cw);
+    }
+    return card;
+  }
+
+  // A condition chip anywhere sends you to that condition — in the Conditions
+  // tab when the herb index has it, otherwise to the topic in this tab.
+  function txJumpToCondition(name) {
+    if (TXBY[name] && !TXBY[name].extra && $('#cx-search')) {
+      showTab('conditions');
+      $('#cx-search').value = name;
+      renderConditions();
+      $('#panel-conditions').scrollIntoView({ block: 'start' });
+      return;
+    }
+    var panel = document.querySelector('.panel:not([hidden]) input[type="search"][id$="-search"]');
+    if (panel) { panel.value = name; panel.dispatchEvent(new Event('input', { bubbles: true })); }
+  }
+
+  function txMakeTab(cfg) {
+    var state = { q: '', filter: 'all', by: 'az' };
+    var listOf = function () { return TX[cfg.key] || []; };
+
+    function chips() {
+      var box = $('#' + cfg.id + '-filters');
+      if (!box) return;
+      box.innerHTML = '';
+      var all = el('button', 'chip is-on', 'All');
+      all.dataset.f = 'all';
+      box.appendChild(all);
+      cfg.groups().forEach(function (g) {
+        var n = listOf().filter(function (x) { return cfg.groupOf(x) === g.value; }).length;
+        if (!n) return;
+        var b = el('button', 'chip', g.label + ' (' + n + ')');
+        b.dataset.f = g.value;
+        box.appendChild(b);
+      });
+      box.addEventListener('click', function (e) {
+        if (!e.target.dataset.f) return;
+        state.filter = e.target.dataset.f;
+        $$('#' + cfg.id + '-filters .chip').forEach(function (c) { c.classList.toggle('is-on', c === e.target); });
+        render();
+      });
+      $('#' + cfg.id + '-by-az').addEventListener('click', function () { setBy('az'); });
+      $('#' + cfg.id + '-by-cond').addEventListener('click', function () { setBy('cond'); });
+    }
+    function setBy(mode) {
+      state.by = mode;
+      $('#' + cfg.id + '-by-az').classList.toggle('is-on', mode === 'az');
+      $('#' + cfg.id + '-by-cond').classList.toggle('is-on', mode === 'cond');
+      render();
+    }
+
+    function matching() {
+      return listOf().filter(function (x) {
+        if (state.filter !== 'all' && cfg.groupOf(x) !== state.filter) return false;
+        return !state.q || x._hay.indexOf(state.q) !== -1;
+      });
+    }
+
+    function render() {
+      var out = $('#' + cfg.id + '-results');
+      if (!out) return;
+      state.q = $('#' + cfg.id + '-search').value.toLowerCase().trim();
+      var list = matching();
+      var total = listOf().length;
+      $('#' + cfg.id + '-count').textContent = list.length === total
+        ? total + ' ' + cfg.noun
+        : list.length + ' of ' + total + ' ' + cfg.noun;
+
+      out.innerHTML = '';
+      var frag = document.createDocumentFragment();
+
+      if (state.by === 'cond') {
+        var keep = {};
+        list.forEach(function (x) { keep[x.id] = true; });
+        var shown = 0;
+        TX_CONDS.forEach(function (cond) {
+          var ids = [];
+          cfg.condKeys.forEach(function (k) {
+            (TXBY[cond][k] || []).forEach(function (i) { if (keep[i]) ids.push(i); });
+          });
+          if (!ids.length) return;
+          shown++;
+          var sec = el('details', 'txcond');
+          if (state.q || state.filter !== 'all') sec.open = true;
+          var sum = el('summary');
+          var nmn = el('span');
+          nmn.innerHTML = highlight(cond, state.q);
+          sum.appendChild(nmn);
+          if (TXBY[cond].extra) {
+            var tag = el('span', 'txtag', 'not in the herb index');
+            tag.title = 'A topic your newer coursework covers that the herb-based Conditions index does not.';
+            sum.appendChild(tag);
+          }
+          sum.appendChild(el('span', 'txn', ids.length + ''));
+          sec.appendChild(sum);
+          var wrap = el('div', 'txgrid');
+          ids.forEach(function (i) {
+            var item = TX_IDX[cfg.set][i];
+            if (item) wrap.appendChild(txCard(item, cfg.set, state.q));
+          });
+          if (TXBY[cond].note) {
+            var nt = el('p', 'txnote');
+            nt.innerHTML = highlight(TXBY[cond].note, state.q);
+            sec.appendChild(nt);
+          }
+          sec.appendChild(wrap);
+          frag.appendChild(sec);
+        });
+        out.appendChild(frag);
+        if (!shown) out.appendChild(el('p', 'count', 'Nothing matches that.'));
+        return;
+      }
+
+      var grid = el('div', 'txgrid');
+      list.slice().sort(function (a, b) { return a.name.toLowerCase().localeCompare(b.name.toLowerCase()); })
+        .forEach(function (x) { grid.appendChild(txCard(x, cfg.set, state.q)); });
+      frag.appendChild(grid);
+      out.appendChild(frag);
+      if (!list.length) out.appendChild(el('p', 'count', 'Nothing matches that.'));
+    }
+
+    if ($('#' + cfg.id + '-search')) {
+      $('#' + cfg.id + '-search').addEventListener('input', render);
+      chips();
+    }
+    return render;
+  }
+
+  var renderPharm = txMakeTab({
+    id: 'pharm', key: 'pharmaceuticals', set: 'pharm', noun: 'entries', condKeys: ['pharm'],
+    groupOf: function (x) { return x.grp; },
+    groups: function () {
+      return (TX.pharmGroups || []).map(function (g) { return { value: g, label: g }; });
+    }
+  });
+  // Therapies are listed alongside supplements — both are the non-drug half of a
+  // plan, and splitting them across two tabs would only hide them.
+  TX.supplements.forEach(function (x) { x._grp = 'Supplement'; });
+  TX.therapies.forEach(function (x) { x._grp = x.kind; });
+  var SUPPS_ALL = TX.supplements.concat(TX.therapies);
+  TX.suppsAndTherapies = SUPPS_ALL;
+  // one lookup covering both, so a by-condition row can mix them
+  TX_IDX.suppsAndTherapies = txIndex(SUPPS_ALL);
+  var renderSupps = txMakeTab({
+    id: 'supps', key: 'suppsAndTherapies', set: 'suppsAndTherapies', noun: 'entries',
+    condKeys: ['supps', 'therapies'],
+    groupOf: function (x) { return x._grp; },
+    groups: function () {
+      return ['Supplement'].concat(TX.therapyKinds || []).map(function (k) { return { value: k, label: k }; });
+    }
+  });
+  var renderLabs = txMakeTab({
+    id: 'labs', key: 'labs', set: 'labs', noun: 'tests', condKeys: ['labs'],
+    groupOf: function (x) { return x.kind; },
+    groups: function () {
+      return (TX.labKinds || []).map(function (k) { return { value: k, label: LAB_KIND_LABEL[k] || k }; });
+    }
+  });
+
+  /* ---- the therapeutics block shown inside each condition ---- */
+  function txForCondition(cond, q) {
+    var rec = TXBY[cond];
+    if (!rec) return null;
+    var wrap = el('div', 'txcond-block');
+    var rows = [
+      ['pharm', 'Pharmaceuticals', 'pharm'],
+      ['supps', 'Supplements', 'supps'],
+      ['therapies', 'Therapies', 'therapies'],
+      ['labs', 'Labs & imaging', 'labs']
+    ];
+    var any = false;
+    rows.forEach(function (r) {
+      var ids = rec[r[0]] || [];
+      if (!ids.length) return;
+      any = true;
+      var sec = el('div', 'txrow');
+      sec.appendChild(el('span', 'txrow-lab', r[1]));
+      var items = el('div', 'txrow-items');
+      ids.forEach(function (i) {
+        var it = TX_IDX[r[2]][i];
+        if (!it) return;
+        var b = el('button', 'txpill ' + r[0], it.name);
+        var tip = [];
+        if (it.cls) tip.push(it.cls);
+        if (it.kind) tip.push(LAB_KIND_LABEL[it.kind] || it.kind);
+        if (it.dose) tip.push(it.dose);
+        tip.push(it.use || it.mech || it.what || it.why || '');
+        if (it.caution) tip.push('Caution: ' + it.caution);
+        b.title = tip.filter(Boolean).join(' — ');
+        if (it.caution && /AVOID|contraindicat|Absolutely|boxed|emergency/i.test(it.caution)) {
+          b.classList.add('flagged');
+        }
+        // therapies live in the supplements tab, so both point there
+        var tab = r[0] === 'labs' ? 'labs' : r[0] === 'pharm' ? 'pharm' : 'supps';
+        b.addEventListener('click', function () {
+          showTab(tab);
+          var inp = $('#' + tab + '-search');
+          if (inp) { inp.value = it.name; inp.dispatchEvent(new Event('input', { bubbles: true })); }
+          $('#panel-' + tab).scrollIntoView({ block: 'start' });
+        });
+        items.appendChild(b);
+      });
+      sec.appendChild(items);
+      wrap.appendChild(sec);
+    });
+    if (rec.note) {
+      var nt = el('p', 'txnote');
+      nt.innerHTML = highlight(rec.note, q || '');
+      wrap.appendChild(nt);
+    }
+    return any || rec.note ? wrap : null;
+  }
 
   /* ==================================================================
      HOMEOPATHY DIFFERENTIATOR
@@ -2352,10 +2706,14 @@
     fillListNotes();
     renderLowDose('');
     renderRef();
+    cxAddTherapeuticsToHaystack();
     buildSystemChips();
     setSort('az');
     buildExamChips();
     renderExams();
+    renderPharm();
+    renderSupps();
+    renderLabs();
 
     hxRenderPick();
     hxRenderRef();

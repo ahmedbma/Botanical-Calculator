@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
 <title>Wellness with Noura</title>
-<meta name="description" content="Nourhan Shams’s clinical notebook: herbal formulation and dosing calculators, a condition index, a homeopathic remedy differentiator, a physical exam and diagnosis index and a 396-herb reference.">
+<meta name="description" content="Nourhan Shams’s clinical notebook: herbal formulation and dosing calculators, a condition index with pharmaceuticals, supplements, therapies and labs, a homeopathic remedy differentiator, a physical exam and diagnosis index and a 396-herb reference.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&amp;family=Jost:wght@400;500;600&amp;display=swap">
@@ -30,6 +30,9 @@
   <button role="tab" class="tab" data-panel="conditions" aria-selected="false">Conditions</button>
   <button role="tab" class="tab" data-panel="homeo" aria-selected="false">Homeopathy</button>
   <button role="tab" class="tab" data-panel="exams" aria-selected="false">Physical Exams</button>
+  <button role="tab" class="tab" data-panel="pharm" aria-selected="false">Pharmaceuticals</button>
+  <button role="tab" class="tab" data-panel="supps" aria-selected="false">Supplements</button>
+  <button role="tab" class="tab" data-panel="labs" aria-selected="false">Labs &amp; Imaging</button>
   <button role="tab" class="tab" data-panel="herbs" aria-selected="false">Herb Reference</button>
 </nav>
 
@@ -478,6 +481,109 @@
   </div>
 </section>
 
+<!-- ==================== PHARMACEUTICALS ==================== -->
+<section id="panel-pharm" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Pharmaceuticals</h2>
+    <div class="provenance"><strong>A reference, not a prescribing guide.</strong> Each entry gives the drug class, what it is used for and the cautions and interactions that change a decision &mdash; and deliberately gives no doses. Dosing belongs to a current formulary and the patient in front of you. Written for this tool from standard references and from your respiratory therapeutics and mental health coursework; not peer reviewed. Herb&ndash;drug interactions are flagged where they matter.</div>
+    <p class="hint">Filter by class, or switch to <strong>By condition</strong> to see what is indicated for each condition in the index. Search a drug, a class, a condition or an interaction &mdash; <em>montelukast</em>, <em>LAMA</em>, <em>asthma</em>, <em>serotonin syndrome</em> all work.</p>
+    <label class="search"><span class="vh">Search Pharmaceuticals</span>
+      <input type="search" id="pharm-search" placeholder="Search drugs, classes, conditions&hellip;">
+    </label>
+    <div class="chips" id="pharm-filters"></div>
+    <div class="sortrow">
+      <p class="count" id="pharm-count"></p>
+      <div class="seg" role="group" aria-label="Arrangement">
+        <button class="segbtn is-on" id="pharm-by-az">A&ndash;Z</button>
+        <button class="segbtn" id="pharm-by-cond">By condition</button>
+      </div>
+    </div>
+    <div id="pharm-results" class="txlist"></div>
+    <details class="srcnote">
+      <summary>Where this comes from</summary>
+      <p><strong>Written for this tool</strong> from standard pharmacology, nutritional and naturopathic
+        references, and from the coursework listed in the banner &mdash; the mental health study guide, the
+        respiratory therapeutics quizzes, the mould and mycotoxin lecture, the Mayan abdominal massage
+        assignment and the EKG assignment. Entries drawn from those documents say so in the text.</p>
+      <p><strong>Not peer reviewed, and not a prescribing guide.</strong> Drug entries carry the class, what
+        it is for, and the cautions that change a decision &mdash; deliberately <em>not</em> doses. Dosing
+        comes from a current formulary against the patient in front of you, checked for renal and hepatic
+        function, pregnancy, and the rest of their list. Supplement ranges are typical adult figures and
+        still need the same check.</p>
+      <p><strong>Check your scope.</strong> What a naturopathic physician may prescribe varies by
+        jurisdiction; this reference does not tell you what you are licensed to do.</p>
+    </details>
+  </div>
+</section>
+<!-- ==================== SUPPLEMENTS ==================== -->
+<section id="panel-supps" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Supplements</h2>
+    <div class="provenance"><strong>Organised by the conditions they are indicated for.</strong> Typical adult dose ranges, the mechanism, and the cautions &mdash; including which supplements must be avoided in which patients. Doses marked as coming from your notes carry the figures your mental health study guide and mould lecture give. Written for this tool from standard nutritional and naturopathic references; not peer reviewed, and no substitute for checking each one against the patient&rsquo;s medication list.</div>
+    <p class="hint">Filter by group, or switch to <strong>By condition</strong>. Search a supplement, a condition or a caution &mdash; <em>magnesium</em>, <em>bipolar</em>, <em>PectaSol</em>, <em>anticoagulant</em> all work.</p>
+    <label class="search"><span class="vh">Search Supplements</span>
+      <input type="search" id="supps-search" placeholder="Search supplements, conditions, cautions&hellip;">
+    </label>
+    <div class="chips" id="supps-filters"></div>
+    <div class="sortrow">
+      <p class="count" id="supps-count"></p>
+      <div class="seg" role="group" aria-label="Arrangement">
+        <button class="segbtn is-on" id="supps-by-az">A&ndash;Z</button>
+        <button class="segbtn" id="supps-by-cond">By condition</button>
+      </div>
+    </div>
+    <div id="supps-results" class="txlist"></div>
+    <details class="srcnote">
+      <summary>Where this comes from</summary>
+      <p><strong>Written for this tool</strong> from standard pharmacology, nutritional and naturopathic
+        references, and from the coursework listed in the banner &mdash; the mental health study guide, the
+        respiratory therapeutics quizzes, the mould and mycotoxin lecture, the Mayan abdominal massage
+        assignment and the EKG assignment. Entries drawn from those documents say so in the text.</p>
+      <p><strong>Not peer reviewed, and not a prescribing guide.</strong> Drug entries carry the class, what
+        it is for, and the cautions that change a decision &mdash; deliberately <em>not</em> doses. Dosing
+        comes from a current formulary against the patient in front of you, checked for renal and hepatic
+        function, pregnancy, and the rest of their list. Supplement ranges are typical adult figures and
+        still need the same check.</p>
+      <p><strong>Check your scope.</strong> What a naturopathic physician may prescribe varies by
+        jurisdiction; this reference does not tell you what you are licensed to do.</p>
+    </details>
+  </div>
+</section>
+<!-- ==================== LABS &AMP; IMAGING ==================== -->
+<section id="panel-labs" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Labs &amp; Imaging</h2>
+    <div class="provenance"><strong>What to run, and what the result means.</strong> Blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels &mdash; each with the reason to order it and how to read it. The same tests are attached to every abnormal finding in the Physical Exams tab and to every condition in the Conditions tab. Written for this tool from standard references and from your coursework; not peer reviewed.</div>
+    <p class="hint">Filter by kind, or switch to <strong>By condition</strong>. Search a test, a condition or a finding &mdash; <em>spirometry</em>, <em>ferritin</em>, <em>mycotoxin</em>, <em>pulmonary embolism</em> all work.</p>
+    <label class="search"><span class="vh">Search Labs &amp; Imaging</span>
+      <input type="search" id="labs-search" placeholder="Search tests, conditions, findings&hellip;">
+    </label>
+    <div class="chips" id="labs-filters"></div>
+    <div class="sortrow">
+      <p class="count" id="labs-count"></p>
+      <div class="seg" role="group" aria-label="Arrangement">
+        <button class="segbtn is-on" id="labs-by-az">A&ndash;Z</button>
+        <button class="segbtn" id="labs-by-cond">By condition</button>
+      </div>
+    </div>
+    <div id="labs-results" class="txlist"></div>
+    <details class="srcnote">
+      <summary>Where this comes from</summary>
+      <p><strong>Written for this tool</strong> from standard pharmacology, nutritional and naturopathic
+        references, and from the coursework listed in the banner &mdash; the mental health study guide, the
+        respiratory therapeutics quizzes, the mould and mycotoxin lecture, the Mayan abdominal massage
+        assignment and the EKG assignment. Entries drawn from those documents say so in the text.</p>
+      <p><strong>Not peer reviewed, and not a prescribing guide.</strong> Drug entries carry the class, what
+        it is for, and the cautions that change a decision &mdash; deliberately <em>not</em> doses. Dosing
+        comes from a current formulary against the patient in front of you, checked for renal and hepatic
+        function, pregnancy, and the rest of their list. Supplement ranges are typical adult figures and
+        still need the same check.</p>
+      <p><strong>Check your scope.</strong> What a naturopathic physician may prescribe varies by
+        jurisdiction; this reference does not tell you what you are licensed to do.</p>
+    </details>
+  </div>
+</section>
+
 <!-- ============================ HERB REFERENCE ============================ -->
 <section id="panel-herbs" class="panel" hidden role="tabpanel">
   <div class="card">
@@ -506,11 +612,18 @@
      classical materia medica. The <strong>Physical Exams &amp; Diagnoses</strong> section is separate again:
      the exam sequence and normal-findings wording are transcribed from Nourhan Shams&rsquo;s own Physical
      Exam &amp; Diagnosis coursework, and the technique lines and abnormal-finding tables were written for
-     this tool from standard physical-diagnosis teaching.</p>
+     this tool from standard physical-diagnosis teaching. The <strong>Pharmaceuticals</strong>,
+     <strong>Supplements</strong> and <strong>Labs &amp; Imaging</strong> tabs, and the therapeutics attached
+     to each condition, were written for this tool from standard pharmacology, nutritional and naturopathic
+     references together with the mental health, respiratory therapeutics, mould and mycotoxin, Mayan
+     abdominal massage and EKG coursework.</p>
   <p class="warn"><strong>For education and clinical reference only.</strong> This tool does not replace professional
      judgement. Verify every dose independently before dispensing, and take particular care with low-dose botanicals.
      Homeopathy is not evidence-based medicine; that tab is a study aid for comparing classical remedy pictures,
-     not a treatment plan. The physical exam findings are study prompts for a differential, not diagnoses. Nothing here is a diagnosis &mdash; anyone whose symptoms are severe, worsening or
+     not a treatment plan. The physical exam findings are study prompts for a differential, not diagnoses. The drug,
+     supplement and lab entries are a study reference, not a prescribing guide &mdash; drug doses are deliberately
+     omitted; verify every agent, dose and interaction against a current formulary and against your own scope of
+     practice. Nothing here is a diagnosis &mdash; anyone whose symptoms are severe, worsening or
      frightening should be seen by a clinician.</p>
 </footer>
 
@@ -518,6 +631,7 @@
 <script src="js/herbdata.js"></script>
 <script src="js/homeopathydata.js"></script>
 <script src="js/physicalexamdata.js"></script>
+<script src="js/therapeuticsdata.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

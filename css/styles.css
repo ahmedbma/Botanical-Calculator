@@ -469,3 +469,81 @@ td.herb input{min-width:190px}
   .pe-seg,.pe-comp .actions{display:none!important}
   .pe-comp[open] .pe-compitem{break-inside:avoid}
 }
+
+/* ---- what to run, on an exam finding ---- */
+.pe-workup{margin-top:7px!important;font-size:.81rem;line-height:1.5;color:var(--ink)}
+.pe-wlab{display:inline-block;font:700 .6rem/1 var(--sans);text-transform:uppercase;letter-spacing:.06em;
+  color:var(--accent);border:1px solid var(--accent);padding:3px 7px;border-radius:99px;
+  margin-right:6px;vertical-align:1px}
+.pe-written{margin:14px 0 0;padding:11px 14px;border-radius:8px;background:var(--ro-bg);
+  color:var(--muted);font-size:.83rem;line-height:1.6;max-width:80ch}
+
+/* ---- therapeutics: pharmaceuticals, supplements, labs ---- */
+.txlist{display:grid;gap:12px}
+.txgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.txcard{border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;background:var(--bg);
+  display:flex;flex-direction:column;gap:7px}
+.txhead{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.txcard h4{margin:0;font:600 1.08rem/1.3 var(--serif);flex:1 1 auto}
+.txbadge{flex:none;font:600 .64rem/1 var(--sans);text-transform:uppercase;letter-spacing:.05em;
+  color:var(--accent);background:var(--accent-soft);padding:4px 9px;border-radius:99px}
+.txcard p{margin:0}
+.txex{font-size:.79rem;line-height:1.45;color:var(--muted);font-style:italic}
+.txdose,.txbody,.txinterp,.txcaution{font-size:.84rem;line-height:1.55}
+.txbody{color:var(--ink)}
+.txinterp,.txdose{color:var(--muted)}
+.txcaution{color:var(--muted)}
+.txcaution.hard{color:var(--danger)}
+.txlab{display:inline-block;font:700 .6rem/1 var(--sans);text-transform:uppercase;letter-spacing:.06em;
+  color:var(--accent);background:var(--accent-soft);padding:3px 7px;border-radius:99px;
+  margin-right:5px;vertical-align:1px}
+.txlab.alt{background:var(--ro-bg);color:var(--muted)}
+.txlab.warn{background:var(--danger-bg);color:var(--danger)}
+.txconds{display:flex;gap:5px;flex-wrap:wrap;margin-top:auto;padding-top:6px;border-top:1px solid var(--line)}
+.txchip{appearance:none;font:inherit;font-size:.72rem;line-height:1.3;padding:3px 9px;border-radius:99px;
+  border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.txchip:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+
+.txcond{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);overflow:hidden}
+.txcond>summary{cursor:pointer;padding:12px 16px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  list-style:none;font:600 1.15rem/1.3 var(--serif)}
+.txcond>summary::-webkit-details-marker{display:none}
+.txcond>summary::before{content:"\25B8";font-family:var(--sans);font-size:.8rem;color:var(--muted);
+  transition:transform .15s ease;display:inline-block}
+.txcond[open]>summary::before{transform:rotate(90deg)}
+.txcond>summary:hover{background:var(--accent-soft)}
+.txcond .txgrid{padding:0 16px 16px}
+.txn{margin-left:auto;font:700 .72rem/1 var(--sans);color:var(--muted);font-variant-numeric:tabular-nums;
+  background:var(--ro-bg);padding:5px 9px;border-radius:99px}
+.txtag{font:600 .62rem/1 var(--sans);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+  border:1px solid var(--line);padding:3px 8px;border-radius:99px;cursor:help}
+.txnote{margin:0 16px 12px;padding:2px 0 2px 14px;border-left:2px solid var(--accent-soft);
+  color:var(--muted);font:italic 500 .98rem/1.6 var(--serif);max-width:80ch}
+.txcard mark,.txcond mark,.txcond-block mark{background:var(--accent-soft);color:var(--accent);
+  border-radius:3px;padding:0 2px}
+
+/* ---- the therapeutics block inside a condition ---- */
+.txdrop{margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+.txdrop>summary{cursor:pointer;font-weight:600;font-size:.86rem;color:var(--accent)}
+.txcond-block{display:grid;gap:10px;margin-top:14px}
+.txrow{display:grid;grid-template-columns:minmax(108px,auto) 1fr;gap:5px 14px;align-items:baseline}
+.txrow-lab{font:700 .64rem/1.4 var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.txrow-items{display:flex;gap:6px;flex-wrap:wrap}
+.txpill{appearance:none;font:inherit;font-size:.78rem;line-height:1.35;padding:5px 11px;border-radius:99px;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:help;text-align:left}
+.txpill:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.txpill.pharm{border-left:3px solid var(--accent)}
+.txpill.supps{border-left:3px solid var(--ro-bg)}
+.txpill.therapies{border-left:3px dotted var(--muted)}
+.txpill.labs{border-left:3px solid var(--line)}
+.txpill.flagged{border-color:var(--danger);color:var(--danger)}
+.txcond-block .txnote{margin:4px 0 0}
+
+@media (max-width:620px){
+  .txgrid{grid-template-columns:1fr}
+  .txrow{grid-template-columns:1fr}
+}
+@media print{
+  .txconds,.txchip{display:none!important}
+  .txcard{break-inside:avoid;border:1px solid #999}
+}
