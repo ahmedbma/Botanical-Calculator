@@ -5601,5 +5601,4111 @@
    "gPerTbsp": 5.0
   }
  ],
- "source": "YARNELL FORMULATOR TOOL (Eric Yarnell, ND) - Bastyr Center for Natural Health"
+ "source": "YARNELL FORMULATOR TOOL (Eric Yarnell, ND) - Bastyr Center for Natural Health",
+ "conditions": [
+  {
+   "condition": "Acne",
+   "system": "Skin",
+   "aliases": [
+    "acne vulgaris",
+    "pimples",
+    "comedones"
+   ],
+   "herbs": [
+    {
+     "herb": "Mahonia aquifolium",
+     "role": "primary",
+     "why": "Antimicrobial and bitter; a long-standing dermatological alterative.",
+     "common": "Oregon grape",
+     "actions": [
+      "antimicrobial",
+      "antineoplastic",
+      "bitter"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Arctium lappa",
+     "role": "primary",
+     "why": "Bitter alterative and hepatoprotective; classic for chronic skin eruption.",
+     "common": "burdock",
+     "actions": [
+      "hepatoprotective",
+      "bitter",
+      "CV tonic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Rumex crispus",
+     "role": "supporting",
+     "why": "Bitter tonic with mild cathartic action to support elimination.",
+     "common": "yellow dock",
+     "actions": [
+      "bitter tonic",
+      "cathartic (mild)"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Vitex agnus-castus",
+     "role": "supporting",
+     "why": "Hormone modulator where flares track the menstrual cycle.",
+     "common": "chaste tree",
+     "actions": [
+      "hormone modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Calendula officinalis",
+     "role": "supporting",
+     "why": "Inflammation modulator and vulnerary; also used topically.",
+     "common": "calendula",
+     "actions": [
+      "inflammation modulator",
+      "vulnerary"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Consider zinc status and glycemic load. Vitex is contraindicated in pregnancy."
+  },
+  {
+   "condition": "Allergic rhinitis",
+   "system": "Respiratory",
+   "aliases": [
+    "hay fever",
+    "seasonal allergies",
+    "pollen allergy"
+   ],
+   "herbs": [
+    {
+     "herb": "Petasites palmatus",
+     "role": "primary",
+     "why": "Antiallergic and spasmolytic; among the better-studied botanicals here.",
+     "common": "butterbur",
+     "actions": [
+      "spasmolytic",
+      "antiallergic"
+     ],
+     "dispensary": true,
+     "lowDose": true,
+     "maxSingleMl": 5.0,
+     "maxDilution": 3.0,
+     "longTerm": "no"
+    },
+    {
+     "herb": "Urtica dioica",
+     "role": "primary",
+     "why": "Freeze-dried nettle leaf is traditional for allergic rhinitis.",
+     "common": "nettles",
+     "actions": [
+      "diuretic",
+      "inflammation modulating"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Solidago canadensis",
+     "role": "supporting",
+     "why": "Antiallergic and inflammation modulating for upper airway.",
+     "common": "goldenrod",
+     "actions": [
+      "diuretic",
+      "inflammation modulator",
+      "antiallergic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Scutellaria baicalensis",
+     "role": "supporting",
+     "why": "Inflammation modulator and antioxidant; flavonoid-rich.",
+     "common": "Baikal skullcap",
+     "actions": [
+      "inflammation modulator",
+      "antioxidant"
+     ]
+    },
+    {
+     "herb": "Ambrosia psilostachya",
+     "role": "supporting",
+     "why": "Antiallergy, used homeopathically and in low dose.",
+     "common": "ragweed",
+     "actions": [
+      "antiallergy"
+     ]
+    }
+   ],
+   "notes": "Only use butterbur products certified free of pyrrolizidine alkaloids."
+  },
+  {
+   "condition": "Amenorrhea",
+   "system": "Gynecological",
+   "aliases": [
+    "absent periods",
+    "missed period"
+   ],
+   "herbs": [
+    {
+     "herb": "Vitex agnus-castus",
+     "role": "primary",
+     "why": "Hormone modulator acting on the pituitary; slow, needs months.",
+     "common": "chaste tree",
+     "actions": [
+      "hormone modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Angelica sinensis",
+     "role": "primary",
+     "why": "Hormone balancing and blood tonic.",
+     "common": "dong quai, danggui",
+     "actions": [
+      "hormone balancing",
+      "blood tonic",
+      "adaptogen"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Leonurus cardiaca",
+     "role": "supporting",
+     "why": "Nervine and hormone modulator for stress-linked amenorrhea.",
+     "common": "motherwort",
+     "actions": [
+      "antiarrhythmic",
+      "nervine",
+      "hormone modulator"
+     ]
+    },
+    {
+     "herb": "Achillea millefolium",
+     "role": "supporting",
+     "why": "Pelvic circulatory and inflammation modulating.",
+     "common": "yarrow",
+     "actions": [
+      "inflammation modulating",
+      "bitter",
+      "vulnerary"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Ruta graveolens",
+     "role": "supporting",
+     "why": "Emmenagogue. LOW DOSE only.",
+     "common": "rue",
+     "actions": [
+      "emmenagogue",
+      "connective tissue tonic"
+     ],
+     "lowDose": true
+    }
+   ],
+   "notes": "Rule out pregnancy, thyroid disease, hyperprolactinemia and hypothalamic causes first. Emmenagogues are contraindicated in pregnancy."
+  },
+  {
+   "condition": "Anemia, iron deficiency",
+   "system": "Blood",
+   "aliases": [
+    "low iron",
+    "iron deficiency",
+    "low hemoglobin"
+   ],
+   "herbs": [
+    {
+     "herb": "Urtica dioica",
+     "role": "primary",
+     "why": "Nutritive and mineral-rich; a food-herb adjunct to repletion.",
+     "common": "nettles",
+     "actions": [
+      "diuretic",
+      "inflammation modulating"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Rumex crispus",
+     "role": "primary",
+     "why": "Bitter tonic traditionally paired with iron repletion to aid absorption.",
+     "common": "yellow dock",
+     "actions": [
+      "bitter tonic",
+      "cathartic (mild)"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Angelica sinensis",
+     "role": "supporting",
+     "why": "Blood tonic in the Chinese sense; not a source of iron.",
+     "common": "dong quai, danggui",
+     "actions": [
+      "hormone balancing",
+      "blood tonic",
+      "adaptogen"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Taraxacum officinale",
+     "role": "supporting",
+     "why": "Bitter to support digestive capacity and absorption.",
+     "common": "dandelion",
+     "actions": [
+      "liver tonic",
+      "bitter"
+     ]
+    }
+   ],
+   "notes": "Herbs do not replace iron repletion. Always investigate the cause of iron loss."
+  },
+  {
+   "condition": "Anxiety",
+   "system": "Nervous system",
+   "aliases": [
+    "anxious",
+    "panic",
+    "nervousness",
+    "GAD"
+   ],
+   "herbs": [
+    {
+     "herb": "Piper methysticum",
+     "role": "primary",
+     "why": "Anxiolytic and nervine with the best evidence for generalized anxiety.",
+     "common": "kava",
+     "actions": [
+      "nervine",
+      "anxiolytic",
+      "anodyne"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Passiflora incarnata",
+     "role": "primary",
+     "why": "Nervine and spasmolytic; good for the somatic side of anxiety.",
+     "common": "passionflower",
+     "actions": [
+      "nervine",
+      "spasmolytic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Scutellaria lateriflora",
+     "role": "primary",
+     "why": "Nervine, gentle enough for sustained use.",
+     "common": "skullcap",
+     "actions": [
+      "nervine",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Withania somniferum",
+     "role": "supporting",
+     "why": "Adaptogen and nervine for anxiety on a background of stress.",
+     "common": "ashwagandha",
+     "actions": [
+      "immunomodulator",
+      "adaptogen",
+      "nervine"
+     ]
+    },
+    {
+     "herb": "Melissa officinalis",
+     "role": "supporting",
+     "why": "Nervine and corrigent; pleasant, good for children.",
+     "common": "lemonbalm",
+     "actions": [
+      "corrigent",
+      "nervine",
+      "antiherpetic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Avena sativa",
+     "role": "supporting",
+     "why": "Trophorestorative nervine for depleted, long-standing cases.",
+     "common": "oat",
+     "actions": [
+      "nervine",
+      "antiaddictive"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Kava requires liver monitoring and avoidance of alcohol; use quality-controlled root extract only."
+  },
+  {
+   "condition": "Asthma",
+   "system": "Respiratory",
+   "aliases": [
+    "reactive airway",
+    "bronchospasm",
+    "wheezing"
+   ],
+   "herbs": [
+    {
+     "herb": "Lobelia inflata",
+     "role": "primary",
+     "why": "Spasmolytic to bronchial smooth muscle plus stimulating expectorant.",
+     "common": "lobelia",
+     "actions": [
+      "spasmolytic",
+      "stimulating expectorant",
+      "nervine"
+     ],
+     "dispensary": true,
+     "lowDose": true,
+     "maxSingleMl": 1.0,
+     "maxDilution": 2.0,
+     "longTerm": "yes"
+    },
+    {
+     "herb": "Ammi visnaga",
+     "role": "primary",
+     "why": "Bronchodilator; khellin is the parent compound of cromolyn.",
+     "common": "khella",
+     "actions": [
+      "bronchodilator",
+      "vasodilator"
+     ],
+     "dispensary": true,
+     "lowDose": true,
+     "maxSingleMl": 2.5,
+     "maxDilution": 3.0,
+     "longTerm": "yes"
+    },
+    {
+     "herb": "Grindelia spp",
+     "role": "supporting",
+     "why": "Inflammation modulator and mucolytic for tenacious sputum.",
+     "common": "gumweed",
+     "actions": [
+      "inflammation modulator",
+      "mucolytic"
+     ]
+    },
+    {
+     "herb": "Glycyrrhiza glabra",
+     "role": "supporting",
+     "why": "Inflammation modulator and synergizer; also a corrigent.",
+     "common": "licorice",
+     "actions": [
+      "synergizer",
+      "corrigent",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Petasites palmatus",
+     "role": "supporting",
+     "why": "Spasmolytic and antiallergic where atopy drives it.",
+     "common": "butterbur",
+     "actions": [
+      "spasmolytic",
+      "antiallergic"
+     ],
+     "dispensary": true,
+     "lowDose": true,
+     "maxSingleMl": 5.0,
+     "maxDilution": 3.0,
+     "longTerm": "no"
+    },
+    {
+     "herb": "Ephedra sinica",
+     "role": "supporting",
+     "why": "Bronchodilating and antiallergic.heavily restricted.",
+     "common": "ma huang",
+     "actions": [
+      "bronchodilating",
+      "antiallergic"
+     ],
+     "lowDose": true
+    }
+   ],
+   "notes": "Never replace rescue or controller inhalers with botanicals. Ephedra is legally restricted in many jurisdictions and is contraindicated in hypertension and arrhythmia."
+  },
+  {
+   "condition": "Atherosclerosis",
+   "system": "Cardiovascular",
+   "aliases": [
+    "high cholesterol",
+    "hyperlipidemia",
+    "plaque",
+    "dyslipidemia"
+   ],
+   "herbs": [
+    {
+     "herb": "Allium sativum",
+     "role": "primary",
+     "why": "Modest lipid and blood-pressure effects; antimicrobial and anticancer besides.",
+     "common": "garlic",
+     "actions": [
+      "antimicrobial",
+      "anticancer"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Crataegus monogyna",
+     "role": "primary",
+     "why": "Cardiovascular tonic; supports endothelium and myocardium.",
+     "common": "hawthorn",
+     "actions": [
+      "CV tonic"
+     ]
+    },
+    {
+     "herb": "Curcuma longa",
+     "role": "supporting",
+     "why": "Inflammation modulator acting on the inflammatory side of plaque.",
+     "common": "turmeric",
+     "actions": [
+      "inflammation modulator",
+      "antineoplastic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Salvia miltiorrhiza",
+     "role": "supporting",
+     "why": "Inflammation modulator and antifibrotic with circulatory use.",
+     "common": "Chinese sage",
+     "actions": [
+      "inflammation modulator",
+      "antifibrotic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Rosmarinus officinalis",
+     "role": "supporting",
+     "why": "CV tonic and antioxidant.",
+     "common": "rosemary",
+     "actions": [
+      "nootropic",
+      "CV tonic",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Garlic and Salvia miltiorrhiza both carry bleeding risk alongside anticoagulants."
+  },
+  {
+   "condition": "Benign prostatic hyperplasia",
+   "system": "Genitourinary",
+   "aliases": [
+    "BPH",
+    "enlarged prostate",
+    "prostate enlargement"
+   ],
+   "herbs": [
+    {
+     "herb": "Serenoa repens",
+     "role": "primary",
+     "why": "Prostate tonic and spasmolytic; the best known botanical for BPH.",
+     "common": "saw palmetto",
+     "actions": [
+      "prostate tonic",
+      "spasmolytic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Urtica dioica",
+     "role": "primary",
+     "why": "Nettle root is specifically BPH-corrective and pairs with saw palmetto.",
+     "common": "nettles",
+     "actions": [
+      "diuretic",
+      "inflammation modulating"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Epilobium angustifolium",
+     "role": "primary",
+     "why": "Prostatic inflammation modulator, specifically BPH remedial.",
+     "common": "fireweed",
+     "actions": [
+      "inflammation modulator, prostatic",
+      "BPH remedial"
+     ]
+    },
+    {
+     "herb": "Eryngium yuccafolium",
+     "role": "supporting",
+     "why": "Prostatic inflammation modulator.",
+     "common": "rattlesnake master, button eryngo",
+     "actions": [
+      "inflammation modulator, prostatic"
+     ]
+    },
+    {
+     "herb": "Chimaphila umbellata",
+     "role": "supporting",
+     "why": "Genitourinary tonic and diuretic for retention.",
+     "common": "pipsissewa",
+     "actions": [
+      "genitourinary tonic",
+      "diuretic"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Exclude prostate cancer before treating. Saw palmetto can blunt PSA readings."
+  },
+  {
+   "condition": "Bronchitis",
+   "system": "Respiratory",
+   "aliases": [
+    "chest infection",
+    "chest cold",
+    "productive cough"
+   ],
+   "herbs": [
+    {
+     "herb": "Inula helenium",
+     "role": "primary",
+     "why": "Lung tonic and mixed expectorant; a specific for wet, boggy chests.",
+     "common": "elecampane",
+     "actions": [
+      "lung tonic",
+      "mixed expectorant"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Thymus vulgaris",
+     "role": "primary",
+     "why": "Antimicrobial, spasmolytic, lung-directed.",
+     "common": "thyme",
+     "actions": [
+      "antimicrobial",
+      "spasmolytic, lung"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Verbascum thapsus",
+     "role": "supporting",
+     "why": "Lung tonic and relaxing expectorant; soothing.",
+     "common": "mullein",
+     "actions": [
+      "lung tonic",
+      "relaxing expectorant"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Eriodictyon angustifolium",
+     "role": "supporting",
+     "why": "Respiratory inflammation modulator and mucolytic.",
+     "common": "yerba santa",
+     "actions": [
+      "inflammation modultor, respiratory",
+      "mucolytic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Ligusticum porteri",
+     "role": "supporting",
+     "why": "Antimicrobial and immune stimulant for viral onset.",
+     "common": "oshá",
+     "actions": [
+      "antimicrobial",
+      "immune stimulant"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Glycyrrhiza glabra",
+     "role": "supporting",
+     "why": "Demulcent, inflammation modulator and formula synergizer.",
+     "common": "licorice",
+     "actions": [
+      "synergizer",
+      "corrigent",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Refer if febrile, hypoxic, or if symptoms persist beyond three weeks."
+  },
+  {
+   "condition": "Candidiasis",
+   "system": "Infectious",
+   "aliases": [
+    "yeast infection",
+    "thrush",
+    "candida"
+   ],
+   "herbs": [
+    {
+     "herb": "Allium sativum",
+     "role": "primary",
+     "why": "Broad antimicrobial with antifungal activity.",
+     "common": "garlic",
+     "actions": [
+      "antimicrobial",
+      "anticancer"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Thuja occidentalis",
+     "role": "primary",
+     "why": "Antimicrobial and immunomodulator.",
+     "common": "arbor vitae, cedar",
+     "actions": [
+      "antimicrobial",
+      "antineoplastic",
+      "immunomodulator"
+     ],
+     "dispensary": true,
+     "lowDose": true,
+     "maxSingleMl": 3.0,
+     "maxDilution": 2.0,
+     "longTerm": "yes"
+    },
+    {
+     "herb": "Mahonia aquifolium",
+     "role": "supporting",
+     "why": "Berberine-containing antimicrobial and bitter.",
+     "common": "Oregon grape",
+     "actions": [
+      "antimicrobial",
+      "antineoplastic",
+      "bitter"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Calendula officinalis",
+     "role": "supporting",
+     "why": "Antimicrobial and vulnerary; useful topically and as a douche.",
+     "common": "calendula",
+     "actions": [
+      "inflammation modulator",
+      "vulnerary"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Chilopsis linearis",
+     "role": "supporting",
+     "why": "Specifically antifungal.",
+     "common": "desert willow",
+     "actions": [
+      "antifungal"
+     ]
+    }
+   ],
+   "notes": "Address the substrate: glycemic control, recent antibiotics, immune status."
+  },
+  {
+   "condition": "Cognitive decline",
+   "system": "Nervous system",
+   "aliases": [
+    "memory loss",
+    "brain fog",
+    "dementia",
+    "poor concentration"
+   ],
+   "herbs": [
+    {
+     "herb": "Ginkgo biloba",
+     "role": "primary",
+     "why": "Nootropic, antioxidant and inflammation modulator; best-studied here.",
+     "common": "ginkgo",
+     "actions": [
+      "antioxidant",
+      "nootropic",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Bacopa monniera",
+     "role": "primary",
+     "why": "Nootropic with trial support for memory acquisition.",
+     "common": "bacopa",
+     "actions": [
+      "nootropic"
+     ]
+    },
+    {
+     "herb": "Centella asiatica",
+     "role": "supporting",
+     "why": "Nootropic and adaptogen.",
+     "common": "gotu kola",
+     "actions": [
+      "antifibrotic",
+      "adaptogen",
+      "nootropic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Rosmarinus officinalis",
+     "role": "supporting",
+     "why": "Nootropic and CV tonic; carnosic acid is neuroprotective.",
+     "common": "rosemary",
+     "actions": [
+      "nootropic",
+      "CV tonic",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Lavandula officinalis",
+     "role": "supporting",
+     "why": "Nootropic and calming where anxiety clouds cognition.",
+     "common": "lavender",
+     "actions": [
+      "antimicrobial",
+      "nootropic",
+      "vulnerary"
+     ]
+    }
+   ],
+   "notes": "Ginkgo carries bleeding risk with anticoagulants. Investigate reversible causes: B12, thyroid, sleep apnea, depression."
+  },
+  {
+   "condition": "Common cold",
+   "system": "Infectious",
+   "aliases": [
+    "URI",
+    "upper respiratory infection",
+    "head cold"
+   ],
+   "herbs": [
+    {
+     "herb": "Echinacea angustifolia",
+     "role": "primary",
+     "why": "Immune stimulant and antimicrobial; best started at onset.",
+     "common": "echinacea",
+     "actions": [
+      "immune stimulant",
+      "antimicrobial",
+      "inflammation modulating"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Sambucus cerulea",
+     "role": "primary",
+     "why": "Antiviral and a pleasant corrigent.",
+     "common": "blue elder",
+     "actions": [
+      "antiviral",
+      "corrigent"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Ligusticum porteri",
+     "role": "primary",
+     "why": "Antimicrobial and immune stimulant; a Western specific at onset.",
+     "common": "oshá",
+     "actions": [
+      "antimicrobial",
+      "immune stimulant"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Achillea millefolium",
+     "role": "supporting",
+     "why": "Diaphoretic in hot infusion for the febrile stage.",
+     "common": "yarrow",
+     "actions": [
+      "inflammation modulating",
+      "bitter",
+      "vulnerary"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Allium sativum",
+     "role": "supporting",
+     "why": "Antimicrobial.",
+     "common": "garlic",
+     "actions": [
+      "antimicrobial",
+      "anticancer"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Zingiber officinale",
+     "role": "supporting",
+     "why": "Warming, diaphoretic and a good corrigent.",
+     "common": "ginger",
+     "actions": [
+      "corrigent",
+      "antinausea",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Value is greatest in the first 48 hours."
+  },
+  {
+   "condition": "Congestive heart failure",
+   "system": "Cardiovascular",
+   "aliases": [
+    "CHF",
+    "heart failure",
+    "cardiac insufficiency"
+   ],
+   "herbs": [
+    {
+     "herb": "Crataegus monogyna",
+     "role": "primary",
+     "why": "CV tonic; the mainstay botanical for mild systolic dysfunction.",
+     "common": "hawthorn",
+     "actions": [
+      "CV tonic"
+     ]
+    },
+    {
+     "herb": "Convallaria majalis",
+     "role": "primary",
+     "why": "Positive inotrope and antiarrhythmic.cardioactive glycosides.",
+     "common": "lily-of-the-valley",
+     "actions": [
+      "positive inotrope",
+      "antiarrhythmic"
+     ],
+     "dispensary": true,
+     "lowDose": true,
+     "maxSingleMl": 2.5,
+     "maxDilution": 5.0,
+     "longTerm": "yes"
+    },
+    {
+     "herb": "Hylocereus undatus",
+     "role": "supporting",
+     "why": "Cardiotonic and antiarrhythmic.",
+     "common": "night-blooming cereus",
+     "actions": [
+      "antiarrhythmic",
+      "cardiotonic"
+     ],
+     "lowDose": true
+    },
+    {
+     "herb": "Apocynum cannabinum",
+     "role": "supporting",
+     "why": "Cardiotonic.narrow margin.",
+     "common": "dogbane",
+     "actions": [
+      "cardiotonic"
+     ],
+     "lowDose": true
+    },
+    {
+     "herb": "Leonurus cardiaca",
+     "role": "supporting",
+     "why": "Antiarrhythmic nervine for palpitations with anxiety.",
+     "common": "motherwort",
+     "actions": [
+      "antiarrhythmic",
+      "nervine",
+      "hormone modulator"
+     ]
+    }
+   ],
+   "notes": "Cardioactive glycoside herbs are for experienced practitioners only and interact dangerously with digoxin, diuretics and antiarrhythmics. Co-manage with cardiology."
+  },
+  {
+   "condition": "Constipation",
+   "system": "Digestive",
+   "aliases": [
+    "irregularity",
+    "hard stools"
+   ],
+   "herbs": [
+    {
+     "herb": "Rumex crispus",
+     "role": "primary",
+     "why": "Bitter tonic with mild cathartic action; gentler than anthranoids.",
+     "common": "yellow dock",
+     "actions": [
+      "bitter tonic",
+      "cathartic (mild)"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Rheum palmatum",
+     "role": "primary",
+     "why": "Cathartic at high dose; nephroprotective and antineoplastic at low dose.",
+     "common": "rhubarb",
+     "actions": [
+      "cathartic (high-dose)",
+      "nephroprotective (low-dose)",
+      "antineoplastic (low-dose)"
+     ],
+     "dispensary": true,
+     "lowDose": true,
+     "maxSingleMl": 2.0,
+     "maxDilution": 4.0,
+     "longTerm": "no"
+    },
+    {
+     "herb": "Taraxacum officinale",
+     "role": "supporting",
+     "why": "Bitter and cholagogue to improve bile flow.",
+     "common": "dandelion",
+     "actions": [
+      "liver tonic",
+      "bitter"
+     ]
+    },
+    {
+     "herb": "Plantago lanceolata",
+     "role": "supporting",
+     "why": "Mucilage adds bulk and soothes.",
+     "common": "lanceleaf plantain, ribwort",
+     "actions": [
+      "vulnerary",
+      "inflammation modulator"
+     ]
+    },
+    {
+     "herb": "Zingiber officinale",
+     "role": "supporting",
+     "why": "Corrigent that reduces the griping of cathartics.",
+     "common": "ginger",
+     "actions": [
+      "corrigent",
+      "antinausea",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Anthranoid laxatives are for short-term use only; long-term use causes dependence. Prioritize fiber, fluid, and movement."
+  },
+  {
+   "condition": "Cough",
+   "system": "Respiratory",
+   "aliases": [
+    "dry cough",
+    "tickly cough",
+    "hacking cough"
+   ],
+   "herbs": [
+    {
+     "herb": "Tussilago farfara",
+     "role": "primary",
+     "why": "Antitussive and demulcent.",
+     "common": "coltsfoot",
+     "actions": [
+      "antitussive",
+      "demulcent"
+     ],
+     "dispensary": true,
+     "lowDose": true,
+     "maxSingleMl": 5.0,
+     "maxDilution": 5.0,
+     "longTerm": "no"
+    },
+    {
+     "herb": "Verbascum thapsus",
+     "role": "primary",
+     "why": "Lung tonic and relaxing expectorant.",
+     "common": "mullein",
+     "actions": [
+      "lung tonic",
+      "relaxing expectorant"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Glycyrrhiza glabra",
+     "role": "primary",
+     "why": "Demulcent and inflammation modulator; sweet and soothing.",
+     "common": "licorice",
+     "actions": [
+      "synergizer",
+      "corrigent",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Althaea officinalis",
+     "role": "supporting",
+     "why": "Demulcent for raw, irritated airways.",
+     "common": "marshmallow",
+     "actions": [
+      "demulcent"
+     ]
+    },
+    {
+     "herb": "Prunus serotina",
+     "role": "supporting",
+     "why": "Classic antitussive for unproductive spasmodic cough.",
+     "dispensary": true
+    },
+    {
+     "herb": "Lobelia inflata",
+     "role": "supporting",
+     "why": "Spasmolytic for a spasmodic cough.",
+     "common": "lobelia",
+     "actions": [
+      "spasmolytic",
+      "stimulating expectorant",
+      "nervine"
+     ],
+     "dispensary": true,
+     "lowDose": true,
+     "maxSingleMl": 1.0,
+     "maxDilution": 2.0,
+     "longTerm": "yes"
+    }
+   ],
+   "notes": "Match to the cough: demulcents for dry and irritable, expectorants for stuck and productive. Suppressing a productive cough is counterproductive."
+  },
+  {
+   "condition": "Depression",
+   "system": "Nervous system",
+   "aliases": [
+    "low mood",
+    "dysthymia",
+    "depressed"
+   ],
+   "herbs": [
+    {
+     "herb": "Hypericum perforatum",
+     "role": "primary",
+     "why": "Antidepressant with substantial trial support for mild to moderate depression.",
+     "common": "St. John's wort",
+     "actions": [
+      "antidepressant",
+      "antiherpetic",
+      "vulnerary"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Rhodiola rosea",
+     "role": "primary",
+     "why": "Adaptogen and antidepressant; good for fatigue-dominant presentations.",
+     "common": "rose root",
+     "actions": [
+      "adaptogen",
+      "antidepressant"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Turnera diffusa",
+     "role": "supporting",
+     "why": "Antidepressant and aphrodisiac.",
+     "common": "damiana",
+     "actions": [
+      "aphrodisiac",
+      "antidepressant"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Withania somniferum",
+     "role": "supporting",
+     "why": "Adaptogen and nervine where stress and exhaustion dominate.",
+     "common": "ashwagandha",
+     "actions": [
+      "immunomodulator",
+      "adaptogen",
+      "nervine"
+     ]
+    },
+    {
+     "herb": "Zizyphus spinosa",
+     "role": "supporting",
+     "why": "Antidepressant and formula synergizer.",
+     "common": "jujube",
+     "actions": [
+      "antidepressant",
+      "synergizer"
+     ]
+    }
+   ],
+   "notes": "St. John's wort is a potent CYP3A4 and P-glycoprotein inducer: it interacts with oral contraceptives, anticoagulants, antiretrovirals, immunosuppressants and SSRIs. Screen for bipolar disorder and suicidality."
+  },
+  {
+   "condition": "Diabetes mellitus, type 2",
+   "system": "Endocrine",
+   "aliases": [
+    "diabetes",
+    "insulin resistance",
+    "high blood sugar",
+    "prediabetes",
+    "metabolic syndrome"
+   ],
+   "herbs": [
+    {
+     "herb": "Momordica charantia",
+     "role": "primary",
+     "why": "Insulin sensitizer and bitter.",
+     "common": "bitter melon",
+     "actions": [
+      "insulin sensitizer",
+      "demulcent",
+      "bitter"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Galega officinalis",
+     "role": "primary",
+     "why": "Insulin sensitizer; the botanical origin of metformin.",
+     "common": "goatsrue",
+     "actions": [
+      "insulin sensitizer"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Pterocarpus marsupium",
+     "role": "supporting",
+     "why": "Insulin sensitizer.",
+     "common": "kino",
+     "actions": [
+      "insulin sensitizer"
+     ]
+    },
+    {
+     "herb": "Cinnamomum lourelii",
+     "role": "supporting",
+     "why": "Insulin sensitizing and antimicrobial.",
+     "common": "cinnamon",
+     "actions": [
+      "antimicrobial",
+      "insulin sensitizing"
+     ]
+    },
+    {
+     "herb": "Vaccinium myrtillus",
+     "role": "supporting",
+     "why": "Antidiabetic and antioxidant; supports retinal microvasculature.",
+     "common": "bilberry",
+     "actions": [
+      "antidiabetic",
+      "antiadhesion",
+      "antioxidant"
+     ]
+    },
+    {
+     "herb": "Panax quinquefolius",
+     "role": "supporting",
+     "why": "Adaptogen and insulin sensitizer.",
+     "common": "American ginseng",
+     "actions": [
+      "immunomodulator",
+      "insulin sensitizer",
+      "adaptogen"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Monitor glucose closely: these can potentiate hypoglycemics and require dose adjustment."
+  },
+  {
+   "condition": "Diarrhea",
+   "system": "Digestive",
+   "aliases": [
+    "loose stools",
+    "the runs"
+   ],
+   "herbs": [
+    {
+     "herb": "Geranium maculatum",
+     "role": "primary",
+     "why": "Astringent; a reliable gut astringent.",
+     "common": "cranesbill",
+     "actions": [
+      "astringent"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Potentilla pacifica",
+     "role": "primary",
+     "why": "Astringent.",
+     "common": "cinquefoil",
+     "actions": [
+      "astringent"
+     ]
+    },
+    {
+     "herb": "Rubus discolor",
+     "role": "supporting",
+     "why": "Astringent; blackberry root is traditional.",
+     "common": "astringent"
+    },
+    {
+     "herb": "Achillea millefolium",
+     "role": "supporting",
+     "why": "Astringent and inflammation modulating.",
+     "common": "yarrow",
+     "actions": [
+      "inflammation modulating",
+      "bitter",
+      "vulnerary"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Matricaria recutita",
+     "role": "supporting",
+     "why": "GI inflammation modulator and nervine.",
+     "common": "chamomile",
+     "actions": [
+      "inflammation modulator, GI",
+      "nervine"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Rehydration comes first. Investigate bloody, febrile or persistent diarrhea, and recent travel or antibiotics."
+  },
+  {
+   "condition": "Dysmenorrhea",
+   "system": "Gynecological",
+   "aliases": [
+    "menstrual cramps",
+    "period pain",
+    "painful periods"
+   ],
+   "herbs": [
+    {
+     "herb": "Viburnum opulus",
+     "role": "primary",
+     "why": "Spasmolytic; crampbark is the specific for uterine cramping.",
+     "common": "crampbark",
+     "actions": [
+      "spasmolytic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Viburnum prunifolium",
+     "role": "primary",
+     "why": "Spasmolytic, slightly more astringent than crampbark.",
+     "common": "blackhaw",
+     "actions": [
+      "spasmolytic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Paeonia lactiflora",
+     "role": "supporting",
+     "why": "Spasmolytic and hormone modulator.",
+     "common": "bai shao peony",
+     "actions": [
+      "spasmolytic",
+      "hormone modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Zingiber officinale",
+     "role": "supporting",
+     "why": "Inflammation modulator with trial support for period pain.",
+     "common": "ginger",
+     "actions": [
+      "corrigent",
+      "antinausea",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Corydalis yanhusuo",
+     "role": "supporting",
+     "why": "Analgesic and sedative.",
+     "common": "corydalis, yan hu suo",
+     "actions": [
+      "analgesic",
+      "sedative"
+     ],
+     "lowDose": true
+    },
+    {
+     "herb": "Piscidia piscipula",
+     "role": "supporting",
+     "why": "Spasmolytic and anodyne for severe pain.",
+     "common": "Jamaica dogwood",
+     "actions": [
+      "spasmolytic",
+      "anodyne",
+      "nervine"
+     ]
+    }
+   ],
+   "notes": "Investigate secondary causes: endometriosis, fibroids, adenomyosis, IUD."
+  },
+  {
+   "condition": "Eczema",
+   "system": "Skin",
+   "aliases": [
+    "atopic dermatitis",
+    "dermatitis",
+    "itchy skin"
+   ],
+   "herbs": [
+    {
+     "herb": "Arctium lappa",
+     "role": "primary",
+     "why": "Bitter alterative and hepatoprotective; the classic eczema herb.",
+     "common": "burdock",
+     "actions": [
+      "hepatoprotective",
+      "bitter",
+      "CV tonic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Stellaria media",
+     "role": "primary",
+     "why": "Antipruritic and demulcent; excellent topically.",
+     "common": "chickweed",
+     "actions": [
+      "antipruritic",
+      "demulcent"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Mahonia aquifolium",
+     "role": "supporting",
+     "why": "Antimicrobial and bitter; useful for scaling.",
+     "common": "Oregon grape",
+     "actions": [
+      "antimicrobial",
+      "antineoplastic",
+      "bitter"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Calendula officinalis",
+     "role": "supporting",
+     "why": "Vulnerary and inflammation modulator, internally and topically.",
+     "common": "calendula",
+     "actions": [
+      "inflammation modulator",
+      "vulnerary"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Urtica dioica",
+     "role": "supporting",
+     "why": "Inflammation modulating and nutritive.",
+     "common": "nettles",
+     "actions": [
+      "diuretic",
+      "inflammation modulating"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Glycyrrhiza glabra",
+     "role": "supporting",
+     "why": "Inflammation modulator; also used topically.",
+     "common": "licorice",
+     "actions": [
+      "synergizer",
+      "corrigent",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Address barrier care and food triggers alongside internal treatment."
+  },
+  {
+   "condition": "Edema",
+   "system": "Cardiovascular",
+   "aliases": [
+    "fluid retention",
+    "swelling",
+    "water retention"
+   ],
+   "herbs": [
+    {
+     "herb": "Taraxacum officinale",
+     "role": "primary",
+     "why": "Diuretic that is naturally potassium-rich, unlike pharmaceutical loop diuretics.",
+     "common": "dandelion",
+     "actions": [
+      "liver tonic",
+      "bitter"
+     ]
+    },
+    {
+     "herb": "Petroselinum crispum",
+     "role": "supporting",
+     "why": "Diuretic.",
+     "common": "parsley",
+     "actions": [
+      "diuretic"
+     ]
+    },
+    {
+     "herb": "Equisetum arvense",
+     "role": "supporting",
+     "why": "Genitourinary tonic and diuretic.",
+     "common": "horsetail",
+     "actions": [
+      "GU tonic",
+      "diuretic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Aesculus hippocastanum",
+     "role": "supporting",
+     "why": "Antiedema and venotonic where the cause is venous.",
+     "common": "horse chestnut",
+     "actions": [
+      "antiedema",
+      "venotonic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Zea mays",
+     "role": "supporting",
+     "why": "Diuretic and demulcent; gentle.",
+     "common": "cornsilk",
+     "actions": [
+      "diuretic",
+      "demulcent"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Edema is a sign, not a diagnosis: exclude cardiac, renal, hepatic and thyroid causes before treating it symptomatically."
+  },
+  {
+   "condition": "Endometriosis",
+   "system": "Gynecological",
+   "aliases": [
+    "endo",
+    "pelvic pain",
+    "retrograde menstruation"
+   ],
+   "herbs": [
+    {
+     "herb": "Vitex agnus-castus",
+     "role": "primary",
+     "why": "Hormone modulator; long-term use to shift the estrogen-progesterone balance.",
+     "common": "chaste tree",
+     "actions": [
+      "hormone modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Viburnum opulus",
+     "role": "primary",
+     "why": "Spasmolytic for the cramping component.",
+     "common": "crampbark",
+     "actions": [
+      "spasmolytic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Curcuma longa",
+     "role": "primary",
+     "why": "Inflammation modulator; endometriosis is substantially inflammatory.",
+     "common": "turmeric",
+     "actions": [
+      "inflammation modulator",
+      "antineoplastic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Paeonia lactiflora",
+     "role": "supporting",
+     "why": "Spasmolytic and hormone modulator; classically paired with licorice.",
+     "common": "bai shao peony",
+     "actions": [
+      "spasmolytic",
+      "hormone modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Fouquieria splendens",
+     "role": "supporting",
+     "why": "Pelvic lymphagogue for pelvic congestion.",
+     "common": "ocotillo",
+     "actions": [
+      "lymphagogue, pelvic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Achillea millefolium",
+     "role": "supporting",
+     "why": "Pelvic circulatory and inflammation modulating.",
+     "common": "yarrow",
+     "actions": [
+      "inflammation modulating",
+      "bitter",
+      "vulnerary"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Angelica sinensis",
+     "role": "supporting",
+     "why": "Hormone balancing and blood tonic.",
+     "common": "dong quai, danggui",
+     "actions": [
+      "hormone balancing",
+      "blood tonic",
+      "adaptogen"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Definitive diagnosis is surgical. Treatment is long-term and best co-managed; expect months, not weeks. Avoid Vitex in pregnancy."
+  },
+  {
+   "condition": "Fibromyalgia",
+   "system": "Musculoskeletal",
+   "aliases": [
+    "widespread pain",
+    "FMS",
+    "chronic pain syndrome"
+   ],
+   "herbs": [
+    {
+     "herb": "Withania somniferum",
+     "role": "primary",
+     "why": "Adaptogen and nervine for the stress-pain-sleep cycle.",
+     "common": "ashwagandha",
+     "actions": [
+      "immunomodulator",
+      "adaptogen",
+      "nervine"
+     ]
+    },
+    {
+     "herb": "Piscidia piscipula",
+     "role": "primary",
+     "why": "Spasmolytic, anodyne and nervine.",
+     "common": "Jamaica dogwood",
+     "actions": [
+      "spasmolytic",
+      "anodyne",
+      "nervine"
+     ]
+    },
+    {
+     "herb": "Stachys officinalis",
+     "role": "supporting",
+     "why": "Skeletal muscle relaxant and nervine.",
+     "common": "betony",
+     "actions": [
+      "skeletal muscle relaxant",
+      "nervine",
+      "bitter"
+     ]
+    },
+    {
+     "herb": "Valeriana sitchensis",
+     "role": "supporting",
+     "why": "Nervine, hypnotic and analgesic; helps the sleep component.",
+     "common": "Pacific valerian",
+     "actions": [
+      "nervine",
+      "hypnotic",
+      "analgesic"
+     ]
+    },
+    {
+     "herb": "Curcuma longa",
+     "role": "supporting",
+     "why": "Inflammation modulator.",
+     "common": "turmeric",
+     "actions": [
+      "inflammation modulator",
+      "antineoplastic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Hypericum perforatum",
+     "role": "supporting",
+     "why": "Antidepressant where mood is entangled with pain.",
+     "common": "St. John's wort",
+     "actions": [
+      "antidepressant",
+      "antiherpetic",
+      "vulnerary"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Sleep restoration usually moves the pain more than analgesics do."
+  },
+  {
+   "condition": "Gallstones",
+   "system": "Digestive",
+   "aliases": [
+    "cholelithiasis",
+    "gallbladder",
+    "biliary colic"
+   ],
+   "herbs": [
+    {
+     "herb": "Fumaria officinalis",
+     "role": "primary",
+     "why": "Gallbladder modulator; amphoteric on bile flow.",
+     "common": "fumitory",
+     "actions": [
+      "gallbladder modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Chelidonium majus",
+     "role": "primary",
+     "why": "Cholagogue with antispasmodic action on the biliary tree.",
+     "common": "celandine",
+     "actions": [
+      "cholagogue"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Silybum marianum",
+     "role": "supporting",
+     "why": "Hepatoprotective; supports the liver side of bile production.",
+     "common": "milk thistle",
+     "actions": [
+      "hepatoprotective",
+      "nephroprotective",
+      "antineoplastic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Chelone glabra",
+     "role": "supporting",
+     "why": "Mild cholagogue, well tolerated.",
+     "common": "balmony",
+     "actions": [
+      "cholagogue, mild"
+     ]
+    },
+    {
+     "herb": "Iris versicolor",
+     "role": "supporting",
+     "why": "Cholagogue and lymphagogue.",
+     "common": "blue flag",
+     "actions": [
+      "cholagogue",
+      "lymphagogue"
+     ],
+     "dispensary": true,
+     "lowDose": true,
+     "maxSingleMl": 0.5,
+     "maxDilution": 2.0,
+     "longTerm": "yes"
+    },
+    {
+     "herb": "Taraxacum officinale",
+     "role": "supporting",
+     "why": "Bitter and cholagogue.",
+     "common": "dandelion",
+     "actions": [
+      "liver tonic",
+      "bitter"
+     ]
+    }
+   ],
+   "notes": "Strong cholagogues can precipitate colic if a stone obstructs the duct. Acute cholecystitis is a surgical problem."
+  },
+  {
+   "condition": "Gastritis",
+   "system": "Digestive",
+   "aliases": [
+    "peptic ulcer",
+    "stomach ulcer",
+    "H pylori",
+    "stomach inflammation"
+   ],
+   "herbs": [
+    {
+     "herb": "Glycyrrhiza glabra",
+     "role": "primary",
+     "why": "Inflammation modulator; deglycyrrhizinated licorice is the ulcer standard.",
+     "common": "licorice",
+     "actions": [
+      "synergizer",
+      "corrigent",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Althaea officinalis",
+     "role": "primary",
+     "why": "Demulcent, coating and protective.",
+     "common": "marshmallow",
+     "actions": [
+      "demulcent"
+     ]
+    },
+    {
+     "herb": "Matricaria recutita",
+     "role": "primary",
+     "why": "GI inflammation modulator and nervine.",
+     "common": "chamomile",
+     "actions": [
+      "inflammation modulator, GI",
+      "nervine"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Symphytum officinale",
+     "role": "supporting",
+     "why": "Demulcent and vulnerary. Short-term only, PA content.",
+     "common": "comfrey",
+     "actions": [
+      "vulnerary",
+      "demulcent"
+     ]
+    },
+    {
+     "herb": "Filipendula ulmaria",
+     "role": "supporting",
+     "why": "Traditionally antacid and gently astringent.",
+     "dispensary": true
+    },
+    {
+     "herb": "Mahonia aquifolium",
+     "role": "supporting",
+     "why": "Berberine with activity against H. pylori.",
+     "common": "Oregon grape",
+     "actions": [
+      "antimicrobial",
+      "antineoplastic",
+      "bitter"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Test for H. pylori. Whole licorice raises blood pressure and lowers potassium with sustained use; prefer DGL."
+  },
+  {
+   "condition": "GERD",
+   "system": "Digestive",
+   "aliases": [
+    "reflux",
+    "heartburn",
+    "acid reflux",
+    "GORD",
+    "indigestion"
+   ],
+   "herbs": [
+    {
+     "herb": "Althaea officinalis",
+     "role": "primary",
+     "why": "Demulcent; coats and protects irritated esophageal mucosa.",
+     "common": "marshmallow",
+     "actions": [
+      "demulcent"
+     ]
+    },
+    {
+     "herb": "Glycyrrhiza glabra",
+     "role": "primary",
+     "why": "Inflammation modulator; DGL taken before meals.",
+     "common": "licorice",
+     "actions": [
+      "synergizer",
+      "corrigent",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Ulmus rubra",
+     "role": "primary",
+     "why": "Demulcent, classically slippery elm.",
+     "dispensary": true
+    },
+    {
+     "herb": "Matricaria recutita",
+     "role": "supporting",
+     "why": "GI inflammation modulator and nervine for the stress component.",
+     "common": "chamomile",
+     "actions": [
+      "inflammation modulator, GI",
+      "nervine"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Zingiber officinale",
+     "role": "supporting",
+     "why": "Improves gastric emptying; a corrigent and antinausea herb.",
+     "common": "ginger",
+     "actions": [
+      "corrigent",
+      "antinausea",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Melissa officinalis",
+     "role": "supporting",
+     "why": "Nervine and corrigent for stress-driven reflux.",
+     "common": "lemonbalm",
+     "actions": [
+      "corrigent",
+      "nervine",
+      "antiherpetic"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Demulcents work by contact, so take them apart from other medication. Investigate alarm features: dysphagia, weight loss, anemia, bleeding. Avoid peppermint, which relaxes the lower esophageal sphincter."
+  },
+  {
+   "condition": "Gingivitis",
+   "system": "Oral",
+   "aliases": [
+    "gum disease",
+    "bleeding gums",
+    "periodontitis"
+   ],
+   "herbs": [
+    {
+     "herb": "Commiphora molmol",
+     "role": "primary",
+     "why": "Antimicrobial, inflammation modulating and analgesic; myrrh is the specific.",
+     "common": "myrrh",
+     "actions": [
+      "antimicrobial",
+      "inflammation modulating",
+      "analgesic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Propolis",
+     "role": "primary",
+     "why": "Antimicrobial and antioxidant.",
+     "common": "propolis",
+     "actions": [
+      "antimicrobial",
+      "antioxidant"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Salvia officinalis",
+     "role": "supporting",
+     "why": "Antimicrobial and astringent as a mouthwash.",
+     "common": "sage",
+     "actions": [
+      "inflammation modulating",
+      "diaphoretic",
+      "antimicrobial"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Krameria triandra",
+     "role": "supporting",
+     "why": "Strongly astringent for spongy bleeding gums.",
+     "unlisted": true
+    },
+    {
+     "herb": "Spilanthes acmella",
+     "role": "supporting",
+     "why": "Immune stimulant with a notable local effect.",
+     "common": "paracress, toothache plant",
+     "actions": [
+      "immune stimulant"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Mechanical plaque control remains the mainstay."
+  },
+  {
+   "condition": "Gout",
+   "system": "Musculoskeletal",
+   "aliases": [
+    "hyperuricemia",
+    "uric acid",
+    "podagra"
+   ],
+   "herbs": [
+    {
+     "herb": "Apium graveolens",
+     "role": "primary",
+     "why": "Celery seed is the traditional specific for gout.",
+     "dispensary": true
+    },
+    {
+     "herb": "Urtica dioica",
+     "role": "primary",
+     "why": "Diuretic and inflammation modulating.",
+     "common": "nettles",
+     "actions": [
+      "diuretic",
+      "inflammation modulating"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Colchicum autumnale",
+     "role": "primary",
+     "why": "The source of colchicine.narrow therapeutic margin.",
+     "common": "autumn crocus",
+     "actions": [
+      "antifibrotic"
+     ],
+     "lowDose": true
+    },
+    {
+     "herb": "Vaccinium myrtillus",
+     "role": "supporting",
+     "why": "Antioxidant anthocyanins; cherry has the better evidence.",
+     "common": "bilberry",
+     "actions": [
+      "antidiabetic",
+      "antiadhesion",
+      "antioxidant"
+     ]
+    },
+    {
+     "herb": "Salix alba",
+     "role": "supporting",
+     "why": "Inflammation modulator. Note salicylates can raise urate at low dose.",
+     "common": "willow",
+     "actions": [
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Colchicum is genuinely dangerous and should be left to pharmaceutical colchicine in nearly all cases."
+  },
+  {
+   "condition": "Hemorrhoids",
+   "system": "Cardiovascular",
+   "aliases": [
+    "piles",
+    "anal varices"
+   ],
+   "herbs": [
+    {
+     "herb": "Aesculus hippocastanum",
+     "role": "primary",
+     "why": "Antiedema and venotonic; the leading botanical for venous disease.",
+     "common": "horse chestnut",
+     "actions": [
+      "antiedema",
+      "venotonic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Collinsonia canadensis",
+     "role": "primary",
+     "why": "Venous tonic and inflammation modulator; the specific for hemorrhoids.",
+     "common": "stoneroot",
+     "actions": [
+      "venous tonic",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Hamamelis virginiana",
+     "role": "primary",
+     "why": "Astringent and venotonic, internally and topically.",
+     "dispensary": true
+    },
+    {
+     "herb": "Melilotus alba",
+     "role": "supporting",
+     "why": "Venotonic and antihemorrhagic.",
+     "common": "sweet clover",
+     "actions": [
+      "venotonic",
+      "antihemorrhagic"
+     ]
+    },
+    {
+     "herb": "Ruscus aculeatus",
+     "role": "supporting",
+     "why": "Venotonic.",
+     "unlisted": true
+    }
+   ],
+   "notes": "Investigate any rectal bleeding rather than assuming hemorrhoids."
+  },
+  {
+   "condition": "Hepatitis",
+   "system": "Digestive",
+   "aliases": [
+    "liver inflammation",
+    "liver support",
+    "fatty liver",
+    "elevated liver enzymes",
+    "NAFLD"
+   ],
+   "herbs": [
+    {
+     "herb": "Silybum marianum",
+     "role": "primary",
+     "why": "Hepatoprotective; the best-evidenced liver botanical.",
+     "common": "milk thistle",
+     "actions": [
+      "hepatoprotective",
+      "nephroprotective",
+      "antineoplastic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Schisandra chinensis",
+     "role": "primary",
+     "why": "Adaptogen and liver tonic; lowers transaminases.",
+     "common": "schisandra, wu wei zi",
+     "actions": [
+      "adaptogen",
+      "liver tonic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Glycyrrhiza glabra",
+     "role": "supporting",
+     "why": "Inflammation modulator with hepatic use in viral hepatitis.",
+     "common": "licorice",
+     "actions": [
+      "synergizer",
+      "corrigent",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Curcuma longa",
+     "role": "supporting",
+     "why": "Inflammation modulator.",
+     "common": "turmeric",
+     "actions": [
+      "inflammation modulator",
+      "antineoplastic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Taraxacum officinale",
+     "role": "supporting",
+     "why": "Liver tonic and bitter.",
+     "common": "dandelion",
+     "actions": [
+      "liver tonic",
+      "bitter"
+     ]
+    },
+    {
+     "herb": "Phyllanthus niuri",
+     "role": "supporting",
+     "why": "Hepatoprotective, studied in hepatitis B.",
+     "common": "chanca piedra",
+     "actions": [
+      "litholytic",
+      "hepatoprotective"
+     ]
+    }
+   ],
+   "notes": "Distinguish viral, autoimmune, alcoholic and metabolic causes; treatment differs. Monitor enzymes."
+  },
+  {
+   "condition": "Herpes simplex",
+   "system": "Infectious",
+   "aliases": [
+    "cold sores",
+    "HSV",
+    "genital herpes",
+    "fever blisters"
+   ],
+   "herbs": [
+    {
+     "herb": "Melissa officinalis",
+     "role": "primary",
+     "why": "Antiherpetic; topical lemon balm has trial support.",
+     "common": "lemonbalm",
+     "actions": [
+      "corrigent",
+      "nervine",
+      "antiherpetic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Hypericum perforatum",
+     "role": "primary",
+     "why": "Antiherpetic and antidepressant; hypericin is antiviral.",
+     "common": "St. John's wort",
+     "actions": [
+      "antidepressant",
+      "antiherpetic",
+      "vulnerary"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Glycyrrhiza glabra",
+     "role": "supporting",
+     "why": "Inflammation modulator; glycyrrhizin has antiviral activity.",
+     "common": "licorice",
+     "actions": [
+      "synergizer",
+      "corrigent",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Prunella vulgaris",
+     "role": "supporting",
+     "why": "Antiviral and inflammation modulator.",
+     "common": "healall",
+     "actions": [
+      "antiviral",
+      "astringent",
+      "inflammation modulator"
+     ]
+    },
+    {
+     "herb": "Astragalus membranaceus",
+     "role": "supporting",
+     "why": "Adaptogen and immunomodulator for recurrence prevention.",
+     "common": "astragalus",
+     "actions": [
+      "adaptogen",
+      "immunomodulator",
+      "antiviral"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Note the St. John's wort interaction profile before combining with other medication."
+  },
+  {
+   "condition": "Hypertension",
+   "system": "Cardiovascular",
+   "aliases": [
+    "high blood pressure",
+    "HTN",
+    "elevated BP"
+   ],
+   "herbs": [
+    {
+     "herb": "Crataegus monogyna",
+     "role": "primary",
+     "why": "CV tonic; gentle, slow, safe for long-term use.",
+     "common": "hawthorn",
+     "actions": [
+      "CV tonic"
+     ]
+    },
+    {
+     "herb": "Allium sativum",
+     "role": "primary",
+     "why": "Modest antihypertensive effect.",
+     "common": "garlic",
+     "actions": [
+      "antimicrobial",
+      "anticancer"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Olea europaea",
+     "role": "supporting",
+     "why": "Hypotensive and antiviral; olive leaf.",
+     "common": "olive",
+     "actions": [
+      "antiviral",
+      "hypotensive"
+     ]
+    },
+    {
+     "herb": "Ganoderma lucidum",
+     "role": "supporting",
+     "why": "Immunomodulator and hypotensive.",
+     "common": "reishi",
+     "actions": [
+      "immunomodulator",
+      "hypotensive",
+      "bitter"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Stephania tetrandra",
+     "role": "supporting",
+     "why": "Hypotensive and CV tonic; calcium channel activity.",
+     "common": "stephania, hang fang ji",
+     "actions": [
+      "inflammation modulating",
+      "CV tonic",
+      "hypotensive"
+     ]
+    },
+    {
+     "herb": "Rauvolfia serpentina",
+     "role": "supporting",
+     "why": "Antihypertensive and antiarrhythmic.reserpine-containing.",
+     "common": "rauwolfia, Indian snakeroot",
+     "actions": [
+      "antihypertensive",
+      "antiarrhythmic"
+     ],
+     "lowDose": true,
+     "maxSingleMl": 0.5,
+     "maxDilution": 1.0,
+     "longTerm": "yes"
+    }
+   ],
+   "notes": "Rauvolfia causes depression and is rarely appropriate. Monitor pressures and coordinate with prescribed antihypertensives."
+  },
+  {
+   "condition": "Hyperthyroidism",
+   "system": "Endocrine",
+   "aliases": [
+    "overactive thyroid",
+    "Graves",
+    "thyrotoxicosis"
+   ],
+   "herbs": [
+    {
+     "herb": "Lycopus americanus",
+     "role": "primary",
+     "why": "Thyrosuppressive; bugleweed is the specific.",
+     "common": "bugleweed",
+     "actions": [
+      "thyrosuppressive",
+      "cardiotonic"
+     ]
+    },
+    {
+     "herb": "Lithospermum ruderale",
+     "role": "primary",
+     "why": "Thyrosuppressive, closely related in action.",
+     "common": "gromwell",
+     "actions": [
+      "thyrosuppressive"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Leonurus cardiaca",
+     "role": "supporting",
+     "why": "Antiarrhythmic nervine for palpitation and tremor.",
+     "common": "motherwort",
+     "actions": [
+      "antiarrhythmic",
+      "nervine",
+      "hormone modulator"
+     ]
+    },
+    {
+     "herb": "Melissa officinalis",
+     "role": "supporting",
+     "why": "Nervine; also mildly thyrosuppressive.",
+     "common": "lemonbalm",
+     "actions": [
+      "corrigent",
+      "nervine",
+      "antiherpetic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Scutellaria lateriflora",
+     "role": "supporting",
+     "why": "Nervine for the agitation.",
+     "common": "skullcap",
+     "actions": [
+      "nervine",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Requires medical co-management. Thyroid storm is an emergency. Bugleweed interferes with thyroid imaging and is contraindicated in pregnancy."
+  },
+  {
+   "condition": "Hypothyroidism",
+   "system": "Endocrine",
+   "aliases": [
+    "underactive thyroid",
+    "Hashimoto",
+    "low thyroid"
+   ],
+   "herbs": [
+    {
+     "herb": "Fucus vesiculosus",
+     "role": "primary",
+     "why": "Thyroid tonic and iodine source, where deficiency is the cause.",
+     "common": "bladderwrack",
+     "actions": [
+      "thyroid tonic",
+      "demulcent"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Withania somniferum",
+     "role": "primary",
+     "why": "Adaptogen with some evidence for raising T4.",
+     "common": "ashwagandha",
+     "actions": [
+      "immunomodulator",
+      "adaptogen",
+      "nervine"
+     ]
+    },
+    {
+     "herb": "Commiphora mukul",
+     "role": "supporting",
+     "why": "Guggul supports T3 conversion.",
+     "unlisted": true
+    },
+    {
+     "herb": "Coleus forskohlii",
+     "role": "supporting",
+     "why": "Adenylate cyclase activator; stimulates thyroid signalling.",
+     "dispensary": true
+    },
+    {
+     "herb": "Eleutherococcus senticosus",
+     "role": "supporting",
+     "why": "Adaptogen for the fatigue.",
+     "common": "eleuthero",
+     "actions": [
+      "adaptogen",
+      "immunomodulator"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Do not give iodine in Hashimoto's without care: it can worsen autoimmune thyroiditis. Botanicals do not replace levothyroxine."
+  },
+  {
+   "condition": "Insomnia",
+   "system": "Nervous system",
+   "aliases": [
+    "sleeplessness",
+    "can't sleep",
+    "poor sleep",
+    "sleep problems"
+   ],
+   "herbs": [
+    {
+     "herb": "Valeriana sitchensis",
+     "role": "primary",
+     "why": "Nervine and hypnotic; the best-known sleep botanical.",
+     "common": "Pacific valerian",
+     "actions": [
+      "nervine",
+      "hypnotic",
+      "analgesic"
+     ]
+    },
+    {
+     "herb": "Humulus lupulus",
+     "role": "primary",
+     "why": "Bitter nervine, classically combined with valerian.",
+     "common": "hops",
+     "actions": [
+      "bitter",
+      "nervine",
+      "phytoestrogen"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Passiflora incarnata",
+     "role": "primary",
+     "why": "Nervine and spasmolytic; good for a racing mind.",
+     "common": "passionflower",
+     "actions": [
+      "nervine",
+      "spasmolytic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Piper methysticum",
+     "role": "supporting",
+     "why": "Anxiolytic where anxiety prevents sleep onset.",
+     "common": "kava",
+     "actions": [
+      "nervine",
+      "anxiolytic",
+      "anodyne"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Eschscholzia californica",
+     "role": "supporting",
+     "why": "Nervine and analgesic; gentle, suits children.",
+     "common": "california poppy",
+     "actions": [
+      "nervine",
+      "analgesic"
+     ]
+    },
+    {
+     "herb": "Zizyphus spinosa",
+     "role": "supporting",
+     "why": "Traditional Chinese sleep herb, well tolerated.",
+     "common": "jujube",
+     "actions": [
+      "antidepressant",
+      "synergizer"
+     ]
+    }
+   ],
+   "notes": "Valerian is stimulating in a minority of people. Address sleep hygiene, caffeine, alcohol and apnea."
+  },
+  {
+   "condition": "Interstitial cystitis",
+   "system": "Genitourinary",
+   "aliases": [
+    "painful bladder",
+    "bladder pain syndrome",
+    "IC"
+   ],
+   "herbs": [
+    {
+     "herb": "Althaea officinalis",
+     "role": "primary",
+     "why": "Demulcent to soothe bladder mucosa.",
+     "common": "marshmallow",
+     "actions": [
+      "demulcent"
+     ]
+    },
+    {
+     "herb": "Zea mays",
+     "role": "primary",
+     "why": "Diuretic and demulcent; cornsilk is specific for irritable bladder.",
+     "common": "cornsilk",
+     "actions": [
+      "diuretic",
+      "demulcent"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Chimaphila umbellata",
+     "role": "supporting",
+     "why": "Genitourinary tonic.",
+     "common": "pipsissewa",
+     "actions": [
+      "genitourinary tonic",
+      "diuretic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Equisetum arvense",
+     "role": "supporting",
+     "why": "Genitourinary tonic; supports urothelial integrity.",
+     "common": "horsetail",
+     "actions": [
+      "GU tonic",
+      "diuretic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Hyoscyamus niger",
+     "role": "supporting",
+     "why": "Genitourinary spasmolytic.",
+     "common": "henbane",
+     "actions": [
+      "spasmolytic, GU"
+     ],
+     "lowDose": true,
+     "maxSingleMl": 0.1,
+     "maxDilution": 3.0,
+     "longTerm": "yes"
+    },
+    {
+     "herb": "Piper methysticum",
+     "role": "supporting",
+     "why": "Anxiolytic and urinary antispasmodic.",
+     "common": "kava",
+     "actions": [
+      "nervine",
+      "anxiolytic",
+      "anodyne"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Distinguish from recurrent UTI by culture. Avoid urinary irritants."
+  },
+  {
+   "condition": "Irritable bowel syndrome",
+   "system": "Digestive",
+   "aliases": [
+    "IBS",
+    "spastic colon",
+    "functional bowel"
+   ],
+   "herbs": [
+    {
+     "herb": "Mentha x piperita",
+     "role": "primary",
+     "why": "Carminative; enteric-coated peppermint oil has good trial support.",
+     "common": "peppermint",
+     "actions": [
+      "carminative",
+      "rubefacient"
+     ]
+    },
+    {
+     "herb": "Matricaria recutita",
+     "role": "primary",
+     "why": "GI inflammation modulator and nervine.",
+     "common": "chamomile",
+     "actions": [
+      "inflammation modulator, GI",
+      "nervine"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Melissa officinalis",
+     "role": "supporting",
+     "why": "Nervine and carminative for the gut-brain axis.",
+     "common": "lemonbalm",
+     "actions": [
+      "corrigent",
+      "nervine",
+      "antiherpetic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Althaea officinalis",
+     "role": "supporting",
+     "why": "Demulcent for the irritable mucosa.",
+     "common": "marshmallow",
+     "actions": [
+      "demulcent"
+     ]
+    },
+    {
+     "herb": "Dioscorea villosa",
+     "role": "supporting",
+     "why": "Spasmolytic.",
+     "common": "wild yam",
+     "actions": [
+      "spasmolytic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Foeniculum vulgare",
+     "role": "supporting",
+     "why": "Carminative and corrigent for bloating.",
+     "common": "fennel",
+     "actions": [
+      "carminative",
+      "corrigent"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Avoid peppermint if GERD coexists. Exclude celiac disease and inflammatory bowel disease."
+  },
+  {
+   "condition": "Kidney stones",
+   "system": "Genitourinary",
+   "aliases": [
+    "renal calculi",
+    "nephrolithiasis",
+    "urolithiasis"
+   ],
+   "herbs": [
+    {
+     "herb": "Phyllanthus niuri",
+     "role": "primary",
+     "why": "Litholytic; chanca piedra is the specific.",
+     "common": "chanca piedra",
+     "actions": [
+      "litholytic",
+      "hepatoprotective"
+     ]
+    },
+    {
+     "herb": "Ammi visnaga",
+     "role": "primary",
+     "why": "Spasmolytic to the ureter, easing stone passage.",
+     "common": "khella",
+     "actions": [
+      "bronchodilator",
+      "vasodilator"
+     ],
+     "dispensary": true,
+     "lowDose": true,
+     "maxSingleMl": 2.5,
+     "maxDilution": 3.0,
+     "longTerm": "yes"
+    },
+    {
+     "herb": "Equisetum arvense",
+     "role": "supporting",
+     "why": "Genitourinary tonic and diuretic.",
+     "common": "horsetail",
+     "actions": [
+      "GU tonic",
+      "diuretic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Parietaria diffusa",
+     "role": "supporting",
+     "why": "Nephroprotective and gently diuretic.",
+     "common": "pellitory",
+     "actions": [
+      "nephroprotective"
+     ]
+    },
+    {
+     "herb": "Zea mays",
+     "role": "supporting",
+     "why": "Demulcent diuretic.",
+     "common": "cornsilk",
+     "actions": [
+      "diuretic",
+      "demulcent"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Lespedeza capitata",
+     "role": "supporting",
+     "why": "Nephroprotective and antioxidant.",
+     "common": "round-head lespdeza",
+     "actions": [
+      "nephroprotective",
+      "antioxidant"
+     ]
+    }
+   ],
+   "notes": "Obstruction with infection is a urological emergency. Stone type determines dietary strategy."
+  },
+  {
+   "condition": "Lactation support",
+   "system": "Gynecological",
+   "aliases": [
+    "breastfeeding",
+    "low milk supply",
+    "galactagogue"
+   ],
+   "herbs": [
+    {
+     "herb": "Foeniculum vulgare",
+     "role": "primary",
+     "why": "Galactagogue and carminative; passes to the infant and eases colic.",
+     "common": "fennel",
+     "actions": [
+      "carminative",
+      "corrigent"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Trigonella foenum-graecum",
+     "role": "primary",
+     "why": "Fenugreek is the most used galactagogue.",
+     "dispensary": true
+    },
+    {
+     "herb": "Galega officinalis",
+     "role": "supporting",
+     "why": "Traditional galactagogue as well as an insulin sensitizer.",
+     "common": "goatsrue",
+     "actions": [
+      "insulin sensitizer"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Medicago sativa",
+     "role": "supporting",
+     "why": "Nutritive phytoestrogen.",
+     "common": "alfalfa",
+     "actions": [
+      "phytoestrogen"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Urtica dioica",
+     "role": "supporting",
+     "why": "Nutritive and mineral-rich.",
+     "common": "nettles",
+     "actions": [
+      "diuretic",
+      "inflammation modulating"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Supply responds to effective, frequent milk removal more than to any herb. Assess latch first."
+  },
+  {
+   "condition": "Menopause",
+   "system": "Gynecological",
+   "aliases": [
+    "hot flashes",
+    "hot flushes",
+    "perimenopause",
+    "night sweats",
+    "climacteric"
+   ],
+   "herbs": [
+    {
+     "herb": "Actaea racemosa",
+     "role": "primary",
+     "why": "Hormone modulating and inflammation modulating; best-studied for vasomotor symptoms.",
+     "common": "black cohosh",
+     "actions": [
+      "inflammation modulating",
+      "hormone modulating"
+     ]
+    },
+    {
+     "herb": "Salvia officinalis",
+     "role": "primary",
+     "why": "Specifically reduces sweating and hot flashes.",
+     "common": "sage",
+     "actions": [
+      "inflammation modulating",
+      "diaphoretic",
+      "antimicrobial"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Trifolium pratense",
+     "role": "supporting",
+     "why": "Phytoestrogen.",
+     "common": "red clover",
+     "actions": [
+      "phytoestrogen",
+      "antineoplastic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Vitex agnus-castus",
+     "role": "supporting",
+     "why": "Hormone modulator, more useful in perimenopause.",
+     "common": "chaste tree",
+     "actions": [
+      "hormone modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Humulus lupulus",
+     "role": "supporting",
+     "why": "Phytoestrogen and nervine; helps sleep too.",
+     "common": "hops",
+     "actions": [
+      "bitter",
+      "nervine",
+      "phytoestrogen"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Leonurus cardiaca",
+     "role": "supporting",
+     "why": "Nervine and hormone modulator for palpitations and anxiety.",
+     "common": "motherwort",
+     "actions": [
+      "antiarrhythmic",
+      "nervine",
+      "hormone modulator"
+     ]
+    }
+   ],
+   "notes": "Black cohosh has rare hepatotoxicity reports; monitor. Phytoestrogens need individual consideration in estrogen-sensitive cancer."
+  },
+  {
+   "condition": "Migraine",
+   "system": "Nervous system",
+   "aliases": [
+    "headache",
+    "migraines",
+    "cluster headache"
+   ],
+   "herbs": [
+    {
+     "herb": "Tanacetum parthenium",
+     "role": "primary",
+     "why": "Inflammation modulator; feverfew is prophylactic, not abortive.",
+     "common": "feverfew",
+     "actions": [
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Petasites palmatus",
+     "role": "primary",
+     "why": "Spasmolytic with the best prophylactic evidence. PA-free only.",
+     "common": "butterbur",
+     "actions": [
+      "spasmolytic",
+      "antiallergic"
+     ],
+     "dispensary": true,
+     "lowDose": true,
+     "maxSingleMl": 5.0,
+     "maxDilution": 3.0,
+     "longTerm": "no"
+    },
+    {
+     "herb": "Zingiber officinale",
+     "role": "supporting",
+     "why": "Antinausea and inflammation modulating; useful at onset.",
+     "common": "ginger",
+     "actions": [
+      "corrigent",
+      "antinausea",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Salix alba",
+     "role": "supporting",
+     "why": "Inflammation modulator.",
+     "common": "willow",
+     "actions": [
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Piscidia piscipula",
+     "role": "supporting",
+     "why": "Anodyne and spasmolytic.",
+     "common": "Jamaica dogwood",
+     "actions": [
+      "spasmolytic",
+      "anodyne",
+      "nervine"
+     ]
+    },
+    {
+     "herb": "Corydalis yanhusuo",
+     "role": "supporting",
+     "why": "Analgesic and sedative.",
+     "common": "corydalis, yan hu suo",
+     "actions": [
+      "analgesic",
+      "sedative"
+     ],
+     "lowDose": true
+    }
+   ],
+   "notes": "Prophylactics need 8 to 12 weeks. Refer thunderclap, focal or new-onset-after-50 headache urgently."
+  },
+  {
+   "condition": "Nausea and vomiting",
+   "system": "Digestive",
+   "aliases": [
+    "nausea",
+    "vomiting",
+    "morning sickness",
+    "motion sickness",
+    "emesis"
+   ],
+   "herbs": [
+    {
+     "herb": "Zingiber officinale",
+     "role": "primary",
+     "why": "Antinausea with good evidence including pregnancy and post-operative nausea.",
+     "common": "ginger",
+     "actions": [
+      "corrigent",
+      "antinausea",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Mentha x piperita",
+     "role": "supporting",
+     "why": "Carminative and antinausea.",
+     "common": "peppermint",
+     "actions": [
+      "carminative",
+      "rubefacient"
+     ]
+    },
+    {
+     "herb": "Matricaria recutita",
+     "role": "supporting",
+     "why": "GI inflammation modulator.",
+     "common": "chamomile",
+     "actions": [
+      "inflammation modulator, GI",
+      "nervine"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Magnolia officinalis",
+     "role": "supporting",
+     "why": "Antinausea and inflammation modulatory.",
+     "common": "hou po, magnolia",
+     "actions": [
+      "antinausea",
+      "inflammation modulatory"
+     ]
+    },
+    {
+     "herb": "Ballota nigra",
+     "role": "supporting",
+     "why": "Antiemetic and hormone modulator.",
+     "common": "black horehound",
+     "actions": [
+      "hormone modulator",
+      "antiemetic"
+     ]
+    }
+   ],
+   "notes": "Ginger is well tolerated in pregnancy at moderate doses. Investigate persistent or projectile vomiting."
+  },
+  {
+   "condition": "Osteoarthritis",
+   "system": "Musculoskeletal",
+   "aliases": [
+    "OA",
+    "joint pain",
+    "degenerative joint disease",
+    "arthritis"
+   ],
+   "herbs": [
+    {
+     "herb": "Boswellia serrata",
+     "role": "primary",
+     "why": "Inflammation modulator with good OA trial data.",
+     "common": "frankincense",
+     "actions": [
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Curcuma longa",
+     "role": "primary",
+     "why": "Inflammation modulator; comparable to NSAIDs in some trials.",
+     "common": "turmeric",
+     "actions": [
+      "inflammation modulator",
+      "antineoplastic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Salix alba",
+     "role": "primary",
+     "why": "Inflammation modulator; the salicylate original.",
+     "common": "willow",
+     "actions": [
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Harpagophytum procumbens",
+     "role": "supporting",
+     "why": "Devil's claw, well studied for hip and knee OA.",
+     "dispensary": true
+    },
+    {
+     "herb": "Zingiber officinale",
+     "role": "supporting",
+     "why": "Inflammation modulator.",
+     "common": "ginger",
+     "actions": [
+      "corrigent",
+      "antinausea",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Urtica dioica",
+     "role": "supporting",
+     "why": "Inflammation modulating; also used as a topical counterirritant.",
+     "common": "nettles",
+     "actions": [
+      "diuretic",
+      "inflammation modulating"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Willow shares aspirin's cautions. Movement and load management outperform any herb."
+  },
+  {
+   "condition": "Parasites, intestinal",
+   "system": "Infectious",
+   "aliases": [
+    "worms",
+    "intestinal parasites",
+    "giardia",
+    "helminths"
+   ],
+   "herbs": [
+    {
+     "herb": "Artemisia absinthium",
+     "role": "primary",
+     "why": "GI antimicrobial and bitter.",
+     "common": "wormwood",
+     "actions": [
+      "antimicrobial, GI",
+      "bitter"
+     ],
+     "lowDose": true
+    },
+    {
+     "herb": "Juglans nigra",
+     "role": "primary",
+     "why": "Antiparasitic; black walnut hull.",
+     "common": "black walnut",
+     "actions": [
+      "antiparasitic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Azadirachta indica",
+     "role": "supporting",
+     "why": "Antiparasitic and bitter.",
+     "common": "neem",
+     "actions": [
+      "antiparasitic",
+      "bitter"
+     ]
+    },
+    {
+     "herb": "Quassia amara",
+     "role": "supporting",
+     "why": "Antiparasitic and bitter.",
+     "common": "Surinam quassia",
+     "actions": [
+      "antiparasitic",
+      "bitter"
+     ],
+     "lowDose": true
+    },
+    {
+     "herb": "Chenopodium ambrosioides",
+     "role": "supporting",
+     "why": "Antiparasitic; epazote. Potentially toxic.",
+     "common": "epazote",
+     "actions": [
+      "antiparasitic"
+     ]
+    },
+    {
+     "herb": "Allium sativum",
+     "role": "supporting",
+     "why": "Broad antimicrobial.",
+     "common": "garlic",
+     "actions": [
+      "antimicrobial",
+      "anticancer"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Identify the organism before treating. Wormwood and epazote are neurotoxic in overdose; observe the low-dose maximums."
+  },
+  {
+   "condition": "Polycystic ovary syndrome",
+   "system": "Gynecological",
+   "aliases": [
+    "PCOS",
+    "polycystic ovaries",
+    "anovulation"
+   ],
+   "herbs": [
+    {
+     "herb": "Vitex agnus-castus",
+     "role": "primary",
+     "why": "Hormone modulator; supports ovulatory cycling.",
+     "common": "chaste tree",
+     "actions": [
+      "hormone modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Paeonia lactiflora",
+     "role": "primary",
+     "why": "Hormone modulator; the peony-licorice pair lowers androgens.",
+     "common": "bai shao peony",
+     "actions": [
+      "spasmolytic",
+      "hormone modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Glycyrrhiza glabra",
+     "role": "primary",
+     "why": "Antiandrogenic in the classical peony-licorice combination.",
+     "common": "licorice",
+     "actions": [
+      "synergizer",
+      "corrigent",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Cinnamomum lourelii",
+     "role": "supporting",
+     "why": "Insulin sensitizing; PCOS is largely an insulin problem.",
+     "common": "cinnamon",
+     "actions": [
+      "antimicrobial",
+      "insulin sensitizing"
+     ]
+    },
+    {
+     "herb": "Momordica charantia",
+     "role": "supporting",
+     "why": "Insulin sensitizer.",
+     "common": "bitter melon",
+     "actions": [
+      "insulin sensitizer",
+      "demulcent",
+      "bitter"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Serenoa repens",
+     "role": "supporting",
+     "why": "Antiandrogenic for hirsutism and acne.",
+     "common": "saw palmetto",
+     "actions": [
+      "prostate tonic",
+      "spasmolytic"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Insulin resistance is the usual driver: treat it. Sustained licorice raises blood pressure and lowers potassium."
+  },
+  {
+   "condition": "Premenstrual syndrome",
+   "system": "Gynecological",
+   "aliases": [
+    "PMS",
+    "PMDD",
+    "premenstrual tension"
+   ],
+   "herbs": [
+    {
+     "herb": "Vitex agnus-castus",
+     "role": "primary",
+     "why": "Hormone modulator; the best-evidenced botanical for PMS.",
+     "common": "chaste tree",
+     "actions": [
+      "hormone modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Actaea racemosa",
+     "role": "supporting",
+     "why": "Hormone modulating and inflammation modulating.",
+     "common": "black cohosh",
+     "actions": [
+      "inflammation modulating",
+      "hormone modulating"
+     ]
+    },
+    {
+     "herb": "Leonurus cardiaca",
+     "role": "supporting",
+     "why": "Nervine and hormone modulator for irritability.",
+     "common": "motherwort",
+     "actions": [
+      "antiarrhythmic",
+      "nervine",
+      "hormone modulator"
+     ]
+    },
+    {
+     "herb": "Taraxacum officinale",
+     "role": "supporting",
+     "why": "Diuretic and bitter for fluid retention and breast tenderness.",
+     "common": "dandelion",
+     "actions": [
+      "liver tonic",
+      "bitter"
+     ]
+    },
+    {
+     "herb": "Hypericum perforatum",
+     "role": "supporting",
+     "why": "Antidepressant for the mood component.",
+     "common": "St. John's wort",
+     "actions": [
+      "antidepressant",
+      "antiherpetic",
+      "vulnerary"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Viburnum opulus",
+     "role": "supporting",
+     "why": "Spasmolytic for cramping.",
+     "common": "crampbark",
+     "actions": [
+      "spasmolytic"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Vitex takes about three cycles to judge. Track symptoms against the cycle to confirm the pattern."
+  },
+  {
+   "condition": "Prostatitis",
+   "system": "Genitourinary",
+   "aliases": [
+    "prostate infection",
+    "pelvic pain syndrome",
+    "CPPS"
+   ],
+   "herbs": [
+    {
+     "herb": "Serenoa repens",
+     "role": "primary",
+     "why": "Prostate tonic and spasmolytic.",
+     "common": "saw palmetto",
+     "actions": [
+      "prostate tonic",
+      "spasmolytic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Eryngium yuccafolium",
+     "role": "primary",
+     "why": "Prostatic inflammation modulator.",
+     "common": "rattlesnake master, button eryngo",
+     "actions": [
+      "inflammation modulator, prostatic"
+     ]
+    },
+    {
+     "herb": "Epilobium angustifolium",
+     "role": "primary",
+     "why": "Prostatic inflammation modulator.",
+     "common": "fireweed",
+     "actions": [
+      "inflammation modulator, prostatic",
+      "BPH remedial"
+     ]
+    },
+    {
+     "herb": "Chimaphila umbellata",
+     "role": "supporting",
+     "why": "Genitourinary tonic and antimicrobial.",
+     "common": "pipsissewa",
+     "actions": [
+      "genitourinary tonic",
+      "diuretic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Pulsatilla occidentalis",
+     "role": "supporting",
+     "why": "Genitourinary spasmolytic and anodyne.",
+     "common": "pulsatilla",
+     "actions": [
+      "spasmolytic, GU",
+      "anodyne, GU",
+      "sedative"
+     ],
+     "lowDose": true
+    },
+    {
+     "herb": "Arctostaphylos uva-ursi",
+     "role": "supporting",
+     "why": "Genitourinary antimicrobial where infection is proven.",
+     "common": "uva-ursi",
+     "actions": [
+      "antimicrobial, GU",
+      "astringent"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Distinguish bacterial prostatitis, which needs antibiotics, from chronic pelvic pain syndrome, which does not."
+  },
+  {
+   "condition": "Psoriasis",
+   "system": "Skin",
+   "aliases": [
+    "plaque psoriasis",
+    "scaly skin"
+   ],
+   "herbs": [
+    {
+     "herb": "Mahonia aquifolium",
+     "role": "primary",
+     "why": "Antimicrobial and antiproliferative; good topical evidence.",
+     "common": "Oregon grape",
+     "actions": [
+      "antimicrobial",
+      "antineoplastic",
+      "bitter"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Arctium lappa",
+     "role": "primary",
+     "why": "Bitter alterative and hepatoprotective.",
+     "common": "burdock",
+     "actions": [
+      "hepatoprotective",
+      "bitter",
+      "CV tonic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Silybum marianum",
+     "role": "supporting",
+     "why": "Hepatoprotective; the classical liver-skin link.",
+     "common": "milk thistle",
+     "actions": [
+      "hepatoprotective",
+      "nephroprotective",
+      "antineoplastic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Smilax rotundifolia",
+     "role": "supporting",
+     "why": "Hormone modulator; sarsaparilla is traditional for psoriasis.",
+     "common": "sarsaparilla",
+     "actions": [
+      "hormone modulator"
+     ]
+    },
+    {
+     "herb": "Curcuma longa",
+     "role": "supporting",
+     "why": "Inflammation modulator.",
+     "common": "turmeric",
+     "actions": [
+      "inflammation modulator",
+      "antineoplastic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Stillingia sylvatica",
+     "role": "supporting",
+     "why": "Alterative and antirheumatic.",
+     "common": "stillingia",
+     "actions": [
+      "alterative",
+      "antirheumatic"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Screen for psoriatic arthritis. Expect slow progress."
+  },
+  {
+   "condition": "Raynaud's phenomenon",
+   "system": "Cardiovascular",
+   "aliases": [
+    "Raynauds",
+    "cold hands",
+    "vasospasm",
+    "white fingers"
+   ],
+   "herbs": [
+    {
+     "herb": "Ginkgo biloba",
+     "role": "primary",
+     "why": "Antioxidant and circulatory; improves peripheral perfusion.",
+     "common": "ginkgo",
+     "actions": [
+      "antioxidant",
+      "nootropic",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Zingiber officinale",
+     "role": "primary",
+     "why": "Warming circulatory stimulant.",
+     "common": "ginger",
+     "actions": [
+      "corrigent",
+      "antinausea",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Capsicum minimum",
+     "role": "supporting",
+     "why": "GI and circulatory stimulant; also topical.",
+     "common": "cayenne",
+     "actions": [
+      "anodyne",
+      "GI stimulant"
+     ]
+    },
+    {
+     "herb": "Zanthoxylum americanum",
+     "role": "supporting",
+     "why": "Cardiovascular stimulant; prickly ash is the classic peripheral circulatory herb.",
+     "common": "prickly ash",
+     "actions": [
+      "cardiovascular stimulant",
+      "sialagogue"
+     ]
+    },
+    {
+     "herb": "Rosmarinus officinalis",
+     "role": "supporting",
+     "why": "CV tonic.",
+     "common": "rosemary",
+     "actions": [
+      "nootropic",
+      "CV tonic",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Secondary Raynaud's points to connective tissue disease: screen for it."
+  },
+  {
+   "condition": "Rheumatoid arthritis",
+   "system": "Musculoskeletal",
+   "aliases": [
+    "RA",
+    "autoimmune arthritis",
+    "inflammatory arthritis"
+   ],
+   "herbs": [
+    {
+     "herb": "Curcuma longa",
+     "role": "primary",
+     "why": "Inflammation modulator with RA trial data.",
+     "common": "turmeric",
+     "actions": [
+      "inflammation modulator",
+      "antineoplastic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Boswellia serrata",
+     "role": "primary",
+     "why": "Inflammation modulator.",
+     "common": "frankincense",
+     "actions": [
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Tripterygium wilfordii",
+     "role": "primary",
+     "why": "Thunder god vine; genuinely effective, genuinely toxic.",
+     "unlisted": true
+    },
+    {
+     "herb": "Guaiacum officinale",
+     "role": "supporting",
+     "why": "Inflammation modulator and antirheumatic.",
+     "common": "guaiacum, lignum vitae",
+     "actions": [
+      "inflammation modulator",
+      "antirheumatic"
+     ]
+    },
+    {
+     "herb": "Salix alba",
+     "role": "supporting",
+     "why": "Inflammation modulator.",
+     "common": "willow",
+     "actions": [
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Urtica dioica",
+     "role": "supporting",
+     "why": "Inflammation modulating, internal and topical.",
+     "common": "nettles",
+     "actions": [
+      "diuretic",
+      "inflammation modulating"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "RA causes irreversible joint damage: botanicals are adjunctive to DMARDs, not a substitute. Tripterygium needs monitoring."
+  },
+  {
+   "condition": "Sinusitis",
+   "system": "Respiratory",
+   "aliases": [
+    "sinus infection",
+    "rhinosinusitis",
+    "blocked sinuses"
+   ],
+   "herbs": [
+    {
+     "herb": "Hydrastis canadensis",
+     "role": "primary",
+     "why": "Berberine-containing mucous membrane antimicrobial. Endangered; substitute Mahonia.",
+     "dispensary": true
+    },
+    {
+     "herb": "Mahonia aquifolium",
+     "role": "primary",
+     "why": "Antimicrobial and bitter; the sustainable goldenseal substitute.",
+     "common": "Oregon grape",
+     "actions": [
+      "antimicrobial",
+      "antineoplastic",
+      "bitter"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Eriodictyon angustifolium",
+     "role": "supporting",
+     "why": "Respiratory inflammation modulator and mucolytic.",
+     "common": "yerba santa",
+     "actions": [
+      "inflammation modultor, respiratory",
+      "mucolytic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Armoracia rusticana",
+     "role": "supporting",
+     "why": "Pungent antimicrobial that moves stuck sinus mucus.",
+     "common": "horseradish",
+     "actions": [
+      "antimicrobial",
+      "aromatic digestive stimulant"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Euphrasis stricta",
+     "role": "supporting",
+     "why": "Inflammation modulator for the upper respiratory mucosa.",
+     "common": "eyebright",
+     "actions": [
+      "inflammation modulator"
+     ]
+    },
+    {
+     "herb": "Allium sativum",
+     "role": "supporting",
+     "why": "Antimicrobial.",
+     "common": "garlic",
+     "actions": [
+      "antimicrobial",
+      "anticancer"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Most acute sinusitis is viral. Refer for orbital or neurological signs."
+  },
+  {
+   "condition": "Sore throat",
+   "system": "Respiratory",
+   "aliases": [
+    "pharyngitis",
+    "strep throat",
+    "tonsillitis",
+    "throat pain"
+   ],
+   "herbs": [
+    {
+     "herb": "Commiphora molmol",
+     "role": "primary",
+     "why": "Antimicrobial and analgesic; myrrh as a gargle.",
+     "common": "myrrh",
+     "actions": [
+      "antimicrobial",
+      "inflammation modulating",
+      "analgesic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Salvia officinalis",
+     "role": "primary",
+     "why": "Antimicrobial and astringent gargle with trial support.",
+     "common": "sage",
+     "actions": [
+      "inflammation modulating",
+      "diaphoretic",
+      "antimicrobial"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Echinacea angustifolia",
+     "role": "primary",
+     "why": "Immune stimulant and antimicrobial; the tingle aids the throat.",
+     "common": "echinacea",
+     "actions": [
+      "immune stimulant",
+      "antimicrobial",
+      "inflammation modulating"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Ulmus rubra",
+     "role": "supporting",
+     "why": "Demulcent for raw pain.",
+     "dispensary": true
+    },
+    {
+     "herb": "Baptisia tinctoria",
+     "role": "supporting",
+     "why": "Respiratory antimicrobial for boggy, dusky, ulcerated throats.",
+     "common": "wild indigo",
+     "actions": [
+      "antimicrobial, respiratory"
+     ],
+     "dispensary": true,
+     "lowDose": true,
+     "maxSingleMl": 2.0,
+     "maxDilution": 2.0,
+     "longTerm": "yes"
+    },
+    {
+     "herb": "Spilanthes acmella",
+     "role": "supporting",
+     "why": "Immune stimulant with strong local action.",
+     "common": "paracress, toothache plant",
+     "actions": [
+      "immune stimulant"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Rule out streptococcal infection where the clinical picture warrants it."
+  },
+  {
+   "condition": "Stress and adrenal fatigue",
+   "system": "Endocrine",
+   "aliases": [
+    "burnout",
+    "exhaustion",
+    "chronic stress",
+    "HPA dysfunction",
+    "fatigue"
+   ],
+   "herbs": [
+    {
+     "herb": "Withania somniferum",
+     "role": "primary",
+     "why": "Adaptogen and nervine; calming rather than stimulating.",
+     "common": "ashwagandha",
+     "actions": [
+      "immunomodulator",
+      "adaptogen",
+      "nervine"
+     ]
+    },
+    {
+     "herb": "Eleutherococcus senticosus",
+     "role": "primary",
+     "why": "Adaptogen and immunomodulator for stamina.",
+     "common": "eleuthero",
+     "actions": [
+      "adaptogen",
+      "immunomodulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Rhodiola rosea",
+     "role": "primary",
+     "why": "Adaptogen and antidepressant; good for mental fatigue.",
+     "common": "rose root",
+     "actions": [
+      "adaptogen",
+      "antidepressant"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Avena sativa",
+     "role": "supporting",
+     "why": "Trophorestorative nervine for depleted nervous systems.",
+     "common": "oat",
+     "actions": [
+      "nervine",
+      "antiaddictive"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Glycyrrhiza glabra",
+     "role": "supporting",
+     "why": "Prolongs cortisol half-life; useful in genuine hypocortisolism.",
+     "common": "licorice",
+     "actions": [
+      "synergizer",
+      "corrigent",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Schisandra chinensis",
+     "role": "supporting",
+     "why": "Adaptogen and liver tonic.",
+     "common": "schisandra, wu wei zi",
+     "actions": [
+      "adaptogen",
+      "liver tonic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Panax quinquefolius",
+     "role": "supporting",
+     "why": "Adaptogen, gentler than Asian ginseng.",
+     "common": "American ginseng",
+     "actions": [
+      "immunomodulator",
+      "insulin sensitizer",
+      "adaptogen"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "\"Adrenal fatigue\" is not a recognized diagnosis: exclude anemia, thyroid disease, sleep apnea, depression and true adrenal insufficiency. Licorice raises blood pressure."
+  },
+  {
+   "condition": "Urinary tract infection",
+   "system": "Genitourinary",
+   "aliases": [
+    "UTI",
+    "cystitis",
+    "bladder infection",
+    "dysuria"
+   ],
+   "herbs": [
+    {
+     "herb": "Arctostaphylos uva-ursi",
+     "role": "primary",
+     "why": "Genitourinary antimicrobial and astringent; needs alkaline urine to work.",
+     "common": "uva-ursi",
+     "actions": [
+      "antimicrobial, GU",
+      "astringent"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Vaccinium myrtillus",
+     "role": "primary",
+     "why": "Antiadhesion; cranberry is the better-studied relative.",
+     "common": "bilberry",
+     "actions": [
+      "antidiabetic",
+      "antiadhesion",
+      "antioxidant"
+     ]
+    },
+    {
+     "herb": "Juniperus coahuilensis",
+     "role": "supporting",
+     "why": "Urinary antiseptic and diuretic.",
+     "common": "redfruit juniper",
+     "actions": [
+      "urinary antiseptic",
+      "inflammation modulator",
+      "diuretic"
+     ]
+    },
+    {
+     "herb": "Zea mays",
+     "role": "supporting",
+     "why": "Demulcent diuretic for the burning.",
+     "common": "cornsilk",
+     "actions": [
+      "diuretic",
+      "demulcent"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Equisetum arvense",
+     "role": "supporting",
+     "why": "Genitourinary tonic.",
+     "common": "horsetail",
+     "actions": [
+      "GU tonic",
+      "diuretic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Arbutus menziesii",
+     "role": "supporting",
+     "why": "Genitourinary antimicrobial.",
+     "common": "madrone",
+     "actions": [
+      "antimicrobial, GU"
+     ]
+    }
+   ],
+   "notes": "Uva-ursi is for short courses only, not more than about two weeks. Refer flank pain, fever or rigors as possible pyelonephritis."
+  },
+  {
+   "condition": "Varicose veins",
+   "system": "Cardiovascular",
+   "aliases": [
+    "venous insufficiency",
+    "spider veins",
+    "varicosities",
+    "heavy legs"
+   ],
+   "herbs": [
+    {
+     "herb": "Aesculus hippocastanum",
+     "role": "primary",
+     "why": "Antiedema and venotonic; the best-evidenced venous botanical.",
+     "common": "horse chestnut",
+     "actions": [
+      "antiedema",
+      "venotonic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Collinsonia canadensis",
+     "role": "primary",
+     "why": "Venous tonic and inflammation modulator.",
+     "common": "stoneroot",
+     "actions": [
+      "venous tonic",
+      "inflammation modulator"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Centella asiatica",
+     "role": "primary",
+     "why": "Antifibrotic; improves venous wall connective tissue.",
+     "common": "gotu kola",
+     "actions": [
+      "antifibrotic",
+      "adaptogen",
+      "nootropic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Melilotus alba",
+     "role": "supporting",
+     "why": "Venotonic and antihemorrhagic.",
+     "common": "sweet clover",
+     "actions": [
+      "venotonic",
+      "antihemorrhagic"
+     ]
+    },
+    {
+     "herb": "Vaccinium myrtillus",
+     "role": "supporting",
+     "why": "Antioxidant supporting capillary integrity.",
+     "common": "bilberry",
+     "actions": [
+      "antidiabetic",
+      "antiadhesion",
+      "antioxidant"
+     ]
+    },
+    {
+     "herb": "Ruscus aculeatus",
+     "role": "supporting",
+     "why": "Venotonic.",
+     "unlisted": true
+    }
+   ],
+   "notes": "Compression does more than any herb. Investigate unilateral swelling for DVT."
+  },
+  {
+   "condition": "Wound healing",
+   "system": "Skin",
+   "aliases": [
+    "wounds",
+    "cuts",
+    "ulcers",
+    "slow healing",
+    "scarring"
+   ],
+   "herbs": [
+    {
+     "herb": "Calendula officinalis",
+     "role": "primary",
+     "why": "Vulnerary and inflammation modulator; the first-line wound herb.",
+     "common": "calendula",
+     "actions": [
+      "inflammation modulator",
+      "vulnerary"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Centella asiatica",
+     "role": "primary",
+     "why": "Antifibrotic; improves scar quality and connective tissue repair.",
+     "common": "gotu kola",
+     "actions": [
+      "antifibrotic",
+      "adaptogen",
+      "nootropic"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Achillea millefolium",
+     "role": "primary",
+     "why": "Vulnerary and styptic for bleeding wounds.",
+     "common": "yarrow",
+     "actions": [
+      "inflammation modulating",
+      "bitter",
+      "vulnerary"
+     ],
+     "dispensary": true
+    },
+    {
+     "herb": "Symphytum officinale",
+     "role": "supporting",
+     "why": "Vulnerary and demulcent. Not on deep or unclean wounds, and not on broken skin long-term.",
+     "common": "comfrey",
+     "actions": [
+      "vulnerary",
+      "demulcent"
+     ]
+    },
+    {
+     "herb": "Plantago lanceolata",
+     "role": "supporting",
+     "why": "Vulnerary and inflammation modulator; good drawing poultice.",
+     "common": "lanceleaf plantain, ribwort",
+     "actions": [
+      "vulnerary",
+      "inflammation modulator"
+     ]
+    },
+    {
+     "herb": "Hypericum perforatum",
+     "role": "supporting",
+     "why": "Vulnerary, specifically for nerve-rich injuries.",
+     "common": "St. John's wort",
+     "actions": [
+      "antidepressant",
+      "antiherpetic",
+      "vulnerary"
+     ],
+     "dispensary": true
+    }
+   ],
+   "notes": "Comfrey heals surface tissue fast and can trap infection beneath: clean thoroughly first."
+  }
+ ],
+ "conditionsSource": "Compiled from general Western herbal and naturopathic materia medica. NOT part of the Yarnell Formulator Tool workbook, which contains no condition-to-herb mapping. Educational starting points for formula design, not treatment protocols."
 }

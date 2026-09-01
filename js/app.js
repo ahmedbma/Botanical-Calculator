@@ -928,6 +928,137 @@
     });
   });
 
+
+  /* ==================================================================
+     CONDITIONS
+     ================================================================== */
+  var CONDS = D.conditions || [];
+  var cxSystem = 'all';
+
+  // Build the haystack once: name, synonyms, system, herb names and common names.
+  CONDS.forEach(function (c) {
+    c._hay = [c.condition, c.system].concat(c.aliases || [])
+      .concat(c.herbs.map(function (h) { return h.herb + ' ' + (h.common || ''); }))
+      .concat(c.herbs.reduce(function (a, h) { return a.concat(h.actions || []); }, []))
+      .join(' ').toLowerCase();
+  });
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"]/g, function (ch) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch];
+    });
+  }
+  function highlight(text, q) {
+    var safe = escapeHtml(text);
+    if (!q) return safe;
+    var rx = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig');
+    return safe.replace(rx, '<mark>$1</mark>');
+  }
+
+  function buildSystemChips() {
+    var systems = {};
+    CONDS.forEach(function (c) { systems[c.system] = (systems[c.system] || 0) + 1; });
+    var box = $('#cx-filters');
+    box.innerHTML = '';
+    var all = el('button', 'chip is-on', 'All');
+    all.dataset.sys = 'all';
+    box.appendChild(all);
+    Object.keys(systems).sort().forEach(function (sysName) {
+      var b = el('button', 'chip', sysName + ' (' + systems[sysName] + ')');
+      b.dataset.sys = sysName;
+      box.appendChild(b);
+    });
+    box.addEventListener('click', function (e) {
+      if (!e.target.dataset.sys) return;
+      cxSystem = e.target.dataset.sys;
+      $$('#cx-filters .chip').forEach(function (c) { c.classList.toggle('is-on', c === e.target); });
+      renderConditions();
+    });
+  }
+
+  function renderConditions() {
+    var q = $('#cx-search').value.toLowerCase().trim();
+    var list = CONDS.filter(function (c) {
+      if (cxSystem !== 'all' && c.system !== cxSystem) return false;
+      return !q || c._hay.indexOf(q) !== -1;
+    });
+
+    $('#cx-count').textContent = list.length === CONDS.length
+      ? CONDS.length + ' conditions, A to Z'
+      : list.length + ' of ' + CONDS.length + ' conditions';
+
+    var out = $('#cx-results');
+    out.innerHTML = '';
+    var frag = document.createDocumentFragment();
+
+    list.forEach(function (c) {
+      var det = el('details', 'cond');
+      if (q) det.open = true;   // a search should show what it matched
+
+      var sum = el('summary');
+      var name = el('span');
+      name.innerHTML = highlight(c.condition, q);
+      sum.appendChild(name);
+      sum.appendChild(el('span', 'sys', c.system));
+      if (c.aliases && c.aliases.length) {
+        var akas = el('p', 'akas');
+        akas.innerHTML = 'also: ' + highlight(c.aliases.join(' &middot; ').replace(/&middot;/g, '\u00b7'), q);
+        sum.appendChild(akas);
+      }
+      det.appendChild(sum);
+
+      var body = el('div', 'body');
+      var grid = el('div', 'hgrid');
+      c.herbs.forEach(function (h) {
+        var row = el('div', 'hrow' + (h.role === 'primary' ? ' primary' : ''));
+        var left = el('div');
+        var nm = el('div', 'nm');
+        nm.innerHTML = highlight(h.herb, q);
+        left.appendChild(nm);
+        if (h.common) {
+          var cn = el('div', 'cn');
+          cn.innerHTML = highlight(h.common, q);
+          left.appendChild(cn);
+        }
+        var tags = el('div', 'tags');
+        tags.appendChild(el('span', 'tg role', h.role));
+        if (h.lowDose) {
+          var lowTag = el('span', 'tg low', h.maxSingleMl != null
+            ? 'low dose \u00b7 max ' + fmt(h.maxSingleMl, 2) + ' ml'
+            : 'low dose');
+          if (h.maxSingleMl != null) {
+            lowTag.title = 'Maximum single dose ' + fmt(h.maxSingleMl, 2) + ' ml at 1:' +
+              fmt(h.maxDilution, 1) + '. Suitable for long-term use: ' + (h.longTerm || 'unknown') +
+              '. See the Low-Dose Reference tab.';
+          }
+          tags.appendChild(lowTag);
+        }
+        if (h.dispensary) tags.appendChild(el('span', 'tg disp', 'in dispensary'));
+        if (h.unlisted) {
+          var u = el('span', 'tg unl', 'not in your data');
+          u.title = 'This herb is not in the workbook\u2019s reference sheets or the BCNH product list.';
+          tags.appendChild(u);
+        }
+        left.appendChild(tags);
+        row.appendChild(left);
+        var why = el('div', 'why');
+        why.innerHTML = highlight(h.why, q);
+        row.appendChild(why);
+        grid.appendChild(row);
+      });
+      body.appendChild(grid);
+      if (c.notes) body.appendChild(el('p', 'note', c.notes));
+      det.appendChild(body);
+      frag.appendChild(det);
+    });
+
+    out.appendChild(frag);
+    if (!list.length) {
+      out.appendChild(el('p', 'count', 'No condition matches that. Try a synonym, a body system, or a herb name.'));
+    }
+  }
+  $('#cx-search').addEventListener('input', renderConditions);
+
   /* ==================================================================
      INIT
      ================================================================== */
@@ -978,6 +1109,8 @@
 
     renderLowDose('');
     renderRef();
+    buildSystemChips();
+    renderConditions();
 
     var tab = null;
     try { tab = localStorage.getItem('bc.tab'); } catch (e) { tab = null; }

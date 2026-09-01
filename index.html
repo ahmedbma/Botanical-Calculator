@@ -21,6 +21,7 @@
   <button role="tab" class="tab" data-panel="tea" aria-selected="false">Tea Formulator</button>
   <button role="tab" class="tab" data-panel="dose" aria-selected="false">Dose per Herb</button>
   <button role="tab" class="tab" data-panel="lowdose" aria-selected="false">Low-Dose Reference</button>
+  <button role="tab" class="tab" data-panel="conditions" aria-selected="false">Conditions</button>
   <button role="tab" class="tab" data-panel="herbs" aria-selected="false">Herb Reference</button>
 </nav>
 
@@ -230,6 +231,27 @@
   </div>
 </section>
 
+<!-- ============================ CONDITIONS ============================ -->
+<section id="panel-conditions" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Herbs by Condition</h2>
+    <div class="provenance">
+      <strong>Not from your workbook.</strong> The Yarnell Formulator Tool contains no condition-to-herb
+      mapping, so this index was compiled separately from general Western herbal and naturopathic materia
+      medica. Treat every entry as a <em>starting point for formula design</em> that you verify against your
+      own references &mdash; not as a protocol, and not with the authority of the dosing data in the other tabs.
+    </div>
+    <p class="hint">Search a condition, a synonym, a body system or a herb &mdash; <em>endometriosis</em>,
+      <em>GERD</em>, <em>reflux</em>, <em>asthma</em>, <em>Vitex</em> all work.</p>
+    <label class="search"><span class="vh">Search conditions</span>
+      <input type="search" id="cx-search" placeholder="Search conditions, synonyms or herbs&hellip;">
+    </label>
+    <div class="chips" id="cx-filters"></div>
+    <p class="count" id="cx-count"></p>
+    <div id="cx-results" class="condlist"></div>
+  </div>
+</section>
+
 <!-- ============================ HERB REFERENCE ============================ -->
 <section id="panel-herbs" class="panel" hidden role="tabpanel">
   <div class="card">
@@ -250,8 +272,9 @@
 </main>
 
 <footer class="wrap site-foot">
-  <p>Calculations and reference data adapted from the Yarnell Formulator Tool (Eric Yarnell, ND) used at the
-     Bastyr Center for Natural Health dispensary.</p>
+  <p>Calculations, dosing and herb reference data adapted from the Yarnell Formulator Tool (Eric Yarnell, ND)
+     used at the Bastyr Center for Natural Health dispensary. The <strong>Conditions</strong> index is not from
+     that workbook &mdash; it was compiled separately from general Western herbal and naturopathic materia medica.</p>
   <p class="warn"><strong>For education and clinical reference only.</strong> This tool does not replace professional
      judgement. Verify every dose independently before dispensing, and take particular care with low-dose botanicals.</p>
 </footer>

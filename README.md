@@ -14,6 +14,7 @@ folder anywhere.
 | **Tea Formulator** | Build a dry-herb tea. Gives tsp and grams per cup, grams per day, and grams/oz to dispense, using measured dry-herb densities. |
 | **Dose per Herb** | Work out how much of a single herb a patient actually receives from a combination formula, in ml, gtt and mg of dry-herb equivalent. |
 | **Low-Dose Reference** | Maximum single, chronic-daily and acute-daily doses for 31 low-dose (potentially toxic) botanicals. |
+| **Conditions** | 56 common conditions A–Z, each with 4–7 herbs, why each is indicated, and clinical cautions. Searchable by condition, synonym (`reflux` → GERD, `hot flashes` → menopause), body system, herb or action. |
 | **Herb Reference** | 396 herbs — Latin and common names, plant part, actions, available dose forms, dispensary availability, tea density and substitutes. Searchable and filterable. |
 
 ### Beyond the spreadsheet
@@ -71,6 +72,22 @@ data/herbdata.json  the same data as plain JSON, for reuse
 the reference data.
 
 ## Data
+
+### Two sources, kept distinct
+
+Everything except the Conditions tab comes from the workbook. **The Conditions index does not** — the
+Yarnell workbook contains no condition-to-herb mapping, so that index was compiled separately from general
+Western herbal and naturopathic materia medica. The tab says so in a banner, and the footer repeats it.
+
+It is cross-linked back to the workbook's own data rather than floating free: 150 of the 154 herbs it names
+resolve to entries in the herb reference, so each one carries its common name, whether it is stocked in the
+BCNH dispensary, and — for low-dose botanicals — its maximum single dose pulled live from the low-dose
+table. The four that don't resolve are labelled *not in your data*.
+
+Treat those entries as starting points for formula design that you verify against your own references, not
+as protocols, and not with the authority of the dosing data in the other tabs.
+
+### From the workbook
 
 Extracted from the workbook's reference sheets: 31 low-dose botanicals, 98 measured dry-herb
 densities, 251 herb reference entries, and 236 + 141 dispensary product listings. Reference data is
