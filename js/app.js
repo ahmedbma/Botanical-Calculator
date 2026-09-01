@@ -226,12 +226,18 @@
       cbxLayer.id = 'herb-combobox';
       cbxLayer.setAttribute('role', 'listbox');
       cbxLayer.hidden = true;
-      // pointerdown, not click: the input must not blur before we read this
+      // Selection happens on click, not pointerdown. Calling preventDefault on
+      // a touch pointerdown cancels the gesture, which on Android meant the
+      // list could not be dragged to scroll -- only the first few rows were
+      // ever reachable. A touch drag that scrolls emits no click, so click
+      // alone gives tap-to-select and drag-to-scroll together.
       cbxLayer.addEventListener('pointerdown', function (e) {
+        // Mouse only: hold focus in the input so the field does not blur.
+        if (e.pointerType === 'mouse') e.preventDefault();
+      });
+      cbxLayer.addEventListener('click', function (e) {
         var li = e.target.closest ? e.target.closest('.cbx-opt') : null;
-        if (!li) return;
-        e.preventDefault();
-        cbxChoose(li.dataset.name);
+        if (li) cbxChoose(li.dataset.name);
       });
       document.body.appendChild(cbxLayer);
     }
@@ -276,15 +282,25 @@
     return cbxRank(starts).concat(cbxRank(contains)).slice(0, CBX_MAX);
   }
 
+  // Measure against the visual viewport where there is one: with a phone
+  // keyboard open the layout viewport still runs behind it, so sizing from
+  // window.innerHeight draws the list into space the keyboard covers.
+  function cbxViewport() {
+    var vv = window.visualViewport;
+    if (!vv) return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+    return { top: vv.offsetTop, left: vv.offsetLeft, width: vv.width, height: vv.height };
+  }
+
   function cbxPosition() {
     if (!cbxState) return;
     var r = cbxState.input.getBoundingClientRect(), layer = cbxLayerEl();
-    var w = Math.max(r.width, 250);
-    var below = window.innerHeight - r.bottom, above = r.top;
-    var flip = below < 180 && above > below;
-    var maxH = Math.max(120, Math.min(300, (flip ? above : below) - 14));
+    var v = cbxViewport();
+    var w = Math.min(Math.max(r.width, 250), v.width - 16);
+    var below = (v.top + v.height) - r.bottom, above = r.top - v.top;
+    var flip = below < 170 && above > below;
+    var maxH = Math.max(110, Math.min(300, (flip ? above : below) - 12));
     layer.style.width = w + 'px';
-    layer.style.left = Math.max(8, Math.min(r.left, window.innerWidth - w - 8)) + 'px';
+    layer.style.left = Math.max(v.left + 8, Math.min(r.left, v.left + v.width - w - 8)) + 'px';
     layer.style.maxHeight = maxH + 'px';
     layer.style.top = (flip ? r.top - maxH - 5 : r.bottom + 5) + 'px';
   }
@@ -368,6 +384,9 @@
     e.target.setAttribute('aria-autocomplete', 'list');
     e.target.setAttribute('aria-controls', 'herb-combobox');
     e.target.setAttribute('autocomplete', 'off');
+    e.target.setAttribute('autocapitalize', 'none');
+    e.target.setAttribute('autocorrect', 'off');
+    e.target.setAttribute('spellcheck', 'false');
     e.target.removeAttribute('list');
     cbxOpen(e.target);
   });
@@ -399,9 +418,16 @@
     if (cbxLayer && cbxLayer.contains(e.target)) return;
     cbxClose();
   });
-  window.addEventListener('resize', cbxClose);
-  // any scroll -- page or the table's own horizontal scroller -- must move it
-  window.addEventListener('scroll', function () { if (cbxState) cbxPosition(); }, true);
+  // Opening the on-screen keyboard fires resize, so closing here shut the list
+  // the instant it appeared on a phone. Follow the viewport instead.
+  function cbxReflow() { if (cbxState) cbxPosition(); }
+  window.addEventListener('resize', cbxReflow);
+  // any scroll -- page, or the table's own horizontal scroller -- must move it
+  window.addEventListener('scroll', cbxReflow, true);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', cbxReflow);
+    window.visualViewport.addEventListener('scroll', cbxReflow);
+  }
 
   /* ---------------- tabs ---------------- */
   $$('.tab').forEach(function (tab) {

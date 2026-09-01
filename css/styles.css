@@ -341,7 +341,8 @@ td.herb input{min-width:190px}
   overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
   background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
 .cbx-list[hidden]{display:none!important}
-.cbx-opt{display:flex;flex-direction:column;gap:1px;padding:10px 12px;border-radius:8px;cursor:pointer}
+.cbx-opt{display:flex;flex-direction:column;gap:1px;padding:10px 12px;border-radius:8px;cursor:pointer;
+  touch-action:manipulation}
 .cbx-opt .nm{font:italic 600 .95rem/1.3 var(--serif);color:var(--ink)}
 .cbx-opt .cn{font-size:.76rem;line-height:1.3;color:var(--muted);text-transform:capitalize}
 .cbx-opt.is-on,.cbx-opt:hover{background:var(--accent-soft)}
