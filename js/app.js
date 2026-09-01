@@ -139,9 +139,9 @@
   D.herbanWellness.forEach(function (h) { addName(h.latin); });
   var HERB_NAMES = Object.keys(nameSet).sort(function (a, b) { return a.localeCompare(b); });
 
-  // Reverse index so a typed common name becomes the Latin one. Chrome and
-  // Safari match a datalist label as you type, but Firefox matches only the
-  // value, so resolve it ourselves when the field is committed.
+  // Reverse index so a typed common name becomes the Latin one. The combobox
+  // resolves a picked row, but a name can also be typed straight in and
+  // committed without opening the list, so resolve on change as well.
   //
   // Several common names map to more than one spelling, because the workbook
   // sheets disagree with each other -- the dispensary sheet lists valerian
@@ -174,7 +174,7 @@
       var resolved = resolveHerb(e.target.value.trim());
       if (resolved === e.target.value) return;
       e.target.value = resolved;
-      e.target.dispatchEvent(new Event('input', { bubbles: true }));
+      cbxFire(e.target, ['input']);
     });
   }
 
@@ -182,27 +182,14 @@
     acc[d.herb] = true; return acc;
   }, {})).sort(function (a, b) { return a.localeCompare(b); });
 
-  // The tea list leads with the density-measured herbs and then repeats the
-  // full list, so dedupe. The label carries the common name: browsers show it
-  // beside the Latin name and match typing against it, so "valerian" finds
-  // Valeriana officinalis while the field still receives the Latin name.
-  function fillDatalist(id, names) {
-    var dl = document.getElementById(id);
-    var frag = document.createDocumentFragment();
-    var seen = {};
-    names.forEach(function (n) {
-      if (seen[n]) return;
-      seen[n] = true;
-      var o = document.createElement('option');
-      o.value = n;
-      var c = commonName(n);
-      if (c) o.textContent = c;
-      frag.appendChild(o);
+  // The tea picker leads with the density-measured herbs, then the rest.
+  var TEA_ALL_NAMES = (function () {
+    var out = [], seen = {};
+    TEA_NAMES.concat(HERB_NAMES).forEach(function (n) {
+      if (!seen[n]) { seen[n] = true; out.push(n); }
     });
-    dl.appendChild(frag);
-  }
-  fillDatalist('herb-list', HERB_NAMES);
-  fillDatalist('tea-herb-list', TEA_NAMES.concat(HERB_NAMES));
+    return out;
+  }());
 
   // The two pickers are drawn from different sheets; say so rather than
   // leaving the difference to be discovered.
@@ -221,6 +208,200 @@
         'appear only here: they come from the density sheet, which the dispensary sheets do not cover.';
     }
   }
+
+
+  /* ---------------- herb combobox ----------------
+     A native <input list> datalist is unreliable on a phone: iOS Safari shows
+     it as a cramped strip over the keyboard and frequently not at all with
+     this many options. The formulator tables also scroll horizontally inside
+     overflow:auto, which clips anything positioned within them. So render our
+     own listbox into a fixed layer on <body>, where nothing can clip it, and
+     drive it by delegation so dynamically added rows work without wiring. */
+  var CBX_MAX = 60;
+  var cbxLayer = null, cbxState = null, cbxActive = -1;
+
+  function cbxLayerEl() {
+    if (!cbxLayer) {
+      cbxLayer = el('ul', 'cbx-list');
+      cbxLayer.id = 'herb-combobox';
+      cbxLayer.setAttribute('role', 'listbox');
+      cbxLayer.hidden = true;
+      // pointerdown, not click: the input must not blur before we read this
+      cbxLayer.addEventListener('pointerdown', function (e) {
+        var li = e.target.closest ? e.target.closest('.cbx-opt') : null;
+        if (!li) return;
+        e.preventDefault();
+        cbxChoose(li.dataset.name);
+      });
+      document.body.appendChild(cbxLayer);
+    }
+    return cbxLayer;
+  }
+
+  function cbxItemsFor(input) {
+    return input.closest('#te-table') ? TEA_ALL_NAMES : HERB_NAMES;
+  }
+
+  // The workbook spells some herbs two ways (valerian is filed both as
+  // "Valerian officinalis" and "Valeriana officinalis"), and both would sit
+  // adjacent in an alphabetical list with the typo on top. Float the spelling
+  // this tool treats as canonical for that common name to the front of its
+  // bucket, so the obvious tap is the right one. Order is otherwise untouched.
+  function cbxPreferred(n) {
+    var c = commonName(n);
+    return !c || BY_COMMON[norm(c)] === n;
+  }
+  function cbxRank(list) {
+    var pref = [], rest = [];
+    list.forEach(function (p) { (cbxPreferred(p[0]) ? pref : rest).push(p); });
+    return pref.concat(rest);
+  }
+
+  function cbxMatches(input) {
+    var q = norm(input.value), names = cbxItemsFor(input);
+    var starts = [], contains = [], seen = {};
+    for (var i = 0; i < names.length; i++) {
+      var n = names[i];
+      if (seen[n]) continue;
+      seen[n] = true;
+      var c = commonName(n);
+      if (!q) { starts.push([n, c]); }
+      else {
+        var ln = norm(n), lc = c ? norm(c) : '';
+        if (ln.indexOf(q) === 0 || (lc && lc.indexOf(q) === 0)) starts.push([n, c]);
+        else if (ln.indexOf(q) !== -1 || (lc && lc.indexOf(q) !== -1)) contains.push([n, c]);
+      }
+      if (starts.length >= CBX_MAX) break;
+    }
+    return cbxRank(starts).concat(cbxRank(contains)).slice(0, CBX_MAX);
+  }
+
+  function cbxPosition() {
+    if (!cbxState) return;
+    var r = cbxState.input.getBoundingClientRect(), layer = cbxLayerEl();
+    var w = Math.max(r.width, 250);
+    var below = window.innerHeight - r.bottom, above = r.top;
+    var flip = below < 180 && above > below;
+    var maxH = Math.max(120, Math.min(300, (flip ? above : below) - 14));
+    layer.style.width = w + 'px';
+    layer.style.left = Math.max(8, Math.min(r.left, window.innerWidth - w - 8)) + 'px';
+    layer.style.maxHeight = maxH + 'px';
+    layer.style.top = (flip ? r.top - maxH - 5 : r.bottom + 5) + 'px';
+  }
+
+  function cbxOpen(input) {
+    var layer = cbxLayerEl(), rows = cbxMatches(input);
+    layer.innerHTML = '';
+    if (!rows.length) { cbxClose(); return; }
+    rows.forEach(function (pair, i) {
+      var li = el('li', 'cbx-opt');
+      li.id = 'cbx-opt-' + i;
+      li.setAttribute('role', 'option');
+      li.setAttribute('aria-selected', 'false');
+      li.dataset.name = pair[0];
+      li.appendChild(el('span', 'nm', pair[0]));
+      if (pair[1]) li.appendChild(el('span', 'cn', pair[1]));
+      layer.appendChild(li);
+    });
+    cbxState = { input: input };
+    cbxActive = -1;
+    layer.hidden = false;
+    layer.scrollTop = 0;
+    input.setAttribute('aria-expanded', 'true');
+    cbxPosition();
+  }
+
+  function cbxClose() {
+    if (cbxLayer) cbxLayer.hidden = true;
+    if (cbxState) {
+      cbxState.input.setAttribute('aria-expanded', 'false');
+      cbxState.input.removeAttribute('aria-activedescendant');
+    }
+    cbxState = null;
+    cbxActive = -1;
+  }
+
+  function cbxHighlight(i) {
+    var opts = $$('.cbx-opt', cbxLayerEl());
+    if (!opts.length) return;
+    cbxActive = (i + opts.length) % opts.length;
+    opts.forEach(function (o, n) {
+      var on = n === cbxActive;
+      o.classList.toggle('is-on', on);
+      o.setAttribute('aria-selected', String(on));
+      if (on) {
+        cbxState.input.setAttribute('aria-activedescendant', o.id);
+        var t = o.offsetTop, h = o.offsetHeight, l = cbxLayer;
+        if (t < l.scrollTop) l.scrollTop = t;
+        else if (t + h > l.scrollTop + l.clientHeight) l.scrollTop = t + h - l.clientHeight;
+      }
+    });
+  }
+
+  // Choosing a row has to fire input/change so the density and low-dose
+  // lookups rerun -- but those are the same events that open the list, so a
+  // pick would immediately reopen it. Flag the programmatic dispatch.
+  var cbxSuppress = false, cbxChoseAt = 0;
+  function cbxFire(input, types) {
+    cbxSuppress = true;
+    try {
+      types.forEach(function (t) { input.dispatchEvent(new Event(t, { bubbles: true })); });
+    } finally { cbxSuppress = false; }
+  }
+
+  function cbxChoose(name) {
+    if (!cbxState) return;
+    var input = cbxState.input;
+    input.value = name;
+    cbxClose();
+    cbxChoseAt = Date.now();
+    cbxFire(input, ['input', 'change']);
+  }
+
+  function isHerbField(t) {
+    return t && t.dataset && t.dataset.field === 'herb' || (t && t.id === 'd-herb');
+  }
+
+  document.addEventListener('focusin', function (e) {
+    if (!isHerbField(e.target)) { cbxClose(); return; }
+    e.target.setAttribute('role', 'combobox');
+    e.target.setAttribute('aria-autocomplete', 'list');
+    e.target.setAttribute('aria-controls', 'herb-combobox');
+    e.target.setAttribute('autocomplete', 'off');
+    e.target.removeAttribute('list');
+    cbxOpen(e.target);
+  });
+  document.addEventListener('input', function (e) {
+    if (cbxSuppress) return;
+    if (isHerbField(e.target)) cbxOpen(e.target);
+  });
+  // Tapping a field that already has focus fires no focusin, so a second tap
+  // after choosing a herb would otherwise do nothing. A touch that picks a row
+  // also emits a click a moment later, once the list is gone, which lands on
+  // the field underneath -- ignore that one or every pick reopens the list.
+  document.addEventListener('click', function (e) {
+    if (Date.now() - cbxChoseAt < 400) return;
+    if (!cbxState && isHerbField(e.target)) cbxOpen(e.target);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!cbxState || e.target !== cbxState.input) return;
+    if (e.key === 'ArrowDown') { e.preventDefault(); cbxHighlight(cbxActive + 1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); cbxHighlight(cbxActive - 1); }
+    else if (e.key === 'Enter') {
+      var on = $('.cbx-opt.is-on', cbxLayerEl());
+      if (on) { e.preventDefault(); cbxChoose(on.dataset.name); }
+    } else if (e.key === 'Escape') { cbxClose(); }
+    else if (e.key === 'Tab') { cbxClose(); }
+  });
+  document.addEventListener('pointerdown', function (e) {
+    if (!cbxState) return;
+    if (e.target === cbxState.input) return;
+    if (cbxLayer && cbxLayer.contains(e.target)) return;
+    cbxClose();
+  });
+  window.addEventListener('resize', cbxClose);
+  // any scroll -- page or the table's own horizontal scroller -- must move it
+  window.addEventListener('scroll', function () { if (cbxState) cbxPosition(); }, true);
 
   /* ---------------- tabs ---------------- */
   $$('.tab').forEach(function (tab) {
@@ -333,7 +514,6 @@
     var tdHerb = el('td', 'herb');
     var herbIn = el('input');
     herbIn.type = 'text';
-    herbIn.setAttribute('list', 'herb-list');
     herbIn.placeholder = 'Latin or common name';
     herbIn.value = row.herb;
     herbIn.dataset.field = 'herb';
@@ -601,7 +781,6 @@
     var tdHerb = el('td', 'herb');
     var herbIn = el('input');
     herbIn.type = 'text';
-    herbIn.setAttribute('list', 'tea-herb-list');
     herbIn.placeholder = 'Latin or common name';
     herbIn.value = row.herb;
     herbIn.dataset.field = 'herb';
