@@ -101,30 +101,126 @@
   var genericDensity = {};
   D.genericDensity.forEach(function (g) { genericDensity[g.part] = g.gPerTbsp; });
 
-  /* ---------------- shared herb name list ---------------- */
+  /* ---------------- common names ----------------
+     The workbook carries a common name on the herb-reference and dispensary
+     sheets but not on the density sheet, so fall back to the genus and species
+     when a name differs only by a parenthetical or a supplier's variant. */
+  var COMMON = {}, COMMON_GS = {};
+  function addCommon(latin, common) {
+    if (!latin || !common) return;
+    var c = String(common).trim().toLowerCase();
+    if (c && !COMMON[latin]) COMMON[latin] = c;
+  }
+  D.herbRef.forEach(function (h) { addCommon(h.herb, h.common); });
+  D.bcnhProducts.forEach(function (p) { addCommon(p.latin, p.common); });
+  Object.keys(COMMON).forEach(function (k) {
+    var g = genusSpecies(k);
+    if (g && !COMMON_GS[g]) COMMON_GS[g] = COMMON[k];
+  });
+  function commonName(latin) {
+    if (!latin) return '';
+    return COMMON[latin] || COMMON_GS[genusSpecies(latin)] || '';
+  }
+
+  /* ---------------- shared herb name list ----------------
+     Two rows in the source workbook are not herbs at all -- a sheet footer and
+     a column header that were parsed as entries. Keep them out of the pickers
+     and out of the reference index. */
+  var NOT_A_HERB = {
+    'all information provided here is by eric yarnell nd': true,
+    'amount in formula': true
+  };
+  function isHerbName(n) { return !!n && !NOT_A_HERB[norm(n)]; }
+
   var nameSet = {};
-  function addName(n) { if (n) nameSet[n] = true; }
+  function addName(n) { if (isHerbName(n)) nameSet[n] = true; }
   D.bcnhProducts.forEach(function (p) { addName(p.latin); });
   D.herbRef.forEach(function (h) { addName(h.herb); });
   D.herbanWellness.forEach(function (h) { addName(h.latin); });
   var HERB_NAMES = Object.keys(nameSet).sort(function (a, b) { return a.localeCompare(b); });
 
+  // Reverse index so a typed common name becomes the Latin one. Chrome and
+  // Safari match a datalist label as you type, but Firefox matches only the
+  // value, so resolve it ourselves when the field is committed.
+  //
+  // Several common names map to more than one spelling, because the workbook
+  // sheets disagree with each other -- the dispensary sheet lists valerian
+  // twice, as "Valerian officinalis" (a typo) for the tincture and
+  // "Valeriana officinalis" for the glycerite. Prefer the spelling the
+  // botanical reference sheet uses, then the one carrying a measured density,
+  // and fall back to the fuller spelling, which is the one a typo has lost a
+  // letter from.
+  var inHerbRef = {}, inDensity = {};
+  D.herbRef.forEach(function (h) { inHerbRef[h.herb] = true; });
+  D.density.forEach(function (h) { inDensity[h.herb] = true; });
+  function spellingScore(n) {
+    return (inHerbRef[n] ? 4 : 0) + (inDensity[n] ? 2 : 0) + n.length / 1000;
+  }
+  var BY_COMMON = {};
+  Object.keys(COMMON).forEach(function (latin) {
+    var c = norm(COMMON[latin]);
+    if (!c || !nameSet[latin]) return;
+    if (!BY_COMMON[c] || spellingScore(latin) > spellingScore(BY_COMMON[c])) BY_COMMON[c] = latin;
+  });
+  function resolveHerb(typed) {
+    if (!typed || nameSet[typed]) return typed;
+    return BY_COMMON[norm(typed)] || typed;
+  }
+  // Committing a herb field swaps a common name for its Latin name, then lets
+  // the ordinary input handler do the density and low-dose lookups.
+  function bindCommonNameResolution(sel) {
+    $(sel).addEventListener('change', function (e) {
+      if (e.target.dataset.field !== 'herb') return;
+      var resolved = resolveHerb(e.target.value.trim());
+      if (resolved === e.target.value) return;
+      e.target.value = resolved;
+      e.target.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+  }
+
   var TEA_NAMES = Object.keys(D.density.reduce(function (acc, d) {
     acc[d.herb] = true; return acc;
   }, {})).sort(function (a, b) { return a.localeCompare(b); });
 
+  // The tea list leads with the density-measured herbs and then repeats the
+  // full list, so dedupe. The label carries the common name: browsers show it
+  // beside the Latin name and match typing against it, so "valerian" finds
+  // Valeriana officinalis while the field still receives the Latin name.
   function fillDatalist(id, names) {
     var dl = document.getElementById(id);
     var frag = document.createDocumentFragment();
+    var seen = {};
     names.forEach(function (n) {
+      if (seen[n]) return;
+      seen[n] = true;
       var o = document.createElement('option');
       o.value = n;
+      var c = commonName(n);
+      if (c) o.textContent = c;
       frag.appendChild(o);
     });
     dl.appendChild(frag);
   }
   fillDatalist('herb-list', HERB_NAMES);
   fillDatalist('tea-herb-list', TEA_NAMES.concat(HERB_NAMES));
+
+  // The two pickers are drawn from different sheets; say so rather than
+  // leaving the difference to be discovered.
+  var TEA_ONLY = TEA_NAMES.filter(function (n) { return !nameSet[n]; }).length;
+  function fillListNotes() {
+    var t = $('#t-listnote'), te = $('#te-listnote');
+    if (t) {
+      t.textContent = HERB_NAMES.length + ' herbs, from the dispensary and herb-reference sheets — ' +
+        'the ones stocked as liquid extracts. A tincture needs only the extract ratio, so no density ' +
+        'is required and every herb can be offered.';
+    }
+    if (te) {
+      te.textContent = 'The ' + TEA_NAMES.length + ' herbs with a measured dry-herb density come first — ' +
+        'picking one fills in g/Tbsp for you. The ' + HERB_NAMES.length + ' tincture herbs follow, and ' +
+        'need a density typed in or borrowed from a plant part. ' + TEA_ONLY + ' of the measured herbs ' +
+        'appear only here: they come from the density sheet, which the dispensary sheets do not cover.';
+    }
+  }
 
   /* ---------------- tabs ---------------- */
   $$('.tab').forEach(function (tab) {
@@ -238,11 +334,12 @@
     var herbIn = el('input');
     herbIn.type = 'text';
     herbIn.setAttribute('list', 'herb-list');
-    herbIn.placeholder = 'Latin name';
+    herbIn.placeholder = 'Latin or common name';
     herbIn.value = row.herb;
     herbIn.dataset.field = 'herb';
     tdHerb.appendChild(herbIn);
     tdHerb.appendChild(el('span', 'lowtag', 'low dose')).hidden = true;
+    tdHerb.appendChild(el('span', 'cnhint'));
     tr.appendChild(tdHerb);
 
     var tdProp = el('td');
@@ -341,6 +438,9 @@
       if (ratio > 0) { sums.gDose += gDose; sums.gDay += gDay; }
       sums.mlDisp += mlDisp;
 
+      var cn = tr.querySelector('.cnhint');
+      if (cn) cn.textContent = commonName(row.herb);
+
       /* low-dose safety checks */
       var ld = lookupLowDose(row.herb);
       var tag = tr.querySelector('.lowtag');
@@ -422,6 +522,7 @@
     row[field] = e.target.value;
     tCalc();
   });
+  bindCommonNameResolution('#t-table tbody');
   $('#t-table tbody').addEventListener('click', function (e) {
     if (!e.target.classList.contains('rowdel')) return;
     var tr = e.target.closest('tr');
@@ -501,10 +602,11 @@
     var herbIn = el('input');
     herbIn.type = 'text';
     herbIn.setAttribute('list', 'tea-herb-list');
-    herbIn.placeholder = 'Latin name';
+    herbIn.placeholder = 'Latin or common name';
     herbIn.value = row.herb;
     herbIn.dataset.field = 'herb';
     tdHerb.appendChild(herbIn);
+    tdHerb.appendChild(el('span', 'cnhint'));
     tr.appendChild(tdHerb);
 
     var tdProp = el('td');
@@ -572,6 +674,8 @@
       var tr = $('#te-table tbody tr[data-id="' + row.id + '"]');
       if (!tr) return;
       var share = shares[i];
+      var cnTe = tr.querySelector('.cnhint');
+      if (cnTe) cnTe.textContent = commonName(row.herb);
       var gTbsp = numOf(row.gTbsp);
       var herbTsp = tsp * share;
       var gCup = herbTsp * (gTbsp / TSP_PER_TBSP);
@@ -643,6 +747,7 @@
     teCalc();
   }
 
+  bindCommonNameResolution('#te-table tbody');
   $('#te-table tbody').addEventListener('input', function (e) {
     var field = e.target.dataset.field;
     if (!field) return;
@@ -832,6 +937,7 @@
      ================================================================== */
   var refIndex = {};
   function refEntry(name) {
+    if (!isHerbName(name)) return { actions: [], forms: {}, sources: [] };
     var k = norm(name);
     if (!refIndex[k]) refIndex[k] = { name: name, actions: [], forms: {}, sources: [] };
     return refIndex[k];
@@ -1679,6 +1785,7 @@
     }
     doseCalc();
 
+    fillListNotes();
     renderLowDose('');
     renderRef();
     buildSystemChips();
