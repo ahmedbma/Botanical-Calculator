@@ -125,6 +125,19 @@ Skipped questions count for nothing rather than against. The result shows each r
 that produced it, what to look for to confirm it, and which unasked questions would still separate the top
 two.
 
+**The generals govern every case.** Fourteen constitutional axes — onset, thermal state, state of the mind,
+causation, the hour, what open air, motion and the weather do, thirst, sweat, prostration, company, food and
+sleep — are woven into every complaint alongside its own local questions, and the interview will not stop
+early until at least three have been answered, however clear the local symptoms look. Results list the
+generals above the locals and label them. That is the method's central claim made operational: a case is
+decided on the generals, and a remedy that fits the complaint but contradicts them is the wrong remedy.
+
+**Remedies outside the pool.** Each complaint carries a pool of remedies it usually calls for, but every
+answer is scored against all 148. When the generals push a remedy from outside that pool level with the
+leader — on the general questions alone, with the local symptoms counting for nothing — it is shown
+separately as a prompt to look again. The floor is set so this fires in roughly 4% of randomly answered
+cases: often enough to be worth reading, rarely enough to mean something.
+
 The dataset is checked against 47 textbook cases whose expected remedy is well established — Bryonia's
 dry painful cough, Ledum's puncture wound, Argentum nitricum's anticipatory panic, and so on — and all 47
 resolve to the expected remedy.

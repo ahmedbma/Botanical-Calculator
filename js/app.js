@@ -1163,22 +1163,47 @@
 
   /* ---------------- scoring ---------------- */
   function hxScores() {
-    var pool = HX.cond.pool.split(' ');
+    var pool = HX.cond.pool.split(' '), inPool = {};
+    pool.forEach(function (r) { inPool[r] = true; });
+    // Score the whole bank rather than only the complaint's pool: the generals
+    // can point at a remedy this complaint does not usually call for, and that
+    // is worth surfacing instead of discarding.
     var s = {}, hits = {};
-    pool.forEach(function (r) { s[r] = 0; hits[r] = []; });
+    H.remedies.forEach(function (r) { s[r.id] = 0; hits[r.id] = []; });
     HX.answers.forEach(function (a) {
       if (a.opt == null) return;
       var q = HQ[a.q], o = q.opts[a.opt];
-      pool.forEach(function (r) {
-        if (o.wt[r] == null) return;
+      Object.keys(o.wt).forEach(function (r) {
+        if (s[r] == null) return;
         s[r] += o.wt[r];
-        hits[r].push({ axis: q.axis, text: o.t, w: o.wt[r] });
+        hits[r].push({ axis: q.axis, text: o.t, w: o.wt[r], general: q.kind === 'general' });
       });
     });
     var rank = pool.slice().sort(function (a, b) {
       return (s[b] - s[a]) || HR[a].name.localeCompare(HR[b].name);
     });
-    return { s: s, hits: hits, pool: pool, rank: rank };
+    return { s: s, hits: hits, pool: pool, rank: rank, inPool: inPool };
+  }
+
+  function hxGenerals() {
+    return HX.answers.filter(function (a) {
+      return a.opt != null && HQ[a.q].kind === 'general';
+    }).length;
+  }
+
+  // Remedies outside the complaint's pool that the generals have pushed level
+  // with or past its leader. They are scored on the general questions alone,
+  // so reaching the leader's total means something. The floor keeps this quiet
+  // until the leader is actually established -- on random answers a floor of 5
+  // fires about 12% of the time and 6 fires about 4%, which is the rate that
+  // makes it worth reading.
+  var HX_OUTSIDE_FLOOR = 6;
+  function hxOutside(sc) {
+    var lead = sc.s[sc.rank[0]] || 0;
+    if (lead < HX_OUTSIDE_FLOOR || hxGenerals() < 3) return [];
+    return H.remedies.filter(function (r) {
+      return !sc.inPool[r.id] && sc.s[r.id] >= lead && sc.s[r.id] >= HX_OUTSIDE_FLOOR;
+    }).sort(function (x, y) { return sc.s[y.id] - sc.s[x.id]; }).slice(0, 2);
   }
 
   // Soft weighting of who is still credibly in the running.
@@ -1227,6 +1252,9 @@
   // Has one remedy pulled clear enough to stop asking?
   function hxClear(sc) {
     if (hxAnsweredCount() < 4) return false;
+    // The generals decide the case in this method, so the interview does not
+    // get to stop on the local symptoms alone however clear they look.
+    if (hxGenerals() < 3) return false;
     var top = sc.s[sc.rank[0]], second = sc.rank.length > 1 ? sc.s[sc.rank[1]] : 0;
     return top >= 6 && top - second >= 4;
   }
@@ -1376,7 +1404,8 @@
     var sc = hxScores(), top = sc.s[sc.rank[0]];
     $('#hx-rescond').textContent = HX.cond.condition;
     $('#hx-resprog').textContent = hxAnsweredCount() + ' of ' + HX.cond.qs.length +
-      ' questions answered · ' + sc.pool.length + ' remedies considered';
+      ' questions answered, ' + hxGenerals() + ' of them generals · ' +
+      sc.pool.length + ' remedies considered';
 
     var box = $('#hx-ranking');
     box.innerHTML = '';
@@ -1401,6 +1430,13 @@
           (second === top ? 'level with' : 'by only ' + margin + ' point' + (margin === 1 ? '' : 's') + ' over') +
           ' ' + escapeHtml(HR[shown[1]].name) + '. Answer more questions before settling on either.'));
 
+    if (hxGenerals() < 3) {
+      box.appendChild(alertBox('warn', '<strong>The generals have barely been asked.</strong> This method ' +
+        'decides the case on them — thermal state, the hour, what open air and motion do, the state of the ' +
+        'mind — and only ' + hxGenerals() + ' ' + (hxGenerals() === 1 ? 'has' : 'have') + ' been answered. ' +
+        'Treat this ranking as provisional.'));
+    }
+
     shown.forEach(function (r, i) {
       var rem = HR[r];
       var card = el('div', 'hxrem' + (i === 0 ? ' lead' : ''));
@@ -1419,7 +1455,9 @@
 
       card.appendChild(el('p', 'kn', rem.keynote));
 
-      var hits = sc.hits[r].slice().sort(function (a, b) { return b.w - a.w; });
+      var hits = sc.hits[r].slice().sort(function (x, y) {
+        return x.general === y.general ? y.w - x.w : (x.general ? -1 : 1);
+      });
       if (hits.length) {
         card.appendChild(el('h5', 'hxsub', 'What put it here'));
         var ul = el('ul', 'hxwhy');
@@ -1431,6 +1469,11 @@
           li.appendChild(g);
           li.appendChild(el('b', null, h.axis + ': '));
           li.appendChild(document.createTextNode(h.text));
+          if (h.general) {
+            var tag = el('span', 'gtag', 'general');
+            tag.title = 'A general — this method ranks these above the local symptoms';
+            li.appendChild(tag);
+          }
           ul.appendChild(li);
         });
         card.appendChild(ul);
@@ -1444,6 +1487,27 @@
       }
       box.appendChild(card);
     });
+
+    var outside = hxOutside(sc);
+    if (outside.length) {
+      var ob = el('div', 'hxoutside');
+      ob.appendChild(el('h5', 'hxsub', 'Outside the usual pool for this complaint'));
+      ob.appendChild(el('p', 'hxhelp', 'The generals point here at least as strongly as they point at ' +
+        HR[shown[0]].name + ', though ' + (outside.length > 1 ? 'these are not remedies' : 'this is not a remedy') +
+        ' this complaint usually calls for. Scored on the general questions alone, so the local symptoms ' +
+        'have counted for nothing here — read it as a prompt to look again, not as a ranking.'));
+      outside.forEach(function (rem) {
+        var row = el('div', 'hxout-row');
+        var nm = el('div', 'nmwrap');
+        nm.appendChild(el('h4', null, rem.name));
+        nm.appendChild(el('p', 'cn', rem.common));
+        row.appendChild(nm);
+        row.appendChild(el('p', 'kn', rem.keynote));
+        row.appendChild(el('span', 'sc', sc.s[rem.id] + ' pts'));
+        ob.appendChild(row);
+      });
+      box.appendChild(ob);
+    }
 
     hxRenderLoose(sc);
     hxRenderAnswers();

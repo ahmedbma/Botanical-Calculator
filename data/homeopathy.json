@@ -1660,7 +1660,8 @@
      "t": "It came on in cold damp weather, or after a wetting",
      "w": "dulc 3, rhus-t 3, calc 2, nat-s 1, ran-b 1"
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "thermal",
@@ -1688,7 +1689,8 @@
      "t": "Neither especially — no clear preference",
      "w": "ferr-p 1, bry 1, ip 1"
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "thirst",
@@ -1720,7 +1722,8 @@
      "t": "Ordinary thirst — nothing striking",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "time",
@@ -1768,7 +1771,8 @@
      "t": "No particular time",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "motion",
@@ -1800,7 +1804,8 @@
      "t": "Movement makes no difference",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "pressure",
@@ -1828,7 +1833,8 @@
      "t": "Touch and pressure change nothing",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "openair",
@@ -1860,7 +1866,8 @@
      "t": "No clear effect",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "weather",
@@ -1892,7 +1899,8 @@
      "t": "Weather makes no difference",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "laterality",
@@ -1916,7 +1924,8 @@
      "t": "No clear side",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "mind",
@@ -1968,7 +1977,8 @@
      "t": "Nothing out of the ordinary",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "company",
@@ -1992,7 +2002,8 @@
      "t": "No difference",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "sweat",
@@ -2028,7 +2039,8 @@
      "t": "Nothing striking",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "cause",
@@ -2080,7 +2092,8 @@
      "t": "No cause I can identify",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "discharge",
@@ -2120,7 +2133,8 @@
      "t": "No discharge",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "food",
@@ -2168,7 +2182,8 @@
      "t": "Nothing striking",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "exhaustion",
@@ -2196,7 +2211,8 @@
      "t": "Strength is fairly good",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "pain",
@@ -2252,7 +2268,8 @@
      "t": "Little or no pain at all — surprisingly so",
      "w": "op 3, mill 2, chin 1, podo 1"
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "position",
@@ -2292,7 +2309,8 @@
      "t": "Position makes no difference",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "sleep-agg",
@@ -2320,7 +2338,8 @@
      "t": "Sleep makes no difference",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "periodicity",
@@ -2348,7 +2367,8 @@
      "t": "No pattern",
      "w": ""
     }
-   ]
+   ],
+   "kind": "general"
   },
   {
    "id": "fever-face",
@@ -2384,7 +2404,8 @@
      "t": "Heavy, dull, dusky, with drooping eyelids",
      "w": "gels 3, op 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "fever-stage",
@@ -2416,7 +2437,8 @@
      "t": "Little chill — hot from the start",
      "w": "bell 2, acon 2, ferr-p 2"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "cough-type",
@@ -2456,7 +2478,8 @@
      "t": "Loose and productive, coughing up thick bland yellow phlegm",
      "w": "puls 3, kali-s 1, kali-bi 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "cough-mod",
@@ -2496,7 +2519,8 @@
      "t": "Better sitting up and bending forward",
      "w": "ant-t 2, kali-c 2, spong 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "throat-look",
@@ -2532,7 +2556,8 @@
      "t": "Not much to see, but a great deal of pain",
      "w": "ign 2, lach 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "throat-mod",
@@ -2568,7 +2593,8 @@
      "t": "Splinter sensation on every swallow",
      "w": "hep 3, nit-ac 3, arg-n 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "ear-mod",
@@ -2608,7 +2634,8 @@
      "t": "Better for warmth applied to the ear",
      "w": "cham 2, hep 2, mag-p 2, sil 1, ars 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "hd-site",
@@ -2648,7 +2675,8 @@
      "t": "A band or hoop right around the head",
      "w": "cimic 3, gels 2, glon 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "hd-mod",
@@ -2696,7 +2724,8 @@
      "t": "Preceded by visual disturbance or numbness",
      "w": "cycl 3, gels 2, nat-m 2, psor 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "nv-what",
@@ -2744,7 +2773,8 @@
      "t": "Nausea from motion — a car, a boat, watching moving things",
      "w": "cocc 3, tab 3, petr 2, borx 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "nv-mod",
@@ -2772,7 +2802,8 @@
      "t": "Bringing it up finally helps",
      "w": "nux-v 2, ant-c 1, puls 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "di-char",
@@ -2816,7 +2847,8 @@
      "t": "Yellow, mushy, driving out of bed at daybreak",
      "w": "sulph 3, podo 2, aloe 2, nat-s 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "di-when",
@@ -2848,7 +2880,8 @@
      "t": "No pattern",
      "w": ""
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "co-urge",
@@ -2884,7 +2917,8 @@
      "t": "Alternates with diarrhoea",
      "w": "ant-c 2, nux-v 1, sulph 1, podo 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "colic-mod",
@@ -2916,7 +2950,8 @@
      "t": "Nothing helps",
      "w": "cupr 1, plb 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "sleep-form",
@@ -2960,7 +2995,8 @@
      "t": "Wakes unrefreshed, worse for having slept",
      "w": "lach 3, nux-v 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "anx-form",
@@ -3000,7 +3036,8 @@
      "t": "Startles at every noise, oversensitive to everything",
      "w": "borx 2, coff 2, nux-v 1, tarent 1, valer 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "inj-tissue",
@@ -3040,7 +3077,8 @@
      "t": "A blunt blow to the eyeball",
      "w": "symph 3, arn 2, led 2"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "inj-state",
@@ -3076,7 +3114,8 @@
      "t": "Hard and stony where the blow landed",
      "w": "con 3, bell-p 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "joint-mod",
@@ -3120,7 +3159,8 @@
      "t": "Worse the least touch or jar",
      "w": "colch 3, led 1, bry 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "back-mod",
@@ -3156,7 +3196,8 @@
      "t": "Coccyx pain after a fall onto it",
      "w": "hyper 3, bell-p 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "skin-look",
@@ -3200,7 +3241,8 @@
      "t": "Hard, warty, oily skin",
      "w": "thuj 3, nit-ac 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "skin-itch",
@@ -3232,7 +3274,8 @@
      "t": "Little itch, mostly pain",
      "w": "mez 1, ran-b 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "abs-stage",
@@ -3260,7 +3303,8 @@
      "t": "Chronic — keeps coming back in the same place",
      "w": "sil 3, psor 2, sulph 2, thuj 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "uri-pain",
@@ -3304,7 +3348,8 @@
      "t": "Cannot pass at all despite urging; retention",
      "w": "acon 2, canth 2, op 2, caust 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "men-flow",
@@ -3336,7 +3381,8 @@
      "t": "Passive dark oozing in a thin, weak, cold patient",
      "w": "sec 3, chin 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "men-mod",
@@ -3380,7 +3426,8 @@
      "t": "Cannot bear anything tight; worse before, better once it flows",
      "w": "lach 3"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "meno-flush",
@@ -3416,7 +3463,8 @@
      "t": "A surge of heat then drenching sweat; must loosen the collar at once",
      "w": "amyl 3, lach 2, glon 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "teeth-child",
@@ -3456,7 +3504,8 @@
      "t": "Very difficult teething with rapid decay",
      "w": "kreos 3, calc-p 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "hay-eyes",
@@ -3496,7 +3545,8 @@
      "t": "Worse in the open air, better indoors and warm",
      "w": "sabad 3, nux-v 2, ars 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "cold-disch",
@@ -3540,7 +3590,8 @@
      "t": "Offensive, with a foul smell the patient can smell themselves",
      "w": "psor 2, kali-bi 1, merc 1, nit-ac 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "vert-trig",
@@ -3576,7 +3627,8 @@
      "t": "Everything seems to turn in a circle",
      "w": "bry 2, con 1, gels 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "fat-form",
@@ -3612,7 +3664,8 @@
      "t": "Restless exhaustion; too tired to move, too uneasy to rest",
      "w": "ars 3, rhus-t 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "bleed-char",
@@ -3648,7 +3701,8 @@
      "t": "After a strain, a lift, or an exertion",
      "w": "mill 3, arn 2, ham 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "burn-stage",
@@ -3672,7 +3726,8 @@
      "t": "Old burn that will not heal, or scarring",
      "w": "caust 3, sil 1, graph 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "bite-what",
@@ -3700,7 +3755,8 @@
      "t": "Nettle-rash weals over the whole body",
      "w": "urt-u 3, apis 2, rhus-t 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "eye-look",
@@ -3736,7 +3792,8 @@
      "t": "After a blunt blow to the eyeball",
      "w": "symph 3, arn 2, led 2"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "mast-look",
@@ -3764,7 +3821,8 @@
      "t": "Hard and stony after a knock",
      "w": "con 3, bell-p 2"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "tooth-mod",
@@ -3800,7 +3858,8 @@
      "t": "After dental work or extraction",
      "w": "arn 3, hyper 2, staph 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "sci-mod",
@@ -3844,7 +3903,8 @@
      "t": "Left-sided",
      "w": "lach 1, spig 1, cimic 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "shin-form",
@@ -3876,7 +3936,8 @@
      "t": "Neuralgia left long after the rash has cleared",
      "w": "mez 3, hyper 2, ran-b 1, caust 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "pile-form",
@@ -3912,7 +3973,8 @@
      "t": "During pregnancy or after childbirth",
      "w": "coll 3, ham 2, aesc 2, sep 1"
     }
-   ]
+   ],
+   "kind": "local"
   },
   {
    "id": "croup-form",
@@ -3940,7 +4002,8 @@
      "t": "Rattling in the chest with drowsiness and nothing coming up",
      "w": "ant-t 3"
     }
-   ]
+   ],
+   "kind": "local"
   }
  ],
  "conditions": [
@@ -3969,7 +4032,11 @@
     "openair",
     "company",
     "periodicity",
-    "pressure"
+    "pressure",
+    "cause",
+    "weather",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -3993,7 +4060,12 @@
     "time",
     "sweat",
     "thermal",
-    "cause"
+    "cause",
+    "openair",
+    "weather",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4019,7 +4091,13 @@
     "thirst",
     "mind",
     "weather",
-    "sleep-agg"
+    "sleep-agg",
+    "cause",
+    "motion",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food"
    ]
   },
   {
@@ -4044,7 +4122,14 @@
     "sleep-agg",
     "discharge",
     "onset",
-    "mind"
+    "mind",
+    "cause",
+    "motion",
+    "weather",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food"
    ]
   },
   {
@@ -4065,7 +4150,16 @@
     "thermal",
     "openair",
     "position",
-    "mind"
+    "mind",
+    "cause",
+    "motion",
+    "thirst",
+    "weather",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4091,7 +4185,14 @@
     "time",
     "sweat",
     "mind",
-    "sleep-agg"
+    "sleep-agg",
+    "cause",
+    "openair",
+    "motion",
+    "weather",
+    "exhaustion",
+    "company",
+    "food"
    ]
   },
   {
@@ -4115,7 +4216,14 @@
     "openair",
     "discharge",
     "company",
-    "sweat"
+    "sweat",
+    "cause",
+    "motion",
+    "thirst",
+    "weather",
+    "exhaustion",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4141,7 +4249,12 @@
     "mind",
     "food",
     "weather",
-    "company"
+    "company",
+    "onset",
+    "thermal",
+    "sweat",
+    "exhaustion",
+    "sleep-agg"
    ]
   },
   {
@@ -4165,7 +4278,15 @@
     "cause",
     "food",
     "mind",
-    "motion"
+    "motion",
+    "onset",
+    "thermal",
+    "openair",
+    "thirst",
+    "sweat",
+    "exhaustion",
+    "company",
+    "sleep-agg"
    ]
   },
   {
@@ -4187,7 +4308,15 @@
     "exhaustion",
     "mind",
     "time",
-    "onset"
+    "onset",
+    "cause",
+    "openair",
+    "thirst",
+    "weather",
+    "sweat",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4214,7 +4343,12 @@
     "motion",
     "openair",
     "cause",
-    "sweat"
+    "sweat",
+    "onset",
+    "mind",
+    "weather",
+    "company",
+    "sleep-agg"
    ]
   },
   {
@@ -4236,7 +4370,17 @@
     "thermal",
     "exhaustion",
     "vert-trig",
-    "cause"
+    "cause",
+    "onset",
+    "mind",
+    "time",
+    "motion",
+    "thirst",
+    "weather",
+    "sweat",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4263,7 +4407,14 @@
     "thirst",
     "mind",
     "cause",
-    "openair"
+    "openair",
+    "onset",
+    "motion",
+    "weather",
+    "sweat",
+    "exhaustion",
+    "company",
+    "sleep-agg"
    ]
   },
   {
@@ -4287,7 +4438,16 @@
     "time",
     "food",
     "openair",
-    "position"
+    "position",
+    "onset",
+    "thermal",
+    "motion",
+    "thirst",
+    "weather",
+    "sweat",
+    "exhaustion",
+    "company",
+    "sleep-agg"
    ]
   },
   {
@@ -4312,7 +4472,14 @@
     "mind",
     "cause",
     "food",
-    "sweat"
+    "sweat",
+    "onset",
+    "time",
+    "openair",
+    "motion",
+    "weather",
+    "company",
+    "sleep-agg"
    ]
   },
   {
@@ -4333,7 +4500,15 @@
     "food",
     "time",
     "mind",
-    "pressure"
+    "pressure",
+    "onset",
+    "openair",
+    "motion",
+    "weather",
+    "sweat",
+    "exhaustion",
+    "company",
+    "sleep-agg"
    ]
   },
   {
@@ -4353,7 +4528,19 @@
     "openair",
     "co-urge",
     "thermal",
-    "pain"
+    "pain",
+    "onset",
+    "mind",
+    "cause",
+    "time",
+    "motion",
+    "thirst",
+    "weather",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4376,7 +4563,14 @@
     "thermal",
     "sleep-agg",
     "exhaustion",
-    "company"
+    "company",
+    "onset",
+    "openair",
+    "motion",
+    "thirst",
+    "weather",
+    "sweat",
+    "food"
    ]
   },
   {
@@ -4403,7 +4597,13 @@
     "food",
     "sleep-form",
     "exhaustion",
-    "openair"
+    "openair",
+    "onset",
+    "motion",
+    "thirst",
+    "weather",
+    "sweat",
+    "sleep-agg"
    ]
   },
   {
@@ -4429,7 +4629,13 @@
     "time",
     "exhaustion",
     "pain",
-    "weather"
+    "weather",
+    "onset",
+    "openair",
+    "motion",
+    "thirst",
+    "sweat",
+    "sleep-agg"
    ]
   },
   {
@@ -4457,7 +4663,13 @@
     "mind",
     "sleep-form",
     "motion",
-    "sweat"
+    "sweat",
+    "onset",
+    "openair",
+    "thirst",
+    "weather",
+    "company",
+    "sleep-agg"
    ]
   },
   {
@@ -4485,7 +4697,18 @@
     "motion",
     "pressure",
     "bleed-char",
-    "mind"
+    "mind",
+    "onset",
+    "thermal",
+    "cause",
+    "time",
+    "thirst",
+    "weather",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4509,7 +4732,17 @@
     "weather",
     "pressure",
     "time",
-    "pain"
+    "pain",
+    "onset",
+    "thermal",
+    "mind",
+    "cause",
+    "thirst",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4535,7 +4768,16 @@
     "time",
     "thermal",
     "periodicity",
-    "pressure"
+    "pressure",
+    "onset",
+    "mind",
+    "cause",
+    "thirst",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4559,7 +4801,16 @@
     "thermal",
     "time",
     "pressure",
-    "pain"
+    "pain",
+    "onset",
+    "mind",
+    "openair",
+    "thirst",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4580,7 +4831,17 @@
     "thermal",
     "time",
     "cause",
-    "pain"
+    "pain",
+    "onset",
+    "mind",
+    "openair",
+    "thirst",
+    "weather",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4605,7 +4866,15 @@
     "time",
     "sleep-agg",
     "cause",
-    "discharge"
+    "discharge",
+    "onset",
+    "mind",
+    "motion",
+    "thirst",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food"
    ]
   },
   {
@@ -4628,7 +4897,16 @@
     "periodicity",
     "weather",
     "thermal",
-    "food"
+    "food",
+    "onset",
+    "mind",
+    "time",
+    "motion",
+    "thirst",
+    "sweat",
+    "exhaustion",
+    "company",
+    "sleep-agg"
    ]
   },
   {
@@ -4652,7 +4930,17 @@
     "openair",
     "time",
     "discharge",
-    "exhaustion"
+    "exhaustion",
+    "onset",
+    "mind",
+    "cause",
+    "motion",
+    "thirst",
+    "weather",
+    "sweat",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4675,7 +4963,17 @@
     "openair",
     "thermal",
     "time",
-    "weather"
+    "weather",
+    "onset",
+    "mind",
+    "cause",
+    "motion",
+    "thirst",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4694,7 +4992,18 @@
     "pain",
     "openair",
     "thermal",
-    "mind"
+    "mind",
+    "onset",
+    "cause",
+    "time",
+    "motion",
+    "thirst",
+    "weather",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4716,7 +5025,18 @@
     "pain",
     "skin-itch",
     "exhaustion",
-    "onset"
+    "onset",
+    "thermal",
+    "mind",
+    "cause",
+    "time",
+    "motion",
+    "thirst",
+    "weather",
+    "sweat",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4739,7 +5059,15 @@
     "openair",
     "thirst",
     "pain",
-    "mind"
+    "mind",
+    "onset",
+    "motion",
+    "weather",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4765,7 +5093,15 @@
     "openair",
     "cause",
     "position",
-    "motion"
+    "motion",
+    "onset",
+    "thirst",
+    "weather",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4788,7 +5124,14 @@
     "sweat",
     "time",
     "company",
-    "sleep-agg"
+    "sleep-agg",
+    "onset",
+    "cause",
+    "motion",
+    "thirst",
+    "weather",
+    "exhaustion",
+    "food"
    ]
   },
   {
@@ -4810,7 +5153,17 @@
     "thermal",
     "openair",
     "onset",
-    "motion"
+    "motion",
+    "mind",
+    "cause",
+    "time",
+    "thirst",
+    "weather",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4831,7 +5184,17 @@
     "thermal",
     "di-char",
     "openair",
-    "sleep-form"
+    "sleep-form",
+    "onset",
+    "cause",
+    "motion",
+    "thirst",
+    "weather",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4853,7 +5216,17 @@
     "periodicity",
     "thermal",
     "discharge",
-    "weather"
+    "weather",
+    "onset",
+    "mind",
+    "cause",
+    "motion",
+    "thirst",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4876,7 +5249,17 @@
     "thermal",
     "time",
     "pain",
-    "onset"
+    "onset",
+    "mind",
+    "cause",
+    "motion",
+    "thirst",
+    "weather",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4898,7 +5281,16 @@
     "thermal",
     "openair",
     "cause",
-    "laterality"
+    "laterality",
+    "onset",
+    "motion",
+    "thirst",
+    "weather",
+    "sweat",
+    "exhaustion",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
@@ -4917,7 +5309,15 @@
     "exhaustion",
     "mind",
     "thermal",
-    "time"
+    "time",
+    "openair",
+    "motion",
+    "thirst",
+    "weather",
+    "sweat",
+    "company",
+    "food",
+    "sleep-agg"
    ]
   },
   {
