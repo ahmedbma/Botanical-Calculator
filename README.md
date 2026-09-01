@@ -17,10 +17,10 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | **Tea Formulator** | Build a dry-herb tea. Gives tsp and grams per cup, grams per day, and grams/oz to dispense, using measured dry-herb densities. |
 | **Dose per Herb** | Work out how much of a single herb a patient actually receives from a combination formula, in ml, gtt and mg of dry-herb equivalent. |
 | **Low-Dose Reference** | Maximum single, chronic-daily and acute-daily doses for 31 low-dose (potentially toxic) botanicals. |
-| **Conditions** | 75 conditions A–Z, each with 4–7 herbs, why each is indicated, clinical cautions, and the pharmaceuticals, supplements, therapies and labs indicated for it. Searchable by condition, synonym (`reflux` → GERD, `TATT` → fatigue, `long covid` → CFS), niche, herb or action. Filter to the 30 seen most in ND practice or to one of eight clinical niches; sort A–Z or by ND frequency. |
+| **Conditions** | 75 conditions A–Z, each with 4–7 herbs, why each is indicated, clinical cautions, the pharmaceuticals, supplements, therapies and labs indicated for it, and — for 40 of them — a full dosed treatment protocol. Searchable by condition, synonym (`reflux` → GERD, `TATT` → fatigue, `long covid` → CFS), niche, herb or action. Filter to the 30 seen most in ND practice or to one of eight clinical niches; sort A–Z or by ND frequency. |
 | **Homeopathy** | A remedy differentiator over 148 classical remedies and 42 presenting complaints. Pick the complaint; it asks the questions that best separate the remedies still in contention, and ranks them with the reasoning shown. Includes a searchable remedy reference. |
 | **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. |
-| **Pharmaceuticals** | 106 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. |
+| **Pharmaceuticals** | 106 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
 | **Supplements** | 97 supplements and 43 non-drug therapies — typical dose ranges, mechanisms, and the cautions that matter, including which supplements must be avoided in which patients. Organised A–Z or by condition. |
 | **Labs & Imaging** | 99 tests across blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels — why you would order each and how to read it. The same tests hang off every abnormal exam finding and every condition. |
 | **Herb Reference** | 396 herbs — Latin and common names, plant part, actions, available dose forms, dispensary availability, tea density and substitutes. Searchable and filterable. |
@@ -112,16 +112,17 @@ as protocols, and not with the authority of the dosing data in the other tabs.
 ### The physical exams tab
 
 **A source of its own: your coursework.** The exam sequence and the normal-findings wording are transcribed
-from eight Physical Exam & Diagnosis documents — the head-to-toe objectives, the respiratory exam chart, the
+from ten Physical Exam & Diagnosis documents — the head-to-toe objectives, the respiratory exam chart, the
 cardiovascular exam word list, the PED 2 abdominal exam chart, the MSK word list, the neuro exam word list,
-the PED 3 objective female findings and the male objective chart — plus the NMS3 cardiovascular competency
-form from the BU SNM Student Clinic Handbook. Nothing there comes from the Yarnell workbook.
+the PED 3 objective female findings, the male objective chart, the orthopedics final study guide and the
+review of systems intake form — plus the NMS3 cardiovascular competency form from the BU SNM Student Clinic
+Handbook. Nothing there comes from the Yarnell workbook.
 
-**Organised by type of exam**, eleven in all: a head-to-toe screen, the respiratory exam, the cardiovascular
-and peripheral vascular exam, the abdominal exam, four musculoskeletal regions (cervical spine and TMJ,
-thoracic and lumbar spine, upper extremities, lower extremities), the neurological exam, and — under
-Genitourinary — the breast and female pelvic exam and the male genitourinary and rectal exam. 155 steps
-between them.
+**Organised by type of exam**, 14 in all: the review of systems, a head-to-toe screen, the respiratory exam,
+the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, an 87-test
+orthopaedic special-test bank, the neurological exam, the breast and female pelvic and male genitourinary
+exams, and the mental status exam. 309 steps and 267 abnormal findings between them, every finding carrying the
+labs and imaging it calls for.
 
 **Two layers, kept apart in the tab as they are here.** The *normal* line of each step is the source
 document's own wording, edited only for spelling, expanded abbreviations and consistent tense, so the
@@ -136,6 +137,11 @@ the tab is a self-check that saves to browser storage; the real form still needs
 Three of its items ask for something the cardiovascular word list does not cover — the three examining
 positions, the sixth auscultation point, and describing a split S2, S3 or S4 rather than just excluding extra
 sounds — and each is marked where it appears.
+
+**The medication-suffix cards** are reproduced as a searchable reference in the Pharmaceuticals tab: 41 stems
+across eight groups, each with the class it names, an example drug and the caution the card carries. One
+correction — the card prints the neuromuscular blocker stem as "-nuim"; the actual stems are -curium and
+-onium, as in atracurium and rocuronium.
 
 **Ten places where the source wording was corrected or filled in** rather than transcribed, each marked in
 place with a *source note* saying what the notes read and why it was changed:
@@ -164,6 +170,25 @@ dullness suggest. Rather than invent wording and attribute it to the notes, thos
 what is missing. A group with no steps is skipped in the write-up view, since there is nothing to chart.
 
 Where an exam raises a condition the **Conditions** index already covers, the tab links straight across to it.
+
+### Treatment protocols
+
+**40 dosed protocols, transcribed from your own coursework.** Each carries the document's background paragraph
+— aetiology, epidemiology, pathophysiology, presentation, differential, diagnosis, management and prognosis —
+and its treatment plan: 174 agents in all, each with the dose, the schedule and the reasoning. They appear as a
+*Treatment protocol* section inside the matching condition, and again in the by-condition views of the
+therapeutics tabs.
+
+Forty of the index's conditions have one. Eleven protocols cover topics the herb index does not, so those
+became topics of their own: sexually transmitted infection, erectile dysfunction, attention deficit disorder,
+seizure disorder, multiple sclerosis, Parkinson's disease, hepatic steatosis, coeliac disease, small
+intestinal bacterial overgrowth, warts and burns.
+
+**Where the document's heading and the condition differ**, the protocol says so in a source note — Alzheimer's
+filed under cognitive decline, coronary artery disease under atherosclerosis, nephrolithiasis under kidney
+stones, and so on. One is a genuine defect rather than a filing decision: the page headed *Irritable bowel
+disease* opens "Inflammatory bowel disease (IBD) is a chronic, relapsing-remitting inflammatory disorder", so
+it is filed under inflammatory bowel disease, with irritable bowel syndrome keeping its own separate protocol.
 
 ### The therapeutics layer
 

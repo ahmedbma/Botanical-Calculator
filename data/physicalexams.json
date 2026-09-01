@@ -9,9 +9,12 @@
   "PED Words for Neuro Exam",
   "Objective Female Findings (PED 3)",
   "PED Male Objective Chart",
-  "Mental Health Study Guide"
+  "Mental Health Study Guide",
+  "Orthopedics Final Study Guide",
+  "Review of Systems intake form"
  ],
  "types": [
+  "History",
   "Screening",
   "Respiratory",
   "Cardiovascular",
@@ -22,6 +25,433 @@
   "Mental health"
  ],
  "exams": [
+  {
+   "id": "ros",
+   "type": "History",
+   "name": "Review of Systems",
+   "region": "Thirteen systems",
+   "summary": "The intake checklist, system by system — 54 items across 13 systems. What the patient ticks here is what directs the physical exam that follows.",
+   "source": "Review of Systems intake form",
+   "normalsWritten": true,
+   "script": "The form is filled in by the patient before you see them. Read it before you walk in, then ask about every box they ticked — and about the ones you would have expected them to tick. A negative review of systems is only meaningful if you asked.",
+   "related": [
+    "Fatigue and low energy",
+    "Anxiety",
+    "Depression",
+    "Hypothyroidism",
+    "Diabetes mellitus, type 2"
+   ],
+   "groups": [
+    {
+     "name": "Constitutional",
+     "steps": [
+      {
+       "step": "Chills",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies chills."
+      },
+      {
+       "step": "Fatigue",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies fatigue."
+      },
+      {
+       "step": "Fever",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies fever."
+      },
+      {
+       "step": "Weight gain",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies weight gain."
+      },
+      {
+       "step": "Weight loss",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies weight loss."
+      }
+     ]
+    },
+    {
+     "name": "HEENT",
+     "steps": [
+      {
+       "step": "Hearing loss",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies hearing loss."
+      },
+      {
+       "step": "Sinus pressure",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies sinus pressure."
+      },
+      {
+       "step": "Visual changes",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies visual changes."
+      }
+     ]
+    },
+    {
+     "name": "Respiratory",
+     "steps": [
+      {
+       "step": "Cough",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies cough."
+      },
+      {
+       "step": "Shortness of breath",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies shortness of breath."
+      },
+      {
+       "step": "Wheezing",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies wheezing."
+      }
+     ]
+    },
+    {
+     "name": "Cardiovascular",
+     "steps": [
+      {
+       "step": "Chest pain",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies chest pain."
+      },
+      {
+       "step": "Pain while walking (claudication)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies pain while walking (claudication)."
+      },
+      {
+       "step": "Edema",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies edema."
+      },
+      {
+       "step": "Palpitations",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies palpitations."
+      }
+     ]
+    },
+    {
+     "name": "Gastrointestinal",
+     "steps": [
+      {
+       "step": "Abdominal pain",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies abdominal pain."
+      },
+      {
+       "step": "Blood in stool",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies blood in stool."
+      },
+      {
+       "step": "Constipation",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies constipation."
+      },
+      {
+       "step": "Diarrhea",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies diarrhea."
+      },
+      {
+       "step": "Heartburn",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies heartburn."
+      },
+      {
+       "step": "Loss of appetite",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies loss of appetite."
+      },
+      {
+       "step": "Nausea",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies nausea."
+      },
+      {
+       "step": "Vomiting",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies vomiting."
+      }
+     ]
+    },
+    {
+     "name": "Genitourinary",
+     "steps": [
+      {
+       "step": "Painful urination (dysuria)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies painful urination (dysuria)."
+      },
+      {
+       "step": "Excessive amount of urine (polyuria)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies excessive amount of urine (polyuria)."
+      },
+      {
+       "step": "Urinary frequency",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies urinary frequency."
+      }
+     ]
+    },
+    {
+     "name": "Metabolic / endocrine",
+     "steps": [
+      {
+       "step": "Cold intolerance",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies cold intolerance."
+      },
+      {
+       "step": "Heat intolerance",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies heat intolerance."
+      },
+      {
+       "step": "Excessive thirst (polydipsia)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies excessive thirst (polydipsia)."
+      },
+      {
+       "step": "Excessive hunger (polyphagia)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies excessive hunger (polyphagia)."
+      }
+     ]
+    },
+    {
+     "name": "Neurological",
+     "steps": [
+      {
+       "step": "Dizziness",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies dizziness."
+      },
+      {
+       "step": "Extremity numbness",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies extremity numbness."
+      },
+      {
+       "step": "Extremity weakness",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies extremity weakness."
+      },
+      {
+       "step": "Headaches",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies headaches."
+      },
+      {
+       "step": "Seizures",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies seizures."
+      },
+      {
+       "step": "Tremors",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies tremors."
+      }
+     ]
+    },
+    {
+     "name": "Psychiatric",
+     "steps": [
+      {
+       "step": "Anxiety",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies anxiety."
+      },
+      {
+       "step": "Depression",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies depression."
+      }
+     ]
+    },
+    {
+     "name": "Integumentary",
+     "steps": [
+      {
+       "step": "Breast discharge",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies breast discharge."
+      },
+      {
+       "step": "Breast lump",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies breast lump."
+      },
+      {
+       "step": "Hives",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies hives."
+      },
+      {
+       "step": "Mole changes",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies mole changes."
+      },
+      {
+       "step": "Rash",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies rash."
+      },
+      {
+       "step": "Skin lesion",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies skin lesion."
+      }
+     ]
+    },
+    {
+     "name": "Musculoskeletal",
+     "steps": [
+      {
+       "step": "Back pain",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies back pain."
+      },
+      {
+       "step": "Joint pain",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies joint pain."
+      },
+      {
+       "step": "Joint swelling",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies joint swelling."
+      },
+      {
+       "step": "Neck pain",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies neck pain."
+      }
+     ]
+    },
+    {
+     "name": "Hematologic",
+     "steps": [
+      {
+       "step": "Easily bleeds",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies easily bleeds."
+      },
+      {
+       "step": "Easily bruises",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies easily bruises."
+      },
+      {
+       "step": "Lymphedema",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies lymphedema."
+      },
+      {
+       "step": "Issues with blood clots",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies issues with blood clots."
+      }
+     ]
+    },
+    {
+     "name": "Immunologic",
+     "steps": [
+      {
+       "step": "Food allergies",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies food allergies."
+      },
+      {
+       "step": "Seasonal allergies",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies seasonal allergies."
+      }
+     ]
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Fever, night sweats and unintentional weight loss",
+     "suggests": "Infection, malignancy or inflammatory disease — the classic constitutional triad",
+     "urgent": true,
+     "workup": "CBC with differential, CRP and ESR, CMP, LDH, chest X-ray, blood cultures, HIV and TB testing; imaging directed by other findings"
+    },
+    {
+     "finding": "Chest pain, breathlessness or palpitations",
+     "suggests": "Cardiac or pulmonary disease; screen before attributing to anxiety",
+     "urgent": true,
+     "workup": "EKG, troponin if acute, CBC, CMP, TSH, BNP, chest X-ray; echocardiogram and ambulatory monitoring as indicated"
+    },
+    {
+     "finding": "Blood in the stool",
+     "suggests": "GI bleeding — haemorrhoids, fissure, polyp, IBD or malignancy; investigate",
+     "urgent": true,
+     "workup": "CBC and ferritin, FIT, and colonoscopy — not a repeat occult blood test"
+    },
+    {
+     "finding": "Claudication — pain on walking that eases with rest",
+     "suggests": "Peripheral arterial disease",
+     "workup": "Ankle-brachial index, arterial duplex ultrasound, lipids, HbA1c"
+    },
+    {
+     "finding": "Polyuria, polydipsia and polyphagia together",
+     "suggests": "Diabetes mellitus until excluded",
+     "workup": "Fasting glucose and HbA1c, urinalysis for glucose and ketones, CMP"
+    },
+    {
+     "finding": "Cold intolerance with fatigue and weight gain",
+     "suggests": "Hypothyroidism",
+     "workup": "TSH with free T4, thyroid antibodies, CBC, ferritin, lipids"
+    },
+    {
+     "finding": "Heat intolerance with weight loss and palpitations",
+     "suggests": "Hyperthyroidism",
+     "workup": "TSH with free T4 and T3, thyroid antibodies, EKG, CBC"
+    },
+    {
+     "finding": "Seizures",
+     "suggests": "New seizures need imaging, metabolic screening and neurology",
+     "urgent": true,
+     "workup": "Neuroimaging, EEG, CMP with glucose, calcium and magnesium, CBC, urine toxicology; consider a mycotoxin panel where other systems are involved"
+    },
+    {
+     "finding": "Breast lump or nipple discharge",
+     "suggests": "Needs imaging and examination regardless of the rest of the form",
+     "urgent": true,
+     "workup": "Diagnostic mammography with ultrasound and clinical breast examination; core biopsy where imaging is not clearly benign"
+    },
+    {
+     "finding": "A mole that has changed",
+     "suggests": "Melanoma until excluded — dermatoscopy or biopsy",
+     "urgent": true,
+     "workup": "Dermatoscopy and excisional biopsy — not a watch-and-wait"
+    },
+    {
+     "finding": "Easy bleeding or bruising with clotting problems",
+     "suggests": "Coagulopathy, platelet disorder or liver disease",
+     "workup": "CBC with platelets, coagulation screen, LFTs, ferritin; von Willebrand studies where the history fits"
+    },
+    {
+     "finding": "Anxiety or depression ticked",
+     "suggests": "Screen with the GAD-7 and PHQ-9, and rule out thyroid and substance causes",
+     "workup": "GAD-7 and PHQ-9, MDQ before any antidepressant, TSH, CBC, CMP, urine toxicology"
+    },
+    {
+     "finding": "Nothing ticked but the patient looks unwell",
+     "suggests": "The form is a screen, not a substitute for the history — ask anyway",
+     "workup": "Take the history anyway; CBC, CMP, TSH, CRP and urinalysis as a baseline"
+    }
+   ]
+  },
   {
    "id": "head-to-toe",
    "type": "Screening",
@@ -1550,6 +1980,972 @@
      "finding": "Podagra — acute first MTP pain, redness and swelling",
      "suggests": "Gout",
      "workup": "Serum urate (repeat in 2 weeks — it can be normal in a flare), CMP, aspiration if infection is possible"
+    }
+   ]
+  },
+  {
+   "id": "ortho",
+   "type": "Musculoskeletal",
+   "name": "Orthopaedic Special Tests",
+   "region": "All regions",
+   "summary": "87 named orthopaedic tests by body region, each with what a positive result points to — the differential column from your orthopedics final study guide, verbatim.",
+   "source": "Orthopedics Final Study Guide",
+   "normalsWritten": true,
+   "script": "These are provocative tests, so warn the patient that you are looking for their pain and ask them to tell you the moment it appears. Test the unaffected side first to establish what normal feels like for them. A single positive test is a data point, not a diagnosis — cluster them.",
+   "related": [
+    "Neck and shoulder pain",
+    "Back pain",
+    "Osteoarthritis",
+    "Chronic pain",
+    "Rheumatoid arthritis"
+   ],
+   "groups": [
+    {
+     "name": "Shoulder",
+     "steps": [
+      {
+       "step": "Empty Can Test",
+       "how": "Arms to 90° abduction in the scapular plane, thumbs down; resist downward pressure.",
+       "normal": "Empty Can Test is negative."
+      },
+      {
+       "step": "Hawkins-Kennedy Test",
+       "how": "Shoulder and elbow to 90°, then forcibly internally rotate the shoulder.",
+       "normal": "Hawkins-Kennedy Test is negative."
+      },
+      {
+       "step": "Neer’s Impingement Sign",
+       "how": "Stabilise the scapula and passively forward-flex the internally rotated arm overhead.",
+       "normal": "Neer’s Impingement Sign is negative."
+      },
+      {
+       "step": "Codman’s Drop Arm Test",
+       "how": "Passively abduct to 90°, release, and ask the patient to lower the arm slowly.",
+       "normal": "Codman’s Drop Arm Test is negative."
+      },
+      {
+       "step": "Apley’s Scratch",
+       "how": "Reach over the shoulder to the opposite scapula, then behind the back upward.",
+       "normal": "Apley’s Scratch is negative."
+      },
+      {
+       "step": "Glenohumeral Apprehension Test",
+       "how": "Supine, shoulder to 90° abduction and external rotation; watch for apprehension.",
+       "normal": "Glenohumeral Apprehension Test is negative."
+      },
+      {
+       "step": "Speed’s Test",
+       "how": "Elbow extended and forearm supinated; resist shoulder forward flexion.",
+       "normal": "Speed’s Test is negative."
+      },
+      {
+       "step": "Lippman’s Test",
+       "how": "Elbow flexed to 90°; roll the biceps tendon in the bicipital groove.",
+       "normal": "Lippman’s Test is negative."
+      },
+      {
+       "step": "Yergason’s Test",
+       "how": "Elbow flexed to 90° and pronated; resist supination and external rotation.",
+       "normal": "Yergason’s Test is negative."
+      },
+      {
+       "step": "Dawbarn’s Test*",
+       "how": "Palpate the subacromial region, then abduct the arm — tenderness should disappear.",
+       "normal": "Dawbarn’s Test* is negative."
+      },
+      {
+       "step": "Dugas Test*",
+       "how": "Place the hand on the opposite shoulder and try to bring the elbow to the chest.",
+       "normal": "Dugas Test* is negative."
+      }
+     ]
+    },
+    {
+     "name": "Elbow",
+     "steps": [
+      {
+       "step": "Cozen’s Test",
+       "how": "Forearm pronated and fist clenched; resist wrist extension while palpating the lateral epicondyle.",
+       "normal": "Cozen’s Test is negative."
+      },
+      {
+       "step": "Mill’s Test",
+       "how": "Palpate the lateral epicondyle while passively pronating the forearm and flexing the wrist with the elbow extended.",
+       "normal": "Mill’s Test is negative."
+      },
+      {
+       "step": "Golfer’s Elbow/Reverse Cozen’s Test",
+       "how": "Resist wrist flexion with the forearm supinated while palpating the medial epicondyle.",
+       "normal": "Golfer’s Elbow/Reverse Cozen’s Test is negative."
+      },
+      {
+       "step": "Golfer’s Elbow/Reverse Mill’s Test",
+       "how": "Palpate the medial epicondyle while passively supinating and extending the wrist and elbow.",
+       "normal": "Golfer’s Elbow/Reverse Mill’s Test is negative."
+      },
+      {
+       "step": "Valgus (Abduction) Stress Test",
+       "how": "Elbow at 20–30° flexion; apply an abduction (valgus) force at the distal forearm.",
+       "normal": "Valgus (Abduction) Stress Test is negative."
+      },
+      {
+       "step": "Varus (Adduction) Stress Test",
+       "how": "Elbow at 20–30° flexion; apply an adduction (varus) force at the distal forearm.",
+       "normal": "Varus (Adduction) Stress Test is negative."
+      },
+      {
+       "step": "Tinel’s Sign (Elbow)",
+       "how": "Tap over the ulnar nerve in the groove between the olecranon and the medial epicondyle.",
+       "normal": "Tinel’s Sign (Elbow) is negative."
+      }
+     ]
+    },
+    {
+     "name": "Wrist and hand",
+     "steps": [
+      {
+       "step": "Tinel’s Sign (wrist)",
+       "how": "Tap over the median nerve at the volar wrist crease.",
+       "normal": "Tinel’s Sign (wrist) is negative."
+      },
+      {
+       "step": "Phalen’s Test",
+       "how": "Hold the wrists in full flexion, dorsum to dorsum, for 60 seconds.",
+       "normal": "Phalen’s Test is negative."
+      },
+      {
+       "step": "Reverse Phalen’s Test*",
+       "how": "Hold the wrists in full extension, palms together, for 60 seconds.",
+       "normal": "Reverse Phalen’s Test* is negative."
+      },
+      {
+       "step": "Finkelstein’s Test",
+       "how": "Thumb tucked inside a closed fist; deviate the wrist toward the ulnar side.",
+       "normal": "Finkelstein’s Test is negative."
+      },
+      {
+       "step": "Pinch Grip Test*",
+       "how": "Ask the patient to pinch the tips of the thumb and index finger — an “OK” sign.",
+       "normal": "Pinch Grip Test* is negative."
+      },
+      {
+       "step": "Retinacular Test",
+       "how": "Hold the PIP joint in neutral and try to flex the DIP joint, then repeat with the PIP flexed.",
+       "normal": "Retinacular Test is negative."
+      }
+     ]
+    },
+    {
+     "name": "Cervical Spine",
+     "steps": [
+      {
+       "step": "Soto Hall Test",
+       "how": "Supine with a hand on the sternum; passively flex the neck onto the chest.",
+       "normal": "Soto Hall Test is negative."
+      },
+      {
+       "step": "Cervical/Foraminal Compression Test",
+       "how": "Seated; apply downward axial pressure through the top of the head in neutral.",
+       "normal": "Cervical/Foraminal Compression Test is negative."
+      },
+      {
+       "step": "Cervical/Foraminal Compression Rotation",
+       "how": "Rotate the head to one side, then apply downward axial pressure.",
+       "normal": "Cervical/Foraminal Compression Rotation is negative."
+      },
+      {
+       "step": "Cervical/Foraminal Compression Flexion",
+       "how": "Flex the neck, then apply downward axial pressure.",
+       "normal": "Cervical/Foraminal Compression Flexion is negative."
+      },
+      {
+       "step": "Cervical/Foraminal Compression Extension",
+       "how": "Extend the neck, then apply downward axial pressure.",
+       "normal": "Cervical/Foraminal Compression Extension is negative."
+      },
+      {
+       "step": "Cervical/Foraminal Compression Lateral",
+       "how": "Laterally flex the neck, then apply downward axial pressure.",
+       "normal": "Cervical/Foraminal Compression Lateral is negative."
+      },
+      {
+       "step": "Maximum Cervical/Foraminal Compression Test",
+       "how": "Extend, rotate and laterally flex to the same side, then apply axial pressure.",
+       "normal": "Maximum Cervical/Foraminal Compression Test is negative."
+      },
+      {
+       "step": "Cervical/Foraminal Distraction Test",
+       "how": "Cup the occiput and chin and lift, distracting the cervical spine.",
+       "normal": "Cervical/Foraminal Distraction Test is negative."
+      },
+      {
+       "step": "Shoulder Depression Test",
+       "how": "Laterally flex the neck away while pressing the shoulder down on the opposite side.",
+       "normal": "Shoulder Depression Test is negative."
+      },
+      {
+       "step": "Vertebral Artery Test",
+       "how": "Supine; extend, rotate and laterally flex the head to one side and hold 30 seconds, watching for nystagmus or dizziness.",
+       "normal": "Vertebral Artery Test is negative."
+      }
+     ]
+    },
+    {
+     "name": "Thoracic outlet",
+     "steps": [
+      {
+       "step": "Roos AKA Elevated Arm Stress Test (EAST)",
+       "how": "Arms abducted and externally rotated to 90°; open and close the fists for three minutes.",
+       "normal": "Roos AKA Elevated Arm Stress Test (EAST) is negative."
+      },
+      {
+       "step": "Adson’s Test",
+       "how": "Monitor the radial pulse while the patient extends and rotates the head toward the tested side and inhales.",
+       "normal": "Adson’s Test is negative."
+      },
+      {
+       "step": "Reverse Adson’s Test",
+       "how": "Monitor the radial pulse with the head rotated away from the tested side on inspiration.",
+       "normal": "Reverse Adson’s Test is negative."
+      },
+      {
+       "step": "Wright’s (Hyperabduction) Test",
+       "how": "Monitor the radial pulse while hyperabducting and externally rotating the arm overhead.",
+       "normal": "Wright’s (Hyperabduction) Test is negative."
+      }
+     ]
+    },
+    {
+     "name": "Space-occupying lesion and meninges",
+     "steps": [
+      {
+       "step": "Valsalva Maneuver",
+       "how": "Seated, ask the patient to bear down as if straining at stool.",
+       "normal": "Valsalva Maneuver is negative."
+      },
+      {
+       "step": "Lindner’s/Brudzinski’s",
+       "how": "Supine with the legs extended; passively flex the neck onto the chest.",
+       "normal": "Lindner’s/Brudzinski’s is negative."
+      },
+      {
+       "step": "Kernig’s Sign",
+       "how": "Supine, hip and knee flexed to 90°; passively extend the knee.",
+       "normal": "Kernig’s Sign is negative."
+      }
+     ]
+    },
+    {
+     "name": "Scoliosis",
+     "steps": [
+      {
+       "step": "Adam’s Sign",
+       "how": "Standing, feet together; ask the patient to bend forward and look for a rib hump.",
+       "normal": "Adam’s Sign is negative."
+      }
+     ]
+    },
+    {
+     "name": "Lumbar Spine",
+     "steps": [
+      {
+       "step": "Bechterew’s Test",
+       "how": "Seated; extend one knee, then the other, then both together.",
+       "normal": "Bechterew’s Test is negative."
+      },
+      {
+       "step": "Kemp’s Test",
+       "how": "Standing or seated; extend, rotate and laterally flex the lumbar spine with overpressure.",
+       "normal": "Kemp’s Test is negative."
+      },
+      {
+       "step": "Straight Leg Raise (Lasegue’s)",
+       "how": "Supine; passively raise the straight leg and record the angle where pain appears.",
+       "normal": "Straight Leg Raise (Lasegue’s) is negative."
+      },
+      {
+       "step": "Bragard Test",
+       "how": "Repeat the straight leg raise, drop 5° below the painful angle, then dorsiflex the foot.",
+       "normal": "Bragard Test is negative."
+      },
+      {
+       "step": "Milgram’s Test",
+       "how": "Supine; raise both straight legs about 5 cm and hold for 30 seconds.",
+       "normal": "Milgram’s Test is negative."
+      },
+      {
+       "step": "Nachla’s Test",
+       "how": "Prone; passively flex the knee, bringing the heel toward the buttock.",
+       "normal": "Nachla’s Test is negative."
+      }
+     ]
+    },
+    {
+     "name": "Lumbar spine and SI joint",
+     "steps": [
+      {
+       "step": "Minor’s Sign",
+       "how": "Watch how the patient rises from a seated position, noting a splinted or asymmetric pattern.",
+       "normal": "Minor’s Sign is negative."
+      },
+      {
+       "step": "Gillet Test",
+       "how": "Palpate the PSIS and the sacrum while the patient flexes the hip on that side.",
+       "normal": "Gillet Test is negative."
+      }
+     ]
+    },
+    {
+     "name": "SI Joint",
+     "steps": [
+      {
+       "step": "Gaenslen’s Test",
+       "how": "Supine at the table edge; one hip fully flexed to the chest, the other allowed to drop off the table.",
+       "normal": "Gaenslen’s Test is negative."
+      },
+      {
+       "step": "Hibb’s Test",
+       "how": "Prone; flex the knee to 90° and push the leg laterally to internally rotate the hip.",
+       "normal": "Hibb’s Test is negative."
+      },
+      {
+       "step": "Yeoman’s Test",
+       "how": "Prone; stabilise the SI joint and hyperextend the thigh with the knee flexed.",
+       "normal": "Yeoman’s Test is negative."
+      },
+      {
+       "step": "Pelvic Rock (Iliac Compression)",
+       "how": "Supine; press the iliac crests inward and downward, then spring them apart.",
+       "normal": "Pelvic Rock (Iliac Compression) is negative."
+      }
+     ]
+    },
+    {
+     "name": "Hip",
+     "steps": [
+      {
+       "step": "Ely’s Test",
+       "how": "Prone; passively flex the knee and watch whether the hip rises off the table.",
+       "normal": "Ely’s Test is negative."
+      },
+      {
+       "step": "Thomas Test",
+       "how": "Supine; bring one knee to the chest and watch whether the opposite thigh lifts off the table.",
+       "normal": "Thomas Test is negative."
+      },
+      {
+       "step": "Trendelenburg Test",
+       "how": "Standing; ask the patient to stand on one leg and watch the opposite pelvis.",
+       "normal": "Trendelenburg Test is negative."
+      },
+      {
+       "step": "Laguerre (FABER in the Air)",
+       "how": "Supine; flex, abduct and externally rotate the hip with the leg unsupported.",
+       "normal": "Laguerre (FABER in the Air) is negative."
+      },
+      {
+       "step": "Ober’s Test",
+       "how": "Side-lying; abduct and extend the upper leg, then let it drop toward the table.",
+       "normal": "Ober’s Test is negative."
+      },
+      {
+       "step": "Telescoping Test",
+       "how": "Supine, hip and knee flexed to 90°; push and pull along the axis of the femur.",
+       "normal": "Telescoping Test is negative."
+      },
+      {
+       "step": "Anvil Test*",
+       "how": "Supine with the leg extended; strike the heel along the axis of the femur.",
+       "normal": "Anvil Test* is negative."
+      }
+     ]
+    },
+    {
+     "name": "Knee",
+     "steps": [
+      {
+       "step": "Anterior Drawer Sign",
+       "how": "Supine, knee at 90°; pull the tibia forward on the femur.",
+       "normal": "Anterior Drawer Sign is negative."
+      },
+      {
+       "step": "Posterior Drawer Sign",
+       "how": "Supine, knee at 90°; push the tibia backward on the femur.",
+       "normal": "Posterior Drawer Sign is negative."
+      },
+      {
+       "step": "Lachman’s Test",
+       "how": "Knee at 20–30° flexion; stabilise the femur and pull the tibia forward.",
+       "normal": "Lachman’s Test is negative."
+      },
+      {
+       "step": "Varus (adduction) Test",
+       "how": "Knee at 20–30° flexion; apply an adduction (varus) force at the ankle.",
+       "normal": "Varus (adduction) Test is negative."
+      },
+      {
+       "step": "Valgus (Abduction) Test",
+       "how": "Knee at 20–30° flexion; apply an abduction (valgus) force at the ankle.",
+       "normal": "Valgus (Abduction) Test is negative."
+      },
+      {
+       "step": "Apley’s Compression Test",
+       "how": "Prone, knee at 90°; press down through the heel while rotating the tibia.",
+       "normal": "Apley’s Compression Test is negative."
+      },
+      {
+       "step": "Apley’s Distraction Test",
+       "how": "Prone, knee at 90°; pull up on the leg while rotating the tibia.",
+       "normal": "Apley’s Distraction Test is negative."
+      },
+      {
+       "step": "McMurray’s Test (Medial Meniscus)",
+       "how": "Supine; externally rotate the tibia and extend the knee from full flexion.",
+       "normal": "McMurray’s Test (Medial Meniscus) is negative."
+      },
+      {
+       "step": "McMurray’s Test (Lateral Meniscus)",
+       "how": "Supine; internally rotate the tibia and extend the knee from full flexion.",
+       "normal": "McMurray’s Test (Lateral Meniscus) is negative."
+      },
+      {
+       "step": "Thessaly’s Test",
+       "how": "Standing on the affected leg at 20° knee flexion; rotate the body internally and externally three times.",
+       "normal": "Thessaly’s Test is negative."
+      },
+      {
+       "step": "Bounce Home Test",
+       "how": "Supine; hold the heel and let the flexed knee drop into full extension.",
+       "normal": "Bounce Home Test is negative."
+      },
+      {
+       "step": "Patellofemoral Grind (Clarke’s) Test",
+       "how": "Supine, knee extended; press down on the superior patella and ask for a quadriceps contraction.",
+       "normal": "Patellofemoral Grind (Clarke’s) Test is negative."
+      },
+      {
+       "step": "Ballotable Patella Tap test",
+       "how": "Supine, knee extended; milk fluid into the joint and tap the patella down onto the femur.",
+       "normal": "Ballotable Patella Tap test is negative."
+      },
+      {
+       "step": "Bulge Test",
+       "how": "Supine; stroke the medial side of the knee upward, then the lateral side, and watch for a bulge medially.",
+       "normal": "Bulge Test is negative."
+      },
+      {
+       "step": "Patellar Apprehension Test",
+       "how": "Supine, knee slightly flexed; push the patella laterally and watch for apprehension.",
+       "normal": "Patellar Apprehension Test is negative."
+      }
+     ]
+    },
+    {
+     "name": "Calf",
+     "steps": [
+      {
+       "step": "Homan’s Sign",
+       "how": "Supine, knee extended; sharply dorsiflex the foot.",
+       "normal": "Homan’s Sign is negative."
+      }
+     ]
+    },
+    {
+     "name": "Ankle",
+     "steps": [
+      {
+       "step": "Lateral Stability Test",
+       "how": "Invert the calcaneus with the ankle in neutral and in plantarflexion.",
+       "normal": "Lateral Stability Test is negative."
+      },
+      {
+       "step": "Medial Stability Test*",
+       "how": "Evert the calcaneus with the ankle in neutral.",
+       "normal": "Medial Stability Test* is negative."
+      },
+      {
+       "step": "Anterior Drawer Test",
+       "how": "Stabilise the tibia and draw the calcaneus forward with the ankle slightly plantarflexed.",
+       "normal": "Anterior Drawer Test is negative."
+      },
+      {
+       "step": "Posterior Drawer Test",
+       "how": "Stabilise the tibia and push the calcaneus backward.",
+       "normal": "Posterior Drawer Test is negative."
+      },
+      {
+       "step": "Thompson’s Squeeze Test",
+       "how": "Prone with the foot off the table; squeeze the calf and watch for plantarflexion.",
+       "normal": "Thompson’s Squeeze Test is negative."
+      },
+      {
+       "step": "Morton’s Squeeze Test",
+       "how": "Compress the metatarsal heads together transversely.",
+       "normal": "Morton’s Squeeze Test is negative."
+      },
+      {
+       "step": "Navicular Drop",
+       "how": "Measure navicular height seated, then standing in relaxed stance.",
+       "normal": "Navicular Drop is negative."
+      },
+      {
+       "step": "Dorsiflexion Test",
+       "how": "Passively dorsiflex the ankle with the knee extended, then with it flexed.",
+       "normal": "Dorsiflexion Test is negative."
+      },
+      {
+       "step": "Tinel’s Sign (Foot)",
+       "how": "Tap behind the medial malleolus over the tibial nerve.",
+       "normal": "Tinel’s Sign (Foot) is negative."
+      }
+     ]
+    },
+    {
+     "name": "Malingering screen",
+     "steps": [
+      {
+       "step": "Hoover’s Test",
+       "how": "Supine, a hand under each heel; ask the patient to raise one straight leg and feel for downward pressure from the other.",
+       "normal": "Hoover’s Test is negative."
+      }
+     ]
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Positive Empty Can Test",
+     "suggests": "Supraspinatus tear; Supraspinatus tendonitis; Pain over Deltoid: Strained Deltoid; Weakness: Supraspinatus Neuropathy",
+     "workup": "Cluster with a second shoulder test first. Radiograph for trauma or bony cause; ultrasound or MRI where symptoms persist or surgery is being considered."
+    },
+    {
+     "finding": "Positive Hawkins-Kennedy Test",
+     "suggests": "Supraspinatus Tendonitis",
+     "workup": "Cluster with a second shoulder test first. Radiograph for trauma or bony cause; ultrasound or MRI where symptoms persist or surgery is being considered."
+    },
+    {
+     "finding": "Positive Neer’s Impingement Sign",
+     "suggests": "Supraspinatus Tendonitis; Biceps Tendonitis",
+     "workup": "Cluster with a second shoulder test first. Radiograph for trauma or bony cause; ultrasound or MRI where symptoms persist or surgery is being considered."
+    },
+    {
+     "finding": "Positive Codman’s Drop Arm Test",
+     "suggests": "Rotator cuff tear (usually supraspinatus)",
+     "workup": "Cluster with a second shoulder test first. Radiograph for trauma or bony cause; ultrasound or MRI where symptoms persist or surgery is being considered."
+    },
+    {
+     "finding": "Positive Apley’s Scratch",
+     "suggests": "Rotator cuff tendonitis (usually supraspinatus)",
+     "workup": "Cluster with a second shoulder test first. Radiograph for trauma or bony cause; ultrasound or MRI where symptoms persist or surgery is being considered."
+    },
+    {
+     "finding": "Positive Glenohumeral Apprehension Test",
+     "suggests": "Test Integrity of:; Inferior Glenohumoral Ligament; Anterior Capsule; Rotator cuff tendons; Glenoid Labrum",
+     "workup": "Cluster with a second shoulder test first. Radiograph for trauma or bony cause; ultrasound or MRI where symptoms persist or surgery is being considered."
+    },
+    {
+     "finding": "Positive Speed’s Test",
+     "suggests": "Bicipital Tendonitis",
+     "workup": "Cluster with a second shoulder test first. Radiograph for trauma or bony cause; ultrasound or MRI where symptoms persist or surgery is being considered."
+    },
+    {
+     "finding": "Positive Lippman’s Test",
+     "suggests": "Bicipital Tendonitis; Ruptured Transverse Humoral Ligament",
+     "workup": "Cluster with a second shoulder test first. Radiograph for trauma or bony cause; ultrasound or MRI where symptoms persist or surgery is being considered."
+    },
+    {
+     "finding": "Positive Yergason’s Test",
+     "suggests": "Bicipital Tendonitis; Ruptured Transverse Humoral Ligament",
+     "workup": "Cluster with a second shoulder test first. Radiograph for trauma or bony cause; ultrasound or MRI where symptoms persist or surgery is being considered."
+    },
+    {
+     "finding": "Positive Dawbarn’s Test*",
+     "suggests": "Subacromial Bursitis",
+     "workup": "Cluster with a second shoulder test first. Radiograph for trauma or bony cause; ultrasound or MRI where symptoms persist or surgery is being considered."
+    },
+    {
+     "finding": "Positive Dugas Test*",
+     "suggests": "Anterior Dislocation Humoral Head",
+     "workup": "Cluster with a second shoulder test first. Radiograph for trauma or bony cause; ultrasound or MRI where symptoms persist or surgery is being considered."
+    },
+    {
+     "finding": "Positive Cozen’s Test",
+     "suggests": "Lateral Epicondylitis / Tennis Elbow",
+     "workup": "Clinical diagnosis in most cases; ultrasound if refractory, and nerve conduction studies where the ulnar nerve is implicated."
+    },
+    {
+     "finding": "Positive Mill’s Test",
+     "suggests": "Lateral Epicondylitis / Tennis Elbow",
+     "workup": "Clinical diagnosis in most cases; ultrasound if refractory, and nerve conduction studies where the ulnar nerve is implicated."
+    },
+    {
+     "finding": "Positive Golfer’s Elbow/Reverse Cozen’s Test",
+     "suggests": "Medial Epicondylitis / Golfer’s Elbow",
+     "workup": "Clinical diagnosis in most cases; ultrasound if refractory, and nerve conduction studies where the ulnar nerve is implicated."
+    },
+    {
+     "finding": "Positive Golfer’s Elbow/Reverse Mill’s Test",
+     "suggests": "Medial Epicondylitis / Golfer’s Elbow",
+     "workup": "Clinical diagnosis in most cases; ultrasound if refractory, and nerve conduction studies where the ulnar nerve is implicated."
+    },
+    {
+     "finding": "Positive Valgus (Abduction) Stress Test",
+     "suggests": "Medial (Ulnar) Collateral Ligament Instability",
+     "workup": "Clinical diagnosis in most cases; ultrasound if refractory, and nerve conduction studies where the ulnar nerve is implicated."
+    },
+    {
+     "finding": "Positive Varus (Adduction) Stress Test",
+     "suggests": "Lateral (Radial) Collateral Instability",
+     "workup": "Clinical diagnosis in most cases; ultrasound if refractory, and nerve conduction studies where the ulnar nerve is implicated."
+    },
+    {
+     "finding": "Positive Tinel’s Sign (Elbow)",
+     "suggests": "Ulnar Nerve Entrapment / damage; Cubital Tunnel Syndrome",
+     "workup": "Clinical diagnosis in most cases; ultrasound if refractory, and nerve conduction studies where the ulnar nerve is implicated."
+    },
+    {
+     "finding": "Positive Tinel’s Sign (wrist)",
+     "suggests": "Carpal Tunnel Syndrome",
+     "workup": "Nerve conduction studies and EMG for suspected entrapment; radiograph for bony cause; check TSH, HbA1c and pregnancy status in carpal tunnel."
+    },
+    {
+     "finding": "Positive Phalen’s Test",
+     "suggests": "Carpal Tunnel Syndrome",
+     "workup": "Nerve conduction studies and EMG for suspected entrapment; radiograph for bony cause; check TSH, HbA1c and pregnancy status in carpal tunnel."
+    },
+    {
+     "finding": "Positive Reverse Phalen’s Test*",
+     "suggests": "Carpal Tunnel Syndrome",
+     "workup": "Nerve conduction studies and EMG for suspected entrapment; radiograph for bony cause; check TSH, HbA1c and pregnancy status in carpal tunnel."
+    },
+    {
+     "finding": "Positive Finkelstein’s Test",
+     "suggests": "Stenosing Tenosynovitis; / De Quervain’s",
+     "workup": "Nerve conduction studies and EMG for suspected entrapment; radiograph for bony cause; check TSH, HbA1c and pregnancy status in carpal tunnel."
+    },
+    {
+     "finding": "Positive Pinch Grip Test*",
+     "suggests": "Interosseus Nerve Entrapment",
+     "workup": "Nerve conduction studies and EMG for suspected entrapment; radiograph for bony cause; check TSH, HbA1c and pregnancy status in carpal tunnel."
+    },
+    {
+     "finding": "Positive Retinacular Test",
+     "suggests": "DIP Joint Capsule Contracture; Retinacular Tightness",
+     "workup": "Nerve conduction studies and EMG for suspected entrapment; radiograph for bony cause; check TSH, HbA1c and pregnancy status in carpal tunnel."
+    },
+    {
+     "finding": "Positive Soto Hall Test",
+     "suggests": "Local Pain: Ligament, Muscle, osseus or cervical cord problem; Radicular Pain: Cervical Disc problem",
+     "workup": "Cervical radiograph after trauma by the Canadian C-spine rule; MRI where there is neurological deficit or persistent radicular pain."
+    },
+    {
+     "finding": "Positive Cervical/Foraminal Compression Test",
+     "suggests": "LP: Foraminal Encroachment w/o nervre root pressure; LP: Apophyseal Capsulitis; RP: Foraminal Encroachment w/nerve root compression; RP: Disc Lesion",
+     "workup": "Cervical radiograph after trauma by the Canadian C-spine rule; MRI where there is neurological deficit or persistent radicular pain."
+    },
+    {
+     "finding": "Positive Cervical/Foraminal Compression Rotation",
+     "suggests": "LP: Foraminal Encroachment w/o nerve root pressure; LP: Apophyseal Capsulitis; RP: Foraminal Encroachment w/nerve root compression; RP: Disc Lesion",
+     "workup": "Cervical radiograph after trauma by the Canadian C-spine rule; MRI where there is neurological deficit or persistent radicular pain."
+    },
+    {
+     "finding": "Positive Cervical/Foraminal Compression Flexion",
+     "suggests": "LP: Less pain is Facet Capsulitis; RP: Disc Problem",
+     "workup": "Cervical radiograph after trauma by the Canadian C-spine rule; MRI where there is neurological deficit or persistent radicular pain."
+    },
+    {
+     "finding": "Positive Cervical/Foraminal Compression Extension",
+     "suggests": "LP: + Facet Syndrome; RP: Foraminal Encroachment",
+     "workup": "Cervical radiograph after trauma by the Canadian C-spine rule; MRI where there is neurological deficit or persistent radicular pain."
+    },
+    {
+     "finding": "Positive Cervical/Foraminal Compression Lateral",
+     "suggests": "LP: Foraminal Encroachment w/out nerve root pressure; LP: Apophyseal Joint Pathology; RP: Foraminal Encroachment w/nerve root compression; RP: Disc Lesion",
+     "workup": "Cervical radiograph after trauma by the Canadian C-spine rule; MRI where there is neurological deficit or persistent radicular pain."
+    },
+    {
+     "finding": "Positive Maximum Cervical/Foraminal Compression Test",
+     "suggests": "LP on side of rotation: Apophyseal Joint Pathology; LP on opposite side: Muscular Strain or ligament Sprain; Pain on same side as rotation w/ RP: Nerve root compression; Pain on same side as rotation w/ RP: Osteophyte or mass, or Foraminal Encroachment",
+     "workup": "Cervical radiograph after trauma by the Canadian C-spine rule; MRI where there is neurological deficit or persistent radicular pain."
+    },
+    {
+     "finding": "Positive Cervical/Foraminal Distraction Test",
+     "suggests": "LP: Muscle Spasm or Strain, Ligament Sprain, or Facet Capsulitis; LP: Foraminal Encroachment; LP: Disc Problem",
+     "workup": "Cervical radiograph after trauma by the Canadian C-spine rule; MRI where there is neurological deficit or persistent radicular pain."
+    },
+    {
+     "finding": "Positive Shoulder Depression Test",
+     "suggests": "LP: Muscle Spasm, Adhesions, or Ligament Injury; RP: Compression of neurovascular bundle, Adhesions of dural sleeve, or TOS; Pain on Opposite side: Foraminal Encroachment or Facet Jamming",
+     "workup": "Cervical radiograph after trauma by the Canadian C-spine rule; MRI where there is neurological deficit or persistent radicular pain."
+    },
+    {
+     "finding": "Positive Vertebral Artery Test",
+     "suggests": "Carotid Artery Stenosis or Compression",
+     "workup": "Cervical radiograph after trauma by the Canadian C-spine rule; MRI where there is neurological deficit or persistent radicular pain."
+    },
+    {
+     "finding": "Positive Roos AKA Elevated Arm Stress Test (EAST)",
+     "suggests": "TOS",
+     "workup": "Cervical and chest radiograph for a cervical rib; vascular duplex or nerve conduction studies where the pattern is clear."
+    },
+    {
+     "finding": "Positive Adson’s Test",
+     "suggests": "TOS (Anterior Scalene)",
+     "workup": "Cervical and chest radiograph for a cervical rib; vascular duplex or nerve conduction studies where the pattern is clear."
+    },
+    {
+     "finding": "Positive Reverse Adson’s Test",
+     "suggests": "TOS (Middle Scalene)",
+     "workup": "Cervical and chest radiograph for a cervical rib; vascular duplex or nerve conduction studies where the pattern is clear."
+    },
+    {
+     "finding": "Positive Wright’s (Hyperabduction) Test",
+     "suggests": "TOS (Tight Pec Minor)",
+     "workup": "Cervical and chest radiograph for a cervical rib; vascular duplex or nerve conduction studies where the pattern is clear."
+    },
+    {
+     "finding": "Positive Valsalva Maneuver",
+     "suggests": "Space Occupying Lesion; Herniated Disc",
+     "workup": "A positive meningeal sign with fever means blood cultures, CBC, CRP and CT then lumbar puncture, without delaying antibiotics. A positive Valsalva with radicular pain means MRI."
+    },
+    {
+     "finding": "Positive Lindner’s/Brudzinski’s",
+     "suggests": "Lind: Disc problem; Brud: Meningial/Meningitis",
+     "workup": "A positive meningeal sign with fever means blood cultures, CBC, CRP and CT then lumbar puncture, without delaying antibiotics. A positive Valsalva with radicular pain means MRI."
+    },
+    {
+     "finding": "Positive Kernig’s Sign",
+     "suggests": "Meningial irritation/Meningitis; Sciatic Nerve Radiculapthy",
+     "workup": "A positive meningeal sign with fever means blood cultures, CBC, CRP and CT then lumbar puncture, without delaying antibiotics. A positive Valsalva with radicular pain means MRI."
+    },
+    {
+     "finding": "Positive Adam’s Sign",
+     "suggests": "Idiopathic Scoliosis; Compression Fracture; Hemivertebra",
+     "workup": "Standing full-spine radiograph with Cobb angle measurement."
+    },
+    {
+     "finding": "Positive Bechterew’s Test",
+     "suggests": "Lumbar Disc Herniation",
+     "workup": "Clinical unless there is progressive deficit; MRI lumbosacral spine for that, for red flags, or if surgery is contemplated."
+    },
+    {
+     "finding": "Positive Kemp’s Test",
+     "suggests": "LP: Facet Syndrome or Lumbar Sprain; RP on Side bent: Lateral Disc; RP on opposite side: Medial Disc",
+     "workup": "Clinical unless there is progressive deficit; MRI lumbosacral spine for that, for red flags, or if surgery is contemplated."
+    },
+    {
+     "finding": "Positive Straight Leg Raise (Lasegue’s)",
+     "suggests": "RP 0-35°: piriformis syndrome, SI Joint Lesion; RP 35-70°: Disc Pathology or Intradural lesion; LP 70-90°: Lumbar Joint Problem; Dull posterior thigh pain: Tight Hamstring",
+     "workup": "Clinical unless there is progressive deficit; MRI lumbosacral spine for that, for red flags, or if surgery is contemplated."
+    },
+    {
+     "finding": "Positive Bragard Test",
+     "suggests": "Disc Lesion; Hip/SI Joint; Patrick’s Test (FABER); Pain at hip: acetabular necrosis, avascular necrosis of femoral head, iliopsoas spasm; Pain at SI: SI joint Lesion",
+     "workup": "Clinical unless there is progressive deficit; MRI lumbosacral spine for that, for red flags, or if surgery is contemplated."
+    },
+    {
+     "finding": "Positive Milgram’s Test",
+     "suggests": "SOL in Lumbar",
+     "workup": "Clinical unless there is progressive deficit; MRI lumbosacral spine for that, for red flags, or if surgery is contemplated."
+    },
+    {
+     "finding": "Positive Nachla’s Test",
+     "suggests": "Pain in butt/SI: SI Joint Lesion; Pain in lumbosacral Joint: Lumbosacral joint lesion",
+     "workup": "Clinical unless there is progressive deficit; MRI lumbosacral spine for that, for red flags, or if surgery is contemplated."
+    },
+    {
+     "finding": "Positive Minor’s Sign",
+     "suggests": "Sciatic Radiculopathy",
+     "workup": "Cluster with the other SI tests; pelvic radiograph, and HLA-B27 with CRP if inflammatory features are present."
+    },
+    {
+     "finding": "Positive Gillet Test",
+     "suggests": "SI Joint Restriction",
+     "workup": "Cluster with the other SI tests; pelvic radiograph, and HLA-B27 with CRP if inflammatory features are present."
+    },
+    {
+     "finding": "Positive Gaenslen’s Test",
+     "suggests": "Pain at SI joint on affected side: SI lesion/anterior ligament sprain or SI joint inflammation",
+     "workup": "Three or more positive SI provocation tests supports the diagnosis; sacroiliac MRI and HLA-B27 where inflammatory disease is suspected."
+    },
+    {
+     "finding": "Positive Hibb’s Test",
+     "suggests": "Pain at SI joint: Sprain of SI; Pain at hip: Hip lesion; SI Restriction (Lack of motion)",
+     "workup": "Three or more positive SI provocation tests supports the diagnosis; sacroiliac MRI and HLA-B27 where inflammatory disease is suspected."
+    },
+    {
+     "finding": "Positive Yeoman’s Test",
+     "suggests": "Inflammation of SI Joint; Sprain of SI Ligaments",
+     "workup": "Three or more positive SI provocation tests supports the diagnosis; sacroiliac MRI and HLA-B27 where inflammatory disease is suspected."
+    },
+    {
+     "finding": "Positive Pelvic Rock (Iliac Compression)",
+     "suggests": "SI Lesion/Inflamamtion",
+     "workup": "Three or more positive SI provocation tests supports the diagnosis; sacroiliac MRI and HLA-B27 where inflammatory disease is suspected."
+    },
+    {
+     "finding": "Positive Ely’s Test",
+     "suggests": "Hip Flexion Contracture; Tight Rectus Femoris",
+     "workup": "Weight-bearing AP pelvis and lateral hip radiograph; MRI for suspected labral or avascular pathology."
+    },
+    {
+     "finding": "Positive Thomas Test",
+     "suggests": "Hip Flexor Contracture; Hip Joint Structural Issue; Tight Joint Capsule",
+     "workup": "Weight-bearing AP pelvis and lateral hip radiograph; MRI for suspected labral or avascular pathology."
+    },
+    {
+     "finding": "Positive Trendelenburg Test",
+     "suggests": "Weak Gluteus Medius",
+     "workup": "Weight-bearing AP pelvis and lateral hip radiograph; MRI for suspected labral or avascular pathology."
+    },
+    {
+     "finding": "Positive Laguerre (FABER in the Air)",
+     "suggests": "Inflammation of Acetabular Joint (OA)",
+     "workup": "Weight-bearing AP pelvis and lateral hip radiograph; MRI for suspected labral or avascular pathology."
+    },
+    {
+     "finding": "Positive Ober’s Test",
+     "suggests": "Contracture of TFL and/or IT band",
+     "workup": "Weight-bearing AP pelvis and lateral hip radiograph; MRI for suspected labral or avascular pathology."
+    },
+    {
+     "finding": "Positive Telescoping Test",
+     "suggests": "Dislocated Hip",
+     "workup": "Weight-bearing AP pelvis and lateral hip radiograph; MRI for suspected labral or avascular pathology."
+    },
+    {
+     "finding": "Positive Anvil Test*",
+     "suggests": "Femoral Head Fracture; Femoral Joint/Acetabular Pathology",
+     "workup": "Weight-bearing AP pelvis and lateral hip radiograph; MRI for suspected labral or avascular pathology."
+    },
+    {
+     "finding": "Positive Anterior Drawer Sign",
+     "suggests": "ACL Tear",
+     "workup": "Radiograph first to exclude fracture; MRI for suspected ligament or meniscal tear, and aspiration where infection or crystals are possible."
+    },
+    {
+     "finding": "Positive Posterior Drawer Sign",
+     "suggests": "PCL Tear",
+     "workup": "Radiograph first to exclude fracture; MRI for suspected ligament or meniscal tear, and aspiration where infection or crystals are possible."
+    },
+    {
+     "finding": "Positive Lachman’s Test",
+     "suggests": "ACL Tear",
+     "workup": "Radiograph first to exclude fracture; MRI for suspected ligament or meniscal tear, and aspiration where infection or crystals are possible."
+    },
+    {
+     "finding": "Positive Varus (adduction) Test",
+     "suggests": "LCL Sprain",
+     "workup": "Radiograph first to exclude fracture; MRI for suspected ligament or meniscal tear, and aspiration where infection or crystals are possible."
+    },
+    {
+     "finding": "Positive Valgus (Abduction) Test",
+     "suggests": "MCL Sprain",
+     "workup": "Radiograph first to exclude fracture; MRI for suspected ligament or meniscal tear, and aspiration where infection or crystals are possible."
+    },
+    {
+     "finding": "Positive Apley’s Compression Test",
+     "suggests": "Internal rotation: lateral meniscus tear; External rotation: Medial Tear",
+     "workup": "Radiograph first to exclude fracture; MRI for suspected ligament or meniscal tear, and aspiration where infection or crystals are possible."
+    },
+    {
+     "finding": "Positive Apley’s Distraction Test",
+     "suggests": "ACL; PCL; MCL/LCL",
+     "workup": "Radiograph first to exclude fracture; MRI for suspected ligament or meniscal tear, and aspiration where infection or crystals are possible."
+    },
+    {
+     "finding": "Positive McMurray’s Test (Medial Meniscus)",
+     "suggests": "Medial Meniscus Injury",
+     "workup": "Radiograph first to exclude fracture; MRI for suspected ligament or meniscal tear, and aspiration where infection or crystals are possible."
+    },
+    {
+     "finding": "Positive McMurray’s Test (Lateral Meniscus)",
+     "suggests": "Lateral Meniscus Injury",
+     "workup": "Radiograph first to exclude fracture; MRI for suspected ligament or meniscal tear, and aspiration where infection or crystals are possible."
+    },
+    {
+     "finding": "Positive Thessaly’s Test",
+     "suggests": "Meniscus Injury",
+     "workup": "Radiograph first to exclude fracture; MRI for suspected ligament or meniscal tear, and aspiration where infection or crystals are possible."
+    },
+    {
+     "finding": "Positive Bounce Home Test",
+     "suggests": "Meniscus Injury (tear)",
+     "workup": "Radiograph first to exclude fracture; MRI for suspected ligament or meniscal tear, and aspiration where infection or crystals are possible."
+    },
+    {
+     "finding": "Positive Patellofemoral Grind (Clarke’s) Test",
+     "suggests": "Chondromalacia patella (Pain under patella); Retropatellar arthritis; Osteochondritis of patella; Chondral Fracture; Prepatellar bursitis (Pain over patella)",
+     "workup": "Radiograph first to exclude fracture; MRI for suspected ligament or meniscal tear, and aspiration where infection or crystals are possible."
+    },
+    {
+     "finding": "Positive Ballotable Patella Tap test",
+     "suggests": "Major Effusion of Knee Joint",
+     "workup": "Radiograph first to exclude fracture; MRI for suspected ligament or meniscal tear, and aspiration where infection or crystals are possible."
+    },
+    {
+     "finding": "Positive Bulge Test",
+     "suggests": "Minor Patellar joint Effusion",
+     "workup": "Radiograph first to exclude fracture; MRI for suspected ligament or meniscal tear, and aspiration where infection or crystals are possible."
+    },
+    {
+     "finding": "Positive Patellar Apprehension Test",
+     "suggests": "Patellar Instability; Lateral Patellar Dislocation",
+     "workup": "Radiograph first to exclude fracture; MRI for suspected ligament or meniscal tear, and aspiration where infection or crystals are possible."
+    },
+    {
+     "finding": "Positive Homan’s Sign",
+     "suggests": "DVT",
+     "workup": "Wells score then venous duplex ultrasound; D-dimer where clinical probability is low. Do not rely on this sign alone — it is neither sensitive nor specific."
+    },
+    {
+     "finding": "Positive Lateral Stability Test",
+     "suggests": "Anterior Talofibular tear; Calcaneofibular ligament",
+     "workup": "Ottawa ankle rules decide the radiograph; ultrasound or MRI for suspected tendon rupture, and nerve conduction studies for tarsal tunnel."
+    },
+    {
+     "finding": "Positive Medial Stability Test*",
+     "suggests": "Deltoid Ligament (Medial side)",
+     "workup": "Ottawa ankle rules decide the radiograph; ultrasound or MRI for suspected tendon rupture, and nerve conduction studies for tarsal tunnel."
+    },
+    {
+     "finding": "Positive Anterior Drawer Test",
+     "suggests": "Anterior Talofibular Ligament",
+     "workup": "Ottawa ankle rules decide the radiograph; ultrasound or MRI for suspected tendon rupture, and nerve conduction studies for tarsal tunnel."
+    },
+    {
+     "finding": "Positive Posterior Drawer Test",
+     "suggests": "Posterior Talofibular Ligament",
+     "workup": "Ottawa ankle rules decide the radiograph; ultrasound or MRI for suspected tendon rupture, and nerve conduction studies for tarsal tunnel."
+    },
+    {
+     "finding": "Positive Thompson’s Squeeze Test",
+     "suggests": "Achilles Tendon Rupture",
+     "workup": "Ottawa ankle rules decide the radiograph; ultrasound or MRI for suspected tendon rupture, and nerve conduction studies for tarsal tunnel."
+    },
+    {
+     "finding": "Positive Morton’s Squeeze Test",
+     "suggests": "Morton’s Neuroma; Metatarsalgia",
+     "workup": "Ottawa ankle rules decide the radiograph; ultrasound or MRI for suspected tendon rupture, and nerve conduction studies for tarsal tunnel."
+    },
+    {
+     "finding": "Positive Navicular Drop",
+     "suggests": "Rigid Flat Foot; Supple Flat Foot",
+     "workup": "Ottawa ankle rules decide the radiograph; ultrasound or MRI for suspected tendon rupture, and nerve conduction studies for tarsal tunnel."
+    },
+    {
+     "finding": "Positive Dorsiflexion Test",
+     "suggests": "Tightness in Gastrocnemius; Tightness in Soleus",
+     "workup": "Ottawa ankle rules decide the radiograph; ultrasound or MRI for suspected tendon rupture, and nerve conduction studies for tarsal tunnel."
+    },
+    {
+     "finding": "Positive Tinel’s Sign (Foot)",
+     "suggests": "Tarsal Tunnel Syndrome",
+     "workup": "Ottawa ankle rules decide the radiograph; ultrasound or MRI for suspected tendon rupture, and nerve conduction studies for tarsal tunnel."
+    },
+    {
+     "finding": "Positive Hoover’s Test",
+     "suggests": "Malingering",
+     "workup": "A positive test is a prompt to re-examine the whole picture, not a diagnosis — organic and functional disease coexist."
     }
    ]
   },

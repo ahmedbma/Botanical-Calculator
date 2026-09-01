@@ -1271,6 +1271,14 @@
         (rec[k] || []).forEach(function (i) { if (look[i]) names.push(look[i]); });
       });
       c._hay += ' ' + names.join(' ').toLowerCase() + ' ' + (rec.note || '').toLowerCase();
+      var pr = rec.protocol && (window.THERAPEUTICS_DATA.protocols || []).filter(function (x) {
+        return x.id === rec.protocol;
+      })[0];
+      if (pr) {
+        c._hay += ' ' + (pr.title + ' ' + pr.background + ' ' +
+          pr.steps.map(function (st) { return st.agent + ' ' + (st.dose || '') + ' ' + (st.why || ''); }).join(' ')
+        ).toLowerCase();
+      }
     });
   }
 
@@ -1450,6 +1458,8 @@
       });
       body.appendChild(grid);
       if (c.notes) body.appendChild(el('p', 'note', c.notes));
+      var proto = typeof txProtocolNode === 'function' ? txProtocolNode(c.condition, q) : null;
+      if (proto) body.appendChild(proto);
       var tx = typeof txForCondition === 'function' ? txForCondition(c.condition, q) : null;
       if (tx) {
         var txd = el('details', 'txdrop');
@@ -1856,6 +1866,8 @@
     pharmClasses: [], labKinds: [], therapyKinds: []
   };
   var TXBY = TX.byCondition || {};
+  var TXPROTO = {};
+  (TX.protocols || []).forEach(function (pr) { TXPROTO[pr.id] = pr; });
 
   // Condition order: the herb index first, A–Z, then the topics the new
   // coursework covers that the herb index does not.
@@ -2047,6 +2059,8 @@
             sec.appendChild(nt);
           }
           sec.appendChild(wrap);
+          var pnode = txProtocolNode(cond, state.q);
+          if (pnode) sec.appendChild(pnode);
           frag.appendChild(sec);
         });
         out.appendChild(frag);
@@ -2099,6 +2113,110 @@
       return (TX.labKinds || []).map(function (k) { return { value: k, label: LAB_KIND_LABEL[k] || k }; });
     }
   });
+
+  /* ---- medication suffixes ---- */
+  function renderSuffixes() {
+    var out = $('#sfx-results');
+    if (!out) return;
+    var q = ($('#sfx-search').value || '').toLowerCase().trim();
+    var list = (TX.suffixes || []).filter(function (x) {
+      return !q || (x.suffix + ' ' + x.cls + ' ' + x.example + ' ' + x.caution + ' ' + x.group)
+        .toLowerCase().indexOf(q) !== -1;
+    });
+    out.innerHTML = '';
+    var frag = document.createDocumentFragment();
+    (TX.suffixGroups || []).forEach(function (g) {
+      var rows = list.filter(function (x) { return x.group === g; });
+      if (!rows.length) return;
+      var sec = el('section', 'sfxgroup');
+      sec.appendChild(el('h5', null, g));
+      rows.forEach(function (x) {
+        var row = el('div', 'sfxrow');
+        var stem = el('span', 'sfxstem');
+        stem.innerHTML = highlight(x.suffix, q);
+        row.appendChild(stem);
+        var mid = el('div');
+        var cls = el('p', 'sfxcls');
+        cls.innerHTML = highlight(x.cls, q) + ' <em>' + highlight(x.example, q) + '</em>';
+        mid.appendChild(cls);
+        var cau = el('p', 'sfxcaution');
+        cau.innerHTML = highlight(x.caution, q);
+        mid.appendChild(cau);
+        row.appendChild(mid);
+        sec.appendChild(row);
+      });
+      frag.appendChild(sec);
+    });
+    out.appendChild(frag);
+    if (!list.length) out.appendChild(el('p', 'count', 'No suffix matches that.'));
+    if ($('#sfx-flag') && TX.suffixFlag) {
+      $('#sfx-flag').innerHTML = '<span class="pe-flagmark">source note</span> ' + TX.suffixFlag;
+    }
+  }
+  if ($('#sfx-search')) $('#sfx-search').addEventListener('input', renderSuffixes);
+
+  /* ---- treatment protocol, transcribed from the protocols coursework ---- */
+  function txProtocolNode(cond, q) {
+    var rec = TXBY[cond];
+    if (!rec || !rec.protocol) return null;
+    var pr = TXPROTO[rec.protocol];
+    if (!pr) return null;
+
+    var det = el('details', 'txproto');
+    var sum = el('summary');
+    var nsteps = (pr.steps || []).filter(function (st) { return !st.heading; }).length;
+    sum.appendChild(el('span', null, 'Treatment protocol — ' + nsteps + ' agents, dosed'));
+    sum.appendChild(el('span', 'txproto-src', pr.title));
+    det.appendChild(sum);
+    if (q) det.open = true;
+
+    var body = el('div', 'txproto-body');
+    if (pr.flag) {
+      var fl = el('p', 'txproto-flag');
+      fl.innerHTML = '<span class="pe-flagmark">source note</span> ' + pr.flag;
+      body.appendChild(fl);
+    }
+    if (pr.background) {
+      var bg = el('details', 'txproto-bg');
+      bg.appendChild(el('summary', null, 'Background, presentation and differential'));
+      var bp = el('p');
+      bp.innerHTML = highlight(pr.background, q);
+      bg.appendChild(bp);
+      body.appendChild(bg);
+    }
+    var list = el('ol', 'txproto-steps');
+    (pr.steps || []).forEach(function (st) {
+      if (st.heading) {
+        var h = el('li', 'txproto-head');
+        h.innerHTML = highlight(st.agent, q);
+        list.appendChild(h);
+        return;
+      }
+      var li = el('li');
+      var nm = el('p', 'txproto-agent');
+      nm.innerHTML = highlight(st.agent, q);
+      li.appendChild(nm);
+      if (st.dose) {
+        var d = el('p', 'txproto-dose');
+        d.innerHTML = '<span class="txlab">dose</span> ' + highlight(st.dose, q);
+        li.appendChild(d);
+      }
+      if (st.why) {
+        var w = el('p', 'txproto-why');
+        w.innerHTML = highlight(st.why, q);
+        li.appendChild(w);
+      }
+      list.appendChild(li);
+    });
+    body.appendChild(list);
+    if (pr.notes) {
+      var nt = el('p', 'txnote');
+      nt.innerHTML = highlight(pr.notes, q);
+      body.appendChild(nt);
+    }
+    det.appendChild(body);
+    return det;
+  }
 
   /* ---- the therapeutics block shown inside each condition ---- */
   function txForCondition(cond, q) {
@@ -2714,6 +2832,7 @@
     renderPharm();
     renderSupps();
     renderLabs();
+    renderSuffixes();
 
     hxRenderPick();
     hxRenderRef();
