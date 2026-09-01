@@ -237,18 +237,49 @@
     <h2>Herbs by Condition</h2>
     <div class="provenance">
       <strong>Not from your workbook.</strong> The Yarnell Formulator Tool contains no condition-to-herb
-      mapping, so this index was compiled separately from general Western herbal and naturopathic materia
-      medica. Treat every entry as a <em>starting point for formula design</em> that you verify against your
-      own references &mdash; not as a protocol, and not with the authority of the dosing data in the other tabs.
+      mapping. Which conditions appear here follows naturopathic practice-pattern research; the herbs and
+      rationale come from general Western herbal and naturopathic materia medica. Both are cited under
+      <em>Where this comes from</em> below. Treat every entry as a <em>starting point for formula design</em>
+      that you verify against your own references &mdash; not as a protocol, and not with the authority of
+      the dosing data in the other tabs.
     </div>
     <p class="hint">Search a condition, a synonym, a body system or a herb &mdash; <em>endometriosis</em>,
-      <em>GERD</em>, <em>reflux</em>, <em>asthma</em>, <em>Vitex</em> all work.</p>
+      <em>GERD</em>, <em>reflux</em>, <em>asthma</em>, <em>Vitex</em> all work.
+      <strong>ND top 30</strong> and the niche filters narrow the list; sort A&ndash;Z or by how often
+      the condition is seen in naturopathic practice.</p>
     <label class="search"><span class="vh">Search conditions</span>
       <input type="search" id="cx-search" placeholder="Search conditions, synonyms or herbs&hellip;">
     </label>
     <div class="chips" id="cx-filters"></div>
-    <p class="count" id="cx-count"></p>
+    <div class="sortrow">
+      <p class="count" id="cx-count"></p>
+      <div class="seg" role="group" aria-label="Sort order">
+        <button class="segbtn is-on" id="cx-sort-az">A&ndash;Z</button>
+        <button class="segbtn" id="cx-sort-nd">By ND frequency</button>
+      </div>
+    </div>
     <div id="cx-results" class="condlist"></div>
+
+    <details class="srcnote">
+      <summary>Where this comes from</summary>
+      <p><strong>Herb selection and rationale:</strong> general Western herbal and naturopathic materia
+        medica, cross-linked to this tool's own herb reference. Not from the Yarnell workbook, and not
+        independently peer reviewed &mdash; verify against your own references before clinical use.</p>
+      <p><strong>&ldquo;#N in ND practice&rdquo; ranking and the eight niches:</strong> naturopathic
+        practice-pattern research &mdash; Steel A, et al. Overview of international naturopathic practice
+        and patient characteristics: cross-sectional study in 14 countries (2020), which found roughly
+        75% of naturopathic visits involved chronic conditions led by musculoskeletal, gastrointestinal
+        and mental-health presentations; Boon H, et al. Practice patterns of naturopathic physicians
+        (2004); and an international survey of naturopathic community clinics (2021).</p>
+      <p><strong>&ldquo;Common in primary care&rdquo; tag</strong> (shown only where no ND rank applies):
+        Finley CR, Chan DS, Garrison S, et al. What are the most common conditions in primary care?
+        Systematic review. <em>Can Fam Physician</em> 2018;64(11):832&ndash;40.</p>
+      <p><strong>&ldquo;Highly prevalent&rdquo; tag:</strong> US Centers for Disease Control and Prevention
+        chronic-condition prevalence reporting (Behavioral Risk Factor Surveillance System and National
+        Health Interview Survey).</p>
+      <p>Conditions carrying no frequency tag are ones commonly met in herbal practice that do not appear
+        on those two lists.</p>
+    </details>
   </div>
 </section>
 

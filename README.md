@@ -14,7 +14,7 @@ folder anywhere.
 | **Tea Formulator** | Build a dry-herb tea. Gives tsp and grams per cup, grams per day, and grams/oz to dispense, using measured dry-herb densities. |
 | **Dose per Herb** | Work out how much of a single herb a patient actually receives from a combination formula, in ml, gtt and mg of dry-herb equivalent. |
 | **Low-Dose Reference** | Maximum single, chronic-daily and acute-daily doses for 31 low-dose (potentially toxic) botanicals. |
-| **Conditions** | 56 common conditions A–Z, each with 4–7 herbs, why each is indicated, and clinical cautions. Searchable by condition, synonym (`reflux` → GERD, `hot flashes` → menopause), body system, herb or action. |
+| **Conditions** | 75 conditions A–Z, each with 4–7 herbs, why each is indicated, and clinical cautions. Searchable by condition, synonym (`reflux` → GERD, `TATT` → fatigue, `long covid` → CFS), niche, herb or action. Filter to the 30 seen most in ND practice or to one of eight clinical niches; sort A–Z or by ND frequency. |
 | **Herb Reference** | 396 herbs — Latin and common names, plant part, actions, available dose forms, dispensary availability, tea density and substitutes. Searchable and filterable. |
 
 ### Beyond the spreadsheet
@@ -79,10 +79,18 @@ Everything except the Conditions tab comes from the workbook. **The Conditions i
 Yarnell workbook contains no condition-to-herb mapping, so that index was compiled separately from general
 Western herbal and naturopathic materia medica. The tab says so in a banner, and the footer repeats it.
 
-It is cross-linked back to the workbook's own data rather than floating free: 150 of the 154 herbs it names
-resolve to entries in the herb reference, so each one carries its common name, whether it is stocked in the
-BCNH dispensary, and — for low-dose botanicals — its maximum single dose pulled live from the low-dose
-table. The four that don't resolve are labelled *not in your data*.
+**Which conditions appear** follows naturopathic practice-pattern research rather than a guess: the 30 seen
+most often in ND practice are ranked and badged, grouped into eight clinical niches (gut, hormones, energy,
+mental health, pain, immune and allergy, metabolic, skin). Conditions outside that 30 carry a primary-care
+frequency tag where one applies. Sources are cited in the tab.
+
+**The herbs and rationale** come from general Western herbal and naturopathic materia medica. They are not
+peer reviewed and carry no clinical authority — verify them.
+
+It is cross-linked back to the workbook's own data rather than floating free: all but four of the herbs it
+names resolve to entries in the herb reference or the dispensary list, so each carries its common name,
+whether BCNH stocks it, and — for low-dose botanicals — its maximum single dose pulled live from the
+low-dose table. The four that don't resolve are labelled *not in your data*.
 
 Treat those entries as starting points for formula design that you verify against your own references, not
 as protocols, and not with the authority of the dosing data in the other tabs.

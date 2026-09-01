@@ -956,32 +956,85 @@
   }
 
   function buildSystemChips() {
-    var systems = {};
-    CONDS.forEach(function (c) { systems[c.system] = (systems[c.system] || 0) + 1; });
     var box = $('#cx-filters');
     box.innerHTML = '';
     var all = el('button', 'chip is-on', 'All');
     all.dataset.sys = 'all';
     box.appendChild(all);
-    Object.keys(systems).sort().forEach(function (sysName) {
-      var b = el('button', 'chip', sysName + ' (' + systems[sysName] + ')');
-      b.dataset.sys = sysName;
+
+    var nd = el('button', 'chip', 'ND top 30');
+    nd.dataset.sys = '__nd';
+    nd.title = 'The 30 conditions most commonly seen in naturopathic practice.';
+    box.appendChild(nd);
+
+    (D.niches || []).forEach(function (n) {
+      var count = CONDS.filter(function (c) { return c.niche === n; }).length;
+      if (!count) return;
+      var b = el('button', 'chip', n + ' (' + count + ')');
+      b.dataset.sys = 'niche:' + n;
       box.appendChild(b);
     });
+
     box.addEventListener('click', function (e) {
       if (!e.target.dataset.sys) return;
       cxSystem = e.target.dataset.sys;
       $$('#cx-filters .chip').forEach(function (c) { c.classList.toggle('is-on', c === e.target); });
       renderConditions();
     });
+
+    $('#cx-sort-az').addEventListener('click', function () { setSort('az'); });
+    $('#cx-sort-nd').addEventListener('click', function () { setSort('nd'); });
+  }
+
+  var cxSort = 'az';
+  function setSort(mode) {
+    cxSort = mode;
+    $('#cx-sort-az').classList.toggle('is-on', mode === 'az');
+    $('#cx-sort-nd').classList.toggle('is-on', mode === 'nd');
+    renderConditions();
   }
 
   function renderConditions() {
     var q = $('#cx-search').value.toLowerCase().trim();
     var list = CONDS.filter(function (c) {
-      if (cxSystem !== 'all' && c.system !== cxSystem) return false;
+      if (cxSystem === '__nd') { if (!c.ndRank) return false; }
+      else if (cxSystem.indexOf('niche:') === 0) { if (c.niche !== cxSystem.slice(6)) return false; }
+      else if (cxSystem !== 'all' && c.system !== cxSystem) return false;
       return !q || c._hay.indexOf(q) !== -1;
     });
+
+    // Rank by where the term hit, so "flu" leads with Influenza rather than
+    // with Edema, which only matches inside "fluid retention".
+    if (q) {
+      var word = new RegExp('\\b' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+      list = list.map(function (c) {
+        var name = c.condition.toLowerCase();
+        var akaList = (c.aliases || []).map(function (a) { return a.toLowerCase(); });
+        var aka = akaList.join(' ');
+        var score;
+        // An exact synonym beats an incidental word-boundary hit, so "flu" leads
+        // with Influenza rather than Edema, whose alias is "fluid retention".
+        if (name === q) score = 7;
+        else if (akaList.indexOf(q) !== -1) score = 6;
+        else if (name.indexOf(q) === 0) score = 5;
+        else if (word.test(c.condition)) score = 4;
+        else if (akaList.some(function (a) { return a.indexOf(q) === 0; })) score = 3.5;
+        else if (word.test(aka)) score = 3;
+        else if (name.indexOf(q) !== -1 || aka.indexOf(q) !== -1) score = 2;
+        else score = 1;                                   // matched a herb or action only
+        return { c: c, score: score };
+      }).sort(function (a, b) {
+        return b.score - a.score || a.c.condition.toLowerCase().localeCompare(b.c.condition.toLowerCase());
+      }).map(function (x) { return x.c; });
+    } else if (cxSort === 'nd') {
+      // ranked conditions first, in rank order; the rest stay alphabetical behind them
+      list = list.slice().sort(function (a, b) {
+        if (a.ndRank && b.ndRank) return a.ndRank - b.ndRank;
+        if (a.ndRank) return -1;
+        if (b.ndRank) return 1;
+        return a.condition.toLowerCase().localeCompare(b.condition.toLowerCase());
+      });
+    }
 
     $('#cx-count').textContent = list.length === CONDS.length
       ? CONDS.length + ' conditions, A to Z'
@@ -999,7 +1052,25 @@
       var name = el('span');
       name.innerHTML = highlight(c.condition, q);
       sum.appendChild(name);
-      sum.appendChild(el('span', 'sys', c.system));
+      if (c.ndRank) {
+        var nb = el('span', 'freq nd', '#' + c.ndRank + ' in ND practice');
+        nb.title = 'Ranked ' + c.ndRank + ' among the conditions most commonly seen in naturopathic ' +
+          'practice. See "Where this comes from" below.';
+        sum.appendChild(nb);
+      } else if (c.frequency) {
+        var fs = (D.frequencySources || {})[c.frequency];
+        var fb = el('span', 'freq', c.frequency === 'top10' ? 'common in primary care' : 'highly prevalent');
+        if (fs) fb.title = fs[0] + '. Source: ' + fs[1];
+        sum.appendChild(fb);
+      }
+      if (c.niche) {
+        var nn = el('span', 'sys niche', c.niche);
+        sum.appendChild(nn);
+      }
+      // the body system is dropped when the niche already says the same thing
+      if (!c.niche || c.niche.toLowerCase() !== c.system.toLowerCase()) {
+        sum.appendChild(el('span', 'sys', c.system));
+      }
       if (c.aliases && c.aliases.length) {
         var akas = el('p', 'akas');
         akas.innerHTML = 'also: ' + highlight(c.aliases.join(' &middot; ').replace(/&middot;/g, '\u00b7'), q);
@@ -1110,7 +1181,7 @@
     renderLowDose('');
     renderRef();
     buildSystemChips();
-    renderConditions();
+    setSort('az');
 
     var tab = null;
     try { tab = localStorage.getItem('bc.tab'); } catch (e) { tab = null; }
