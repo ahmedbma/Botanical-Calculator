@@ -1,6 +1,7 @@
 {
  "sources": [
   "Head-to-Toe Objectives (final)",
+  "PED Respiratory Exam",
   "Cardiovascular Exam PED Words",
   "Cardiovascular and Peripheral Vascular Examination competency for NMS3 (BU SNM Student Clinic Handbook)",
   "PED 2 Abdominal Exam Chart",
@@ -11,6 +12,7 @@
  ],
  "types": [
   "Screening",
+  "Respiratory",
   "Cardiovascular",
   "Abdominal",
   "Musculoskeletal",
@@ -354,6 +356,210 @@
     {
      "finding": "Digital clubbing",
      "suggests": "Chronic hypoxia, bronchiectasis, lung malignancy, cirrhosis, IBD"
+    }
+   ]
+  },
+  {
+   "id": "respiratory",
+   "type": "Respiratory",
+   "name": "Respiratory Exam",
+   "region": "Thorax and lungs",
+   "summary": "The thorax worked front and back in the same order each time — inspect, palpate, percuss, auscultate — with tactile fremitus, chest expansion and the forced expiratory time.",
+   "source": "PED Respiratory Exam",
+   "script": "Gown the patient and sit them upright with the back exposed. Do the whole posterior chest first, then bring them round to the anterior. Ask them to breathe through an open mouth, a little deeper than usual, and watch for light-headedness. Compare side with side at every level rather than working down one side and then the other.",
+   "related": [
+    "Asthma",
+    "Chronic obstructive pulmonary disease",
+    "Bronchitis",
+    "Pneumonia",
+    "Cough"
+   ],
+   "groups": [
+    {
+     "name": "Inspection",
+     "steps": [
+      {
+       "step": "Thorax",
+       "how": "Inspect the chest from the front, side and back for shape and symmetry, comparing the anteroposterior with the transverse diameter.",
+       "normal": "Thorax appears normal and symmetric bilaterally with a 2:1 transverse-to-A:P ratio.",
+       "flag": "The source reads “2:1 A:P ratio,” as the head-to-toe objectives do. The normal adult chest is about twice as wide as it is deep — transverse:AP of roughly 2:1, i.e. AP:transverse of 1:2. A ratio approaching 1:1 is a barrel chest."
+      },
+      {
+       "step": "Skin and contour",
+       "how": "Inspect the skin colour over the chest and look tangentially for depressions and bulges.",
+       "normal": "Color is evenly distributed without any signs of depressions or bulges."
+      },
+      {
+       "step": "Respiratory rate and effort",
+       "how": "Count the rate without telling the patient you are counting, and watch for accessory muscle use, retractions and a tripod posture.",
+       "normal": "Respiratory rate was around 16 breaths per minute upon observation without any excessive effort or use of accessory muscles."
+      },
+      {
+       "step": "Peripheral signs",
+       "how": "Inspect the lips and nail beds for cyanosis, the nostrils for flaring on inhalation, and the fingernails for clubbing.",
+       "normal": "Inspection of the lips and fingernails reveals no signs of cyanosis, no flaring of the nostrils upon inhalation, and no signs of clubbing at the fingernails."
+      }
+     ]
+    },
+    {
+     "name": "Posterior thorax",
+     "steps": [
+      {
+       "step": "Palpation",
+       "how": "Palpate over the posterior chest wall for tenderness, bulges, depressions and masses.",
+       "normal": "Palpation of the posterior thorax reveals no signs of tenderness, bulges, depressions, or masses."
+      },
+      {
+       "step": "Tactile fremitus",
+       "how": "Use the ball or ulnar edge of the hand at matched points down the back, asking the patient to repeat “ninety-nine” each time, and compare side to side.",
+       "normal": "Tactile fremitus was symmetric bilaterally upon palpation of the posterior chest."
+      },
+      {
+       "step": "Chest expansion",
+       "how": "Thumbs at about the 10th ribs with the fingers wrapped round the rib cage and a loose skin fold between the thumbs; watch the thumbs move apart on a deep breath.",
+       "normal": "Chest expansion is equal and symmetric bilaterally."
+      },
+      {
+       "step": "Percussion",
+       "how": "Percuss at matched points down the back, in the interspaces and never over the scapulae, comparing side to side.",
+       "normal": "Percussions of the posterior thorax reveal normal resonance and no signs of hyperresonance, dullness, or flat noises."
+      },
+      {
+       "step": "Auscultation",
+       "how": "Diaphragm at the same matched points, one full breath in and out at each, comparing side to side.",
+       "normal": "Posterior lungs are clear to auscultation bilaterally with no signs of wheezing, rhonchi, stridor, rales, or adventitious sound."
+      }
+     ]
+    },
+    {
+     "name": "Anterior thorax",
+     "steps": [
+      {
+       "step": "Palpation",
+       "how": "Palpate over the anterior chest wall for tenderness, bulges, depressions and masses.",
+       "normal": "Palpation of the anterior thorax reveals no signs of tenderness, bulges, depressions, or masses."
+      },
+      {
+       "step": "Trachea",
+       "how": "Place a finger in the suprasternal notch and feel the space on each side of the trachea.",
+       "normal": "Trachea is midline."
+      },
+      {
+       "step": "Tactile fremitus",
+       "how": "Repeat fremitus at matched anterior points, avoiding the breast tissue and the heart.",
+       "normal": "Tactile fremitus was symmetric bilaterally upon palpation of the anterior chest."
+      },
+      {
+       "step": "Percussion",
+       "how": "Percuss the anterior chest at matched points, comparing side to side.",
+       "normal": "Percussion of the anterior chest reveals normal resonance and no signs of hyperresonance, dullness, or flat noises."
+      },
+      {
+       "step": "Auscultation",
+       "how": "Diaphragm at the same matched anterior points, including the apices and the axillae.",
+       "normal": "Anterior lungs are clear to auscultation bilaterally with no signs of wheezing, rhonchi, stridor, rales, or adventitious sound."
+      }
+     ]
+    },
+    {
+     "name": "Special manoeuvre",
+     "steps": [
+      {
+       "step": "Forced expiratory time",
+       "how": "Listen over the trachea with the diaphragm; ask the patient to take a full breath in and blow it out as fast and completely as they can, and time the audible expiration.",
+       "normal": "Forced expiratory time is within normal limits at under 5 seconds.",
+       "flag": "The source calls this “forced respiratory expiration.” The usual name is the forced expiratory time (FET). Your chart sets normal at under 5 seconds; most texts call 6 seconds or longer a positive test for airflow obstruction, so treat 5–6 seconds as the grey zone."
+      }
+     ],
+     "note": "Your chart does not cover diaphragmatic excursion or the transmitted-voice tests — egophony, bronchophony and whispered pectoriloquy — which are the usual way to confirm the consolidation that increased fremitus and dullness suggest. There is no wording of yours to transcribe for them."
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Increased AP diameter approaching 1:1 (barrel chest)",
+     "suggests": "Air trapping — COPD or emphysema"
+    },
+    {
+     "finding": "Respiratory rate over 20 with accessory muscle use, retractions or a tripod posture",
+     "suggests": "Respiratory distress",
+     "urgent": true
+    },
+    {
+     "finding": "Central cyanosis of the lips or tongue",
+     "suggests": "Hypoxaemia",
+     "urgent": true
+    },
+    {
+     "finding": "Digital clubbing",
+     "suggests": "Bronchiectasis, lung malignancy, interstitial disease, cyanotic heart disease"
+    },
+    {
+     "finding": "Trachea deviated toward the abnormal side",
+     "suggests": "Collapse, atelectasis or fibrosis pulling the trachea over"
+    },
+    {
+     "finding": "Trachea deviated away from the abnormal side",
+     "suggests": "Tension pneumothorax or a large effusion pushing the trachea over",
+     "urgent": true
+    },
+    {
+     "finding": "Increased tactile fremitus with dullness",
+     "suggests": "Consolidation — pneumonia"
+    },
+    {
+     "finding": "Decreased or absent fremitus",
+     "suggests": "Pleural effusion, pneumothorax or a thickened chest wall"
+    },
+    {
+     "finding": "Asymmetric chest expansion",
+     "suggests": "Effusion, pneumothorax, consolidation, or splinting from pain"
+    },
+    {
+     "finding": "Hyperresonance on percussion",
+     "suggests": "Pneumothorax or emphysema"
+    },
+    {
+     "finding": "Stony dullness at a base",
+     "suggests": "Pleural effusion"
+    },
+    {
+     "finding": "Expiratory wheeze",
+     "suggests": "Lower airway obstruction — asthma, COPD"
+    },
+    {
+     "finding": "Inspiratory stridor",
+     "suggests": "Upper airway obstruction — secure the airway",
+     "urgent": true
+    },
+    {
+     "finding": "Fine late-inspiratory crackles at the bases",
+     "suggests": "Pulmonary oedema or interstitial lung disease"
+    },
+    {
+     "finding": "Coarse crackles that change with coughing",
+     "suggests": "Secretions or bronchiectasis"
+    },
+    {
+     "finding": "Pleural friction rub",
+     "suggests": "Pleuritis, pulmonary embolism or pneumonia"
+    },
+    {
+     "finding": "Egophony, bronchophony or whispered pectoriloquy",
+     "suggests": "Consolidation"
+    },
+    {
+     "finding": "Forced expiratory time of 6 seconds or more",
+     "suggests": "Airflow obstruction"
+    },
+    {
+     "finding": "Unilaterally decreased or absent breath sounds",
+     "suggests": "Effusion, pneumothorax or collapse",
+     "urgent": true
+    },
+    {
+     "finding": "A silent chest in a patient known to wheeze",
+     "suggests": "Life-threatening asthma — too little air moving to wheeze",
+     "urgent": true
     }
    ]
   },
