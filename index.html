@@ -209,7 +209,7 @@
     <div class="input-grid">
       <label>Amount per dose (ml)<input type="number" id="d-ml" min="0" step="0.1" value="5"></label>
       <label>Doses per day<input type="number" id="d-freq" min="0" step="1" value="3"></label>
-      <label>Herb (optional)<input type="text" id="d-herb" list="herb-list" placeholder="e.g. Lobelia inflata"></label>
+      <label>Herb (optional)<input type="text" id="d-herb" placeholder="e.g. Lobelia inflata"></label>
       <label>Share of formula (%)<input type="number" id="d-pct" min="0" max="100" step="1" value="20"></label>
       <label>Extract ratio 1:<input type="number" id="d-ratio" min="0" step="0.5" value="5"></label>
     </div>
@@ -445,8 +445,6 @@
      frightening should be seen by a clinician.</p>
 </footer>
 
-<datalist id="herb-list"></datalist>
-<datalist id="tea-herb-list"></datalist>
 
 <script src="js/herbdata.js"></script>
 <script src="js/homeopathydata.js"></script>

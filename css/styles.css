@@ -333,3 +333,24 @@ td.herb input{min-width:190px}
 .cnhint{display:block;margin-top:5px;font-size:.75rem;line-height:1.3;color:var(--muted);
   font-style:italic;text-transform:capitalize}
 .cnhint:empty{display:none}
+
+/* ---- herb combobox ----
+   Rendered in a fixed layer on <body> so the formulator tables' horizontal
+   overflow cannot clip it, and sized for a thumb rather than a cursor. */
+.cbx-list{position:fixed;z-index:60;margin:0;padding:5px;list-style:none;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+.cbx-list[hidden]{display:none!important}
+.cbx-opt{display:flex;flex-direction:column;gap:1px;padding:10px 12px;border-radius:8px;cursor:pointer}
+.cbx-opt .nm{font:italic 600 .95rem/1.3 var(--serif);color:var(--ink)}
+.cbx-opt .cn{font-size:.76rem;line-height:1.3;color:var(--muted);text-transform:capitalize}
+.cbx-opt.is-on,.cbx-opt:hover{background:var(--accent-soft)}
+.cbx-opt.is-on .nm,.cbx-opt:hover .nm{color:var(--accent)}
+
+@media (max-width:640px){
+  /* iOS Safari zooms the whole page when a focused field sets under 16px */
+  input,select,output.ro,table input,table td select{font-size:16px}
+  table td input[type=number]{width:88px}
+  .cbx-opt{padding:12px 14px}
+  .cbx-opt .nm{font-size:1rem}
+}
