@@ -2133,7 +2133,7 @@
     nm.innerHTML = highlight(x.name, q);
     head.appendChild(nm);
     var badge = set === 'pharm' ? x.cls
-      : set === 'labs' ? (LAB_KIND_LABEL[x.kind] || x.kind)
+      : (set === 'labs' || set === 'labsOnly' || set === 'screens') ? (LAB_KIND_LABEL[x.kind] || x.kind)
       : x.kind || null;   // a therapy shows its kind; a supplement has none
     if (badge) head.appendChild(el('span', 'txbadge', badge));
     card.appendChild(head);
@@ -2339,6 +2339,12 @@
   TX.botanicals = TX.supplements.filter(function (x) { return !!x.herbal; });
   TX_IDX.nonHerbal = txIndex(TX.nonHerbal);
   TX_IDX.botanicals = txIndex(TX.botanicals);
+  // A questionnaire is part of the examination, not a laboratory order, so the
+  // screening instruments live with the physical exams.
+  TX.labsOnly = TX.labs.filter(function (x) { return x.kind !== 'screen'; });
+  TX.screens = TX.labs.filter(function (x) { return x.kind === 'screen'; });
+  TX_IDX.labsOnly = txIndex(TX.labsOnly);
+  TX_IDX.screens = txIndex(TX.screens);
   window.TX_BOTANICALS = TX.botanicals;   // read by the Herb Reference tab
   TX.natTherapeutics = TX.therapies.filter(function (x) { return x.zone !== 'lifestyle'; });
   TX.lifestyle = TX.therapies.filter(function (x) { return x.zone === 'lifestyle'; });
@@ -2369,10 +2375,11 @@
     groups: function () { return kindsOf(TX.lifestyle); }
   });
   var renderLabs = txMakeTab({
-    id: 'labs', key: 'labs', set: 'labs', noun: 'tests', condKeys: ['labs'],
+    id: 'labs', key: 'labsOnly', set: 'labsOnly', noun: 'tests', condKeys: ['labs'],
     groupOf: function (x) { return x.kind; },
     groups: function () {
-      return (TX.labKinds || []).map(function (k) { return { value: k, label: LAB_KIND_LABEL[k] || k }; });
+      return (TX.labKinds || []).filter(function (k) { return k !== 'screen'; })
+        .map(function (k) { return { value: k, label: LAB_KIND_LABEL[k] || k }; });
     }
   });
 
@@ -2698,6 +2705,33 @@
     return det;
   }
 
+  /* ---- the screening instruments, shown with the physical exams ---- */
+  function renderScreens() {
+    var out = $('#screen-results');
+    if (!out) return;
+    $('#screen-count').textContent = TX.screens.length + ' instruments';
+    out.innerHTML = '';
+    var frag = document.createDocumentFragment();
+    TX.screens.forEach(function (x) {
+      var card = txCard(x, 'screens', '', true);
+      card.dataset.screen = x.id;
+      frag.appendChild(card);
+    });
+    out.appendChild(frag);
+  }
+  // Open the screening block on the instrument a condition asked for.
+  function scrnJump(id) {
+    showTab('exams');
+    var box = $('#screen-box');
+    if (box) box.open = true;
+    var card = $('#screen-results [data-screen="' + id + '"]');
+    (card || box || $('#panel-exams')).scrollIntoView({ block: 'center' });
+    if (card) {
+      card.classList.add('is-hit');
+      setTimeout(function () { card.classList.remove('is-hit'); }, 1600);
+    }
+  }
+
   /* ---- the therapeutics block shown inside each condition ---- */
   function txForCondition(cond, q) {
     var rec = TXBY[cond];
@@ -2709,7 +2743,8 @@
       ['supps', 'Botanicals', 'botanicals'],
       ['therapies', 'Naturopathic therapeutics', 'natTherapeutics'],
       ['therapies', 'Lifestyle', 'lifestyle'],
-      ['labs', 'Labs & imaging', 'labs']
+      ['labs', 'Screening tools', 'screens'],
+      ['labs', 'Labs & imaging', 'labsOnly']
     ];
     var any = false;
     rows.forEach(function (r) {
@@ -2736,13 +2771,13 @@
         }
         // each row opens the tab that actually holds that item
         var tab = r[2] === 'natTherapeutics' ? 'therap' : r[2] === 'lifestyle' ? 'life'
-          : r[2] === 'botanicals' ? 'herbs'
+          : r[2] === 'botanicals' ? 'herbs' : r[2] === 'screens' ? 'exams'
           : r[0] === 'labs' ? 'labs' : r[0] === 'pharm' ? 'pharm' : 'supps';
         b.addEventListener('click', function () {
           showTab(tab);
           // the herb reference names its search box differently, and keeps the
           // botanicals in a collapsed block
-          var inp = $('#' + (tab === 'herbs' ? 'hr' : tab) + '-search');
+          var inp = tab === 'exams' ? null : $('#' + (tab === 'herbs' ? 'hr' : tab) + '-search');
           if (inp) {
             inp.value = tab === 'herbs' ? it.name.split(' (')[0] : it.name;
             inp.dispatchEvent(new Event('input', { bubbles: true }));
@@ -2751,6 +2786,7 @@
             var bb = $('#bot-box');
             if (bb) { bb.open = true; bb.scrollIntoView({ block: 'start' }); return; }
           }
+          if (tab === 'exams') { scrnJump(it.id); return; }
           $('#panel-' + tab).scrollIntoView({ block: 'start' });
         });
         items.appendChild(b);
@@ -3337,6 +3373,7 @@
     renderTherap();
     renderLife();
     renderLabs();
+    renderScreens();
     renderSuffixes();
     buildScreeners();
     buildWomensNotes();
