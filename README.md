@@ -23,7 +23,8 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | **Pharmaceuticals** | 106 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
 | **Supplements** | 97 supplements and 43 non-drug therapies — typical dose ranges, mechanisms, and the cautions that matter, including which supplements must be avoided in which patients. Organised A–Z or by condition. |
 | **Labs & Imaging** | 99 tests across blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels — why you would order each and how to read it. The same tests hang off every abnormal exam finding and every condition. |
-| **Herb Reference** | 396 herbs — Latin and common names, plant part, actions, available dose forms, dispensary availability, tea density and substitutes, plus **pregnancy and lactation safety** for the 205 that carry a rating. Filter to what to avoid in pregnancy or lactation, or to what has evidence of safety. |
+| **Study Notes** | Four reference documents kept whole and made searchable — the pediatric dermatology study guide, the respiratory therapeutics cheat sheet, the pediatrics final cheat sheet and the women's herbs formulating notes. 121 sections, searchable across all four at once. |
+| **Herb Reference** | 396 herbs — Latin and common names, plant part, actions, available dose forms, dispensary availability, tea density and substitutes, plus **pregnancy and lactation safety** for the 205 that carry a rating and a **women's herbs monograph** for 15 of them. Filter to what to avoid in pregnancy or lactation, or to what has evidence of safety. |
 
 ### Beyond the spreadsheet
 
@@ -69,7 +70,7 @@ be kept up for more than a few days.
 ## Project layout
 
 ```
-index.html               markup for all eleven tools
+index.html               markup for all twelve tools
 css/styles.css           styling, light/dark, print rules
 js/herbdata.js           herbal reference data as a global (works from file://)
 js/homeopathydata.js     homeopathic remedy data as a global
@@ -172,6 +173,21 @@ dullness suggest. Rather than invent wording and attribute it to the notes, thos
 what is missing. A group with no steps is skipped in the write-up view, since there is nothing to chart.
 
 Where an exam raises a condition the **Conditions** index already covers, the tab links straight across to it.
+
+### Women's herbs and the study notes
+
+**Fifteen monographs** from the women's herbs lecture — actions and uses, major constituents, focus points,
+safety concerns and dosing, as the lecture lays them out. Eleven resolve to herbs already in the reference
+and appear as a monograph block on their card.
+
+**Four documents are kept whole rather than parsed apart.** Where a document is a structured dataset — a
+protocol, an exam, a safety table — it has been turned into the tab it belongs to. These four are reference
+and revision material, so the **Study Notes** tab keeps them section by section, exactly as written, and
+makes them searchable across all four at once: the pediatric dermatology final study guide (50 sections,
+each condition running aetiology → presentation → naturopathic treatment → homeopathy → conventional
+treatment and red flags), the respiratory therapeutics exam cheat sheet (25), the pediatrics final cheat
+sheet (37), and the women's herbs formulating notes (9) on biphasic formulas, liver herbs, phytoestrogens,
+prolactin, the viburnums and the anodynes. Nothing in that tab has been rewritten or added to.
 
 ### Pregnancy and lactation safety
 

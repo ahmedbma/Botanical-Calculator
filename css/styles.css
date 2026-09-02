@@ -629,3 +629,35 @@ td.herb input{min-width:190px}
 .pregsrc{margin:7px 0 0;font-size:.78rem;line-height:1.5;color:var(--muted)}
 @media (max-width:620px){.preglegend{grid-template-columns:1fr}.preglegend dt{border-bottom:0}}
 @media print{.pregrow{display:none!important}}
+
+/* ---- study notes ---- */
+.snlist{display:grid;gap:26px}
+.sndoc{border-top:1px solid var(--line);padding-top:16px}
+.sndoc-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.sndoc h3{margin:0;font:600 1.35rem/1.25 var(--serif)}
+.sndoc-src{font:600 .64rem/1 var(--sans);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+  background:var(--ro-bg);padding:5px 10px;border-radius:99px;white-space:nowrap}
+.sndoc-blurb{margin:8px 0 14px;font-size:.86rem;line-height:1.65;color:var(--muted);max-width:82ch}
+.snpart{margin:18px 0 8px;font:700 .68rem/1.4 var(--sans);text-transform:uppercase;letter-spacing:.06em;
+  color:var(--accent)}
+.snsec{border:1px solid var(--line);border-radius:10px;background:var(--bg);margin-bottom:7px;overflow:hidden}
+.snsec>summary{cursor:pointer;padding:10px 14px;font:600 1rem/1.35 var(--serif);list-style:none;
+  display:flex;align-items:baseline;gap:9px}
+.snsec>summary::-webkit-details-marker{display:none}
+.snsec>summary::before{content:"\25B8";font-family:var(--sans);font-size:.75rem;color:var(--muted);
+  transition:transform .15s ease;display:inline-block}
+.snsec[open]>summary::before{transform:rotate(90deg)}
+.snsec>summary:hover{background:var(--accent-soft)}
+.snbody{padding:2px 14px 13px;border-top:1px solid var(--line)}
+.snbody p{margin:9px 0 0;font-size:.86rem;line-height:1.65;color:var(--ink);max-width:88ch}
+.snsec mark{background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:0 2px}
+
+/* ---- women's herb monograph on a herb card ---- */
+.wmono{margin-top:10px;border-top:1px solid var(--line);padding-top:9px}
+.wmono>summary{cursor:pointer;font:600 .78rem/1 var(--sans);color:var(--accent)}
+.wmono-body{margin-top:9px}
+.wmeta{margin:0 0 8px;font-size:.76rem;color:var(--muted);font-style:italic}
+.wmono-h{margin:10px 0 3px;font:700 .62rem/1 var(--sans);text-transform:uppercase;letter-spacing:.06em;
+  color:var(--muted)}
+.wmono-p{margin:0;font-size:.78rem;line-height:1.55;color:var(--ink)}
+.wmono-p.warn{color:var(--danger)}

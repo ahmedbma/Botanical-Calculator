@@ -1381,6 +1381,8 @@
       }
       var safety = pregCard(e.name);
       if (safety) card.appendChild(safety);
+      var mono = typeof womensCard === 'function' ? womensCard(e.name) : null;
+      if (mono) card.appendChild(mono);
       frag.appendChild(card);
     });
     out.appendChild(frag);
@@ -2271,6 +2273,110 @@
     }
   });
 
+  /* ---- study notes: the reference documents kept whole ---- */
+  var SN_DOCS = TX.studyNotes || [];
+  SN_DOCS.forEach(function (d) {
+    d.sections.forEach(function (sec) {
+      sec._hay = (d.title + ' ' + sec.part + ' ' + sec.title + ' ' + sec.body.join(' ')).toLowerCase();
+    });
+  });
+  var snDoc = 'all';
+
+  function buildNoteChips() {
+    var box = $('#sn-filters');
+    if (!box) return;
+    box.innerHTML = '';
+    var all = el('button', 'chip is-on', 'All');
+    all.dataset.d = 'all';
+    box.appendChild(all);
+    SN_DOCS.forEach(function (d) {
+      var b = el('button', 'chip', d.title + ' (' + d.sections.length + ')');
+      b.dataset.d = d.id;
+      box.appendChild(b);
+    });
+    box.addEventListener('click', function (e) {
+      if (!e.target.dataset.d) return;
+      snDoc = e.target.dataset.d;
+      $$('#sn-filters .chip').forEach(function (c) { c.classList.toggle('is-on', c === e.target); });
+      renderNotes();
+    });
+  }
+
+  function renderNotes() {
+    var out = $('#sn-results');
+    if (!out) return;
+    var q = $('#sn-search').value.toLowerCase().trim();
+    out.innerHTML = '';
+    var frag = document.createDocumentFragment();
+    var shown = 0, total = 0;
+    SN_DOCS.forEach(function (d) {
+      total += d.sections.length;
+      if (snDoc !== 'all' && snDoc !== d.id) return;
+      var hits = d.sections.filter(function (sec) { return !q || sec._hay.indexOf(q) !== -1; });
+      if (!hits.length) return;
+      shown += hits.length;
+      var doc = el('section', 'sndoc');
+      var h = el('div', 'sndoc-head');
+      h.appendChild(el('h3', null, d.title));
+      h.appendChild(el('span', 'sndoc-src', d.source));
+      doc.appendChild(h);
+      if (d.blurb) doc.appendChild(el('p', 'sndoc-blurb', d.blurb));
+      var part = null;
+      hits.forEach(function (sec) {
+        if (sec.part && sec.part !== part && sec.part !== sec.title) {
+          part = sec.part;
+          doc.appendChild(el('h4', 'snpart', part));
+        }
+        var det = el('details', 'snsec');
+        if (q) det.open = true;
+        var sum = el('summary');
+        sum.innerHTML = highlight(sec.title, q);
+        det.appendChild(sum);
+        var body = el('div', 'snbody');
+        sec.body.forEach(function (line) {
+          var pEl = el('p');
+          pEl.innerHTML = highlight(line, q);
+          body.appendChild(pEl);
+        });
+        det.appendChild(body);
+        doc.appendChild(det);
+      });
+      frag.appendChild(doc);
+    });
+    out.appendChild(frag);
+    $('#sn-count').textContent = shown === total
+      ? total + ' sections across ' + SN_DOCS.length + ' documents'
+      : shown + ' of ' + total + ' sections';
+    if (!shown) out.appendChild(el('p', 'count', 'Nothing in the notes matches that.'));
+  }
+  if ($('#sn-search')) $('#sn-search').addEventListener('input', renderNotes);
+
+  /* ---- women's herb monographs, shown on the herb card ---- */
+  var WOMENS = {};
+  (TX.womensHerbs || []).forEach(function (w) {
+    var k = genusSpecies(w.latin.replace(/\(.*?\)/g, ' '));
+    if (k) WOMENS[k] = w;
+  });
+  function womensCard(latin) {
+    var w = WOMENS[genusSpecies(latin)];
+    if (!w) return null;
+    var det = el('details', 'wmono');
+    det.appendChild(el('summary', null, "Women's herbs monograph"));
+    var body = el('div', 'wmono-body');
+    var meta = [];
+    if (w.parts) meta.push('Parts used: ' + w.parts);
+    if (w.family) meta.push(w.family + ' family');
+    if (meta.length) body.appendChild(el('p', 'wmeta', meta.join(' · ')));
+    [['actionsUses', 'Actions and uses'], ['constituentsFocus', 'Constituents and focus points'],
+     ['safety', 'Safety concerns'], ['dosing', 'Dosing']].forEach(function (pair) {
+      if (!w[pair[0]]) return;
+      body.appendChild(el('h5', 'wmono-h', pair[1]));
+      body.appendChild(el('p', 'wmono-p' + (pair[0] === 'safety' ? ' warn' : ''), w[pair[0]]));
+    });
+    det.appendChild(body);
+    return det;
+  }
+
   /* ---- medication suffixes ---- */
   function renderSuffixes() {
     var out = $('#sfx-results');
@@ -2998,6 +3104,8 @@
     renderSupps();
     renderLabs();
     renderSuffixes();
+    buildNoteChips();
+    renderNotes();
 
     hxRenderPick();
     hxRenderRef();
