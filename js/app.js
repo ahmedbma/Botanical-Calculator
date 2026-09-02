@@ -1389,6 +1389,24 @@
     if (list.length > 400) {
       out.appendChild(el('p', 'count', 'Showing the first 400 matches — narrow the search to see more.'));
     }
+    renderBotanicals(q);
+  }
+
+  // The herbal products the Conditions tab prescribes. They are therapeutics-tab
+  // records, not Yarnell herb entries, so they render as therapeutics cards — but
+  // they belong with the herbs rather than in the Supplements tab.
+  function renderBotanicals(q) {
+    var out = $('#bot-results');
+    if (!out) return;
+    var all = (window.TX_BOTANICALS || []);
+    var list = q ? all.filter(function (x) { return x._hay.indexOf(q) !== -1; }) : all;
+    $('#bot-count').textContent = list.length === all.length
+      ? all.length + ' botanicals'
+      : list.length + ' of ' + all.length + ' botanicals';
+    out.innerHTML = '';
+    var frag = document.createDocumentFragment();
+    list.forEach(function (x) { frag.appendChild(txCard(x, 'botanicals', q, true)); });
+    out.appendChild(frag);
   }
   $('#hr-search').addEventListener('input', renderRef);
   $$('#hr-filters .chip').forEach(function (chip) {
@@ -2148,9 +2166,10 @@
       a.setAttribute('download', x.name + '.pdf');
       fl.appendChild(a);
       fl.appendChild(document.createTextNode(' \u00b7 '));
-      var jump = el('button', 'txlink', 'score it in the tab');
+      var jump = el('button', 'txlink', 'score it in Physical Exams');
       jump.addEventListener('click', function () {
-        var box = $('#labs-screeners');
+        showTab('exams');
+        var box = $('#pe-screeners');
         if (box) { box.open = true; box.scrollIntoView({ block: 'start' }); }
       });
       fl.appendChild(jump);
@@ -2249,7 +2268,9 @@
         TX_CONDS.forEach(function (cond) {
           var ids = [];
           cfg.condKeys.forEach(function (k) {
-            (TXBY[cond][k] || []).forEach(function (i) { if (keep[i]) ids.push(i); });
+            (TXBY[cond][k] || []).forEach(function (i) {
+              if (keep[i] && TX_IDX[cfg.set][i]) ids.push(i);
+            });
           });
           if (!ids.length) return;
           shown++;
@@ -2310,21 +2331,42 @@
       return (TX.pharmGroups || []).map(function (g) { return { value: g, label: g }; });
     }
   });
-  // Therapies are listed alongside supplements — both are the non-drug half of a
-  // plan, and splitting them across two tabs would only hide them.
-  TX.supplements.forEach(function (x) { x._grp = 'Supplement'; });
-  TX.therapies.forEach(function (x) { x._grp = x.kind; });
-  var SUPPS_ALL = TX.supplements.concat(TX.therapies);
-  TX.suppsAndTherapies = SUPPS_ALL;
-  // one lookup covering both, so a by-condition row can mix them
-  TX_IDX.suppsAndTherapies = txIndex(SUPPS_ALL);
+  // Supplements are things a patient takes. What a practitioner applies, and what
+  // a patient changes about how they live, are separate tabs.
+  // Botanicals are herbs, and herbs belong to the herb side of the tool, so the
+  // Supplements tab carries only the non-herbal agents.
+  TX.nonHerbal = TX.supplements.filter(function (x) { return !x.herbal; });
+  TX.botanicals = TX.supplements.filter(function (x) { return !!x.herbal; });
+  TX_IDX.nonHerbal = txIndex(TX.nonHerbal);
+  TX_IDX.botanicals = txIndex(TX.botanicals);
+  window.TX_BOTANICALS = TX.botanicals;   // read by the Herb Reference tab
+  TX.natTherapeutics = TX.therapies.filter(function (x) { return x.zone !== 'lifestyle'; });
+  TX.lifestyle = TX.therapies.filter(function (x) { return x.zone === 'lifestyle'; });
+  TX_IDX.natTherapeutics = txIndex(TX.natTherapeutics);
+  TX_IDX.lifestyle = txIndex(TX.lifestyle);
+  function kindsOf(list) {
+    var seen = {};
+    list.forEach(function (x) { seen[x.kind] = true; });
+    return Object.keys(seen).sort().map(function (k) { return { value: k, label: k }; });
+  }
+
   var renderSupps = txMakeTab({
-    id: 'supps', key: 'suppsAndTherapies', set: 'suppsAndTherapies', noun: 'entries',
-    condKeys: ['supps', 'therapies'],
-    groupOf: function (x) { return x._grp; },
-    groups: function () {
-      return ['Supplement'].concat(TX.therapyKinds || []).map(function (k) { return { value: k, label: k }; });
-    }
+    id: 'supps', key: 'nonHerbal', set: 'nonHerbal', noun: 'supplements',
+    condKeys: ['supps'],
+    groupOf: function () { return 'all'; },
+    groups: function () { return []; }
+  });
+  var renderTherap = txMakeTab({
+    id: 'therap', key: 'natTherapeutics', set: 'natTherapeutics', noun: 'modalities',
+    condKeys: ['therapies'],
+    groupOf: function (x) { return x.kind; },
+    groups: function () { return kindsOf(TX.natTherapeutics); }
+  });
+  var renderLife = txMakeTab({
+    id: 'life', key: 'lifestyle', set: 'lifestyle', noun: 'changes',
+    condKeys: ['therapies'],
+    groupOf: function (x) { return x.kind; },
+    groups: function () { return kindsOf(TX.lifestyle); }
   });
   var renderLabs = txMakeTab({
     id: 'labs', key: 'labs', set: 'labs', noun: 'tests', condKeys: ['labs'],
@@ -2527,6 +2569,7 @@
     inst.notes.forEach(function (n) { notes.appendChild(el('li', null, n)); });
     wrap.appendChild(notes);
     wrap.appendChild(el('p', 'scrn-attrib', inst.attribution));
+    if (inst.official) wrap.appendChild(el('p', 'scrn-attrib', inst.official));
 
     clear.addEventListener('click', function () {
       Object.keys(state).forEach(function (k) { delete state[k]; });
@@ -2662,13 +2705,15 @@
     var wrap = el('div', 'txcond-block');
     var rows = [
       ['pharm', 'Pharmaceuticals', 'pharm'],
-      ['supps', 'Supplements', 'supps'],
-      ['therapies', 'Therapies', 'therapies'],
+      ['supps', 'Supplements', 'nonHerbal'],
+      ['supps', 'Botanicals', 'botanicals'],
+      ['therapies', 'Naturopathic therapeutics', 'natTherapeutics'],
+      ['therapies', 'Lifestyle', 'lifestyle'],
       ['labs', 'Labs & imaging', 'labs']
     ];
     var any = false;
     rows.forEach(function (r) {
-      var ids = rec[r[0]] || [];
+      var ids = (rec[r[0]] || []).filter(function (i) { return TX_IDX[r[2]][i]; });
       if (!ids.length) return;
       any = true;
       var sec = el('div', 'txrow');
@@ -2676,8 +2721,9 @@
       var items = el('div', 'txrow-items');
       ids.forEach(function (i) {
         var it = TX_IDX[r[2]][i];
-        if (!it) return;
-        var b = el('button', 'txpill ' + r[0], it.name);
+        if (!it) return;   // a therapy belonging to the other of the two rows
+        var b = el('button', 'txpill ' + (r[2] === 'lifestyle' ? 'life'
+          : r[2] === 'botanicals' ? 'bot' : r[0]), it.name);
         var tip = [];
         if (it.cls) tip.push(it.cls);
         if (it.kind) tip.push(LAB_KIND_LABEL[it.kind] || it.kind);
@@ -2688,12 +2734,23 @@
         if (it.caution && /AVOID|contraindicat|Absolutely|boxed|emergency/i.test(it.caution)) {
           b.classList.add('flagged');
         }
-        // therapies live in the supplements tab, so both point there
-        var tab = r[0] === 'labs' ? 'labs' : r[0] === 'pharm' ? 'pharm' : 'supps';
+        // each row opens the tab that actually holds that item
+        var tab = r[2] === 'natTherapeutics' ? 'therap' : r[2] === 'lifestyle' ? 'life'
+          : r[2] === 'botanicals' ? 'herbs'
+          : r[0] === 'labs' ? 'labs' : r[0] === 'pharm' ? 'pharm' : 'supps';
         b.addEventListener('click', function () {
           showTab(tab);
-          var inp = $('#' + tab + '-search');
-          if (inp) { inp.value = it.name; inp.dispatchEvent(new Event('input', { bubbles: true })); }
+          // the herb reference names its search box differently, and keeps the
+          // botanicals in a collapsed block
+          var inp = $('#' + (tab === 'herbs' ? 'hr' : tab) + '-search');
+          if (inp) {
+            inp.value = tab === 'herbs' ? it.name.split(' (')[0] : it.name;
+            inp.dispatchEvent(new Event('input', { bubbles: true }));
+          }
+          if (tab === 'herbs') {
+            var bb = $('#bot-box');
+            if (bb) { bb.open = true; bb.scrollIntoView({ block: 'start' }); return; }
+          }
           $('#panel-' + tab).scrollIntoView({ block: 'start' });
         });
         items.appendChild(b);
@@ -3277,6 +3334,8 @@
     renderExams();
     renderPharm();
     renderSupps();
+    renderTherap();
+    renderLife();
     renderLabs();
     renderSuffixes();
     buildScreeners();

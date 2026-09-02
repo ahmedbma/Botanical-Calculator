@@ -23,238 +23,25 @@
 </header>
 
 <nav class="tabs wrap" role="tablist" aria-label="Calculators">
-  <button role="tab" class="tab" data-panel="tincture" aria-selected="true">Tincture Formulator</button>
-  <button role="tab" class="tab" data-panel="tea" aria-selected="false">Tea Formulator</button>
-  <button role="tab" class="tab" data-panel="dose" aria-selected="false">Dose per Herb</button>
-  <button role="tab" class="tab" data-panel="lowdose" aria-selected="false">Low-Dose Reference</button>
-  <button role="tab" class="tab" data-panel="conditions" aria-selected="false">Conditions</button>
-  <button role="tab" class="tab" data-panel="homeo" aria-selected="false">Homeopathy</button>
+  <button role="tab" class="tab" data-panel="conditions" aria-selected="true">Conditions</button>
   <button role="tab" class="tab" data-panel="exams" aria-selected="false">Physical Exams</button>
+  <button role="tab" class="tab" data-panel="labs" aria-selected="false">Labs &amp; Imaging</button>
   <button role="tab" class="tab" data-panel="pharm" aria-selected="false">Pharmaceuticals</button>
   <button role="tab" class="tab" data-panel="supps" aria-selected="false">Supplements</button>
-  <button role="tab" class="tab" data-panel="labs" aria-selected="false">Labs &amp; Imaging</button>
+  <button role="tab" class="tab" data-panel="therap" aria-selected="false">Naturopathic Therapeutics</button>
+  <button role="tab" class="tab" data-panel="life" aria-selected="false">Lifestyle</button>
+  <button role="tab" class="tab" data-panel="homeo" aria-selected="false">Homeopathy</button>
   <button role="tab" class="tab" data-panel="herbs" aria-selected="false">Herb Reference</button>
+  <button role="tab" class="tab" data-panel="tea" aria-selected="false">Tea Formulator</button>
+  <button role="tab" class="tab" data-panel="tincture" aria-selected="false">Tincture Formulator</button>
+  <button role="tab" class="tab" data-panel="dose" aria-selected="false">Dose per Herb</button>
+  <button role="tab" class="tab" data-panel="lowdose" aria-selected="false">Low-Dose Reference</button>
 </nav>
 
 <main class="wrap">
 
-<!-- ============================ TINCTURE ============================ -->
-<section id="panel-tincture" class="panel" role="tabpanel">
-  <div class="card">
-    <h2>Liquid Extract (Tincture) Formulator</h2>
-
-    <div class="meta-grid">
-      <label>Formula name<input type="text" id="t-formula" placeholder="e.g. Sleep support"></label>
-      <label>Practitioner<input type="text" id="t-practitioner"></label>
-      <label>Patient<input type="text" id="t-patient"></label>
-      <label>Date<input type="date" id="t-date"></label>
-    </div>
-
-    <div class="input-grid">
-      <label>Amount per dose (ml)<input type="number" id="t-ml" min="0" step="0.1" value="5"></label>
-      <label>Doses per day<input type="number" id="t-freq" min="0" step="1" value="3"></label>
-      <label>Duration (days)<input type="number" id="t-days" min="0" step="1" value="30"></label>
-      <label>Total needed (ml)<output id="t-total" class="ro">—</output></label>
-      <label>Dispense (ml)
-        <select id="t-dispense" title="&#8224; 240 ml and 480 ml bottles do not come with a dropper top."></select>
-      </label>
-      <label>Custom dispense (ml)<input type="number" id="t-custom" min="0" step="1" placeholder="optional"></label>
-    </div>
-
-    <div class="row-head">
-      <h3>Herbs in formula</h3>
-      <div class="seg" role="group" aria-label="Proportion units">
-        <button class="segbtn is-on" id="t-mode-pct">Percent</button>
-        <button class="segbtn" id="t-mode-parts">Parts</button>
-      </div>
-    </div>
-
-    <div class="tablewrap">
-      <table id="t-table">
-        <thead>
-          <tr>
-            <th>Herb</th>
-            <th class="prop-h">%</th>
-            <th>Ratio 1:<span class="q" title="Weight-to-volume ratio of the extract. Enter 5 for a 1:5 tincture.">?</span></th>
-            <th>ml / dose</th>
-            <th>gtt / dose</th>
-            <th>g herb / dose</th>
-            <th>g herb / day</th>
-            <th>ml to dispense</th>
-            <th>Pour to (ml)<span class="q" title="Running total: pour each extract up to this mark in a graduated cylinder.">?</span></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-        <tfoot>
-          <tr>
-            <th>Total</th>
-            <th id="t-sum-prop">0</th>
-            <th></th><th id="t-sum-ml"></th><th id="t-sum-gtt"></th>
-            <th id="t-sum-gdose"></th><th id="t-sum-gday"></th><th id="t-sum-disp"></th><th></th><th></th>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-
-    <div class="actions">
-      <button class="btn" id="t-add">+ Add herb</button>
-      <button class="btn ghost" id="t-normalize">Normalize to 100%</button>
-      <button class="btn ghost" id="t-csv">Download CSV</button>
-      <button class="btn ghost" id="t-print">Print</button>
-      <button class="btn ghost danger" id="t-clear">Clear</button>
-    </div>
-
-    <div class="pregrow">
-      <span class="pregrow-lab">Check against</span>
-      <label class="pregchk"><input type="checkbox" id="t-preg"> Pregnancy</label>
-      <label class="pregchk"><input type="checkbox" id="t-lact"> Lactation</label>
-    </div>
-    <div id="t-alerts" class="alerts"></div>
-  </div>
-
-  <details class="card notes">
-    <summary>Assumptions &amp; formulas</summary>
-    <ul>
-      <li>1 tsp = 5 ml &middot; 0.5 tsp = 2.5 ml &middot; 1 oz = 30 ml &middot; 1 ml = 25 gtt (varies with the dropper)</li>
-      <li>Total needed = dose (ml) &times; doses/day &times; days; dispensed amount rounds up to a stock bottle size.</li>
-      <li>g herb per dose = dose (ml) &divide; ratio &times; share of formula. g/day = g/dose &times; doses/day.</li>
-      <li>ml to dispense = dispensed total &times; share of formula.</li>
-      <li>Standard bottles: 15 ml (½ oz), 30 ml (1 oz), 60 ml (2 oz), 120 ml (4 oz), 240 ml (8 oz), 480 ml (16 oz).
-        &#8224; The 240 ml and 480 ml bottles do not come standard with a dropper top.</li>
-      <li><strong>Which herbs this list offers:</strong> <span id="t-listnote"></span></li>
-      <li>Type either the Latin name or the common one &mdash; <em>valerian</em> finds
-        <em>Valeriana officinalis</em>. The common name appears under the field once the herb is recognised.</li>
-    </ul>
-  </details>
-</section>
-
-<!-- ============================ TEA ============================ -->
-<section id="panel-tea" class="panel" hidden role="tabpanel">
-  <div class="card">
-    <h2>Tea Formulator</h2>
-
-    <div class="meta-grid">
-      <label>Formula name<input type="text" id="te-formula" placeholder="e.g. Digestive tea"></label>
-      <label>Practitioner<input type="text" id="te-practitioner"></label>
-      <label>Patient<input type="text" id="te-patient"></label>
-      <label>Date<input type="date" id="te-date"></label>
-    </div>
-
-    <div class="input-grid">
-      <label>Amount per cup (tsp)<input type="number" id="te-tsp" min="0" step="0.25" value="1"></label>
-      <label>Cups per day<input type="number" id="te-cups" min="0" step="1" value="3"></label>
-      <label>Duration (days)<input type="number" id="te-days" min="0" step="1" value="30"></label>
-      <label>Total to dispense<output id="te-total" class="ro">—</output></label>
-    </div>
-
-    <div class="row-head">
-      <h3>Herbs in formula</h3>
-      <div class="seg" role="group" aria-label="Proportion units">
-        <button class="segbtn is-on" id="te-mode-pct">Percent</button>
-        <button class="segbtn" id="te-mode-parts">Parts</button>
-      </div>
-    </div>
-
-    <div class="tablewrap">
-      <table id="te-table">
-        <thead>
-          <tr>
-            <th>Herb</th>
-            <th class="prop-h">%</th>
-            <th>g / Tbsp<span class="q" title="Density of the cut-and-sifted dry herb. Auto-filled when the herb is in the density table.">?</span></th>
-            <th>tsp / cup</th>
-            <th>g / cup</th>
-            <th>g / day</th>
-            <th>g to dispense</th>
-            <th>oz to dispense</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-        <tfoot>
-          <tr>
-            <th>Total</th><th id="te-sum-prop">0</th><th></th>
-            <th id="te-sum-tsp"></th><th id="te-sum-gcup"></th><th id="te-sum-gday"></th>
-            <th id="te-sum-g"></th><th id="te-sum-oz"></th><th></th>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-
-    <div class="actions">
-      <button class="btn" id="te-add">+ Add herb</button>
-      <button class="btn ghost" id="te-normalize">Normalize to 100%</button>
-      <button class="btn ghost" id="te-csv">Download CSV</button>
-      <button class="btn ghost" id="te-print">Print</button>
-      <button class="btn ghost danger" id="te-clear">Clear</button>
-    </div>
-    <div class="pregrow">
-      <span class="pregrow-lab">Check against</span>
-      <label class="pregchk"><input type="checkbox" id="te-preg"> Pregnancy</label>
-      <label class="pregchk"><input type="checkbox" id="te-lact"> Lactation</label>
-    </div>
-    <div id="te-alerts" class="alerts"></div>
-  </div>
-
-  <details class="card notes">
-    <summary>Assumptions &amp; formulas</summary>
-    <ul>
-      <li>1 Tbsp = 3 tsp &middot; 1 oz = 30 g</li>
-      <li>tsp of this herb per cup = tsp per cup &times; share of formula.</li>
-      <li>g per cup = tsp of herb &times; (g per Tbsp &divide; 3). g to dispense = g per cup &times; cups/day &times; days.</li>
-      <li>Generic densities when a specific herb is not listed (g per Tbsp): <span id="te-generic"></span></li>
-      <li><strong>Why this list differs from the tincture list:</strong> <span id="te-listnote"></span></li>
-      <li>Type either the Latin name or the common one &mdash; <em>valerian</em> finds
-        <em>Valeriana officinalis</em>. The common name appears under the field once the herb is recognised.</li>
-    </ul>
-  </details>
-</section>
-
-<!-- ============================ DOSE ============================ -->
-<section id="panel-dose" class="panel" hidden role="tabpanel">
-  <div class="card narrow">
-    <h2>Dose per Herb Calculator</h2>
-    
-    <div class="input-grid">
-      <label>Amount per dose (ml)<input type="number" id="d-ml" min="0" step="0.1" value="5"></label>
-      <label>Doses per day<input type="number" id="d-freq" min="0" step="1" value="3"></label>
-      <label>Herb (optional)<input type="text" id="d-herb" placeholder="e.g. Lobelia inflata"></label>
-      <label>Share of formula (%)<input type="number" id="d-pct" min="0" max="100" step="1" value="20"></label>
-      <label>Extract ratio 1:<input type="number" id="d-ratio" min="0" step="0.5" value="5"></label>
-    </div>
-    <dl class="results" id="d-results"></dl>
-    <div id="d-alerts" class="alerts"></div>
-  </div>
-</section>
-
-<!-- ============================ LOW DOSE ============================ -->
-<section id="panel-lowdose" class="panel" hidden role="tabpanel">
-  <div class="card">
-    <h2>Maximum Doses — Low-Dose Botanicals</h2>
-    
-    <label class="search">Filter<input type="search" id="ld-search" placeholder="Search by name…"></label>
-    <div class="tablewrap">
-      <table id="ld-table">
-        <thead><tr>
-          <th>Liquid herbal extract</th><th>Dilution</th><th>Single (ml)</th><th>Single (gtt)</th>
-          <th>Chronic daily (ml)</th><th>Acute daily (ml)</th><th>Long-term use</th>
-        </tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-    <ul class="footnotes">
-      <li>Maximum acute daily dose assumes every-2-hours dosing over a 16-hour waking day; it generally should not be kept up more than a few days.</li>
-      <li>Maximum chronic daily dose is based on three times daily.</li>
-      <li>Doses vary by patient — general health status and body size among other variables.</li>
-      <li>Different dilutions give different doses, and natural extracts vary in potency batch to batch.</li>
-      <li>All doses are approximate, not absolute. Drops assume 25 gtt per ml.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ============================ CONDITIONS ============================ -->
-<section id="panel-conditions" class="panel" hidden role="tabpanel">
+<!-- ==================== CONDITIONS ==================== -->
+<section id="panel-conditions" class="panel" role="tabpanel">
   <div class="card">
     <h2>Herbs by Condition</h2>
 
@@ -295,7 +82,236 @@
   </div>
 </section>
 
-<!-- ============================ HOMEOPATHY ============================ -->
+<!-- ==================== PHYSICAL EXAMS &amp; DIAGNOSES ==================== -->
+<section id="panel-exams" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Physical Exams &amp; Diagnoses</h2>
+
+    <label class="search"><span class="vh">Search physical exams</span>
+      <input type="search" id="pe-search" placeholder="Search exams, manoeuvres, findings&hellip;">
+    </label>
+    <div class="chips" id="pe-filters"></div>
+    <div class="sortrow">
+      <p class="count" id="pe-count"></p>
+      <div class="seg" role="group" aria-label="What to show">
+        <button class="segbtn is-on" id="pe-view-steps">Exam steps</button>
+        <button class="segbtn" id="pe-view-writeup">Normal write-up</button>
+      </div>
+    </div>
+    <div id="pe-results" class="examlist"></div>
+
+    <details class="scrnbox" id="pe-screeners">
+      <summary>Screening tools &mdash; score the PHQ-9 and the GAD-7</summary>
+      <p class="hint">Structured screens sit with the rest of the examination. Each one scores as you tick it,
+        saves in your browser, and offers the blank form as a PDF to hand a patient.</p>
+      <div id="scrn-host"></div>
+    </details>
+
+    <details class="srcnote">
+      <summary>Where this comes from, and what was changed</summary>
+      <p><strong>From your PED coursework, not the workbook.</strong> The exam steps and the normal-findings wording are transcribed from your own Physical Exam &amp; Diagnosis notes &mdash; the head-to-toe objectives, the respiratory, cardiovascular and abdominal exam charts, the MSK, neuro and orthopaedic study guides, the review of systems intake form, and the female and male objective charts &mdash; and the cardiovascular exam carries the NMS3 competency checklist it is graded against, from the BU SNM Student Clinic Handbook. The <em>technique</em> lines and the <em>what an abnormal finding suggests</em> tables were written for this tool from standard physical-diagnosis teaching; they are not in your notes and are not peer reviewed. Treat them as study prompts for a differential, never as a diagnosis.</p>
+      <p><strong>Exam sequence and normal findings:</strong> transcribed from the ten PED documents listed
+        in the banner. The normal wording is kept close to the source so the write-up view reproduces what
+        you would actually chart; light edits fix spelling, expand abbreviations on first use and make the
+        tense consistent.</p>
+      <p><strong>The competency checklist</strong> on the cardiovascular exam is the NMS3 form verbatim
+        &mdash; 13 items scored 0&ndash;2 for 26 points, with the handbook's own grading bands. Scoring it
+        here is a self-check that saves in your browser; the real form still has to be signed by your
+        supervisor. Three of its items ask for something your word list does not cover, and each is marked
+        <span class="pe-gapmark">not in your word list</span> where it appears.</p>
+      <p><strong>Technique lines and abnormal-finding tables:</strong> written for this tool from standard
+        physical-diagnosis teaching. Not from your notes, not peer reviewed, and carrying none of the
+        authority of the dosing data in the other tabs.</p>
+      <p><strong>Ten places where the source wording was corrected or filled in</strong> rather than
+        transcribed as written. Each is marked in place with a <span class="pe-flagmark">source note</span>:
+        the sclera described as normal &ldquo;with yellow appearance&rdquo;; the chest &ldquo;2:1 A/P
+        ratio&rdquo;; the liver edge palpated at the &ldquo;costovertebral&rdquo; rather than the costal
+        margin; the palate and tonsillar pillars recorded as not rising; the cranial nerves numbered in the
+        order performed rather than anatomically; jugular venous <em>distension</em> given as the
+        measurement rather than jugular venous <em>pressure</em>; the five auscultation points the word list
+        uses against the six the competency grades; the pulse grade the word list leaves blank; the chest
+        &ldquo;2:1 A:P ratio&rdquo; again on the respiratory chart; and &ldquo;forced respiratory
+        expiration&rdquo; for the forced expiratory time.</p>
+      <p><strong>Two gaps are left as gaps.</strong> The cardiovascular word list ends at a
+        &ldquo;Special Manoeuvre&rdquo; heading with nothing under it, and the respiratory chart covers
+        neither diaphragmatic excursion nor the transmitted-voice tests. Rather than invent wording and
+        attribute it to your notes, those sections say so and name what is missing.</p>
+      <p><strong>Red-flag findings</strong> are marked <span class="pe-urgent">urgent</span>. That flag means
+        the finding needs same-day assessment or referral, not that it is certainly present.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ==================== LABS &amp; IMAGING ==================== -->
+<section id="panel-labs" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Labs &amp; Imaging</h2>
+
+    <label class="search"><span class="vh">Search Labs &amp; Imaging</span>
+      <input type="search" id="labs-search" placeholder="Search tests, conditions, findings&hellip;">
+    </label>
+    <div class="chips" id="labs-filters"></div>
+    <div class="sortrow">
+      <p class="count" id="labs-count"></p>
+      <div class="seg" role="group" aria-label="Arrangement">
+        <button class="segbtn is-on" id="labs-by-az">A&ndash;Z</button>
+        <button class="segbtn" id="labs-by-cond">By condition</button>
+      </div>
+    </div>
+    <div id="labs-results" class="txlist"></div>
+
+    <details class="srcnote">
+      <summary>Where this comes from</summary>
+      <p><strong>Screening instruments are scored under Physical Exams.</strong> The PHQ-9 and GAD-7 scorers, and the blank forms to hand a patient, sit with the rest of the examination; the entries here describe when to reach for them.</p>
+      <p><strong>What to run, and what the result means.</strong> Blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels &mdash; each with the reason to order it and how to read it. The same tests are attached to every abnormal finding in the Physical Exams tab and to every condition in the Conditions tab. Written for this tool from standard references and from your coursework; not peer reviewed.</p>
+      <p><strong>Written for this tool</strong> from standard pharmacology, nutritional and naturopathic
+        references, and from the coursework listed in the banner &mdash; the mental health study guide, the
+        respiratory therapeutics quizzes, the mould and mycotoxin lecture, the Mayan abdominal massage
+        assignment and the EKG assignment. Entries drawn from those documents say so in the text.</p>
+      <p><strong>Not peer reviewed, and not a prescribing guide.</strong> Drug entries carry the class, what
+        it is for, and the cautions that change a decision &mdash; deliberately <em>not</em> doses. Dosing
+        comes from a current formulary against the patient in front of you, checked for renal and hepatic
+        function, pregnancy, and the rest of their list. Supplement ranges are typical adult figures and
+        still need the same check.</p>
+      <p><strong>Check your scope.</strong> What a naturopathic physician may prescribe varies by
+        jurisdiction; this reference does not tell you what you are licensed to do.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ==================== PHARMACEUTICALS ==================== -->
+<section id="panel-pharm" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Pharmaceuticals</h2>
+
+    <label class="search"><span class="vh">Search Pharmaceuticals</span>
+      <input type="search" id="pharm-search" placeholder="Search drugs, classes, conditions&hellip;">
+    </label>
+    <div class="chips" id="pharm-filters"></div>
+    <div class="sortrow">
+      <p class="count" id="pharm-count"></p>
+      <div class="seg" role="group" aria-label="Arrangement">
+        <button class="segbtn is-on" id="pharm-by-az">A&ndash;Z</button>
+        <button class="segbtn" id="pharm-by-cond">By condition</button>
+      </div>
+    </div>
+    <div id="pharm-results" class="txlist"></div>
+
+    <details class="sfxbox" id="pharm-suffixes">
+      <summary>Medication suffixes &mdash; reading a drug class off its name</summary>
+      <p class="hint">From your medication-suffix study cards. The stem tells you the class; the class tells
+        you the caution.</p>
+      <label class="search"><span class="vh">Search suffixes</span>
+        <input type="search" id="sfx-search" placeholder="Search a stem, class or drug&hellip;">
+      </label>
+      <div id="sfx-results"></div>
+      <p class="sfxflag" id="sfx-flag"></p>
+    </details>
+
+    <details class="srcnote">
+      <summary>Where this comes from</summary>
+      <p><strong>A reference, not a prescribing guide.</strong> Each entry gives the drug class, what it is used for and the cautions and interactions that change a decision &mdash; and deliberately gives no doses. Dosing belongs to a current formulary and the patient in front of you. Written for this tool from standard references and from your respiratory therapeutics and mental health coursework; not peer reviewed. Herb&ndash;drug interactions are flagged where they matter.</p>
+      <p><strong>Written for this tool</strong> from standard pharmacology, nutritional and naturopathic
+        references, and from the coursework listed in the banner &mdash; the mental health study guide, the
+        respiratory therapeutics quizzes, the mould and mycotoxin lecture, the Mayan abdominal massage
+        assignment and the EKG assignment. Entries drawn from those documents say so in the text.</p>
+      <p><strong>Not peer reviewed, and not a prescribing guide.</strong> Drug entries carry the class, what
+        it is for, and the cautions that change a decision &mdash; deliberately <em>not</em> doses. Dosing
+        comes from a current formulary against the patient in front of you, checked for renal and hepatic
+        function, pregnancy, and the rest of their list. Supplement ranges are typical adult figures and
+        still need the same check.</p>
+      <p><strong>Check your scope.</strong> What a naturopathic physician may prescribe varies by
+        jurisdiction; this reference does not tell you what you are licensed to do.</p>
+    </details>
+  </div>
+</section>
+<!-- ==================== SUPPLEMENTS ==================== -->
+<section id="panel-supps" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Supplements</h2>
+
+    <label class="search"><span class="vh">Search Supplements</span>
+      <input type="search" id="supps-search" placeholder="Search supplements, conditions, cautions&hellip;">
+    </label>
+    <div class="chips" id="supps-filters"></div>
+    <div class="sortrow">
+      <p class="count" id="supps-count"></p>
+      <div class="seg" role="group" aria-label="Arrangement">
+        <button class="segbtn is-on" id="supps-by-az">A&ndash;Z</button>
+        <button class="segbtn" id="supps-by-cond">By condition</button>
+      </div>
+    </div>
+    <div id="supps-results" class="txlist"></div>
+    <details class="srcnote">
+      <summary>Where this comes from</summary>
+      <p><strong>Non-herbal agents only.</strong> Vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients and other nutraceuticals. The 34 <em>botanical</em> products the conditions call for live under <strong>Herb Reference</strong>, in the &ldquo;Botanical supplements&rdquo; block, so herbs stay on the herb side of the tool; each condition lists them on its own <em>Botanicals</em> row.</p>
+      <p><strong>Organised by the conditions they are indicated for.</strong> Typical adult dose ranges, the mechanism, and the cautions &mdash; including which supplements must be avoided in which patients. Doses marked as coming from your notes carry the figures your mental health study guide and mould lecture give. Written for this tool from standard nutritional and naturopathic references; not peer reviewed, and no substitute for checking each one against the patient&rsquo;s medication list.</p>
+      <p><strong>Written for this tool</strong> from standard pharmacology, nutritional and naturopathic
+        references, and from the coursework listed in the banner &mdash; the mental health study guide, the
+        respiratory therapeutics quizzes, the mould and mycotoxin lecture, the Mayan abdominal massage
+        assignment and the EKG assignment. Entries drawn from those documents say so in the text.</p>
+      <p><strong>Not peer reviewed, and not a prescribing guide.</strong> Drug entries carry the class, what
+        it is for, and the cautions that change a decision &mdash; deliberately <em>not</em> doses. Dosing
+        comes from a current formulary against the patient in front of you, checked for renal and hepatic
+        function, pregnancy, and the rest of their list. Supplement ranges are typical adult figures and
+        still need the same check.</p>
+      <p><strong>Check your scope.</strong> What a naturopathic physician may prescribe varies by
+        jurisdiction; this reference does not tell you what you are licensed to do.</p>
+    </details>
+  </div>
+</section>
+<!-- ==================== NATUROPATHIC THERAPEUTICS ==================== -->
+<section id="panel-therap" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Naturopathic Therapeutics</h2>
+    <label class="search"><span class="vh">Search Naturopathic Therapeutics</span>
+      <input type="search" id="therap-search" placeholder="Search modalities, conditions, cautions&hellip;">
+    </label>
+    <div class="chips" id="therap-filters"></div>
+    <div class="sortrow">
+      <p class="count" id="therap-count"></p>
+      <div class="seg" role="group" aria-label="Arrangement">
+        <button class="segbtn is-on" id="therap-by-az">A&ndash;Z</button>
+        <button class="segbtn" id="therap-by-cond">By condition</button>
+      </div>
+    </div>
+    <div id="therap-results" class="txlist"></div>
+    <details class="srcnote">
+      <summary>Where this comes from</summary>
+      <p><strong>Written for this tool</strong> from standard naturopathic, physical-medicine and
+        lifestyle-medicine references, and from the coursework listed under the other tabs. Not peer
+        reviewed. The cautions are the ones that change whether you apply a modality at all &mdash; check
+        them against the patient in front of you, and against your own scope of practice and training.</p>
+    </details>
+  </div>
+</section>
+<!-- ==================== LIFESTYLE ==================== -->
+<section id="panel-life" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Lifestyle</h2>
+    <label class="search"><span class="vh">Search Lifestyle</span>
+      <input type="search" id="life-search" placeholder="Search diet, sleep, movement, conditions&hellip;">
+    </label>
+    <div class="chips" id="life-filters"></div>
+    <div class="sortrow">
+      <p class="count" id="life-count"></p>
+      <div class="seg" role="group" aria-label="Arrangement">
+        <button class="segbtn is-on" id="life-by-az">A&ndash;Z</button>
+        <button class="segbtn" id="life-by-cond">By condition</button>
+      </div>
+    </div>
+    <div id="life-results" class="txlist"></div>
+    <details class="srcnote">
+      <summary>Where this comes from</summary>
+      <p><strong>Written for this tool</strong> from standard naturopathic, physical-medicine and
+        lifestyle-medicine references, and from the coursework listed under the other tabs. Not peer
+        reviewed. The cautions are the ones that change whether you apply a modality at all &mdash; check
+        them against the patient in front of you, and against your own scope of practice and training.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ==================== HOMEOPATHY ==================== -->
 <section id="panel-homeo" class="panel" hidden role="tabpanel">
   <div class="card">
     <h2>Homeopathic Remedy Differentiator</h2>
@@ -397,181 +413,7 @@
   </div>
 </section>
 
-<!-- ==================== PHYSICAL EXAMS & DIAGNOSES ==================== -->
-<section id="panel-exams" class="panel" hidden role="tabpanel">
-  <div class="card">
-    <h2>Physical Exams &amp; Diagnoses</h2>
-
-    <label class="search"><span class="vh">Search physical exams</span>
-      <input type="search" id="pe-search" placeholder="Search exams, manoeuvres, findings&hellip;">
-    </label>
-    <div class="chips" id="pe-filters"></div>
-    <div class="sortrow">
-      <p class="count" id="pe-count"></p>
-      <div class="seg" role="group" aria-label="What to show">
-        <button class="segbtn is-on" id="pe-view-steps">Exam steps</button>
-        <button class="segbtn" id="pe-view-writeup">Normal write-up</button>
-      </div>
-    </div>
-    <div id="pe-results" class="examlist"></div>
-
-    <details class="srcnote">
-      <summary>Where this comes from, and what was changed</summary>
-      <p><strong>From your PED coursework, not the workbook.</strong> The exam steps and the normal-findings wording are transcribed from your own Physical Exam &amp; Diagnosis notes &mdash; the head-to-toe objectives, the respiratory, cardiovascular and abdominal exam charts, the MSK, neuro and orthopaedic study guides, the review of systems intake form, and the female and male objective charts &mdash; and the cardiovascular exam carries the NMS3 competency checklist it is graded against, from the BU SNM Student Clinic Handbook. The <em>technique</em> lines and the <em>what an abnormal finding suggests</em> tables were written for this tool from standard physical-diagnosis teaching; they are not in your notes and are not peer reviewed. Treat them as study prompts for a differential, never as a diagnosis.</p>
-      <p><strong>Exam sequence and normal findings:</strong> transcribed from the ten PED documents listed
-        in the banner. The normal wording is kept close to the source so the write-up view reproduces what
-        you would actually chart; light edits fix spelling, expand abbreviations on first use and make the
-        tense consistent.</p>
-      <p><strong>The competency checklist</strong> on the cardiovascular exam is the NMS3 form verbatim
-        &mdash; 13 items scored 0&ndash;2 for 26 points, with the handbook's own grading bands. Scoring it
-        here is a self-check that saves in your browser; the real form still has to be signed by your
-        supervisor. Three of its items ask for something your word list does not cover, and each is marked
-        <span class="pe-gapmark">not in your word list</span> where it appears.</p>
-      <p><strong>Technique lines and abnormal-finding tables:</strong> written for this tool from standard
-        physical-diagnosis teaching. Not from your notes, not peer reviewed, and carrying none of the
-        authority of the dosing data in the other tabs.</p>
-      <p><strong>Ten places where the source wording was corrected or filled in</strong> rather than
-        transcribed as written. Each is marked in place with a <span class="pe-flagmark">source note</span>:
-        the sclera described as normal &ldquo;with yellow appearance&rdquo;; the chest &ldquo;2:1 A/P
-        ratio&rdquo;; the liver edge palpated at the &ldquo;costovertebral&rdquo; rather than the costal
-        margin; the palate and tonsillar pillars recorded as not rising; the cranial nerves numbered in the
-        order performed rather than anatomically; jugular venous <em>distension</em> given as the
-        measurement rather than jugular venous <em>pressure</em>; the five auscultation points the word list
-        uses against the six the competency grades; the pulse grade the word list leaves blank; the chest
-        &ldquo;2:1 A:P ratio&rdquo; again on the respiratory chart; and &ldquo;forced respiratory
-        expiration&rdquo; for the forced expiratory time.</p>
-      <p><strong>Two gaps are left as gaps.</strong> The cardiovascular word list ends at a
-        &ldquo;Special Manoeuvre&rdquo; heading with nothing under it, and the respiratory chart covers
-        neither diaphragmatic excursion nor the transmitted-voice tests. Rather than invent wording and
-        attribute it to your notes, those sections say so and name what is missing.</p>
-      <p><strong>Red-flag findings</strong> are marked <span class="pe-urgent">urgent</span>. That flag means
-        the finding needs same-day assessment or referral, not that it is certainly present.</p>
-    </details>
-  </div>
-</section>
-
-<!-- ==================== PHARMACEUTICALS ==================== -->
-<section id="panel-pharm" class="panel" hidden role="tabpanel">
-  <div class="card">
-    <h2>Pharmaceuticals</h2>
-
-    <label class="search"><span class="vh">Search Pharmaceuticals</span>
-      <input type="search" id="pharm-search" placeholder="Search drugs, classes, conditions&hellip;">
-    </label>
-    <div class="chips" id="pharm-filters"></div>
-    <div class="sortrow">
-      <p class="count" id="pharm-count"></p>
-      <div class="seg" role="group" aria-label="Arrangement">
-        <button class="segbtn is-on" id="pharm-by-az">A&ndash;Z</button>
-        <button class="segbtn" id="pharm-by-cond">By condition</button>
-      </div>
-    </div>
-    <div id="pharm-results" class="txlist"></div>
-
-    <details class="sfxbox" id="pharm-suffixes">
-      <summary>Medication suffixes &mdash; reading a drug class off its name</summary>
-      <p class="hint">From your medication-suffix study cards. The stem tells you the class; the class tells
-        you the caution.</p>
-      <label class="search"><span class="vh">Search suffixes</span>
-        <input type="search" id="sfx-search" placeholder="Search a stem, class or drug&hellip;">
-      </label>
-      <div id="sfx-results"></div>
-      <p class="sfxflag" id="sfx-flag"></p>
-    </details>
-
-    <details class="srcnote">
-      <summary>Where this comes from</summary>
-      <p><strong>A reference, not a prescribing guide.</strong> Each entry gives the drug class, what it is used for and the cautions and interactions that change a decision &mdash; and deliberately gives no doses. Dosing belongs to a current formulary and the patient in front of you. Written for this tool from standard references and from your respiratory therapeutics and mental health coursework; not peer reviewed. Herb&ndash;drug interactions are flagged where they matter.</p>
-      <p><strong>Written for this tool</strong> from standard pharmacology, nutritional and naturopathic
-        references, and from the coursework listed in the banner &mdash; the mental health study guide, the
-        respiratory therapeutics quizzes, the mould and mycotoxin lecture, the Mayan abdominal massage
-        assignment and the EKG assignment. Entries drawn from those documents say so in the text.</p>
-      <p><strong>Not peer reviewed, and not a prescribing guide.</strong> Drug entries carry the class, what
-        it is for, and the cautions that change a decision &mdash; deliberately <em>not</em> doses. Dosing
-        comes from a current formulary against the patient in front of you, checked for renal and hepatic
-        function, pregnancy, and the rest of their list. Supplement ranges are typical adult figures and
-        still need the same check.</p>
-      <p><strong>Check your scope.</strong> What a naturopathic physician may prescribe varies by
-        jurisdiction; this reference does not tell you what you are licensed to do.</p>
-    </details>
-  </div>
-</section>
-<!-- ==================== SUPPLEMENTS ==================== -->
-<section id="panel-supps" class="panel" hidden role="tabpanel">
-  <div class="card">
-    <h2>Supplements</h2>
-
-    <label class="search"><span class="vh">Search Supplements</span>
-      <input type="search" id="supps-search" placeholder="Search supplements, conditions, cautions&hellip;">
-    </label>
-    <div class="chips" id="supps-filters"></div>
-    <div class="sortrow">
-      <p class="count" id="supps-count"></p>
-      <div class="seg" role="group" aria-label="Arrangement">
-        <button class="segbtn is-on" id="supps-by-az">A&ndash;Z</button>
-        <button class="segbtn" id="supps-by-cond">By condition</button>
-      </div>
-    </div>
-    <div id="supps-results" class="txlist"></div>
-    <details class="srcnote">
-      <summary>Where this comes from</summary>
-      <p><strong>Organised by the conditions they are indicated for.</strong> Typical adult dose ranges, the mechanism, and the cautions &mdash; including which supplements must be avoided in which patients. Doses marked as coming from your notes carry the figures your mental health study guide and mould lecture give. Written for this tool from standard nutritional and naturopathic references; not peer reviewed, and no substitute for checking each one against the patient&rsquo;s medication list.</p>
-      <p><strong>Written for this tool</strong> from standard pharmacology, nutritional and naturopathic
-        references, and from the coursework listed in the banner &mdash; the mental health study guide, the
-        respiratory therapeutics quizzes, the mould and mycotoxin lecture, the Mayan abdominal massage
-        assignment and the EKG assignment. Entries drawn from those documents say so in the text.</p>
-      <p><strong>Not peer reviewed, and not a prescribing guide.</strong> Drug entries carry the class, what
-        it is for, and the cautions that change a decision &mdash; deliberately <em>not</em> doses. Dosing
-        comes from a current formulary against the patient in front of you, checked for renal and hepatic
-        function, pregnancy, and the rest of their list. Supplement ranges are typical adult figures and
-        still need the same check.</p>
-      <p><strong>Check your scope.</strong> What a naturopathic physician may prescribe varies by
-        jurisdiction; this reference does not tell you what you are licensed to do.</p>
-    </details>
-  </div>
-</section>
-<!-- ==================== LABS &AMP; IMAGING ==================== -->
-<section id="panel-labs" class="panel" hidden role="tabpanel">
-  <div class="card">
-    <h2>Labs &amp; Imaging</h2>
-
-    <label class="search"><span class="vh">Search Labs &amp; Imaging</span>
-      <input type="search" id="labs-search" placeholder="Search tests, conditions, findings&hellip;">
-    </label>
-    <div class="chips" id="labs-filters"></div>
-    <div class="sortrow">
-      <p class="count" id="labs-count"></p>
-      <div class="seg" role="group" aria-label="Arrangement">
-        <button class="segbtn is-on" id="labs-by-az">A&ndash;Z</button>
-        <button class="segbtn" id="labs-by-cond">By condition</button>
-      </div>
-    </div>
-    <div id="labs-results" class="txlist"></div>
-
-    <details class="scrnbox" id="labs-screeners">
-      <summary>Score a screener &mdash; PHQ-9 and GAD-7</summary>
-      <div id="scrn-host"></div>
-    </details>
-
-    <details class="srcnote">
-      <summary>Where this comes from</summary>
-      <p><strong>What to run, and what the result means.</strong> Blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels &mdash; each with the reason to order it and how to read it. The same tests are attached to every abnormal finding in the Physical Exams tab and to every condition in the Conditions tab. Written for this tool from standard references and from your coursework; not peer reviewed.</p>
-      <p><strong>Written for this tool</strong> from standard pharmacology, nutritional and naturopathic
-        references, and from the coursework listed in the banner &mdash; the mental health study guide, the
-        respiratory therapeutics quizzes, the mould and mycotoxin lecture, the Mayan abdominal massage
-        assignment and the EKG assignment. Entries drawn from those documents say so in the text.</p>
-      <p><strong>Not peer reviewed, and not a prescribing guide.</strong> Drug entries carry the class, what
-        it is for, and the cautions that change a decision &mdash; deliberately <em>not</em> doses. Dosing
-        comes from a current formulary against the patient in front of you, checked for renal and hepatic
-        function, pregnancy, and the rest of their list. Supplement ranges are typical adult figures and
-        still need the same check.</p>
-      <p><strong>Check your scope.</strong> What a naturopathic physician may prescribe varies by
-        jurisdiction; this reference does not tell you what you are licensed to do.</p>
-    </details>
-  </div>
-</section>
-
-<!-- ============================ HERB REFERENCE ============================ -->
+<!-- ==================== HERB REFERENCE ==================== -->
 <section id="panel-herbs" class="panel" hidden role="tabpanel">
   <div class="card">
     <h2>Herb Reference</h2>
@@ -589,6 +431,15 @@
     <p class="count" id="hr-count"></p>
     <div id="hr-results" class="cards"></div>
 
+    <details class="scrnbox" id="bot-box">
+      <summary>Botanical supplements &mdash; the herbs indicated for the conditions</summary>
+      <p class="hint">The herbal products carried by the Conditions tab: dose, mechanism and cautions. They
+        live here rather than under Supplements, which holds non-herbal agents only. Filtered by the search
+        box above.</p>
+      <p class="count" id="bot-count"></p>
+      <div id="bot-results" class="txlist"></div>
+    </details>
+
     <details class="srcnote" id="womens-notes">
       <summary>Women&rsquo;s herbs &mdash; formulating notes</summary>
       <p class="hint">Biphasic formulas, liver herbs, phytoestrogens, prolactin, the viburnums and the
@@ -602,6 +453,221 @@
     </details>
   </div>
 </section>
+<!-- ==================== TEA FORMULATOR ==================== -->
+<section id="panel-tea" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Tea Formulator</h2>
+
+    <div class="meta-grid">
+      <label>Formula name<input type="text" id="te-formula" placeholder="e.g. Digestive tea"></label>
+      <label>Practitioner<input type="text" id="te-practitioner"></label>
+      <label>Patient<input type="text" id="te-patient"></label>
+      <label>Date<input type="date" id="te-date"></label>
+    </div>
+
+    <div class="input-grid">
+      <label>Amount per cup (tsp)<input type="number" id="te-tsp" min="0" step="0.25" value="1"></label>
+      <label>Cups per day<input type="number" id="te-cups" min="0" step="1" value="3"></label>
+      <label>Duration (days)<input type="number" id="te-days" min="0" step="1" value="30"></label>
+      <label>Total to dispense<output id="te-total" class="ro">—</output></label>
+    </div>
+
+    <div class="row-head">
+      <h3>Herbs in formula</h3>
+      <div class="seg" role="group" aria-label="Proportion units">
+        <button class="segbtn is-on" id="te-mode-pct">Percent</button>
+        <button class="segbtn" id="te-mode-parts">Parts</button>
+      </div>
+    </div>
+
+    <div class="tablewrap">
+      <table id="te-table">
+        <thead>
+          <tr>
+            <th>Herb</th>
+            <th class="prop-h">%</th>
+            <th>g / Tbsp<span class="q" title="Density of the cut-and-sifted dry herb. Auto-filled when the herb is in the density table.">?</span></th>
+            <th>tsp / cup</th>
+            <th>g / cup</th>
+            <th>g / day</th>
+            <th>g to dispense</th>
+            <th>oz to dispense</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <th>Total</th><th id="te-sum-prop">0</th><th></th>
+            <th id="te-sum-tsp"></th><th id="te-sum-gcup"></th><th id="te-sum-gday"></th>
+            <th id="te-sum-g"></th><th id="te-sum-oz"></th><th></th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="actions">
+      <button class="btn" id="te-add">+ Add herb</button>
+      <button class="btn ghost" id="te-normalize">Normalize to 100%</button>
+      <button class="btn ghost" id="te-csv">Download CSV</button>
+      <button class="btn ghost" id="te-print">Print</button>
+      <button class="btn ghost danger" id="te-clear">Clear</button>
+    </div>
+    <div class="pregrow">
+      <span class="pregrow-lab">Check against</span>
+      <label class="pregchk"><input type="checkbox" id="te-preg"> Pregnancy</label>
+      <label class="pregchk"><input type="checkbox" id="te-lact"> Lactation</label>
+    </div>
+    <div id="te-alerts" class="alerts"></div>
+  </div>
+
+  <details class="card notes">
+    <summary>Assumptions &amp; formulas</summary>
+    <ul>
+      <li>1 Tbsp = 3 tsp &middot; 1 oz = 30 g</li>
+      <li>tsp of this herb per cup = tsp per cup &times; share of formula.</li>
+      <li>g per cup = tsp of herb &times; (g per Tbsp &divide; 3). g to dispense = g per cup &times; cups/day &times; days.</li>
+      <li>Generic densities when a specific herb is not listed (g per Tbsp): <span id="te-generic"></span></li>
+      <li><strong>Why this list differs from the tincture list:</strong> <span id="te-listnote"></span></li>
+      <li>Type either the Latin name or the common one &mdash; <em>valerian</em> finds
+        <em>Valeriana officinalis</em>. The common name appears under the field once the herb is recognised.</li>
+    </ul>
+  </details>
+</section>
+
+<!-- ==================== TINCTURE FORMULATOR ==================== -->
+<section id="panel-tincture" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Liquid Extract (Tincture) Formulator</h2>
+
+    <div class="meta-grid">
+      <label>Formula name<input type="text" id="t-formula" placeholder="e.g. Sleep support"></label>
+      <label>Practitioner<input type="text" id="t-practitioner"></label>
+      <label>Patient<input type="text" id="t-patient"></label>
+      <label>Date<input type="date" id="t-date"></label>
+    </div>
+
+    <div class="input-grid">
+      <label>Amount per dose (ml)<input type="number" id="t-ml" min="0" step="0.1" value="5"></label>
+      <label>Doses per day<input type="number" id="t-freq" min="0" step="1" value="3"></label>
+      <label>Duration (days)<input type="number" id="t-days" min="0" step="1" value="30"></label>
+      <label>Total needed (ml)<output id="t-total" class="ro">—</output></label>
+      <label>Dispense (ml)
+        <select id="t-dispense" title="&#8224; 240 ml and 480 ml bottles do not come with a dropper top."></select>
+      </label>
+      <label>Custom dispense (ml)<input type="number" id="t-custom" min="0" step="1" placeholder="optional"></label>
+    </div>
+
+    <div class="row-head">
+      <h3>Herbs in formula</h3>
+      <div class="seg" role="group" aria-label="Proportion units">
+        <button class="segbtn is-on" id="t-mode-pct">Percent</button>
+        <button class="segbtn" id="t-mode-parts">Parts</button>
+      </div>
+    </div>
+
+    <div class="tablewrap">
+      <table id="t-table">
+        <thead>
+          <tr>
+            <th>Herb</th>
+            <th class="prop-h">%</th>
+            <th>Ratio 1:<span class="q" title="Weight-to-volume ratio of the extract. Enter 5 for a 1:5 tincture.">?</span></th>
+            <th>ml / dose</th>
+            <th>gtt / dose</th>
+            <th>g herb / dose</th>
+            <th>g herb / day</th>
+            <th>ml to dispense</th>
+            <th>Pour to (ml)<span class="q" title="Running total: pour each extract up to this mark in a graduated cylinder.">?</span></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <th>Total</th>
+            <th id="t-sum-prop">0</th>
+            <th></th><th id="t-sum-ml"></th><th id="t-sum-gtt"></th>
+            <th id="t-sum-gdose"></th><th id="t-sum-gday"></th><th id="t-sum-disp"></th><th></th><th></th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="actions">
+      <button class="btn" id="t-add">+ Add herb</button>
+      <button class="btn ghost" id="t-normalize">Normalize to 100%</button>
+      <button class="btn ghost" id="t-csv">Download CSV</button>
+      <button class="btn ghost" id="t-print">Print</button>
+      <button class="btn ghost danger" id="t-clear">Clear</button>
+    </div>
+
+    <div class="pregrow">
+      <span class="pregrow-lab">Check against</span>
+      <label class="pregchk"><input type="checkbox" id="t-preg"> Pregnancy</label>
+      <label class="pregchk"><input type="checkbox" id="t-lact"> Lactation</label>
+    </div>
+    <div id="t-alerts" class="alerts"></div>
+  </div>
+
+  <details class="card notes">
+    <summary>Assumptions &amp; formulas</summary>
+    <ul>
+      <li>1 tsp = 5 ml &middot; 0.5 tsp = 2.5 ml &middot; 1 oz = 30 ml &middot; 1 ml = 25 gtt (varies with the dropper)</li>
+      <li>Total needed = dose (ml) &times; doses/day &times; days; dispensed amount rounds up to a stock bottle size.</li>
+      <li>g herb per dose = dose (ml) &divide; ratio &times; share of formula. g/day = g/dose &times; doses/day.</li>
+      <li>ml to dispense = dispensed total &times; share of formula.</li>
+      <li>Standard bottles: 15 ml (½ oz), 30 ml (1 oz), 60 ml (2 oz), 120 ml (4 oz), 240 ml (8 oz), 480 ml (16 oz).
+        &#8224; The 240 ml and 480 ml bottles do not come standard with a dropper top.</li>
+      <li><strong>Which herbs this list offers:</strong> <span id="t-listnote"></span></li>
+      <li>Type either the Latin name or the common one &mdash; <em>valerian</em> finds
+        <em>Valeriana officinalis</em>. The common name appears under the field once the herb is recognised.</li>
+    </ul>
+  </details>
+</section>
+
+<!-- ==================== DOSE PER HERB ==================== -->
+<section id="panel-dose" class="panel" hidden role="tabpanel">
+  <div class="card narrow">
+    <h2>Dose per Herb Calculator</h2>
+    
+    <div class="input-grid">
+      <label>Amount per dose (ml)<input type="number" id="d-ml" min="0" step="0.1" value="5"></label>
+      <label>Doses per day<input type="number" id="d-freq" min="0" step="1" value="3"></label>
+      <label>Herb (optional)<input type="text" id="d-herb" placeholder="e.g. Lobelia inflata"></label>
+      <label>Share of formula (%)<input type="number" id="d-pct" min="0" max="100" step="1" value="20"></label>
+      <label>Extract ratio 1:<input type="number" id="d-ratio" min="0" step="0.5" value="5"></label>
+    </div>
+    <dl class="results" id="d-results"></dl>
+    <div id="d-alerts" class="alerts"></div>
+  </div>
+</section>
+
+<!-- ==================== LOW-DOSE REFERENCE ==================== -->
+<section id="panel-lowdose" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Maximum Doses — Low-Dose Botanicals</h2>
+    
+    <label class="search">Filter<input type="search" id="ld-search" placeholder="Search by name…"></label>
+    <div class="tablewrap">
+      <table id="ld-table">
+        <thead><tr>
+          <th>Liquid herbal extract</th><th>Dilution</th><th>Single (ml)</th><th>Single (gtt)</th>
+          <th>Chronic daily (ml)</th><th>Acute daily (ml)</th><th>Long-term use</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <ul class="footnotes">
+      <li>Maximum acute daily dose assumes every-2-hours dosing over a 16-hour waking day; it generally should not be kept up more than a few days.</li>
+      <li>Maximum chronic daily dose is based on three times daily.</li>
+      <li>Doses vary by patient — general health status and body size among other variables.</li>
+      <li>Different dilutions give different doses, and natural extracts vary in potency batch to batch.</li>
+      <li>All doses are approximate, not absolute. Drops assume 25 gtt per ml.</li>
+    </ul>
+  </div>
+</section>
+
 
 </main>
 

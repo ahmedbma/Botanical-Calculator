@@ -82,7 +82,8 @@
     "Screen with the MDQ before starting an antidepressant — an unrecognised bipolar patient can be flipped into mania.",
     "A physical exam with baseline labs — CBC, TSH, electrolytes and urine toxicology — comes before attributing symptoms to a primary psychiatric cause."
    ],
-   "attribution": "Developed by Drs Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission required to reproduce, translate, display or distribute."
+   "attribution": "Developed by Drs Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission required to reproduce, translate, display or distribute.",
+   "official": "This is a faithful reproduction of the instrument, typeset for this notebook — the items, the response scale and the scoring are the published ones, but the layout is not any one publisher's. To use an official copy instead, download it from the APA's assessment-tools library, the PHQ screeners site, or your own institution's forms library, and save it over assets/phq9.pdf — the download link points at that filename, so nothing else has to change."
   },
   {
    "id": "gad7",
@@ -156,7 +157,8 @@
     "Panic arriving reliably before meals points at blood glucose rather than at a primary anxiety disorder.",
     "Anxiety with tremor, heat intolerance, weight loss and tachycardia is hyperthyroidism until the TSH says otherwise."
    ],
-   "attribution": "Developed by Drs Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission required to reproduce, translate, display or distribute."
+   "attribution": "Developed by Drs Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission required to reproduce, translate, display or distribute.",
+   "official": "This is a faithful reproduction of the instrument, typeset for this notebook — the items, the response scale and the scoring are the published ones, but the layout is not any one publisher's. To use an official copy instead, download it from the APA's assessment-tools library, the PHQ screeners site, or your own institution's forms library, and save it over assets/gad7.pdf — the download link points at that filename, so nothing else has to change."
   }
  ]
 }

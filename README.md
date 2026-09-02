@@ -13,17 +13,19 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 
 | Tool | Purpose |
 |---|---|
-| **Tincture Formulator** | Build a liquid-extract formula from herb shares. Gives ml and gtt per dose, dry-herb equivalent per dose and per day, ml of each extract to dispense, and a running "pour to" column for filling a graduated cylinder. Rounds the course up to a stock bottle size. |
+| **Conditions** | 75 conditions A–Z plus 77 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 40 of them, and the sections of your own notes that describe it. |
+| **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The **PHQ-9** and **GAD-7** are scored here too, with the blank forms downloadable as PDFs. |
+| **Labs & Imaging** | 99 tests across blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels — why you would order each and how to read it. The same tests hang off every abnormal exam finding and every condition. |
+| **Pharmaceuticals** | 106 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
+| **Supplements** | 63 non-herbal supplements — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients — with typical dose ranges, mechanisms and the cautions that matter, including which must be avoided in which patients. Organised A–Z or by condition. The 34 **botanical** products the conditions call for sit under Herb Reference instead. |
+| **Naturopathic Therapeutics** | 41 modalities a practitioner applies — physical medicine (constitutional hydrotherapy, spinal manipulation, acupuncture, massage, therapeutic ultrasound, gua sha, cupping, manual lymphatic drainage, sauna, infrared and low-level laser, TENS, moxibustion, kinesiology taping, traction, castor oil packs), topicals, devices, procedures, rehabilitation and psychotherapy — each with what it is, what it is for, and its contraindications. Filter by kind or switch to *By condition*. |
+| **Lifestyle** | 15 changes a patient makes — diet patterns, sleep hygiene, structured exercise, breathing retraining, stress reduction, caffeine and alcohol reduction, environmental remediation and the rest — kept separate from the things a patient takes and the things a practitioner does. |
+| **Homeopathy** | A remedy differentiator over 148 classical remedies and 42 presenting complaints. Pick the complaint; it asks the questions that best separate the remedies still in contention, and ranks them with the reasoning shown. Includes a searchable remedy reference. |
+| **Herb Reference** | 396 herbs — Latin and common names, plant part, actions, available dose forms, dispensary availability, tea density and substitutes, plus **pregnancy and lactation safety** for the 205 that carry a rating and a **women's herbs monograph** for 15 of them. Filter to what to avoid in pregnancy or lactation, or to what has evidence of safety. Also carries the **botanical supplements** block: the 34 herbal products the conditions call for, with dose, mechanism and cautions. |
 | **Tea Formulator** | Build a dry-herb tea. Gives tsp and grams per cup, grams per day, and grams/oz to dispense, using measured dry-herb densities. |
+| **Tincture Formulator** | Build a liquid-extract formula from herb shares. Gives ml and gtt per dose, dry-herb equivalent per dose and per day, ml of each extract to dispense, and a running "pour to" column for filling a graduated cylinder. Rounds the course up to a stock bottle size. |
 | **Dose per Herb** | Work out how much of a single herb a patient actually receives from a combination formula, in ml, gtt and mg of dry-herb equivalent. |
 | **Low-Dose Reference** | Maximum single, chronic-daily and acute-daily doses for 31 low-dose (potentially toxic) botanicals. |
-| **Conditions** | 75 conditions A–Z plus 77 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, therapies and labs indicated for it, a dosed treatment protocol for 40 of them, and the sections of your own notes that describe it. |
-| **Homeopathy** | A remedy differentiator over 148 classical remedies and 42 presenting complaints. Pick the complaint; it asks the questions that best separate the remedies still in contention, and ranks them with the reasoning shown. Includes a searchable remedy reference. |
-| **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. |
-| **Pharmaceuticals** | 106 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
-| **Supplements** | 97 supplements and 43 non-drug therapies — typical dose ranges, mechanisms, and the cautions that matter, including which supplements must be avoided in which patients. Organised A–Z or by condition. |
-| **Labs & Imaging** | 99 tests across blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels — why you would order each and how to read it. The same tests hang off every abnormal exam finding and every condition. The **PHQ-9** and **GAD-7** can be scored in the tab, and the blank forms downloaded as PDFs. |
-| **Herb Reference** | 396 herbs — Latin and common names, plant part, actions, available dose forms, dispensary availability, tea density and substitutes, plus **pregnancy and lactation safety** for the 205 that carry a rating and a **women's herbs monograph** for 15 of them. Filter to what to avoid in pregnancy or lactation, or to what has evidence of safety. |
 
 ### Beyond the spreadsheet
 
@@ -69,7 +71,7 @@ be kept up for more than a few days.
 ## Project layout
 
 ```
-index.html               markup for all eleven tools
+index.html               markup for all thirteen tools
 css/styles.css           styling, light/dark, print rules
 js/herbdata.js           herbal reference data as a global (works from file://)
 js/homeopathydata.js     homeopathic remedy data as a global
@@ -77,7 +79,7 @@ js/physicalexamdata.js   physical exam data as a global
 js/therapeuticsdata.js   pharmaceuticals, supplements, therapies and labs as a global
 js/pregnancydata.js      pregnancy and lactation herb safety as a global
 js/screenerdata.js       the PHQ-9 and GAD-7 instruments as a global
-js/app.js                all calculators, the differentiator, the exam index and the therapeutics tabs
+js/app.js                all calculators, the differentiator, the exam index, the screeners and the therapeutics tabs
 data/herbdata.json       the same herbal data as plain JSON, for reuse
 data/homeopathy.json     the same homeopathic data as plain JSON, for reuse
 data/physicalexams.json  the same physical exam data as plain JSON, for reuse
@@ -201,7 +203,7 @@ monograph block on their card; the nine teaching pages that follow them sit unde
 
 ### The PHQ-9 and the GAD-7
 
-**Both instruments are scoreable in the Labs & Imaging tab**, and each has a blank one-page PDF to hand a
+**Both instruments are scoreable in the Physical Exams tab**, with the rest of the examination, and each has a blank one-page PDF to hand a
 patient — `assets/phq9.pdf` and `assets/gad7.pdf`, generated from the same JSON the tab reads, so the wording
 on the form and the wording on screen cannot drift apart. The form carries the item list, the response scale,
 an office-coding strip, the functional-impairment question, the interpretation table and the attribution.
@@ -214,6 +216,12 @@ held in browser storage and are never sent anywhere.
 Both are public-domain instruments developed by Drs Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and
 colleagues with an educational grant from Pfizer Inc; no permission is required to reproduce, translate,
 display or distribute them, and the attribution appears on the form and under the scorer.
+
+**The bundled forms are faithful reproductions, not scans of the publisher's PDF.** Item wording, the response
+scale, the scoring and the attribution are the instrument as published; the typesetting is this project's.
+Both are public domain, so reproducing them is permitted — but if you would rather hand out the publisher's
+own file, download it and save it over `assets/phq9.pdf` or `assets/gad7.pdf`. The download link points at
+that filename, so nothing else has to change.
 
 ### Pregnancy and lactation safety
 
@@ -264,8 +272,8 @@ it is filed under inflammatory bowel disease, with irritable bowel syndrome keep
 ### The therapeutics layer
 
 **Written for this tool, and the largest block of non-sourced content in the project.** 106 pharmaceuticals,
-97 supplements, 43 non-drug therapies and 99 labs and imaging studies, cross-linked to every condition in the
-index — 1667 links in all. It comes from standard pharmacology, nutritional and naturopathic references
+97 supplements (63 non-herbal, 34 botanical), 56 non-drug therapies (41 practitioner-applied, 15 lifestyle)
+and 99 labs and imaging studies, cross-linked to every condition in the index — 2453 links in all. It comes from standard pharmacology, nutritional and naturopathic references
 together with five pieces of coursework: the mental health study guide, the respiratory therapeutics quizzes,
 Dr Sabrina Koperski's environmental medicine lecture on mould and mycotoxins, the Mayan abdominal massage
 assignment and the EKG assignment. Entries drawn from those documents say so in their own text. None of it is
@@ -277,10 +285,26 @@ naturopathic physician may prescribe varies by jurisdiction, which this referenc
 ranges are typical adult figures; the ones marked as coming from your notes carry the study guide's or the
 lecture's own numbers.
 
-**Where it appears.** Three tabs of their own, plus a block inside every condition in the **Conditions** tab
-listing the pharmaceuticals, supplements, therapies and labs indicated for it, plus a *what to run* line on
-every one of the 167 abnormal findings in the **Physical Exams** tab. Searching the Conditions tab reaches the
-therapeutics too, so `spirometry` or `metformin` finds the conditions that call for it.
+**Where it appears.** Five tabs of their own — Pharmaceuticals, Supplements, Naturopathic Therapeutics,
+Lifestyle and Labs & Imaging — plus a block inside every condition in the **Conditions** tab listing the
+pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for
+it, plus a *what to run* line on every one of the 167 abnormal findings in the **Physical Exams** tab.
+Searching the Conditions tab reaches the therapeutics too, so `spirometry` or `metformin` finds the conditions
+that call for it.
+
+**One agent, one home.** The catalogue is split by *what the thing is*, so nothing appears in two tabs:
+
+| Tab | What lives there | Count |
+|---|---|---|
+| **Supplements** | what a patient takes, non-herbal — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients such as lycopene and beta-sitosterol, fruit concentrates such as tart cherry and cranberry PACs | 63 |
+| **Herb Reference** → botanical supplements | what a patient takes, herbal — whole-plant preparations and standardised botanical extracts, including curcumin, berberine, DGL, aloe and the medicinal mushrooms | 34 |
+| **Naturopathic Therapeutics** | what a practitioner applies — physical medicine, topicals, devices, procedures, rehabilitation, psychotherapy | 41 |
+| **Lifestyle** | what a patient changes — diet, sleep, movement, breathing, environment | 15 |
+
+The line between the first two is *preparation*, not origin: a standardised plant extract is a botanical, an
+isolated nutrient or a food concentrate is a supplement. Each condition prints a **Botanicals** row alongside
+its Supplements row, and clicking a botanical opens the Herb Reference with that herb found — so the herbs
+stay on the herb side of the tool without disappearing from the conditions that call for them.
 
 **Cautions are first-class.** Supplements that trigger mania in bipolar disorder (SAMe, St John's wort,
 rhodiola, ginseng), the CYP3A4 induction that makes St John's wort unsafe with SSRIs, contraceptives and

@@ -111,7 +111,7 @@
  "therapyKinds": [
   "Detoxification",
   "Device",
-  "Environmental",
+  "Environment",
   "Lifestyle",
   "Manual therapy",
   "Mind-body",
@@ -122,6 +122,8 @@
   "Psychosocial",
   "Psychotherapy",
   "Rehabilitation",
+  "Sleep",
+  "Substance use",
   "Topical"
  ],
  "pharmaceuticals": [
@@ -1733,6 +1735,7 @@
    "mech": "Anti-inflammatory and neuroprotective; lowers triglycerides. Your mental health notes give 1–3 g for depression, bipolar and PTSD.",
    "caution": "Additive with anticoagulants and antiplatelets at higher doses. Choose a tested product for oxidation and heavy metals.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Abdominal aortic aneurysm",
     "Acne",
@@ -1808,6 +1811,7 @@
    "mech": "Calming; cofactor in over 300 reactions. Your notes name the glycinate form specifically for absorption and neurological support.",
    "caution": "Citrate and oxide forms are more laxative. Reduce in renal impairment.",
    "also": "magnesium bisglycinate",
+   "herbal": false,
    "conditions": [
     "Adjustment disorder",
     "Anxiety",
@@ -1864,6 +1868,7 @@
    "mech": "Immune modulation, bone health, mood. Deficiency is itself associated with sleep apnoea severity.",
    "caution": "Test rather than guess; take with fat and with vitamin K2 when dosing high.",
    "also": "cholecalciferol",
+   "herbal": false,
    "conditions": [
     "Allergic rhinitis",
     "Alopecia",
@@ -1946,6 +1951,7 @@
    "mech": "Cofactors for neurotransmitter synthesis and methylation. B6 as P5P is the cofactor for GABA synthesis.",
    "caution": "High-dose B6 over long periods causes peripheral neuropathy. Check B12 before folate to avoid masking deficiency.",
    "also": "P5P, methylfolate, methylcobalamin",
+   "herbal": false,
    "conditions": [
     "Alopecia",
     "Anxiety",
@@ -1971,6 +1977,7 @@
    "mech": "Low-dose lithium for mood and anxiety; crosses the blood-brain barrier more readily than the carbonate form.",
    "caution": "Not a substitute for prescription lithium in bipolar I. Your notes give the 5–20 mg range.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Bipolar disorder"
    ]
@@ -1982,6 +1989,7 @@
    "mech": "5-HT1A agonism, FAAH inhibition raising anandamide, and reduced amygdala reactivity — the three mechanisms in your notes.",
    "caution": "Inhibits CYP3A4 and CYP2C19 — check interactions. Legal status varies.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Anxiety",
     "Post-traumatic stress disorder"
@@ -1994,6 +2002,7 @@
    "mech": "Adaptogen; modulates the HPA axis and lowers cortisol.",
    "caution": "Avoid in hyperthyroidism — it raises thyroid hormones. Rare hepatotoxicity. Nightshade family.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Adjustment disorder",
     "Anxiety",
@@ -2007,6 +2016,7 @@
    "mech": "Raises serotonin; trials show efficacy comparable to fluoxetine in mild to moderate depression. Your notes give 30 mg.",
    "caution": "Additive with serotonergic drugs.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Depression"
    ]
@@ -2018,6 +2028,7 @@
    "mech": "Promotes alpha brain waves and enhances GABA — anxiolytic without sedation.",
    "caution": "Well tolerated; may lower blood pressure.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Adjustment disorder",
     "Anxiety",
@@ -2031,6 +2042,7 @@
    "mech": "Modulates GABA receptors; trial evidence in anxiety comparable to low-dose anxiolytics.",
    "caution": "Eructation with a lavender taste.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Anxiety",
     "Post-traumatic stress disorder"
@@ -2043,6 +2055,7 @@
    "mech": "Mild sedative; apigenin binds benzodiazepine receptors.",
    "caution": "Asteraceae allergy.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Anxiety",
     "Insomnia"
@@ -2055,6 +2068,7 @@
    "mech": "Methyl donor used in depression and osteoarthritis.",
    "caution": "AVOID IN BIPOLAR — can induce mania or hypomania through serotonergic and methylation effects. Serotonergic interactions.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Depression"
    ]
@@ -2066,6 +2080,7 @@
    "mech": "Mild to moderate depression.",
    "caution": "AVOID IN BIPOLAR — documented to trigger mania and cycling. A potent CYP3A4 inducer: do not combine with SSRIs (serotonin syndrome), oral contraceptives, or anticoagulants.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Depression"
    ]
@@ -2077,6 +2092,7 @@
    "mech": "Stimulating adaptogen for fatigue and stress resilience.",
    "caution": "AVOID IN BIPOLAR — as a stimulating adaptogen it may worsen agitation or induce hypomania. Can disturb sleep if taken late.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Chronic fatigue syndrome",
     "Fatigue and low energy"
@@ -2089,6 +2105,7 @@
    "mech": "Stimulating adaptogen for fatigue and cognition.",
    "caution": "Caution in bipolar disorder — stimulating botanicals risk mood destabilisation. Raises blood pressure in some.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Cognitive decline",
     "Fatigue and low energy"
@@ -2101,6 +2118,7 @@
    "mech": "Mucolytic and glutathione precursor. Named in your respiratory quizzes as the mucolytic of choice in COPD, and in the mould lecture as the gentler glutathione alternative in sensitive patients.",
    "caution": "Nausea at higher doses. In active mould exposure your notes prefer NAC over glutathione, which can mobilise toxins.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Asthma",
     "Atelectasis",
@@ -2128,6 +2146,7 @@
    "mech": "Mast-cell stabiliser and antihistamine-like flavonoid; anti-inflammatory in allergy and asthma.",
    "caution": "Take with bromelain or as phytosome for absorption; inhibits CYP3A4.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Allergic rhinitis",
     "Asthma",
@@ -2149,6 +2168,7 @@
    "mech": "Anti-inflammatory and antithrombotic — your COVID quiz names it as the agent addressing both inflammation and thrombus formation.",
    "caution": "Mild antiplatelet effect; caution with anticoagulants.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "COVID-19"
    ]
@@ -2160,6 +2180,7 @@
    "mech": "Antioxidant; supports immune function and collagen synthesis; shortens cold duration modestly.",
    "caution": "Loose stool at bowel tolerance. Caution with a history of oxalate stones.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Abdominal aortic aneurysm",
     "Allergic rhinitis",
@@ -2216,6 +2237,7 @@
    "mech": "Immune function, wound healing, taste and smell; lozenges shorten colds when started early.",
    "caution": "Take with food; over 40 mg long-term depletes copper — pair or cycle.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Acne",
     "Alopecia",
@@ -2274,6 +2296,7 @@
    "mech": "Antiviral support in colds and influenza.",
    "caution": "Use cooked or standardised preparations; raw berries are emetic.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Bronchitis",
     "Common cold",
@@ -2296,6 +2319,7 @@
    "mech": "Antimicrobial and soothing in upper respiratory infection and sore throat.",
    "caution": "Avoid with bee product allergy.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Bronchitis",
     "Common cold",
@@ -2323,6 +2347,7 @@
    "mech": "Antimicrobial, mild antihypertensive and lipid-lowering.",
    "caution": "Antiplatelet effect — stop before surgery.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Atherosclerosis",
     "Bronchitis",
@@ -2346,6 +2371,7 @@
    "mech": "5-LOX inhibitor; anti-inflammatory in arthritis, IBD and asthma.",
    "caution": "Generally well tolerated; mild GI upset.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Asthma",
     "Back pain",
@@ -2362,6 +2388,7 @@
    "mech": "Broad anti-inflammatory acting on NF-κB.",
    "caution": "Poor absorption unless formulated. Mild antiplatelet effect; may worsen reflux in some.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Autoimmune conditions",
     "Back pain",
@@ -2388,6 +2415,7 @@
    "mech": "Fibrinolytic enzyme used for circulation and clot burden.",
    "caution": "Additive with anticoagulants and antiplatelets — do not combine without supervision.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Atherosclerosis",
     "Deep vein thrombosis",
@@ -2402,6 +2430,7 @@
    "mech": "Proteolytic enzyme used for mucus and fibrin.",
    "caution": "Same bleeding caution as other systemic enzymes.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Idiopathic pulmonary fibrosis"
    ]
@@ -2413,6 +2442,7 @@
    "mech": "Master antioxidant; inhaled forms studied as an asthma adjunct.",
    "caution": "Your mould lecture warns against glutathione, liver sauce and NAD+ during ACTIVE exposure — they mobilise toxins and cause redistribution. Inhaled glutathione is not safe for every asthma patient — sulphite-sensitive patients can bronchospasm.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Mold and mycotoxin illness"
    ]
@@ -2424,6 +2454,7 @@
    "mech": "The binder used in nearly all patients in your mould lecture: breaks biofilms, binds mycotoxins, lowers inflammatory cytokines.",
    "caution": "Safe during exposure and in pregnancy, and well tolerated in infants — one of the few binders your notes allow during ongoing exposure.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Mold and mycotoxin illness"
    ]
@@ -2435,6 +2466,7 @@
    "mech": "Broad-spectrum binder covering charcoal, clay and more.",
    "caution": "Binds nutrients and drugs — separate by at least two hours. Do not use with unmanaged constipation.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Mold and mycotoxin illness"
    ]
@@ -2446,6 +2478,7 @@
    "mech": "Binds mycotoxins and helps candida; protects against antibiotic-associated and travellers' diarrhoea.",
    "caution": "Avoid in central line patients and severe immunocompromise — fungaemia risk.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Candidiasis",
     "Diarrhea",
@@ -2462,6 +2495,7 @@
    "mech": "Broad botanical antimicrobial used for gut treatment; your mould lecture uses it especially in children.",
    "caution": "Start very low — die-off reactions are common.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Candidiasis",
     "Mold and mycotoxin illness",
@@ -2476,6 +2510,7 @@
    "mech": "Restoring flora after antibiotics; strain-specific benefit in IBS, atopy and vaginal health.",
    "caution": "Match the strain to the indication. Caution in severe immunocompromise.",
    "also": "Lactobacillus, Bifidobacterium blends",
+   "herbal": false,
    "conditions": [
     "Acne",
     "Allergic rhinitis",
@@ -2523,6 +2558,7 @@
    "mech": "Resets the sinus microbiome after sinus treatment — the step your mould lecture puts last.",
    "caution": null,
    "also": "Lanto Health",
+   "herbal": false,
    "conditions": [
     "Mold and mycotoxin illness",
     "Sinusitis"
@@ -2535,6 +2571,7 @@
    "mech": "Iron deficiency with or without anaemia.",
    "caution": "Alternate-day dosing absorbs better than daily. Take with vitamin C, away from calcium, coffee and thyroid medication. Constipation is common.",
    "also": "ferrous bisglycinate, ferrous sulfate",
+   "herbal": false,
    "conditions": [
     "Alopecia",
     "Amenorrhea",
@@ -2558,6 +2595,7 @@
    "mech": "Deficiency from metformin, PPIs, gastric surgery, vegan diets, or pernicious anaemia.",
    "caution": "Check before starting folate. Methylcobalamin or hydroxocobalamin preferred.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Anemia, iron deficiency",
     "Celiac disease",
@@ -2576,6 +2614,7 @@
    "mech": "Methylation, red cell production, preconception neural tube protection.",
    "caution": "Never before excluding B12 deficiency — it masks the anaemia while the neuropathy progresses.",
    "also": "methylfolate, 5-MTHF",
+   "herbal": false,
    "conditions": [
     "Anemia, iron deficiency",
     "Celiac disease",
@@ -2589,6 +2628,7 @@
    "mech": "Thyroid hormone synthesis; deficiency is one of the nutrient gaps corrected first in your mould protocol.",
    "caution": "Excess can trigger or worsen thyroid autoimmunity — do not dose high in Hashimoto's without monitoring.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Hypothyroidism",
     "Mold and mycotoxin illness"
@@ -2601,6 +2641,7 @@
    "mech": "Cofactor for thyroid hormone conversion; lowers thyroid antibodies in Hashimoto's.",
    "caution": "Narrow window — over 400 mcg daily is toxic.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Autoimmune conditions",
     "Hyperthyroidism",
@@ -2614,6 +2655,7 @@
    "mech": "Bone health where dietary intake is short.",
    "caution": "Split doses absorb better; take with vitamin D and K2. Separate from iron and thyroid medication.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Celiac disease",
     "Lactation support",
@@ -2629,6 +2671,7 @@
    "mech": "Directs calcium to bone rather than arteries; pairs with vitamin D.",
    "caution": "Interacts with warfarin — keep intake steady and tell the prescriber.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Atherosclerosis",
     "Cystic fibrosis",
@@ -2644,6 +2687,7 @@
    "mech": "Mitochondrial support; migraine prophylaxis; replaces what statins deplete.",
    "caution": "Ubiquinol form absorbs better with age. Mild blood-pressure lowering.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Atherosclerosis",
     "Atrial fibrillation",
@@ -2682,6 +2726,7 @@
    "mech": "Migraine prophylaxis at this specific high dose; takes 2–3 months.",
    "caution": "Turns urine bright yellow — expected.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Cyclical vomiting syndrome",
     "Migraine"
@@ -2694,6 +2739,7 @@
    "mech": "Circadian phase shifting rather than sedation; lower doses often work better than higher.",
    "caution": "Vivid dreams and morning grogginess at higher doses.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "COVID-19",
     "Fibromyalgia",
@@ -2708,6 +2754,7 @@
    "mech": "Serotonin precursor for mood and sleep.",
    "caution": "Do not combine with SSRIs, SNRIs or MAOIs — serotonin syndrome.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Depression"
    ]
@@ -2719,6 +2766,7 @@
    "mech": "Improves sleep quality and lowers core temperature; also a phase II conjugation substrate.",
    "caution": "Well tolerated.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Insomnia"
    ]
@@ -2730,6 +2778,7 @@
    "mech": "Sleep onset; GABAergic.",
    "caution": "Paradoxical stimulation in a minority; additive with sedatives.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Insomnia"
    ]
@@ -2741,6 +2790,7 @@
    "mech": "Anxiety and sleep; gentle GABAergic.",
    "caution": "Additive sedation.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Anxiety",
     "Insomnia"
@@ -2753,6 +2803,7 @@
    "mech": "Lowers blood glucose and lipids comparably to metformin in trials; antimicrobial in gut dysbiosis.",
    "caution": "Inhibits CYP3A4 — many interactions. Avoid in pregnancy and in infants (kernicterus risk).",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Atherosclerosis",
     "Candidiasis",
@@ -2772,6 +2823,7 @@
    "mech": "Diabetic neuropathy and insulin sensitivity; antioxidant regenerating other antioxidants.",
    "caution": "Can lower glucose — watch with hypoglycaemic drugs. Thiamine depletion with long use.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Diabetes mellitus, type 2",
     "Multiple sclerosis"
@@ -2784,6 +2836,7 @@
    "mech": "Insulin sensitivity and glycaemic control.",
    "caution": "Modest effect; caution with hypoglycaemics.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Diabetes mellitus, type 2",
     "Obesity"
@@ -2796,6 +2849,7 @@
    "mech": "PCOS — improves ovulation, insulin sensitivity and androgen profile; also used in anxiety and OCD at higher doses.",
    "caution": "Best evidence with a 40:1 myo- to D-chiro-inositol ratio. GI upset at high doses.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Amenorrhea",
     "Diabetes mellitus, type 2",
@@ -2811,6 +2865,7 @@
    "mech": "Mitochondrial and energy support.",
    "caution": "Your mould lecture says avoid NAD+ during active exposure — it mobilises toxins.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Bipolar disorder",
     "Chronic fatigue syndrome"
@@ -2823,6 +2878,7 @@
    "mech": "Mucosal healing in gastritis, ulcer and reflux without the blood-pressure effect of whole liquorice.",
    "caution": "Whole liquorice raises blood pressure and lowers potassium — DGL is the form to use long-term.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Dyspepsia",
     "GERD",
@@ -2836,6 +2892,7 @@
    "mech": "Coats and soothes irritated mucosa in reflux, gastritis and IBS.",
    "caution": "Take away from medicines — it can slow absorption.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Cough",
     "Dyspepsia",
@@ -2851,6 +2908,7 @@
    "mech": "Antispasmodic with good trial evidence in IBS.",
    "caution": "Must be enteric-coated or it worsens reflux; relaxes the lower oesophageal sphincter.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Bloating and gas",
     "Irritable bowel syndrome",
@@ -2864,6 +2922,7 @@
    "mech": "Soluble fibre — helps both constipation and diarrhoea, and lowers LDL.",
    "caution": "Introduce slowly with fluid; separate from medicines by two hours.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Bloating and gas",
     "Constipation",
@@ -2879,6 +2938,7 @@
    "mech": "Bloating and incomplete digestion; pancreatic insufficiency needs prescription-strength enzymes.",
    "caution": "Not a substitute for investigating persistent symptoms.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Bloating and gas",
     "Celiac disease",
@@ -2897,6 +2957,7 @@
    "mech": "Hypochlorhydria contributing to bloating and poor mineral absorption.",
    "caution": "Never with active ulcer, gastritis, or on a PPI or NSAID.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Bloating and gas",
     "Dyspepsia",
@@ -2911,6 +2972,7 @@
    "mech": "Fuel for enterocytes; used for intestinal barrier repair.",
    "caution": "Caution in cirrhosis and in active malignancy.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Autoimmune conditions",
     "Bloating and gas",
@@ -2933,6 +2995,7 @@
    "mech": "Hepatoprotective; used in hepatitis and fatty liver.",
    "caution": "Generally safe; mild laxative effect.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Gallstones",
     "Hepatic steatosis",
@@ -2946,6 +3009,7 @@
    "mech": "Raises lower oesophageal sphincter tone; trial evidence as a reflux adjunct.",
    "caution": "Daytime grogginess at higher doses.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "GERD"
    ]
@@ -2957,6 +3021,7 @@
    "mech": "Prevents E. coli adhesion in recurrent urinary tract infection.",
    "caution": "Not a treatment for established pyelonephritis.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Urinary incontinence",
     "Urinary tract infection"
@@ -2969,6 +3034,7 @@
    "mech": "Recurrent UTI prevention; anti-adhesion rather than antibacterial.",
    "caution": "Interacts with warfarin; sugar load in juices.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Urinary tract infection"
    ]
@@ -2980,6 +3046,7 @@
    "mech": "Benign prostatic hyperplasia symptoms.",
    "caution": "Trial results are mixed; mild antiplatelet effect.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Benign prostatic hyperplasia",
     "Prostatitis"
@@ -2992,6 +3059,7 @@
    "mech": "Improves urinary flow in BPH with more consistent trial support than saw palmetto.",
    "caution": "Well tolerated.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Benign prostatic hyperplasia",
     "Prostatitis"
@@ -3004,6 +3072,7 @@
    "mech": "Prostate health and antioxidant support.",
    "caution": "Take with fat.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Benign prostatic hyperplasia"
    ]
@@ -3015,6 +3084,7 @@
    "mech": "Luteal phase support, PMS, cyclical breast pain and irregular cycles; acts on dopamine and prolactin.",
    "caution": "Takes three cycles. Interacts with dopaminergic drugs and hormonal contraception.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Amenorrhea",
     "Dysmenorrhea",
@@ -3028,6 +3098,7 @@
    "mech": "Supports oestrogen metabolism toward the 2-hydroxy pathway.",
    "caution": "Can cause headache and darkened urine.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Acne",
     "Endometriosis",
@@ -3042,6 +3113,7 @@
    "mech": "Vasomotor symptoms of menopause.",
    "caution": "Rare hepatotoxicity — stop with any jaundice or dark urine.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Menopause"
    ]
@@ -3053,6 +3125,7 @@
    "mech": "Libido, energy and menopausal symptoms without direct hormonal action.",
    "caution": "Caution with thyroid disease — goitrogenic raw.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Amenorrhea",
     "Erectile dysfunction",
@@ -3067,6 +3140,7 @@
    "mech": "Osteoarthritis, especially of the knee; effect is modest and slow.",
    "caution": "Shellfish-derived forms in allergy; may affect glucose control slightly.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Osteoarthritis"
    ]
@@ -3078,6 +3152,7 @@
    "mech": "Joint, skin and connective tissue support; some trial support in osteoarthritis.",
    "caution": "Take with vitamin C.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Alopecia",
     "Burns",
@@ -3093,6 +3168,7 @@
    "mech": "Sulphur donor used for joint pain and inflammation.",
    "caution": "Mild GI upset.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Chronic pain",
     "Osteoarthritis"
@@ -3105,6 +3181,7 @@
    "mech": "Lowers urate and eases gout flares; also studied for sleep.",
    "caution": "Sugar load in juice form.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Gout"
    ]
@@ -3116,6 +3193,7 @@
    "mech": "Proteolytic anti-inflammatory for sinusitis, injury and oedema; pairs with quercetin.",
    "caution": "Antiplatelet effect; pineapple allergy.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Allergic rhinitis",
     "Burns",
@@ -3131,6 +3209,7 @@
    "mech": "Immune tonic for recurrent infection; used long-term rather than acutely.",
    "caution": "Traditionally avoided during an acute fever; theoretical interaction with immunosuppressants.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Chronic fatigue syndrome",
     "Common cold",
@@ -3144,6 +3223,7 @@
    "mech": "Beta-glucan immune modulation in recurrent infection and immune dysregulation.",
    "caution": "Choose fruiting-body extracts; caution with immunosuppressants.",
    "also": "reishi, turkey tail, cordyceps",
+   "herbal": true,
    "conditions": [
     "Chronic fatigue syndrome",
     "Common cold",
@@ -3164,6 +3244,7 @@
    "mech": "Demulcent and antiviral; adrenal support in fatigue.",
    "caution": "Whole liquorice raises blood pressure and lowers potassium — not for hypertension; use DGL for gut work.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Fatigue and low energy",
     "Sore throat"
@@ -3176,6 +3257,7 @@
    "mech": "HPA-axis support in fatigue and chronic stress.",
    "caution": "Stimulating adaptogens destabilise mood in bipolar disorder — check the ingredient list.",
    "also": "eleuthero, schisandra, holy basil",
+   "herbal": true,
    "conditions": [
     "Chronic fatigue syndrome",
     "Fatigue and low energy"
@@ -3188,6 +3270,7 @@
    "mech": "Muscle and cognitive support; emerging evidence in depression and fatigue.",
    "caution": "Take with adequate fluid.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Cognitive decline",
     "Depression",
@@ -3201,6 +3284,7 @@
    "mech": "Fatty acid transport into mitochondria; fatigue and male fertility.",
    "caution": "Fishy odour at high doses; TMAO questions.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Atrial septal defect",
     "Chronic fatigue syndrome",
@@ -3229,6 +3313,7 @@
    "mech": "ATP substrate used in fibromyalgia and chronic fatigue.",
    "caution": "Can lower blood glucose.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Chronic fatigue syndrome",
     "Fibromyalgia"
@@ -3241,6 +3326,7 @@
    "mech": "Blunts an exaggerated cortisol response; cognition.",
    "caution": "Take earlier in the day.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Anxiety",
     "Attention deficit disorder",
@@ -3256,6 +3342,7 @@
    "mech": "Nerve growth factor support; cognition and mild mood benefit.",
    "caution": "Rare skin reactions.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Attention deficit disorder",
     "Cognitive decline"
@@ -3268,6 +3355,7 @@
    "mech": "Cerebral and peripheral circulation; cognition; Raynaud's.",
    "caution": "Antiplatelet effect — stop two weeks before surgery and avoid with anticoagulants.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Cognitive decline",
     "Dysmenorrhea",
@@ -3283,6 +3371,7 @@
    "mech": "Mild heart failure and hypertension; improves exercise tolerance.",
    "caution": "Potentiates digoxin and antihypertensives.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Congestive heart failure",
     "Hypertension"
@@ -3295,6 +3384,7 @@
    "mech": "Venous tone in varicose veins, haemorrhoids and chronic venous insufficiency — the best-supported oral agent.",
    "caution": "GI upset; avoid in pregnancy.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Deep vein thrombosis",
     "Edema",
@@ -3310,6 +3400,7 @@
    "mech": "Chronic venous insufficiency and leg oedema.",
    "caution": "Standardised extracts only — raw seed is toxic.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Edema",
     "Hemorrhoids",
@@ -3323,6 +3414,7 @@
    "mech": "Venous tone and haemorrhoids.",
    "caution": "Caution in hypertension.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Hemorrhoids",
     "Varicose veins"
@@ -3335,6 +3427,7 @@
    "mech": "Connective tissue and venous integrity; wound healing; anxiolytic.",
    "caution": "Rare hepatotoxicity with long use.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Burns",
     "Varicose veins",
@@ -3348,6 +3441,7 @@
    "mech": "Mucosal soothing in reflux and IBD; topical for burns and wounds.",
    "caution": "Whole-leaf latex is a harsh stimulant laxative — use inner-leaf preparations orally.",
    "also": null,
+   "herbal": true,
    "conditions": [
     "Burns",
     "Dyspepsia",
@@ -3364,6 +3458,7 @@
    "mech": "Epithelial integrity, immune function, wound healing.",
    "caution": "Teratogenic — strict limits in pregnancy. Hepatotoxic long-term.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Acne",
     "Burns",
@@ -3392,6 +3487,7 @@
    "mech": "Antioxidant; membrane protection.",
    "caution": "Antiplatelet at higher doses; use mixed tocopherols, not alpha alone.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Cystic fibrosis",
     "Hepatic steatosis"
@@ -3404,6 +3500,7 @@
    "mech": "Gut barrier and mucosal immunity.",
    "caution": "Dairy-derived — avoid in milk protein allergy.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Food intolerance",
     "Irritable bowel syndrome"
@@ -3416,6 +3513,7 @@
    "mech": "Fat mobilisation in fatty liver and cholestasis.",
    "caution": "GI upset; fishy odour with high choline.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Gallstones",
     "Hepatic steatosis"
@@ -3428,6 +3526,7 @@
    "mech": "Bile conjugation, cardiac and neuronal stability.",
    "caution": "Well tolerated.",
    "also": null,
+   "herbal": false,
    "conditions": [
     "Atrial fibrillation",
     "Atrial septal defect",
@@ -3450,11 +3549,198 @@
  ],
  "therapies": [
   {
+   "id": "adjustments",
+   "name": "Spinal manipulation and mobilisation",
+   "kind": "Physical medicine",
+   "what": "High-velocity low-amplitude adjustment, mobilisation and muscle-energy technique to restore segmental motion and reduce pain. Best evidence in acute and subacute low back pain and in cervicogenic headache, usually alongside exercise rather than instead of it.",
+   "caution": "Screen before the cervical spine: the vertebral artery test, and no HVLA where there is fracture, instability, bone disease, anticoagulation, cauda equina or a progressive neurological deficit.",
+   "zone": "therapeutics",
+   "conditions": [
+    "Back pain",
+    "Chronic pain",
+    "Migraine",
+    "Neck and shoulder pain",
+    "Osteoporosis"
+   ]
+  },
+  {
+   "id": "massage",
+   "name": "Therapeutic massage",
+   "kind": "Manual therapy",
+   "what": "Effleurage, petrissage, trigger-point and myofascial release for muscular pain, tension and stress. Evidence in low back and neck pain, fibromyalgia, anxiety and post-exercise soreness.",
+   "caution": "Avoid direct work over acute DVT, an unhealed fracture, active infection or malignant deposits; light pressure only on anticoagulated or osteoporotic patients.",
+   "zone": "therapeutics",
+   "conditions": [
+    "Anxiety",
+    "Back pain",
+    "Chronic fatigue syndrome",
+    "Chronic pain",
+    "Constipation",
+    "Depression",
+    "Dysmenorrhea",
+    "Edema",
+    "Endometriosis",
+    "Fibromyalgia",
+    "Insomnia",
+    "Migraine",
+    "Neck and shoulder pain",
+    "Osteoarthritis",
+    "Premenstrual syndrome",
+    "Rheumatoid arthritis"
+   ]
+  },
+  {
+   "id": "cupping",
+   "name": "Cupping",
+   "kind": "Physical medicine",
+   "what": "Suction cups, dry or moving, over muscular and myofascial pain to lift tissue, decompress fascia and increase local circulation. Wet cupping adds superficial scarification.",
+   "caution": "Marks last days to weeks — tell the patient before, not after. Avoid over broken skin, varices, anticoagulation and in bleeding disorders; wet cupping needs sterile single-use equipment.",
+   "zone": "therapeutics",
+   "conditions": [
+    "Back pain",
+    "Chronic pain",
+    "Neck and shoulder pain"
+   ]
+  },
+  {
+   "id": "guasha",
+   "name": "Gua sha",
+   "kind": "Physical medicine",
+   "what": "Unidirectional scraping with a smooth-edged tool over lubricated skin, raising transitory petechiae (sha). Used for myalgia, neck and shoulder pain, and to move surface stagnation.",
+   "caution": "The petechial rash is expected and fades over days; warn the patient and document it so it is not later read as injury. Avoid over broken skin, on anticoagulants and in bleeding disorders.",
+   "zone": "therapeutics",
+   "conditions": [
+    "Migraine",
+    "Neck and shoulder pain"
+   ]
+  },
+  {
+   "id": "ultrasound_tx",
+   "name": "Therapeutic ultrasound",
+   "kind": "Physical medicine",
+   "what": "Continuous mode for deep thermal effect in chronic soft-tissue restriction; pulsed mode for non-thermal effect in more acute presentations. Often paired with stretching while the tissue is warm.",
+   "caution": "Never over the gravid uterus, an active growth plate, the eye, a pacemaker, malignancy, ischaemic tissue, or over cemented joint prostheses. Keep the head moving.",
+   "zone": "therapeutics",
+   "conditions": [
+    "Back pain",
+    "Osteoarthritis"
+   ]
+  },
+  {
+   "id": "infrared",
+   "name": "Infrared and far-infrared therapy",
+   "kind": "Physical medicine",
+   "what": "Radiant heat that penetrates further than a hot pack, for muscular pain, stiffness and circulation, and as a lower-temperature alternative to a conventional sauna for heat-intolerant patients.",
+   "caution": "Same cautions as any heat: no application over anaesthetic skin, acute inflammation, active bleeding or malignancy, and care in neuropathy where the patient cannot report a burn.",
+   "zone": "therapeutics",
+   "conditions": [
+    "Chronic fatigue syndrome",
+    "Chronic pain",
+    "Dysmenorrhea",
+    "Fibromyalgia",
+    "Insomnia",
+    "Mold and mycotoxin illness",
+    "Osteoarthritis",
+    "Raynaud's phenomenon",
+    "Rheumatoid arthritis",
+    "Wound healing"
+   ]
+  },
+  {
+   "id": "tens",
+   "name": "TENS and electrotherapy",
+   "kind": "Physical medicine",
+   "what": "Transcutaneous electrical nerve stimulation for pain modulation, and interferential or Russian current for deeper stimulation and muscle re-education.",
+   "caution": "Not over the anterior neck, the carotid sinus, the gravid uterus, or across the chest in a patient with a pacemaker or implanted defibrillator.",
+   "zone": "therapeutics",
+   "conditions": [
+    "Back pain",
+    "Chronic pain",
+    "Dysmenorrhea",
+    "Endometriosis",
+    "Fibromyalgia",
+    "Migraine",
+    "Neck and shoulder pain",
+    "Osteoarthritis"
+   ]
+  },
+  {
+   "id": "lasertherapy",
+   "name": "Low-level laser therapy",
+   "kind": "Physical medicine",
+   "what": "Photobiomodulation for tendinopathy, osteoarthritis, neck pain and wound healing. Dose is by joules per square centimetre, not by time alone.",
+   "caution": "Eye protection for practitioner and patient. Avoid over malignancy, the gravid uterus and the thyroid.",
+   "zone": "therapeutics",
+   "conditions": [
+    "Back pain",
+    "Chronic pain",
+    "Fibromyalgia",
+    "Osteoarthritis",
+    "Rheumatoid arthritis",
+    "Wound healing"
+   ]
+  },
+  {
+   "id": "moxibustion",
+   "name": "Moxibustion",
+   "kind": "Physical medicine",
+   "what": "Burning mugwort near or on a point to warm a channel — used for cold, deficient and stagnant patterns, and classically at BL67 for breech presentation.",
+   "caution": "Smoke is an irritant in asthma; direct moxa risks burns and scarring. Not over anaesthetic skin.",
+   "zone": "therapeutics",
+   "conditions": [
+    "Amenorrhea",
+    "Fertility and preconception"
+   ]
+  },
+  {
+   "id": "kinesiotape",
+   "name": "Kinesiology taping",
+   "kind": "Physical medicine",
+   "what": "Elastic tape applied along or across a muscle to offload, decompress or cue posture between visits.",
+   "caution": "An adjunct that buys time for loading, not a treatment on its own. Skin reactions are common — patch test where there is atopy.",
+   "zone": "therapeutics",
+   "conditions": [
+    "Neck and shoulder pain"
+   ]
+  },
+  {
+   "id": "traction",
+   "name": "Traction and decompression",
+   "kind": "Physical medicine",
+   "what": "Manual or mechanical distraction of the cervical or lumbar spine to unload a disc and open the intervertebral foramen; used where radicular symptoms centralise with it.",
+   "caution": "Not with instability, fracture, infection, malignancy, cord compression or uncontrolled hypertension.",
+   "zone": "therapeutics",
+   "conditions": [
+    "Back pain",
+    "Neck and shoulder pain"
+   ]
+  },
+  {
+   "id": "castorpack",
+   "name": "Castor oil pack",
+   "kind": "Physical medicine",
+   "what": "Castor oil on flannel over the abdomen or liver with gentle heat, 30–60 minutes, several evenings a week. A traditional naturopathic application for pelvic and hepatic congestion, constipation and menstrual pain.",
+   "caution": "Not on broken skin, during menstruation where bleeding is heavy, or in pregnancy. It stains fabric permanently.",
+   "zone": "therapeutics",
+   "conditions": [
+    "Amenorrhea",
+    "Constipation",
+    "Dysmenorrhea",
+    "Endometriosis",
+    "Fertility and preconception",
+    "Gallstones",
+    "Hepatic steatosis",
+    "Irritable bowel syndrome",
+    "Premenstrual syndrome"
+   ]
+  },
+  {
    "id": "mayanmassage",
    "name": "Mayan abdominal massage",
    "kind": "Manual therapy",
    "what": "Non-invasive external massage of the abdomen that repositions abdominal and pelvic organs to relieve pain, increasing blood flow, moving lymph and restoring nerve signalling. Your coursework names dysmenorrhoea, endometriosis, irritable bowel syndrome and infertility as the conditions it may help.",
    "caution": "Requires training in anatomy, physiology and the traditional technique. Avoid over an IUD without training, in pregnancy, and over acute inflammation or a known mass. Self-massage handouts make a good take-home practice.",
+   "zone": "therapeutics",
    "conditions": [
     "Bloating and gas",
     "Constipation",
@@ -3468,9 +3754,10 @@
   {
    "id": "sauna",
    "name": "Sauna and induced sweating",
-   "kind": "Detoxification",
+   "kind": "Physical medicine",
    "what": "One of the safest routes of elimination — it does not load the liver or kidneys. Any sweating counts: sauna, exercise or a sweatsuit. Start at 5 minutes and build; replete minerals before and after.",
    "caution": "Shower immediately afterwards with Castile soap to prevent reabsorption. Avoid shared or smelly saunas — aerosolised toxins from other users can be absorbed.",
+   "zone": "therapeutics",
    "conditions": [
     "Mold and mycotoxin illness"
    ]
@@ -3478,11 +3765,15 @@
   {
    "id": "lymphatic",
    "name": "Lymphatic drainage",
-   "kind": "Manual therapy",
+   "kind": "Physical medicine",
    "what": "Vibration plates, dry brushing, and the “Big 6” sequence — clavicles, behind the ears, axillae, stomach, back, groin and behind the knees. Done daily in the shower while soaping up.",
    "caution": "Often overlooked; open drainage before mobilising anything.",
+   "zone": "therapeutics",
    "conditions": [
-    "Mold and mycotoxin illness"
+    "Chronic fatigue syndrome",
+    "Edema",
+    "Mold and mycotoxin illness",
+    "Varicose veins"
    ]
   },
   {
@@ -3491,6 +3782,7 @@
    "kind": "Detoxification",
    "what": "The mould detox base from your lecture: AM/PM push-pull, 5 days on and 2 days off, over 4–6 months before retesting. Start at ¼ teaspoon and increase as tolerated. Keep the binder even if only one dose is taken.",
    "caution": "Do not detox during known ongoing exposure, active colonisation, severe constipation, or extreme sensitivity. Poor tolerance is a signal, not a reason to push.",
+   "zone": "therapeutics",
    "conditions": [
     "Mold and mycotoxin illness"
    ]
@@ -3498,9 +3790,10 @@
   {
    "id": "remediation",
    "name": "Environmental remediation",
-   "kind": "Environmental",
+   "kind": "Environment",
    "what": "Inspection with heat-signature technology by a certified inspector, separate HVAC assessment, and mould dogs where available. HEPA filtration where relocation is not possible. Check crawl spaces, cars, and items brought from a mouldy home.",
    "caution": "Standard mould inspectors are not licensed for HVAC. Belongings can carry the exposure to a new home.",
+   "zone": "lifestyle",
    "conditions": [
     "Allergic rhinitis",
     "Asthma",
@@ -3516,6 +3809,7 @@
    "kind": "Topical",
    "what": "Colloidal silver with herbs (RNA/ACS) first line for up to 12 weeks; xylitol with grapefruit seed extract where biofilm is a factor; compounded antifungal or antibacterial sprays where needed. Reset afterwards with Lactobacillus sakei.",
    "caution": "Treat sinuses last — oral and IV routes do not reliably reach them. Your lecture rates colloidal silver above BEG spray for MARCONS on cost, tolerability and resistance.",
+   "zone": "therapeutics",
    "conditions": [
     "Candidiasis",
     "Mold and mycotoxin illness",
@@ -3528,6 +3822,7 @@
    "kind": "Device",
    "what": "Positive airway pressure — the mainstay for obstructive sleep apnoea, and BiPAP in type 2 respiratory failure.",
    "caution": "Adherence is the whole battle: mask fit, humidification and desensitisation determine success.",
+   "zone": "therapeutics",
    "conditions": [
     "Central sleep apnea",
     "Obstructive sleep apnea",
@@ -3540,6 +3835,7 @@
    "kind": "Device",
    "what": "Jaw repositioning appliance for mild to moderate obstructive sleep apnoea, or where CPAP is not tolerated.",
    "caution": "Needs a dentist experienced in sleep appliances; can shift the bite over time.",
+   "zone": "therapeutics",
    "conditions": [
     "Obstructive sleep apnea"
    ]
@@ -3547,9 +3843,10 @@
   {
    "id": "posturaltherapy",
    "name": "Positional therapy",
-   "kind": "Lifestyle",
+   "kind": "Sleep",
    "what": "Lateral decubitus sleeping improves obstructive sleep apnoea; supine makes it worse.",
    "caution": "Simple, free, and worth trying in every positional apnoea.",
+   "zone": "lifestyle",
    "conditions": [
     "Obstructive sleep apnea"
    ]
@@ -3560,6 +3857,7 @@
    "kind": "Procedure",
    "what": "Implanted stimulation of the hypoglossal nerve to advance the tongue base during sleep.",
    "caution": "For selected CPAP-intolerant patients; the hypoglossal nerve is the structure stimulated, not the genioglossus directly.",
+   "zone": "therapeutics",
    "conditions": [
     "Obstructive sleep apnea"
    ]
@@ -3570,6 +3868,7 @@
    "kind": "Procedure",
    "what": "Uvulopalatopharyngoplasty, tonsillectomy or adenoidectomy where anatomy is the obstruction — often the answer in children.",
    "caution": "Adult results are variable; assess anatomy before offering.",
+   "zone": "therapeutics",
    "conditions": [
     "Obstructive sleep apnea"
    ]
@@ -3580,6 +3879,7 @@
    "kind": "Device",
    "what": "Long-term oxygen in severe COPD with resting hypoxaemia; acute use in respiratory failure.",
    "caution": "Nasal cannula flow starts around 1 L/min. Use the minimum effective concentration — 60–100% risks oxygen toxicity. SpO2 92% or less needs more advanced care; 88% or less needs the emergency department.",
+   "zone": "therapeutics",
    "conditions": [
     "Atelectasis",
     "COVID-19",
@@ -3598,6 +3898,7 @@
    "kind": "Rehabilitation",
    "what": "Supervised exercise, breathing retraining and education — one of the few interventions that improves quality of life and admissions in COPD.",
    "caution": "An FEV1/FVC around 40% is too low to start unsupervised exercise; refer to a programme instead.",
+   "zone": "therapeutics",
    "conditions": [
     "Asthma",
     "Atelectasis",
@@ -3617,6 +3918,7 @@
    "kind": "Mind-body",
    "what": "Buteyko, diaphragmatic and pursed-lip breathing for asthma, COPD and anxious hyperventilation.",
    "caution": "Adjunct to, not a replacement for, controller therapy.",
+   "zone": "lifestyle",
    "conditions": [
     "Asthma",
     "Atelectasis",
@@ -3639,6 +3941,7 @@
    "kind": "Physical therapy",
    "what": "Postural drainage, percussion, oscillating PEP devices and nebulised hypertonic saline to mobilise secretions in bronchiectasis and cystic fibrosis.",
    "caution": "Daily and lifelong in bronchiectasis — the single most important measure.",
+   "zone": "therapeutics",
    "conditions": [
     "Atelectasis",
     "Bronchiectasis",
@@ -3648,9 +3951,10 @@
   {
    "id": "smokingcess",
    "name": "Smoking cessation programme",
-   "kind": "Lifestyle",
+   "kind": "Substance use",
    "what": "Behavioural support with pharmacotherapy — the only intervention that changes the slope of decline in COPD.",
    "caution": "Combine counselling with NRT or varenicline; screen mood before varenicline.",
+   "zone": "lifestyle",
    "conditions": [
     "Abdominal aortic aneurysm",
     "Atherosclerosis",
@@ -3668,6 +3972,7 @@
    "kind": "Psychotherapy",
    "what": "First-line trauma therapy targeting distorted beliefs and “stuck points” — guilt and shame — after trauma.",
    "caution": "Psychotherapy, not medication, is first-line in PTSD.",
+   "zone": "therapeutics",
    "conditions": [
     "Post-traumatic stress disorder"
    ]
@@ -3678,6 +3983,7 @@
    "kind": "Psychotherapy",
    "what": "Gradual, repeated imaginal and in vivo exposure to trauma cues to reduce avoidance and allow habituation.",
    "caution": "Benzodiazepines interfere with the extinction learning this depends on.",
+   "zone": "therapeutics",
    "conditions": [
     "Post-traumatic stress disorder"
    ]
@@ -3688,6 +3994,7 @@
    "kind": "Psychotherapy",
    "what": "Bilateral stimulation, such as guided eye movements, while recalling the trauma, to reprocess and integrate fragmented memories.",
    "caution": "First-line for PTSD alongside CPT and PE.",
+   "zone": "therapeutics",
    "conditions": [
     "Post-traumatic stress disorder"
    ]
@@ -3698,6 +4005,7 @@
    "kind": "Psychotherapy",
    "what": "First-line psychological treatment for depression, anxiety, insomnia (CBT-I) and chronic pain.",
    "caution": "CBT-I outperforms hypnotics for chronic insomnia and its gains last.",
+   "zone": "therapeutics",
    "conditions": [
     "Adjustment disorder",
     "Anxiety",
@@ -3723,6 +4031,7 @@
    "kind": "Mind-body",
    "what": "Manages hyperarousal by engaging the parasympathetic nervous system and vagal tone, and downregulating the amygdala.",
    "caution": "Trauma-informed instruction matters — body-focused practice can be activating early in PTSD.",
+   "zone": "lifestyle",
    "conditions": [
     "Adjustment disorder",
     "Alopecia",
@@ -3749,6 +4058,7 @@
    "kind": "Nutrition",
    "what": "Whole foods, vegetables and fruit, whole grains, lean protein, olive oil, avocado and fatty fish. Lowers the pro-inflammatory cytokines raised in depression and bipolar disorder.",
    "caution": "The dietary pattern with the broadest evidence across the conditions in this index.",
+   "zone": "lifestyle",
    "conditions": [
     "Acne",
     "Amenorrhea",
@@ -3803,6 +4113,7 @@
    "kind": "Nutrition",
    "what": "Structured removal and reintroduction to identify food triggers; your mental health notes name gluten and wheat specifically for anxiety and depression.",
    "caution": "Time-limited and supervised — indefinite restriction causes its own harm.",
+   "zone": "lifestyle",
    "conditions": [
     "Allergic rhinitis",
     "Anxiety",
@@ -3837,6 +4148,7 @@
    "kind": "Nutrition",
    "what": "Removing refined sugar and eating regularly. Panic attacks arriving before meals point at blood glucose rather than at anxiety.",
    "caution": "Ask about meal timing before escalating an anxiolytic.",
+   "zone": "lifestyle",
    "conditions": [
     "Acne",
     "Anxiety",
@@ -3857,9 +4169,10 @@
   {
    "id": "caffeine_cut",
    "name": "Caffeine reduction",
-   "kind": "Lifestyle",
+   "kind": "Substance use",
    "what": "Caffeine directly raises anxiety, disturbs sleep and can destabilise mood.",
    "caution": "Taper rather than stop abruptly to avoid withdrawal headache.",
+   "zone": "lifestyle",
    "conditions": [
     "Anxiety",
     "Atrial fibrillation",
@@ -3871,9 +4184,10 @@
   {
    "id": "sleephyg",
    "name": "Sleep hygiene and circadian work",
-   "kind": "Lifestyle",
+   "kind": "Sleep",
    "what": "Fixed wake time, morning daylight, evening light restriction, and a wind-down routine.",
    "caution": "Fixing the wake time matters more than fixing the bedtime.",
+   "zone": "lifestyle",
    "conditions": [
     "Attention deficit disorder",
     "Autoimmune conditions",
@@ -3913,6 +4227,7 @@
    "kind": "Physical therapy",
    "what": "Relaxes and strengthens the muscles and ligaments of the pelvic floor in men and women to reduce pain and the symptoms that follow conditions such as the postpartum period. Your reflection names urinary incontinence and frequency in male patients, endometriosis and chronic pelvic pain in female patients, and constipation among the digestive complaints it helps. Supervised training beats unguided Kegels.",
    "caution": "An overactive pelvic floor needs downtraining, not strengthening; assess before prescribing exercises.",
+   "zone": "therapeutics",
    "conditions": [
     "Constipation",
     "Endometriosis",
@@ -3929,6 +4244,7 @@
    "kind": "Mind-body",
    "what": "Breathing with awareness of how the belly moves on the inhale and exhale. It reduces stress, builds awareness around breathing, and improves circulation to the abdomen and pelvis. To teach it: have the patient find a quiet place, sit or lie down, and rest one hand on the chest and one on the abdomen; a slow deep breath in as the belly inflates, then a slow exhale as the belly relaxes and flattens.",
    "caution": "The foundation of pelvic floor work — an overactive floor will not release while the breath is held high in the chest.",
+   "zone": "lifestyle",
    "conditions": [
     "Anxiety",
     "Asthma",
@@ -3945,6 +4261,7 @@
    "kind": "Lifestyle",
    "what": "Aerobic and resistance work — first-line or co-equal in depression, type 2 diabetes, hypertension, osteoporosis, chronic pain and fatigue.",
    "caution": "Start below capacity in post-exertional malaise; graded exercise can harm in ME/CFS.",
+   "zone": "lifestyle",
    "conditions": [
     "Abdominal aortic aneurysm",
     "Adjustment disorder",
@@ -4020,6 +4337,7 @@
    "kind": "Lifestyle",
    "what": "The most effective single measure in obstructive sleep apnoea, type 2 diabetes, knee osteoarthritis and fatty liver.",
    "caution": "Obesity is the most common risk factor for obstructive sleep apnoea.",
+   "zone": "lifestyle",
    "conditions": [
     "Atherosclerosis",
     "Atrial fibrillation",
@@ -4054,6 +4372,7 @@
    "kind": "Physical therapy",
    "what": "Graded loading, manipulation and mobilisation for back, neck and joint pain.",
    "caution": "Imaging first only where red flags are present.",
+   "zone": "therapeutics",
    "conditions": [
     "Back pain",
     "Chronic pain",
@@ -4074,6 +4393,7 @@
    "kind": "Physical medicine",
    "what": "Alternating hot and cold applications to modulate circulation, immune function and vagal tone.",
    "caution": "Avoid extremes in cardiovascular instability and neuropathy.",
+   "zone": "therapeutics",
    "conditions": [
     "Back pain",
     "Burns",
@@ -4084,7 +4404,9 @@
     "Neck and shoulder pain",
     "Osteoarthritis",
     "Paronychia",
+    "Raynaud's phenomenon",
     "Rheumatoid arthritis",
+    "Varicose veins",
     "Vertigo",
     "Wound healing"
    ]
@@ -4095,11 +4417,16 @@
    "kind": "Physical medicine",
    "what": "Evidence in chronic pain, migraine prophylaxis, chemotherapy-induced nausea and hot flushes.",
    "caution": "Choose a practitioner using single-use needles and clean technique.",
+   "zone": "therapeutics",
    "conditions": [
+    "Amenorrhea",
+    "Anxiety",
     "Back pain",
     "Chronic pain",
+    "Depression",
     "Dysmenorrhea",
     "Endometriosis",
+    "Fertility and preconception",
     "Fibromyalgia",
     "Menopause",
     "Migraine",
@@ -4114,6 +4441,7 @@
    "kind": "Device",
    "what": "10,000 lux for 20–30 minutes on waking in seasonal and non-seasonal depression and circadian disorder.",
    "caution": "Can trigger mania in bipolar disorder — introduce carefully and monitor.",
+   "zone": "therapeutics",
    "conditions": [
     "Depression"
    ]
@@ -4124,6 +4452,7 @@
    "kind": "Topical",
    "what": "High-volume, low-pressure rinsing for sinusitis and allergic rhinitis — one of the highest-yield simple measures.",
    "caution": "Distilled or previously boiled water only, never straight from the tap.",
+   "zone": "therapeutics",
    "conditions": [
     "Allergic rhinitis",
     "Common cold",
@@ -4138,6 +4467,7 @@
    "kind": "Physical medicine",
    "what": "Loosens secretions and eases upper airway irritation.",
    "caution": "Scald risk, especially with children.",
+   "zone": "therapeutics",
    "conditions": [
     "Bronchitis",
     "Common cold",
@@ -4161,6 +4491,7 @@
    "kind": "Device",
    "what": "Graduated compression stockings for varicose veins, venous insufficiency and oedema.",
    "caution": "Check the ankle-brachial index before compressing a limb with suspected arterial disease.",
+   "zone": "therapeutics",
    "conditions": [
     "Deep vein thrombosis",
     "Edema",
@@ -4174,7 +4505,9 @@
    "kind": "Physical medicine",
    "what": "Warm sitz baths for haemorrhoids, fissure and post-partum perineal pain.",
    "caution": "Pat dry; avoid prolonged soaking.",
+   "zone": "therapeutics",
    "conditions": [
+    "Benign prostatic hyperplasia",
     "Hemorrhoids",
     "Prostatitis",
     "Urinary tract infection",
@@ -4187,6 +4520,7 @@
    "kind": "Topical",
    "what": "Emollients, lukewarm short showers, soap substitutes — the base every eczema regimen is built on.",
    "caution": "Apply within minutes of bathing to trap moisture.",
+   "zone": "therapeutics",
    "conditions": [
     "Acne",
     "Alopecia",
@@ -4231,6 +4565,7 @@
    "kind": "Topical",
    "what": "Damp occlusive layers over emollient or topical steroid for severe eczema flares.",
    "caution": "Short courses under guidance.",
+   "zone": "therapeutics",
    "conditions": [
     "Eczema"
    ]
@@ -4241,6 +4576,7 @@
    "kind": "Device",
    "what": "Moderate to severe psoriasis and refractory eczema.",
    "caution": "Cumulative dose and skin cancer risk are tracked.",
+   "zone": "therapeutics",
    "conditions": [
     "Eczema",
     "Pityriasis rosea",
@@ -4253,6 +4589,7 @@
    "kind": "Psychotherapy",
    "what": "Adjustment disorder, grief, chronic illness adaptation, and the psychosocial layer of every chronic condition.",
    "caution": "Adjustment disorder resolves within six months of the stressor ending — that timeline is the diagnosis.",
+   "zone": "therapeutics",
    "conditions": [
     "Adjustment disorder",
     "Alopecia",
@@ -4293,6 +4630,7 @@
    "kind": "Psychosocial",
    "what": "Chronic illness, addiction and caregiver burden.",
    "caution": "Complements rather than replaces individual care.",
+   "zone": "lifestyle",
    "conditions": [
     "Adjustment disorder",
     "Atrial septal defect",
@@ -4314,6 +4652,7 @@
    "kind": "Mind-body",
    "what": "Slow paced breathing, humming, cold exposure and heart rate variability training.",
    "caution": "The mechanism behind much of the benefit of yoga and mindfulness in hyperarousal.",
+   "zone": "lifestyle",
    "conditions": [
     "Anxiety",
     "Chronic fatigue syndrome",
@@ -6023,7 +6362,10 @@
    "therapies": [
     "medi_diet",
     "counselling",
-    "exercise"
+    "exercise",
+    "castorpack",
+    "acupuncture",
+    "moxibustion"
    ],
    "labs": [
     "hormones_f",
@@ -6085,7 +6427,9 @@
     "exercise",
     "vagal",
     "elimdiet",
-    "diaphbreath"
+    "diaphbreath",
+    "massage",
+    "acupuncture"
    ],
    "labs": [
     "gad7",
@@ -6323,7 +6667,14 @@
     "exercise",
     "acupuncture",
     "cbt",
-    "hydrotherapy"
+    "hydrotherapy",
+    "adjustments",
+    "massage",
+    "tens",
+    "traction",
+    "ultrasound_tx",
+    "cupping",
+    "lasertherapy"
    ],
    "labs": [
     "mri_spine",
@@ -6346,7 +6697,8 @@
    ],
    "therapies": [
     "weightmgmt",
-    "exercise"
+    "exercise",
+    "sitzbath"
    ],
    "labs": [
     "psa",
@@ -6464,7 +6816,10 @@
     "sleephyg",
     "counselling",
     "medi_diet",
-    "vagal"
+    "vagal",
+    "infrared",
+    "lymphatic",
+    "massage"
    ],
    "labs": [
     "cbc",
@@ -6672,7 +7027,13 @@
     "exercise",
     "acupuncture",
     "mindfulness",
-    "hydrotherapy"
+    "hydrotherapy",
+    "massage",
+    "tens",
+    "cupping",
+    "lasertherapy",
+    "infrared",
+    "adjustments"
    ],
    "labs": [
     "crp",
@@ -6809,7 +7170,9 @@
     "mayanmassage",
     "medi_diet",
     "pelvicfloor",
-    "diaphbreath"
+    "diaphbreath",
+    "castorpack",
+    "massage"
    ],
    "labs": [
     "tsh",
@@ -7000,7 +7363,9 @@
     "medi_diet",
     "phototherapy",
     "sleephyg",
-    "counselling"
+    "counselling",
+    "massage",
+    "acupuncture"
    ],
    "labs": [
     "phq9",
@@ -7227,7 +7592,11 @@
     "mayanmassage",
     "exercise",
     "acupuncture",
-    "hydrotherapy"
+    "hydrotherapy",
+    "castorpack",
+    "infrared",
+    "tens",
+    "massage"
    ],
    "labs": [
     "pelvic_us",
@@ -7353,7 +7722,9 @@
    "therapies": [
     "compression",
     "exercise",
-    "weightmgmt"
+    "weightmgmt",
+    "lymphatic",
+    "massage"
    ],
    "labs": [
     "bnp",
@@ -7386,7 +7757,10 @@
     "pelvicfloor",
     "acupuncture",
     "cbt",
-    "diaphbreath"
+    "diaphbreath",
+    "castorpack",
+    "massage",
+    "tens"
    ],
    "labs": [
     "pelvic_us",
@@ -7454,7 +7828,10 @@
     "medi_diet",
     "weightmgmt",
     "counselling",
-    "remediation"
+    "remediation",
+    "castorpack",
+    "moxibustion",
+    "acupuncture"
    ],
    "labs": [
     "hormones_f",
@@ -7491,7 +7868,11 @@
     "sleephyg",
     "acupuncture",
     "hydrotherapy",
-    "mindfulness"
+    "mindfulness",
+    "massage",
+    "infrared",
+    "tens",
+    "lasertherapy"
    ],
    "labs": [
     "tsh",
@@ -7680,7 +8061,8 @@
    ],
    "therapies": [
     "medi_diet",
-    "weightmgmt"
+    "weightmgmt",
+    "castorpack"
    ],
    "labs": [
     "abdo_us",
@@ -7988,7 +8370,9 @@
     "sleephyg",
     "caffeine_cut",
     "exercise",
-    "vagal"
+    "vagal",
+    "massage",
+    "infrared"
    ],
    "labs": [
     "stopbang",
@@ -8050,7 +8434,8 @@
     "mayanmassage",
     "cbt",
     "exercise",
-    "mindfulness"
+    "mindfulness",
+    "castorpack"
    ],
    "labs": [
     "calpro",
@@ -8164,7 +8549,11 @@
     "exercise",
     "acupuncture",
     "glycemic",
-    "elimdiet"
+    "elimdiet",
+    "adjustments",
+    "massage",
+    "tens",
+    "guasha"
    ],
    "labs": [
     "bp_home",
@@ -8243,7 +8632,14 @@
     "physio",
     "exercise",
     "acupuncture",
-    "hydrotherapy"
+    "hydrotherapy",
+    "adjustments",
+    "massage",
+    "cupping",
+    "guasha",
+    "tens",
+    "traction",
+    "kinesiotape"
    ],
    "labs": [
     "xray_joint",
@@ -8302,7 +8698,12 @@
     "physio",
     "weightmgmt",
     "acupuncture",
-    "hydrotherapy"
+    "hydrotherapy",
+    "ultrasound_tx",
+    "lasertherapy",
+    "tens",
+    "infrared",
+    "massage"
    ],
    "labs": [
     "xray_joint",
@@ -8329,7 +8730,8 @@
    "therapies": [
     "exercise",
     "medi_diet",
-    "weightmgmt"
+    "weightmgmt",
+    "adjustments"
    ],
    "labs": [
     "dexa",
@@ -8474,7 +8876,9 @@
     "medi_diet",
     "cbt",
     "glycemic",
-    "caffeine_cut"
+    "caffeine_cut",
+    "castorpack",
+    "massage"
    ],
    "labs": [
     "tsh",
@@ -8574,7 +8978,9 @@
    "therapies": [
     "exercise",
     "smokingcess",
-    "vagal"
+    "vagal",
+    "infrared",
+    "hydrotherapy"
    ],
    "labs": [
     "ana",
@@ -8602,7 +9008,10 @@
     "exercise",
     "physio",
     "medi_diet",
-    "hydrotherapy"
+    "hydrotherapy",
+    "infrared",
+    "lasertherapy",
+    "massage"
    ],
    "labs": [
     "rf_ccp",
@@ -8734,7 +9143,9 @@
    "therapies": [
     "compression",
     "exercise",
-    "weightmgmt"
+    "weightmgmt",
+    "lymphatic",
+    "hydrotherapy"
    ],
    "labs": [
     "venous_us",
@@ -8785,7 +9196,9 @@
    "therapies": [
     "dermcare",
     "medi_diet",
-    "hydrotherapy"
+    "hydrotherapy",
+    "lasertherapy",
+    "infrared"
    ],
    "labs": [
     "cbc",
@@ -9668,7 +10081,8 @@
     "lymphatic",
     "sinusrinse",
     "medi_diet",
-    "counselling"
+    "counselling",
+    "infrared"
    ],
    "labs": [
     "mycotoxin",
@@ -12448,7 +12862,8 @@
     "weightmgmt",
     "exercise",
     "medi_diet",
-    "glycemic"
+    "glycemic",
+    "castorpack"
    ],
    "labs": [
     "lft",

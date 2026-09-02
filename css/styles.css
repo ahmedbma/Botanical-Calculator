@@ -718,3 +718,6 @@ td.herb input{min-width:190px}
 .txform a{color:var(--accent);font-weight:600}
 .txlink{appearance:none;border:0;background:none;padding:0;font:inherit;font-weight:600;color:var(--accent);
   cursor:pointer;text-decoration:underline}
+.txpill.life{border-left:3px dotted var(--accent-soft)}
+.txpill.bot{border-left:3px double var(--accent)}
+#bot-box .txlist{margin-top:.5rem}
