@@ -5785,7 +5785,8 @@
     "Fatigue and low energy",
     "Insomnia",
     "Post-traumatic stress disorder"
-   ]
+   ],
+   "form": "phq9"
   },
   {
    "id": "gad7",
@@ -5798,7 +5799,8 @@
     "Anxiety",
     "Insomnia",
     "Post-traumatic stress disorder"
-   ]
+   ],
+   "form": "gad7"
   },
   {
    "id": "mdq",

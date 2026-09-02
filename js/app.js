@@ -2141,6 +2141,21 @@
       ip.innerHTML = '<span class="txlab alt">reading it</span> ' + highlight(x.interpret, q);
       card.appendChild(ip);
     }
+    if (x.form) {
+      var fl = el('p', 'txform');
+      var a = el('a', null, 'Blank form (PDF)');
+      a.href = 'assets/' + x.form + '.pdf';
+      a.setAttribute('download', x.name + '.pdf');
+      fl.appendChild(a);
+      fl.appendChild(document.createTextNode(' \u00b7 '));
+      var jump = el('button', 'txlink', 'score it in the tab');
+      jump.addEventListener('click', function () {
+        var box = $('#labs-screeners');
+        if (box) { box.open = true; box.scrollIntoView({ block: 'start' }); }
+      });
+      fl.appendChild(jump);
+      card.appendChild(fl);
+    }
     if (x.caution) {
       var c = el('p', 'txcaution' + (/AVOID|contraindicat|Absolutely|boxed/i.test(x.caution) ? ' hard' : ''));
       c.innerHTML = '<span class="txlab warn">caution</span> ' + highlight(x.caution, q);
@@ -2388,6 +2403,152 @@
     });
     det.appendChild(body);
     return det;
+  }
+
+  /* ---- PHQ-9 and GAD-7, scored in place ----
+     The instruments themselves; the blank forms live in assets/ as PDFs. Answers
+     stay in this browser and are never sent anywhere. */
+  var SCREENERS = (window.SCREENER_DATA || { instruments: [] }).instruments;
+
+  function scrnBand(inst, total) {
+    for (var i = 0; i < inst.bands.length; i++) {
+      if (total >= inst.bands[i].min) return inst.bands[i];
+    }
+    return inst.bands[inst.bands.length - 1];
+  }
+  function scrnLoad(id) { return (load('screeners') || {})[id] || {}; }
+  function scrnSave(id, state) {
+    var all = load('screeners') || {};
+    all[id] = state;
+    save('screeners', all);
+  }
+
+  function buildScreener(inst) {
+    var wrap = el('section', 'scrn');
+    var head = el('div', 'scrn-head');
+    var title = el('div');
+    var h = el('h4', null, inst.name);
+    h.appendChild(el('span', 'scrn-full', inst.full));
+    title.appendChild(h);
+    title.appendChild(el('p', 'scrn-measures', inst.measures));
+    head.appendChild(title);
+
+    var tally = el('div', 'scrn-tally');
+    var score = el('span', 'scrn-score', '0');
+    var outof = el('span', 'scrn-outof', '/ ' + inst.max);
+    var band = el('span', 'scrn-band', '');
+    tally.appendChild(score); tally.appendChild(outof); tally.appendChild(band);
+    head.appendChild(tally);
+    wrap.appendChild(head);
+
+    var dl = el('a', 'btn ghost scrn-dl', 'Download the blank form (PDF)');
+    dl.href = 'assets/' + inst.id + '.pdf';
+    dl.setAttribute('download', inst.name + '.pdf');
+    dl.setAttribute('type', 'application/pdf');
+    var acts = el('div', 'actions');
+    acts.appendChild(dl);
+    var clear = el('button', 'btn ghost danger', 'Clear answers');
+    acts.appendChild(clear);
+    wrap.appendChild(acts);
+
+    wrap.appendChild(el('p', 'scrn-prompt', inst.prompt));
+
+    var state = scrnLoad(inst.id);
+    var advice = el('p', 'scrn-advice');
+    var alarm = el('p', 'scrn-alarm');
+    alarm.hidden = true;
+    var buttons = [];
+
+    function recount() {
+      var total = 0, answered = 0;
+      inst.items.forEach(function (_, i) {
+        if (state[i] != null) { total += state[i]; answered++; }
+      });
+      score.textContent = String(total);
+      outof.textContent = '/ ' + inst.max +
+        (answered && answered < inst.items.length ? ' · ' + answered + ' of ' + inst.items.length + ' answered' : '');
+      var b = scrnBand(inst, total);
+      band.textContent = answered ? b.label : 'nothing answered yet';
+      band.className = 'scrn-band' + (!answered ? ' none'
+        : total >= inst.bands[0].min ? ' high'
+        : total >= inst.bands[1].min ? ' mid' : ' low');
+      advice.textContent = answered ? b.advice : '';
+      // Item 9 of the PHQ-9 asks about self-harm; a positive answer outranks the total.
+      var flagged = inst.alarmItem != null && state[inst.alarmItem] > 0;
+      alarm.hidden = !flagged;
+      if (flagged) alarm.textContent = inst.alarm;
+      wrap.classList.toggle('flagged', !!flagged);
+    }
+
+    inst.items.forEach(function (text, i) {
+      var row = el('div', 'scrn-item' + (i === inst.alarmItem ? ' key' : ''));
+      var q = el('div', 'scrn-q');
+      q.appendChild(el('span', 'scrn-n', String(i + 1)));
+      q.appendChild(el('span', null, text));
+      row.appendChild(q);
+      var seg = el('div', 'seg scrn-seg');
+      seg.setAttribute('role', 'group');
+      seg.setAttribute('aria-label', inst.name + ' item ' + (i + 1));
+      inst.options.forEach(function (opt) {
+        var b = el('button', 'segbtn', String(opt[1]));
+        b.title = opt[0];
+        b.addEventListener('click', function () {
+          if (state[i] === opt[1]) delete state[i]; else state[i] = opt[1];
+          $$('.segbtn', seg).forEach(function (o, k) {
+            o.classList.toggle('is-on', inst.options[k][1] === state[i]);
+          });
+          scrnSave(inst.id, state);
+          recount();
+        });
+        if (state[i] === opt[1]) b.classList.add('is-on');
+        seg.appendChild(b);
+      });
+      row.appendChild(seg);
+      buttons.push(seg);
+      wrap.appendChild(row);
+    });
+
+    var key = el('p', 'scrn-key');
+    key.textContent = inst.options.map(function (o) { return o[1] + ' = ' + o[0]; }).join('  ·  ');
+    wrap.appendChild(key);
+
+    wrap.appendChild(alarm);
+    wrap.appendChild(advice);
+
+    var fn = el('details', 'scrn-fn');
+    fn.appendChild(el('summary', null, 'Functional impairment question'));
+    fn.appendChild(el('p', null, inst.functional.prompt));
+    var fl = el('ul', 'footnotes');
+    inst.functional.options.forEach(function (o) { fl.appendChild(el('li', null, o)); });
+    fn.appendChild(fl);
+    wrap.appendChild(fn);
+
+    var notes = el('ul', 'footnotes scrn-notes');
+    inst.notes.forEach(function (n) { notes.appendChild(el('li', null, n)); });
+    wrap.appendChild(notes);
+    wrap.appendChild(el('p', 'scrn-attrib', inst.attribution));
+
+    clear.addEventListener('click', function () {
+      Object.keys(state).forEach(function (k) { delete state[k]; });
+      scrnSave(inst.id, state);
+      buttons.forEach(function (seg) {
+        $$('.segbtn', seg).forEach(function (b) { b.classList.remove('is-on'); });
+      });
+      recount();
+    });
+
+    recount();
+    return wrap;
+  }
+
+  function buildScreeners() {
+    var host = $('#scrn-host');
+    if (!host) return;
+    host.innerHTML = '';
+    host.appendChild(el('p', 'scrn-intro',
+      'Answers stay in this browser and are never sent anywhere. The blank form on each instrument is the ' +
+      'one to hand a patient; scoring it here is for your own working.'));
+    SCREENERS.forEach(function (inst) { host.appendChild(buildScreener(inst)); });
   }
 
   /* ---- medication suffixes ---- */
@@ -3118,6 +3279,7 @@
     renderSupps();
     renderLabs();
     renderSuffixes();
+    buildScreeners();
     buildWomensNotes();
 
     hxRenderPick();
