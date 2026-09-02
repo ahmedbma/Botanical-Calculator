@@ -42,8 +42,6 @@
 <section id="panel-tincture" class="panel" role="tabpanel">
   <div class="card">
     <h2>Liquid Extract (Tincture) Formulator</h2>
-    <p class="hint">Enter the dose, frequency and duration, then list the herbs and their share of the formula.
-      The calculator works out how much of each extract to pour, the herb-equivalent dry weight per dose, and the running pour order.</p>
 
     <div class="meta-grid">
       <label>Formula name<input type="text" id="t-formula" placeholder="e.g. Sleep support"></label>
@@ -135,8 +133,6 @@
 <section id="panel-tea" class="panel" hidden role="tabpanel">
   <div class="card">
     <h2>Tea Formulator</h2>
-    <p class="hint">Dry herb densities vary a great deal. Pick an herb to pull its measured density, or choose a plant part
-      for a generic value.</p>
 
     <div class="meta-grid">
       <label>Formula name<input type="text" id="te-formula" placeholder="e.g. Digestive tea"></label>
@@ -219,7 +215,7 @@
 <section id="panel-dose" class="panel" hidden role="tabpanel">
   <div class="card narrow">
     <h2>Dose per Herb Calculator</h2>
-    <p class="hint">How much of one herb a patient actually receives from a combination formula.</p>
+    
     <div class="input-grid">
       <label>Amount per dose (ml)<input type="number" id="d-ml" min="0" step="0.1" value="5"></label>
       <label>Doses per day<input type="number" id="d-freq" min="0" step="1" value="3"></label>
@@ -236,8 +232,7 @@
 <section id="panel-lowdose" class="panel" hidden role="tabpanel">
   <div class="card">
     <h2>Maximum Doses — Low-Dose Botanicals</h2>
-    <p class="hint">Upper limits for low-dose (potentially toxic) herbs. Doses vary with the patient, the dilution and the
-      potency of the batch; treat every figure as approximate.</p>
+    
     <label class="search">Filter<input type="search" id="ld-search" placeholder="Search by name…"></label>
     <div class="tablewrap">
       <table id="ld-table">
@@ -262,18 +257,7 @@
 <section id="panel-conditions" class="panel" hidden role="tabpanel">
   <div class="card">
     <h2>Herbs by Condition</h2>
-    <div class="provenance">
-      <strong>Not from your workbook.</strong> The Yarnell Formulator Tool contains no condition-to-herb
-      mapping. Which conditions appear here follows naturopathic practice-pattern research; the herbs and
-      rationale come from general Western herbal and naturopathic materia medica. Both are cited under
-      <em>Where this comes from</em> below. Treat every entry as a <em>starting point for formula design</em>
-      that you verify against your own references &mdash; not as a protocol, and not with the authority of
-      the dosing data in the other tabs.
-    </div>
-    <p class="hint">Search a condition, a synonym, a body system or a herb &mdash; <em>endometriosis</em>,
-      <em>GERD</em>, <em>reflux</em>, <em>asthma</em>, <em>Vitex</em> all work.
-      <strong>ND top 30</strong> and the niche filters narrow the list; sort A&ndash;Z or by how often
-      the condition is seen in naturopathic practice.</p>
+
     <label class="search"><span class="vh">Search conditions</span>
       <input type="search" id="cx-search" placeholder="Search conditions, synonyms or herbs&hellip;">
     </label>
@@ -289,6 +273,7 @@
 
     <details class="srcnote">
       <summary>Where this comes from</summary>
+      <p><strong>Not from your workbook.</strong> The Yarnell Formulator Tool contains no condition-to-herb mapping. Which conditions appear here follows naturopathic practice-pattern research; the herbs and rationale come from general Western herbal and naturopathic materia medica. Both are cited under <em>Where this comes from</em> below. Treat every entry as a <em>starting point for formula design</em> that you verify against your own references &mdash; not as a protocol, and not with the authority of the dosing data in the other tabs.</p>
       <p><strong>Herb selection and rationale:</strong> general Western herbal and naturopathic materia
         medica, cross-linked to this tool's own herb reference. Not from the Yarnell workbook, and not
         independently peer reviewed &mdash; verify against your own references before clinical use.</p>
@@ -314,20 +299,6 @@
 <section id="panel-homeo" class="panel" hidden role="tabpanel">
   <div class="card">
     <h2>Homeopathic Remedy Differentiator</h2>
-    <div class="provenance">
-      <strong>A study tool, not a treatment plan &mdash; and not evidence-based medicine.</strong>
-      Homeopathic remedies at potency contain no measurable active substance, and systematic reviews
-      have not found them to work beyond placebo. Nothing here is a diagnosis or a substitute for
-      medical care. Anyone with a high fever, breathing difficulty, severe or worsening pain, a head
-      injury, a wound that will not stop bleeding, a stiff neck with a rash, dehydration in a child,
-      or any symptom that frightens them should be seen by a clinician now. Use this as a way to
-      learn and compare classical remedy pictures, and verify every result against a proper materia
-      medica and repertory.
-    </div>
-    <p class="hint">Pick the presenting complaint. The tool then asks the questions that best separate
-      the remedies still in play &mdash; onset, thermal state, thirst, time, modalities and the state of
-      the mind &mdash; choosing each next question for how much it discriminates, and stopping once one
-      remedy has pulled clear.</p>
 
     <!-- step 1: choose the condition -->
     <div id="hx-pick">
@@ -382,6 +353,7 @@
 
     <details class="srcnote">
       <summary>How the tool decides, and where the material comes from</summary>
+      <p><strong>A study tool, not a treatment plan &mdash; and not evidence-based medicine.</strong> Homeopathic remedies at potency contain no measurable active substance, and systematic reviews have not found them to work beyond placebo. Nothing here is a diagnosis or a substitute for medical care. Anyone with a high fever, breathing difficulty, severe or worsening pain, a head injury, a wound that will not stop bleeding, a stiff neck with a rash, dehydration in a child, or any symptom that frightens them should be seen by a clinician now. Use this as a way to learn and compare classical remedy pictures, and verify every result against a proper materia medica and repertory.</p>
       <p><strong>The method.</strong> It follows the approach of C.M. Boger's
         <em>A Synoptic Key of the Materia Medica</em> (1915, public domain): rank the generals &mdash;
         manner of onset, thermal reaction, thirst, time of aggravation, what motion, pressure, open air
@@ -418,8 +390,7 @@
 
   <div class="card">
     <h2>Remedy Reference</h2>
-    <p class="hint">Every remedy in the differentiator, with its keynote and confirmatory generals.
-      Search by name, common name or symptom.</p>
+    
     <label class="search">Search<input type="search" id="hr2-search" placeholder="e.g. restless, midnight, Bryonia&hellip;"></label>
     <p class="count" id="hr2-count"></p>
     <div id="hr2-results" class="cards"></div>
@@ -430,20 +401,7 @@
 <section id="panel-exams" class="panel" hidden role="tabpanel">
   <div class="card">
     <h2>Physical Exams &amp; Diagnoses</h2>
-    <div class="provenance">
-      <strong>From your PED coursework, not the workbook.</strong> The exam steps and the normal-findings
-      wording are transcribed from your own Physical Exam &amp; Diagnosis notes &mdash; the head-to-toe
-      objectives, the respiratory, cardiovascular and abdominal exam charts, the MSK, neuro and orthopaedic
-      study guides, the review of systems intake form, and the female and male objective charts &mdash; and the cardiovascular exam carries the NMS3 competency checklist it
-      is graded against, from the BU SNM Student Clinic Handbook. The <em>technique</em> lines and the
-      <em>what an abnormal finding suggests</em> tables were written for this tool from standard
-      physical-diagnosis teaching; they are not in your notes and are not peer reviewed. Treat them as study
-      prompts for a differential, never as a diagnosis.
-    </div>
-    <p class="hint">Grouped by type of exam. Open one for the sequence to perform, the wording to document a
-      normal finding, and what the abnormal version of that finding points to. Search a manoeuvre, a body
-      part, a sign or a diagnosis &mdash; <em>Romberg</em>, <em>McBurney</em>, <em>tympanic</em>,
-      <em>appendicitis</em> all work.</p>
+
     <label class="search"><span class="vh">Search physical exams</span>
       <input type="search" id="pe-search" placeholder="Search exams, manoeuvres, findings&hellip;">
     </label>
@@ -459,6 +417,7 @@
 
     <details class="srcnote">
       <summary>Where this comes from, and what was changed</summary>
+      <p><strong>From your PED coursework, not the workbook.</strong> The exam steps and the normal-findings wording are transcribed from your own Physical Exam &amp; Diagnosis notes &mdash; the head-to-toe objectives, the respiratory, cardiovascular and abdominal exam charts, the MSK, neuro and orthopaedic study guides, the review of systems intake form, and the female and male objective charts &mdash; and the cardiovascular exam carries the NMS3 competency checklist it is graded against, from the BU SNM Student Clinic Handbook. The <em>technique</em> lines and the <em>what an abnormal finding suggests</em> tables were written for this tool from standard physical-diagnosis teaching; they are not in your notes and are not peer reviewed. Treat them as study prompts for a differential, never as a diagnosis.</p>
       <p><strong>Exam sequence and normal findings:</strong> transcribed from the ten PED documents listed
         in the banner. The normal wording is kept close to the source so the write-up view reproduces what
         you would actually chart; light edits fix spelling, expand abbreviations on first use and make the
@@ -495,8 +454,7 @@
 <section id="panel-pharm" class="panel" hidden role="tabpanel">
   <div class="card">
     <h2>Pharmaceuticals</h2>
-    <div class="provenance"><strong>A reference, not a prescribing guide.</strong> Each entry gives the drug class, what it is used for and the cautions and interactions that change a decision &mdash; and deliberately gives no doses. Dosing belongs to a current formulary and the patient in front of you. Written for this tool from standard references and from your respiratory therapeutics and mental health coursework; not peer reviewed. Herb&ndash;drug interactions are flagged where they matter.</div>
-    <p class="hint">Filter by class, or switch to <strong>By condition</strong> to see what is indicated for each condition in the index. Search a drug, a class, a condition or an interaction &mdash; <em>montelukast</em>, <em>LAMA</em>, <em>asthma</em>, <em>serotonin syndrome</em> all work.</p>
+
     <label class="search"><span class="vh">Search Pharmaceuticals</span>
       <input type="search" id="pharm-search" placeholder="Search drugs, classes, conditions&hellip;">
     </label>
@@ -523,6 +481,7 @@
 
     <details class="srcnote">
       <summary>Where this comes from</summary>
+      <p><strong>A reference, not a prescribing guide.</strong> Each entry gives the drug class, what it is used for and the cautions and interactions that change a decision &mdash; and deliberately gives no doses. Dosing belongs to a current formulary and the patient in front of you. Written for this tool from standard references and from your respiratory therapeutics and mental health coursework; not peer reviewed. Herb&ndash;drug interactions are flagged where they matter.</p>
       <p><strong>Written for this tool</strong> from standard pharmacology, nutritional and naturopathic
         references, and from the coursework listed in the banner &mdash; the mental health study guide, the
         respiratory therapeutics quizzes, the mould and mycotoxin lecture, the Mayan abdominal massage
@@ -541,8 +500,7 @@
 <section id="panel-supps" class="panel" hidden role="tabpanel">
   <div class="card">
     <h2>Supplements</h2>
-    <div class="provenance"><strong>Organised by the conditions they are indicated for.</strong> Typical adult dose ranges, the mechanism, and the cautions &mdash; including which supplements must be avoided in which patients. Doses marked as coming from your notes carry the figures your mental health study guide and mould lecture give. Written for this tool from standard nutritional and naturopathic references; not peer reviewed, and no substitute for checking each one against the patient&rsquo;s medication list.</div>
-    <p class="hint">Filter by group, or switch to <strong>By condition</strong>. Search a supplement, a condition or a caution &mdash; <em>magnesium</em>, <em>bipolar</em>, <em>PectaSol</em>, <em>anticoagulant</em> all work.</p>
+
     <label class="search"><span class="vh">Search Supplements</span>
       <input type="search" id="supps-search" placeholder="Search supplements, conditions, cautions&hellip;">
     </label>
@@ -557,6 +515,7 @@
     <div id="supps-results" class="txlist"></div>
     <details class="srcnote">
       <summary>Where this comes from</summary>
+      <p><strong>Organised by the conditions they are indicated for.</strong> Typical adult dose ranges, the mechanism, and the cautions &mdash; including which supplements must be avoided in which patients. Doses marked as coming from your notes carry the figures your mental health study guide and mould lecture give. Written for this tool from standard nutritional and naturopathic references; not peer reviewed, and no substitute for checking each one against the patient&rsquo;s medication list.</p>
       <p><strong>Written for this tool</strong> from standard pharmacology, nutritional and naturopathic
         references, and from the coursework listed in the banner &mdash; the mental health study guide, the
         respiratory therapeutics quizzes, the mould and mycotoxin lecture, the Mayan abdominal massage
@@ -575,8 +534,7 @@
 <section id="panel-labs" class="panel" hidden role="tabpanel">
   <div class="card">
     <h2>Labs &amp; Imaging</h2>
-    <div class="provenance"><strong>What to run, and what the result means.</strong> Blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels &mdash; each with the reason to order it and how to read it. The same tests are attached to every abnormal finding in the Physical Exams tab and to every condition in the Conditions tab. Written for this tool from standard references and from your coursework; not peer reviewed.</div>
-    <p class="hint">Filter by kind, or switch to <strong>By condition</strong>. Search a test, a condition or a finding &mdash; <em>spirometry</em>, <em>ferritin</em>, <em>mycotoxin</em>, <em>pulmonary embolism</em> all work.</p>
+
     <label class="search"><span class="vh">Search Labs &amp; Imaging</span>
       <input type="search" id="labs-search" placeholder="Search tests, conditions, findings&hellip;">
     </label>
@@ -591,6 +549,7 @@
     <div id="labs-results" class="txlist"></div>
     <details class="srcnote">
       <summary>Where this comes from</summary>
+      <p><strong>What to run, and what the result means.</strong> Blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels &mdash; each with the reason to order it and how to read it. The same tests are attached to every abnormal finding in the Physical Exams tab and to every condition in the Conditions tab. Written for this tool from standard references and from your coursework; not peer reviewed.</p>
       <p><strong>Written for this tool</strong> from standard pharmacology, nutritional and naturopathic
         references, and from the coursework listed in the banner &mdash; the mental health study guide, the
         respiratory therapeutics quizzes, the mould and mycotoxin lecture, the Mayan abdominal massage
@@ -610,7 +569,7 @@
 <section id="panel-herbs" class="panel" hidden role="tabpanel">
   <div class="card">
     <h2>Herb Reference</h2>
-    <p class="hint">Search by Latin or common name, plant part or action.</p>
+    
     <label class="search">Search<input type="search" id="hr-search" placeholder="e.g. nervine, root, Valeriana…"></label>
     <div class="chips" id="hr-filters">
       <button class="chip is-on" data-f="all">All</button>
@@ -670,7 +629,6 @@
      practice. Nothing here is a diagnosis &mdash; anyone whose symptoms are severe, worsening or
      frightening should be seen by a clinician.</p>
 </footer>
-
 
 <script src="js/herbdata.js"></script>
 <script src="js/homeopathydata.js"></script>

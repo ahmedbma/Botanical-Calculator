@@ -2108,7 +2108,7 @@
   TX.labs.forEach(function (x) { x._hay = txHay(x, LAB_KIND_LABEL[x.kind]); });
 
   // One card shape for all four datasets; the fields differ, the layout does not.
-  function txCard(x, set, q) {
+  function txCard(x, set, q, showConds) {
     var card = el('article', 'txcard');
     var head = el('div', 'txhead');
     var nm = el('h4');
@@ -2146,7 +2146,7 @@
       c.innerHTML = '<span class="txlab warn">caution</span> ' + highlight(x.caution, q);
       card.appendChild(c);
     }
-    if ((x.conditions || []).length) {
+    if (showConds && (x.conditions || []).length) {
       var cw = el('div', 'txconds');
       x.conditions.forEach(function (name) {
         var chip = el('button', 'txchip', name);
@@ -2254,7 +2254,7 @@
           var wrap = el('div', 'txgrid');
           ids.forEach(function (i) {
             var item = TX_IDX[cfg.set][i];
-            if (item) wrap.appendChild(txCard(item, cfg.set, state.q));
+            if (item) wrap.appendChild(txCard(item, cfg.set, state.q, true));
           });
           if (TXBY[cond].note) {
             var nt = el('p', 'txnote');
@@ -2275,7 +2275,7 @@
 
       var grid = el('div', 'txgrid');
       list.slice().sort(function (a, b) { return a.name.toLowerCase().localeCompare(b.name.toLowerCase()); })
-        .forEach(function (x) { grid.appendChild(txCard(x, cfg.set, state.q)); });
+        .forEach(function (x) { grid.appendChild(txCard(x, cfg.set, state.q)); });   // A-Z: no condition list
       frag.appendChild(grid);
       out.appendChild(frag);
       if (!list.length) out.appendChild(el('p', 'count', 'Nothing matches that.'));
