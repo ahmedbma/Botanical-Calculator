@@ -17,13 +17,12 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | **Tea Formulator** | Build a dry-herb tea. Gives tsp and grams per cup, grams per day, and grams/oz to dispense, using measured dry-herb densities. |
 | **Dose per Herb** | Work out how much of a single herb a patient actually receives from a combination formula, in ml, gtt and mg of dry-herb equivalent. |
 | **Low-Dose Reference** | Maximum single, chronic-daily and acute-daily doses for 31 low-dose (potentially toxic) botanicals. |
-| **Conditions** | 75 conditions A–Z, each with 4–7 herbs, why each is indicated, clinical cautions, the pharmaceuticals, supplements, therapies and labs indicated for it, and — for 40 of them — a full dosed treatment protocol. Searchable by condition, synonym (`reflux` → GERD, `TATT` → fatigue, `long covid` → CFS), niche, herb or action. Filter to the 30 seen most in ND practice or to one of eight clinical niches; sort A–Z or by ND frequency. |
+| **Conditions** | 75 conditions A–Z plus 77 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, therapies and labs indicated for it, a dosed treatment protocol for 40 of them, and the sections of your own notes that describe it. |
 | **Homeopathy** | A remedy differentiator over 148 classical remedies and 42 presenting complaints. Pick the complaint; it asks the questions that best separate the remedies still in contention, and ranks them with the reasoning shown. Includes a searchable remedy reference. |
 | **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. |
 | **Pharmaceuticals** | 106 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
 | **Supplements** | 97 supplements and 43 non-drug therapies — typical dose ranges, mechanisms, and the cautions that matter, including which supplements must be avoided in which patients. Organised A–Z or by condition. |
 | **Labs & Imaging** | 99 tests across blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels — why you would order each and how to read it. The same tests hang off every abnormal exam finding and every condition. |
-| **Study Notes** | Four reference documents kept whole and made searchable — the pediatric dermatology study guide, the respiratory therapeutics cheat sheet, the pediatrics final cheat sheet and the women's herbs formulating notes. 121 sections, searchable across all four at once. |
 | **Herb Reference** | 396 herbs — Latin and common names, plant part, actions, available dose forms, dispensary availability, tea density and substitutes, plus **pregnancy and lactation safety** for the 205 that carry a rating and a **women's herbs monograph** for 15 of them. Filter to what to avoid in pregnancy or lactation, or to what has evidence of safety. |
 
 ### Beyond the spreadsheet
@@ -70,7 +69,7 @@ be kept up for more than a few days.
 ## Project layout
 
 ```
-index.html               markup for all twelve tools
+index.html               markup for all eleven tools
 css/styles.css           styling, light/dark, print rules
 js/herbdata.js           herbal reference data as a global (works from file://)
 js/homeopathydata.js     homeopathic remedy data as a global
@@ -174,20 +173,27 @@ what is missing. A group with no steps is skipped in the write-up view, since th
 
 Where an exam raises a condition the **Conditions** index already covers, the tab links straight across to it.
 
-### Women's herbs and the study notes
+### Reference notes, filed under the conditions they describe
 
-**Fifteen monographs** from the women's herbs lecture — actions and uses, major constituents, focus points,
-safety concerns and dosing, as the lecture lays them out. Eleven resolve to herbs already in the reference
-and appear as a monograph block on their card.
+**Every section of the three revision documents reads inside the condition it is about.** The pediatric
+dermatology final study guide, the respiratory therapeutics exam cheat sheet and the pediatrics final cheat
+sheet contributed 112 sections across 62 conditions, each opening as *From your notes* under the herbs, the
+protocol and the therapeutics for that condition. The text is kept exactly as written — nothing was
+rewritten or added to — and it is searchable from the Conditions tab, so `Kawasaki`, `cradle cap`, `tet
+spells` and `Berlin` all find their condition.
 
-**Four documents are kept whole rather than parsed apart.** Where a document is a structured dataset — a
-protocol, an exam, a safety table — it has been turned into the tab it belongs to. These four are reference
-and revision material, so the **Study Notes** tab keeps them section by section, exactly as written, and
-makes them searchable across all four at once: the pediatric dermatology final study guide (50 sections,
-each condition running aetiology → presentation → naturopathic treatment → homeopathy → conventional
-treatment and red flags), the respiratory therapeutics exam cheat sheet (25), the pediatrics final cheat
-sheet (37), and the women's herbs formulating notes (9) on biphasic formulas, liver herbs, phytoestrogens,
-prolactin, the viburnums and the anodynes. Nothing in that tab has been rewritten or added to.
+**Conditions the herb index does not carry became topics.** There are 77 of them now — measles, impetigo,
+scabies, tetralogy of Fallot, Kawasaki disease, pneumothorax and the rest. They render in the Conditions tab
+as conditions without a herb grid, badged *topic*, with their own **Topics** filter chip.
+
+**The approach sections became an exam.** How to take a dermatological history in a child, examine, describe
+a lesion, investigate and when to worry is a physical exam, so it is the **Pediatric Skin Evaluation** in the
+Physical Exams tab.
+
+**Fifteen women's herb monographs** — actions and uses, major constituents, focus points, safety concerns and
+dosing, as the lecture lays them out. Eleven resolve to herbs already in the reference and appear as a
+monograph block on their card; the nine teaching pages that follow them sit under the Herb Reference as
+*Women's herbs — formulating notes*.
 
 ### Pregnancy and lactation safety
 

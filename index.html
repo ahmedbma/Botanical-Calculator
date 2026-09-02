@@ -33,7 +33,6 @@
   <button role="tab" class="tab" data-panel="pharm" aria-selected="false">Pharmaceuticals</button>
   <button role="tab" class="tab" data-panel="supps" aria-selected="false">Supplements</button>
   <button role="tab" class="tab" data-panel="labs" aria-selected="false">Labs &amp; Imaging</button>
-  <button role="tab" class="tab" data-panel="notes" aria-selected="false">Study Notes</button>
   <button role="tab" class="tab" data-panel="herbs" aria-selected="false">Herb Reference</button>
 </nav>
 
@@ -607,27 +606,6 @@
   </div>
 </section>
 
-<!-- ==================== STUDY NOTES ==================== -->
-<section id="panel-notes" class="panel" hidden role="tabpanel">
-  <div class="card">
-    <h2>Study Notes</h2>
-    <div class="provenance">
-      <strong>Your own reference documents, kept whole.</strong> Where a document is a structured dataset
-      &mdash; a protocol, an exam, a safety table &mdash; it has been parsed into the tab it belongs to.
-      These four are reference and revision material, so they are kept as they were written, section by
-      section, and made searchable. Nothing here has been rewritten or added to.
-    </div>
-    <p class="hint">Search across every document at once &mdash; <em>Kawasaki</em>, <em>GOLD</em>,
-      <em>impetigo</em>, <em>biphasic</em> all work. Pick a document to narrow the search to it.</p>
-    <label class="search"><span class="vh">Search study notes</span>
-      <input type="search" id="sn-search" placeholder="Search every document&hellip;">
-    </label>
-    <div class="chips" id="sn-filters"></div>
-    <p class="count" id="sn-count"></p>
-    <div id="sn-results" class="snlist"></div>
-  </div>
-</section>
-
 <!-- ============================ HERB REFERENCE ============================ -->
 <section id="panel-herbs" class="panel" hidden role="tabpanel">
   <div class="card">
@@ -645,6 +623,13 @@
     </div>
     <p class="count" id="hr-count"></p>
     <div id="hr-results" class="cards"></div>
+
+    <details class="srcnote" id="womens-notes">
+      <summary>Women&rsquo;s herbs &mdash; formulating notes</summary>
+      <p class="hint">Biphasic formulas, liver herbs, phytoestrogens, prolactin, the viburnums and the
+        anodynes, from the women&rsquo;s herbs lecture. The monographs themselves sit on the herb cards above.</p>
+      <div id="womens-notes-body"></div>
+    </details>
 
     <details class="srcnote" id="preg-legend">
       <summary>Pregnancy &amp; lactation ratings &mdash; what the codes mean</summary>
@@ -669,8 +654,9 @@
      to each condition, were written for this tool from standard pharmacology, nutritional and naturopathic
      references together with the mental health, respiratory therapeutics, mould and mycotoxin, Mayan
      abdominal massage, pelvic therapy and EKG coursework. The <strong>treatment protocols</strong> under each
-     condition, the medication-suffix reference, the women&rsquo;s herb monographs and everything in
-     <strong>Study Notes</strong> are transcribed from Nourhan Shams&rsquo;s own coursework. The pregnancy and
+     condition, the medication-suffix reference, the women&rsquo;s herb monographs and the
+     <em>From your notes</em> sections under each condition are transcribed from Nourhan Shams&rsquo;s own
+     coursework. The pregnancy and
      lactation ratings are Eric Yarnell, ND&rsquo;s.</p>
   <p class="warn"><strong>For education and clinical reference only.</strong> This tool does not replace professional
      judgement. Verify every dose independently before dispensing, and take particular care with low-dose botanicals.

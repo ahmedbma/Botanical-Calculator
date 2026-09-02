@@ -3584,6 +3584,256 @@
    ]
   },
   {
+   "id": "peds-skin",
+   "type": "Screening",
+   "name": "Pediatric Skin Evaluation",
+   "region": "Skin, in children",
+   "summary": "How to take the history, examine, describe a lesion and decide when to worry — the approach section of your pediatric dermatology study guide.",
+   "source": "Pediatric Dermatology final study guide",
+   "notesVerbatim": true,
+   "script": "Start with vital signs, especially the temperature, and with how the child looks overall. A well-appearing child with no systemic symptoms is unlikely to have a dangerous disorder — and that judgement comes before the rash.",
+   "related": [
+    "Eczema",
+    "Psoriasis",
+    "Acne",
+    "Warts"
+   ],
+   "groups": [
+    {
+     "name": "History",
+     "steps": [
+      {
+       "step": "HPI focuses on the time course of the eruption and its r…",
+       "how": "HPI focuses on the time course of the eruption and its relationship to other symptoms.",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Review of systems clues",
+       "how": "Review of systems clues:",
+       "normal": "Recorded."
+      },
+      {
+       "step": "GI symptoms → suggests IgA-associated vasculitis (HSP) o…",
+       "how": "GI symptoms → suggests IgA-associated vasculitis (HSP) or hemolytic-uremic syndrome",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Joint symptoms → suggests IgA-associated vasculitis (HSP…",
+       "how": "Joint symptoms → suggests IgA-associated vasculitis (HSP) or Lyme disease",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Headache/neurologic symptoms → suggests meningitis or Ly…",
+       "how": "Headache/neurologic symptoms → suggests meningitis or Lyme disease",
+       "normal": "Recorded."
+      },
+      {
+       "step": "PMH",
+       "how": "PMH: note recent drugs, especially antibiotics and anticonvulsants; note family history of atopy.",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Key dermatologic history questions",
+       "how": "Key dermatologic history questions: duration, evolution/change in appearance, initial vs. current location, associated symptoms (itch/sting/tenderness/pain), family history of similar rash, prior episodes and treatment response, suspected cause per parent, new exposures (meds, personal care products, occupational/recreational), impact on child's life, prior treatments tried.",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Additional history",
+       "how": "Additional history: acute/chronic medical conditions; current & recent medications (incl. OTC/herbal); family history of skin disorders/skin cancer; recent stress; social history (daycare, hobbies, travel); allergies; pets; age-appropriate STI risk factors.",
+       "normal": "Recorded."
+      }
+     ]
+    },
+    {
+     "name": "Examination",
+     "steps": [
+      {
+       "step": "Begin with vital signs, especially checking for fever",
+       "how": "Begin with vital signs, especially checking for fever.",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Observe for lethargy, irritability, or distress",
+       "how": "Observe for lethargy, irritability, or distress.",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Full skin exam with attention to blistering, vesicles, p…",
+       "how": "Full skin exam with attention to blistering, vesicles, petechiae, purpura, urticaria, and mucosal involvement.",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Evaluate for meningeal signs (nuchal rigidity, Kernig, B…",
+       "how": "Evaluate for meningeal signs (nuchal rigidity, Kernig, Brudzinski) if rash + fever — often absent in children < 2 yrs.",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Well-appearing children without systemic symptoms are un…",
+       "how": "Well-appearing children without systemic symptoms are unlikely to have a dangerous disorder.",
+       "normal": "Recorded."
+      }
+     ]
+    },
+    {
+     "name": "Describing the lesion",
+     "steps": [
+      {
+       "step": "Location & distribution",
+       "how": "Location & distribution: symmetrical/asymmetrical, sun-exposed, flexural/extensor, acral",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Erythema",
+       "how": "Erythema: erythematous vs. non-erythematous",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Surface features",
+       "how": "Surface features: crusting, rough, smooth, scaly, warty",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Type",
+       "how": "Type: macule, papule, pustule, vesicle, cyst, ulcer",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Color",
+       "how": "Color: blue, brown, pink, red, white",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Arrangement",
+       "how": "Arrangement: single/multiple, discrete, unilateral, generalized, disseminated, grouped, annular, gyrate, dermatomal, linear, serpiginous",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Border/shape",
+       "how": "Border/shape: well/poorly defined, active edge, round, oval, irregular, pedunculated",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Special sites/systemic",
+       "how": "Special sites/systemic: scalp, mouth, nails, genitalia, constitutional symptoms",
+       "normal": "Recorded."
+      }
+     ]
+    },
+    {
+     "name": "Investigation",
+     "steps": [
+      {
+       "step": "History and physical are sufficient for most children",
+       "how": "History and physical are sufficient for most children.",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Additional tools",
+       "how": "Additional tools: hand lens/dermatoscope, Wood lamp, patch test, culture, scraping (KOH), biopsy.",
+       "normal": "Recorded."
+      }
+     ]
+    },
+    {
+     "name": "Red flags",
+     "steps": [
+      {
+       "step": "Blistering or skin sloughing",
+       "how": "Blistering or skin sloughing",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Diarrhea and/or abdominal pain",
+       "how": "Diarrhea and/or abdominal pain",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Fever with inconsolability or extreme irritability",
+       "how": "Fever with inconsolability or extreme irritability",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Mucosal inflammation",
+       "how": "Mucosal inflammation",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Petechiae and/or purpura",
+       "how": "Petechiae and/or purpura",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Urticaria with respiratory distress",
+       "how": "Urticaria with respiratory distress",
+       "normal": "Recorded."
+      }
+     ]
+    },
+    {
+     "name": "Clinical pearls",
+     "steps": [
+      {
+       "step": "Normal child skin",
+       "how": "Normal child skin: smooth, slightly dry, not oily/clammy; assess temperature symmetrically, compare upper/lower body.",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Skin turgor is the best indicator of dehydration",
+       "how": "Skin turgor is the best indicator of dehydration.",
+       "normal": "Recorded."
+      },
+      {
+       "step": "Most rashes in children are benign; history and exam are…",
+       "how": "Most rashes in children are benign; history and exam are usually sufficient. Rash due to serious illness typically has systemic manifestations.",
+       "normal": "Recorded."
+      }
+     ]
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Rash with fever and meningeal signs",
+     "suggests": "Meningitis — meningeal signs are often absent under two years",
+     "urgent": true,
+     "workup": "Blood cultures, CBC, CRP, then CT and lumbar puncture — do not delay antibiotics for imaging"
+    },
+    {
+     "finding": "Petechiae or purpura that do not blanch",
+     "suggests": "Vasculitis, meningococcaemia or a platelet disorder",
+     "urgent": true,
+     "workup": "CBC with platelets and film, coagulation screen, CRP, blood cultures, urinalysis"
+    },
+    {
+     "finding": "Blistering or mucosal involvement",
+     "suggests": "Stevens-Johnson syndrome or toxic epidermal necrolysis — stop any culprit drug",
+     "urgent": true,
+     "workup": "Stop the suspect drug; CBC, CMP, LFTs, skin biopsy, and urgent dermatology or burns referral"
+    },
+    {
+     "finding": "Rash with GI symptoms",
+     "suggests": "IgA-associated vasculitis (HSP) or haemolytic uraemic syndrome",
+     "workup": "Urinalysis for blood and protein, CBC, CMP, stool culture; repeat urinalysis over the following weeks"
+    },
+    {
+     "finding": "Rash with joint symptoms",
+     "suggests": "IgA-associated vasculitis (HSP) or Lyme disease",
+     "workup": "Urinalysis, CBC, CRP, Lyme serology where the exposure fits"
+    },
+    {
+     "finding": "Rash with headache or neurological symptoms",
+     "suggests": "Meningitis or Lyme disease",
+     "urgent": true,
+     "workup": "CT then lumbar puncture, blood cultures, CBC, CRP; Lyme serology by exposure"
+    },
+    {
+     "finding": "A lethargic, irritable or distressed child",
+     "suggests": "Systemic illness — the general appearance outranks the rash",
+     "urgent": true,
+     "workup": "Full septic screen — CBC, CRP, blood cultures, urinalysis and culture, glucose, and imaging as directed"
+    }
+   ]
+  },
+  {
    "id": "mse",
    "type": "Mental health",
    "name": "Mental Status Exam",

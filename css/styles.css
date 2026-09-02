@@ -630,27 +630,31 @@ td.herb input{min-width:190px}
 @media (max-width:620px){.preglegend{grid-template-columns:1fr}.preglegend dt{border-bottom:0}}
 @media print{.pregrow{display:none!important}}
 
-/* ---- study notes ---- */
-.snlist{display:grid;gap:26px}
-.sndoc{border-top:1px solid var(--line);padding-top:16px}
-.sndoc-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
-.sndoc h3{margin:0;font:600 1.35rem/1.25 var(--serif)}
-.sndoc-src{font:600 .64rem/1 var(--sans);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
-  background:var(--ro-bg);padding:5px 10px;border-radius:99px;white-space:nowrap}
-.sndoc-blurb{margin:8px 0 14px;font-size:.86rem;line-height:1.65;color:var(--muted);max-width:82ch}
-.snpart{margin:18px 0 8px;font:700 .68rem/1.4 var(--sans);text-transform:uppercase;letter-spacing:.06em;
+/* ---- reference notes attached to a condition ---- */
+.txref{margin-top:14px;border:1px solid var(--line);border-left:3px solid var(--ro-bg);
+  border-radius:var(--radius);background:var(--bg);overflow:hidden}
+.txref>summary{cursor:pointer;padding:11px 16px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  font-weight:600;font-size:.86rem;color:var(--muted);list-style:none}
+.txref>summary::-webkit-details-marker{display:none}
+.txref>summary::before{content:"\25B8";font-size:.78rem;transition:transform .15s ease;display:inline-block}
+.txref[open]>summary::before{transform:rotate(90deg)}
+.txref>summary:hover{background:var(--accent-soft);color:var(--accent)}
+.txref-src{margin-left:auto;font:600 .62rem/1 var(--sans);text-transform:uppercase;letter-spacing:.05em;
+  color:var(--muted);background:var(--ro-bg);padding:4px 9px;border-radius:99px;white-space:nowrap}
+.txref-body{padding:2px 16px 14px;border-top:1px solid var(--line)}
+.txref-sec{margin-top:14px}
+.txref-sec h5{margin:0 0 5px;font:700 .66rem/1.4 var(--sans);text-transform:uppercase;letter-spacing:.06em;
   color:var(--accent)}
-.snsec{border:1px solid var(--line);border-radius:10px;background:var(--bg);margin-bottom:7px;overflow:hidden}
-.snsec>summary{cursor:pointer;padding:10px 14px;font:600 1rem/1.35 var(--serif);list-style:none;
-  display:flex;align-items:baseline;gap:9px}
-.snsec>summary::-webkit-details-marker{display:none}
-.snsec>summary::before{content:"\25B8";font-family:var(--sans);font-size:.75rem;color:var(--muted);
-  transition:transform .15s ease;display:inline-block}
-.snsec[open]>summary::before{transform:rotate(90deg)}
-.snsec>summary:hover{background:var(--accent-soft)}
-.snbody{padding:2px 14px 13px;border-top:1px solid var(--line)}
-.snbody p{margin:9px 0 0;font-size:.86rem;line-height:1.65;color:var(--ink);max-width:88ch}
-.snsec mark{background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:0 2px}
+.txref-sec p{margin:6px 0 0;font-size:.85rem;line-height:1.65;color:var(--ink);max-width:88ch}
+.txref mark{background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:0 2px}
+.txcond .txref{margin:0 16px 16px}
+
+/* ---- women's formulating notes, under the herb reference ---- */
+.wnote{border:1px solid var(--line);border-radius:8px;background:var(--bg);margin-bottom:6px;overflow:hidden}
+.wnote>summary{cursor:pointer;padding:9px 13px;font:600 .92rem/1.35 var(--serif)}
+.wnote>summary:hover{background:var(--accent-soft)}
+.wnote-body{margin:0;padding:9px 13px 12px;border-top:1px solid var(--line);font-size:.84rem;
+  line-height:1.7;color:var(--ink);max-width:88ch}
 
 /* ---- women's herb monograph on a herb card ---- */
 .wmono{margin-top:10px;border-top:1px solid var(--line);padding-top:9px}

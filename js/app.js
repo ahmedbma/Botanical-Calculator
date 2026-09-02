@@ -1438,6 +1438,9 @@
           pr.steps.map(function (st) { return st.agent + ' ' + (st.dose || '') + ' ' + (st.why || ''); }).join(' ')
         ).toLowerCase();
       }
+      (rec.reference || []).forEach(function (r) {
+        c._hay += ' ' + (r.title + ' ' + r.body.join(' ')).toLowerCase();
+      });
     });
   }
 
@@ -1459,6 +1462,11 @@
     var all = el('button', 'chip is-on', 'All');
     all.dataset.sys = 'all';
     box.appendChild(all);
+
+    var tp = el('button', 'chip', 'Topics');
+    tp.dataset.sys = '__topics';
+    tp.title = 'Conditions your coursework covers that the herb-based index does not.';
+    box.appendChild(tp);
 
     var nd = el('button', 'chip', 'ND top 30');
     nd.dataset.sys = '__nd';
@@ -1492,9 +1500,37 @@
     renderConditions();
   }
 
+  // Topics that carry therapeutics, a protocol or reference notes but no herbs.
+  // They render as conditions without a herb grid so the tab is one full index.
+  var CX_TOPICS = [];
+  function buildTopicConditions() {
+    var by = (window.THERAPEUTICS_DATA || {}).byCondition || {};
+    var look = {};
+    ['pharmaceuticals', 'supplements', 'therapies', 'labs'].forEach(function (k) {
+      ((window.THERAPEUTICS_DATA || {})[k] || []).forEach(function (x) { look[x.id] = x.name; });
+    });
+    CX_TOPICS = Object.keys(by).filter(function (n) { return by[n].extra; }).sort()
+      .map(function (name) {
+        var rec = by[name];
+        var names = [];
+        ['pharm', 'supps', 'therapies', 'labs'].forEach(function (k) {
+          (rec[k] || []).forEach(function (i) { if (look[i]) names.push(look[i]); });
+        });
+        var refText = (rec.reference || []).map(function (r) {
+          return r.title + ' ' + r.body.join(' ');
+        }).join(' ');
+        return {
+          condition: name, system: 'topic', aliases: [], herbs: [], topic: true,
+          _hay: (name + ' ' + names.join(' ') + ' ' + (rec.note || '') + ' ' + refText).toLowerCase()
+        };
+      });
+  }
+
   function renderConditions() {
     var q = $('#cx-search').value.toLowerCase().trim();
-    var list = CONDS.filter(function (c) {
+    var list = CONDS.concat(CX_TOPICS).filter(function (c) {
+      if (cxSystem === '__topics') return !!c.topic && (!q || c._hay.indexOf(q) !== -1);
+      if (c.topic && cxSystem !== 'all') return false;
       if (cxSystem === '__nd') { if (!c.ndRank) return false; }
       else if (cxSystem.indexOf('niche:') === 0) { if (c.niche !== cxSystem.slice(6)) return false; }
       else if (cxSystem !== 'all' && c.system !== cxSystem) return false;
@@ -1534,9 +1570,10 @@
       });
     }
 
-    $('#cx-count').textContent = list.length === CONDS.length
-      ? CONDS.length + ' conditions, A to Z'
-      : list.length + ' of ' + CONDS.length + ' conditions';
+    var universe = CONDS.length + CX_TOPICS.length;
+    $('#cx-count').textContent = list.length === universe
+      ? CONDS.length + ' conditions and ' + CX_TOPICS.length + ' further topics'
+      : list.length + ' of ' + universe + ' conditions and topics';
 
     var out = $('#cx-results');
     out.innerHTML = '';
@@ -1550,6 +1587,11 @@
       var name = el('span');
       name.innerHTML = highlight(c.condition, q);
       sum.appendChild(name);
+      if (c.topic) {
+        var tb = el('span', 'freq', 'topic');
+        tb.title = 'Covered by your coursework but not in the herb-based condition index, so it carries no herbs.';
+        sum.appendChild(tb);
+      }
       if (c.ndRank) {
         var nb = el('span', 'freq nd', '#' + c.ndRank + ' in ND practice');
         nb.title = 'Ranked ' + c.ndRank + ' among the conditions most commonly seen in naturopathic ' +
@@ -1566,7 +1608,7 @@
         sum.appendChild(nn);
       }
       // the body system is dropped when the niche already says the same thing
-      if (!c.niche || c.niche.toLowerCase() !== c.system.toLowerCase()) {
+      if (!c.topic && (!c.niche || c.niche.toLowerCase() !== c.system.toLowerCase())) {
         sum.appendChild(el('span', 'sys', c.system));
       }
       if (c.aliases && c.aliases.length) {
@@ -1578,7 +1620,7 @@
 
       var body = el('div', 'body');
       var grid = el('div', 'hgrid');
-      c.herbs.forEach(function (h) {
+      (c.herbs || []).forEach(function (h) {
         var row = el('div', 'hrow' + (h.role === 'primary' ? ' primary' : ''));
         var left = el('div');
         var nm = el('div', 'nm');
@@ -1615,10 +1657,12 @@
         row.appendChild(why);
         grid.appendChild(row);
       });
-      body.appendChild(grid);
+      if (c.herbs && c.herbs.length) body.appendChild(grid);
       if (c.notes) body.appendChild(el('p', 'note', c.notes));
       var proto = typeof txProtocolNode === 'function' ? txProtocolNode(c.condition, q) : null;
       if (proto) body.appendChild(proto);
+      var ref = typeof txReferenceNode === 'function' ? txReferenceNode(c.condition, q) : null;
+      if (ref) body.appendChild(ref);
       var tx = typeof txForCondition === 'function' ? txForCondition(c.condition, q) : null;
       if (tx) {
         var txd = el('details', 'txdrop');
@@ -2220,6 +2264,8 @@
           sec.appendChild(wrap);
           var pnode = txProtocolNode(cond, state.q);
           if (pnode) sec.appendChild(pnode);
+          var rnode = txReferenceNode(cond, state.q);
+          if (rnode) sec.appendChild(rnode);
           frag.appendChild(sec);
         });
         out.appendChild(frag);
@@ -2273,83 +2319,50 @@
     }
   });
 
-  /* ---- study notes: the reference documents kept whole ---- */
-  var SN_DOCS = TX.studyNotes || [];
-  SN_DOCS.forEach(function (d) {
-    d.sections.forEach(function (sec) {
-      sec._hay = (d.title + ' ' + sec.part + ' ' + sec.title + ' ' + sec.body.join(' ')).toLowerCase();
-    });
-  });
-  var snDoc = 'all';
-
-  function buildNoteChips() {
-    var box = $('#sn-filters');
-    if (!box) return;
-    box.innerHTML = '';
-    var all = el('button', 'chip is-on', 'All');
-    all.dataset.d = 'all';
-    box.appendChild(all);
-    SN_DOCS.forEach(function (d) {
-      var b = el('button', 'chip', d.title + ' (' + d.sections.length + ')');
-      b.dataset.d = d.id;
-      box.appendChild(b);
-    });
-    box.addEventListener('click', function (e) {
-      if (!e.target.dataset.d) return;
-      snDoc = e.target.dataset.d;
-      $$('#sn-filters .chip').forEach(function (c) { c.classList.toggle('is-on', c === e.target); });
-      renderNotes();
-    });
-  }
-
-  function renderNotes() {
-    var out = $('#sn-results');
-    if (!out) return;
-    var q = $('#sn-search').value.toLowerCase().trim();
-    out.innerHTML = '';
-    var frag = document.createDocumentFragment();
-    var shown = 0, total = 0;
-    SN_DOCS.forEach(function (d) {
-      total += d.sections.length;
-      if (snDoc !== 'all' && snDoc !== d.id) return;
-      var hits = d.sections.filter(function (sec) { return !q || sec._hay.indexOf(q) !== -1; });
-      if (!hits.length) return;
-      shown += hits.length;
-      var doc = el('section', 'sndoc');
-      var h = el('div', 'sndoc-head');
-      h.appendChild(el('h3', null, d.title));
-      h.appendChild(el('span', 'sndoc-src', d.source));
-      doc.appendChild(h);
-      if (d.blurb) doc.appendChild(el('p', 'sndoc-blurb', d.blurb));
-      var part = null;
-      hits.forEach(function (sec) {
-        if (sec.part && sec.part !== part && sec.part !== sec.title) {
-          part = sec.part;
-          doc.appendChild(el('h4', 'snpart', part));
-        }
-        var det = el('details', 'snsec');
-        if (q) det.open = true;
-        var sum = el('summary');
-        sum.innerHTML = highlight(sec.title, q);
-        det.appendChild(sum);
-        var body = el('div', 'snbody');
-        sec.body.forEach(function (line) {
-          var pEl = el('p');
-          pEl.innerHTML = highlight(line, q);
-          body.appendChild(pEl);
-        });
-        det.appendChild(body);
-        doc.appendChild(det);
+  /* ---- reference notes attached to a condition ----
+     The three revision documents are kept as written; each section reads inside
+     the condition it describes rather than in a tab of its own. */
+  function txReferenceNode(cond, q) {
+    var rec = TXBY[cond];
+    if (!rec || !(rec.reference || []).length) return null;
+    var det = el('details', 'txref');
+    var sum = el('summary');
+    sum.appendChild(el('span', null, 'From your notes — ' + rec.reference.length +
+      (rec.reference.length === 1 ? ' section' : ' sections')));
+    var srcs = {};
+    rec.reference.forEach(function (r) { srcs[r.source] = true; });
+    sum.appendChild(el('span', 'txref-src', Object.keys(srcs).join(' · ')));
+    det.appendChild(sum);
+    if (q) det.open = true;
+    var body = el('div', 'txref-body');
+    rec.reference.forEach(function (r) {
+      var sec = el('section', 'txref-sec');
+      var h = el('h5');
+      h.innerHTML = highlight(r.title, q);
+      sec.appendChild(h);
+      r.body.forEach(function (line) {
+        var pEl = el('p');
+        pEl.innerHTML = highlight(line, q);
+        sec.appendChild(pEl);
       });
-      frag.appendChild(doc);
+      body.appendChild(sec);
     });
-    out.appendChild(frag);
-    $('#sn-count').textContent = shown === total
-      ? total + ' sections across ' + SN_DOCS.length + ' documents'
-      : shown + ' of ' + total + ' sections';
-    if (!shown) out.appendChild(el('p', 'count', 'Nothing in the notes matches that.'));
+    det.appendChild(body);
+    return det;
   }
-  if ($('#sn-search')) $('#sn-search').addEventListener('input', renderNotes);
+
+  // The women's-herbs teaching pages, under the Herb Reference.
+  function buildWomensNotes() {
+    var host = $('#womens-notes-body');
+    if (!host) return;
+    host.innerHTML = '';
+    (TX.womensNotes || []).forEach(function (n) {
+      var det = el('details', 'wnote');
+      det.appendChild(el('summary', null, n.title));
+      det.appendChild(el('p', 'wnote-body', n.body));
+      host.appendChild(det);
+    });
+  }
 
   /* ---- women's herb monographs, shown on the herb card ---- */
   var WOMENS = {};
@@ -3096,6 +3109,7 @@
     buildPregLegend();
     renderRef();
     cxAddTherapeuticsToHaystack();
+    buildTopicConditions();
     buildSystemChips();
     setSort('az');
     buildExamChips();
@@ -3104,8 +3118,7 @@
     renderSupps();
     renderLabs();
     renderSuffixes();
-    buildNoteChips();
-    renderNotes();
+    buildWomensNotes();
 
     hxRenderPick();
     hxRenderRef();
