@@ -592,3 +592,40 @@ td.herb input{min-width:190px}
 .sfxflag{margin:6px 0 0;font-size:.79rem;line-height:1.5;color:var(--muted);max-width:80ch}
 @media (max-width:620px){.sfxrow{grid-template-columns:1fr}}
 @media print{.sfxbox,.txproto>summary{break-inside:avoid}}
+
+/* ---- pregnancy & lactation safety ---- */
+.pregrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:16px;padding:10px 14px;
+  border:1px solid var(--line);border-radius:99px;width:fit-content;max-width:100%}
+.pregrow-lab{font:700 .64rem/1 var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.pregchk{flex-direction:row;align-items:center;gap:7px;font-size:.85rem;font-weight:500;color:var(--ink);
+  cursor:pointer}
+.pregchk input{width:auto;margin:0;accent-color:var(--accent)}
+
+.pregbox{margin-top:10px;padding-top:9px;border-top:1px solid var(--line)}
+.pregtags{display:flex;gap:5px;flex-wrap:wrap}
+.pregtag{font:700 .62rem/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;padding:4px 8px;
+  border-radius:99px;white-space:nowrap;cursor:help}
+.pregtag.avoid{background:var(--danger-bg);color:var(--danger)}
+.pregtag.caution{background:var(--ro-bg);color:var(--ink)}
+.pregtag.evidence{background:var(--accent-soft);color:var(--accent)}
+.pregtag.unrated{border:1px solid var(--line);color:var(--muted)}
+.pregtag.borrowed{border:1px dashed var(--line);color:var(--muted)}
+.pregline{margin:8px 0 0;font-size:.76rem;line-height:1.5;color:var(--muted)}
+.pregline b{color:var(--ink);font-weight:700}
+.pregline em{font-style:italic}
+.pregnote{margin:4px 0 0;font-size:.76rem;line-height:1.5;color:var(--muted)}
+
+#preg-legend{margin-top:22px}
+.preglegend-h{margin:16px 0 6px;font:700 .68rem/1 var(--sans);text-transform:uppercase;letter-spacing:.06em;
+  color:var(--muted)}
+.preglegend{display:grid;grid-template-columns:minmax(64px,auto) 1fr;gap:0;margin:0;
+  border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:.82rem}
+.preglegend dt,.preglegend dd{margin:0;padding:7px 11px;border-bottom:1px solid var(--line);line-height:1.5}
+.preglegend dt{font-weight:700;background:var(--ro-bg);color:var(--ink);white-space:nowrap}
+.preglegend dd{color:var(--muted)}
+.preglegend dt:nth-last-of-type(1),.preglegend dd:nth-last-of-type(1){border-bottom:0}
+.pregcaveat{margin:10px 0 0;padding:11px 14px;border-radius:8px;background:var(--ro-bg);color:var(--muted);
+  font-size:.82rem;line-height:1.65;max-width:82ch}
+.pregsrc{margin:7px 0 0;font-size:.78rem;line-height:1.5;color:var(--muted)}
+@media (max-width:620px){.preglegend{grid-template-columns:1fr}.preglegend dt{border-bottom:0}}
+@media print{.pregrow{display:none!important}}

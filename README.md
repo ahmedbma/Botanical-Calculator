@@ -23,7 +23,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | **Pharmaceuticals** | 106 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
 | **Supplements** | 97 supplements and 43 non-drug therapies — typical dose ranges, mechanisms, and the cautions that matter, including which supplements must be avoided in which patients. Organised A–Z or by condition. |
 | **Labs & Imaging** | 99 tests across blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels — why you would order each and how to read it. The same tests hang off every abnormal exam finding and every condition. |
-| **Herb Reference** | 396 herbs — Latin and common names, plant part, actions, available dose forms, dispensary availability, tea density and substitutes. Searchable and filterable. |
+| **Herb Reference** | 396 herbs — Latin and common names, plant part, actions, available dose forms, dispensary availability, tea density and substitutes, plus **pregnancy and lactation safety** for the 205 that carry a rating. Filter to what to avoid in pregnancy or lactation, or to what has evidence of safety. |
 
 ### Beyond the spreadsheet
 
@@ -75,14 +75,16 @@ js/herbdata.js           herbal reference data as a global (works from file://)
 js/homeopathydata.js     homeopathic remedy data as a global
 js/physicalexamdata.js   physical exam data as a global
 js/therapeuticsdata.js   pharmaceuticals, supplements, therapies and labs as a global
+js/pregnancydata.js      pregnancy and lactation herb safety as a global
 js/app.js                all calculators, the differentiator, the exam index and the therapeutics tabs
 data/herbdata.json       the same herbal data as plain JSON, for reuse
 data/homeopathy.json     the same homeopathic data as plain JSON, for reuse
 data/physicalexams.json  the same physical exam data as plain JSON, for reuse
 data/therapeutics.json   the same therapeutics data as plain JSON, for reuse
+data/pregnancysafety.json  the same safety data as plain JSON, for reuse
 ```
 
-The four files under `js/` are generated from their counterparts in `data/`; edit the JSON and
+The five files under `js/` are generated from their counterparts in `data/`; edit the JSON and
 regenerate if you change the reference data.
 
 ## Data
@@ -170,6 +172,33 @@ dullness suggest. Rather than invent wording and attribute it to the notes, thos
 what is missing. A group with no steps is skipped in the write-up view, since there is nothing to chart.
 
 Where an exam raises a condition the **Conditions** index already covers, the tab links straight across to it.
+
+### Pregnancy and lactation safety
+
+**Eric Yarnell's own safety table** — the same author as the workbook the calculators are built from —
+covering 464 herb-and-part rows across 452 botanical names. Each row carries four independent ratings:
+pregnancy and lactation categories from Mills & Bone, lactation codes from Brinker, and a class from the
+AHPA *Botanical Safety Handbook* — plus Yarnell's own note, with PubMed IDs, and any recorded effects in
+rodents and other species. The legend for all four systems is reproduced in the Herb Reference, along with
+his caveat in full.
+
+**205 of the tool's own herbs resolve to a rating**: by exact binomial first, then a documented botanical
+synonym, then a genus-level `spp` row. A genus match is labelled *genus rating* on the card rather than
+passed off as the species being rated, and a synonym match says so.
+
+**Each herb reduces to one of four levels per axis** so the tool can act on it. *Avoid* is a D or X in
+pregnancy, strongly discouraged or contraindicated in lactation, or AHPA class 2b/2c. *Caution* is a C, an
+AHPA class 3, any Brinker lactation code, or a theoretical concern. *Evidence of safety* is an A–B rating,
+an AHPA SP/SL code, or Yarnell's own "safe" verdict, with no contraindication recorded. *Not rated* means
+exactly that — and the tab says plainly that absence of a rating is not evidence of safety.
+
+**Both formulators check against it on request.** A *Check against: pregnancy / lactation* switch sits
+beside the alerts; tick it and any contraindicated herb in the formula raises a red alert, cautions raise an
+amber one, and unrated herbs raise a note. The switches persist with the rest of the formula. Nothing is
+flagged unless asked for — the tool does not assume who the patient is.
+
+The four conditions of pregnancy with a herb that has a human clinical trial behind it are listed with their
+PubMed IDs in the legend.
 
 ### Treatment protocols
 
@@ -312,6 +341,12 @@ Eric Yarnell, ND's; the tea density and herb reference sheets carry his notes an
 Doses vary with the patient, the dilution, and the potency of the batch — every figure is
 approximate, not absolute. Verify every dose independently before dispensing, and take particular
 care with low-dose botanicals.
+
+**The pregnancy and lactation ratings are one clinician's reading of four sources, not a clearance to
+prescribe.** Yarnell's own caveat is reproduced in full in the Herb Reference: the listings are his opinion,
+they are for medical professionals, and the literature must be consulted before any decision about herb use
+in pregnancy or lactation. A rating of "safe" does not mean harm is impossible, and information about one
+part or form of a herb may not apply to another.
 
 **The pharmaceuticals, supplements and labs tabs are a study reference, not a prescribing guide.** Drug
 entries carry no doses by design. Verify every agent, dose and interaction against a current formulary and

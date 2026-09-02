@@ -72,6 +72,30 @@
     return k ? lowDoseIndex[k] || null : null;
   }
 
+  /* ---------------- pregnancy & lactation safety ----------------
+     Yarnell's own safety table, matched to the herb names this tool already
+     knows: exact binomial first, then a documented synonym, then a genus-level
+     "spp" row. A genus match is labelled as such rather than passed off as the
+     species being rated. */
+  var PREG = window.PREGNANCY_DATA || { herbs: [], index: {}, legend: {}, levels: {} };
+  var pregTable = {};
+  (PREG.herbs || []).forEach(function (r) {
+    var k = genusSpecies(r.herb);
+    if (!k) return;
+    (pregTable[k] = pregTable[k] || []).push(r);
+  });
+  function lookupPreg(name) {
+    var k = genusSpecies(name);
+    if (!k) return null;
+    var hit = (PREG.index || {})[k];
+    if (!hit) return null;
+    var recs = pregTable[hit.key] || [];
+    if (!recs.length) return null;
+    return { recs: recs, match: hit.match, key: hit.key,
+             preg: recs[0].pregLevel, lact: recs[0].lactLevel };
+  }
+  var PREG_LABEL = { avoid: 'avoid', caution: 'caution', evidence: 'evidence of safety', unrated: 'not rated' };
+
   var densityIndex = {};
   // Whole cut-and-sifted herb is the usual tea ingredient, so it wins over a powder
   // when the same species is listed more than once.
@@ -439,6 +463,21 @@
     tab.addEventListener('click', function () { showTab(tab.dataset.panel); });
   });
 
+  // The pregnancy and lactation switches re-run the formula they belong to.
+  ['t', 'te'].forEach(function (prefix) {
+    ['-preg', '-lact'].forEach(function (suffix) {
+      var box = $('#' + prefix + suffix);
+      if (!box) return;
+      box.addEventListener('change', function () {
+        save('safety', {
+          tPreg: $('#t-preg').checked, tLact: $('#t-lact').checked,
+          tePreg: $('#te-preg').checked, teLact: $('#te-lact').checked
+        });
+        if (prefix === 't') tCalc(); else teCalc();
+      });
+    });
+  });
+
   /* ---------------- persistence ---------------- */
   function save(key, value) {
     try { localStorage.setItem('bc.' + key, JSON.stringify(value)); } catch (e) { /* ignore */ }
@@ -699,6 +738,8 @@
     var box = $('#t-alerts');
     box.innerHTML = '';
     alerts.forEach(function (a) { box.appendChild(alertBox(a[0], a[1])); });
+    pregAlerts(T.rows.map(function (r) { return r.herb; }), 't')
+      .forEach(function (n) { box.appendChild(n); });
 
     save('tincture', {
       meta: {
@@ -934,6 +975,8 @@
     var box = $('#te-alerts');
     box.innerHTML = '';
     alerts.forEach(function (a) { box.appendChild(alertBox(a[0], a[1])); });
+    pregAlerts(TE.rows.map(function (r) { return r.herb; }), 'te')
+      .forEach(function (n) { box.appendChild(n); });
 
     save('tea', {
       meta: {
@@ -1185,6 +1228,112 @@
     .filter(function (e) { return e.name; })
     .sort(function (a, b) { return a.name.localeCompare(b.name); });
 
+  // The safety block shown under a herb in the reference.
+  function pregCard(latin) {
+    var ps = lookupPreg(latin);
+    if (!ps) return null;
+    var box = el('div', 'pregbox');
+    var head = el('div', 'pregtags');
+    ['preg', 'lact'].forEach(function (which) {
+      var lvl = ps[which];
+      var t = el('span', 'pregtag ' + lvl,
+        (which === 'preg' ? 'pregnancy' : 'lactation') + ': ' + PREG_LABEL[lvl]);
+      t.title = (PREG.levels || {})[lvl] || '';
+      head.appendChild(t);
+    });
+    if (ps.match !== 'exact') {
+      var m = el('span', 'pregtag borrowed', ps.match === 'genus' ? 'genus rating' : 'synonym');
+      m.title = ps.match === 'genus'
+        ? 'Rated at genus level as ' + ps.key + ' — the species itself is not separately rated.'
+        : 'Matched through a botanical synonym: ' + ps.key + '.';
+      head.appendChild(m);
+    }
+    box.appendChild(head);
+    ps.recs.forEach(function (r) {
+      var line = el('p', 'pregline');
+      var bits = [];
+      if (r.part) bits.push('<em>' + escapeHtml(r.part) + '</em>');
+      if (r.pregnancy !== 'not rated') bits.push('pregnancy <b>' + escapeHtml(r.pregnancy) + '</b>');
+      if (r.lactation !== 'not rated') bits.push('lactation <b>' + escapeHtml(r.lactation) + '</b>');
+      if (r.brinker !== 'not rated') bits.push('Brinker <b>' + escapeHtml(r.brinker) + '</b>');
+      if (r.ahpa !== 'not rated') bits.push('AHPA <b>' + escapeHtml(r.ahpa) + '</b>');
+      line.innerHTML = bits.join(' &middot; ');
+      if (bits.length) box.appendChild(line);
+      if (r.notes) {
+        var n = el('p', 'pregnote', r.notes);
+        box.appendChild(n);
+      }
+    });
+    return box;
+  }
+
+  function buildPregLegend() {
+    var host = $('#preg-legend-body');
+    if (!host || !PREG.legend) return;
+    host.innerHTML = '';
+    var intro = el('p');
+    intro.innerHTML = '<strong>' + escapeHtml(PREG.source || '') + '</strong>';
+    host.appendChild(intro);
+    var cav = el('p', 'pregcaveat', PREG.caveat || '');
+    host.appendChild(cav);
+    [['pregnancy', 'Pregnancy — Mills & Bone'], ['lactation', 'Lactation — Mills & Bone'],
+     ['brinker', 'Lactation — Brinker'], ['ahpa', 'AHPA Botanical Safety Handbook']].forEach(function (pair) {
+      var rows = PREG.legend[pair[0]] || [];
+      if (!rows.length) return;
+      host.appendChild(el('h5', 'preglegend-h', pair[1]));
+      var dl = el('dl', 'preglegend');
+      rows.forEach(function (r) {
+        dl.appendChild(el('dt', null, r[0]));
+        dl.appendChild(el('dd', null, r[1]));
+      });
+      host.appendChild(dl);
+    });
+    (PREG.sources || []).forEach(function (src) { host.appendChild(el('p', 'pregsrc', src)); });
+    if ((PREG.trials || []).length) {
+      host.appendChild(el('h5', 'preglegend-h', 'Herbs with a human trial in a condition of pregnancy'));
+      var ul = el('ul', 'footnotes');
+      PREG.trials.forEach(function (t) {
+        ul.appendChild(el('li', null, t.condition + ' — ' + t.herb + ' (PMID ' + t.pmid + ')'));
+      });
+      host.appendChild(ul);
+    }
+  }
+
+  // Formulator check: mirrors the low-dose alerts, but only when asked for.
+  function pregAlerts(rows, prefix) {
+    var wantPreg = $('#' + prefix + '-preg') && $('#' + prefix + '-preg').checked;
+    var wantLact = $('#' + prefix + '-lact') && $('#' + prefix + '-lact').checked;
+    var out = [];
+    if (!wantPreg && !wantLact) return out;
+    var avoid = [], caution = [], unrated = [];
+    rows.forEach(function (name) {
+      if (!name) return;
+      var ps = lookupPreg(name);
+      if (!ps) { unrated.push(name); return; }
+      var lv = [];
+      if (wantPreg) lv.push(['pregnancy', ps.preg]);
+      if (wantLact) lv.push(['lactation', ps.lact]);
+      lv.forEach(function (pair) {
+        var label = name + ' — ' + pair[0] + (ps.match === 'genus' ? ' (genus rating)' : '');
+        if (pair[1] === 'avoid') avoid.push(label);
+        else if (pair[1] === 'caution') caution.push(label);
+        else if (pair[1] === 'unrated') unrated.push(name + ' — ' + pair[0]);
+      });
+    });
+    if (avoid.length) {
+      out.push(alertBox('danger', '<strong>Contraindicated:</strong> ' + escapeHtml(avoid.join('; ')) +
+        '. Rated D or X in pregnancy, strongly discouraged or contraindicated in lactation, or AHPA class 2b/2c.'));
+    }
+    if (caution.length) {
+      out.push(alertBox('warn', '<strong>Use with caution:</strong> ' + escapeHtml(caution.join('; ')) + '.'));
+    }
+    if (unrated.length) {
+      out.push(alertBox('info', '<strong>No rating:</strong> ' + escapeHtml(unrated.join('; ')) +
+        '. Absence of a rating is not evidence of safety — check the literature.'));
+    }
+    return out;
+  }
+
   var hrFilter = 'all';
   function renderRef() {
     var q = $('#hr-search').value.toLowerCase().trim();
@@ -1193,8 +1342,14 @@
       if (hrFilter === 'lowdose' && !e.lowDose) return false;
       if (hrFilter === 'glycerite' && !e.forms.Glycerite) return false;
       if (hrFilter === 'density' && !e.gPerTbsp) return false;
+      var ps = lookupPreg(e.name);
+      if (hrFilter === 'pregavoid' && !(ps && ps.preg === 'avoid')) return false;
+      if (hrFilter === 'lactavoid' && !(ps && ps.lact === 'avoid')) return false;
+      if (hrFilter === 'pregsafe' && !(ps && ps.preg === 'evidence')) return false;
       if (!q) return true;
-      var hay = [e.name, e.common, e.part, e.substituteFor].concat(e.actions).join(' ').toLowerCase();
+      var hay = [e.name, e.common, e.part, e.substituteFor].concat(e.actions)
+        .concat(ps ? ps.recs.map(function (r) { return r.notes + ' ' + r.pregnancy + ' ' + r.lactation; }) : [])
+        .join(' ').toLowerCase();
       return hay.indexOf(q) !== -1;
     });
     $('#hr-count').textContent = list.length + ' of ' + REF.length + ' herbs';
@@ -1224,6 +1379,8 @@
         e.actions.forEach(function (a) { acts.appendChild(el('span', 'act', a)); });
         card.appendChild(acts);
       }
+      var safety = pregCard(e.name);
+      if (safety) card.appendChild(safety);
       frag.appendChild(card);
     });
     out.appendChild(frag);
@@ -2821,8 +2978,16 @@
     }
     doseCalc();
 
+    var sf = load('safety');
+    if (sf) {
+      if ($('#t-preg')) $('#t-preg').checked = !!sf.tPreg;
+      if ($('#t-lact')) $('#t-lact').checked = !!sf.tLact;
+      if ($('#te-preg')) $('#te-preg').checked = !!sf.tePreg;
+      if ($('#te-lact')) $('#te-lact').checked = !!sf.teLact;
+    }
     fillListNotes();
     renderLowDose('');
+    buildPregLegend();
     renderRef();
     cxAddTherapeuticsToHaystack();
     buildSystemChips();

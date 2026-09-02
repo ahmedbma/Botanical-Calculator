@@ -107,6 +107,11 @@
       <button class="btn ghost danger" id="t-clear">Clear</button>
     </div>
 
+    <div class="pregrow">
+      <span class="pregrow-lab">Check against</span>
+      <label class="pregchk"><input type="checkbox" id="t-preg"> Pregnancy</label>
+      <label class="pregchk"><input type="checkbox" id="t-lact"> Lactation</label>
+    </div>
     <div id="t-alerts" class="alerts"></div>
   </div>
 
@@ -187,6 +192,11 @@
       <button class="btn ghost" id="te-csv">Download CSV</button>
       <button class="btn ghost" id="te-print">Print</button>
       <button class="btn ghost danger" id="te-clear">Clear</button>
+    </div>
+    <div class="pregrow">
+      <span class="pregrow-lab">Check against</span>
+      <label class="pregchk"><input type="checkbox" id="te-preg"> Pregnancy</label>
+      <label class="pregchk"><input type="checkbox" id="te-lact"> Lactation</label>
     </div>
     <div id="te-alerts" class="alerts"></div>
   </div>
@@ -607,9 +617,17 @@
       <button class="chip" data-f="lowdose">Low dose only</button>
       <button class="chip" data-f="glycerite">Glycerites</button>
       <button class="chip" data-f="density">Has tea density</button>
+      <button class="chip" data-f="pregavoid">Avoid in pregnancy</button>
+      <button class="chip" data-f="lactavoid">Avoid in lactation</button>
+      <button class="chip" data-f="pregsafe">Evidence of safety in pregnancy</button>
     </div>
     <p class="count" id="hr-count"></p>
     <div id="hr-results" class="cards"></div>
+
+    <details class="srcnote" id="preg-legend">
+      <summary>Pregnancy &amp; lactation ratings &mdash; what the codes mean</summary>
+      <div id="preg-legend-body"></div>
+    </details>
   </div>
 </section>
 
@@ -632,6 +650,9 @@
      condition, and the medication-suffix reference, are transcribed from Nourhan Shams&rsquo;s own coursework.</p>
   <p class="warn"><strong>For education and clinical reference only.</strong> This tool does not replace professional
      judgement. Verify every dose independently before dispensing, and take particular care with low-dose botanicals.
+     The pregnancy and lactation ratings in the Herb Reference are Eric Yarnell, ND's reading of four published
+     safety sources and his own opinion &mdash; consult the literature before any decision about herb use in
+     pregnancy or lactation, and note that no rating is not the same as a rating of safe.
      Homeopathy is not evidence-based medicine; that tab is a study aid for comparing classical remedy pictures,
      not a treatment plan. The physical exam findings are study prompts for a differential, not diagnoses. The drug,
      supplement and lab entries are a study reference, not a prescribing guide &mdash; drug doses are deliberately
@@ -645,6 +666,7 @@
 <script src="js/homeopathydata.js"></script>
 <script src="js/physicalexamdata.js"></script>
 <script src="js/therapeuticsdata.js"></script>
+<script src="js/pregnancydata.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
