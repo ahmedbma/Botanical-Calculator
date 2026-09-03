@@ -98,6 +98,10 @@ assets/gad7.pdf          blank GAD-7 form, generated from data/screeners.json
 The eight data files under `js/` are generated from their counterparts in `data/`; edit the JSON and
 regenerate if you change the reference data.
 
+Every local `css/` and `js/` reference in `index.html` carries a `?v=` cache buster. **Bump it whenever
+you change either directory** — there is no build step to do it for you, and without it browsers go on
+serving the previous copy, so a change looks like it silently did not take.
+
 ## Data
 
 ### Two sources, kept distinct
