@@ -80,22 +80,25 @@ js/physicalexamdata.js   physical exam data as a global
 js/therapeuticsdata.js   pharmaceuticals, supplements, therapies and labs as a global
 js/pregnancydata.js      pregnancy and lactation herb safety as a global
 js/screenerdata.js       the PHQ-9 and GAD-7 instruments as a global
+js/womensformulasdata.js women's hormone formulas as a global
 js/casedata.js           the clinical casebook as a global
 js/symptomdata.js        the symptom vocabulary for the differential builder
-js/app.js                all calculators, both differentiators, the exam index, the screeners and the therapeutics tabs
+js/app.js                all calculators, both differentiators, the exam index, the screeners, the formulas and the therapeutics tabs
 data/herbdata.json       the same herbal data as plain JSON, for reuse
 data/homeopathy.json     the same homeopathic data as plain JSON, for reuse
 data/physicalexams.json  the same physical exam data as plain JSON, for reuse
 data/therapeutics.json   the same therapeutics data as plain JSON, for reuse
 data/pregnancysafety.json  the same safety data as plain JSON, for reuse
 data/screeners.json      the same screener data as plain JSON, for reuse
+data/womensformulas.json the same formula data as plain JSON, for reuse
 data/cases.json          the same casebook data as plain JSON, for reuse
 data/symptoms.json       the same symptom vocabulary as plain JSON, for reuse
 assets/phq9.pdf          blank PHQ-9 form, generated from data/screeners.json
 assets/gad7.pdf          blank GAD-7 form, generated from data/screeners.json
+assets/auditc.pdf        blank AUDIT-C form (the WHO AUDIT consumption items)
 ```
 
-The eight data files under `js/` are generated from their counterparts in `data/`; edit the JSON and
+The nine data files under `js/` are generated from their counterparts in `data/`; edit the JSON and
 regenerate if you change the reference data.
 
 Every local `css/` and `js/` reference in `index.html` carries a `?v=` cache buster. **Bump it whenever
@@ -333,6 +336,63 @@ Both are public domain, so reproducing them is permitted — but if you would ra
 own file, download it and save it over `assets/phq9.pdf` or `assets/gad7.pdf`. The download link points at
 that filename, so nothing else has to change.
 
+### The women's hormone formulas
+
+**40 practitioner-line products across 10 brands**, catalogued in the **Supplements** tab alongside the
+single agents — Thorne, Pure Encapsulations, Ortho Molecular, Metagenics, Integrative Therapeutics, Designs
+for Health, Xymogen, Klaire Labs, Seeking Health and Gaia Herbs. Each carries its brand in the name and its
+physiological target as the badge, so the two kinds of entry read apart on the page; the tab's filter chips
+separate them outright — *Single agents* for the 63 plain nutrients, or any one target for the formulas.
+They sort into the same A–Z and appear under the same conditions as everything else.
+
+Grouped by what each is aimed at, the way the professional lines themselves are organised: Phase I/II
+estrogen metabolism (13), luteal and progesterone support (7), ovarian and glycaemic signalling in PCOS (4),
+the neuroendocrine and vasomotor transition (6), steroid precursors (6), the estrobolome (2), the
+adrenal–ovarian axis (1) and hepatic conjugation (1). Each card also says what the product is *built from* —
+nutrient, botanical, both, a hormone precursor, or a probiotic — so the herb/non-herb line the rest of the
+tab keeps still reads here.
+
+**The brand, the formula and its contents are transcribed from Nourhan Shams's own compiled list. The
+caution on each entry is not** — those were written for this tool, because a product reference without the
+contraindications is the dangerous half of the picture. Some of them matter a great deal: the St John's wort
+in Gaia's Women's Balance induces CYP3A4 and causes oral contraceptive failure; DHEA, pregnenolone and
+topical progesterone are hormones with prescribing-scope implications, not nutrients; black cohosh appears in
+nine formulas and carries a rare hepatotoxicity signal; green tea extract adds a second hepatic signal
+alongside it in two of them.
+
+Nothing in the block is evidence that a product works, and two of the models the list itself uses are worth
+naming as models: "pregnenolone steal" has little physiological support — steroidogenesis is
+compartmentalised by tissue, not drawn from a shared pool — and the estrogen–histamine link is plausible but
+not settled. Manufacturers also reformulate without renaming, so the current label is the authority, not this.
+
+### The screening instruments, and their blank forms
+
+The nine instruments sit in the **Physical Exams** list under *Screening*, alongside the head-to-toe screen
+and the paediatric skin evaluation — a questionnaire is an examination you carry out, not something a
+laboratory runs. Each entry gives what it is for, how to read the score, the conditions it belongs to, and
+where its blank form comes from.
+
+**Three ship with this project as printable blanks**, because they are free to reproduce:
+
+| Instrument | File | Why it can be reproduced |
+|---|---|---|
+| PHQ-9 | `assets/phq9.pdf` | Public domain — Spitzer, Williams, Kroenke and colleagues, with an educational grant from Pfizer Inc |
+| GAD-7 | `assets/gad7.pdf` | Public domain, same authors and grant |
+| AUDIT-C | `assets/auditc.pdf` | The consumption items of the WHO's AUDIT, which the WHO permits anyone to reproduce and translate |
+
+All three are typeset for this notebook rather than being the publisher's own file; the items, the response
+scale and the scoring are the published ones.
+
+**The other six are copyrighted and licensed**, so this project does not reproduce them. Each entry names the
+holder and links to them instead: STOP-BANG (University Health Network), the Epworth Sleepiness Scale
+(Dr Murray W. Johns), the MMSE (PAR Inc) and MoCA (which also requires training and certification), the COPD
+Assessment Test (GlaxoSmithKline), and Dr Jill Crista's mould exposure questionnaire. The MDQ is free to use
+in clinical practice with the attribution intact but has no single canonical download.
+
+To use a licensed form here: obtain it from the publisher, save it as `assets/<id>.pdf`, and add
+`"form": "<id>"` to that entry in `data/therapeutics.json` (then regenerate `js/therapeuticsdata.js`). The
+download link appears on the card with no other change.
+
 ### Pregnancy and lactation safety
 
 **Eric Yarnell's own safety table** — the same author as the workbook the calculators are built from —
@@ -384,7 +444,7 @@ it is filed under inflammatory bowel disease, with irritable bowel syndrome keep
 
 **Written for this tool, and the largest block of non-sourced content in the project.** 109 pharmaceuticals,
 101 supplements (67 non-herbal, 34 botanical), 56 non-drug therapies (41 practitioner-applied, 15 lifestyle)
-and 117 labs and imaging studies, cross-linked to every condition in the index — 3268 links in all. It comes from standard pharmacology, nutritional and naturopathic references
+and 117 labs, imaging studies and screening instruments, cross-linked to every condition in the index — 3268 links in all. It comes from standard pharmacology, nutritional and naturopathic references
 together with seven pieces of coursework: the mental health study guide, the respiratory therapeutics quizzes,
 Dr Sabrina Koperski's environmental medicine lecture on mould and mycotoxins, the Mayan abdominal massage
 assignment, the EKG assignment, the clinic entry and exams notes and the GI-MAP stool test interpretation. Entries drawn from those documents say so in their own text. None of it is
@@ -397,8 +457,9 @@ ranges are typical adult figures; the ones marked as coming from your notes carr
 lecture's own numbers.
 
 **Where it appears.** Five tabs of their own — Pharmaceuticals, Supplements, Naturopathic Therapeutics,
-Lifestyle and Labs & Imaging — plus a block inside every condition in the **Conditions** tab listing the
-pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for
+Lifestyle and Labs & Imaging — plus the screening instruments under Physical Exams, plus a block
+inside every condition in the **Conditions** tab listing the pharmaceuticals, supplements,
+botanicals, naturopathic therapeutics, lifestyle changes, screening tools and labs indicated for
 it, plus a *what to run* line on every one of the 341 abnormal findings in the **Physical Exams** tab.
 Searching the Conditions tab reaches the therapeutics too, so `spirometry` or `metformin` finds the conditions
 that call for it.
@@ -408,9 +469,12 @@ that call for it.
 | Tab | What lives there | Count |
 |---|---|---|
 | **Supplements** | what a patient takes, non-herbal — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients such as lycopene and beta-sitosterol, fruit concentrates such as tart cherry and cranberry PACs | 67 |
+| **Supplements** → women's hormone formulas | what a patient takes, as a branded practitioner product rather than a single agent | 40 |
 | **Herb Reference** → botanical supplements | what a patient takes, herbal — whole-plant preparations and standardised botanical extracts, including curcumin, berberine, DGL, aloe and the medicinal mushrooms | 34 |
 | **Naturopathic Therapeutics** | what a practitioner applies — physical medicine, topicals, devices, procedures, rehabilitation, psychotherapy | 41 |
 | **Lifestyle** | what a patient changes — diet, sleep, movement, breathing, environment | 15 |
+| **Labs & Imaging** | what a laboratory or an imaging department runs | 90 |
+| **Physical Exams** → screening tools | what you sit down and ask — questionnaires and rating scales | 9 |
 
 The line between the first two is *preparation*, not origin: a standardised plant extract is a botanical, an
 isolated nutrient or a food concentrate is a supplement. Each condition prints a **Botanicals** row alongside

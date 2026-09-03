@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&amp;family=Jost:wght@400;500;600&amp;display=swap">
 <!-- ?v= is a cache buster. Bump it whenever css/ or js/ changes, or browsers keep
      serving the previous copy and the change looks like it did not take. -->
-<link rel="stylesheet" href="css/styles.css?v=2">
+<link rel="stylesheet" href="css/styles.css?v=3">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23a8536a'/><text x='50' y='73' font-size='60' font-family='Georgia,serif' fill='%23ffffff' text-anchor='middle'>N</text></svg>">
 </head>
 <body>
@@ -135,15 +135,24 @@
     </div>
     <div id="pe-results" class="examlist"></div>
 
-    <details class="scrnbox" id="pe-screeners">
-      <summary>Screening tools &mdash; score the PHQ-9 and the GAD-7</summary>
-      <p class="hint">Structured screens sit with the rest of the examination. Each one scores as you tick it,
-        saves in your browser, and offers the blank form as a PDF to hand a patient.</p>
+    <details class="scrnbox" id="pe-screeners" open>
+      <summary>Score a screener &mdash; the PHQ-9 and the GAD-7</summary>
+      <p class="hint">These two score as you tick them, save in your browser, and offer the blank form as a
+        PDF to hand a patient.</p>
       <div id="scrn-host"></div>
     </details>
 
     <details class="srcnote">
       <summary>Where this comes from, and what was changed</summary>
+      <p><strong>The screening instruments</strong> are listed with the exams, under
+        <em>Screening</em>, because a questionnaire is an examination you carry out rather than a laboratory
+        order. Three of the nine are free to reproduce and ship with this notebook as printable blank forms
+        &mdash; the PHQ-9 and the GAD-7, which their authors placed in the public domain, and the AUDIT-C,
+        which is the WHO's AUDIT consumption items. Those three are typeset for this notebook rather than
+        being the publisher's own file. The other six are copyrighted and licensed by their publishers, so
+        each entry names who holds it and links to them instead of reproducing it. To use a licensed form
+        here, obtain it from the publisher, save it as <code>assets/&lt;id&gt;.pdf</code>, and add
+        <code>"form": "&lt;id&gt;"</code> to that entry in <code>data/therapeutics.json</code>.</p>
       <p><strong>From your PED coursework, not the workbook.</strong> The exam steps and the normal-findings wording are transcribed from your own Physical Exam &amp; Diagnosis notes &mdash; the head-to-toe objectives, the respiratory, cardiovascular and abdominal exam charts, the MSK, neuro and orthopaedic study guides, the review of systems intake form, and the female and male objective charts &mdash; and the cardiovascular exam carries the NMS3 competency checklist it is graded against, from the BU SNM Student Clinic Handbook. The <em>technique</em> lines and the <em>what an abnormal finding suggests</em> tables were written for this tool from standard physical-diagnosis teaching; they are not in your notes and are not peer reviewed. Treat them as study prompts for a differential, never as a diagnosis.</p>
       <p><strong>Exam sequence and normal findings:</strong> transcribed from the ten PED documents listed
         in the banner. The normal wording is kept close to the source so the write-up view reproduces what
@@ -197,8 +206,8 @@
 
     <details class="srcnote">
       <summary>Where this comes from</summary>
-      <p><strong>Screening instruments are scored under Physical Exams.</strong> The PHQ-9 and GAD-7 scorers, and the blank forms to hand a patient, sit with the rest of the examination; the entries here describe when to reach for them.</p>
-      <p><strong>What to run, and what the result means.</strong> Blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels &mdash; each with the reason to order it and how to read it. The same tests are attached to every abnormal finding in the Physical Exams tab and to every condition in the Conditions tab. Written for this tool from standard references and from your coursework; not peer reviewed.</p>
+      <p><strong>The screening instruments have moved to Physical Exams.</strong> A questionnaire is part of the examination rather than a laboratory order, so the nine screening tools &mdash; STOP-BANG, Epworth, PHQ-9, GAD-7, the MDQ, MMSE/MoCA, AUDIT-C, the CAT and the mould exposure questionnaire &mdash; and the PHQ-9 and GAD-7 scorers now sit under <strong>Physical Exams</strong>. The 90 tests here are the ones you order from a laboratory or an imaging department.</p>
+      <p><strong>What to run, and what the result means.</strong> Blood, urine, stool, microbiology, imaging, function tests, procedures and specialty panels &mdash; each with the reason to order it and how to read it. The same tests are attached to every abnormal finding in the Physical Exams tab and to every condition in the Conditions tab. Written for this tool from standard references and from your coursework; not peer reviewed.</p>
       <p><strong>Written for this tool</strong> from standard pharmacology, nutritional and naturopathic
         references, and from the coursework listed in the banner &mdash; the mental health study guide, the
         respiratory therapeutics quizzes, the mould and mycotoxin lecture, the Mayan abdominal massage
@@ -277,8 +286,11 @@
       </div>
     </div>
     <div id="supps-results" class="txlist"></div>
+
     <details class="srcnote">
       <summary>Where this comes from</summary>
+      <p><strong>The women&rsquo;s hormone formulas are your list, the cautions are not.</strong> The brand, the formula, what is in it and what it is aimed at are transcribed from your own compiled list of practitioner lines. The <em>caution</em> on each entry was written for this tool from standard references &mdash; a product reference without the contraindications is the dangerous half of the picture. Manufacturers reformulate without renaming, so check the current label before you dispense. Nothing in that block is evidence that a product works; two of its own claims are worth naming as models rather than physiology &mdash; &ldquo;pregnenolone steal&rdquo; has little support, since steroidogenesis is compartmentalised by tissue rather than drawn from a shared pool, and the estrogen&ndash;histamine link is plausible but not settled.</p>
+      <p><strong>Single agents and practitioner formulas in one list.</strong> The 63 single agents and the 40 branded women&rsquo;s hormone formulas are catalogued together, A&ndash;Z or by condition. Use the filter chips to read them apart: <em>Single agents</em> for the plain nutrients, or any of the eight physiological targets the formulas are grouped by. Each formula card carries its brand in the name, its target as the badge, and whether it is built from nutrients, botanicals or both.</p>
       <p><strong>Non-herbal agents only.</strong> Vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients and other nutraceuticals. The 34 <em>botanical</em> products the conditions call for live under <strong>Herb Reference</strong>, in the &ldquo;Botanical supplements&rdquo; block, so herbs stay on the herb side of the tool; each condition lists them on its own <em>Botanicals</em> row.</p>
       <p><strong>Organised by the conditions they are indicated for.</strong> Typical adult dose ranges, the mechanism, and the cautions &mdash; including which supplements must be avoided in which patients. Doses marked as coming from your notes carry the figures your mental health study guide and mould lecture give. Written for this tool from standard nutritional and naturopathic references; not peer reviewed, and no substitute for checking each one against the patient&rsquo;s medication list.</p>
       <p><strong>Written for this tool</strong> from standard pharmacology, nutritional and naturopathic
@@ -737,14 +749,15 @@
      frightening should be seen by a clinician.</p>
 </footer>
 
-<script src="js/herbdata.js?v=2"></script>
-<script src="js/homeopathydata.js?v=2"></script>
-<script src="js/physicalexamdata.js?v=2"></script>
-<script src="js/therapeuticsdata.js?v=2"></script>
-<script src="js/pregnancydata.js?v=2"></script>
-<script src="js/screenerdata.js?v=2"></script>
-<script src="js/casedata.js?v=2"></script>
-<script src="js/symptomdata.js?v=2"></script>
-<script src="js/app.js?v=2"></script>
+<script src="js/herbdata.js?v=3"></script>
+<script src="js/homeopathydata.js?v=3"></script>
+<script src="js/physicalexamdata.js?v=3"></script>
+<script src="js/therapeuticsdata.js?v=3"></script>
+<script src="js/pregnancydata.js?v=3"></script>
+<script src="js/screenerdata.js?v=3"></script>
+<script src="js/womensformulasdata.js?v=3"></script>
+<script src="js/casedata.js?v=3"></script>
+<script src="js/symptomdata.js?v=3"></script>
+<script src="js/app.js?v=3"></script>
 </body>
 </html>

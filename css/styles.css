@@ -849,4 +849,10 @@ td.herb input{min-width:190px}
   cursor:pointer;text-decoration:underline}
 .txpill.life{border-left:3px dotted var(--accent-soft)}
 .txpill.bot{border-left:3px double var(--accent)}
+.exam.is-hit{outline:2px solid var(--accent);outline-offset:2px;border-radius:var(--radius)}
+.scrn-form{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:10px 0 4px}
+.scrn-dl,.scrn-src{font-size:.85rem;font-weight:600;color:var(--accent)}
+.scrn-src::before{content:"\2197\00a0"}
+.scrn-lic{flex-basis:100%;margin:0;font-size:.82rem;line-height:1.6;color:var(--muted)}
+.txalso{margin:2px 0 0;font-size:.8rem;font-style:italic;color:var(--muted)}
 #bot-box .txlist{margin-top:.5rem}

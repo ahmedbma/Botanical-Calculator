@@ -1768,7 +1768,8 @@
     all.dataset.t = 'all';
     box.appendChild(all);
     (PE.types || []).forEach(function (t) {
-      var count = PE_EXAMS.filter(function (x) { return x.type === t; }).length;
+      var count = PE_EXAMS.filter(function (x) { return x.type === t; }).length
+        + (t === 'Screening' ? (TX.screens || []).length : 0);
       if (!count) return;
       var b = el('button', 'chip', t + (count > 1 ? ' (' + count + ')' : ''));
       b.dataset.t = t;
@@ -2115,9 +2116,17 @@
       return (peType === 'all' || x.type === peType) && peMatch(x, q);
     });
 
-    $('#pe-count').textContent = list.length === PE_EXAMS.length
-      ? PE_EXAMS.length + ' exams, ' + PE_EXAMS.reduce(function (n, x) { return n + x._steps; }, 0) + ' steps'
-      : list.length + ' of ' + PE_EXAMS.length + ' exams';
+    // the screening instruments belong to the Screening filter, and to the
+    // write-up view not at all — that view is the normal-findings narrative
+    var screens = (peView === 'steps' && (peType === 'all' || peType === 'Screening'))
+      ? screenList(q) : [];
+    var nScreen = (TX.screens || []).length;
+
+    $('#pe-count').textContent = list.length === PE_EXAMS.length && screens.length === nScreen
+      ? PE_EXAMS.length + ' exams and ' + nScreen + ' screening tools, ' +
+        PE_EXAMS.reduce(function (n, x) { return n + x._steps; }, 0) + ' steps'
+      : (list.length + screens.length) + ' of ' + (PE_EXAMS.length + nScreen) +
+        ' exams and screening tools';
 
     var out = $('#pe-results');
     out.innerHTML = '';
@@ -2167,8 +2176,10 @@
       frag.appendChild(det);
     });
 
+    screens.forEach(function (x) { frag.appendChild(screenExamNode(x, q)); });
+
     out.appendChild(frag);
-    if (!list.length) {
+    if (!list.length && !screens.length) {
       out.appendChild(el('p', 'count', 'No exam matches that. Try a manoeuvre, a body part or a sign.'));
     }
   }
@@ -2234,7 +2245,7 @@
     nm.innerHTML = highlight(x.name, q);
     head.appendChild(nm);
     var badge = set === 'pharm' ? x.cls
-      : set === 'labs' ? (LAB_KIND_LABEL[x.kind] || x.kind)
+      : (set === 'labs' || set === 'labsOnly' || set === 'screens') ? (LAB_KIND_LABEL[x.kind] || x.kind)
       : x.kind || null;   // a therapy shows its kind; a supplement has none
     if (badge) head.appendChild(el('span', 'txbadge', badge));
     card.appendChild(head);
@@ -2442,7 +2453,53 @@
   TX.botanicals = TX.supplements.filter(function (x) { return !!x.herbal; });
   TX_IDX.nonHerbal = txIndex(TX.nonHerbal);
   TX_IDX.botanicals = txIndex(TX.botanicals);
+  // A questionnaire is part of the examination, not a laboratory order, so the
+  // screening instruments live with the physical exams.
+  TX.labsOnly = TX.labs.filter(function (x) { return x.kind !== 'screen'; });
+  TX.screens = TX.labs.filter(function (x) { return x.kind === 'screen'; });
+  TX_IDX.labsOnly = txIndex(TX.labsOnly);
+  TX_IDX.screens = txIndex(TX.screens);
   window.TX_BOTANICALS = TX.botanicals;   // read by the Herb Reference tab
+
+  /* ---- practitioner women's hormone formulas ----
+     Branded products rather than single agents, but they are supplements a
+     patient takes, so they belong in the Supplements catalogue rather than in a
+     box beside it. Each keeps its brand in the name and its physiological
+     target as the badge, and the tab gains a filter chip per target so the
+     single agents can still be read on their own. */
+  var WF = window.WOMENS_FORMULAS_DATA || { formulas: [], targets: [], bases: [], brands: [] };
+  var WF_TARGET = {}, WF_BASE = {};
+  (WF.targets || []).forEach(function (t) { WF_TARGET[t.id] = t.label; });
+  (WF.bases || []).forEach(function (b) { WF_BASE[b.id] = b.label; });
+
+  var WF_SUPPS = (WF.formulas || []).map(function (f) {
+    return {
+      id: 'wf_' + f.id,
+      name: f.name + ' \u2014 ' + f.brand,
+      kind: WF_TARGET[f.target] || f.target,
+      examples: (WF_BASE[f.base] || f.base) + ' \u00b7 ' + f.actives + (f.also ? ' \u00b7 ' + f.also : ''),
+      use: f.what,
+      caution: f.caution,
+      conditions: (f.conditions || []).slice(),
+      wfTarget: f.target,
+      wfBrand: f.brand
+    };
+  });
+  WF_SUPPS.forEach(function (x) {
+    x._hay = txHay(x, x.kind) + ' ' + x.wfBrand.toLowerCase() + ' practitioner formula';
+    TX.supplements.push(x);
+    TX.nonHerbal.push(x);
+    TX_IDX.supps[x.id] = x;
+    TX_IDX.nonHerbal[x.id] = x;
+    // so each formula reads under the conditions it is indicated for, in this
+    // tab's by-condition view and in the condition's own therapeutics block
+    x.conditions.forEach(function (cond) {
+      var rec = TXBY[cond];
+      if (!rec) return;
+      if (!rec.supps) rec.supps = [];
+      if (rec.supps.indexOf(x.id) === -1) rec.supps.push(x.id);
+    });
+  });
   TX.natTherapeutics = TX.therapies.filter(function (x) { return x.zone !== 'lifestyle'; });
   TX.lifestyle = TX.therapies.filter(function (x) { return x.zone === 'lifestyle'; });
   TX_IDX.natTherapeutics = txIndex(TX.natTherapeutics);
@@ -2456,8 +2513,11 @@
   var renderSupps = txMakeTab({
     id: 'supps', key: 'nonHerbal', set: 'nonHerbal', noun: 'supplements',
     condKeys: ['supps'],
-    groupOf: function () { return 'all'; },
-    groups: function () { return []; }
+    groupOf: function (x) { return x.wfTarget || 'agent'; },
+    groups: function () {
+      return [{ value: 'agent', label: 'Single agents' }].concat(
+        (WF.targets || []).map(function (t) { return { value: t.id, label: t.label }; }));
+    }
   });
   var renderTherap = txMakeTab({
     id: 'therap', key: 'natTherapeutics', set: 'natTherapeutics', noun: 'modalities',
@@ -2472,10 +2532,11 @@
     groups: function () { return kindsOf(TX.lifestyle); }
   });
   var renderLabs = txMakeTab({
-    id: 'labs', key: 'labs', set: 'labs', noun: 'tests', condKeys: ['labs'],
+    id: 'labs', key: 'labsOnly', set: 'labsOnly', noun: 'tests', condKeys: ['labs'],
     groupOf: function (x) { return x.kind; },
     groups: function () {
-      return (TX.labKinds || []).map(function (k) { return { value: k, label: LAB_KIND_LABEL[k] || k }; });
+      return (TX.labKinds || []).filter(function (k) { return k !== 'screen'; })
+        .map(function (k) { return { value: k, label: LAB_KIND_LABEL[k] || k }; });
     }
   });
 
@@ -2902,6 +2963,106 @@
     return det;
   }
 
+  /* ---- the screening instruments, listed among the exams ----
+     A questionnaire is an examination you carry out, so each one reads as an
+     entry of type Screening in the exam list rather than as a separate block. */
+  function screenList(q) {
+    var all = (TX.screens || []);
+    return q ? all.filter(function (x) { return x._hay.indexOf(q) !== -1; }) : all;
+  }
+
+  function screenExamNode(x, q) {
+    var det = el('details', 'exam scrn-exam');
+    det.dataset.screen = x.id;
+    if (q) det.open = true;
+
+    var sum = el('summary');
+    var name = el('span');
+    name.innerHTML = highlight(x.name, q);
+    sum.appendChild(name);
+    sum.appendChild(el('span', 'sys', 'Screening'));
+    var meta = el('p', 'pe-meta');
+    meta.innerHTML = highlight(x.why, q) + ' <em>screening instrument</em>';
+    sum.appendChild(meta);
+    det.appendChild(sum);
+
+    var body = el('div', 'body');
+    if (x.interpret) {
+      var ip = el('p', 'txinterp');
+      ip.innerHTML = '<span class="txlab alt">reading it</span> ' + highlight(x.interpret, q);
+      body.appendChild(ip);
+    }
+    body.appendChild(screenFormNode(x));
+    var conds = (x.conditions || []);
+    if (conds.length) {
+      var wrap = el('div', 'pe-related');
+      wrap.appendChild(el('span', 'pe-rlab', 'In the Conditions index'));
+      conds.forEach(function (nm) {
+        var b = el('button', 'chip', nm);
+        b.title = 'Open ' + nm + ' in the Conditions tab.';
+        b.addEventListener('click', function () {
+          showTab('conditions');
+          $('#cx-search').value = nm;
+          renderConditions();
+          $('#panel-conditions').scrollIntoView({ block: 'start' });
+        });
+        wrap.appendChild(b);
+      });
+      body.appendChild(wrap);
+    }
+    det.appendChild(body);
+    return det;
+  }
+
+  /* Where the blank form comes from. Three instruments are free to reproduce and
+     ship with this project; the rest are licensed by their publishers, so the
+     entry says who holds it and links to them rather than reproducing it. */
+  function screenFormNode(x) {
+    var row = el('div', 'scrn-form');
+    if (x.form) {
+      var a = el('a', 'scrn-dl', 'Download the blank form (PDF)');
+      a.href = 'assets/' + x.form + '.pdf';
+      a.setAttribute('download', x.name + '.pdf');
+      row.appendChild(a);
+    }
+    var src = x.formSource;
+    if (src) {
+      if (src.url) {
+        var link = el('a', 'scrn-src', 'Official form \u2014 ' + src.site);
+        link.href = src.url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        row.appendChild(link);
+      }
+      if (src.note) row.appendChild(el('p', 'scrn-lic', src.note));
+    }
+    if (x.id === 'phq9' || x.id === 'gad7') {
+      var jump = el('button', 'txlink', 'Score it below');
+      jump.addEventListener('click', function () {
+        var box = $('#pe-screeners');
+        if (box) { box.open = true; box.scrollIntoView({ block: 'start' }); }
+      });
+      row.appendChild(jump);
+    }
+    return row;
+  }
+
+  // Open the exam list on the instrument a condition asked for.
+  function scrnJump(id) {
+    showTab('exams');
+    var det = $('#pe-results [data-screen="' + id + '"]');
+    if (!det) {
+      var inp = $('#pe-search');
+      if (inp) { inp.value = ''; inp.dispatchEvent(new Event('input', { bubbles: true })); }
+      det = $('#pe-results [data-screen="' + id + '"]');
+    }
+    if (!det) { $('#panel-exams').scrollIntoView({ block: 'start' }); return; }
+    det.open = true;
+    det.scrollIntoView({ block: 'center' });
+    det.classList.add('is-hit');
+    setTimeout(function () { det.classList.remove('is-hit'); }, 1600);
+  }
+
   /* ---- the therapeutics block shown inside each condition ---- */
   function txForCondition(cond, q) {
     var rec = TXBY[cond];
@@ -2913,7 +3074,8 @@
       ['supps', 'Botanicals', 'botanicals'],
       ['therapies', 'Naturopathic therapeutics', 'natTherapeutics'],
       ['therapies', 'Lifestyle', 'lifestyle'],
-      ['labs', 'Labs & imaging', 'labs']
+      ['labs', 'Screening tools', 'screens'],
+      ['labs', 'Labs & imaging', 'labsOnly']
     ];
     var any = false;
     rows.forEach(function (r) {
@@ -2940,13 +3102,13 @@
         }
         // each row opens the tab that actually holds that item
         var tab = r[2] === 'natTherapeutics' ? 'therap' : r[2] === 'lifestyle' ? 'life'
-          : r[2] === 'botanicals' ? 'herbs'
+          : r[2] === 'botanicals' ? 'herbs' : r[2] === 'screens' ? 'exams'
           : r[0] === 'labs' ? 'labs' : r[0] === 'pharm' ? 'pharm' : 'supps';
         b.addEventListener('click', function () {
           showTab(tab);
           // the herb reference names its search box differently, and keeps the
           // botanicals in a collapsed block
-          var inp = $('#' + (tab === 'herbs' ? 'hr' : tab) + '-search');
+          var inp = tab === 'exams' ? null : $('#' + (tab === 'herbs' ? 'hr' : tab) + '-search');
           if (inp) {
             inp.value = tab === 'herbs' ? it.name.split(' (')[0] : it.name;
             inp.dispatchEvent(new Event('input', { bubbles: true }));
@@ -2955,6 +3117,7 @@
             var bb = $('#bot-box');
             if (bb) { bb.open = true; bb.scrollIntoView({ block: 'start' }); return; }
           }
+          if (tab === 'exams') { scrnJump(it.id); return; }
           $('#panel-' + tab).scrollIntoView({ block: 'start' });
         });
         items.appendChild(b);
