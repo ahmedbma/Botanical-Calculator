@@ -17,7 +17,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The nine **screening instruments** are listed among the exams under *Screening* — STOP-BANG, Epworth, PHQ-9, GAD-7, the MDQ, MMSE/MoCA, AUDIT-C, the COPD Assessment Test and the mould exposure questionnaire — each with a blank form to download or a link to the publisher who licenses it, and the **PHQ-9** and **GAD-7** scoreable in place. |
 | **Labs & Imaging** | 90 tests across blood, urine, stool, microbiology, imaging, function tests, procedures and specialty panels — why you would order each and how to read it. The same tests hang off every abnormal exam finding and every condition. The nine **screening instruments** sit under Physical Exams instead. |
 | **Pharmaceuticals** | 106 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
-| **Supplements** | 103 entries: 63 non-herbal single agents — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients — and 40 practitioner-line **women's hormone formulas** across 10 brands, catalogued together with typical dose ranges, mechanisms and the cautions that matter. Filter chips read the single agents apart from the formulas, which are grouped by physiological target. A–Z or by condition. The 34 **botanical** products the conditions call for sit under Herb Reference instead. |
+| **Supplements** | 147 entries: 63 non-herbal single agents with dose ranges and mechanisms, 40 practitioner-line **women's hormone formulas** grouped by physiological target, and the **practitioner formulary** — what all ten professional lines stock, 44 categories covering some 273 products. Filter chips read the three apart. A–Z or by condition. The 34 **botanical** products the conditions call for sit under Herb Reference instead. |
 | **Naturopathic Therapeutics** | 41 modalities a practitioner applies — physical medicine (constitutional hydrotherapy, spinal manipulation, acupuncture, massage, therapeutic ultrasound, gua sha, cupping, manual lymphatic drainage, sauna, infrared and low-level laser, TENS, moxibustion, kinesiology taping, traction, castor oil packs), topicals, devices, procedures, rehabilitation and psychotherapy — each with what it is, what it is for, and its contraindications. Filter by kind or switch to *By condition*. |
 | **Lifestyle** | 15 changes a patient makes — diet patterns, sleep hygiene, structured exercise, breathing retraining, stress reduction, caffeine and alcohol reduction, environmental remediation and the rest — kept separate from the things a patient takes and the things a practitioner does. |
 | **Homeopathy** | A remedy differentiator over 148 classical remedies and 42 presenting complaints. Pick the complaint; it asks the questions that best separate the remedies still in contention, and ranks them with the reasoning shown. Includes a searchable remedy reference. |
@@ -80,6 +80,7 @@ js/therapeuticsdata.js   pharmaceuticals, supplements, therapies and labs as a g
 js/pregnancydata.js      pregnancy and lactation herb safety as a global
 js/screenerdata.js       the PHQ-9 and GAD-7 instruments as a global
 js/womensformulasdata.js women's hormone formulas as a global
+js/formularydata.js      the ten practitioner lines as a global
 js/app.js                all calculators, the differentiator, the exam index, the screeners and the therapeutics tabs
 data/herbdata.json       the same herbal data as plain JSON, for reuse
 data/homeopathy.json     the same homeopathic data as plain JSON, for reuse
@@ -88,12 +89,13 @@ data/therapeutics.json   the same therapeutics data as plain JSON, for reuse
 data/pregnancysafety.json  the same safety data as plain JSON, for reuse
 data/screeners.json      the same screener data as plain JSON, for reuse
 data/womensformulas.json the same formula data as plain JSON, for reuse
+data/formulary.json      the same formulary data as plain JSON, for reuse
 assets/phq9.pdf          blank PHQ-9 form, generated from data/screeners.json
 assets/gad7.pdf          blank GAD-7 form, generated from data/screeners.json
 assets/auditc.pdf        blank AUDIT-C form (the WHO AUDIT consumption items)
 ```
 
-The six files under `js/` are generated from their counterparts in `data/`; edit the JSON and
+The seven files under `js/` are generated from their counterparts in `data/`; edit the JSON and
 regenerate if you change the reference data.
 
 ## Data
@@ -254,6 +256,38 @@ Nothing in the block is evidence that a product works, and two of the models the
 naming as models: "pregnenolone steal" has little physiological support — steroidogenesis is
 compartmentalised by tissue, not drawn from a shared pool — and the estrogen–histamine link is plausible but
 not settled. Manufacturers also reformulate without renaming, so the current label is the authority, not this.
+
+### The practitioner formulary
+
+**What each of the ten professional lines actually stocks**, by brand and by physiological system: 44
+categories covering roughly 273 products, from Thorne's methylation and mineral ranges through Metagenics'
+UltraFlora and medical foods to Gaia's whole-plant phyto-caps. Collectively the ten lines span more than
+3,000 SKUs; this is the clinically used core of each.
+
+It is **a card per brand-category, not per product** — the products are names on a list, and 273 cards of
+bare names would bury the agents that carry a dose and a mechanism. Every product name is still searchable
+from the tab's own box: `choleast`, `interfase`, `ultraflora`, `monopure`, `lavela` and `esberitox` each
+land on the right card.
+
+The brands, their positioning lines, the categories and the product lists are transcribed from Nourhan
+Shams's own compiled catalogue. **The caution on each category was written for this tool**, and several of
+them change what you would dispense:
+
+- **Choleast is red yeast rice** — its monacolin K *is* lovastatin, with the same myopathy, rhabdomyolysis
+  and hepatotoxicity risk. Never alongside a statin, never in pregnancy.
+- **Lithium orotate is lithium** — not benign in renal impairment, or with an ACE inhibitor, thiazide or
+  NSAID, and never with prescribed lithium carbonate.
+- **Melatonin 20 mg** is twenty to sixty times the physiological dose.
+- **Cortrex is a bovine adrenal cortex glandular** — unstandardised corticosteroid content, and not a
+  substitute for investigating suspected adrenal insufficiency.
+- **SBI Protect is bovine serum-derived**, and **Histamine Digest is porcine kidney DAO** — say so before
+  dispensing, for allergy and for the patients whose diet or religion makes it matter.
+- **Interfase Plus contains disodium EDTA**, which chelates minerals; **serrapeptase and ginkgo** are
+  antiplatelet; **preformed vitamin A** in drops is teratogenic above 3,000 µg daily; **selenium** turns
+  toxic above about 400 µg.
+
+None of it is evidence that a product works, and manufacturers reformulate without renaming — the current
+label is the authority.
 
 ### The screening instruments, and their blank forms
 
