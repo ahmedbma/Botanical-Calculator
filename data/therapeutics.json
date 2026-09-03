@@ -5647,7 +5647,12 @@
     "Insomnia",
     "Obesity",
     "Obstructive sleep apnea"
-   ]
+   ],
+   "formSource": {
+    "site": "stopbang.ca",
+    "url": "http://www.stopbang.ca/",
+    "note": "Copyright University Health Network, Toronto. Free for personal and non-commercial clinical use; the site issues permission for anything else."
+   }
   },
   {
    "id": "epworth",
@@ -5657,7 +5662,12 @@
    "interpret": "Measures sleepiness, not apnoea — it does not gate polysomnography.",
    "conditions": [
     "Obstructive sleep apnea"
-   ]
+   ],
+   "formSource": {
+    "site": "epworthsleepinessscale.com",
+    "url": "https://epworthsleepinessscale.com/",
+    "note": "Copyright Dr Murray W. Johns. A licence is required to reproduce or distribute it, including in a clinic's own paperwork."
+   }
   },
   {
    "id": "sputum",
@@ -6125,7 +6135,12 @@
     "Insomnia",
     "Post-traumatic stress disorder"
    ],
-   "form": "phq9"
+   "form": "phq9",
+   "formSource": {
+    "site": null,
+    "url": null,
+    "note": "Public domain. Developed by Drs Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues with an educational grant from Pfizer Inc; no permission is required to reproduce it. The form here is typeset for this notebook, not the publisher's own file."
+   }
   },
   {
    "id": "gad7",
@@ -6139,7 +6154,12 @@
     "Insomnia",
     "Post-traumatic stress disorder"
    ],
-   "form": "gad7"
+   "form": "gad7",
+   "formSource": {
+    "site": null,
+    "url": null,
+    "note": "Public domain, same authors and grant as the PHQ-9; no permission is required to reproduce it. The form here is typeset for this notebook, not the publisher's own file."
+   }
   },
   {
    "id": "mdq",
@@ -6151,7 +6171,12 @@
     "Anxiety",
     "Bipolar disorder",
     "Depression"
-   ]
+   ],
+   "formSource": {
+    "site": null,
+    "url": null,
+    "note": "Copyright Dr Robert M.A. Hirschfeld and colleagues; reproduced in most psychiatric screening toolkits, and free to use in clinical practice with the attribution intact."
+   }
   },
   {
    "id": "utox",
@@ -6179,17 +6204,28 @@
     "Parkinson's disease",
     "Seizure disorder",
     "Vertigo"
-   ]
+   ],
+   "formSource": {
+    "site": "mocacognition.com / parinc.com",
+    "url": "https://mocacognition.com/",
+    "note": "Both are licensed instruments. The MoCA requires free training and certification before use; the MMSE is sold by PAR Inc."
+   }
   },
   {
-   "id": "audit",
+   "id": "auditc",
    "name": "AUDIT-C and substance screening",
    "kind": "screen",
    "why": "Alcohol and substance use as a driver of mood, sleep, liver and cardiac findings.",
    "interpret": "Brief and well validated; ask everyone.",
    "conditions": [
     "Depression"
-   ]
+   ],
+   "form": "auditc",
+   "formSource": {
+    "site": null,
+    "url": null,
+    "note": "The AUDIT-C is the first three items of the WHO's AUDIT, which the WHO permits anyone to reproduce, translate and distribute. The form here is typeset for this notebook."
+   }
   },
   {
    "id": "bp_home",
@@ -6260,7 +6296,12 @@
    "interpret": "A score of 33 is very severe and warrants specialist referral.",
    "conditions": [
     "Chronic obstructive pulmonary disease"
-   ]
+   ],
+   "formSource": {
+    "site": "catestonline.org",
+    "url": "https://www.catestonline.org/",
+    "note": "Copyright GlaxoSmithKline. Free to use and print from the official site; reproducing it elsewhere needs permission."
+   }
   },
   {
    "id": "crista_q",
@@ -6270,7 +6311,12 @@
    "interpret": "Dr Jill Crista's questionnaire is the one your lecture recommends for documentation and intake.",
    "conditions": [
     "Mold and mycotoxin illness"
-   ]
+   ],
+   "formSource": {
+    "site": "drcrista.com",
+    "url": "https://drcrista.com/",
+    "note": "Dr Jill Crista's own questionnaire, from her mould work. Available from her site rather than as a free reprint."
+   }
   }
  ],
  "byCondition": {
@@ -7377,7 +7423,7 @@
     "b12folate",
     "ferritin",
     "utox",
-    "audit"
+    "auditc"
    ],
    "note": "Five or more symptoms for at least two weeks, one of them depressed mood or anhedonia. Screen the MDQ before an antidepressant: SAMe, St John's wort and rhodiola can all trigger mania in a bipolar patient.",
    "protocol": "major-depressive-disorder"

@@ -14,7 +14,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | Tool | Purpose |
 |---|---|
 | **Conditions** | 75 conditions A–Z plus 77 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 40 of them, and the sections of your own notes that describe it. |
-| **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. Carries the nine **screening instruments** as well — STOP-BANG, Epworth, PHQ-9, GAD-7, the MDQ, MMSE/MoCA, AUDIT-C, the COPD Assessment Test and the mould exposure questionnaire — with the **PHQ-9** and **GAD-7** scoreable in place and their blank forms downloadable as PDFs. |
+| **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The nine **screening instruments** are listed among the exams under *Screening* — STOP-BANG, Epworth, PHQ-9, GAD-7, the MDQ, MMSE/MoCA, AUDIT-C, the COPD Assessment Test and the mould exposure questionnaire — each with a blank form to download or a link to the publisher who licenses it, and the **PHQ-9** and **GAD-7** scoreable in place. |
 | **Labs & Imaging** | 90 tests across blood, urine, stool, microbiology, imaging, function tests, procedures and specialty panels — why you would order each and how to read it. The same tests hang off every abnormal exam finding and every condition. The nine **screening instruments** sit under Physical Exams instead. |
 | **Pharmaceuticals** | 106 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
 | **Supplements** | 63 non-herbal supplements — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients — with typical dose ranges, mechanisms and the cautions that matter, including which must be avoided in which patients. Organised A–Z or by condition. The 34 **botanical** products the conditions call for sit under Herb Reference instead. |
@@ -88,6 +88,7 @@ data/pregnancysafety.json  the same safety data as plain JSON, for reuse
 data/screeners.json      the same screener data as plain JSON, for reuse
 assets/phq9.pdf          blank PHQ-9 form, generated from data/screeners.json
 assets/gad7.pdf          blank GAD-7 form, generated from data/screeners.json
+assets/auditc.pdf        blank AUDIT-C form (the WHO AUDIT consumption items)
 ```
 
 The five files under `js/` are generated from their counterparts in `data/`; edit the JSON and
@@ -222,6 +223,34 @@ scale, the scoring and the attribution are the instrument as published; the type
 Both are public domain, so reproducing them is permitted — but if you would rather hand out the publisher's
 own file, download it and save it over `assets/phq9.pdf` or `assets/gad7.pdf`. The download link points at
 that filename, so nothing else has to change.
+
+### The screening instruments, and their blank forms
+
+The nine instruments sit in the **Physical Exams** list under *Screening*, alongside the head-to-toe screen
+and the paediatric skin evaluation — a questionnaire is an examination you carry out, not something a
+laboratory runs. Each entry gives what it is for, how to read the score, the conditions it belongs to, and
+where its blank form comes from.
+
+**Three ship with this project as printable blanks**, because they are free to reproduce:
+
+| Instrument | File | Why it can be reproduced |
+|---|---|---|
+| PHQ-9 | `assets/phq9.pdf` | Public domain — Spitzer, Williams, Kroenke and colleagues, with an educational grant from Pfizer Inc |
+| GAD-7 | `assets/gad7.pdf` | Public domain, same authors and grant |
+| AUDIT-C | `assets/auditc.pdf` | The consumption items of the WHO's AUDIT, which the WHO permits anyone to reproduce and translate |
+
+All three are typeset for this notebook rather than being the publisher's own file; the items, the response
+scale and the scoring are the published ones.
+
+**The other six are copyrighted and licensed**, so this project does not reproduce them. Each entry names the
+holder and links to them instead: STOP-BANG (University Health Network), the Epworth Sleepiness Scale
+(Dr Murray W. Johns), the MMSE (PAR Inc) and MoCA (which also requires training and certification), the COPD
+Assessment Test (GlaxoSmithKline), and Dr Jill Crista's mould exposure questionnaire. The MDQ is free to use
+in clinical practice with the attribution intact but has no single canonical download.
+
+To use a licensed form here: obtain it from the publisher, save it as `assets/<id>.pdf`, and add
+`"form": "<id>"` to that entry in `data/therapeutics.json` (then regenerate `js/therapeuticsdata.js`). The
+download link appears on the card with no other change.
 
 ### Pregnancy and lactation safety
 

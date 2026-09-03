@@ -1745,7 +1745,8 @@
     all.dataset.t = 'all';
     box.appendChild(all);
     (PE.types || []).forEach(function (t) {
-      var count = PE_EXAMS.filter(function (x) { return x.type === t; }).length;
+      var count = PE_EXAMS.filter(function (x) { return x.type === t; }).length
+        + (t === 'Screening' ? (TX.screens || []).length : 0);
       if (!count) return;
       var b = el('button', 'chip', t + (count > 1 ? ' (' + count + ')' : ''));
       b.dataset.t = t;
@@ -2022,11 +2023,17 @@
       return (peType === 'all' || x.type === peType) && peMatch(x, q);
     });
 
-    $('#pe-count').textContent = list.length === PE_EXAMS.length
-      ? PE_EXAMS.length + ' exams, ' + PE_EXAMS.reduce(function (n, x) { return n + x._steps; }, 0) + ' steps'
-      : list.length + ' of ' + PE_EXAMS.length + ' exams';
+    // the screening instruments belong to the Screening filter, and to the
+    // write-up view not at all — that view is the normal-findings narrative
+    var screens = (peView === 'steps' && (peType === 'all' || peType === 'Screening'))
+      ? screenList(q) : [];
+    var nScreen = (TX.screens || []).length;
 
-    renderScreens(q);
+    $('#pe-count').textContent = list.length === PE_EXAMS.length && screens.length === nScreen
+      ? PE_EXAMS.length + ' exams and ' + nScreen + ' screening tools, ' +
+        PE_EXAMS.reduce(function (n, x) { return n + x._steps; }, 0) + ' steps'
+      : (list.length + screens.length) + ' of ' + (PE_EXAMS.length + nScreen) +
+        ' exams and screening tools';
 
     var out = $('#pe-results');
     out.innerHTML = '';
@@ -2071,8 +2078,10 @@
       frag.appendChild(det);
     });
 
+    screens.forEach(function (x) { frag.appendChild(screenExamNode(x, q)); });
+
     out.appendChild(frag);
-    if (!list.length) {
+    if (!list.length && !screens.length) {
       out.appendChild(el('p', 'count', 'No exam matches that. Try a manoeuvre, a body part or a sign.'));
     }
   }
@@ -2707,41 +2716,104 @@
     return det;
   }
 
-  /* ---- the screening instruments, shown with the physical exams ----
-     They answer the same search box as the exams, so looking for "sleep" or
-     "PHQ" finds the questionnaire as readily as the manoeuvre. */
-  function renderScreens(q) {
-    var out = $('#screen-results');
-    if (!out) return;
-    q = (q || '').toLowerCase().trim();
-    var all = TX.screens || [];
-    var list = q ? all.filter(function (x) { return x._hay.indexOf(q) !== -1; }) : all;
-    $('#screen-count').textContent = list.length === all.length
-      ? all.length + ' instruments'
-      : list.length + ' of ' + all.length + ' instruments';
-    var box = $('#screen-box');
-    if (box && q) box.open = true;
-    out.innerHTML = '';
-    var frag = document.createDocumentFragment();
-    list.forEach(function (x) {
-      var card = txCard(x, 'screens', q, true);
-      card.dataset.screen = x.id;
-      frag.appendChild(card);
-    });
-    if (!list.length) frag.appendChild(el('p', 'count', 'No screening instrument matches that search.'));
-    out.appendChild(frag);
+  /* ---- the screening instruments, listed among the exams ----
+     A questionnaire is an examination you carry out, so each one reads as an
+     entry of type Screening in the exam list rather than as a separate block. */
+  function screenList(q) {
+    var all = (TX.screens || []);
+    return q ? all.filter(function (x) { return x._hay.indexOf(q) !== -1; }) : all;
   }
-  // Open the screening block on the instrument a condition asked for.
+
+  function screenExamNode(x, q) {
+    var det = el('details', 'exam scrn-exam');
+    det.dataset.screen = x.id;
+    if (q) det.open = true;
+
+    var sum = el('summary');
+    var name = el('span');
+    name.innerHTML = highlight(x.name, q);
+    sum.appendChild(name);
+    sum.appendChild(el('span', 'sys', 'Screening'));
+    var meta = el('p', 'pe-meta');
+    meta.innerHTML = highlight(x.why, q) + ' <em>screening instrument</em>';
+    sum.appendChild(meta);
+    det.appendChild(sum);
+
+    var body = el('div', 'body');
+    if (x.interpret) {
+      var ip = el('p', 'txinterp');
+      ip.innerHTML = '<span class="txlab alt">reading it</span> ' + highlight(x.interpret, q);
+      body.appendChild(ip);
+    }
+    body.appendChild(screenFormNode(x));
+    var conds = (x.conditions || []);
+    if (conds.length) {
+      var wrap = el('div', 'pe-related');
+      wrap.appendChild(el('span', 'pe-rlab', 'In the Conditions index'));
+      conds.forEach(function (nm) {
+        var b = el('button', 'chip', nm);
+        b.title = 'Open ' + nm + ' in the Conditions tab.';
+        b.addEventListener('click', function () {
+          showTab('conditions');
+          $('#cx-search').value = nm;
+          renderConditions();
+          $('#panel-conditions').scrollIntoView({ block: 'start' });
+        });
+        wrap.appendChild(b);
+      });
+      body.appendChild(wrap);
+    }
+    det.appendChild(body);
+    return det;
+  }
+
+  /* Where the blank form comes from. Three instruments are free to reproduce and
+     ship with this project; the rest are licensed by their publishers, so the
+     entry says who holds it and links to them rather than reproducing it. */
+  function screenFormNode(x) {
+    var row = el('div', 'scrn-form');
+    if (x.form) {
+      var a = el('a', 'scrn-dl', 'Download the blank form (PDF)');
+      a.href = 'assets/' + x.form + '.pdf';
+      a.setAttribute('download', x.name + '.pdf');
+      row.appendChild(a);
+    }
+    var src = x.formSource;
+    if (src) {
+      if (src.url) {
+        var link = el('a', 'scrn-src', 'Official form \u2014 ' + src.site);
+        link.href = src.url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        row.appendChild(link);
+      }
+      if (src.note) row.appendChild(el('p', 'scrn-lic', src.note));
+    }
+    if (x.id === 'phq9' || x.id === 'gad7') {
+      var jump = el('button', 'txlink', 'Score it below');
+      jump.addEventListener('click', function () {
+        var box = $('#pe-screeners');
+        if (box) { box.open = true; box.scrollIntoView({ block: 'start' }); }
+      });
+      row.appendChild(jump);
+    }
+    return row;
+  }
+
+  // Open the exam list on the instrument a condition asked for.
   function scrnJump(id) {
     showTab('exams');
-    var box = $('#screen-box');
-    if (box) box.open = true;
-    var card = $('#screen-results [data-screen="' + id + '"]');
-    (card || box || $('#panel-exams')).scrollIntoView({ block: 'center' });
-    if (card) {
-      card.classList.add('is-hit');
-      setTimeout(function () { card.classList.remove('is-hit'); }, 1600);
+    var det = $('#pe-results [data-screen="' + id + '"]');
+    if (!det) {
+      var inp = $('#pe-search');
+      if (inp) { inp.value = ''; inp.dispatchEvent(new Event('input', { bubbles: true })); }
+      det = $('#pe-results [data-screen="' + id + '"]');
     }
+    if (!det) { $('#panel-exams').scrollIntoView({ block: 'start' }); return; }
+    det.open = true;
+    det.scrollIntoView({ block: 'center' });
+    det.classList.add('is-hit');
+    setTimeout(function () { det.classList.remove('is-hit'); }, 1600);
   }
 
   /* ---- the therapeutics block shown inside each condition ---- */
@@ -3385,7 +3457,6 @@
     renderTherap();
     renderLife();
     renderLabs();
-    renderScreens();
     renderSuffixes();
     buildScreeners();
     buildWomensNotes();
