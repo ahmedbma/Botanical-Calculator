@@ -24,6 +24,7 @@
 
 <nav class="tabs wrap" role="tablist" aria-label="Calculators">
   <button role="tab" class="tab" data-panel="conditions" aria-selected="true">Conditions</button>
+  <button role="tab" class="tab" data-panel="ddx" aria-selected="false">Differential</button>
   <button role="tab" class="tab" data-panel="exams" aria-selected="false">Physical Exams</button>
   <button role="tab" class="tab" data-panel="labs" aria-selected="false">Labs &amp; Imaging</button>
   <button role="tab" class="tab" data-panel="pharm" aria-selected="false">Pharmaceuticals</button>
@@ -83,6 +84,38 @@
 </section>
 
 <!-- ==================== PHYSICAL EXAMS &amp; DIAGNOSES ==================== -->
+<section id="panel-ddx" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Differential Builder</h2>
+    <label class="search"><span class="vh">Add a symptom</span>
+      <input type="search" id="dx-input" placeholder="Type a symptom and press Enter &mdash; fever, right lower quadrant pain, night sweats&hellip;"
+        autocomplete="off" role="combobox" aria-expand="false" aria-controls="dx-suggest">
+    </label>
+    <div id="dx-suggest" class="dx-suggest" role="listbox" aria-label="Matching symptoms" hidden></div>
+
+    <div class="dx-picked" id="dx-picked"></div>
+    <div class="sortrow">
+      <p class="count" id="dx-count"></p>
+      <div class="actions" id="dx-actions"></div>
+    </div>
+
+    <div id="dx-flags"></div>
+    <div id="dx-results" class="dxlist"></div>
+
+    <details class="scrnbox" id="dx-browse">
+      <summary>Browse the symptom list &mdash; <span id="dx-vocab-n"></span></summary>
+      <p class="hint">Everything the notebook can be searched on, by system. A symptom that matches nothing
+        is left in the list rather than hidden: it tells you the notebook is silent on it.</p>
+      <div id="dx-vocab"></div>
+    </details>
+
+    <details class="srcnote">
+      <summary>How the ranking works, and what it is not</summary>
+      <div id="dx-method"></div>
+    </details>
+  </div>
+</section>
+
 <section id="panel-exams" class="panel" hidden role="tabpanel">
   <div class="card">
     <h2>Physical Exams &amp; Diagnoses</h2>
@@ -709,6 +742,7 @@
 <script src="js/pregnancydata.js"></script>
 <script src="js/screenerdata.js"></script>
 <script src="js/casedata.js"></script>
+<script src="js/symptomdata.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

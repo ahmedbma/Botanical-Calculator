@@ -14,6 +14,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | Tool | Purpose |
 |---|---|
 | **Conditions** | 75 conditions A–Z plus 153 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 41 of them, the 97 worked cases from the casebook filed under the conditions they were treated for, and the sections of your own notes that describe it. |
+| **Differential** | Enter the symptoms a patient presents with; it ranks the conditions in this notebook whose recorded presentation matches, shows the line that matched for each, and says what each ranking does *not* account for. Emergencies matching the picture are pinned above the ranking. 152 symptoms across 13 systems, indexed over every passage in the notebook that describes how a condition looks. |
 | **Physical Exams** | Physical exam and diagnosis, organised by type of exam: the clinic entry interview and review of systems, ten **chief complaints** worked as differentials, a head-to-toe screen, the eye and HENT exams, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, a muscle energy technique reference, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The **PHQ-9** and **GAD-7** are scored here too, with the blank forms downloadable as PDFs. |
 | **Labs & Imaging** | 117 tests across blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels — why you would order each and how to read it. The same tests hang off every abnormal exam finding and every condition. |
 | **Pharmaceuticals** | 109 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
@@ -71,7 +72,7 @@ be kept up for more than a few days.
 ## Project layout
 
 ```
-index.html               markup for all thirteen tools
+index.html               markup for all fourteen tools
 css/styles.css           styling, light/dark, print rules
 js/herbdata.js           herbal reference data as a global (works from file://)
 js/homeopathydata.js     homeopathic remedy data as a global
@@ -80,7 +81,8 @@ js/therapeuticsdata.js   pharmaceuticals, supplements, therapies and labs as a g
 js/pregnancydata.js      pregnancy and lactation herb safety as a global
 js/screenerdata.js       the PHQ-9 and GAD-7 instruments as a global
 js/casedata.js           the clinical casebook as a global
-js/app.js                all calculators, the differentiator, the exam index, the screeners and the therapeutics tabs
+js/symptomdata.js        the symptom vocabulary for the differential builder
+js/app.js                all calculators, both differentiators, the exam index, the screeners and the therapeutics tabs
 data/herbdata.json       the same herbal data as plain JSON, for reuse
 data/homeopathy.json     the same homeopathic data as plain JSON, for reuse
 data/physicalexams.json  the same physical exam data as plain JSON, for reuse
@@ -88,11 +90,12 @@ data/therapeutics.json   the same therapeutics data as plain JSON, for reuse
 data/pregnancysafety.json  the same safety data as plain JSON, for reuse
 data/screeners.json      the same screener data as plain JSON, for reuse
 data/cases.json          the same casebook data as plain JSON, for reuse
+data/symptoms.json       the same symptom vocabulary as plain JSON, for reuse
 assets/phq9.pdf          blank PHQ-9 form, generated from data/screeners.json
 assets/gad7.pdf          blank GAD-7 form, generated from data/screeners.json
 ```
 
-The seven data files under `js/` are generated from their counterparts in `data/`; edit the JSON and
+The eight data files under `js/` are generated from their counterparts in `data/`; edit the JSON and
 regenerate if you change the reference data.
 
 ## Data
@@ -223,6 +226,38 @@ Physical Exams tab.
 dosing, as the lecture lays them out. Eleven resolve to herbs already in the reference and appear as a
 monograph block on their card; the nine teaching pages that follow them sit under the Herb Reference as
 *Women's herbs — formulating notes*.
+
+### The differential builder
+
+**It searches what the notebook already says, and shows its working.** The index is built at runtime from
+the material in the other tabs — the ten chief-complaint differentials, the presentation of each casebook
+case, the verbatim study-note sections, the condition notes and the protocol backgrounds. A little over a
+thousand passages across all 228 conditions and topics, indexed on a vocabulary of 152 symptoms in 13
+systems. Because it is derived rather than authored, it cannot drift out of step with the tabs it points
+at: add a case or a note and the differential learns it.
+
+**How it ranks.** A condition scores for each symptom it accounts for. Each hit is worth the strength of
+the evidence behind it — an objective exam finding, or a named place in a chief-complaint differential,
+counts for more than a passing mention in a note — multiplied by how rare that symptom is across the
+index. A symptom that fits fifty conditions separates nothing; one that fits two separates a great deal.
+That is inverse document frequency and it is the whole of the cleverness. Results are ordered by how many
+of your symptoms they explain, ties broken on that score.
+
+**Every result shows its working.** Under each condition: which of your symptoms it matched, what kind of
+evidence matched it, and which passage that was — so `Fever · history · Cough — Tuberculosis` means the
+fever came from the tuberculosis row of the cough differential. Each result also names the symptoms it
+does *not* account for, which is usually the more useful half. Any symptom that matched nothing at all is
+reported too: it means the notebook is silent on it.
+
+**Emergencies are pinned above the ranking**, ordered by how much of the picture they account for. They
+are listed first because they are ruled out first, not because they are likely — chest pain, breathlessness
+and diaphoresis puts myocardial infarction, pulmonary embolism and pneumothorax at the top of that block
+whatever the ranking below it says.
+
+**It is not a diagnosis and the order is not a likelihood.** Real likelihood turns on prevalence, age, sex,
+exposure and season, none of which is in this data. A condition can only appear if something in the
+notebook describes it, so absence from the list means the notebook is silent, not that the diagnosis is
+excluded. The tab says all of this in place, under *How the ranking works, and what it is not*.
 
 ### The clinical casebook
 
