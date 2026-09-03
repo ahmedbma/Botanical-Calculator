@@ -1520,6 +1520,86 @@
 
   // Topics that carry therapeutics, a protocol or reference notes but no herbs.
   // They render as conditions without a herb grid so the tab is one full index.
+  /* ==================================================================
+     THE MASTER COMPENDIUM
+     Mitchell's case protocols, the respiratory module and the gastroenterology
+     study guide. The cases hang off the conditions they treat; the module
+     sections join the reference notes already filed under each condition. A
+     condition the compendium covers that the therapeutics index does not is
+     registered as a topic, so nothing is dropped for want of a home.
+     ================================================================== */
+  var CB = window.CASEBOOK_DATA || { cases: [], sections: [], topics: [], chapters: [] };
+  var CB_CHAPTER = {};
+  (CB.chapters || []).forEach(function (c) { CB_CHAPTER[c.id] = c.name; });
+  var CB_BY = {};        // condition name -> the cases that treat it
+  var CB_HAY = {};       // condition name -> everything the compendium says about it
+
+  (function buildCasebook() {
+    var by = (window.THERAPEUTICS_DATA || {}).byCondition;
+    if (!by) return;
+    (CB.topics || []).forEach(function (t) {
+      if (by[t.name]) return;
+      by[t.name] = { extra: true, note: t.blurb, pharm: [], supps: [], therapies: [], labs: [],
+                     reference: [] };
+    });
+    (CB.sections || []).forEach(function (sec) {
+      sec.conditions.forEach(function (cond) {
+        var rec = by[cond];
+        if (!rec) return;
+        if (!rec.reference) rec.reference = [];
+        rec.reference.push({ title: sec.title, body: sec.body, source: sec.source });
+        CB_HAY[cond] = (CB_HAY[cond] || '') + ' ' + sec.title + ' ' + sec.body.join(' ');
+      });
+    });
+    (CB.cases || []).forEach(function (kase) {
+      var text = kase.title + ' ' + kase.presentation + ' ' +
+        kase.blocks.map(function (b) { return b.label + ' ' + b.items.join(' '); }).join(' ');
+      kase.conditions.forEach(function (cond) {
+        if (!by[cond]) return;
+        (CB_BY[cond] = CB_BY[cond] || []).push(kase);
+        CB_HAY[cond] = (CB_HAY[cond] || '') + ' ' + text;
+      });
+    });
+    Object.keys(CB_HAY).forEach(function (k) { CB_HAY[k] = CB_HAY[k].toLowerCase(); });
+  })();
+
+  // The case protocols filed under one condition.
+  function cbCaseNode(cond, q) {
+    var cases = CB_BY[cond];
+    if (!cases || !cases.length) return null;
+    var det = el('details', 'cbbox');
+    var sum = el('summary');
+    sum.appendChild(el('span', null, 'Case protocols \u2014 ' + cases.length +
+      (cases.length === 1 ? ' case' : ' cases')));
+    sum.appendChild(el('span', 'cb-src', CB.source || ''));
+    det.appendChild(sum);
+    if (q) det.open = true;
+    var body = el('div', 'cbbody');
+    cases.forEach(function (kase) {
+      var art = el('article', 'cbcase');
+      var h = el('h5');
+      h.innerHTML = '<span class="cbnum">' + kase.n + '</span> ' + highlight(kase.title, q);
+      art.appendChild(h);
+      art.appendChild(el('span', 'cbchap', CB_CHAPTER[kase.chapter] || kase.chapter));
+      var pres = el('p', 'cbpres');
+      pres.innerHTML = '<span class="txlab">presentation</span> ' + highlight(kase.presentation, q);
+      art.appendChild(pres);
+      kase.blocks.forEach(function (b) {
+        art.appendChild(el('p', 'cblab', b.label));
+        var ul = el('ul', 'cblist');
+        b.items.forEach(function (it) {
+          var li = el('li');
+          li.innerHTML = highlight(it, q);
+          ul.appendChild(li);
+        });
+        art.appendChild(ul);
+      });
+      body.appendChild(art);
+    });
+    det.appendChild(body);
+    return det;
+  }
+
   var CX_TOPICS = [];
   function buildTopicConditions() {
     var by = (window.THERAPEUTICS_DATA || {}).byCondition || {};
@@ -1542,6 +1622,18 @@
           _hay: (name + ' ' + names.join(' ') + ' ' + (rec.note || '') + ' ' + refText).toLowerCase()
         };
       });
+  }
+
+  // Fold the compendium's text into the search index of every condition it
+  // touches, so a search for "robert's formula" or "mustard plaster" finds the
+  // condition that carries it.
+  function cbIndexConditions() {
+    [CONDS, CX_TOPICS].forEach(function (list) {
+      (list || []).forEach(function (c) {
+        var extra = CB_HAY[c.condition];
+        if (extra) c._hay = (c._hay || '') + ' ' + extra;
+      });
+    });
   }
 
   function renderConditions() {
@@ -1677,6 +1769,8 @@
       });
       if (c.herbs && c.herbs.length) body.appendChild(grid);
       if (c.notes) body.appendChild(el('p', 'note', c.notes));
+      var kases = typeof cbCaseNode === 'function' ? cbCaseNode(c.condition, q) : null;
+      if (kases) body.appendChild(kases);
       var proto = typeof txProtocolNode === 'function' ? txProtocolNode(c.condition, q) : null;
       if (proto) body.appendChild(proto);
       var ref = typeof txReferenceNode === 'function' ? txReferenceNode(c.condition, q) : null;
@@ -3523,6 +3617,7 @@
     renderRef();
     cxAddTherapeuticsToHaystack();
     buildTopicConditions();
+    cbIndexConditions();
     buildSystemChips();
     setSort('az');
     buildExamChips();
