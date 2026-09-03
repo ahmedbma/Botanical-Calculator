@@ -1467,7 +1467,7 @@
       });
     });
     CONDS.forEach(function (c) {
-      (CASES_BY_COND[c.condition] || []).forEach(function (k) { c._hay += ' ' + k._hay; });
+      if (CB_HAY[c.condition]) c._hay += ' ' + CB_HAY[c.condition];
     });
   }
 
@@ -1529,6 +1529,106 @@
 
   // Topics that carry therapeutics, a protocol or reference notes but no herbs.
   // They render as conditions without a herb grid so the tab is one full index.
+  /* ==================================================================
+     THE MASTER COMPENDIUM
+     Mitchell's case protocols, the respiratory module and the gastroenterology
+     study guide. The cases hang off the conditions they treat; the module
+     sections join the reference notes already filed under each condition. A
+     condition the compendium covers that the therapeutics index does not is
+     registered as a topic, so nothing is dropped for want of a home.
+     ================================================================== */
+  var CB = window.CASEBOOK_DATA || { cases: [], sections: [], topics: [], chapters: [] };
+  var CB_CHAPTER = {};
+  (CB.chapters || []).forEach(function (c) { CB_CHAPTER[c.id] = c.name; });
+  var CB_BY = {};        // condition name -> the cases that treat it
+  var CB_HAY = {};       // condition name -> everything the compendium says about it
+
+  /* Ten of the compendium's topics are conditions the index already carries under
+     a different wording. Left alone they would double up in the A-Z list, and the
+     case would attach to the new empty topic rather than to the one that already
+     holds the labs, supplements and therapeutics. Folding them in keeps one entry
+     per condition and puts the case where the rest of the material is. */
+  var CB_ALIAS = {
+    'Adrenal fatigue and HPA dysregulation': 'Adrenal fatigue',
+    'Cirrhosis': 'Hepatic cirrhosis',
+    'Coronary artery disease, secondary prevention': 'Atherosclerosis',
+    'Hypotension': 'Hypotension and orthostatic intolerance',
+    'Morphea (localized scleroderma)': 'Morphea',
+    'Pilonidal disease': 'Pilonidal cyst',
+    'Primary hyperparathyroidism': 'Hyperparathyroidism',
+    'Reactive hypoglycemia': 'Hypoglycemia',
+    'Stroke rehabilitation': 'Stroke and cerebrovascular rehabilitation',
+    'Thyroid nodule': 'Thyroid nodules and cysts'
+  };
+  function cbName(n) { return CB_ALIAS[n] || n; }
+
+  (function buildCasebook() {
+    var by = (window.THERAPEUTICS_DATA || {}).byCondition;
+    if (!by) return;
+    (CB.topics || []).forEach(function (t) {
+      var name = cbName(t.name);
+      if (by[name]) return;
+      by[name] = { extra: true, note: t.blurb, pharm: [], supps: [], therapies: [], labs: [],
+                   reference: [] };
+    });
+    (CB.sections || []).forEach(function (sec) {
+      sec.conditions.map(cbName).forEach(function (cond) {
+        var rec = by[cond];
+        if (!rec) return;
+        if (!rec.reference) rec.reference = [];
+        rec.reference.push({ title: sec.title, body: sec.body, source: sec.source });
+        CB_HAY[cond] = (CB_HAY[cond] || '') + ' ' + sec.title + ' ' + sec.body.join(' ');
+      });
+    });
+    (CB.cases || []).forEach(function (kase) {
+      var text = kase.title + ' ' + kase.presentation + ' ' +
+        kase.blocks.map(function (b) { return b.label + ' ' + b.items.join(' '); }).join(' ');
+      kase.conditions.map(cbName).forEach(function (cond) {
+        if (!by[cond]) return;
+        (CB_BY[cond] = CB_BY[cond] || []).push(kase);
+        CB_HAY[cond] = (CB_HAY[cond] || '') + ' ' + text;
+      });
+    });
+    Object.keys(CB_HAY).forEach(function (k) { CB_HAY[k] = CB_HAY[k].toLowerCase(); });
+  })();
+
+  // The case protocols filed under one condition.
+  function cbCaseNode(cond, q) {
+    var cases = CB_BY[cond];
+    if (!cases || !cases.length) return null;
+    var det = el('details', 'cbbox');
+    var sum = el('summary');
+    sum.appendChild(el('span', null, 'Case protocols \u2014 ' + cases.length +
+      (cases.length === 1 ? ' case' : ' cases')));
+    sum.appendChild(el('span', 'cb-src', CB.source || ''));
+    det.appendChild(sum);
+    if (q) det.open = true;
+    var body = el('div', 'cbbody');
+    cases.forEach(function (kase) {
+      var art = el('article', 'cbcase');
+      var h = el('h5');
+      h.innerHTML = '<span class="cbnum">' + kase.n + '</span> ' + highlight(kase.title, q);
+      art.appendChild(h);
+      art.appendChild(el('span', 'cbchap', CB_CHAPTER[kase.chapter] || kase.chapter));
+      var pres = el('p', 'cbpres');
+      pres.innerHTML = '<span class="txlab">presentation</span> ' + highlight(kase.presentation, q);
+      art.appendChild(pres);
+      kase.blocks.forEach(function (b) {
+        art.appendChild(el('p', 'cblab', b.label));
+        var ul = el('ul', 'cblist');
+        b.items.forEach(function (it) {
+          var li = el('li');
+          li.innerHTML = highlight(it, q);
+          ul.appendChild(li);
+        });
+        art.appendChild(ul);
+      });
+      body.appendChild(art);
+    });
+    det.appendChild(body);
+    return det;
+  }
+
   var CX_TOPICS = [];
   function buildTopicConditions() {
     var by = (window.THERAPEUTICS_DATA || {}).byCondition || {};
@@ -1545,13 +1645,24 @@
         });
         var refText = (rec.reference || []).map(function (r) {
           return r.title + ' ' + r.body.join(' ');
-        }).join(' ') + ' ' +
-          (CASES_BY_COND[name] || []).map(function (k) { return k._hay; }).join(' ');
+        }).join(' ') + ' ' + (CB_HAY[name] || '');
         return {
           condition: name, system: 'topic', aliases: [], herbs: [], topic: true,
           _hay: (name + ' ' + names.join(' ') + ' ' + (rec.note || '') + ' ' + refText).toLowerCase()
         };
       });
+  }
+
+  // Fold the compendium's text into the search index of every condition it
+  // touches, so a search for "robert's formula" or "mustard plaster" finds the
+  // condition that carries it.
+  function cbIndexConditions() {
+    [CONDS, CX_TOPICS].forEach(function (list) {
+      (list || []).forEach(function (c) {
+        var extra = CB_HAY[c.condition];
+        if (extra) c._hay = (c._hay || '') + ' ' + extra;
+      });
+    });
   }
 
   function renderConditions() {
@@ -1694,12 +1805,12 @@
       });
       if (c.herbs && c.herbs.length) body.appendChild(grid);
       if (c.notes) body.appendChild(el('p', 'note', c.notes));
+      var kases = typeof cbCaseNode === 'function' ? cbCaseNode(c.condition, q) : null;
+      if (kases) body.appendChild(kases);
       var proto = typeof txProtocolNode === 'function' ? txProtocolNode(c.condition, q) : null;
       if (proto) body.appendChild(proto);
       var ref = typeof txReferenceNode === 'function' ? txReferenceNode(c.condition, q) : null;
       if (ref) body.appendChild(ref);
-      var cs = typeof txCasesNode === 'function' ? txCasesNode(c.condition, q) : null;
-      if (cs) body.appendChild(cs);
       var tx = typeof txForCondition === 'function' ? txForCondition(c.condition, q) : null;
       if (tx) {
         var txd = el('details', 'txdrop');
@@ -2235,7 +2346,41 @@
   TX.pharmaceuticals.forEach(function (x) { x._hay = txHay(x, x.cls); });
   TX.supplements.forEach(function (x) { x._hay = txHay(x); });
   TX.therapies.forEach(function (x) { x._hay = txHay(x, x.kind); });
-  TX.labs.forEach(function (x) { x._hay = txHay(x, LAB_KIND_LABEL[x.kind]); });
+  /* ---- reference ranges ----
+     Written for this tool rather than transcribed: the conventional adult range
+     or normal study on one line, the narrower functional target on the next
+     where one is defensible, and the caveat that decides whether either can be
+     read at face value. */
+  var LR = {};
+  ((window.LABRANGE_DATA || {}).ranges || []).forEach(function (r) { LR[r.id] = r; });
+  TX.labs.forEach(function (x) {
+    var r = LR[x.id];
+    if (r) x.range = r;
+    x._hay = txHay(x, LAB_KIND_LABEL[x.kind]) +
+      (r ? ' ' + [r.units || '', r.normal, r.optimal || '', r.note || ''].join(' ').toLowerCase() : '');
+  });
+
+  // The reference range block, shared by the lab cards and by the screening
+  // instruments listed among the physical exams.
+  function txRangeNode(x, q) {
+    if (!x.range) return null;
+    var rg = el('div', 'txrange');
+    var nm = el('p', 'txrange-row');
+    nm.innerHTML = '<span class="txlab rng">normal</span> ' + highlight(x.range.normal, q) +
+      (x.range.units ? ' <em>(' + escapeHtml(x.range.units) + ')</em>' : '');
+    rg.appendChild(nm);
+    if (x.range.optimal) {
+      var op = el('p', 'txrange-row opt');
+      op.innerHTML = '<span class="txlab opt">optimal</span> ' + highlight(x.range.optimal, q);
+      rg.appendChild(op);
+    }
+    if (x.range.note) {
+      var nt = el('p', 'txrange-note');
+      nt.innerHTML = highlight(x.range.note, q);
+      rg.appendChild(nt);
+    }
+    return rg;
+  }
 
   // One card shape for all four datasets; the fields differ, the layout does not.
   function txCard(x, set, q, showConds) {
@@ -2271,6 +2416,8 @@
       ip.innerHTML = '<span class="txlab alt">reading it</span> ' + highlight(x.interpret, q);
       card.appendChild(ip);
     }
+    var rgNode = txRangeNode(x, q);
+    if (rgNode) card.appendChild(rgNode);
     if (x.form) {
       var fl = el('p', 'txform');
       var a = el('a', null, 'Blank form (PDF)');
@@ -2414,8 +2561,6 @@
           if (pnode) sec.appendChild(pnode);
           var rnode = txReferenceNode(cond, state.q);
           if (rnode) sec.appendChild(rnode);
-          var cnode = txCasesNode(cond, state.q);
-          if (cnode) sec.appendChild(cnode);
           frag.appendChild(sec);
         });
         out.appendChild(frag);
@@ -2600,107 +2745,6 @@
       });
       body.appendChild(sec);
     });
-    det.appendChild(body);
-    return det;
-  }
-
-  /* ---- casebook entries attached to a condition ----
-     Each case is a record of one patient: what presented and what was prescribed
-     for them. Like the reference notes, they read inside the condition rather
-     than in a tab of their own. A case can belong to more than one condition —
-     an arrhythmia case that also treats fibrocystic breast disease shows under
-     both — so the index is built once from the primary condition plus `also`. */
-  var CASES = (window.CASE_DATA || { cases: [] });
-  var CASES_BY_COND = {};
-  (CASES.cases || []).forEach(function (c) {
-    [c.condition].concat(c.also || []).forEach(function (name) {
-      (CASES_BY_COND[name] = CASES_BY_COND[name] || []).push(c);
-    });
-    var bits = [c.title, c.patient || '', c.chapter, c.presentation, c.caution || '', c.outcome || ''];
-    (c.sections || []).forEach(function (sec) {
-      bits.push(sec.name, sec.text || '');
-      (sec.items || []).forEach(function (it) {
-        bits.push(it.agent, it.dose || '', it.why || '');
-      });
-    });
-    c._hay = bits.join(' ').toLowerCase();
-  });
-
-  function txCasesNode(cond, q) {
-    var list = CASES_BY_COND[cond];
-    if (!list || !list.length) return null;
-    var det = el('details', 'txcase');
-    var sum = el('summary');
-    sum.appendChild(el('span', null, 'From the casebook \u2014 ' + list.length +
-      (list.length === 1 ? ' case' : ' cases')));
-    var chs = {};
-    list.forEach(function (c) { chs[c.chapter] = true; });
-    sum.appendChild(el('span', 'txref-src', Object.keys(chs).join(' \u00b7 ')));
-    det.appendChild(sum);
-    if (q) det.open = true;
-
-    var body = el('div', 'txcase-body');
-    list.forEach(function (c) {
-      var art = el('article', 'txcase-one');
-      var h = el('h5');
-      h.innerHTML = 'Case ' + c.n + ' \u2014 ' + highlight(c.title, q);
-      art.appendChild(h);
-      var meta = [];
-      if (c.patient) meta.push(c.patient);
-      meta.push(c.chapter);
-      art.appendChild(el('p', 'txcase-meta', meta.join(' \u00b7 ')));
-
-      var pres = el('p', 'txcase-pres');
-      pres.innerHTML = '<span class="txlab">presented</span> ' + highlight(c.presentation, q);
-      art.appendChild(pres);
-
-      (c.sections || []).forEach(function (sec) {
-        var box = el('section', 'txcase-sec');
-        var sh = el('h6');
-        sh.innerHTML = highlight(sec.name, q);
-        box.appendChild(sh);
-        if (sec.text) {
-          var tp = el('p', 'txcase-text');
-          tp.innerHTML = highlight(sec.text, q);
-          box.appendChild(tp);
-        }
-        if (sec.items && sec.items.length) {
-          var ul = el('ul', 'txcase-items');
-          sec.items.forEach(function (it) {
-            var li = el('li');
-            var a = el('p', 'txcase-agent');
-            a.innerHTML = highlight(it.agent, q);
-            li.appendChild(a);
-            if (it.dose) {
-              var dz = el('p', 'txcase-dose');
-              dz.innerHTML = '<span class="txlab">dose</span> ' + highlight(it.dose, q);
-              li.appendChild(dz);
-            }
-            if (it.why) {
-              var w = el('p', 'txcase-why');
-              w.innerHTML = highlight(it.why, q);
-              li.appendChild(w);
-            }
-            ul.appendChild(li);
-          });
-          box.appendChild(ul);
-        }
-        art.appendChild(box);
-      });
-
-      if (c.outcome) {
-        var oc = el('p', 'txcase-outcome');
-        oc.innerHTML = '<span class="txlab">outcome</span> ' + highlight(c.outcome, q);
-        art.appendChild(oc);
-      }
-      if (c.caution) {
-        var cn = el('p', 'txcase-caution');
-        cn.innerHTML = '<span class="txcase-cmark">safety note</span> ' + highlight(c.caution, q);
-        art.appendChild(cn);
-      }
-      body.appendChild(art);
-    });
-    body.appendChild(el('p', 'txcase-caveat', CASES.caveat || ''));
     det.appendChild(body);
     return det;
   }
@@ -3024,6 +3068,8 @@
       ip.innerHTML = '<span class="txlab alt">reading it</span> ' + highlight(x.interpret, q);
       body.appendChild(ip);
     }
+    var rng = txRangeNode(x, q);
+    if (rng) body.appendChild(rng);
     body.appendChild(screenFormNode(x));
     var conds = (x.conditions || []);
     if (conds.length) {
@@ -3217,8 +3263,8 @@
         if (head) add(r.link, head, 'complaint', 'Listed in the ' + e.name + ' differential');
       });
     });
-    (CASES.cases || []).forEach(function (c) {
-      [c.condition].concat(c.also || []).forEach(function (n) {
+    (CB.cases || []).forEach(function (c) {
+      (c.conditions || []).forEach(function (n) {
         add(n, c.presentation, 'case', 'Case ' + c.n + ' — ' + c.title);
       });
     });
@@ -4198,10 +4244,10 @@
         'Your notes — ' + rec.reference.length +
         (rec.reference.length === 1 ? ' section' : ' sections')));
     }
-    var cs = CASES_BY_COND[cond];
+    var cs = CB_BY[cond];
     if (cs && cs.length) {
       wrap.appendChild(el('span', 'dg-extra',
-        'Casebook — ' + cs.length + (cs.length === 1 ? ' case' : ' cases')));
+        'Case protocols — ' + cs.length + (cs.length === 1 ? ' case' : ' cases')));
     }
     if (DG_HOMEO[cond]) {
       var b = el('button', 'dg-extra link', 'Homeopathic differentiator');
@@ -4493,6 +4539,7 @@
     renderRef();
     cxAddTherapeuticsToHaystack();
     buildTopicConditions();
+    cbIndexConditions();
     buildSystemChips();
     setSort('az');
     buildExamChips();

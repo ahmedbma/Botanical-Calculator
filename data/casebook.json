@@ -1,0 +1,3135 @@
+{
+ "note": "Transcribed from Nourhan Shams's own Master Compendium: Dr William A. Mitchell Jr's clinical case protocols, the respiratory medicine and gut-lung axis module, and the gastroenterology study guide (NM7405). Every dose here is the compendium's; nothing in this dataset was written for the tool.",
+ "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine",
+ "chapters": [
+  {
+   "id": "addiction",
+   "name": "Addictions"
+  },
+  {
+   "id": "cardio",
+   "name": "Cardiovascular medicine"
+  },
+  {
+   "id": "derm",
+   "name": "Dermatology"
+  },
+  {
+   "id": "endo",
+   "name": "Endocrinology"
+  },
+  {
+   "id": "gastro",
+   "name": "Gastroenterology"
+  },
+  {
+   "id": "resp",
+   "name": "Respiratory medicine"
+  }
+ ],
+ "cases": [
+  {
+   "id": "c01",
+   "n": 1,
+   "chapter": "addiction",
+   "title": "In utero multi-substance addiction (neonatal withdrawal)",
+   "presentation": "9-month-old infant exposed in utero to methadone, cocaine, heroin, tobacco and alcohol, presenting with an upregulated midbrain, oral aggressiveness during feeding, hyperactive behaviour and chronic diarrhoea.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Glycine 250 mg once daily (QD) to calm and stabilise midbrain excitation.",
+      "GABA 100 mg twice daily (BID) to calm and centre the midbrain.",
+      "Croton tiglium 6x, 2 tablets BID to control hypermotility and diarrhoea.",
+      "Dietary support: formula and soft table foods."
+     ]
+    }
+   ],
+   "conditions": [
+    "Neonatal abstinence syndrome"
+   ],
+   "note": null
+  },
+  {
+   "id": "c02",
+   "n": 2,
+   "chapter": "addiction",
+   "title": "Opiate addiction and habituation",
+   "presentation": "Prescription opioid habituation (Vicodin, Percocet, OxyContin) escalating to heroin dependence; seeking outpatient detoxification.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Lactuca virosa (wild lettuce) 1:1 fluid extract: 90 drops every 3 hours for withdrawal pain and neuro-sedation.",
+      "Lactuca quercina botanical tea alternative: 1 teaspoon dried cut-and-sifted herb decocted per cup of water, every 2 to 4 hours.",
+      "Sedative neurochemical support: Passiflora incarnata, Valeriana officinalis, GABA and glycine at bedtime for insomnia.",
+      "Bastyr botanical adjunct: Avena sativa (green oat) capsules, 2 capsules 4–5 times daily, or standard tea TID."
+     ]
+    },
+    {
+     "label": "Emergency withdrawal IV — Dr Alan Gaby formulation",
+     "items": [
+      "Intravenous infusion containing 3.5 g vitamin C, 5 mL 20% magnesium chloride hexahydrate, 2.5 mL 10% calcium gluconate, 1,000 mcg vitamin B12, 100 mg pyridoxine, 250 mg dexpanthenol and 1 mL vitamin B complex 100. Administer twice over the subsequent week to halt acute withdrawal signs."
+     ]
+    },
+    {
+     "label": "Neurochemical support",
+     "items": [
+      "High-dose omega-3 fatty acids (2,250 mg EPA, 500 mg DHA, 250 mg complementary omega-3s) to curb withdrawal aggression and anger.",
+      "Zingiber officinale as a central benzodiazepine receptor agonist."
+     ]
+    }
+   ],
+   "conditions": [
+    "Opioid use disorder"
+   ],
+   "note": null
+  },
+  {
+   "id": "c03",
+   "n": 3,
+   "chapter": "addiction",
+   "title": "Alcoholism: post-sobriety metabolic rehabilitation and acute detoxification",
+   "presentation": "Recovering alcoholic with 1 year of sobriety, tobacco use, fatigue, paraspinal spasm and reactive hypoglycaemia (fasting blood sugar 64 mg/dL).",
+   "blocks": [
+    {
+     "label": "Recovery protocol",
+     "items": [
+      "Micronutrient foundation: high-potency multivitamin/mineral with comprehensive B-complex (Glycobalance).",
+      "Selenium 200 mcg QD to support hepatic glutathione peroxidase and Phase II conjugation.",
+      "Vitamin C daily for immune support and catecholamine synthesis.",
+      "L-tryptophan in the evening to support serotonin synthesis and sleep onset.",
+      "Lobelia inflata tincture: 5 drops in a glass of water, 3 to 6 times daily, to curb nicotine cravings.",
+      "Magnesium 200 mg BID to alleviate smooth muscle and uterine tension.",
+      "Lipid replacement: omega-3 and omega-6 essential fatty acids to displace damaged fats.",
+      "Dietary guidance: small, frequent protein and complex carbohydrate snacks to hold blood sugar between 80 and 100 mg/dL."
+     ]
+    },
+    {
+     "label": "Acute alcohol detoxification",
+     "items": [
+      "Panthenol 300 mg QD.",
+      "Taurine 3,000 mg QD to upregulate aldehyde dehydrogenase and prevent toxic acetaldehyde accumulation."
+     ]
+    },
+    {
+     "label": "Physical medicine",
+     "items": [
+      "Reflexology to the liver and pancreas zones (instep of the foot, slightly more than halfway toward the toes).",
+      "Weekly massage with right-sided elongation in the supine position to counter hepatic muscle guarding.",
+      "Upward effleurage along the Liver meridian from foot to groin to clear excess liver fire.",
+      "Castor oil packs over the hepatic region for 30 minutes with a hot water bottle.",
+      "Spinal adjustments from T7 to T10 to relieve viscerosomatic tension to the liver, pancreas and stomach."
+     ]
+    }
+   ],
+   "conditions": [
+    "Alcohol use disorder",
+    "Hepatic steatosis"
+   ],
+   "note": null
+  },
+  {
+   "id": "c04",
+   "n": 4,
+   "chapter": "addiction",
+   "title": "Cocaine detoxification and systemic inflammation",
+   "presentation": "6-month sobriety following 15 years of polysubstance abuse, presenting with elevated transaminases (AST, ALT, GGT) and polyarticular joint inflammation.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Vitamin C 2,000 mg BID.",
+      "Quercetin 1,000 mg BID as a systemic mast cell stabiliser and anti-inflammatory.",
+      "Bromelain and curcumin 1,000 mg BID to resolve inflammatory joint arthralgias.",
+      "Selenium 200 mcg QD for hepatocyte protection.",
+      "Cola nitida (cola nut) powder: 1/4 teaspoon dissolved in liquid several times daily as a flavonoid-rich stimulant and coffee substitute.",
+      "Immune and neurotransmitter adjuncts: non-alcoholic immune formula (Immugen); glycine, GABA, SAMe and Avena sativa capsules (2 capsules 4–5 times daily).",
+      "Hydration: minimum 3 large glasses of pure water daily beyond other fluids."
+     ]
+    }
+   ],
+   "conditions": [
+    "Stimulant use disorder"
+   ],
+   "note": null
+  },
+  {
+   "id": "c05",
+   "n": 5,
+   "chapter": "addiction",
+   "title": "Heroin (diacetylmorphine) addiction withdrawal",
+   "presentation": "Acute black tar heroin withdrawal complicated by concurrent cannabis and amphetamine abuse.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Lactuca quercina (wild lettuce): 1 teaspoon dried herb decocted in 1 cup water, TID, to quiet the locus coeruleus and alleviate muscle aches.",
+      "Glycine 1 level teaspoon TID.",
+      "GABA 1,000 mg TID to suppress excessive norepinephrine discharge.",
+      "Calming botanical tincture: equal parts Eschscholzia californica, Passiflora incarnata, Scutellaria lateriflora and Valeriana officinalis; 60 drops QID.",
+      "Vitamin B1 (thiamine) 100 mg BID.",
+      "Comprehensive multivitamin/mineral, 1 QD.",
+      "Physical medicine: frequent cervical and thoracic spinal manipulation."
+     ]
+    }
+   ],
+   "conditions": [
+    "Opioid use disorder"
+   ],
+   "note": null
+  },
+  {
+   "id": "c06",
+   "n": 6,
+   "chapter": "cardio",
+   "title": "Angina pectoris",
+   "presentation": "Daily anginal chest pain, multijoint osteoarthritis, pseudogout, total cholesterol 235–265 mg/dL, on atorvastatin.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Fruit anthocyanins: 1 tablespoon BID of dark berry concentrate (red grape, blueberry, aronia, elderberry, raspberry, pomegranate) to inhibit LDL oxidation and protect vascular endothelium.",
+      "Crataegus spp. (hawthorn) berry solid extract: 1/2 teaspoon QD, standardised to procyanidin B2.",
+      "Selenium 300 mcg QD.",
+      "Hepatoprotective support: Thorne S.A.T. (Silybum marianum, artichoke, turmeric), 3 capsules BID to offset statin-induced liver stress.",
+      "Dietary exclusions: margarine, deep-fried foods, ice cream, cheap sugars, chips and heavy cream."
+     ]
+    },
+    {
+     "label": "Acute angina prescriptions",
+     "items": [
+      "Cactus grandiflorus: 10 drops every 30 minutes up to 4 doses until pain resolves, then 10 drops BID.",
+      "Terminalia arjuna 500 mg TID.",
+      "Glonoine 3x: 3 pellets sublingually every 15 minutes until relief.",
+      "Magnesium 400 mg QD continuously for at least one year."
+     ]
+    }
+   ],
+   "conditions": [
+    "Angina pectoris",
+    "Atherosclerosis"
+   ],
+   "note": null
+  },
+  {
+   "id": "c07",
+   "n": 7,
+   "chapter": "cardio",
+   "title": "Sinus arrhythmia",
+   "presentation": "Stress-induced cyclic heart rate irregularity, poor fast-food diet, heavy beer intake, elevated GGT (130 U/L).",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Magnesium/potassium aspartate: 80 mg/80 mg elemental per capsule; 2 capsules TID for larger individuals (standard dose 2 capsules BID).",
+      "Lifestyle: alcohol reduction, increased water intake, whole-food diet.",
+      "Physical medicine: acupuncture for autonomic relaxation; chiropractic adjustments, massage and reflexology."
+     ]
+    }
+   ],
+   "conditions": [
+    "Cardiac arrhythmia"
+   ],
+   "note": null
+  },
+  {
+   "id": "c08",
+   "n": 8,
+   "chapter": "cardio",
+   "title": "Arrhythmia in a slender female with fibrocystic breasts",
+   "presentation": "Palpitations, resting heart rate 60 bpm, dense bilateral fibrocystic breast disease.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Dietary electrolytes and lipids: high-potassium foods (kelp, sunflower seeds, raisins, almonds, parsley, yams, chard, spinach, beans, potatoes with skin) and omega-3 rich foods (cold-water fish, walnuts, flax).",
+      "Stimulant elimination: total avoidance of coffee, black tea, colas and chocolate.",
+      "Potassium citrate: 2 capsules QD.",
+      "Potassium magnesium aspartate: 2 capsules in the evening.",
+      "Flaxseed oil 2 tablespoons QD to reduce platelet aggregation.",
+      "Vitamin B6 50 mg QD.",
+      "Vitamin A 1 capsule QD.",
+      "Breast cyst intervention: topical Lugol's iodine applied to a vaginal tampon inserted adjacent to the cervix."
+     ]
+    }
+   ],
+   "conditions": [
+    "Cardiac arrhythmia",
+    "Fibrocystic breast changes"
+   ],
+   "note": null
+  },
+  {
+   "id": "c09",
+   "n": 9,
+   "chapter": "cardio",
+   "title": "Adrenergic intercostal myalgia and chest pain",
+   "presentation": "Intermittent stress-related chest pain mimicking angina, borderline hyperlipidaemia, history of resolved GERD.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "CoQ10 100 mg QD.",
+      "Fruit anthocyanins 2 teaspoons BID.",
+      "Crataegus spp. berry solid extract 1/2 teaspoon QD.",
+      "Calcium/magnesium 300 mg/100 mg QD.",
+      "Cardiovascular botanical complex (Thorne Neo-Cardio): 1 capsule BID — niacin, magnesium, Terminalia arjuna, Inula racemosa, Ammi visnaga, Astragalus membranaceus, bromelain.",
+      "Nutritional baseline: hypoallergenic multivitamin/mineral with Phase II detox support."
+     ]
+    }
+   ],
+   "conditions": [
+    "Non-cardiac chest pain"
+   ],
+   "note": null
+  },
+  {
+   "id": "c10",
+   "n": 10,
+   "chapter": "cardio",
+   "title": "Secondary prevention after coronary artery bypass graft (CABG)",
+   "presentation": "Status post 6-way CABG, chronic cold extremities, on dipyridamole and aspirin, high familial cardiovascular mortality.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Diet high in carotenes, soluble fibre and omega-3s: yams, sweet potatoes, carrots, pumpkin, berries, whole grains, cold-water fish, flaxseed, green tea.",
+      "Inositol hexaniacinate (Niasafe 600): 600 mg QD.",
+      "Fruit anthocyanins daily in water.",
+      "Pantothenic acid 500 mg QD.",
+      "Crataegus spp. / Rosa canina 50:50 solid extract: 1 teaspoon QD.",
+      "Lecithin 1 heaping tablespoon QD.",
+      "Synergistic lipid antioxidant complex: mixed tocopherols 800 IU QD; mixed tocotrienols 60 mg QD with meals; vitamin C 1,000 mg QD; CoQ10 100 mg QD.",
+      "Bowel regulation: magnesium 500 mg QD if high-dose antioxidants cause constipation."
+     ]
+    }
+   ],
+   "conditions": [
+    "Coronary artery disease, secondary prevention",
+    "Atherosclerosis"
+   ],
+   "note": null
+  },
+  {
+   "id": "c11",
+   "n": 11,
+   "chapter": "cardio",
+   "title": "Simple hypercholesterolaemia",
+   "presentation": "Total cholesterol 252 mg/dL, LDL 174 mg/dL, overweight, normal chemistry panel.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Diet: 2,200 kcal/day whole-food diet excluding all damaged and trans fats.",
+      "Pantethine 200 mg BID (standard therapeutic target 300 mg TID) to modulate lipid synthesis.",
+      "Polymethoxylated flavonoids and tocotrienol complex 300 mg QD.",
+      "CoQ10 60 mg QD.",
+      "Fruit anthocyanins 1 tablespoon QD.",
+      "Cod liver oil 3 capsules QD.",
+      "Alpha-lipoic acid 200 mg QD.",
+      "Lecithin 300 mg QD.",
+      "Lutein 10 mg QD."
+     ]
+    }
+   ],
+   "conditions": [
+    "Hyperlipidemia"
+   ],
+   "note": null
+  },
+  {
+   "id": "c12",
+   "n": 12,
+   "chapter": "cardio",
+   "title": "Familial hypercholesterolaemia",
+   "presentation": "Total cholesterol 275–315 mg/dL, triglycerides 214 mg/dL, LDL 186 mg/dL, early myopic retinal degeneration.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Dietary protocol: eliminate margarine, cheese, fatty meats and refined wheat; replace with wild salmon, cod, flaxseed oil, olive oil and freezer preserves.",
+      "Pantethine 300 mg TID.",
+      "Lipid support complex: 10 mg policosanol combined with guggulipids, garlic extract and vitamin E.",
+      "Fruit anthocyanins daily for retinal microcirculation and prevention of LDL oxidation.",
+      "Ocular and cellular support: CoQ10 30 mg QD, alpha-lipoic acid 1 QD, quercetin, and an eye formula (I Comp).",
+      "Exercise: daily structured walking."
+     ]
+    }
+   ],
+   "conditions": [
+    "Hyperlipidemia"
+   ],
+   "note": null
+  },
+  {
+   "id": "c13",
+   "n": 13,
+   "chapter": "cardio",
+   "title": "Endogenous hyperglyceridaemia (Fredrickson type IV)",
+   "presentation": "Serum triglycerides 970 mg/dL, cholesterol 269 mg/dL, BP 180/105 mmHg, peripheral paraesthesias, postprandial somnolence.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Dietary shift: progressive withdrawal of dietary fats; high soluble and insoluble fibre; eliminate egg-fried and barbecued meats.",
+      "Red yeast rice (Monascus purpureus) extract 1,200 mg BID.",
+      "Pantethine 300 mg TID.",
+      "Fruit anthocyanins daily in water to suppress LDL oxidation."
+     ]
+    }
+   ],
+   "conditions": [
+    "Hyperlipidemia"
+   ],
+   "note": null
+  },
+  {
+   "id": "c14",
+   "n": 14,
+   "chapter": "cardio",
+   "title": "Severe secondary hyperlipidaemia after lymphoma",
+   "presentation": "Splenectomised female post lymphocytic lymphoma; cholesterol spiking to 401 mg/dL, triglycerides 554 mg/dL, uncalculable LDL (>300 mg/dL).",
+   "blocks": [
+    {
+     "label": "Dietary plan",
+     "items": [
+      "Total elimination of pastries, cheese, trans-fats and fatty meats.",
+      "Breakfast: oatmeal with blueberries, green tea.",
+      "Lunch: wild cold-water fish (avoid farm-raised), vegetable broth, raw salad.",
+      "Dinner: yams, sweet potatoes, squash, steamed brassica vegetables, brown rice, 2 oz clean protein.",
+      "Snacks: fresh or frozen mixed dark berries exclusively."
+     ]
+    }
+   ],
+   "conditions": [
+    "Hyperlipidemia"
+   ],
+   "note": null
+  },
+  {
+   "id": "c15",
+   "n": 15,
+   "chapter": "cardio",
+   "title": "Familial combined hyperlipidaemia (Fredrickson type IIb)",
+   "presentation": "Total cholesterol 310 mg/dL, triglycerides 325 mg/dL, HDL 35 mg/dL, severe coronary artery stenosis on angiogram, failed treadmill test.",
+   "blocks": [
+    {
+     "label": "Nicotinic acid (pure niacin) titration",
+     "items": [
+      "Week 1: 50 mg with each meal (TID).",
+      "Week 2: 100 mg with each meal (TID).",
+      "Advance gradually to 1,000 mg TID; titrate to 1–3 g QD, monitoring liver enzymes, uric acid and glucose."
+     ]
+    },
+    {
+     "label": "Protocol",
+     "items": [
+      "Dietary fat restriction: reduce total fat to under 30 g daily (<270 kcal as fat); total calories reduced from 3,900 to 2,500 kcal/day.",
+      "Flaxseed oil 1 teaspoon QD to downregulate hepatic VLDL synthesis.",
+      "Hydration: 1 cup water every 90 minutes.",
+      "Exercise: 45 minutes of resistance machine training 3 times weekly, plus a 1-hour aerobic walk twice weekly.",
+      "Adjunctive botanicals: red yeast rice 600 mg BID; hawthorn solid extract 1/2 tsp BID; fruit anthocyanins 2 T QD; quercetin and Allium sativum. Avoid choleretics in type IIb."
+     ]
+    }
+   ],
+   "conditions": [
+    "Hyperlipidemia",
+    "Atherosclerosis"
+   ],
+   "note": null
+  },
+  {
+   "id": "c16",
+   "n": 16,
+   "chapter": "cardio",
+   "title": "Mild primary hypertension",
+   "presentation": "Office BP 162/94 mmHg, sedentary, progressive weight gain (215 lb).",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Caloric deficit: 500 kcal/day reduction from maintenance (target about 2,557 kcal/day for 1 lb/week fat loss).",
+      "Dietary electrolytes: restrict high-sodium processed foods and pickles; lightly salt whole foods; emphasise potassium-rich produce.",
+      "Hydration: 1 cup water every 2 hours.",
+      "Magnesium 200 mg BID.",
+      "Crataegus spp. berry and leaf solid extract 1/2 teaspoon BID.",
+      "Antihypertensive botanical tincture: equal parts Rauvolfia serpentina 1:5 and Tilia europaea 1:5; 10 drops BID, titrated downward as weight normalises."
+     ]
+    }
+   ],
+   "conditions": [
+    "Hypertension"
+   ],
+   "note": null
+  },
+  {
+   "id": "c17",
+   "n": 17,
+   "chapter": "cardio",
+   "title": "Severe hypertension with suspected trace mineral deficiency",
+   "presentation": "BP 190/100 mmHg, severe fatigue, hair analysis showing severely depleted manganese (0.01 ppm against a normal 0.10–1.0) and low potassium and magnesium.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Manganese glycerophosphate: 1 capsule daily at lunch.",
+      "Dietary overhaul: morning fresh fruit and grain; raw salads with tahini for lunch; evening steamed roots; strict elimination of salty snacks and pickles.",
+      "Multimineral support: broad-spectrum trace mineral replacement.",
+      "Thymus glandular (Thymotrophin) 1 QD for immune stimulation.",
+      "Pelvic neuralgia formula: equal parts Cimicifuga racemosa, Piscidia erythrina and Cypripedium calceolus; 30 drops BID.",
+      "Homeopathic support: Causticum 30x for persistent blepharitis."
+     ]
+    },
+    {
+     "label": "Vascular mechanism",
+     "items": [
+      "Naringenin (grapefruit bioflavonoid, several capsules BID) inhibits 9-hydroxy prostaglandin dehydrogenase, preventing prostacyclin breakdown to vasoconstrictive 6-keto-PGE1 and blunting renal renin spikes."
+     ]
+    }
+   ],
+   "conditions": [
+    "Hypertension"
+   ],
+   "note": null
+  },
+  {
+   "id": "c18",
+   "n": 18,
+   "chapter": "cardio",
+   "title": "Hypertension and botanical diuresis",
+   "presentation": "BP 180/100 mmHg failing Dyazide (triamterene/HCTZ), diverticulosis, dry skin.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Vitamin B6 (pyridoxine) as an endogenous diuretic alternative.",
+      "Magnesium to quiet colonic spasm.",
+      "Vitamin C daily for tissue energy and antioxidant protection.",
+      "Lycopodium 200x as a constitutional homeopathic dose.",
+      "Alternative botanical diuretic formula: equal parts Usnea spp. and Petroselinum crispum, 60 drops TID. Add Sambucus nigra (elder flower) as a third equal part if diaphoretic action is required."
+     ]
+    }
+   ],
+   "conditions": [
+    "Hypertension"
+   ],
+   "note": null
+  },
+  {
+   "id": "c19",
+   "n": 19,
+   "chapter": "cardio",
+   "title": "Hypovolaemic (hyponatraemic) hypotension",
+   "presentation": "BP 90/60 mmHg, heart palpitations, chronic cold extremities, a sensation of diaphragm constriction, salt-free near-vegetarian diet.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Sodium repletion: generously salt all meals to expand intravascular volume.",
+      "Magnesium and potassium aspartate: 160 mg of each mineral BID to control palpitations.",
+      "Upper digestive bitter tincture: equal parts Gentiana lutea, Berberis aquifolium and Artemisia annua; 10 drops after meals to stimulate endogenous gastric HCl and resolve hypochlorhydria-associated constipation."
+     ]
+    }
+   ],
+   "conditions": [
+    "Hypotension"
+   ],
+   "note": null
+  },
+  {
+   "id": "c20",
+   "n": 20,
+   "chapter": "cardio",
+   "title": "Post-surgical mitral stenosis arrhythmia",
+   "presentation": "Persistent cardiac arrhythmia following open surgical mitral commissurotomy and repair, with concurrent post-lumpectomy radiation.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Magnesium and potassium aspartate: 2 capsules BID (160 mg elemental magnesium and 160 mg elemental potassium BID; up to 2 capsules TID if needed).",
+      "Fruit anthocyanins 1 tablespoon in the morning in water.",
+      "Crataegus spp. berry solid extract 1/2 teaspoon QD in water.",
+      "Flaxseed oil 1 teaspoon QD."
+     ]
+    }
+   ],
+   "conditions": [
+    "Cardiac arrhythmia"
+   ],
+   "note": null
+  },
+  {
+   "id": "c21",
+   "n": 21,
+   "chapter": "cardio",
+   "title": "Post-bypass shortness of breath and heart failure prevention",
+   "presentation": "9 years post triple CABG, daily smoker, chest tightness, dyspnoea on exertion, haematocrit 51.5% (haemoconcentration).",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Convallaria majalis (lily of the valley) tincture: 5 drops BID for mild inotropic, digitalis-like cardiac glycoside activity.",
+      "Crataegus spp. berry solid extract 1/2 teaspoon QD.",
+      "CoQ10 cardiovascular complex (Cardio-Guard Plus): 2 capsules QD.",
+      "Ginkgo biloba for microvascular rheology and blood thinning.",
+      "Flaxseed oil 2 tablespoons QD.",
+      "Vitamin E 1,000 IU QD.",
+      "Hydration: aggressive fluid intake to lower the elevated haematocrit.",
+      "Lifestyle: immediate 50% tobacco reduction leading to total cessation; eliminate cured meats, fries and alcohol."
+     ]
+    }
+   ],
+   "conditions": [
+    "Congestive heart failure",
+    "Coronary artery disease, secondary prevention"
+   ],
+   "note": null
+  },
+  {
+   "id": "c22",
+   "n": 22,
+   "chapter": "cardio",
+   "title": "Post-stroke rehabilitation (oral contraceptive-induced)",
+   "presentation": "Hemiparesis, severe memory deficit and fibromyalgia decades after an oral contraceptive-induced thromboembolic cerebrovascular accident at age 22.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Fruit anthocyanins 2 tablespoons BID.",
+      "Cerebral microvascular botanical tincture: equal parts Zingiber officinale, Ginkgo biloba and Ruscus aculeatus; 60 drops BID.",
+      "Fibrinolytic and anti-thrombotic support: nattokinase to clear arterial debris; bromelain and curcumin as an anti-inflammatory and mild fibrinolytic.",
+      "Lecithin daily for neural membrane phospholipid support.",
+      "Vitamin E 600 IU QD.",
+      "Foundational support: broad-spectrum multivitamin/mineral, high-potency digestive enzymes, antioxidant packets."
+     ]
+    }
+   ],
+   "conditions": [
+    "Stroke rehabilitation"
+   ],
+   "note": null
+  },
+  {
+   "id": "c23",
+   "n": 23,
+   "chapter": "cardio",
+   "title": "Chronic post-traumatic thrombophlebitis",
+   "presentation": "Pain and chronic valvular insufficiency along the left greater saphenous vein, originating from a childhood femur fracture.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Venotonic botanical complex (Thorne Venocap): 1 capsule TID — Centella asiatica, Aesculus hippocastanum, diosmin, Hamamelis virginiana, grape seed OPCs, Ruscus aculeatus.",
+      "Fruit anthocyanins daily in water.",
+      "Flaxseed oil daily to decrease platelet adhesiveness.",
+      "Dark berries: at least 1 cup fresh or frozen daily.",
+      "Topical hydrotherapy: witch hazel (Hamamelis) cold liquid compresses applied via soaked towels directly over the calf and thigh.",
+      "Nocturnal positioning: elevate the affected lower extremity overnight.",
+      "Adjunctive vascular tonics: bromelain as a systemic thrombolytic; Galium aparine 60 drops TID for 6 months to improve venous integrity; Populus tremuloides bud tea or low-dose aspirin (5–10 grains BID) for vascular inflammation."
+     ]
+    }
+   ],
+   "conditions": [
+    "Deep vein thrombosis",
+    "Varicose veins"
+   ],
+   "note": null
+  },
+  {
+   "id": "c24",
+   "n": 24,
+   "chapter": "cardio",
+   "title": "Varicose veins and systemic lymphatic stasis",
+   "presentation": "Severe lower-extremity varicosities, generalised boggy lymphadenopathy, seasonal depression, nightshade sensitivity.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Aesculus hippocastanum (horse chestnut) standardised extract for venous insufficiency.",
+      "Ruscus aculeatus (butcher's broom) daily to increase lymphatic return and venous wall tone.",
+      "Phytolacca decandra (poke root) tincture: 15 drops BID to decongest swollen lymphatics.",
+      "Crataegus spp. berry for heart tone and lymphatic pumping action.",
+      "Pantothenic acid for adrenal support.",
+      "L-tyrosine for neuroendocrine energy and winter depression.",
+      "Hepatic support: methionine and Silybum marianum tablets.",
+      "Physical medicine: daily lymph-pumping postural drainage — spinal back-rolls, then lying supine with buttocks against the wall and legs extended vertically upward."
+     ]
+    }
+   ],
+   "conditions": [
+    "Varicose veins"
+   ],
+   "note": null
+  },
+  {
+   "id": "c25",
+   "n": 25,
+   "chapter": "derm",
+   "title": "Severe adolescent acne vulgaris",
+   "presentation": "Profuse facial and upper back comedones, papules and pustules driven by pubertal androgen surges and keratinocyte hyper-adhesiveness.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Selenium 400 mcg QD for 2 weeks, reduced to 200 mcg QD maintenance, to assist hepatic 3-ketosteroid management.",
+      "Zinc balanced with copper: 50–100 mg QD (pulse up to 100 mg BID for the first several weeks) taken with a low-potency multi containing copper.",
+      "Vitamin B6 50 mg QD to BID to mitigate premenstrual and hormonal breakouts.",
+      "Fat-soluble skin vitamins: vitamin A 100,000 IU QD short term (monitor LFTs); vitamin E 800 IU QD; vitamin D 1,000 IU BID.",
+      "Berberis aquifolium (Oregon grape root) extract: 60 drops BID for bowel regularity and systemic antimicrobial berberine.",
+      "Endocrine botanical complex: equal parts Vitex agnus-castus, Berberis aquifolium, Arctium lappa root and Urtica dioica whole plant; 60 drops BID.",
+      "Silicon drops (Biosil): 6 drops QD orthosilicic acid to restore dermal layer integrity."
+     ]
+    },
+    {
+     "label": "Topical therapies",
+     "items": [
+      "Calendula officinalis warm facial compresses: 60 drops tincture in 1 cup warm water, applying a soaked washcloth daily to open pores and sanitise lesions.",
+      "Topical 20% azelaic acid cream BID.",
+      "Topical 4% niacinamide cream."
+     ]
+    },
+    {
+     "label": "Diet and physical medicine",
+     "items": [
+      "Strict elimination of dairy, trans-fats, fried foods, pizza, commercial chocolate, candy and soda.",
+      "Hydration: 1 cup water every 2 hours.",
+      "Reflexology to distal colon, gallbladder, pancreas and liver.",
+      "Gentle manual lymphatic drainage of the cervical and submandibular chains.",
+      "Thoracic spinal adjustments T7–T12.",
+      "Alternate hot (1 minute) and cold (30 seconds) facial compresses, repeated 4 times."
+     ]
+    }
+   ],
+   "conditions": [
+    "Acne"
+   ],
+   "note": null
+  },
+  {
+   "id": "c26",
+   "n": 26,
+   "chapter": "derm",
+   "title": "Acne vulgaris in a vegan adolescent",
+   "presentation": "Facial comedones across cheeks and forehead in a strict vegan with severe dietary protein deficiency.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Dietary correction: increase bioavailable dietary protein to supply amino acid substrates for hepatic enzymatic detoxification.",
+      "Zinc 60 mg QD.",
+      "Digestive enzymes: bromelain and curcumin 1,500 mg per meal.",
+      "Hepatobiliary botanical tincture: equal parts Berberis aquifolium, Chelidonium majus and Chionanthus virginicus; 15 drops with each meal.",
+      "Foundational support: daily hypoallergenic multivitamin/mineral."
+     ]
+    }
+   ],
+   "conditions": [
+    "Acne"
+   ],
+   "note": null
+  },
+  {
+   "id": "c27",
+   "n": 27,
+   "chapter": "derm",
+   "title": "Infantile baby acne and secondary urticaria",
+   "presentation": "1-month-old infant with benign hormonal facial papules from maternal breast milk steroids, later developing facial hives triggered by saliva.",
+   "blocks": [
+    {
+     "label": "Maternal intervention",
+     "items": [
+      "Clean maternal diet; eliminate fried foods and trans-fats.",
+      "Flaxseed oil 1 teaspoon QD and selenium 200 mcg QD to clear circulating steroid fractions."
+     ]
+    },
+    {
+     "label": "Infant interventions",
+     "items": [
+      "Quercetin powder: 1/8 teaspoon dissolved in liquid daily, up to BID for hives.",
+      "Urtica urens 12x: 2 pellets dissolved sublingually daily.",
+      "Folic acid 1 mg weekly.",
+      "Zinc 5 mg QD.",
+      "Vitamin K oil 1–2 drops QD."
+     ]
+    }
+   ],
+   "conditions": [
+    "Acne",
+    "Urticaria and angioedema"
+   ],
+   "note": null
+  },
+  {
+   "id": "c28",
+   "n": 28,
+   "chapter": "derm",
+   "title": "Staphylococcal boils (furunculosis)",
+   "presentation": "Recurrent suppurative boils and hot-tub folliculitis.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Homeopathic support: Staphylococcinum (Staph) 12x.",
+      "Systemic nutrients: high-dose vitamin C and an echinacea-based immune complex.",
+      "Topical salve: chickweed (Stellaria media) ointment."
+     ]
+    },
+    {
+     "label": "Traditional botanical decoction — folk alder/willow remedy",
+     "items": [
+      "2 quart canning jars of Alnus (alder bush) or Salix (willow bark) boiled in water, strained, and consumed in divided doses over two days.",
+      "Companion syrup of boiled whole onions and honey for antimicrobial and expectorant action.",
+      "Combine with Arctium lappa (burdock) root."
+     ]
+    }
+   ],
+   "conditions": [
+    "Folliculitis and boils"
+   ],
+   "note": null
+  },
+  {
+   "id": "c29",
+   "n": 29,
+   "chapter": "derm",
+   "title": "Recurrent lower-extremity cellulitis",
+   "presentation": "Fiery erythema, oedema and exquisite dermal pain of the lower limbs, aggravated by lymphatic disruption from abdominal trauma and relieved by motion.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Capillary bed integrity: fruit anthocyanins 1 tablespoon QD.",
+      "Vascular botanical tincture: equal parts Aesculus hippocastanum 1:5 and Ruscus aculeatus 1:5; 60 drops BID.",
+      "Homeopathy: Rhus toxicodendron 12x or 200x, 3 pellets QD sublingually (specific for cellulitis relieved by walking or motion); Staph 12x.",
+      "Physical activity: continuous low-impact walking to stimulate muscular pumping of lymph and venous blood."
+     ]
+    },
+    {
+     "label": "Acute flare management",
+     "items": [
+      "At first onset of inguinal lymphadenopathy and stinging: ibuprofen 200 mg TID for 3 days.",
+      "If uncontrolled: cephalexin 250 mg QID for 10 days.",
+      "Natural antimicrobial option: Hydrastis canadensis (goldenseal) powder 500 mg every 3 hours."
+     ]
+    }
+   ],
+   "conditions": [
+    "Cellulitis"
+   ],
+   "note": null
+  },
+  {
+   "id": "c30",
+   "n": 30,
+   "chapter": "derm",
+   "title": "Pyridoxine (B6)-induced histaminic dermatitis",
+   "presentation": "Pruritic, macular, diffuse erythematous rash and ankle oedema following 200 mg daily vitamin B6 intake under extreme emotional stress.",
+   "blocks": [
+    {
+     "label": "Mechanism",
+     "items": [
+      "Excessive B6 drives the enzymatic conversion of histidine to histamine via histidine decarboxylase in an immunocompromised, stressed state."
+     ]
+    },
+    {
+     "label": "Protocol",
+     "items": [
+      "Immediate discontinuation of all supplemental vitamin B6.",
+      "Quercetin powder 1/2 teaspoon TID to downregulate mast cell degranulation.",
+      "Glycyrrhiza glabra solid extract 1/4 teaspoon QD to prolong endogenous cortisol half-life.",
+      "Bile salts: 2 tablets with primary meals to improve fatty acid assimilation.",
+      "Hepatoprotective support: Silybum marianum, artichoke and Curcuma longa."
+     ]
+    }
+   ],
+   "conditions": [
+    "Drug eruptions",
+    "Urticaria and angioedema"
+   ],
+   "note": null
+  },
+  {
+   "id": "c31",
+   "n": 31,
+   "chapter": "derm",
+   "title": "Fragile eczematous dermatitis",
+   "presentation": "Forearm and facial eczema breaking out rapidly after ingestion of simple sugars and fried fats, and during the premenstrual phase.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Fatty acid normalisation: flaxseed oil 2 teaspoons QD to supply anti-inflammatory omega-3 substrates.",
+      "Quercetin 1,000 mg BID.",
+      "Selenium 200 mcg QD for hepatic glutathione peroxidase activation.",
+      "Digestive support: pancreatic digestive enzymes, 2 capsules per meal.",
+      "Adrenal modulation: Glycyrrhiza glabra solid extract 1/4 teaspoon QD in the morning.",
+      "Singlet oxygen quenching: high-carotene diet, or carotene drops 5 drops QD.",
+      "Potassium iodide (Tri-Quench) 5 drops QD to quench triplet-sensitised tissue molecules.",
+      "Juglans spp. (black/white walnut) tincture 20 drops BID.",
+      "Sulphur 200x as a homeopathic constitutional dose."
+     ]
+    }
+   ],
+   "conditions": [
+    "Eczema"
+   ],
+   "note": null
+  },
+  {
+   "id": "c32",
+   "n": 32,
+   "chapter": "derm",
+   "title": "Erysipelas (St Anthony's fire)",
+   "presentation": "Sudden-onset fiery red, indurated facial erythema, 101°F fever and severe headache, caused by Streptococcus pyogenes toxins.",
+   "blocks": [
+    {
+     "label": "Standard medical requirement",
+     "items": [
+      "Immediate antibiotic administration: erythromycin 250 mg every 6 hours for 10 days, or penicillin V 500 mg BID for 10 days, or a cephalosporin."
+     ]
+    },
+    {
+     "label": "Naturopathic botanical and homeopathic adjuncts",
+     "items": [
+      "Streptococcinum (Strep) 12x: 3 pellets BID.",
+      "Antimicrobial bitter tincture: equal parts Gentiana lutea and Berberis aquifolium; 45 drops TID.",
+      "Adrenal adaptogen tincture: equal parts Eleutherococcus senticosus and Glycyrrhiza glabra; 60 drops BID.",
+      "Hydrastis canadensis (goldenseal) root powder 500 mg every 3 hours."
+     ]
+    }
+   ],
+   "conditions": [
+    "Cellulitis"
+   ],
+   "note": null
+  },
+  {
+   "id": "c33",
+   "n": 33,
+   "chapter": "derm",
+   "title": "Folliculitis barbae and dairy-induced migraines",
+   "presentation": "Post-shaving pustular neck folliculitis with alternate-day migraines in a 14-year-old male.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Dietary elimination: complete withdrawal of cheese (eliminating dietary tyramines) and fluid cow's milk.",
+      "Zinc 90 mg QD for the first month, then 60 mg QD maintenance.",
+      "Homeopathy: Staph 12x, 3 pellets twice weekly.",
+      "Antimicrobial botanical drops: combine Berberis aquifolium, Baptisia tinctoria, liquid zinc drops and vitamin B12/folic acid drops directly in the bottle; 30 drops BID.",
+      "Vascular and mucosal support: fruit anthocyanins; cod liver oil; vitamin C 1,000 mg QD."
+     ]
+    }
+   ],
+   "conditions": [
+    "Folliculitis and boils",
+    "Migraine"
+   ],
+   "note": null
+  },
+  {
+   "id": "c34",
+   "n": 34,
+   "chapter": "derm",
+   "title": "Recurrent oral herpes simplex (HSV-1)",
+   "presentation": "Chronic debilitating lip cold sores, frequent upper respiratory infections, hypocholesterolaemia (total cholesterol 110 mg/dL, LDL 47 mg/dL).",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Dietary sterols: add whole organic eggs to restore circulating cholesterol to normal levels for cellular membrane and steroid hormone synthesis.",
+      "L-lysine 2,000 mg QD to competitively inhibit viral utilisation of arginine.",
+      "Vitamin C 1,500 mg BID.",
+      "Cod liver oil 3 pearls QD to restore mucosal integrity of the lips.",
+      "Immune formula (T-cell support): 2 capsules QD, featuring echinacea and Astragalus membranaceus 30 drops BID.",
+      "Topical virucidal application: Licrogel (glycyrrhetinic acid from liquorice) or Melissa officinalis (lemon balm) topical gel, applied directly to lesions up to 6 times daily during prodrome and active eruption."
+     ]
+    }
+   ],
+   "conditions": [
+    "Herpes simplex"
+   ],
+   "note": null
+  },
+  {
+   "id": "c35",
+   "n": 35,
+   "chapter": "derm",
+   "title": "Herpes zoster (shingles)",
+   "presentation": "Unilateral dermatomal eruption of vesicular blisters across the mid-back with neuralgic pain, preceded by systemic immune exhaustion.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Vitamin B12 injections: 1 cc (1,000 mcg) intramuscularly every other day, combined with folic acid, until neuralgic pain and lesions resolve.",
+      "Rhus toxicodendron 200x: 5 pellets at bedtime until blisters are completely crusted and dried.",
+      "Zinc 50 mg BID.",
+      "Cod liver oil 3 pearls QD.",
+      "Herpeszostin (homeopathic nosode complex): 5 drops TID.",
+      "Comprehensive immune formula: 3 capsules BID."
+     ]
+    },
+    {
+     "label": "Clinical directive",
+     "items": [
+      "Screen for underlying malignancy whenever shingles occurs in an elderly patient."
+     ]
+    }
+   ],
+   "conditions": [
+    "Herpes zoster"
+   ],
+   "note": null
+  },
+  {
+   "id": "c36",
+   "n": 36,
+   "chapter": "derm",
+   "title": "Incontinentia pigmenti (Bloch-Sulzberger syndrome)",
+   "presentation": "3-year-old female with widespread hyperpigmented, keratotic, warty eczematous plaques, alopecia and severe paediatric asthma.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Diet: strict exclusion of processed junk food, bacon, sausage, hot dogs, margarine and trans-fats.",
+      "Quercetin powder 1/2 teaspoon BID for asthma and mast cell stabilisation.",
+      "Selenium 100 mcg QD for liver clearance.",
+      "Vitamin E and carotenes daily for severe skin xerosis and micro-inflammation.",
+      "Vitamin C and a paediatric multivitamin/mineral daily."
+     ]
+    }
+   ],
+   "conditions": [
+    "Incontinentia pigmenti",
+    "Asthma"
+   ],
+   "note": null
+  },
+  {
+   "id": "c37",
+   "n": 37,
+   "chapter": "derm",
+   "title": "Lomatium (Leptotaenia dissectum) drug rash",
+   "presentation": "Sudden-onset, confluent, full-body macular erythematous rash resembling measles, developing 24 hours after taking Lomatium for a respiratory viral infection.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Immediate cessation of the Leptotaenia dissectum product.",
+      "Hydration: copious oral water intake to clear circulating metabolites.",
+      "Hepatic flush botanical tincture: Peumus boldus 1 part, Chelidonium majus 1 part, Ceanothus americanus 1 part, Podophyllum peltatum 0.1 part (1 dram added per 2 oz bottle); 60 drops BID.",
+      "Respiratory symptom substitution: vitamin C 1,000 mg BID, Glycyrrhiza tea and slippery elm lozenges."
+     ]
+    }
+   ],
+   "conditions": [
+    "Drug eruptions"
+   ],
+   "note": null
+  },
+  {
+   "id": "c38",
+   "n": 38,
+   "chapter": "derm",
+   "title": "Multiple subcutaneous lipomas",
+   "presentation": "Multiple painful lipomatous tumours on the thighs and arms, aggravated by simple sugars; elevated triglycerides (325 mg/dL).",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Nutritional protocol: eliminate all margarine, cheese, oranges, peanuts and whole wheat; consume orange and yellow root vegetables, green vegetables, non-citrus fruits, wild rice, millet and lean poultry or fish.",
+      "Lipotropic nutrients: 2 capsules TID (methionine, choline, inositol).",
+      "Vitamin E 400 IU QD.",
+      "Metabolic multivitamin and multimineral: 2 BID."
+     ]
+    }
+   ],
+   "conditions": [
+    "Lipoma"
+   ],
+   "note": null
+  },
+  {
+   "id": "c39",
+   "n": 39,
+   "chapter": "derm",
+   "title": "Molluscum contagiosum (mild, paediatric)",
+   "presentation": "4-year-old boy with 7 umbilicated poxvirus papules on the posterior legs.",
+   "blocks": [
+    {
+     "label": "Internal therapeutics",
+     "items": [
+      "Vitamin C 500 mg QD.",
+      "Cod liver oil daily.",
+      "Pantothenic acid 200 mg QD.",
+      "Liquid vitamin A and zinc: 1 capful on Monday, Wednesday and Friday."
+     ]
+    },
+    {
+     "label": "Topical regimen",
+     "items": [
+      "Morning: pure glycyrrhizic acid extract applied topically.",
+      "Evening: Melaleuca alternifolia (tea tree) ointment applied topically."
+     ]
+    }
+   ],
+   "conditions": [
+    "Molluscum contagiosum"
+   ],
+   "note": null
+  },
+  {
+   "id": "c40",
+   "n": 40,
+   "chapter": "derm",
+   "title": "Molluscum contagiosum (extensive, paediatric)",
+   "presentation": "5-year-old girl with dozens of lesions clustered behind the popliteal fossae and inner thighs, complicated by atopic eczema.",
+   "blocks": [
+    {
+     "label": "Internal support",
+     "items": [
+      "Cod liver oil; zinc 20 mg QD; quercetin powder; vitamin C 150 mg QD; paediatric multivitamin/mineral."
+     ]
+    },
+    {
+     "label": "Topical procedure",
+     "items": [
+      "Lightly disrupt the surface of the larger umbilicated lesions with a piece of fine-grit sandpaper.",
+      "Immediately paint with a concentrated liquid botanical combination of Melissa officinalis and Podophyllum peltatum, once daily."
+     ]
+    }
+   ],
+   "conditions": [
+    "Molluscum contagiosum",
+    "Eczema"
+   ],
+   "note": null
+  },
+  {
+   "id": "c41",
+   "n": 41,
+   "chapter": "derm",
+   "title": "Morphea (localised / linear scleroderma)",
+   "presentation": "Linear indurated scleroderma plaques across the arms and face (with a coup de sabre threat), positive ANAs.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Carotenoid loading: heavy consumption of orange vegetables, dark greens and green tea; elimination of fried foods, damaged fats and excess wheat and dairy.",
+      "Quercetin powder 1/2 teaspoon TID.",
+      "Flaxseed oil 2 teaspoons QD.",
+      "Cod liver oil 2 teaspoons QD.",
+      "Vitamin E 400 IU BID as a dermal antioxidant.",
+      "Vitamin C 1,000 mg QD.",
+      "Vascular flavonoid solid extracts: equal parts Rosa canina and Crataegus spp. berry, 1/2 teaspoon each QD.",
+      "Antifungal packet (Can Pro) to clear intestinal fungal dysbiosis."
+     ]
+    }
+   ],
+   "conditions": [
+    "Morphea (localized scleroderma)",
+    "Autoimmune conditions"
+   ],
+   "note": null
+  },
+  {
+   "id": "c42",
+   "n": 42,
+   "chapter": "derm",
+   "title": "Methicillin-resistant Staphylococcus aureus (MRSA) ulcerations",
+   "presentation": "Antibiotic-resistant MRSA infecting decubitus ulcers and catheter sites in terminal or post-addiction patients.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Systemic botanical antimicrobial: Hydrastis canadensis, Baptisia tinctoria and Leptotaenia dissectum isolate in a 5:5:1 ratio; 60 drops QID. In aggressive manifestations, dose powdered Hydrastis and Baptisia at 4 '00' capsules QID, up to 6 times daily.",
+      "Topical antimicrobial drawing salve: Vag-Pac base (potassium alum, hydrastine, magnesium sulfate) combined with Calendula officinalis and Stellaria media, applied directly into the wound bed."
+     ]
+    }
+   ],
+   "conditions": [
+    "MRSA skin infection",
+    "Wound healing"
+   ],
+   "note": null
+  },
+  {
+   "id": "c43",
+   "n": 43,
+   "chapter": "derm",
+   "title": "Pilonidal cyst and suppuration",
+   "presentation": "Chronic recurrent post-sacral abscess and sinus tract draining purulent fluid, complicated by acne and pubic folliculitis.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Minor surgery and drainage: surgical lancing, full evacuation of purulence, wound irrigation, and closure with sterile butterfly bandages.",
+      "Topical drawing poultice: compound salve of Stellaria media (chickweed) and Hydrastis canadensis (goldenseal) powder applied under occlusion, or Vag-Pac drawing paste.",
+      "Systemic therapeutics: zinc 50 mg QD, increased water, Staph homeopathic nosode, clean whole-food diet."
+     ]
+    }
+   ],
+   "conditions": [
+    "Pilonidal disease",
+    "Folliculitis and boils"
+   ],
+   "note": null
+  },
+  {
+   "id": "c44",
+   "n": 44,
+   "chapter": "derm",
+   "title": "Plantar warts (verrucae plantaris)",
+   "presentation": "Recalcitrant HPV-induced plantar warts on the weight-bearing plantar surfaces of the feet.",
+   "blocks": [
+    {
+     "label": "Protocol A — Podophyllum occlusion",
+     "items": [
+      "Lightly scrape the surface with sandpaper; paint the lesion with pure Podophyllum peltatum tincture at night; cover with standard adhesive tape during the day.",
+      "Peel off the tape each evening, stripping devitalised keratin, and reapply Podophyllum nightly for 2 weeks."
+     ]
+    },
+    {
+     "label": "Protocol B — garlic disc therapy",
+     "items": [
+      "Pantothenic acid 500 mg QD orally to warm the extremities.",
+      "Cut a fresh clove of raw garlic to the precise diameter of the wart; tape directly against the lesion overnight; remove in the morning and cover with adhesive tape all day; repeat for 6 consecutive days."
+     ]
+    },
+    {
+     "label": "Protocol C — mentholated rub",
+     "items": [
+      "Apply over-the-counter mentholated vapour rub to the plantar surface twice daily for 2 weeks."
+     ]
+    },
+    {
+     "label": "Protocol D — salicylate solution",
+     "items": [
+      "Apply concentrated aspirin/salicylic solution multiple times daily after disrupting the calloused surface with fine sandpaper."
+     ]
+    }
+   ],
+   "conditions": [
+    "Warts"
+   ],
+   "note": null
+  },
+  {
+   "id": "c45",
+   "n": 45,
+   "chapter": "derm",
+   "title": "Toxicodendron (poison ivy / oak) contact dermatitis",
+   "presentation": "Severe vesicular, pruritic contact dermatitis from urushiol resin exposure.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Internal jewelweed tea: fresh leaves of Impatiens capensis (syn. Impatiens biflora) brewed into tea; drink 1 cup multiple times daily.",
+      "Topical jewelweed extract: fresh above-ground stems and leaves crushed inside a plastic bag hung in the sun; collect the exudate and stabilise by adding 1/2 oz vodka per 1 pint plant juice. Apply topically or stir 1 teaspoon into tea.",
+      "Fresh plant poultice: macerate fresh leaves and stems of Impatiens capensis and apply directly over the lesions for 2 hours.",
+      "Cryotherapy alternative: keep frozen jewelweed juice ice cubes in the freezer and rub directly over flares."
+     ]
+    }
+   ],
+   "conditions": [
+    "Contact dermatitis"
+   ],
+   "note": null
+  },
+  {
+   "id": "c46",
+   "n": 46,
+   "chapter": "derm",
+   "title": "Psoriasis (severe / disseminated)",
+   "presentation": "Widespread pruritic, silvery, erythematous plaques covering more than 25% of body surface area, complicated by high alcohol consumption and sinus arrhythmia.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Dietary mechanics: limit arachidonic acid synthesis by shifting to omega-3 oils; complete avoidance of beer, soda, trans-fats, cheese and fried foods.",
+      "Momordica charantia (bitter melon) 1:5 extract: 90–120 drops BID to block guanylate cyclase and reduce epidermal cell hyperproliferation.",
+      "Ziziphus jujuba (jujube fruit): 10 whole fruits daily to elevate cellular cyclic AMP.",
+      "Carotenoid therapy: high-dose dietary carotenoids, or 15 drops liquid carotene QD, to quench singlet oxygen.",
+      "Glycyrrhiza glabra solid extract 1/4 teaspoon QD.",
+      "Vitamin D3 5,000 IU QD for month one, reducing to 1,000–2,000 IU QD maintenance.",
+      "Coleus forskohlii to elevate intracellular cAMP.",
+      "Intestinal integrity and allergy support: quercetin powder 1/2 teaspoon TID; deglycyrrhizinated liquorice (DGL) powder; N-acetyl-glucosamine to bind dietary wheat lectins; Lactobacillus acidophilus.",
+      "Hepatoprotective bitters: equal parts Berberis aquifolium and Silybum marianum; 30 drops with meals."
+     ]
+    },
+    {
+     "label": "Compound anti-psoriatic topical salve",
+     "items": [
+      "Combine equal parts tea tree ointment, Sting Stop homeopathic gel, chickweed ointment, zinc oxide ointment, vitamin E oil, 0.5% or 1% hydrocortisone cream, and vitamin D; apply over lesions at bedtime."
+     ]
+    }
+   ],
+   "conditions": [
+    "Psoriasis"
+   ],
+   "note": null
+  },
+  {
+   "id": "c47",
+   "n": 47,
+   "chapter": "derm",
+   "title": "Psoriasis (bile salt-responsive)",
+   "presentation": "Patchy disseminated psoriatic plaques in a patient with heavy coffee and dairy intake.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Bile salts: 2 tablets with each major meal to improve intestinal emulsification of dietary lipids and interrupt endotoxin absorption.",
+      "Selenium 200 mcg QD for hepatic Phase II support.",
+      "Carotene drops 10 drops QD.",
+      "Diet: complete elimination of peanut butter, cheese and margarine."
+     ]
+    }
+   ],
+   "conditions": [
+    "Psoriasis"
+   ],
+   "note": null
+  },
+  {
+   "id": "c48",
+   "n": 48,
+   "chapter": "derm",
+   "title": "Retin-A toxicity and facial dehydration",
+   "presentation": "Severe facial oedema, asymmetric numbness, intense skin xerosis and telogen effluvium following topical tretinoin therapy.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Discontinue all topical retinoid formulations immediately.",
+      "Dietary protein and lipids: reintroduce clean dietary proteins and whole eggs to supply sterols for steroid hormone synthesis.",
+      "Zinc 50 mg BID to support DNA-dependent mRNA polymerase for hair and skin matrix rebuilding.",
+      "Hepatobiliary botanical formula: Cynara scolymus 2 parts, Angelica sinensis 1 part, Silybum marianum 3 parts, Mitchella repens 2 parts; 60 drops BID.",
+      "Berberis aquifolium fluid extract 10 drops BID.",
+      "Glycyrrhiza glabra solid extract 1/4 teaspoon QD.",
+      "Vitamin B6 for premenstrual water retention."
+     ]
+    }
+   ],
+   "conditions": [
+    "Drug eruptions",
+    "Alopecia"
+   ],
+   "note": null
+  },
+  {
+   "id": "c49",
+   "n": 49,
+   "chapter": "derm",
+   "title": "Rosacea (papulopustular and telangiectatic)",
+   "presentation": "Facial erythema, central telangiectasias and pustular eruptions across the nose and cheeks triggered by food antigens and alcohol.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Hydrochloric acid replacement: betaine HCl titrated from 5–10 grains up to 15–20 grains per meal with food, to treat hypochlorhydria.",
+      "Antigen neutralisation: N-acetyl-cysteine to clear dietary wheat lectins; quercetin 1,000 mg BID.",
+      "Elimination diet: remove ELISA-confirmed food allergens (dairy, cheese, eggs, corn, mushrooms, almonds, garlic).",
+      "Topical therapy: 20% azelaic acid cream BID."
+     ]
+    }
+   ],
+   "conditions": [
+    "Rosacea"
+   ],
+   "note": null
+  },
+  {
+   "id": "c50",
+   "n": 50,
+   "chapter": "derm",
+   "title": "Chronic seborrhoeic dermatitis",
+   "presentation": "Severe scaly erythematous dermatitis along the hairline and posterior scalp, driven by sebum excess and Malassezia / Pityrosporum ovale yeast.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Vitamin D therapy: cod liver oil (5 pearls daily, 1,250 IU vitamin D) plus an additional 400 IU vitamin D3 daily.",
+      "Phototherapy: daily direct outdoor daylight and sunshine exposure to the uncovered scalp.",
+      "Topical antifungal application: pure Melaleuca alternifolia (tea tree) ointment massaged into the hairline at bedtime — avoid the undiluted essential oil.",
+      "Vitamin K and E: fat-soluble synergy to resolve underlying skin dryness.",
+      "Fruit anthocyanins 1 tablespoon QD.",
+      "Companion bladder incontinence formula: B-Vital (750 mg maca root with 50 mg velvet elk antler), 2 capsules in the morning and 1 capsule in the evening."
+     ]
+    }
+   ],
+   "conditions": [
+    "Seborrheic dermatitis"
+   ],
+   "note": null
+  },
+  {
+   "id": "c51",
+   "n": 51,
+   "chapter": "derm",
+   "title": "Chronic and cold-induced urticaria",
+   "presentation": "Daily chronic stress-related hives; chocolate-induced hives; cold-induced bronchoconstriction and hives.",
+   "blocks": [
+    {
+     "label": "Chronic / stress-induced protocol",
+     "items": [
+      "Quercetin powder 1/2 teaspoon BID.",
+      "Tanacetum parthenium (feverfew) 20 drops BID.",
+      "Glycyrrhiza glabra solid extract 1/4 teaspoon QD.",
+      "Vitamin C 1,000 mg TID.",
+      "Vitamin K via dark leafy greens or concentrated forms, to mature calcium-binding proteins and reduce dermal vascular reactivity.",
+      "Diet: strict exclusion of high-arachidonic acid foods — poultry skin, cured meats, cheese, fried oils, chocolate."
+     ]
+    },
+    {
+     "label": "Cold urticaria protocol",
+     "items": [
+      "Magnesium 200 mg BID.",
+      "Vitamin K1 20 mg QD.",
+      "Quercetin 1,000 mg BID.",
+      "Urtica dioica 3x or Urtica urens 6x: 3 pellets sublingually BID, or stinging nettle leaf capsules 1,000 mg BID."
+     ]
+    }
+   ],
+   "conditions": [
+    "Urticaria and angioedema"
+   ],
+   "note": null
+  },
+  {
+   "id": "c52",
+   "n": 52,
+   "chapter": "endo",
+   "title": "Adrenal exhaustion and adaptogen support",
+   "presentation": "Chronic fatigue, paraspinal muscle spasms, lifelong constipation, high sympathetic distress.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Hormone and cortisol-sparing solid extract: 50/50 blend of Medicago sativa (alfalfa) and Glycyrrhiza glabra (liquorice) solid extracts; 1/2 teaspoon QD, or 2 capsules of each QD.",
+      "Pantothenic acid (vitamin B5) 500 mg at lunch to provide coenzyme A substrates for steroidogenesis.",
+      "Vitamin C 500 mg TID.",
+      "B-complex: balanced 10 mg formula.",
+      "Crataegus spp. solid extract 1/2 teaspoon QD for cardiovascular tonification.",
+      "Adrenal protomorphogen: desiccated adrenal glandular, 3 to 4 capsules at lunch.",
+      "Modern botanical substitutes: Eleutherococcus senticosus (Siberian ginseng) and Rhodiola rosea.",
+      "Physical medicine: alternate foot contrast hydrotherapy — 2 minutes hot, 1 minute cold, 4 cycles in the early afternoon."
+     ]
+    }
+   ],
+   "conditions": [
+    "Adrenal fatigue and HPA dysregulation",
+    "Fatigue and low energy"
+   ],
+   "note": null
+  },
+  {
+   "id": "c53",
+   "n": 53,
+   "chapter": "endo",
+   "title": "Type 1 diabetes mellitus (diabetic ketoacidosis presentation)",
+   "presentation": "Acute DKA: glucose 624 mg/dL, heavy urine ketones, serum HCO3 16 mEq/L, arterial pH 7.15, Kussmaul breathing.",
+   "blocks": [
+    {
+     "label": "Acute emergency protocol",
+     "items": [
+      "Sodium bicarbonate: 1 teaspoon dissolved in a glass of water orally, immediately, to counter acute acidosis.",
+      "Immediate emergency referral: direct transfer to an endocrinologist or emergency department for regular and intermediate (Lente) insulin administration, 40 units initial titration."
+     ]
+    },
+    {
+     "label": "Long-term stabilising protocol",
+     "items": [
+      "Camellia sinensis (green tea): 3 cups strong green tea daily, reusing each tea bag once to extract deep epicatechins and flavonoids that protect pancreatic beta cells.",
+      "Chromium 400 mcg QD.",
+      "Quercetin to reduce autoimmune signalling and inhibit aldose reductase.",
+      "Diet: high carotenoid, high flavonoid, high soluble fibre whole foods; strict exclusion of IgG food allergens (moulds, cheese, walnuts)."
+     ]
+    }
+   ],
+   "conditions": [
+    "Diabetes mellitus, type 1"
+   ],
+   "note": null
+  },
+  {
+   "id": "c54",
+   "n": 54,
+   "chapter": "endo",
+   "title": "Type 2 diabetes mellitus (geriatric, with hypertension and neuropathy)",
+   "presentation": "72-year-old female, BMI over 35, HbA1c 6.8%, blood glucose 110–180 mg/dL, unstable angina, peripheral neuropathy, on lisinopril and nifedipine.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Oplopanax horridus (devil's club) root tea: brew 2 teaspoons dried root in 2 cups water; drink 1.5 cups daily to lower fasting blood sugar.",
+      "Fruit anthocyanins: 1 tablespoon BID diluted into a full 12 oz of water, to trigger a glucose-lowering response and support capillary beds.",
+      "Diuretic botanical tincture: equal parts Usnea spp. and Petroselinum crispum; 90 drops BID.",
+      "Chromium 200 mcg QD.",
+      "Topical neuropathy analgesic: capsaicin cream applied over the tingling feet.",
+      "Hawthorn berry (Walker trial): adjunctive administration for gentle blood pressure reduction in medicated diabetics."
+     ]
+    }
+   ],
+   "conditions": [
+    "Diabetes mellitus, type 2",
+    "Hypertension"
+   ],
+   "note": null
+  },
+  {
+   "id": "c55",
+   "n": 55,
+   "chapter": "endo",
+   "title": "Non-insulin dependent diabetes mellitus (metabolic syndrome)",
+   "presentation": "Fasting blood sugar 145 mg/dL, 2-hour postprandial glucose 250 mg/dL, obesity, sedentary lifestyle.",
+   "blocks": [
+    {
+     "label": "Dietary energy prescription",
+     "items": [
+      "Calculate BMR (weight in kg multiplied by 24 kcal); add 30% for sedentary energy expenditure; subtract 500–1,000 kcal/day.",
+      "Limit protein to 0.8 g/kg of ideal body weight. Eliminate refined sugars and sodas."
+     ]
+    },
+    {
+     "label": "Protocol",
+     "items": [
+      "Chromium 200 mcg BID to promote insulin receptor sensitivity and thermogenesis.",
+      "Gymnema sylvestre: 400 mg standardised extract daily, or 1:5 tincture 20 drops BID, to lower glucose and encourage islet cell recovery.",
+      "Magnesium 200 mg BID to reduce peripheral insulin resistance.",
+      "Camellia sinensis: 2 cups unsweetened green tea daily, sweetened exclusively with drops of pure Stevia rebaudiana.",
+      "Vitamin B6 50 mg QD to inhibit advanced glycation end-product protein cross-linking.",
+      "Biotin 10 mg QD to support glycaemic regulation.",
+      "Quercetin 1,000 mg BID to block aldose reductase conversion of glucose to polyols (sorbitol and galactitol), preventing osmotic cataracts and diabetic microvascular damage.",
+      "Fruit anthocyanins 1 tablespoon QD in a large glass of water, sipped through the day.",
+      "Pomegranate juice 1 cup daily to prevent lipid peroxidation of LDL and reduce carotid intima-media thickness.",
+      "Physical medicine: daily 1- to 1.5-mile walks; spinal adjustments T5 to T12 to support pancreatic and visceral innervation."
+     ]
+    }
+   ],
+   "conditions": [
+    "Diabetes mellitus, type 2",
+    "Obesity"
+   ],
+   "note": null
+  },
+  {
+   "id": "c56",
+   "n": 56,
+   "chapter": "endo",
+   "title": "Severe glycaemic dysregulation — type 1 versus type 2 differentiation",
+   "presentation": "Fasting glucose above 320 mg/dL, elevated GGT, cholesterol 323 mg/dL, triglycerides 362 mg/dL.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Immediate assessment: ophthalmology examination to rule out diabetic retinopathy.",
+      "Selenium 200 mcg QD for liver protection.",
+      "Zinc 30 mg QD.",
+      "Vitamin B complex 100 mg QD.",
+      "Vitamin A 25,000 IU QD.",
+      "Vitamin E 400 IU QD.",
+      "Chromium 200 mcg QD.",
+      "Biotin 1 mg QD.",
+      "Syzygium jambolana (jambul): 20 drops BID, titrated up to 60 drops BID, to suppress excessive postprandial glucose spikes.",
+      "Pancreatic enzymes: 2 capsules per meal.",
+      "Quercetin chalcone: 3 capsules BID.",
+      "Hypoglycaemic botanical complex: equal parts Oplopanax horridus, Opuntia spp. (prickly pear), Cichorium intybus (chicory) and Artemisia absinthium; 20 drops TID.",
+      "Crataegus spp. solid extract 1/2 teaspoon QD.",
+      "Naringenin 1/4 teaspoon TID to lower concurrent hypertension."
+     ]
+    }
+   ],
+   "conditions": [
+    "Diabetes mellitus, type 2"
+   ],
+   "note": null
+  },
+  {
+   "id": "c57",
+   "n": 57,
+   "chapter": "endo",
+   "title": "Rebound hyperglycaemia (Somogyi dysglycaemia)",
+   "presentation": "Abnormal glucose tolerance curve dropping to 52 mg/dL at 3 hours, with subsequent rebound tachycardia, jitteriness and mood swings.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Total sugar elimination: completely remove all concentrated simple carbohydrates.",
+      "Chromium 400 mcg QD with breakfast.",
+      "Balanced multimineral at dinner.",
+      "Adrenal sparing: Glycyrrhiza glabra solid extract 1/4 teaspoon QD, vitamin C and B-complex.",
+      "Meal structure: consistent, scheduled whole-food meals to eliminate glycaemic volatility."
+     ]
+    }
+   ],
+   "conditions": [
+    "Reactive hypoglycemia"
+   ],
+   "note": null
+  },
+  {
+   "id": "c58",
+   "n": 58,
+   "chapter": "endo",
+   "title": "Hashimoto's thyroiditis (chronic lymphocytic thyroiditis)",
+   "presentation": "Palpable goitre, anti-TPO antibodies 1.8 U/mL, elevated LDL, neck discomfort.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Anti-fibrotic enzyme therapy: bromelain 2 capsules with meals, or 1,000 mg TID on an empty stomach, to halt and reverse inflammatory intraglandular fibrous tissue deposition.",
+      "Quercetin powder 1/2 teaspoon BID to temper autoimmune lymphocyte signalling.",
+      "Crataegus spp. berry solid extract 1/2 teaspoon BID as a cardiovascular antioxidant.",
+      "Glycine powder 1/2 teaspoon BID to calm systemic tension.",
+      "Cynara scolymus (artichoke) daily for cellular protection via phenylpropanoids.",
+      "Dietary restrictions: high carotene foods; absolute avoidance of peanuts, chocolate, margarine and excess dairy cheese."
+     ]
+    },
+    {
+     "label": "Hypothyroid botanical tincture — Andrea Sullivan formula",
+     "items": [
+      "Serenoa repens 2 parts, Fucus vesiculosus 1 part, Turnera diffusa 1 part, Cynara scolymus 1 part, Nasturtium officinale 1 part; 1 teaspoon BID to TID."
+     ]
+    },
+    {
+     "label": "Physical medicine",
+     "items": [
+      "Cold wet towel application to the anterior neck at the close of the day.",
+      "Weekly cervical spine chiropractic adjustments.",
+      "Foot reflexology directed to the thyroid zone (plantar base of the hallux) and the liver and digestive areas."
+     ]
+    }
+   ],
+   "conditions": [
+    "Hypothyroidism",
+    "Autoimmune conditions"
+   ],
+   "note": null
+  },
+  {
+   "id": "c59",
+   "n": 59,
+   "chapter": "endo",
+   "title": "Subclinical hypothyroidism and hypoadrenia",
+   "presentation": "Severe generalised pruritus after showering, numbness of the upper extremities, constipation, T4 low-normal (5.6 mcg/dL), blood sugar 61 mg/dL.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Thyroid protomorphogen (Thyro Forte): 3 capsules daily at lunch to nourish native glandular architecture.",
+      "Selenium daily to support iodothyronine 5'-deiodinase conversion of T4 to T3.",
+      "Pantothenic acid 250 mg QD for adrenal activation.",
+      "Cod liver oil daily for mucosal health and fat-soluble vitamins A and D.",
+      "Vitamin C daily for catecholamine biosynthesis.",
+      "Hydration: generous pure water intake to assist cutaneous elimination."
+     ]
+    }
+   ],
+   "conditions": [
+    "Hypothyroidism",
+    "Adrenal fatigue and HPA dysregulation"
+   ],
+   "note": null
+  },
+  {
+   "id": "c60",
+   "n": 60,
+   "chapter": "endo",
+   "title": "Sluggish pancreas syndrome (dysglycaemic pre-diabetes)",
+   "presentation": "Candida overgrowth, severe depressive PMS, sugar cravings, abnormal glucose tolerance test dropping to 63 mg/dL, delayed glucagon counter-regulatory spike.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Chromium 200 mcg QD.",
+      "Camellia sinensis (green tea), rich in epicatechins, to protect islet structures.",
+      "Cola nitida powder: 1/4 teaspoon in water QD as a gentle coffee replacement.",
+      "Syzygium jambolana 20 drops BID to blunt hyperglycaemic spikes.",
+      "Digestive bitters: Achillea millefolium (yarrow) and Chionanthus virginicus (fringe tree) at each meal to stimulate endocrine and exocrine pancreatic secretion.",
+      "Nutritional support: vitamin B12 for macrocytosis; vitamin B6 50 mg premenstrually; Glycyrrhiza glabra tea to inhibit 5-beta-reductase breakdown of cortisol."
+     ]
+    }
+   ],
+   "conditions": [
+    "Reactive hypoglycemia",
+    "Candidiasis",
+    "Premenstrual syndrome"
+   ],
+   "note": null
+  },
+  {
+   "id": "c61",
+   "n": 61,
+   "chapter": "endo",
+   "title": "Primary hyperparathyroidism and nephrolithiasis",
+   "presentation": "Recurrent calcium oxalate and phosphate kidney stones, hypercalcaemia (11.4 mg/dL), suppressed vitamin D, multiple calcified bead-like lesions on the bladder mucosa, parathyroid adenoma on scan.",
+   "blocks": [
+    {
+     "label": "Acute urolithiasis protocol",
+     "items": [
+      "Antispasmodic / litholytic botanical tincture: equal parts Hydrangea arborescens and Ammi visnaga; 120 drops TID in water.",
+      "Magnesium 200 mg TID.",
+      "Diet: temporary low-calcium intake."
+     ]
+    },
+    {
+     "label": "Definitive protocol",
+     "items": [
+      "Referral for surgical parathyroidectomy.",
+      "Evaluate vitamin K status in aberrant tissue calcification."
+     ]
+    }
+   ],
+   "conditions": [
+    "Kidney stones",
+    "Primary hyperparathyroidism"
+   ],
+   "note": null
+  },
+  {
+   "id": "c62",
+   "n": 62,
+   "chapter": "endo",
+   "title": "Pituitary prolactinoma",
+   "presentation": "Pituitary macro-adenoma, persistent galactorrhoea, secondary amenorrhoea, prolactin exceeding 600 ng/mL.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Medical dopamine agonist therapy: bromocriptine initiated at 1.25 mg with a snack at bedtime, titrated to 2.5 mg TID, or modern cabergoline.",
+      "Corticosteroid support: hydrocortisone 20–30 mg daily for residual post-radiation hypopituitarism.",
+      "Nutritional baseline: hypoallergenic, anti-inflammatory whole-food diet."
+     ]
+    }
+   ],
+   "conditions": [
+    "Prolactinoma",
+    "Amenorrhea"
+   ],
+   "note": null
+  },
+  {
+   "id": "c63",
+   "n": 63,
+   "chapter": "endo",
+   "title": "Colloid thyroid nodule",
+   "presentation": "Benign, non-functioning colloid nodule of the thyroid, neck circumference 37.5 cm, hot flushes, tracheal compression.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Potassium iodide (Tri-Quench) 4 drops QD.",
+      "Quercetin powder 1/4 teaspoon QID.",
+      "Boron 1 mg TID to diminish vasomotor flush episodes.",
+      "Botanical hormone balancer: equal parts Mitchella repens 1:5 and Angelica sinensis 1:5; 15 drops BID.",
+      "Beta-carotene daily for antioxidant loading.",
+      "Endocrine integration: low-dose levothyroxine 25 mcg QD to suppress endogenous TSH stimulation; evaluate for surgical thyroid lobectomy if airway compromise occurs."
+     ]
+    }
+   ],
+   "conditions": [
+    "Thyroid nodule"
+   ],
+   "note": null
+  },
+  {
+   "id": "c64",
+   "n": 64,
+   "chapter": "endo",
+   "title": "TSH-resistant thyroidopathy",
+   "presentation": "Chronically elevated TSH with low circulating T4 non-responsive to endogenous stimulation, dating to a severe infantile streptococcal infection.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Desiccated thyroid glandular: 3 grains daily in the morning.",
+      "Adrenal protomorphogen: 2 capsules daily in the morning.",
+      "Ovarian protomorphogen dosed for cyclic premenstrual symptoms.",
+      "Pantothenic acid for adrenal support.",
+      "Vitamin C 1,000 mg QD.",
+      "Quercetin and DGL for gut mucosal barrier support.",
+      "Homeopathic streptococcus nosode: Strep 200x to clear energetic miasms from infantile sepsis."
+     ]
+    }
+   ],
+   "conditions": [
+    "Hypothyroidism"
+   ],
+   "note": null
+  },
+  {
+   "id": "c65",
+   "n": 65,
+   "chapter": "endo",
+   "title": "Graves' disease / thyrotoxicosis (post-surgical management)",
+   "presentation": "History of thyrotoxic crisis, marked exophthalmos, resting heart rate 136 bpm, bruits over the gland; treated with total thyroidectomy and presenting post-operatively off all replacement therapy (T4 1.2 mcg/dL).",
+   "blocks": [
+    {
+     "label": "Definitive protocol",
+     "items": [
+      "Levothyroxine (Synthroid): initiate at 0.1 mg QD; titrate to 0.2 mg QD to normalise T4 and extinguish profound hypothyroid fatigue."
+     ]
+    }
+   ],
+   "conditions": [
+    "Hyperthyroidism"
+   ],
+   "note": null
+  },
+  {
+   "id": "c66",
+   "n": 66,
+   "chapter": "gastro",
+   "title": "Entamoeba histolytica (amoebiasis)",
+   "presentation": "Persistent watery diarrhoea lasting more than a month, right lower quadrant pain, hypersensitivity rash on the hands, stool positive for E. histolytica trophozoites.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Amoebicidal botanical tincture: equal parts Spigelia anthelmia and Berberis aquifolium; 60 drops TID for 5 consecutive days.",
+      "Artemisia annua (sweet Annie) capsules: 1,000 mg BID, or TID, for 1 full week.",
+      "Quercetin 1,000 mg BID to heal colonic mucosal inflammation.",
+      "Probiotics: 2 capsules at bedtime.",
+      "Diet: zero simple sugars and no sweet dairy for a minimum of 1 month.",
+      "Adjunctive mucosal soothers: fresh raw cabbage juice 1/2 cup BID; Ulmus rubra (slippery elm) 1 teaspoon TID; Althaea officinalis 2 capsules TID."
+     ]
+    }
+   ],
+   "conditions": [
+    "Parasites, intestinal",
+    "Diarrhea"
+   ],
+   "note": null
+  },
+  {
+   "id": "c67",
+   "n": 67,
+   "chapter": "gastro",
+   "title": "Ascaris lumbricoides (intestinal roundworm)",
+   "presentation": "Chronic abdominal bloating, left hypochondriac pain, intermittent diarrhoea, visible roundworms in stool, elevated AST and ALT from biliary irritation.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Anthelmintic botanical tincture: equal parts Spigelia anthelmintica and Artemisia annua; 90 drops TID for 3 days.",
+      "Bromelain 1,500 mg TID to assist enzymatic cuticle breakdown of parasites.",
+      "Deglycyrrhizinated liquorice (DGL) powder 1/2 teaspoon TID.",
+      "Probiotics: 2 capsules at bedtime.",
+      "Pharmaceutical standby: mebendazole 100 mg po BID for 3 days, or piperazine citrate 75 mg/kg po QD for 2 days (max 3.5 g QD), if biliary duct obstruction or extreme distension occurs."
+     ]
+    }
+   ],
+   "conditions": [
+    "Parasites, intestinal"
+   ],
+   "note": null
+  },
+  {
+   "id": "c68",
+   "n": 68,
+   "chapter": "gastro",
+   "title": "Barrett's oesophagus",
+   "presentation": "Severe long-standing GERD resulting in columnar metaplasia of the lower oesophageal squamous epithelium; post-surgical intra-abdominal complications.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Fruit anthocyanins 1 teaspoon BID to promote epithelial repair and antioxidant protection against adenocarcinoma progression.",
+      "Quercetin: 2 capsules BID, or 800 mg TID, to suppress local oesophageal mucosal inflammation.",
+      "Glucosamine sulfate 1,000 mg BID to supply glycosaminoglycans for mucosal wall healing.",
+      "Kelp: 2 capsules with breakfast and 2 with dinner.",
+      "CoQ10 100 mg QD.",
+      "Probiotics: Lactobacillus acidophilus, 2 capsules at bedtime.",
+      "Multivitamin/mineral foundation: Thorne Basic Nutrients V.",
+      "Dietary adjustments: strict exclusion of wheat and cheese; small, reduced-volume meals."
+     ]
+    }
+   ],
+   "conditions": [
+    "Barrett's esophagus",
+    "GERD"
+   ],
+   "note": null
+  },
+  {
+   "id": "c69",
+   "n": 69,
+   "chapter": "gastro",
+   "title": "Blastocystis hominis enteric infection",
+   "presentation": "Severe morning nausea, profound diarrhoea, 15 lb weight loss, dehydration requiring IV saline; unable to tolerate metronidazole.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Compound antiparasitic botanical tincture: equal parts Berberis aquifolium, Hydrastis canadensis, Achillea millefolium, Spigelia marilandica and Gentiana lutea; 60 drops TID.",
+      "Robert's Formula Plus: 2 capsules TID.",
+      "Quercetin 1,000 mg TID to calm enteritis.",
+      "DGL as emollient support for the mucosal lining.",
+      "Diet: complete avoidance of refined sweets and holiday pastries."
+     ]
+    }
+   ],
+   "conditions": [
+    "Parasites, intestinal"
+   ],
+   "note": null
+  },
+  {
+   "id": "c70",
+   "n": 70,
+   "chapter": "gastro",
+   "title": "Intestinal Candida overgrowth",
+   "presentation": "Chronic abdominal bloating, raw and irritated stomach, alternating diarrhoea and constipation, chronic fatigue, 2+ Candida on stool analysis.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Anti-Candida dietary macro split: strict zero sugar; 20% of calories from healthy fats, 40% from clean proteins, 40% from unrefined high-fibre complex carbohydrates.",
+      "Caprylic acid daily as antifungal dosing.",
+      "Leptotaenia dissectum (Lomatium) extract: 8 drops TID for 2 weeks to clear intestinal dysbiosis.",
+      "Stellaria media (chickweed): 1 capsule daily as a soothing intestinal emollient.",
+      "Quercetin to reduce mucosal inflammation.",
+      "Lactobacillus acidophilus: high-potency repopulation therapy.",
+      "Magnesium 200 mg QD to relax intestinal smooth muscle.",
+      "Neurochemical sleep aid: GABA and glycine at bedtime to suppress nocturnal anxiety."
+     ]
+    }
+   ],
+   "conditions": [
+    "Candidiasis"
+   ],
+   "note": null
+  },
+  {
+   "id": "c71",
+   "n": 71,
+   "chapter": "gastro",
+   "title": "Coeliac sprue",
+   "presentation": "Severe chronic diarrhoea (up to 12 bowel movements daily), bilateral lower extremity oedema, chronic low BP (90/50 mmHg), refractory iron-deficiency anaemia, low B12.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Strict gluten elimination: lifetime avoidance of wheat, spelt, kamut, rye and barley, including disguised additives in packaged foods.",
+      "Quercetin 1,000 mg TID to interrupt intestinal hyper-permeability and suppress secondary food sensitivities.",
+      "DGL powder 1/2 teaspoon TID as a gut emollient and to support non-inflammatory prostacyclins.",
+      "Fruit anthocyanins 1 tablespoon QD to repair damaged intestinal capillary beds.",
+      "Aloe vera inner leaf juice 1/2 oz BID.",
+      "Matricaria recutita (chamomile) to ease smooth muscle spasms and suppress gut pathogens.",
+      "Probiotics: high-potency acidophilus/bifidus nightly.",
+      "Enteric hormone support (Mitchell analysis): melatonin 3 mg at bedtime to act as a gut paracrine antioxidant, stimulate local bicarbonate release and reduce visceral pain."
+     ]
+    }
+   ],
+   "conditions": [
+    "Celiac disease",
+    "Anemia, iron deficiency"
+   ],
+   "note": null
+  },
+  {
+   "id": "c72",
+   "n": 72,
+   "chapter": "gastro",
+   "title": "Early-stage hepatic cirrhosis",
+   "presentation": "20-year heavy alcohol history, hepatomegaly with right upper quadrant tenderness, spider naevi, elevated AST (74 U/L), ALT (146 U/L), GGT (146 U/L), thrombocytopenia.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Absolute abstinence: total cessation of all alcohol; total avoidance of hepatotoxic NSAIDs.",
+      "Anti-fibrotic synergy: bromelain and curcumin 50/50 blend, 2 capsules TID — bromelain provides fibrinolytic breakdown of extracellular matrix collagen, curcumin quenches hepatic parenchymal free radicals.",
+      "Silybum marianum (milk thistle): 2 capsules BID.",
+      "Vitamin A 10,000 IU QD, cautiously dosed to maintain stellate cell differentiation and counter fibrogenesis.",
+      "Vitamin E 800 IU QD.",
+      "Vitamin C 1,000 mg BID.",
+      "Digestive support: broad-spectrum digestive enzymes 2 per meal; DGL powder 1/2 teaspoon before meals.",
+      "Diet: small, frequent, low-fat meals; eliminate all trans-fats, processed meats, fried foods and sugars.",
+      "Lifestyle: diaphragmatic relaxation breathing (inhale through the nose, exhale through the mouth with a shoulder drop) for 2 minutes daily."
+     ]
+    }
+   ],
+   "conditions": [
+    "Cirrhosis",
+    "Hepatic steatosis",
+    "Alcohol use disorder"
+   ],
+   "note": null
+  },
+  {
+   "id": "c73",
+   "n": 73,
+   "chapter": "gastro",
+   "title": "Profound episodic spastic colitis (Crohn's phenotype)",
+   "presentation": "Biannual catastrophic attacks of abdominal cramping with relentless vomiting every 15 minutes lasting 16 hours, mimicking acute mechanical bowel obstruction.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Magnesium 200 mg BID, titrated aggressively to bowel tolerance to suppress spastic intestinal smooth muscle contraction.",
+      "Quercetin powder 1/2 teaspoon TID.",
+      "DGL powder 1/2 teaspoon BID.",
+      "N-acetyl-glucosamine to block dietary wheat and lectin binding to intestinal enterocytes.",
+      "Vitamin B12 injections: 1 shot monthly.",
+      "Vitamins C and E daily for antioxidant protection.",
+      "Bowel-rest whole food diet: pureed root vegetables (yams, sweet potatoes), white rice, millet, quinoa, split pea puree, skinless poultry and cold-water fish; total avoidance of raw roughage, whole grains, corn, nuts and dairy."
+     ]
+    }
+   ],
+   "conditions": [
+    "Inflammatory bowel disease",
+    "Cyclical vomiting syndrome"
+   ],
+   "note": null
+  },
+  {
+   "id": "c74",
+   "n": 74,
+   "chapter": "gastro",
+   "title": "Regional ascending colitis",
+   "presentation": "Pulsating pain localised strictly over the ascending colon every 6 to 8 weeks; elevated WBC (12.1k) and sedimentation rate (16 mm/hr).",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Stellaria media (chickweed): 1 capsule TID as a soothing mucosal emollient.",
+      "DGL powder 1/2 teaspoon TID.",
+      "Quercetin: 1 capsule TID.",
+      "Magnesium: 2 capsules in the evening to relax colonic musculature.",
+      "Dietary triggers: complete avoidance of coffee and chocolate.",
+      "Physical medicine: chiropractic spinal manipulation to correct lumbar biomechanical strain; Rhus tox 12x and Ligaplex."
+     ]
+    }
+   ],
+   "conditions": [
+    "Inflammatory bowel disease"
+   ],
+   "note": null
+  },
+  {
+   "id": "c75",
+   "n": 75,
+   "chapter": "gastro",
+   "title": "Chronic colonic hydrotherapy management (geriatric)",
+   "presentation": "80-year-old female receiving weekly colonics for over 20 years, presenting with chronic mild diarrhoea and low-grade sigmoidoscopic mucosal erythema.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Colonic scheduling: reduce irrigation frequency from weekly to once every 2 weeks.",
+      "DGL powder daily to soothe mechanical mucosal irritation.",
+      "Crataegus spp. berry solid extract 1/2 teaspoon QD to improve microvascular capillary integrity within the bowel wall.",
+      "Ruscus aculeatus tincture 60 drops BID for venous and mesenteric circulation.",
+      "Pancreatin protomorphogen: 3 tablets per meal to support nutrient assimilation.",
+      "Multiglandular protomorphogen: neonatal glandulars to support endocrine vitality.",
+      "Microbial replenishment: Lactobacillus acidophilus, 2 capsules at bedtime.",
+      "Nutritional baseline: sublingual vitamin B12, vitamin C and green barley juice powder."
+     ]
+    }
+   ],
+   "conditions": [
+    "Diarrhea"
+   ],
+   "note": null
+  },
+  {
+   "id": "c76",
+   "n": 76,
+   "chapter": "gastro",
+   "title": "Ulcerative colitis and post-surgical colectomy",
+   "presentation": "Severe pancolitis with haematochezia, severe anaemia (haematocrit 21%), steroid dependence (prednisone 30–40 mg), extreme dairy and wheat IgG reactivity.",
+   "blocks": [
+    {
+     "label": "Active flare protocol",
+     "items": [
+      "Quercetin powder 1/2 teaspoon TID.",
+      "DGL powder 1/2 teaspoon TID to QID.",
+      "Robert's Formula: 2 capsules TID — cranesbill, marshmallow, goldenseal, cabbage, purple coneflower.",
+      "Musa paradisiaca (plantain banana): 2 capsules BID to promote protective epithelial mucin secretion.",
+      "N-acetyl-cysteine 1/8 teaspoon QD to dissolve and clear bound wheat lectins from mucosal brush borders.",
+      "Fresh cabbage juice: 1 cup daily, rich in glutamine ('vitamin U').",
+      "Haematologic support: elemental iron drops 1/2 tsp BID (50 mg); Rumex crispus (yellow dock) 2 capsules daily to rebuild haematocrit.",
+      "Homeopathy: Arsenicum album 12x, 2 pellets at bedtime.",
+      "Diet: strict exclusion of all dairy, wheat, rye, soy and peanuts."
+     ]
+    },
+    {
+     "label": "Post-colectomy management (ileoanal pouch diarrhoea)",
+     "items": [
+      "Croton tiglium 6x, dosed to slow transit time and consolidate loose stools (5–6 evacuations per day)."
+     ]
+    }
+   ],
+   "conditions": [
+    "Inflammatory bowel disease",
+    "Anemia, iron deficiency"
+   ],
+   "note": null
+  },
+  {
+   "id": "c77",
+   "n": 77,
+   "chapter": "gastro",
+   "title": "Chronic constipation with haemoconcentration",
+   "presentation": "Severe chronic constipation relying entirely on heavy coffee intake to move the bowels, high haematocrit (44.4%), paraspinal tension.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Magnesium and potassium aspartate: 1 to 2 capsules BID (80 mg Mg / 80 mg K per capsule).",
+      "Vitamin C 1,000 mg TID, titrated to bowel tolerance.",
+      "Stool softener: dioctyl sodium sulfosuccinate 100 mg QD.",
+      "Adrenal sparing: pantothenic acid 500 mg QD and Glycyrrhiza glabra solid extract 1/4 teaspoon QD.",
+      "Hepatic drainage: Silybum marianum tincture 60 drops BID.",
+      "Dietary mechanics: high-fibre oat bran morning cereal; substantial increase in pure water intake; reduction of binding dairy cheeses."
+     ]
+    }
+   ],
+   "conditions": [
+    "Constipation"
+   ],
+   "note": null
+  },
+  {
+   "id": "c78",
+   "n": 78,
+   "chapter": "gastro",
+   "title": "Paediatric constipation (magnesium deficiency)",
+   "presentation": "7-year-old male with small, hard, dry stools (infant history of 10 days between bowel movements), hair analysis showing severely depleted magnesium (11.8 ppm against a normal 39–148 ppm).",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Hypoallergenic multimineral complex: 3 capsules daily for 2 weeks, then 3 capsules every other day, supplying about 300 mg calcium, 300 mg magnesium, 20 mg zinc, 150 mcg selenium, 6 mg manganese, 200 mcg chromium, 90 mg potassium and 100 mcg iodine.",
+      "Vitamin C 500 mg BID.",
+      "Flaxseed oil 1 tablespoon QD.",
+      "Human microflora probiotics: 1 capsule at bedtime.",
+      "Hydration: scheduled daily water targets."
+     ]
+    }
+   ],
+   "conditions": [
+    "Constipation"
+   ],
+   "note": null
+  },
+  {
+   "id": "c79",
+   "n": 79,
+   "chapter": "gastro",
+   "title": "Post-surgical opiate-induced constipation",
+   "presentation": "Complete cessation of normal bowel movements following pelvic surgery and post-operative opioid analgesics.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Plantago ovata (blond psyllium) seed husks: 1 rounded teaspoon (5.4 g) TID stirred into a large glass of water, tapering after week one to 2 teaspoons daily, then 1 teaspoon daily.",
+      "Magnesium 200 mg BID.",
+      "Vitamin C 1,000 mg BID.",
+      "Diet: abundant whole oats and warm herbal teas."
+     ]
+    },
+    {
+     "label": "Alternative botanical cathartic complex — Aboca Italian formulation",
+     "items": [
+      "4 parts Cassia angustifolia (senna), 2 parts Aloe vera, 2 parts Taraxacum officinale, 1 part Cichorium intybus, 1 part Foeniculum vulgare, 1 part Carum carvi, 0.5 part Peumus boldus and 0.5 part Cuminum cyminum.",
+      "Dosing: 60 drops of tincture, or 2 capsules, at bedtime."
+     ]
+    }
+   ],
+   "conditions": [
+    "Constipation",
+    "Opioid use disorder"
+   ],
+   "note": null
+  },
+  {
+   "id": "c80",
+   "n": 80,
+   "chapter": "gastro",
+   "title": "Crohn's disease (transmural colitis)",
+   "presentation": "12-year history of Crohn's disease with persistent rectal bleeding, severe cramping and mucosal ulceration; managed with azathioprine, prednisone and Pentasa.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Quercetin 1,500 mg BID to block pro-inflammatory cytokines and mast cell degranulation.",
+      "DGL powder: 1 teaspoon in the morning as an emollient.",
+      "Robert's Formula: 2 capsules in the morning and 2 in the evening.",
+      "Robert's Formula components: equal parts Geranium maculatum, Althaea officinalis root, Hydrastis canadensis root, Brassica oleracea (cabbage) and Echinacea angustifolia.",
+      "Mechanism: hydrastine and berberine downregulate the neutrophil-recruiting chemokine interleukin-8, halting transmural architectural destruction.",
+      "Fruit anthocyanins daily in water to protect fragile mesenteric and intestinal capillary beds."
+     ]
+    }
+   ],
+   "conditions": [
+    "Inflammatory bowel disease"
+   ],
+   "note": null
+  },
+  {
+   "id": "c81",
+   "n": 81,
+   "chapter": "gastro",
+   "title": "Acute enteritis with histaminic reaction",
+   "presentation": "Acute watery diarrhoea with axillary contact dermatitis, low-grade fever and copious clear rhinorrhoea.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Croton tiglium 6x: 3 pellets TID to halt persistent diarrhoea.",
+      "Euphrasia officinalis (eyebright) 1:1 fluid extract: 3 mL (90 drops) TID as a mucous membrane astringent and anti-catarrhal.",
+      "L-lysine 1,000 mg BID for antiviral coverage.",
+      "Glycyrrhiza glabra tincture: 60 drops BID for 1 week, then 30 drops QD for 3 weeks.",
+      "Recurrent flare alternative: zinc, Urtica urens 6x, and Urtica dioica leaf capsules 1,000 mg BID."
+     ]
+    }
+   ],
+   "conditions": [
+    "Diarrhea",
+    "Urticaria and angioedema"
+   ],
+   "note": null
+  },
+  {
+   "id": "c82",
+   "n": 82,
+   "chapter": "gastro",
+   "title": "Chronic diarrhoea in the elderly (endocrine and food sensitivity-linked)",
+   "presentation": "70-year-old female with chronic continuous diarrhoea, high-normal T4 (11–14 mcg/dL) from excess exogenous levothyroxine, and cytotoxic corn sensitivity.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Endocrine normalisation: coordinate a 25% reduction in exogenous thyroxine with the prescribing physician.",
+      "Elimination diet: remove corn, corn syrup, milk, oranges, eggs, beef, coffee and cheese.",
+      "DGL powder 1/2 teaspoon BID.",
+      "Quercetin powder 1/4 teaspoon BID.",
+      "Homeopathic support: Natrum sulphuricum 6x (specific for morning diarrhoea and liver congestion); Dust mix 6x for inhalant allergies.",
+      "Metabolic and digestive support: lipotropic formula; magnesium trisilicate prn; glycine powder 1 level teaspoon prn stress; Corynanthe johimbe 6 drops BID for weight loss."
+     ]
+    }
+   ],
+   "conditions": [
+    "Diarrhea",
+    "Food intolerance",
+    "Hyperthyroidism"
+   ],
+   "note": null
+  },
+  {
+   "id": "c83",
+   "n": 83,
+   "chapter": "gastro",
+   "title": "Dientamoeba fragilis enteric infection",
+   "presentation": "Pruritus ani, lower abdominal cramping, persistent loose stools, co-infection with Enterobius vermicularis (pinworms) and Entamoeba coli.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Artemisia annua (sweet Annie): 500 mg TID for 5 days.",
+      "Silybum marianum (milk thistle) dosed concurrently to prevent hepatic stress from Artemisia.",
+      "Althaea officinalis (marshmallow): 1 capsule BID as an intestinal soother.",
+      "DGL powder 1/2 teaspoon BID.",
+      "Quercetin to reduce enterocyte inflammation.",
+      "Lactobacillus acidophilus: high-dose flora re-inoculation.",
+      "Co-infection pinworm remedy: homeopathic Cina 3x, 3 pellets TID.",
+      "Botanical alternative: Robert's Formula 3 capsules QID for 5 days; or Spigelia and Quassia amara."
+     ]
+    }
+   ],
+   "conditions": [
+    "Parasites, intestinal"
+   ],
+   "note": null
+  },
+  {
+   "id": "c84",
+   "n": 84,
+   "chapter": "gastro",
+   "title": "Diet-related postprandial fatigue",
+   "presentation": "Severe brain fog and exhaustion after lunch, low-normal BP (100/52 mmHg), low-normal thyroid, high carbohydrate and refined snack intake.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Meal rebalancing: heavy breakfast, modest whole-food lunch, mid-afternoon fruit snack, light dinner; elimination of pizza, processed wheat, margarine and peanuts.",
+      "Sodium supplementation: lightly salt all meals to expand intravascular volume and raise low blood pressure.",
+      "Hydroxy-folate drops: 6 drops QD (sublingual vitamin B12 and folinic acid).",
+      "DGL powder 1/2 teaspoon TID, or warm liquorice root tea.",
+      "Quercetin powder 1/4 teaspoon TID.",
+      "Vitamin C 1,000 mg at breakfast for adrenal cortex support.",
+      "Probiotics: Lactobacillus acidophilus, 2 capsules at bedtime."
+     ]
+    }
+   ],
+   "conditions": [
+    "Food intolerance",
+    "Fatigue and low energy",
+    "Hypotension"
+   ],
+   "note": null
+  },
+  {
+   "id": "c85",
+   "n": 85,
+   "chapter": "gastro",
+   "title": "Duodenal ulcer",
+   "presentation": "Chronic burning epigastric pain relieved temporarily by food, antacid dependence, endoscopy confirming ulceration in the duodenal bulb.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Quercetin: 2 capsules TID on an empty stomach before meals.",
+      "DGL powder 1/2 teaspoon BID.",
+      "Antacid demulcent (Trigelco): magnesium trisilicate and gastric mucin tablets, chewable prn burning.",
+      "N-acetyl-cysteine to bind antigenic dietary lectins.",
+      "Dietary restrictions: strict elimination of coffee, alcohol and chocolate; increase dietary carotenes."
+     ]
+    },
+    {
+     "label": "Mechanistic note",
+     "items": [
+      "Liquorice chalcones and glycyrrhizic acid provide potent anti-herpetic and antiviral actions, which may explain their rapid ulcer-healing dynamics."
+     ]
+    }
+   ],
+   "conditions": [
+    "Peptic ulcer disease",
+    "Gastritis"
+   ],
+   "note": null
+  },
+  {
+   "id": "c86",
+   "n": 86,
+   "chapter": "gastro",
+   "title": "Non-ulcerative dyspepsia",
+   "presentation": "Chronic epigastric burning, churning and early satiety without evidence of ulceration on endoscopy; nocturnal pain; lower-normal body weight.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "DGL powder 1/2 teaspoon morning and evening.",
+      "Quercetin powder 1/2 teaspoon QD.",
+      "Magnesium and potassium aspartate to calm visceral smooth muscle and abdominal cramping.",
+      "Digestive enzymes: 1 capsule with each meal.",
+      "Glycine to relax enteric nervous system hyper-reactivity.",
+      "Diet: complete elimination of fried fats, refined sugars, peanut butter, whole eggs, dark poultry and coffee."
+     ]
+    },
+    {
+     "label": "Differential screen",
+     "items": [
+      "Rule out occult H. pylori, gastric or pancreatic malignancy, biliary dyskinesia, cholelithiasis, aerophagia, and adverse medication effects including NSAIDs."
+     ]
+    }
+   ],
+   "conditions": [
+    "Dyspepsia"
+   ],
+   "note": null
+  },
+  {
+   "id": "c87",
+   "n": 87,
+   "chapter": "gastro",
+   "title": "Eosinophilia and enteric food hypersensitivity",
+   "presentation": "17-year-old male with recurrent postprandial abdominal cramping, chronic fatigue, submandibular lymphadenopathy and peripheral eosinophilia (7%).",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Lymphatic alterative botanical tincture: equal parts Arctium lappa root 1:5 and Berberis aquifolium 1:5; 30 drops with each meal to clear submandibular lymph stasis.",
+      "Gastric acid stimulation: 1 teaspoon apple cider vinegar in 1/2 oz water spiked with 7 drops Gentiana lutea extract, 3 minutes before meals, to stimulate cephalic-phase endogenous gastric HCl.",
+      "Adrenal protomorphogen: short-term glandular therapy for chronic fatigue.",
+      "Multivitamin/mineral emphasising elemental zinc.",
+      "Diet: total withdrawal of junk foods, sodas, hot dogs, creamy dressings and dairy."
+     ]
+    }
+   ],
+   "conditions": [
+    "Food intolerance"
+   ],
+   "note": null
+  },
+  {
+   "id": "c88",
+   "n": 88,
+   "chapter": "gastro",
+   "title": "Adolescent food hypersensitivities (wheat and dairy)",
+   "presentation": "15-year-old female with severe postprandial somnolence, recurring abdominal pain, chronic headaches and Dennie-Morgan lines / allergic shiners.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Dietary replacement: eliminate all wheat flours, cow's milk and cheese; substitute oat cereals, corn tortillas, chicken salad, soups, steamed root vegetables and fresh cold fruits.",
+      "Vitamin C 1,000 mg BID.",
+      "Vitamin E 400 IU QD.",
+      "Quercetin 1,000 mg BID to stabilise mast cells and soothe gut mucosa.",
+      "Foundational nutrients: hypoallergenic multivitamin and balanced trace mineral tablet."
+     ]
+    }
+   ],
+   "conditions": [
+    "Food intolerance",
+    "Migraine"
+   ],
+   "note": null
+  },
+  {
+   "id": "c89",
+   "n": 89,
+   "chapter": "gastro",
+   "title": "Exocrine maldigestion and intestinal flatulence",
+   "presentation": "Severe abdominal bloating, flatulence, pan-mineral depletion on hair analysis, marked cytotoxic food allergies.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Exocrine pancreatic protomorphogen: 3 capsules QD.",
+      "Betaine hydrochloric acid and digestive enzymes: 1 capsule per meal.",
+      "Pantothenic acid 250 mg QD — deficiency causes profound gastrointestinal motor and digestive abnormalities.",
+      "Selenium drops 200 mcg QD.",
+      "Vitamin C 1,000 mg QD.",
+      "Isopathic antigen desensitisation: homeopathic food allergen mix 6x, 5 drops sublingually QD.",
+      "Antimicrobial backup: pure Origanum vulgare (oregano) oil capsules if intestinal fungal dysbiosis persists."
+     ]
+    }
+   ],
+   "conditions": [
+    "Bloating and gas",
+    "Exocrine pancreatic insufficiency"
+   ],
+   "note": null
+  },
+  {
+   "id": "c90",
+   "n": 90,
+   "chapter": "gastro",
+   "title": "Paediatric psychosomatic gastralgia",
+   "presentation": "9-year-old male with central periumbilical and epigastric abdominal pain correlating with the psychological stress of moving and starting a new school, on a narrow vegetarian diet.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Flaxseed oil 1 tablespoon QD.",
+      "Cod liver oil (Carlson): 2 pearls QD.",
+      "DGL powder 1/2 teaspoon BID.",
+      "Foeniculum vulgare (fennel) warm tea as a carminative antispasmodic after meals.",
+      "Dietary expansion: broaden the narrow vegetarian intake beyond wheat and cheese; introduce eggs, wild rice, quinoa, millet and lentil soup.",
+      "Psychological support: structured open communication about the school transition."
+     ]
+    }
+   ],
+   "conditions": [
+    "Functional abdominal pain (pediatric)"
+   ],
+   "note": null
+  },
+  {
+   "id": "c91",
+   "n": 91,
+   "chapter": "gastro",
+   "title": "Prenatal and post-surgical gastroschisis support",
+   "presentation": "Fetus diagnosed on ultrasound at 8 months' gestation with gastroschisis — congenital fissure of the anterior abdominal wall with intestinal herniation.",
+   "blocks": [
+    {
+     "label": "Maternal prenatal foundation",
+     "items": [
+      "High-density organic garden-grown whole foods, clean proteins and high-potency prenatal vitamins."
+     ]
+    },
+    {
+     "label": "Neonatal post-surgical healing protocol",
+     "items": [
+      "Symphytum officinale (comfrey) liquid drops: 2 to 3 drops daily in water, given orally to the neonate.",
+      "Stellaria media (chickweed) liquid drops: 2 to 3 drops daily in water, given orally.",
+      "Arnica montana 12x homeopathic, dosed daily to accelerate visceral surgical tissue healing."
+     ]
+    }
+   ],
+   "conditions": [
+    "Gastroschisis",
+    "Wound healing"
+   ],
+   "note": null
+  },
+  {
+   "id": "c92",
+   "n": 92,
+   "chapter": "gastro",
+   "title": "Paediatric gastro-oesophageal reflux disease",
+   "presentation": "21-month-old infant with chronic severe regurgitation and vomiting since birth, taking lansoprazole 15 mg.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Quercetin powder: initiate at 1/4 rounded teaspoon BID; titrate up to 1/3 teaspoon TID mixed into apple sauce, oatmeal or mashed yams.",
+      "Bed elevation: elevate the head of the infant's crib mattress with pillows.",
+      "Feeding schedule: terminate bottle and food administration immediately before bedtime.",
+      "Medication weaning: coordinate a stepwise downward titration of proton pump inhibitors (for example reducing lansoprazole from 15 mg to 10 mg daily) once symptoms stabilise on quercetin.",
+      "Adult GERD dosing standard: 800 mg quercetin TID."
+     ]
+    }
+   ],
+   "conditions": [
+    "GERD"
+   ],
+   "note": null
+  },
+  {
+   "id": "c93",
+   "n": 93,
+   "chapter": "gastro",
+   "title": "Giardiasis (Giardia lamblia / intestinalis)",
+   "presentation": "13-year-old female with profuse foul-smelling diarrhoea, severe abdominal cramping and bloating following backcountry water exposure; positive for Giardia cysts.",
+   "blocks": [
+    {
+     "label": "Protocol",
+     "items": [
+      "Antiparasitic botanical tincture: equal parts Hydrastis canadensis and Artemisia annua; 60 drops TID in water for 7 consecutive days.",
+      "Robert's Formula (antimicrobial astringent): 3 capsules BID for 7 days.",
+      "Robert's Formula components: equal parts Hydrastis canadensis, Phytolacca decandra, Althaea officinalis, Echinacea angustifolia and Geranium maculatum.",
+      "Intestinal microbiome inoculation: high-potency acidophilus/bifidus complex at bedtime.",
+      "Mucosal emollients: add quercetin and DGL powder as needed; aggressive oral water and electrolyte replacement."
+     ]
+    }
+   ],
+   "conditions": [
+    "Parasites, intestinal",
+    "Diarrhea"
+   ],
+   "note": null
+  },
+  {
+   "id": "c94",
+   "n": 94,
+   "chapter": "gastro",
+   "title": "Gilbert's syndrome (unconjugated hyperbilirubinaemia)",
+   "presentation": "55-year-old vegetarian male presenting for routine health evaluation with mild icteric sallowness of the skin, elevated BP (140/109 mmHg) and a normal abdominal ultrasound.",
+   "blocks": [
+    {
+     "label": "Clinical directives",
+     "items": [
+      "Evaluate hepatic glucuronosyltransferase (UGT1A1) conjugation capacity.",
+      "Assess and manage underlying stress and secondary vascular hypertension."
+     ]
+    }
+   ],
+   "conditions": [
+    "Gilbert's syndrome"
+   ],
+   "note": null
+  },
+  {
+   "id": "c95",
+   "n": 95,
+   "chapter": "resp",
+   "title": "Paediatric asthma — integrative case management",
+   "presentation": "7-year-old boy presenting for vaccine exemption evaluation with a history of recurrent chest colds progressing to severe bronchitis, dense mucus production lasting 3 weeks, requiring sitting upright in a recliner to sleep, constipation, behavioural agitation, and prior 3-week IV antibiotic prophylaxis for meningitis.",
+   "blocks": [
+    {
+     "label": "Diagnostic assessment",
+     "items": [
+      "Complete IgG food sensitivity and intolerance panel ordered."
+     ]
+    },
+    {
+     "label": "Treatment plan",
+     "items": [
+      "Multi-strain probiotics.",
+      "Vitamin C.",
+      "Magnesium.",
+      "Fish oil.",
+      "An individualised homeopathic remedy at 200C."
+     ]
+    },
+    {
+     "label": "Clinical course",
+     "items": [
+      "Acute exacerbation with dyspnoea, wheezing and vomiting triggered by excess mucus during an upper respiratory tract infection; an albuterol rescue inhaler was prescribed.",
+      "Review of the food sensitivity panel showed multiple IgG antigen reactivities; strict elimination of all identified foods produced dramatic clinical improvement and clearing of respiratory symptoms.",
+      "Accidental ingestion of offending foods at a social gathering triggered immediate recurrence of shortness of breath, cough and wheezing, confirming food-antigen driven bronchial hyperreactivity."
+     ]
+    }
+   ],
+   "conditions": [
+    "Asthma",
+    "Food intolerance"
+   ],
+   "note": null
+  }
+ ],
+ "sections": [
+  {
+   "id": "gla",
+   "part": 2,
+   "title": "The respiratory microbiome and the gut-lung axis",
+   "body": [
+    "Homeostatic function. The lung microbiota plays a critical role in pulmonary homeostasis. Like the intestinal microbiome, airway commensals direct the polarisation of naive T cells from a pro-allergic Th2 phenotype toward a balanced Th1 phenotype, conferring protection against asthma, atopy and environmental allergies.",
+    "Alveolar macrophage programming. Commensal microbes stimulate the differentiation of alveolar macrophages, suppress exaggerated pro-inflammatory cascades, and maintain baseline mucosal defence against pathogens.",
+    "Dysbiosis and tissue destruction. Airway microbial dysbiosis triggers dendritic cell activation and antigen presentation. Immune cells engage microbial ligands via pattern recognition receptors, migrating into pulmonary parenchymal tissue to produce cytokines including IL-1β and IL-8. Activated polymorphonuclear neutrophils release neutrophil extracellular traps (NETs), perpetuating local tissue inflammation. Aberrant cytokine shifts — specifically elevations in IL-17 induced by NETs or Th17 cell recruitment — drive pathological fibrotic airway remodelling.",
+    "Bidirectional crosstalk. The gut-lung axis operates through bidirectional biochemical and cellular communication. Intestinal dysbiosis alters systemic immune tone and shifts pulmonary immunity, while oral bacteria enrich and continuously seed the lung microbiome.",
+    "Dysbiosis patterns by disease — Asthma: lung, increased Proteobacteria (Haemophilus, Klebsiella) and decreased Bacteroidetes (Prevotella); gut, increased Firmicutes (Clostridium difficile) and decreased Bifidobacterium and Lactobacillus.",
+    "COPD: lung, increased Streptococcus pneumoniae and Pseudomonas aeruginosa; gut, decreased overall bacterial diversity and an altered Firmicutes to Bacteroidetes ratio.",
+    "Cystic fibrosis: lung, dominance of Pseudomonas aeruginosa, Staphylococcus aureus and Burkholderia cepacia; gut, severe dysbiosis, decreased Bifidobacterium and a marked decrease in short-chain fatty acid producers.",
+    "Tuberculosis: lung, increased Pseudomonas and Streptococcus with altered microbial diversity; gut, decreased Bacteroidetes and altered metabolic and amino acid outputs.",
+    "Viral infections including SARS-CoV-2: lung, loss of commensal diversity and overgrowth of opportunistic pathogens; gut, depletion of beneficial symbionts (Faecalibacterium prausnitzii, Bifidobacterium) and persistence of gut inflammation.",
+    "Lung cancer: lung, enrichment of Firmicutes, Veillonella, Megasphaera and Streptococcus; gut, decreased alpha diversity and loss of butyrate-producing families."
+   ],
+   "conditions": [
+    "Asthma",
+    "Chronic obstructive pulmonary disease",
+    "Cystic fibrosis",
+    "Tuberculosis",
+    "COVID-19",
+    "Pulmonary nodules and lung cancer"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "scfa",
+   "part": 2,
+   "title": "Microbial metabolites: short-chain fatty acids and butyrate",
+   "body": [
+    "Synthesis and receptors. Dietary soluble fibres undergo anaerobic fermentation by gut microbes to yield acetate, propionate and butyrate. SCFAs bind surface G-protein coupled receptors on intestinal enterocytes and immune cells: HCAR2 (GPR109A), FFAR2 (GPR43) and FFAR3 (GPR41).",
+    "Transport and intracellular actions. SCFAs enter host cells via proton-coupled and sodium-coupled monocarboxylate transporters. Intracellularly they enter mitochondria for ATP generation, or enter the nucleus to function as histone deacetylase inhibitors, altering gene expression. They pass into the lamina propria and enter systemic circulation to act on distant target organs — the gut-lung, gut-kidney and gut-brain axes.",
+    "Immunomodulation driven by butyrate — Neutrophils: modulates cellular recruitment and enhances targeted pathogen clearance. Macrophages and dendritic cells: suppresses inflammatory cytokine release and induces tolerogenic dendritic cells. Mast cells and eosinophils: decreases proliferation and tissue migration, stimulates apoptosis, attenuates airway hypercontraction. Innate lymphoid cells (ILC2): inhibits proliferation, downregulates GATA-3 expression, blunts type 2 cytokines IL-4, IL-5 and IL-13. T and B lymphocytes: stimulates IL-10, IL-22 and secretory IgA synthesis, and promotes a tolerogenic FoxP3+ regulatory T cell response.",
+    "Inulin therapeutics. Inulin and its fermentation products regulate metabolic homeostasis and systemic immunity, suppressing Th2 responses to relieve allergic airway hyperresponsiveness and asthma. It can however provoke bloating, nausea, flatulence and heartburn; use caution in active inflammatory bowel disease or extreme atopy.",
+    "Bovine colostrum. Delivers bioactive immunoglobulins, lactoferrin and TGF-β. Modulates mucosal barriers, protects against viral upper respiratory tract infections, and blunts exercise-induced immunosuppression. Dosing in the literature: 10 to 20 g daily."
+   ],
+   "conditions": [
+    "Asthma",
+    "Inflammatory bowel disease",
+    "Food intolerance"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "asthma_ox",
+   "part": 2,
+   "title": "Asthma: oxidative stress, Th2 cascades and the dietary mechanism",
+   "body": [
+    "ROS/RNS and oxidative cascades. Bronchial asthma is characterised by an imbalance between oxidative stressors and host antioxidant defences. Intrinsic cellular sources (endoplasmic reticulum, peroxisomes, mitochondrial respiration) and immune cells (neutrophils, eosinophils, macrophages generating NO, RNS and ROS) interact with extrinsic insults — allergens, air pollutants, infections and cigarette smoke.",
+    "Biomolecular damage. Unchecked oxidative stress induces DNA strand breaks, lipid peroxidation, protein oxidation and carbohydrate degradation. These alterations induce airway hyperreactivity, neurogenic inflammation, mucus hypersecretion and structural airway remodelling.",
+    "Food antigens and Th2 cascades. Exposure of compromised respiratory or intestinal epithelium to antigens stimulates the immediate release of alarmins, including IL-33 and thymic stromal lymphopoietin (TSLP). These trigger innate lymphoid cells and naive CD4+ T cells to polarise into Th2 cells, driving secretion of IL-4 and IL-13 and stimulating B-cell class-switching to allergen-specific IgE. Concurrently IL-4, IL-13 and IL-33 stimulate epithelial cells and fibroblasts to release histamine releasing factor (HRF). HRF dimerises, cross-linking IgE bound to high-affinity FcεRI receptors on mast cells and basophils, triggering immediate degranulation of histamine, leukotrienes and secondary Th2 cytokines.",
+    "Dietary inflammatory mechanisms. Saturated fatty acids ligate TLR4, triggering NF-κB activation and systemic inflammatory gene expression while disrupting commensal microbiota. Diets high in plant fibre, whole fruits, vegetables, legumes and omega-3 fatty acids downregulate NF-κB, suppress pro-inflammatory eicosanoids and enrich SCFA-producing taxa.",
+    "Fruit and vegetable intake. Cross-sectional and intervention studies demonstrate that higher fruit and vegetable consumption correlates with higher FEV1, reduced systemic and airway inflammation, and decreased asthma exacerbation frequency.",
+    "Fibre intake. Soluble fibre intake — for example 3.5 g inulin in probiotic yoghurt — significantly lowers airway inflammation biomarkers, reduces sputum cell counts, suppresses IL-8, decreases exhaled nitric oxide and upregulates FFAR2/FFAR3 receptor expression. Cross-sectional cohorts show high dietary fibre intake correlates with higher FEV1 and lower risk of asthma and airway eosinophilia.",
+    "Fats and fish. High saturated fat and trans-fat meals increase airway inflammation, enhance neutrophilic recruitment and impair bronchodilator responsiveness. High maternal or childhood intake of oily fish and omega-3 polyunsaturated fatty acids correlates with reduced asthma prevalence and reduced childhood wheeze.",
+    "Dietary salt reduction. Systematic reviews indicate that restricting dietary sodium improves pulmonary function parameters and reduces the clinical severity of exercise-induced asthma."
+   ],
+   "conditions": [
+    "Asthma"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "asthma_sup",
+   "part": 2,
+   "title": "Asthma: supplementation protocols",
+   "body": [
+    "Probiotics. Minimum 1 billion CFU mixed species featuring Lactobacillus and Bifidobacterium, to induce dendritic cell IL-12, increase systemic IFN-γ, elevate IL-10 and balance the Th1/Th2 axis.",
+    "Fatty acids. EPA/DHA 3 g daily; conjugated linoleic acid 3 to 4 g daily. High omega-6 to omega-3 ratios elevate the pro-allergic metabolite 12,13-diHOME, aggravating asthma.",
+    "Minerals. Zinc 30–50 mg daily, balanced with copper at a 10:2 or 15:1 zinc-to-copper ratio; selenium 200 mcg daily to support glutathione peroxidase; magnesium 200–500 mg daily.",
+    "Magnesium for acute exacerbations. Intravenous magnesium sulfate 2 g infused over 20 minutes for severe, life-threatening adult exacerbations — minimal toxicity risk with normal renal function, strictly contraindicated during pregnancy. Nebulised MgSO4, alone or with salbutamol, produces bronchodilation, improves PEFR and reduces respiratory rate.",
+    "Vitamins. Vitamin A as beta-carotene 64 mg daily or titrated retinoids; vitamin D3 dosed by serum 25-OH-D up to 4,000 IU daily (inhibits airway remodelling, suppresses Th17/IL-17, blocks mast cell maturation, enhances cathelicidin, reduces exacerbations requiring systemic steroids); vitamin E as mixed tocopherols 800 IU daily; vitamin C 500 mg to bowel tolerance.",
+    "Flavonoids and botanicals. Quercetin 1 to 2 g daily inhibits mast cell degranulation, reduces eosinophil and neutrophil recruitment and attenuates PI3K/Akt and NF-κB signalling; curcumin 500 mg BID reduces airway inflammation and improves clinical control.",
+    "Thiols, oral versus nebulised. N-acetyl-cysteine oral 600 mg TID (4–10% oral bioavailability); nebulised NAC 200–600 mg per 30 mL solution to directly cleave mucoprotein disulfide bonds; glutathione oral 600–1,350 mg daily, or nebulised/aerosolised 600 mg once or twice daily, up to 66 mg/kg body weight."
+   ],
+   "conditions": [
+    "Asthma"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "copd",
+   "part": 2,
+   "title": "COPD: the gut-lung axis, nutritional risk and targeted therapeutics",
+   "body": [
+    "Pathology. Characterised by airflow limitation, alveolar wall destruction (emphysema) and chronic bronchitis. Dysbiosis of the lung and gut microbiomes upregulates NLRP3 inflammasome activation, induces negative epigenetic alterations (histone modification, DNA methylation, aberrant non-coding RNAs), impairs local clearance of infections and elevates circulating inflammatory cytokines.",
+    "Nutritional risk factors. High intake of red and processed meats, saturated and trans fats, refined carbohydrates, high alcohol consumption, and systemic deficiencies in vitamin D and iron.",
+    "Protective factors. High-fibre whole foods, fruits, vegetables, polyphenols, omega-3 fatty acids, and the Mediterranean or DASH dietary patterns.",
+    "Beetroot juice and dietary nitrates. Supplies inorganic nitrate converted to nitric oxide, improving peripheral vascular function and exercise capacity. Clinical trial dosing: 12.9 mmol nitrate twice weekly for 8 weeks in GOLD stage II–IV COPD.",
+    "Polyphenols. Quercetin reduces bronchoalveolar lavage inflammatory biomarkers; resveratrol improves arterial stiffness, myocardial perfusion and 6-minute walk distance in GOLD stage II–IV patients.",
+    "Vitamin D3 supplementation reduces exacerbation frequency and severity, particularly in baseline-deficient patients and smokers.",
+    "Vitamin C: 400 mg daily preserves FEV1; 2 g daily reduces acute pulmonary exacerbation rates over 6 months.",
+    "Curcumin 500 mg BID (or 100 mg/kg) downregulates alveolar macrophage inflammation and reduces matrix metalloproteinases.",
+    "High-dose oral NAC 1,200 mg daily (600 mg BID) prevents acute exacerbations and improves small airway function, as demonstrated in the HIACE trial; recommended by the ACCP and the Canadian Thoracic Society for moderate-to-severe COPD with frequent exacerbations.",
+    "Nebuliser formulation (Dr Tim Schwaiger protocol). Combine 10 mL NAC, 5 mL glutathione, 2 mL MgSO4, 3 mL Sarapin and 10 mL normal saline; administer 3 dropperfuls twice daily via jet nebuliser.",
+    "Malnutrition and sarcopenia. Cachexia and skeletal muscle wasting affect a significant proportion of patients, driven by systemic inflammation and increased work of breathing. Screen using the Malnutrition Universal Screening Tool (MUST). NICE guidelines dictate a therapeutic weight-gain target of approximately 2 kg of lean muscle mass in malnourished COPD individuals, via energy-dense, texture-modified whole foods and high-biological-value protein supplements."
+   ],
+   "conditions": [
+    "Chronic obstructive pulmonary disease"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "cf",
+   "part": 2,
+   "title": "Cystic fibrosis: microbiome interventions and aerosolised glutathione",
+   "body": [
+    "Pathology. Autosomal recessive mutations in the CFTR gene cause abnormal chloride and bicarbonate transport, generating thick, viscid secretions that obstruct pancreatic and biliary ducts, impair mucosal clearance in the airways and provoke recurrent endobronchial infections.",
+    "Microbiome and probiotic interventions. Intestinal inflammation and dysbiosis are hallmarks of CF. Multi-strain probiotic regimens (Lactobacillus rhamnosus, L. acidophilus, L. casei, L. bulgaricus, Bifidobacterium infantis, B. breve, Streptococcus thermophilus at 10^9 to 10^10 CFU daily) reduce pulmonary exacerbation rates, decrease faecal calprotectin and reduce upper respiratory infections.",
+    "Aerosolised glutathione. Inhalation of buffered reduced glutathione, up to 600 mg daily, significantly improves FEV1% in CF patients with obstructive ventilatory defects (FEV1/FVC under 88%) without provoking acute bronchospasm."
+   ],
+   "conditions": [
+    "Cystic fibrosis"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "lungca",
+   "part": 2,
+   "title": "Lung cancer: nutritional oncology, environmental toxicology and infectious protection",
+   "body": [
+    "Dietary interventions and sarcopenia. High dietary fibre intake is inversely correlated with lung cancer risk across global cohorts, with the hazard reduction remaining robust after adjusting for smoking status and pack-years. High adherence to the Mediterranean diet reduces lung cancer risk, particularly in former smokers (RR = 0.81).",
+    "PUFA supplementation. In advanced, inoperable non-small cell lung cancer undergoing chemotherapy, oral EPA-enriched medical food preserves lean body mass, suppresses C-reactive protein and IL-6, and diminishes fatigue, anorexia and chemotherapy-induced peripheral neuropathy.",
+    "Magnesium intake. Dietary and supplemental magnesium up to 300 mg/day decreases lung cancer risk (RR = 0.83); above 300 mg/day provides no additional risk reduction.",
+    "Beta-carotene toxicity warning. High-dose isolated synthetic beta-carotene (20 mg/day) and retinyl palmitate (25,000 IU/day) increase lung cancer incidence by 18% in active smokers and asbestos-exposed workers, through pro-oxidant cleavage in a heavily oxidised tissue environment.",
+    "Arsenic contamination. Inorganic arsenic in private well water and contaminated soil and food (rice, chicken) is a Class 1 carcinogen. Reverse osmosis filtration eliminates up to 95% of arsenic (V). Metabolic detoxification requires natural dietary folates, methyl donors and flavonoids to promote methylation and glutathione conjugation.",
+    "Cadmium, zinc and selenium dynamics. Cadmium inhalation from cigarettes drives alveolar macrophage dysfunction, lipid peroxidation and DNA injury. Zinc competitively inhibits cadmium binding on critical enzymatic proteins and induces CNS-specific metallothionein III; selenium similarly complexes cadmium to blunt pulmonary cytotoxicity.",
+    "Modified citrus pectin (Thorne Pectinate). Combines modified citrus pectin, alginates and R-alpha-lipoic acid to chelate heavy metals — cadmium, arsenic, lead, mercury — in the gut and circulation via an 'egg-box' coordination complex."
+   ],
+   "conditions": [
+    "Pulmonary nodules and lung cancer"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "flu",
+   "part": 2,
+   "title": "Pulmonary viral infection: influenza therapeutics",
+   "body": [
+    "Vitamin C dosed to bowel tolerance (Dr Robert Cathcart method), in divided doses every 1 to 2 hours, short of producing diarrhoea.",
+    "Green tea gargle. Polyphenol and epicatechin gargle rinses significantly reduce influenza acquisition compared with water or placebo.",
+    "Neuraminidase inhibitors versus chlorogenic acid. Chlorogenic acid and caffeic acid derivatives competitively block viral neuraminidase, preventing the budding and release of progeny virions.",
+    "Sambucol (standardised elderberry extract). Contains Sambucus nigra and Rubus idaeus; inhibits haemagglutination and neutralises influenza A and B strains in vitro and in vivo, shortening illness duration to 2 to 3 days. Dose: 15 mL QID.",
+    "AHCC (active hexose correlated compound). Enzyme-fermented Basidiomycetes mushroom extract high in alpha-1,4-glucans; enhances natural killer cell activity and expedites viral clearance. Dose 500 mg to 5 g daily.",
+    "Silymarin formulation science. Pure silybin suffers poor oral bioavailability (6.72%) due to extensive Phase II hepatic conjugation; self-microemulsifying drug delivery systems, phospholipid phytosomes and nanoformulations dramatically improve systemic tissue delivery.",
+    "Botanicals with direct antiviral actions. Pelargonium sidoides root inhibits viral entry, release, haemagglutination and neuraminidase; Taraxacum officinale aqueous extract inhibits viral NP RNA levels and polymerase activity; chalcones from Glycyrrhiza inflata, xanthones from Polygala karensium and homoisoflavonoids from Caesalpinia sappan all function as natural neuraminidase inhibitors.",
+    "High-dose vitamin A antiviral pulse (Dr Maya Roth protocol), retinyl palmitate for acute mucosal viral infection — days 1 to 3: 100,000 to 500,000 IU daily; days 4 to 6: 50,000 to 250,000 IU daily; days 7 to 9: 25,000 to 120,000 IU daily; days 10 to 24: 10,000 to 25,000 IU daily for 2 weeks. Absolute contraindication: pregnancy (teratogenic above 20,000 IU/day). Monitor LFTs; avoid in pre-existing hepatic or renal disease.",
+    "Vaccine adjuvants. Prebiotic and probiotic administration during influenza vaccination significantly elevates haemagglutination inhibition antibody titres for H1N1, H3N2 and B strains."
+   ],
+   "conditions": [
+    "Influenza",
+    "Common cold"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "cap",
+   "part": 2,
+   "title": "Community-acquired pneumonia, botanical therapeutics and biofilms",
+   "body": [
+    "Aetiology. Lower respiratory tract infection frequently seeded from upper airway dysbiosis. The 2015 EPIC study demonstrated that 62% of hospitalised CAP cases had no pathogen detected on standard culture or PCR, 22% were viral (primarily rhinovirus), and Streptococcus pneumoniae remained the primary bacterial isolate. Normal commensal flora overgrowth drives community-acquired empyema.",
+    "Antimicrobial tinctures. Ligusticum porteri (osha) 2–3 mL; Baptisia tinctoria root 1–2 mL; Thymus vulgaris oral volatile oil 3–5 drops, or tincture 2–3 mL; bee propolis resin tincture 2–3 mL — dosed every 2 to 3 waking hours.",
+    "Immune stimulants. Echinacea spp. 3–5 mL; Spilanthes acmella root 3–5 mL; Thuja plicata or T. occidentalis 1–2 mL — dosed every 2 waking hours.",
+    "Spasmolytics and mucolytics. Lobelia inflata tincture or topical chest oil; Grindelia camporum 3–5 mL; Eriodictyon californicum (yerba santa) 3–5 mL; oral NAC 1,200 mg daily.",
+    "Expectorants. Marrubium vulgare (horehound), Zanthoxylum americanum (prickly ash), Capsicum annuum, Zingiber officinale, Glycyrrhiza glabra, Verbascum thapsus.",
+    "Cascade pneumonia formula: equal parts Usnea, Lobelia, Verbascum and Tussilago; 1 to 2 mL every 2 hours.",
+    "JBC cookbook formula: 4 parts Phytolacca, 4 parts Glycyrrhiza, 4 parts Echinacea, 2 parts Grindelia, 2 parts Lobelia, with Ligusticum; 1 mL every 2 hours.",
+    "Dr William Mitchell pneumonia prescription: Glycyrrhiza decoction, 1/4 to 1/2 cup every 2 hours, accompanied by Bryonia alba — 10 drops of tincture diluted in 1/2 cup water, taking 1/2 teaspoon every 2 hours.",
+    "External hydrotherapy — mustard plaster. Mix 1 cup flour with 1 tablespoon dry mustard powder; blend with warm water into a smooth paste. Spread over cheesecloth or parchment paper; apply to the posterior thorax; cover with a hot, wet towel for 15 to 20 minutes. Check the skin continuously and discontinue when it turns pink. Safety warning: leaving mustard paste on the skin for prolonged periods, for example 24 hours, produces severe full-thickness second-degree chemical burns.",
+    "Biofilms in respiratory infection. Formed by Pseudomonas aeruginosa, Haemophilus influenzae, Streptococcus pneumoniae and Staphylococcus aureus in chronic rhinosinusitis, otitis media and bronchiectasis. The extracellular polymeric substance matrix shields bacteria from antibodies, phagocytes and antibiotics. N-acetyl-cysteine disrupts EPS matrix integrity, prevents initial bacterial adhesion and degrades mature biofilms."
+   ],
+   "conditions": [
+    "Pneumonia",
+    "Bronchiectasis",
+    "Sinusitis",
+    "Otitis media"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "pasc",
+   "part": 2,
+   "title": "COVID-19 and post-acute sequelae (PASC / long COVID)",
+   "body": [
+    "Systemic pathophysiology. Acute infection and PASC induce profound microvascular endothelial dysfunction, persistent neuroinflammation, mitochondrial damage, microglial activation and gut dysbiosis.",
+    "Metabolic and mitochondrial support: CoQ10, MitoQ, alpha-lipoic acid, resveratrol, N-acetyl-cysteine, L-carnitine and nicotinamide riboside, to restore electron transport chain capacity.",
+    "Medium chain triglycerides. MCT oil provides medium-chain fatty acids and ketone bodies as an alternative fuel that bypasses impaired cortical glucose metabolism, alleviating brain fog and fatigue.",
+    "Targeted anti-inflammatories: palmitoylethanolamide (PEA), inositols, lactoferrin, hesperidin and melatonin.",
+    "Macronutrient and sarcopenia management. Screen using the SARC-F questionnaire; ensure 2.5 to 3 L/day fluid intake; provide high-biological-value protein and anti-inflammatory omega-3 fatty acids."
+   ],
+   "conditions": [
+    "COVID-19",
+    "Chronic fatigue syndrome"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "fasting",
+   "part": 2,
+   "title": "Fasting protocols and the ketogenic diet in oncology support",
+   "body": [
+    "Biochemical mechanisms. Fasting triggers systemic autophagy — cellular recycling of damaged organelles and aggregates — stimulates apoptosis in dysfunctional cell lines, reduces circulating insulin and IGF-1, and sensitises malignant cells to radiation and chemotherapy via differential stress resistance.",
+    "13-hour overnight fast. Cease food at 7:00 PM, breakfast at 8:00 AM; restricts feeding to an 11-hour diurnal window, improving glucose regulation and reducing breast cancer recurrence.",
+    "16/8 time-restricted feeding: 16 hours fasting with an 8-hour eating window.",
+    "5:2 modified fasting: normal eating for 5 days, caloric restriction to 500–600 kcal on 2 non-consecutive days.",
+    "Water fasting: strict water only for 24 to 72 hours. Requires clinical supervision; terminate immediately if lightheadedness, chest pain or dyspnoea manifests.",
+    "Modified fasting with bone broth: simmer organic bones and vegetables into a mineral-rich broth; consume broth, plain water and unsweetened herbal teas during the fasting window.",
+    "Refeeding protocol. Break fasts with small portions of easily digestible cooked vegetables, fruit purees and bone broth; avoid heavy fats, simple sugars and refined flours to prevent digestive distress.",
+    "The ketogenic diet in oncology. Restricts carbohydrates to under 50 g daily — a standard 2,000 kcal breakdown is 165 g fat, 40 g carbohydrate, 75 g protein — to deprive glycolytically dependent neoplastic cells of glucose. Allowed: pasture-raised meats, fatty wild fish, eggs, avocado, olive oil, coconut, brassicas, leafy greens, full-fat dairy and nuts. Disallowed: all grains, starchy tubers, fruit juices, sweeteners and processed foods. Strict contraindications: pancreatitis, hepatic failure, primary carnitine deficiency, carnitine palmitoyltransferase deficiency, carnitine translocase deficiency, porphyrias and pyruvate kinase deficiency."
+   ],
+   "conditions": [
+    "Pulmonary nodules and lung cancer",
+    "Obesity"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "oncosupport",
+   "part": 2,
+   "title": "Integrative co-management of oncology treatment side effects",
+   "body": [
+    "Respiratory congestion: bromelain, curcumin and NAC.",
+    "Radiation-induced pulmonary fibrosis: pentoxifylline 800 mg daily with alpha-tocopherol 1,000 IU daily exponentially regresses superficial and parenchymal radiation fibrosis over 24 to 36 months (Delanian clinical trials). Oral or topical vitamin E is contraindicated during active radiotherapy.",
+    "Radiation oesophagitis: L-glutamine powder dissolved in liquid.",
+    "Myalgias and arthralgias: L-glutamine and CoQ10.",
+    "Chemotherapy-induced neuropathy: vitamin B-complex with active B6, vitamin E, L-glutamine, acetyl-L-carnitine and alpha-lipoic acid.",
+    "Thrombocytopenia: cold-pressed sesame oil.",
+    "Chemotherapy-induced anaemia: 5-methoxytryptamine 1 mg daily at noon reduces cisplatin-induced haemoglobin decline. High-dose evening melatonin (40 mg) does not protect against carboplatin/etoposide-induced myelosuppression."
+   ],
+   "conditions": [
+    "Pulmonary nodules and lung cancer",
+    "Idiopathic pulmonary fibrosis"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "afr",
+   "part": 3,
+   "title": "Adverse food reactions: classification and mechanisms",
+   "body": [
+    "Adverse food reactions divide into immune-mediated reactions — IgE (type 1), non-IgE (for example coeliac disease) and mixed (for example eosinophilic oesophagitis) — and non-immune intolerances: enzyme deficiency, fermentation (FODMAPs) and pharmacologic (amines).",
+    "Food allergy, IgE. Type 1 IgE-mediated hypersensitivity with mast cell and basophil degranulation; onset in minutes; anaphylaxis risk; the Big 9 allergens are dairy, egg, peanut, wheat, soy, fish, shellfish, tree nuts and sesame; skin prick and serum IgE testing.",
+    "Food allergy, non-IgE. Cell-mediated, IgA/tTG autoimmune mucosal destruction; onset hours to days; the autoimmune tetrad; enteropathy and villous atrophy; tissue transglutaminase (tTG-IgA) testing; duodenal biopsy is the gold standard.",
+    "Food allergy, mixed. Combined IgE and non-IgE eosinophilic mucosal infiltration; variable onset; dense tissue eosinophilia, dysphagia and food impaction; managed with a 6-food elimination diet.",
+    "Food sensitivity. Delayed IgG, IgA or T-cell mediated inflammatory cascades; onset 6 to 72 hours; dose-dependent; IgG half-life of 23 days; systemic and syndromic symptoms that wax and wane.",
+    "Food intolerance. Non-immunologic metabolic or digestive impairment: enzyme deficiency (lactase), rapid bacterial fermentation (FODMAPs), pharmacologic amines (histamine, tyramine) and food additives (MSG, sulfites).",
+    "IgE testing modalities. Skin prick testing: high sensitivity, good reproducibility, lower specificity, carries in-office anaphylaxis risk. Serum specific IgE: quantitative and safe, but does not predict reaction severity. Oral food challenge: the gold standard, resource-intensive, requiring emergency anaphylaxis management protocols.",
+    "Pollen-food allergy syndrome (oral allergy syndrome). Inhalant allergens cross-react with homologous proteins in raw plant foods, triggering localised oropharyngeal IgE degranulation — birch pollen cross-reacting with apples, hazelnuts, carrots and celery.",
+    "Hypochlorhydria as a driver of food allergy. The stomach acts as an enzymatic and chemical gatekeeper: adequate gastric acid is essential to denature complex proteins and activate pepsinogen to pepsin. Hypochlorhydria — from chronic atrophic gastritis, ageing, or pharmacological acid suppression with PPIs or H2 blockers — elevates intact dietary antigen transit, increasing IgE-mediated allergic sensitisation more than tenfold."
+   ],
+   "conditions": [
+    "Food intolerance",
+    "Celiac disease",
+    "Dyspepsia"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "ip",
+   "part": 3,
+   "title": "Intestinal permeability and systemic inflammation",
+   "body": [
+    "The leaky gut cycle. Intestinal barrier integrity depends on apical junctional complexes — tight junctions of claudins, occludins and zonula occludens-1 — linking enterocytes. Mucosal irritation from NSAIDs, alcohol, dysbiosis, pathogens and mental stress disrupts these complexes. Luminal food antigens and Gram-negative bacterial lipopolysaccharide pass through the compromised barrier into the lamina propria, triggering local Th2 cytokine responses (IL-4, IL-13) and macrophage TNF-α release. This upregulates pore-forming claudin-2, downregulates sealing occludin and increases permeability, perpetuating systemic endotoxaemia.",
+    "Normal mucosa: enterocyte — tight junction — enterocyte gives an intact barrier and antigens are blocked. A permeable gut opens a claudin-2 gap through which LPS and antigens enter the lamina propria, activating TLR4 and NF-κB and driving systemic inflammation.",
+    "LPS endotoxaemia biomarkers. Circulating anti-LPS antibodies (IgG, IgA, IgM) and anti-occludin antibodies serve as clinical serum biomarkers for intestinal hyper-permeability and endotoxaemia."
+   ],
+   "conditions": [
+    "Food intolerance",
+    "Inflammatory bowel disease",
+    "Irritable bowel syndrome"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "fivr",
+   "part": 3,
+   "title": "IgG-mediated food sensitivities and the 5R protocol",
+   "body": [
+    "Multi-system manifestations — systemic: chronic fatigue, malaise, low-grade fever, reduced exertional tolerance. Respiratory: recurrent serous bronchitis, chronic asthma, wheezing, postnasal drip. Gastrointestinal: abdominal bloating, cramping, nausea, alternating diarrhoea and constipation, reflux. Ocular: periorbital oedema, dark allergic shiners (Dennie-Morgan signs), conjunctival injection. Cutaneous: pruritus, urticaria, atopic eczema, skin flushes. Neurological and musculoskeletal: migraines, tension headaches, brain fog, joint arthralgias, myalgias.",
+    "Elimination diet rules. Because circulating IgG antibodies have an average half-life of 23 days, therapeutic elimination must be maintained strictly for at least 3 weeks, with 6 weeks yielding optimal outcomes. Systematic reintroduction tests one single food at a time: consume 2 to 3 servings within a single day, cease ingestion, and observe for delayed physical reactions over the subsequent 48 hours.",
+    "5R, step 1 — Remove. Eliminate offending allergenic foods, simple sugars, processed additives, chronic NSAIDs and environmental toxins; treat enteric dysbiosis, parasites or Candida overgrowth.",
+    "5R, step 2 — Replace. Replete digestive secretions: betaine HCl for hypochlorhydria, pancreatic enzymes (lipase, protease, amylase), bile salts and dietary fibre.",
+    "5R, step 3 — Reinoculate. Repopulate the intestinal lumen with high-potency multi-strain probiotics (Lactobacillus, Bifidobacterium, Saccharomyces boulardii) and prebiotics (inulin, FOS, GOS, arabinogalactans).",
+    "5R, step 4 — Repair. Targeted mucosal nutrients: L-glutamine 2–4 g daily, zinc carnosine 50–100 mg BID, deglycyrrhizinated liquorice, quercetin 500–1,000 mg BID, phosphatidylcholine 1–6 g daily, N-acetyl-D-glucosamine 500–1,500 mg daily, omega-3 fatty acids 1–4 g daily, and aloe vera.",
+    "5R, step 5 — Rebalance. Lifestyle modification: parasympathetic mealtime pacing, diaphragmatic breathing, stress reduction and healthy sleep hygiene."
+   ],
+   "conditions": [
+    "Food intolerance",
+    "Irritable bowel syndrome",
+    "Inflammatory bowel disease"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "celiac",
+   "part": 3,
+   "title": "Coeliac disease versus non-coeliac gluten and wheat sensitivity",
+   "body": [
+    "The coeliac autoimmune tetrad — environmental trigger: dietary gluten, specifically the 33-mer alpha-2 gliadin peptide, which resists gastric, pancreatic and brush-border proteolytic cleavage. Genetic predisposition: MHC class II human leukocyte antigens HLA-DQ2 (about 95% of cases) or HLA-DQ8. Intestinal permeability: compromised tight junctions permitting paracellular gliadin translocation. Dysbiosis: an altered microbiome breaking immune oral tolerance.",
+    "Enzymatic autoimmunity. Translocated gliadin peptides are deamidated by mucosal tissue transglutaminase. Deamidated gliadin fits into the peptide-binding grooves of HLA-DQ2/8 on antigen-presenting cells, activating CD4+ T cells, recruiting intraepithelial lymphocytes and generating autoantibodies against tTG (anti-tTG IgA) and deamidated gliadin peptides.",
+    "Diagnostic algorithm. All diagnostic screening must be conducted while the patient consumes an active gluten-containing diet. Step 1: measure serum anti-tTG IgA and total serum IgA; if total IgA is deficient, anti-tTG IgG and anti-DGP IgG must be reflexively run. Step 2: if serology is positive, refer for oesophagogastroduodenoscopy with multiple duodenal biopsies — the gold standard, demonstrating villous blunting, crypt hyperplasia and intraepithelial lymphocytosis, Marsh stages 0–3. Step 3: order a baseline DEXA bone density scan on diagnosis to identify osteopenia or osteoporosis secondary to chronic malabsorption of calcium and vitamin D.",
+    "Differential — coeliac disease: autoimmune enteropathy with villous blunting and crypt hyperplasia; anti-tTG IgA positive in over 95% and anti-DGP positive; HLA-DQ2 positive in 95%, DQ8 in the remainder; chronic diarrhoea or constipation, anaemia, weight loss and bone loss; gold standard is duodenal mucosal biopsy showing Marsh 2–3 atrophy.",
+    "Differential — non-coeliac gluten/wheat sensitivity: innate immune activation with intact villi and normal or mildly elevated intraepithelial lymphocytes; negative anti-tTG, anti-gliadin IgG positive in about 50%; HLA-DQ2/8 present in approximately 50%; IBS symptoms, severe brain fog, joint pain and atopic eczema; gold standard is structured gluten elimination and double-blind challenge.",
+    "Differential — non-coeliac wheat intolerance: non-immunologic fermentation with osmotic fluid shifts and intact mucosa; completely negative for all coeliac and wheat serologies; unrelated to HLA-DQ genotypes; rapid abdominal bloating, audible borborygmi, distension and gas; gold standard is low FODMAP elimination with symptom recurrence on fructans."
+   ],
+   "conditions": [
+    "Celiac disease",
+    "Food intolerance"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "sibo",
+   "part": 3,
+   "title": "Small intestinal bacterial overgrowth",
+   "body": [
+    "Definition. Abnormally high concentrations of bacteria — above 10^3 to 10^5 CFU/mL — within the small intestine, accompanied by a loss of normal microbial diversity.",
+    "Bile salt deconjugation. Luminal bacteria enzymatically deconjugate bile acids, decreasing the total active bile salt pool. This disrupts micelle formation, producing fat malabsorption, steatorrhoea and deficiencies in the fat-soluble vitamins A, D, E and K.",
+    "Nutrient consumption. Bacteria consume vitamin B12 and detach it from intrinsic factor, precipitating macrocytic anaemia, while producing excess luminal folate. Bacteria ferment dietary proteins into ammonia and toxic amines.",
+    "Saponification. Unabsorbed free fatty acids bind divalent cations, forming insoluble soaps that drag calcium and magnesium out in the stool.",
+    "Subtypes — hydrogen-dominant: fermentation of carbohydrates yields excess hydrogen gas, typically presenting with watery diarrhoea. Methane-dominant (intestinal methanogen overgrowth): driven by archaea (Methanobrevibacter smithii) consuming hydrogen to generate methane, which acts as a local neurotoxin slowing intestinal transit and presenting with refractory constipation. Mixed hydrogen/methane: alternating diarrhoea and constipation with a high post-treatment recurrence rate. Hydrogen sulfide: rotten-egg flatus, profound visceral hypersensitivity and high treatment resistance.",
+    "Specific carbohydrate diet (SCD). Restricts complex disaccharides and polysaccharides, allowing only monosaccharides. Allowed: clean meats, poultry, wild fish, eggs, lactose-free dairy (24-hour fermented yoghurt), non-starchy vegetables, ripe fruits, nuts, seeds and honey. Disallowed: all grains (wheat, rice, corn, oats), starchy tubers, fluid milk, sucrose and commercial additives. Always begin with an introduction phase of cooked, pureed vegetables and meats before progressing.",
+    "Low FODMAP diet. Eliminates fermentable short-chain carbohydrates: fermentable oligosaccharides (fructans, galactans), disaccharides (lactose), monosaccharides (excess fructose) and polyols (sorbitol, mannitol, xylitol, maltitol).",
+    "GAPS diet (gut and psychology syndrome). A staged progression of the SCD emphasising prolonged meat stocks, gelatin-rich bone broths and cultured vegetables, with a very gradual introduction of dairy and nut flours across 6 sequential stages."
+   ],
+   "conditions": [
+    "Small intestinal bacterial overgrowth",
+    "Irritable bowel syndrome",
+    "Bloating and gas"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "epi",
+   "part": 3,
+   "title": "Pancreatitis and exocrine pancreatic insufficiency",
+   "body": [
+    "Aetiology and resveratrol. Acute and chronic pancreatitis are most commonly caused by biliary stone obstruction of the ampulla of Vater or by chronic ethanol abuse. The polyphenol resveratrol downregulates inflammatory cytokines, attenuates intracellular calcium overload and blunts remote organ damage to the lungs and myocardium.",
+    "Medium chain triglycerides. In chronic pancreatitis with severe exocrine insufficiency, weight loss and steatorrhoea persist despite dietary change. MCTs are 6- to 12-carbon fatty acids that bypass the need for micelle incorporation, pancreatic lipase, co-lipase or bile acid emulsification, and are absorbed directly across the enterocyte into the portal venous circulation. Dosing: maximum 50 g daily. Adverse effects are dose-dependent nausea, abdominal cramps and osmotic diarrhoea.",
+    "Pancreatic enzyme replacement therapy. Prescribe enteric-coated pancrelipase supplying lipase, protease and amylase. Dosing: 500 to 2,500 lipase units per kg body weight per meal, consumed with food.",
+    "Dietary adjustments. High dietary fibre can physically bind and inhibit pancreatic enzymes within the intestinal lumen; fibre supplements should be used with caution in severe exocrine insufficiency."
+   ],
+   "conditions": [
+    "Exocrine pancreatic insufficiency",
+    "Bloating and gas"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "gallbladder",
+   "part": 3,
+   "title": "Gallbladder disease and cholelithiasis",
+   "body": [
+    "Aetiology and metabolic drivers. Cholelithiasis is driven by hepatic hypersecretion of cholesterol, hyposecretion of bile salts, gallbladder dysmotility and rapid nucleation of cholesterol microcrystals. Primary risk factors include obesity, rapid weight loss, elevated serum triglycerides, depressed HDL, insulin resistance, and diets high in refined carbohydrates and saturated or trans fats.",
+    "Protective diets. Mediterranean, DASH and plant-based whole-food dietary patterns lower gallstone risk by approximately 35%. Strict vegetarian diets show an inverse relationship with gallstone formation in females with normal serum cholesterol.",
+    "Anti-cholelithogenic foods: turmeric (curcumin), Allium sativum (garlic), Allium cepa (onion), Trigonella foenum-graecum (fenugreek) and red pepper.",
+    "Vitamin C. The rate-limiting conversion of cholesterol to 7-alpha-hydroxycholesterol, via cholesterol 7-alpha-hydroxylase, requires vitamin C as an essential hepatocyte cofactor; deficiency accelerates gallstone crystallisation.",
+    "Lecithin (phosphatidylcholine). Dosed at 100 mg TID up to 4.5 g daily; enriches biliary phospholipid concentrations, increasing cholesterol solubilisation in mixed micelles.",
+    "Fish oil (EPA/DHA). Dosed at 1 to 6 g daily; stabilises biliary phospholipid-cholesterol vesicles and retards nucleation.",
+    "Bile acid therapy. Natural purified bile salts, for example Cholacol, to expand the circulating bile salt pool."
+   ],
+   "conditions": [
+    "Gallstones"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "liver",
+   "part": 3,
+   "title": "Hepatic pathology and the gut-liver axis",
+   "body": [
+    "Alcoholic fatty liver disease. Ethanol and its metabolite acetaldehyde disrupt the intestinal epithelial barrier by opening tight junctions. Luminal Gram-negative LPS translocates into the portal circulation and binds TLR4 on resident hepatic macrophages (Kupffer cells). This triggers massive NF-κB activation and secretion of pro-inflammatory cytokines, specifically TNF-α, driving parenchymal inflammation, steatosis and fibrogenesis.",
+    "AFLD therapeutic protocols: complete abstinence from alcohol; silibinin / silymarin for hepatoprotection; melatonin 5–10 mg daily to decrease AST and ALT, block Kupffer cell ROS and TNF-α and halt hepatocyte apoptosis; EGCG (green tea extract) to drive M2 anti-inflammatory macrophage polarisation; multi-strain probiotics to restore intestinal barrier integrity.",
+    "Non-alcoholic fatty liver disease (NAFLD / MASLD). A continuum of metabolic dysfunction: simple steatosis progressing to metabolic dysfunction-associated steatohepatitis (MASH), advancing to cirrhosis and hepatocellular carcinoma.",
+    "NAFLD dietary interventions: Mediterranean and DASH diets; caloric restriction; structured exercise; elimination of high-fructose corn syrups and trans-fats. Supplements: curcumin 500 mg BID; green tea extract 300–1,000 mg daily; silymarin 420 mg TID; omega-3 fatty acids; vitamin E, specifically studied to reduce steatohepatitis in MASH; phosphatidylcholine to support VLDL export.",
+    "Gut-liver axis, endotoxaemia. Portal translocation of LPS activates hepatic TLR4 on Kupffer cells and hepatic stellate cells, driving cirrhosis and fibrosis.",
+    "Gut-liver axis, choline degradation. Dysbiotic intestinal microbiota metabolise dietary choline into dimethylamine and trimethylamine. Choline depletion impairs hepatic phosphatidylcholine synthesis, blocking VLDL assembly and trapping triglycerides inside hepatocytes, accelerating steatosis.",
+    "Gut-liver axis, suppression of FIAF / ANGPTL4. Dysbiosis suppresses intestinal expression of fasting-induced adipocyte factor, an endogenous lipoprotein lipase inhibitor. This upregulates endothelial lipoprotein lipase, dumping free fatty acids into hepatocytes and suppressing hepatic beta-oxidation.",
+    "Gut-liver axis, endogenous microbial ethanol. Dysbiotic fermentation of simple carbohydrates generates endogenous ethanol — 'auto-brewery' dynamics — creating continuous oxidative and inflammatory stress in liver tissue."
+   ],
+   "conditions": [
+    "Hepatic steatosis",
+    "Hepatitis",
+    "Cirrhosis",
+    "Alcohol use disorder"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "axis",
+   "part": 4,
+   "title": "The multi-organ axis of inflammation",
+   "body": [
+    "The lungs (asthma, COPD, cystic fibrosis) communicate with the gut (intestinal permeability, dysbiosis, SIBO, inflammatory bowel disease) through the gut-lung axis and the systemic circulation, in both directions.",
+    "The gut communicates with the liver (alcoholic fatty liver disease, MASH, cirrhosis) through the portal vein, carrying endotoxin and LPS — the gut-liver axis.",
+    "One inflamed compartment therefore seeds the next: this is why a respiratory protocol that ignores the gut, or a hepatic protocol that ignores the microbiome, keeps failing."
+   ],
+   "conditions": [
+    "Asthma",
+    "Inflammatory bowel disease",
+    "Hepatic steatosis",
+    "Chronic obstructive pulmonary disease"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  },
+  {
+   "id": "formulary",
+   "part": 4,
+   "title": "Master integrative formulary — cross-system summary",
+   "body": [
+    "Allergic airway hyperreactivity. Botanicals: quercetin, Tussilago farfara, Grindelia camporum, Lobelia inflata. Nutrients: magnesium (oral, nebulised or IV 2 g), EPA/DHA 3 g, zinc 30–50 mg, vitamin D3. Diet: low-sodium, high-fibre, Mediterranean pattern; eliminate IgG-reactive foods.",
+    "COPD exacerbation prevention. Botanicals: curcumin 500 mg BID, resveratrol, Eriodictyon californicum. Nutrients: oral NAC 1,200 mg daily, beetroot juice (12.9 mmol nitrate), vitamin C 400 mg–2 g. Diet: high-calorie, high-protein density; MUST screening; reverse cachexia.",
+    "Lower respiratory infection (CAP). Botanicals: Ligusticum porteri, Baptisia tinctoria, Thymus vulgaris, Echinacea, Bryonia. Nutrients: high-dose vitamin A pulse (up to 500,000 IU for 3 days), vitamin C to bowel tolerance. Diet: broth fasting during acute fevers; mustard plaster over the posterior thorax.",
+    "Upper airway viral invasion (influenza). Botanicals: Sambucus nigra (Sambucol 15 mL QID), Pelargonium sidoides, Taraxacum. Nutrients: AHCC 500 mg–5 g, green tea gargles, vitamin D3, zinc lozenges. Diet: sugar-free; abundant hydration; warm botanical teas with honey.",
+    "Intestinal permeability and food sensitivity. Botanicals: DGL powder, Ulmus rubra, Althaea officinalis, Aloe vera. Nutrients: L-glutamine 2–4 g, zinc carnosine 50–100 mg BID, phosphatidylcholine 1–6 g. Diet: strict 6-week elimination diet; the 5R gut restoration framework.",
+    "Coeliac enteropathy. Botanicals: Matricaria recutita, fruit anthocyanins, Artemisia annua. Nutrients: quercetin 1,000 mg TID, melatonin 3 mg at bedtime, fat-soluble vitamins, iron. Diet: lifetime zero-gluten diet; verify a DEXA bone density scan.",
+    "SIBO (hydrogen, methane, mixed). Botanicals: Berberis aquifolium, Hydrastis canadensis, Artemisia annua, Allium sativum. Nutrients: fat-soluble vitamins A, D, E and K, sublingual B12, magnesium, calcium. Diet: phased SCD, low FODMAP or GAPS; reduce fermentable substrates.",
+    "Inflammatory bowel disease (UC and Crohn's). Botanicals: Robert's Formula (Geranium, Althaea, Hydrastis, cabbage, Echinacea). Nutrients: quercetin 1,500 mg BID, DGL powder, cabbage juice, N-acetyl-glucosamine. Diet: bowel-rest pureed foods; zero dairy; low insoluble roughage during active flares.",
+    "Cholelithiasis. Botanicals: Curcuma longa, Trigonella foenum-graecum, Chelidonium majus. Nutrients: phosphatidylcholine 100 mg TID to 4.5 g QD, vitamin C, fish oil 1–6 g QD, bile salts. Diet: low refined carbohydrate; plant-based or Mediterranean pattern.",
+    "Hepatic steatosis (AFLD / MASH). Botanicals: Silybum marianum (silymarin 420 mg TID), Cynara scolymus, Curcuma longa. Nutrients: melatonin 5–10 mg, EGCG 300–1,000 mg, phosphatidylcholine, vitamin E 800 IU. Diet: total alcohol elimination; caloric restriction; low glycaemic index foods.",
+    "Oncology co-management and radiation fibrosis. Botanicals: pentoxifylline 800 mg daily, Astragalus membranaceus, Viscum album. Nutrients: alpha-tocopherol 1,000 IU daily post-radiotherapy, L-glutamine, CoQ10, melatonin. Diet: 13-hour overnight fast, modified bone broth fast, or a monitored ketogenic diet.",
+    "Heavy metal chelation (arsenic, cadmium). Botanicals: modified citrus pectin (Thorne Pectinate), sodium alginate. Nutrients: R-alpha-lipoic acid, selenium, zinc (competes with cadmium for metallothionein). Diet: reverse osmosis water filtration; dietary natural folates for methylation."
+   ],
+   "conditions": [
+    "Cross-system integrative formulary"
+   ],
+   "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine"
+  }
+ ],
+ "topics": [
+  {
+   "name": "Adrenal fatigue and HPA dysregulation",
+   "blurb": "Adrenal exhaustion and adaptogen support."
+  },
+  {
+   "name": "Alcohol use disorder",
+   "blurb": "Alcoholism, acute detoxification and post-sobriety metabolic rehabilitation."
+  },
+  {
+   "name": "Angina pectoris",
+   "blurb": "Anginal chest pain, acute and preventive."
+  },
+  {
+   "name": "Barrett's esophagus",
+   "blurb": "Columnar metaplasia of the lower oesophagus following chronic reflux."
+  },
+  {
+   "name": "Cardiac arrhythmia",
+   "blurb": "Sinus arrhythmia, palpitations and post-surgical rhythm disturbance."
+  },
+  {
+   "name": "Cellulitis",
+   "blurb": "Bacterial dermal and subcutaneous infection, including erysipelas."
+  },
+  {
+   "name": "Cirrhosis",
+   "blurb": "Hepatic fibrosis and cirrhosis, alcoholic and non-alcoholic."
+  },
+  {
+   "name": "Contact dermatitis",
+   "blurb": "Irritant and allergic contact dermatitis, including urushiol exposure."
+  },
+  {
+   "name": "Coronary artery disease, secondary prevention",
+   "blurb": "Secondary prevention after bypass grafting or infarction."
+  },
+  {
+   "name": "Cross-system integrative formulary",
+   "blurb": "The compendium's own cross-system summary of botanical, nutrient and dietary targets."
+  },
+  {
+   "name": "Diabetes mellitus, type 1",
+   "blurb": "Insulin-dependent diabetes, including diabetic ketoacidosis."
+  },
+  {
+   "name": "Exocrine pancreatic insufficiency",
+   "blurb": "Pancreatic maldigestion, steatorrhoea and enzyme replacement."
+  },
+  {
+   "name": "Fibrocystic breast changes",
+   "blurb": "Dense benign fibrocystic breast disease."
+  },
+  {
+   "name": "Functional abdominal pain (pediatric)",
+   "blurb": "Psychosomatic and functional abdominal pain in children."
+  },
+  {
+   "name": "Gastroschisis",
+   "blurb": "Congenital anterior abdominal wall fissure with intestinal herniation."
+  },
+  {
+   "name": "Gilbert's syndrome",
+   "blurb": "Benign unconjugated hyperbilirubinaemia."
+  },
+  {
+   "name": "Herpes zoster",
+   "blurb": "Shingles and post-herpetic neuralgia."
+  },
+  {
+   "name": "Hyperlipidemia",
+   "blurb": "Hypercholesterolaemia, hypertriglyceridaemia and the familial dyslipidaemias."
+  },
+  {
+   "name": "Hypotension",
+   "blurb": "Hypovolaemic and hyponatraemic low blood pressure."
+  },
+  {
+   "name": "Incontinentia pigmenti",
+   "blurb": "Bloch-Sulzberger syndrome."
+  },
+  {
+   "name": "Lipoma",
+   "blurb": "Benign subcutaneous lipomatous tumours."
+  },
+  {
+   "name": "Morphea (localized scleroderma)",
+   "blurb": "Localised and linear scleroderma."
+  },
+  {
+   "name": "Neonatal abstinence syndrome",
+   "blurb": "Withdrawal in the newborn after in-utero exposure to opioids or other substances."
+  },
+  {
+   "name": "Non-cardiac chest pain",
+   "blurb": "Adrenergic intercostal myalgia and stress-related chest pain mimicking angina."
+  },
+  {
+   "name": "Opioid use disorder",
+   "blurb": "Opioid habituation, dependence and outpatient withdrawal management."
+  },
+  {
+   "name": "Peptic ulcer disease",
+   "blurb": "Gastric and duodenal ulceration."
+  },
+  {
+   "name": "Pilonidal disease",
+   "blurb": "Recurrent post-sacral abscess and sinus tract."
+  },
+  {
+   "name": "Primary hyperparathyroidism",
+   "blurb": "Parathyroid adenoma with hypercalcaemia and stone formation."
+  },
+  {
+   "name": "Prolactinoma",
+   "blurb": "Pituitary adenoma with galactorrhoea and amenorrhoea."
+  },
+  {
+   "name": "Reactive hypoglycemia",
+   "blurb": "Dysglycaemia, rebound hyperglycaemia and pre-diabetic glucose volatility."
+  },
+  {
+   "name": "Rosacea",
+   "blurb": "Papulopustular and telangiectatic rosacea."
+  },
+  {
+   "name": "Stimulant use disorder",
+   "blurb": "Cocaine and polysubstance use, and the systemic inflammation that follows it."
+  },
+  {
+   "name": "Stroke rehabilitation",
+   "blurb": "Recovery after a cerebrovascular accident."
+  },
+  {
+   "name": "Thyroid nodule",
+   "blurb": "Benign colloid and non-functioning thyroid nodules."
+  }
+ ]
+}

@@ -13,7 +13,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 
 | Tool | Purpose |
 |---|---|
-| **Conditions** | 75 conditions A–Z plus 153 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 41 of them, the 97 worked cases from the casebook filed under the conditions they were treated for, and the sections of your own notes that describe it. |
+| **Conditions** | 75 conditions A–Z plus 153 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 41 of them, **Dr William Mitchell's case protocols** where the compendium carries one, and the sections of your own notes that describe it. |
 | **Diagnose** | Enter what the patient is feeling and get the leading three, each with the labs to run, the supplements, botanicals, herbs, naturopathic therapeutics, lifestyle changes and pharmaceuticals the notebook files under it. Emergencies matching two or more of the symptoms are pinned above. Shares its symptom list with **Differential**. |
 | **Differential** | Enter the symptoms a patient presents with; it ranks the conditions in this notebook whose recorded presentation matches, shows the line that matched for each, and says what each ranking does *not* account for. Emergencies matching the picture are pinned above the ranking. 152 symptoms across 13 systems, indexed over every passage in the notebook that describes how a condition looks. |
 | **Physical Exams** | Physical exam and diagnosis, organised by type of exam: the clinic entry interview and review of systems, ten **chief complaints** worked as differentials, a head-to-toe screen, the eye and HENT exams, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, a muscle energy technique reference, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The **PHQ-9** and **GAD-7** are scored here too, with the blank forms downloadable as PDFs. |
@@ -83,7 +83,8 @@ js/pregnancydata.js      pregnancy and lactation herb safety as a global
 js/screenerdata.js       the PHQ-9 and GAD-7 instruments as a global
 js/womensformulasdata.js women's hormone formulas as a global
 js/formularydata.js      the ten practitioner lines as a global
-js/casedata.js           the clinical casebook as a global
+js/casebookdata.js       the Master Compendium as a global
+js/labrangesdata.js      normal and optimal ranges as a global
 js/symptomdata.js        the symptom vocabulary for the differential builder
 js/app.js                all calculators, both differentiators, the exam index, the screeners, the formulas, the formulary and the therapeutics tabs
 data/herbdata.json       the same herbal data as plain JSON, for reuse
@@ -94,14 +95,15 @@ data/pregnancysafety.json  the same safety data as plain JSON, for reuse
 data/screeners.json      the same screener data as plain JSON, for reuse
 data/womensformulas.json the same formula data as plain JSON, for reuse
 data/formulary.json      the same formulary data as plain JSON, for reuse
-data/cases.json          the same casebook data as plain JSON, for reuse
+data/casebook.json       the same compendium data as plain JSON, for reuse
+data/labranges.json      the same range data as plain JSON, for reuse
 data/symptoms.json       the same symptom vocabulary as plain JSON, for reuse
 assets/phq9.pdf          blank PHQ-9 form, generated from data/screeners.json
 assets/gad7.pdf          blank GAD-7 form, generated from data/screeners.json
 assets/auditc.pdf        blank AUDIT-C form (the WHO AUDIT consumption items)
 ```
 
-The ten data files under `js/` are generated from their counterparts in `data/`; edit the JSON and
+The eleven data files under `js/` are generated from their counterparts in `data/`; edit the JSON and
 regenerate if you change the reference data.
 
 Every local `css/` and `js/` reference in `index.html` carries a `?v=` cache buster. **Bump it whenever
@@ -295,37 +297,6 @@ exposure and season, none of which is in this data. A condition can only appear 
 notebook describes it, so absence from the list means the notebook is silent, not that the diagnosis is
 excluded. The tab says all of this in place, under *How the ranking works, and what it is not*.
 
-### The clinical casebook
-
-**Ninety-seven worked cases, filed under the conditions they were treated for.** Chapters 1–5 of a
-naturopathic casebook — addictions, cardiovascular medicine, dermatology, endocrinology and
-gastroenterology — each case giving the patient, what presented, and the protocol as prescribed: 161
-protocol sections and 568 dosed items across 70 conditions. They open as *From the casebook* on the
-condition card, under the herbs, the protocol and the therapeutics, and again in the by-condition views of
-the therapeutics tabs. A case that treats two things — the arrhythmia case that also treats fibrocystic
-breast disease, the acne case that becomes urticaria — reads under both.
-
-**They are records, not recommendations.** Each is transcribed as the casebook writes it, including the
-doses. Several use amounts, routes or botanicals that would not be chosen now, and the casebook does not
-always flag them. Where a case carries a real hazard, a **safety note** written for this tool says so —
-54 of the 97 carry one. They cover teratogenic vitamin A dosing, red yeast rice being lovastatin under
-another name, reserpine-containing Rauvolfia, cardiac glycoside herbs, yohimbe given to a hypertensive
-patient, intravaginal iodine, internal comfrey in a neonate, Podophyllum absorbed through abraded skin,
-antithrombotic stacking after a stroke, and the presentations — ketoacidosis, thyroid storm, spreading
-cellulitis, cauda equina — that are emergencies before they are anything else. Those notes are not in the
-source and say so.
-
-**Thirty-one conditions the casebook treats that the index did not carry became topics** — opioid, alcohol
-and stimulant use disorder, neonatal abstinence syndrome, hyperlipidemia, cardiac arrhythmia, hypoglycemia,
-prediabetes, Hashimoto's thyroiditis, thyroid nodules, prolactinoma, hyperparathyroidism, Barrett's
-esophagus, hepatic cirrhosis, eosinophilic enteropathy, gastroschisis, cellulitis, herpes zoster, rosacea,
-morphea, incontinentia pigmenti, lipoma, pilonidal cyst, contact dermatitis, thrombophlebitis, stroke
-rehabilitation and the rest. Four supplements the casebook prescribes repeatedly — L-lysine, L-tyrosine,
-niacin and the lipotropic factor complex — and MRI of the brain and pituitary joined the catalogues at the
-same time.
-
-The chapters end mid-alphabet in gastroenterology, so the dataset is shaped to take the rest as it arrives.
-
 ### Two outside references
 
 Two documents in the notes are not coursework and are marked as such wherever they appear.
@@ -426,6 +397,28 @@ them change what you would dispense:
 None of it is evidence that a product works, and manufacturers reformulate without renaming — the current
 label is the authority.
 
+### Normal and optimal ranges
+
+**All 99 tests carry a reference range**, in a block on the card: the conventional adult range for a
+laboratory test, or a description of a normal study for imaging and procedures — cardiothoracic ratio under
+0.5, LVEF 55–70%, T-score at or above −1.0, AHI under 5, Light's criteria for a transudate.
+
+**48 of them carry an optimal too** — the narrower functional target, where a defensible one exists. Fasting
+insulin 2–5 µIU/mL against a laboratory range that runs to 19.6. ALT under 30 in men and under 19 in women,
+against a range that allows 56. TSH 1.0–2.0 against 0.45–4.5. Ferritin 50–150 rather than 11–336. HbA1c
+4.8–5.3%. Triglyceride-to-HDL under 2.0. hs-CRP under 1.0. Vitamin D 40–60 ng/mL. The other 51 carry none,
+because the concept does not apply to a CT report, a culture or a troponin.
+
+**Every one carries a caveat**, because that is usually what decides the reading: ferritin is an acute-phase
+reactant, so a normal value with a raised CRP does not exclude deficiency; HbA1c is falsely low in
+haemolysis and falsely high in iron deficiency; biotin distorts TSH immunoassays; a negative D-dimer only
+excludes thrombosis at low pre-test probability; provoked heavy-metal urine testing has no validated
+reference range at all; ERMI was never validated for clinical decisions.
+
+**This block was written for this tool** from standard clinical references — it is not from the coursework
+and it is not peer reviewed. Reference intervals are assay-, method-, age- and sex-specific: the range
+printed on the report in front of the patient is the one that governs.
+
 ### The screening instruments, and their blank forms
 
 The nine instruments sit in the **Physical Exams** list under *Screening*, alongside the head-to-toe screen
@@ -480,6 +473,42 @@ flagged unless asked for — the tool does not assume who the patient is.
 
 The four conditions of pregnancy with a herb that has a human clinical trial behind it are listed with their
 PubMed IDs in the legend.
+
+### The Master Compendium
+
+**95 clinical case protocols, 22 module sections, and 34 conditions this index did not previously carry** —
+transcribed from Nourhan Shams's own Master Compendium.
+
+**Part 1 — Dr William A. Mitchell Jr's case protocols.** 95 cases across six chapters: addictions (5),
+cardiovascular medicine (19), dermatology (27), endocrinology (14), gastroenterology (29) and respiratory
+medicine (1), carrying 610 dosed protocol lines between them. Each case gives its presentation and its
+protocol, block by block — the recovery protocol and the acute one, the botanical tincture and the physical
+medicine — and is filed under every condition it treats, so Erysipelas and Recurrent cellulitis both open
+under *Cellulitis*.
+
+**Parts 2 and 3 — the respiratory and gastroenterology modules.** 22 sections join the *From your notes*
+block under the conditions they describe: the gut–lung axis and its dysbiosis patterns by disease,
+short-chain fatty acids and butyrate, asthma oxidative and Th2 mechanisms with the full supplementation
+protocol, COPD, cystic fibrosis, lung cancer with its environmental toxicology, influenza, community-acquired
+pneumonia and biofilms, PASC, fasting protocols, oncology side-effect co-management; then adverse food
+reaction classification, intestinal permeability, IgG sensitivities and the 5R framework, coeliac versus
+NCGS, SIBO and its subtypes, pancreatitis and EPI, gallbladder disease, and the gut–liver axis.
+
+**Part 4 — the cross-system formulary** sits under its own topic, *Cross-system integrative formulary*,
+alongside the multi-organ axis of inflammation.
+
+**34 new topics** carry what the therapeutics index had no entry for — opioid, alcohol and stimulant use
+disorder, angina, cardiac arrhythmia, hyperlipidaemia, hypotension, stroke rehabilitation, cellulitis,
+herpes zoster, morphea, rosacea, type 1 diabetes, reactive hypoglycaemia, prolactinoma, Barrett's
+oesophagus, cirrhosis, peptic ulcer disease, exocrine pancreatic insufficiency, Gilbert's syndrome and the
+rest. They appear under the *Topics* filter with no herbs attached, because the herb index was never built
+for them.
+
+Everything in this dataset is the compendium's own text. **Nothing here was written for the tool**, and none
+of it is peer reviewed. Several protocols carry prescription drugs, intramuscular injections and
+intravenous formulations — Dr Gaby's withdrawal IV, B12 injections, cephalexin, bromocriptine,
+levothyroxine — that sit outside a student's scope of practice. The search box reaches all of it: `robert's
+formula`, `mustard plaster`, `jewelweed` and `Somogyi` each land on the condition that carries them.
 
 ### Treatment protocols
 

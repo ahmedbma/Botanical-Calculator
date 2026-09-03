@@ -902,3 +902,39 @@ td.herb input{min-width:190px}
 .scrn-lic{flex-basis:100%;margin:0;font-size:.82rem;line-height:1.6;color:var(--muted)}
 .txalso{margin:2px 0 0;font-size:.8rem;font-style:italic;color:var(--muted)}
 #bot-box .txlist{margin-top:.5rem}
+
+
+/* ---- the master compendium: case protocols under a condition ---- */
+.cbbox{margin-top:14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.cbbox>summary{cursor:pointer;padding:11px 15px;display:flex;flex-wrap:wrap;align-items:baseline;
+  gap:6px 12px;font-size:.9rem;font-weight:600;color:var(--accent);list-style:none}
+.cbbox>summary::-webkit-details-marker{display:none}
+.cbbox>summary::before{content:"\25B8";font-size:.7rem;color:var(--muted)}
+.cbbox[open]>summary::before{content:"\25BE"}
+.cb-src{font-weight:400;font-size:.74rem;font-style:italic;color:var(--muted)}
+.cbbody{padding:2px 15px 14px}
+.cbcase{padding:12px 0;border-top:1px solid var(--line)}
+.cbcase:first-child{border-top:0}
+.cbcase h5{margin:0;font:600 1.02rem/1.3 var(--serif)}
+.cbnum{display:inline-block;min-width:1.6em;margin-right:4px;font:600 .7rem/1.6 var(--sans);
+  text-align:center;border-radius:99px;background:var(--accent-soft);color:var(--accent)}
+.cbchap{display:inline-block;margin:4px 0 0;font:600 .62rem/1 var(--sans);text-transform:uppercase;
+  letter-spacing:.07em;color:var(--muted)}
+.cbpres{margin:6px 0 0;font-size:.88rem;line-height:1.65}
+.cblab{margin:10px 0 2px;font:600 .68rem/1.4 var(--sans);text-transform:uppercase;letter-spacing:.06em;
+  color:var(--accent)}
+.cblist{margin:0;padding-left:1.15rem}
+.cblist li{font-size:.88rem;line-height:1.65;margin:3px 0}
+@media print{.cbbox{break-inside:avoid}}
+
+
+/* ---- reference ranges on a lab or screening card ---- */
+.txrange{margin:9px 0 0;padding:9px 12px;border-radius:10px;background:var(--ro-bg);
+  border-left:3px solid var(--accent-soft)}
+.txrange-row{margin:0;font-size:.86rem;line-height:1.65}
+.txrange-row+.txrange-row{margin-top:5px}
+.txrange-row.opt{color:var(--accent)}
+.txlab.rng{background:var(--surface);color:var(--muted);border:1px solid var(--line)}
+.txlab.opt{background:var(--accent);color:var(--accent-ink)}
+.txrange-note{margin:6px 0 0;font-size:.8rem;line-height:1.6;font-style:italic;color:var(--muted)}
+@media print{.txrange{break-inside:avoid}}
