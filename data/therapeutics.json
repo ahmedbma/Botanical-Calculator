@@ -13,7 +13,10 @@
   "Medication Suffixes study cards",
   "Pelvic Therapy Reflection",
   "Orthopedics Final Study Guide",
-  "Review of Systems intake form"
+  "Review of Systems intake form",
+  "Clinic Entry & Exams (Emily Tan)",
+  "Anaphylaxis in adults: rapid overview of emergency management (UpToDate, 2024)",
+  "GI-MAP stool test interpretation"
  ],
  "pharmClasses": [
   "Acid neutralisation",
@@ -30,6 +33,7 @@
   "Antidepressant / hypnotic",
   "Antidepressant / smoking cessation",
   "Antidiarrhoeal",
+  "Antidote",
   "Antiemetic",
   "Antifibrinolytic",
   "Antifibrotic",
@@ -78,7 +82,8 @@
   "Sympathomimetic",
   "Thyroid",
   "Thyroid hormone",
-  "Urological"
+  "Urological",
+  "Vasoactive"
  ],
  "pharmGroups": [
   "Respiratory & allergy",
@@ -136,12 +141,14 @@
    "caution": "Rising reliever use is the clearest sign asthma control is failing — escalate the controller, do not just refill.",
    "grp": "Respiratory & allergy",
    "conditions": [
+    "Anaphylaxis",
     "Asthma",
     "Atelectasis",
     "Bronchiectasis",
     "Bronchitis",
     "Chronic obstructive pulmonary disease",
     "Cough",
+    "Croup",
     "Cystic fibrosis",
     "Pneumonia",
     "Pneumothorax",
@@ -223,7 +230,8 @@
    "grp": "Respiratory & allergy",
    "conditions": [
     "Allergic rhinitis",
-    "Asthma"
+    "Asthma",
+    "Nasal polyposis"
    ]
   },
   {
@@ -260,27 +268,35 @@
    "caution": "Hyperglycaemia, bone loss, adrenal suppression and mood change with repeated or prolonged courses.",
    "grp": "Pain, MSK & immune",
    "conditions": [
+    "Anaphylaxis",
     "Asthma",
     "Autoimmune conditions",
     "COVID-19",
     "Chronic obstructive pulmonary disease",
+    "Croup",
     "Drug eruptions",
+    "Epiglottitis",
     "Erythema multiforme",
     "Erythema nodosum",
     "Gout",
     "Henoch-Schonlein purpura",
     "Hepatitis",
     "Idiopathic pulmonary fibrosis",
+    "Infectious mononucleosis",
     "Inflammatory bowel disease",
     "Kawasaki disease",
     "Multiple sclerosis",
+    "Nasal polyposis",
     "Osteoarthritis",
+    "Pericarditis",
     "Pneumonia",
     "Pulmonary nodules and lung cancer",
+    "Ramsay Hunt syndrome",
     "Respiratory failure and ARDS",
     "Rheumatic fever",
     "Rheumatoid arthritis",
     "Sarcoidosis",
+    "Scleritis and episcleritis",
     "Urticaria and angioedema"
    ]
   },
@@ -374,6 +390,7 @@
     "Bronchiectasis",
     "Bronchitis",
     "Burns",
+    "Cholesteatoma",
     "Chronic obstructive pulmonary disease",
     "Cystic fibrosis",
     "Epidermoid cyst",
@@ -384,6 +401,7 @@
     "Mold and mycotoxin illness",
     "Otitis media",
     "Paronychia",
+    "Pertussis",
     "Pleural disease",
     "Pneumonia",
     "Respiratory failure and ARDS",
@@ -429,10 +447,12 @@
    "grp": "Respiratory & allergy",
    "conditions": [
     "Allergic rhinitis",
+    "Anaphylaxis",
     "Conjunctivitis",
     "Drug eruptions",
     "Erythema multiforme",
     "Pityriasis rosea",
+    "Postnasal drainage syndrome",
     "Scabies",
     "Sinusitis",
     "Urticaria and angioedema"
@@ -447,6 +467,7 @@
    "caution": "Anticholinergic — avoid in older adults, and with glaucoma or urinary retention.",
    "grp": "Respiratory & allergy",
    "conditions": [
+    "Anaphylaxis",
     "Anxiety",
     "Bronchitis",
     "Common cold",
@@ -456,6 +477,7 @@
     "Insomnia",
     "Interstitial cystitis",
     "Nausea and vomiting",
+    "Postnasal drainage syndrome",
     "Sore throat",
     "Urticaria and angioedema",
     "Varicella",
@@ -473,6 +495,9 @@
    "conditions": [
     "Allergic rhinitis",
     "Cough",
+    "Nasal polyposis",
+    "Postnasal drainage syndrome",
+    "Rhinitis medicamentosa",
     "Sinusitis"
    ]
   },
@@ -730,7 +755,8 @@
     "Cough",
     "Dyspepsia",
     "GERD",
-    "Gastritis"
+    "Gastritis",
+    "Peptic ulcer disease"
    ]
   },
   {
@@ -742,9 +768,11 @@
    "caution": "Tolerance develops within weeks.",
    "grp": "Gastrointestinal",
    "conditions": [
+    "Anaphylaxis",
     "Dyspepsia",
     "GERD",
-    "Gastritis"
+    "Gastritis",
+    "Peptic ulcer disease"
    ]
   },
   {
@@ -757,7 +785,8 @@
    "grp": "Gastrointestinal",
    "conditions": [
     "Dyspepsia",
-    "GERD"
+    "GERD",
+    "Peptic ulcer disease"
    ]
   },
   {
@@ -770,7 +799,8 @@
    "grp": "Gastrointestinal",
    "conditions": [
     "GERD",
-    "Gastritis"
+    "Gastritis",
+    "Peptic ulcer disease"
    ]
   },
   {
@@ -856,6 +886,8 @@
    "caution": "QT prolongation; constipation.",
    "grp": "Gastrointestinal",
    "conditions": [
+    "Acute pancreatitis",
+    "Bowel obstruction",
     "Cyclical vomiting syndrome",
     "Nausea and vomiting",
     "Vertigo"
@@ -895,7 +927,8 @@
    "grp": "Gastrointestinal",
    "conditions": [
     "Dyspepsia",
-    "Gastritis"
+    "Gastritis",
+    "Peptic ulcer disease"
    ]
   },
   {
@@ -921,10 +954,12 @@
    "grp": "Cardiometabolic",
    "conditions": [
     "Abdominal aortic aneurysm",
+    "Angina pectoris",
     "Atherosclerosis",
     "Diabetes mellitus, type 2",
     "Erectile dysfunction",
     "Hepatic steatosis",
+    "Myocardial infarction",
     "Statin-associated muscle symptoms"
    ]
   },
@@ -947,7 +982,9 @@
     "Erectile dysfunction",
     "Hypertension",
     "Hypertrophic cardiomyopathy",
+    "Mitral regurgitation",
     "Mitral valve prolapse",
+    "Myocardial infarction",
     "Pediatric hypertension",
     "Tetralogy of Fallot",
     "Transposition of the great arteries",
@@ -978,6 +1015,7 @@
    "caution": "Ankle oedema and constipation. Non-dihydropyridines are negatively inotropic — avoid in reduced ejection fraction.",
    "grp": "Cardiometabolic",
    "conditions": [
+    "Angina pectoris",
     "Atrial fibrillation",
     "Edema",
     "Hypertension",
@@ -1010,6 +1048,8 @@
    "grp": "Cardiometabolic",
    "conditions": [
     "Abdominal aortic aneurysm",
+    "Angina pectoris",
+    "Aortic stenosis",
     "Atherosclerosis",
     "Atrial fibrillation",
     "Atrial septal defect",
@@ -1020,6 +1060,7 @@
     "Hypertrophic cardiomyopathy",
     "Migraine",
     "Mitral valve prolapse",
+    "Myocardial infarction",
     "Tetralogy of Fallot",
     "Transposition of the great arteries",
     "Ventricular septal defect"
@@ -1038,6 +1079,7 @@
     "Congestive heart failure",
     "Edema",
     "Hemolytic uremic syndrome",
+    "Mitral regurgitation",
     "Pulmonary hypertension"
    ]
   },
@@ -1066,7 +1108,9 @@
    "caution": "Absolutely contraindicated with PDE5 inhibitors — profound hypotension.",
    "grp": "Cardiometabolic",
    "conditions": [
-    "Atherosclerosis"
+    "Angina pectoris",
+    "Atherosclerosis",
+    "Myocardial infarction"
    ]
   },
   {
@@ -1078,12 +1122,14 @@
    "caution": "GI bleeding risk. Avoid in children and teenagers with a viral illness — Reye's syndrome.",
    "grp": "Cardiometabolic",
    "conditions": [
+    "Angina pectoris",
     "Atherosclerosis",
     "Atrial septal defect",
     "Coarctation of the aorta",
     "Hypertrophic cardiomyopathy",
     "Kawasaki disease",
     "Mitral valve prolapse",
+    "Myocardial infarction",
     "Rheumatic fever",
     "Tetralogy of Fallot",
     "Transposition of the great arteries",
@@ -1102,6 +1148,7 @@
     "Atrial fibrillation",
     "COVID-19",
     "Deep vein thrombosis",
+    "Myocardial infarction",
     "Pulmonary embolism",
     "Pulmonary hypertension"
    ]
@@ -1220,12 +1267,19 @@
     "Henoch-Schonlein purpura",
     "Kidney stones",
     "Migraine",
+    "Myocarditis",
     "Neck and shoulder pain",
     "Osteoarthritis",
+    "Pericarditis",
     "Pleural disease",
+    "Pleuritis",
     "Premenstrual syndrome",
     "Prostatitis",
     "Rheumatoid arthritis",
+    "Sciatica and lumbar radiculopathy",
+    "Scleritis and episcleritis",
+    "Spinal stenosis",
+    "Temporomandibular joint disorder",
     "Thoracic injuries",
     "Urinary tract infection",
     "Varicose veins"
@@ -1240,6 +1294,9 @@
    "caution": "Hepatotoxic in overdose and at lower doses with alcohol or fasting; count every combination product.",
    "grp": "Pain, MSK & immune",
    "conditions": [
+    "Abdominal trauma",
+    "Abdominal wall hernia",
+    "Acute pancreatitis",
     "Appendicitis",
     "Back pain",
     "Burns",
@@ -1247,16 +1304,21 @@
     "Common cold",
     "Fifth disease",
     "Hand, foot and mouth disease",
+    "Infectious mononucleosis",
     "Influenza",
     "Measles",
     "Neck and shoulder pain",
     "Non-specific viral exanthem",
     "Osteoarthritis",
+    "Otitis externa",
     "Otitis media",
+    "Pleuritis",
+    "Ramsay Hunt syndrome",
     "Roseola",
     "Rubella",
     "Scarlet fever",
     "Sore throat",
+    "Spinal stenosis",
     "Thoracic injuries",
     "Varicella"
    ]
@@ -1270,7 +1332,8 @@
    "caution": "Diarrhoea is dose-limiting; reduce in renal impairment; interacts with statins and CYP3A4 inhibitors.",
    "grp": "Pain, MSK & immune",
    "conditions": [
-    "Gout"
+    "Gout",
+    "Pericarditis"
    ]
   },
   {
@@ -1337,7 +1400,9 @@
     "Fibromyalgia",
     "Interstitial cystitis",
     "Multiple sclerosis",
-    "Parkinson's disease"
+    "Parkinson's disease",
+    "Sciatica and lumbar radiculopathy",
+    "Spinal stenosis"
    ]
   },
   {
@@ -1350,7 +1415,9 @@
    "grp": "Pain, MSK & immune",
    "conditions": [
     "Back pain",
-    "Neck and shoulder pain"
+    "Neck and shoulder pain",
+    "Sciatica and lumbar radiculopathy",
+    "Temporomandibular joint disorder"
    ]
   },
   {
@@ -1464,6 +1531,7 @@
    "caution": "Nitrofurantoin does not treat pyelonephritis and needs adequate renal function. Fluoroquinolones carry tendon and neuropathy warnings.",
    "grp": "Urogenital & hormonal",
    "conditions": [
+    "Pyelonephritis",
     "Sexually transmitted infection",
     "Urinary tract infection"
    ]
@@ -1578,8 +1646,10 @@
     "Diaper dermatitis",
     "Drug eruptions",
     "Eczema",
+    "Eyelid and lacrimal disorders",
     "Hemorrhoids",
     "Impetigo",
+    "Iritis and anterior uveitis",
     "Keratosis pilaris",
     "Molluscum contagiosum",
     "Pityriasis alba",
@@ -1666,6 +1736,7 @@
    "conditions": [
     "Candidiasis",
     "Diaper dermatitis",
+    "Otitis externa",
     "Paronychia",
     "Seborrheic dermatitis",
     "Sexually transmitted infection",
@@ -1683,6 +1754,8 @@
    "conditions": [
     "Erythema multiforme",
     "Herpes simplex",
+    "Keratitis",
+    "Ramsay Hunt syndrome",
     "Sexually transmitted infection",
     "Varicella",
     "Warts"
@@ -1697,7 +1770,10 @@
    "caution": "Most conjunctivitis is viral and self-limiting; a contact-lens wearer needs urgent review.",
    "grp": "Skin & infection",
    "conditions": [
-    "Conjunctivitis"
+    "Conjunctivitis",
+    "Eyelid and lacrimal disorders",
+    "Keratitis",
+    "Otitis externa"
    ]
   },
   {
@@ -1725,6 +1801,46 @@
     "Eczema",
     "Urticaria and angioedema"
    ]
+  },
+  {
+   "id": "epinephrine",
+   "name": "Epinephrine (adrenaline)",
+   "cls": "Vasoactive",
+   "use": "The first and most important treatment in anaphylaxis, given intramuscularly into the mid-outer thigh. There are NO absolute contraindications to epinephrine in anaphylaxis.",
+   "examples": "0.3–0.5 mg IM of the 1 mg/mL preparation, repeated every 5 to 15 minutes or more often as needed; most patients respond to one, two or at most three doses. Where they do not, a continuous infusion is started at 0.1 microgram/kg/minute and titrated to blood pressure, cardiac rate and function, and oxygenation.",
+   "caution": "Autoinjectors are prescribed in pairs and expire; check the date and that the patient can demonstrate the technique. An infusion needs continuous non-invasive monitoring of blood pressure, heart rate and oxygen saturation. Patients on beta blockers may not respond — glucagon is the answer, not more epinephrine.",
+   "grp": "Respiratory & allergy",
+   "conditions": [
+    "Anaphylaxis"
+   ]
+  },
+  {
+   "id": "glucagon",
+   "name": "Glucagon",
+   "cls": "Antidote",
+   "use": "Anaphylaxis in a patient on a beta blocker who is not responding to epinephrine.",
+   "examples": "1 to 5 mg IV over 5 minutes, followed by an infusion of 5 to 15 micrograms/minute.",
+   "caution": "Rapid administration causes vomiting — a real aspiration risk in a patient who is already compromised. Give it slowly and protect the airway.",
+   "grp": "Respiratory & allergy",
+   "conditions": [
+    "Anaphylaxis"
+   ]
+  },
+  {
+   "id": "abx_broad",
+   "name": "Broad-spectrum systemic antibiotics",
+   "cls": "Antibacterial",
+   "use": "Deep soft tissue, head and neck, ocular and pelvic infections where the organism is not yet known and delay costs tissue — peritonsillar abscess, mastoiditis, epiglottitis, orbital cellulitis, pelvic inflammatory disease.",
+   "examples": "Amoxicillin-clavulanate, ceftriaxone, ampicillin-sulbactam, clindamycin, doxycycline with metronidazole for pelvic infection.",
+   "caution": "Given intravenously in the emergencies on this list — these are referral diagnoses, not oral outpatient ones. Take cultures before the first dose where it does not delay treatment. Cover Candida overgrowth and rebuild the microbiome afterwards; C. difficile risk is highest with clindamycin and the cephalosporins.",
+   "grp": "Skin & infection",
+   "conditions": [
+    "Epiglottitis",
+    "Mastoiditis",
+    "Orbital and periorbital cellulitis",
+    "Pelvic inflammatory disease",
+    "Peritonsillar abscess"
+   ]
   }
  ],
  "supplements": [
@@ -1739,6 +1855,7 @@
    "conditions": [
     "Abdominal aortic aneurysm",
     "Acne",
+    "Angina pectoris",
     "Anxiety",
     "Asthma",
     "Atherosclerosis",
@@ -1761,6 +1878,7 @@
     "Endometriosis",
     "Erectile dysfunction",
     "Erythema nodosum",
+    "Eyelid and lacrimal disorders",
     "Fertility and preconception",
     "Gingivitis",
     "Gout",
@@ -1770,6 +1888,8 @@
     "Hypertension",
     "Hypertrophic cardiomyopathy",
     "Inflammatory bowel disease",
+    "Intussusception",
+    "Iritis and anterior uveitis",
     "Kawasaki disease",
     "Keratosis pilaris",
     "Lactation support",
@@ -1777,15 +1897,18 @@
     "Migraine",
     "Mitral valve prolapse",
     "Multiple sclerosis",
+    "Myocardial infarction",
     "Neck and shoulder pain",
     "Obesity",
     "Obstructive sleep apnea",
     "Osteoarthritis",
     "Parkinson's disease",
     "Pediatric hypertension",
+    "Pericarditis",
     "Pityriasis alba",
     "Pityriasis rosea",
     "Pleural disease",
+    "Pleuritis",
     "Polycystic ovary syndrome",
     "Post-traumatic stress disorder",
     "Premenstrual syndrome",
@@ -1796,6 +1919,7 @@
     "Rheumatic fever",
     "Rheumatoid arthritis",
     "Sarcoidosis",
+    "Scleritis and episcleritis",
     "Seborrheic dermatitis",
     "Seizure disorder",
     "Statin-associated muscle symptoms",
@@ -1814,6 +1938,7 @@
    "herbal": false,
    "conditions": [
     "Adjustment disorder",
+    "Angina pectoris",
     "Anxiety",
     "Asthma",
     "Atrial fibrillation",
@@ -1843,7 +1968,9 @@
     "Kidney stones",
     "Menopause",
     "Migraine",
+    "Mitral regurgitation",
     "Mitral valve prolapse",
+    "Myocardial infarction",
     "Nausea and vomiting",
     "Neck and shoulder pain",
     "Obstructive sleep apnea",
@@ -1853,7 +1980,10 @@
     "Post-traumatic stress disorder",
     "Premenstrual syndrome",
     "Raynaud's phenomenon",
+    "Sciatica and lumbar radiculopathy",
     "Seizure disorder",
+    "Spinal stenosis",
+    "Temporomandibular joint disorder",
     "Tetralogy of Fallot",
     "Transposition of the great arteries",
     "Urinary incontinence",
@@ -1907,6 +2037,7 @@
     "Idiopathic pulmonary fibrosis",
     "Inflammatory bowel disease",
     "Influenza",
+    "Iritis and anterior uveitis",
     "Kawasaki disease",
     "Keratosis pilaris",
     "Lactation support",
@@ -1967,6 +2098,7 @@
     "Nausea and vomiting",
     "Post-traumatic stress disorder",
     "Premenstrual syndrome",
+    "Sciatica and lumbar radiculopathy",
     "Seizure disorder"
    ]
   },
@@ -2134,6 +2266,7 @@
     "Idiopathic pulmonary fibrosis",
     "Mold and mycotoxin illness",
     "Pneumonia",
+    "Postnasal drainage syndrome",
     "Respiratory failure and ARDS",
     "Sarcoidosis",
     "Sinusitis"
@@ -2156,6 +2289,8 @@
     "Henoch-Schonlein purpura",
     "Idiopathic pulmonary fibrosis",
     "Interstitial cystitis",
+    "Nasal polyposis",
+    "Postnasal drainage syndrome",
     "Prostatitis",
     "Sinusitis",
     "Urticaria and angioedema"
@@ -2183,6 +2318,7 @@
    "herbal": false,
    "conditions": [
     "Abdominal aortic aneurysm",
+    "Abdominal trauma",
     "Allergic rhinitis",
     "Anemia, iron deficiency",
     "Bronchitis",
@@ -2191,6 +2327,7 @@
     "Common cold",
     "Conjunctivitis",
     "Constipation",
+    "Croup",
     "Drug eruptions",
     "Epidermoid cyst",
     "Erythema multiforme",
@@ -2203,15 +2340,23 @@
     "Henoch-Schonlein purpura",
     "Herpes simplex",
     "Impetigo",
+    "Infectious mononucleosis",
     "Influenza",
+    "Intussusception",
     "Kawasaki disease",
+    "Keratitis",
     "MRSA skin infection",
     "Measles",
+    "Nasal polyposis",
     "Non-specific viral exanthem",
     "Paronychia",
+    "Pelvic inflammatory disease",
+    "Pertussis",
     "Pityriasis rosea",
     "Pneumonia",
     "Pneumothorax",
+    "Pyelonephritis",
+    "Ramsay Hunt syndrome",
     "Raynaud's phenomenon",
     "Respiratory failure and ARDS",
     "Rheumatic fever",
@@ -2239,6 +2384,7 @@
    "also": null,
    "herbal": false,
    "conditions": [
+    "Abdominal trauma",
     "Acne",
     "Alopecia",
     "Attention deficit disorder",
@@ -2263,7 +2409,9 @@
     "Herpes simplex",
     "Hypothyroidism",
     "Impetigo",
+    "Infectious mononucleosis",
     "Influenza",
+    "Intussusception",
     "MRSA skin infection",
     "Measles",
     "Mold and mycotoxin illness",
@@ -2271,10 +2419,12 @@
     "Non-specific viral exanthem",
     "Otitis media",
     "Paronychia",
+    "Peptic ulcer disease",
     "Pneumonia",
     "Polycystic ovary syndrome",
     "Prostatitis",
     "Psoriasis",
+    "Ramsay Hunt syndrome",
     "Roseola",
     "Rubella",
     "Scabies",
@@ -2301,6 +2451,7 @@
     "Bronchitis",
     "Common cold",
     "Cough",
+    "Croup",
     "Fifth disease",
     "Hand, foot and mouth disease",
     "Influenza",
@@ -2330,6 +2481,7 @@
     "Influenza",
     "Measles",
     "Non-specific viral exanthem",
+    "Otitis externa",
     "Otitis media",
     "Pneumonia",
     "Roseola",
@@ -2358,6 +2510,7 @@
     "Hypertension",
     "Impetigo",
     "MRSA skin infection",
+    "Otitis externa",
     "Parasites, intestinal",
     "Paronychia",
     "Tinea",
@@ -2378,7 +2531,9 @@
     "Chronic pain",
     "Inflammatory bowel disease",
     "Neck and shoulder pain",
-    "Rheumatoid arthritis"
+    "Rheumatoid arthritis",
+    "Sciatica and lumbar radiculopathy",
+    "Spinal stenosis"
    ]
   },
   {
@@ -2399,13 +2554,19 @@
     "Erythema nodosum",
     "Fibromyalgia",
     "Inflammatory bowel disease",
+    "Iritis and anterior uveitis",
     "Neck and shoulder pain",
     "Osteoarthritis",
+    "Pericarditis",
     "Pleural disease",
+    "Pleuritis",
     "Psoriasis",
     "Pulmonary nodules and lung cancer",
     "Rheumatoid arthritis",
-    "Sarcoidosis"
+    "Sarcoidosis",
+    "Sciatica and lumbar radiculopathy",
+    "Scleritis and episcleritis",
+    "Spinal stenosis"
    ]
   },
   {
@@ -2529,8 +2690,10 @@
     "Food intolerance",
     "Gingivitis",
     "Hemolytic uremic syndrome",
+    "Hirschsprung disease",
     "Impetigo",
     "Inflammatory bowel disease",
+    "Intussusception",
     "Irritable bowel syndrome",
     "MRSA skin infection",
     "Mold and mycotoxin illness",
@@ -2539,8 +2702,10 @@
     "Otitis media",
     "Parasites, intestinal",
     "Parkinson's disease",
+    "Pelvic inflammatory disease",
     "Prostatitis",
     "Psoriasis",
+    "Pyelonephritis",
     "Rheumatic fever",
     "Rheumatoid arthritis",
     "Seborrheic dermatitis",
@@ -2689,6 +2854,8 @@
    "also": null,
    "herbal": false,
    "conditions": [
+    "Angina pectoris",
+    "Aortic stenosis",
     "Atherosclerosis",
     "Atrial fibrillation",
     "Atrial septal defect",
@@ -2708,8 +2875,11 @@
     "Hypertrophic cardiomyopathy",
     "Kawasaki disease",
     "Migraine",
+    "Mitral regurgitation",
     "Mitral valve prolapse",
     "Multiple sclerosis",
+    "Myocardial infarction",
+    "Myocarditis",
     "Parkinson's disease",
     "Pediatric hypertension",
     "Pulmonary hypertension",
@@ -2882,7 +3052,8 @@
    "conditions": [
     "Dyspepsia",
     "GERD",
-    "Gastritis"
+    "Gastritis",
+    "Peptic ulcer disease"
    ]
   },
   {
@@ -2898,6 +3069,7 @@
     "Dyspepsia",
     "GERD",
     "Gastritis",
+    "Peptic ulcer disease",
     "Sore throat"
    ]
   },
@@ -2981,9 +3153,11 @@
     "Diarrhea",
     "Food intolerance",
     "Gastritis",
+    "Hirschsprung disease",
     "Inflammatory bowel disease",
     "Interstitial cystitis",
     "Irritable bowel syndrome",
+    "Peptic ulcer disease",
     "Small intestinal bacterial overgrowth",
     "Wound healing"
    ]
@@ -3023,6 +3197,7 @@
    "also": null,
    "herbal": false,
    "conditions": [
+    "Pyelonephritis",
     "Urinary incontinence",
     "Urinary tract infection"
    ]
@@ -3036,6 +3211,7 @@
    "also": null,
    "herbal": false,
    "conditions": [
+    "Pyelonephritis",
     "Urinary tract infection"
    ]
   },
@@ -3197,6 +3373,7 @@
    "conditions": [
     "Allergic rhinitis",
     "Burns",
+    "Nasal polyposis",
     "Sinusitis",
     "Urticaria and angioedema",
     "Wound healing"
@@ -3213,6 +3390,7 @@
    "conditions": [
     "Chronic fatigue syndrome",
     "Common cold",
+    "Infectious mononucleosis",
     "Influenza"
    ]
   },
@@ -3229,6 +3407,7 @@
     "Common cold",
     "Folliculitis and boils",
     "Herpes simplex",
+    "Infectious mononucleosis",
     "MRSA skin infection",
     "Molluscum contagiosum",
     "Paronychia",
@@ -3247,6 +3426,10 @@
    "herbal": true,
    "conditions": [
     "Fatigue and low energy",
+    "Infectious mononucleosis",
+    "Keratitis",
+    "Peptic ulcer disease",
+    "Ramsay Hunt syndrome",
     "Sore throat"
    ]
   },
@@ -3299,6 +3482,7 @@
     "Hypertrophic cardiomyopathy",
     "Mitral valve prolapse",
     "Multiple sclerosis",
+    "Myocarditis",
     "Parkinson's disease",
     "Pulmonary hypertension",
     "Tetralogy of Fallot",
@@ -3373,8 +3557,12 @@
    "also": null,
    "herbal": true,
    "conditions": [
+    "Angina pectoris",
+    "Aortic stenosis",
     "Congestive heart failure",
-    "Hypertension"
+    "Hypertension",
+    "Mitral regurgitation",
+    "Myocardial infarction"
    ]
   },
   {
@@ -3560,7 +3748,10 @@
     "Chronic pain",
     "Migraine",
     "Neck and shoulder pain",
-    "Osteoporosis"
+    "Osteoporosis",
+    "Sciatica and lumbar radiculopathy",
+    "Spinal stenosis",
+    "Temporomandibular joint disorder"
    ]
   },
   {
@@ -3586,7 +3777,9 @@
     "Neck and shoulder pain",
     "Osteoarthritis",
     "Premenstrual syndrome",
-    "Rheumatoid arthritis"
+    "Rheumatoid arthritis",
+    "Sciatica and lumbar radiculopathy",
+    "Temporomandibular joint disorder"
    ]
   },
   {
@@ -3712,7 +3905,9 @@
    "zone": "therapeutics",
    "conditions": [
     "Back pain",
-    "Neck and shoulder pain"
+    "Neck and shoulder pain",
+    "Sciatica and lumbar radiculopathy",
+    "Spinal stenosis"
    ]
   },
   {
@@ -3813,6 +4008,8 @@
    "conditions": [
     "Candidiasis",
     "Mold and mycotoxin illness",
+    "Nasal polyposis",
+    "Postnasal drainage syndrome",
     "Sinusitis"
    ]
   },
@@ -3881,9 +4078,13 @@
    "caution": "Nasal cannula flow starts around 1 L/min. Use the minimum effective concentration — 60–100% risks oxygen toxicity. SpO2 92% or less needs more advanced care; 88% or less needs the emergency department.",
    "zone": "therapeutics",
    "conditions": [
+    "Anaphylaxis",
     "Atelectasis",
     "COVID-19",
     "Chronic obstructive pulmonary disease",
+    "Croup",
+    "Epiglottitis",
+    "Foreign body aspiration",
     "Idiopathic pulmonary fibrosis",
     "Pneumonia",
     "Pneumothorax",
@@ -3957,11 +4158,13 @@
    "zone": "lifestyle",
    "conditions": [
     "Abdominal aortic aneurysm",
+    "Angina pectoris",
     "Atherosclerosis",
     "Bronchitis",
     "Chronic obstructive pulmonary disease",
     "Erectile dysfunction",
     "Idiopathic pulmonary fibrosis",
+    "Myocardial infarction",
     "Pulmonary nodules and lung cancer",
     "Raynaud's phenomenon"
    ]
@@ -4046,6 +4249,7 @@
     "Interstitial cystitis",
     "Irritable bowel syndrome",
     "Multiple sclerosis",
+    "Peptic ulcer disease",
     "Post-traumatic stress disorder",
     "Prostatitis",
     "Psoriasis",
@@ -4063,6 +4267,7 @@
     "Acne",
     "Amenorrhea",
     "Anemia, iron deficiency",
+    "Angina pectoris",
     "Atherosclerosis",
     "Autoimmune conditions",
     "Bipolar disorder",
@@ -4095,6 +4300,7 @@
     "Menopause",
     "Mold and mycotoxin illness",
     "Multiple sclerosis",
+    "Myocardial infarction",
     "Obesity",
     "Osteoporosis",
     "Parasites, intestinal",
@@ -4136,7 +4342,9 @@
     "Interstitial cystitis",
     "Irritable bowel syndrome",
     "Migraine",
+    "Nasal polyposis",
     "Parasites, intestinal",
+    "Peptic ulcer disease",
     "Seizure disorder",
     "Small intestinal bacterial overgrowth",
     "Urticaria and angioedema"
@@ -4231,6 +4439,7 @@
    "conditions": [
     "Constipation",
     "Endometriosis",
+    "Hirschsprung disease",
     "Interstitial cystitis",
     "Prostatitis",
     "Sexually transmitted infection",
@@ -4266,6 +4475,7 @@
     "Abdominal aortic aneurysm",
     "Adjustment disorder",
     "Amenorrhea",
+    "Angina pectoris",
     "Anxiety",
     "Asthma",
     "Atherosclerosis",
@@ -4306,6 +4516,7 @@
     "Migraine",
     "Mitral valve prolapse",
     "Multiple sclerosis",
+    "Myocardial infarction",
     "Neck and shoulder pain",
     "Obesity",
     "Obstructive sleep apnea",
@@ -4322,7 +4533,9 @@
     "Raynaud's phenomenon",
     "Rheumatoid arthritis",
     "Sarcoidosis",
+    "Sciatica and lumbar radiculopathy",
     "Small intestinal bacterial overgrowth",
+    "Spinal stenosis",
     "Statin-associated muscle symptoms",
     "Tetralogy of Fallot",
     "Transposition of the great arteries",
@@ -4339,6 +4552,7 @@
    "caution": "Obesity is the most common risk factor for obstructive sleep apnoea.",
    "zone": "lifestyle",
    "conditions": [
+    "Angina pectoris",
     "Atherosclerosis",
     "Atrial fibrillation",
     "Benign prostatic hyperplasia",
@@ -4377,12 +4591,16 @@
     "Back pain",
     "Chronic pain",
     "Erythema nodosum",
+    "Hirschsprung disease",
     "Multiple sclerosis",
     "Neck and shoulder pain",
     "Osteoarthritis",
     "Parkinson's disease",
     "Pleural disease",
     "Rheumatoid arthritis",
+    "Sciatica and lumbar radiculopathy",
+    "Spinal stenosis",
+    "Temporomandibular joint disorder",
     "Thoracic injuries",
     "Vertigo"
    ]
@@ -4401,9 +4619,13 @@
     "Dysmenorrhea",
     "Fibromyalgia",
     "Folliculitis and boils",
+    "Infectious mononucleosis",
     "Neck and shoulder pain",
     "Osteoarthritis",
     "Paronychia",
+    "Pertussis",
+    "Pyelonephritis",
+    "Ramsay Hunt syndrome",
     "Raynaud's phenomenon",
     "Rheumatoid arthritis",
     "Varicose veins",
@@ -4432,7 +4654,10 @@
     "Migraine",
     "Nausea and vomiting",
     "Neck and shoulder pain",
-    "Osteoarthritis"
+    "Osteoarthritis",
+    "Sciatica and lumbar radiculopathy",
+    "Spinal stenosis",
+    "Temporomandibular joint disorder"
    ]
   },
   {
@@ -4457,7 +4682,10 @@
     "Allergic rhinitis",
     "Common cold",
     "Cough",
+    "Nasal polyposis",
     "Otitis media",
+    "Postnasal drainage syndrome",
+    "Rhinitis medicamentosa",
     "Sinusitis"
    ]
   },
@@ -4472,12 +4700,16 @@
     "Bronchitis",
     "Common cold",
     "Cough",
+    "Croup",
     "Fifth disease",
     "Influenza",
     "Measles",
     "Non-specific viral exanthem",
     "Otitis media",
+    "Pertussis",
+    "Pleuritis",
     "Pneumonia",
+    "Postnasal drainage syndrome",
     "Roseola",
     "Rubella",
     "Scarlet fever",
@@ -4509,6 +4741,7 @@
    "conditions": [
     "Benign prostatic hyperplasia",
     "Hemorrhoids",
+    "Pelvic inflammatory disease",
     "Prostatitis",
     "Urinary tract infection",
     "Varicella"
@@ -4532,6 +4765,7 @@
     "Epidermoid cyst",
     "Erythema multiforme",
     "Erythema nodosum",
+    "Eyelid and lacrimal disorders",
     "Fifth disease",
     "Folliculitis and boils",
     "Hand, foot and mouth disease",
@@ -4543,6 +4777,7 @@
     "Measles",
     "Molluscum contagiosum",
     "Non-specific viral exanthem",
+    "Otitis externa",
     "Paronychia",
     "Pityriasis alba",
     "Pityriasis rosea",
@@ -4612,6 +4847,7 @@
     "Mitral valve prolapse",
     "Mold and mycotoxin illness",
     "Multiple sclerosis",
+    "Myocardial infarction",
     "Parkinson's disease",
     "Polycystic ovary syndrome",
     "Pulmonary nodules and lung cancer",
@@ -4672,6 +4908,8 @@
    "why": "The first-line screen in fatigue, infection, bleeding and before most drug therapy.",
    "interpret": "Microcytic anaemia points at iron deficiency or thalassaemia; macrocytic at B12, folate, alcohol or hypothyroidism. Neutrophilia suggests bacterial infection, lymphocytosis viral, eosinophilia atopy or parasites.",
    "conditions": [
+    "Abdominal trauma",
+    "Acute pancreatitis",
     "Allergic rhinitis",
     "Alopecia",
     "Amenorrhea",
@@ -4682,6 +4920,7 @@
     "Attention deficit disorder",
     "Autoimmune conditions",
     "Bipolar disorder",
+    "Bowel obstruction",
     "Bronchiectasis",
     "Burns",
     "COVID-19",
@@ -4701,8 +4940,10 @@
     "Dyspepsia",
     "Eczema",
     "Endometriosis",
+    "Epiglottitis",
     "Erythema multiforme",
     "Erythema nodosum",
+    "Eyelid and lacrimal disorders",
     "Fatigue and low energy",
     "Fibromyalgia",
     "Fifth disease",
@@ -4719,32 +4960,44 @@
     "Hepatic steatosis",
     "Hepatitis",
     "Herpes simplex",
+    "Hirschsprung disease",
     "Hyperthyroidism",
     "Hypothyroidism",
     "Impetigo",
+    "Infectious mononucleosis",
     "Inflammatory bowel disease",
     "Influenza",
     "Irritable bowel syndrome",
     "Kawasaki disease",
     "Lactation support",
     "MRSA skin infection",
+    "Mastoiditis",
     "Measles",
     "Migraine",
     "Mold and mycotoxin illness",
     "Multiple sclerosis",
     "Nausea and vomiting",
     "Non-specific viral exanthem",
+    "Orbital and periorbital cellulitis",
     "Osteoporosis",
     "Otitis media",
     "Parasites, intestinal",
     "Parkinson's disease",
     "Paronychia",
+    "Pelvic inflammatory disease",
+    "Peptic ulcer disease",
+    "Pericarditis",
+    "Peritonsillar abscess",
+    "Pertussis",
     "Pityriasis rosea",
     "Pleural disease",
+    "Pleuritis",
     "Pneumonia",
     "Post-traumatic stress disorder",
     "Premenstrual syndrome",
     "Pulmonary nodules and lung cancer",
+    "Pyelonephritis",
+    "Ramsay Hunt syndrome",
     "Raynaud's phenomenon",
     "Respiratory failure and ARDS",
     "Rheumatic fever",
@@ -4771,10 +5024,12 @@
    "why": "Electrolytes, glucose, renal and liver function — baseline before and during most drug therapy.",
    "interpret": "Hyponatraemia raises Legionella, SIADH and paraneoplastic syndromes. A reversed albumin/globulin ratio appears in sarcoidosis.",
    "conditions": [
+    "Acute pancreatitis",
     "Anxiety",
     "Atrial fibrillation",
     "Autoimmune conditions",
     "Bipolar disorder",
+    "Bowel obstruction",
     "Burns",
     "COVID-19",
     "Celiac disease",
@@ -4963,6 +5218,8 @@
    "interpret": "Cholesterol that will not respond to diet and lifestyle may have an environmental toxicant component — one of the flags in your mould lecture.",
    "conditions": [
     "Abdominal aortic aneurysm",
+    "Acute pancreatitis",
+    "Angina pectoris",
     "Atherosclerosis",
     "Bipolar disorder",
     "Diabetes mellitus, type 2",
@@ -4972,6 +5229,7 @@
     "Hypertension",
     "Hypothyroidism",
     "Menopause",
+    "Myocardial infarction",
     "Obesity",
     "Pediatric hypertension",
     "Polycystic ovary syndrome",
@@ -4986,6 +5244,7 @@
    "interpret": "5.7–6.4% is prediabetes, 6.5% or above is diabetes. Falsely low with shortened red cell survival.",
    "conditions": [
     "Acne",
+    "Angina pectoris",
     "Atherosclerosis",
     "Candidiasis",
     "Chronic kidney disease",
@@ -5043,14 +5302,23 @@
     "Fifth disease",
     "Henoch-Schonlein purpura",
     "Inflammatory bowel disease",
+    "Iritis and anterior uveitis",
     "Kawasaki disease",
     "MRSA skin infection",
+    "Mastoiditis",
     "Measles",
+    "Myocarditis",
     "Neck and shoulder pain",
     "Non-specific viral exanthem",
+    "Orbital and periorbital cellulitis",
     "Osteoarthritis",
+    "Pelvic inflammatory disease",
+    "Pericarditis",
     "Pleural disease",
+    "Pleuritis",
     "Psoriasis",
+    "Pyelonephritis",
+    "Ramsay Hunt syndrome",
     "Raynaud's phenomenon",
     "Rheumatic fever",
     "Rheumatoid arthritis",
@@ -5058,6 +5326,7 @@
     "Rubella",
     "Sarcoidosis",
     "Scarlet fever",
+    "Scleritis and episcleritis",
     "Urticaria and angioedema"
    ]
   },
@@ -5129,6 +5398,9 @@
    "why": "Suspected acute coronary syndrome.",
    "interpret": "Serial measurement; any rise with chest pain is an emergency.",
    "conditions": [
+    "Angina pectoris",
+    "Myocardial infarction",
+    "Myocarditis",
     "Pulmonary embolism"
    ]
   },
@@ -5150,9 +5422,12 @@
    "interpret": "Guides both avoidance and biologic selection in severe asthma.",
    "conditions": [
     "Allergic rhinitis",
+    "Anaphylaxis",
     "Asthma",
     "Eczema",
     "Food intolerance",
+    "Nasal polyposis",
+    "Postnasal drainage syndrome",
     "Sinusitis",
     "Urticaria and angioedema"
    ]
@@ -5179,10 +5454,12 @@
     "Alopecia",
     "Autoimmune conditions",
     "Erythema nodosum",
+    "Iritis and anterior uveitis",
     "Multiple sclerosis",
     "Psoriasis",
     "Raynaud's phenomenon",
-    "Rheumatoid arthritis"
+    "Rheumatoid arthritis",
+    "Scleritis and episcleritis"
    ]
   },
   {
@@ -5192,7 +5469,9 @@
    "why": "Suspected rheumatoid arthritis.",
    "interpret": "Anti-CCP is the more specific and predicts erosive disease.",
    "conditions": [
-    "Rheumatoid arthritis"
+    "Iritis and anterior uveitis",
+    "Rheumatoid arthritis",
+    "Scleritis and episcleritis"
    ]
   },
   {
@@ -5229,6 +5508,7 @@
     "Hepatic steatosis",
     "Hepatitis",
     "Hyperthyroidism",
+    "Infectious mononucleosis",
     "Obesity",
     "Psoriasis",
     "Statin-associated muscle symptoms"
@@ -5258,7 +5538,8 @@
     "Dyspepsia",
     "GERD",
     "Gastritis",
-    "Nausea and vomiting"
+    "Nausea and vomiting",
+    "Peptic ulcer disease"
    ]
   },
   {
@@ -5321,15 +5602,16 @@
    "interpret": "A positive result needs colonoscopy, not repeat testing.",
    "conditions": [
     "Anemia, iron deficiency",
-    "Hemorrhoids"
+    "Hemorrhoids",
+    "Peptic ulcer disease"
    ]
   },
   {
    "id": "gimap",
-   "name": "Comprehensive stool analysis",
+   "name": "Comprehensive stool analysis (GI-MAP)",
    "kind": "specialty",
-   "why": "Dysbiosis, digestive capacity and inflammation in functional GI presentations.",
-   "interpret": "Interpret alongside symptoms; findings are frequently over-read.",
+   "why": "Dysbiosis, digestive capacity, intestinal permeability and inflammation in functional GI presentations. The panel reports ten groups: pathogens (bacterial, parasitic, viral); H. pylori with its virulence factors; normal bacterial flora; opportunistic bacteria; potential autoimmune triggers; fungi and yeast; viruses; parasites (protozoa and worms); intestinal health markers covering digestion, GI markers, immune response and inflammation; and antibiotic resistance genes.",
+   "interpret": "Interpret alongside symptoms; findings are frequently over-read. Working the abnormal groups: C. difficile toxins A and B follow prolonged antibiotic use and poor microbiome balance and present with abdominal pain, diarrhoea, fever and GI distress — S. boulardii and gut repair. H. pylori with positive virulence factors (babA, cagA, virB, virD) presents with bloating, gastric ulcers, nausea and reflux — an eradication protocol, mastic gum, zinc carnosine. Low Escherichia, Lactobacillus or Bacteroidetes with high Akkermansia is dysbiosis from antibiotic overuse, showing as poor digestion and weak immunity — probiotic-rich foods and Lactobacillus supplementation. High Pseudomonas, Staphylococcus, Streptococcus or Klebsiella is opportunistic overgrowth causing gut inflammation and skin conditions — herbal antimicrobials, berberine, garlic extract. Raised beta-glucuronidase and zonulin mean intestinal permeability and impaired oestrogen clearance, showing as brain fog, fatigue and food intolerances — gluten elimination and gut lining support.",
    "conditions": [
     "Bloating and gas",
     "Diarrhea",
@@ -5359,6 +5641,7 @@
    "why": "Urinary symptoms, flank pain, and as part of any systemic workup.",
    "interpret": "Nitrites and leukocyte esterase point at infection; microhaematuria appears in stones, Legionella and glomerular disease.",
    "conditions": [
+    "Abdominal trauma",
     "Appendicitis",
     "Benign prostatic hyperplasia",
     "Chronic kidney disease",
@@ -5372,6 +5655,7 @@
     "Kidney stones",
     "Pediatric hypertension",
     "Prostatitis",
+    "Pyelonephritis",
     "Sarcoidosis",
     "Sexually transmitted infection",
     "Urinary incontinence",
@@ -5388,6 +5672,7 @@
     "Benign prostatic hyperplasia",
     "Interstitial cystitis",
     "Prostatitis",
+    "Pyelonephritis",
     "Sexually transmitted infection",
     "Urinary incontinence",
     "Urinary tract infection"
@@ -5424,6 +5709,7 @@
     "Erythema multiforme",
     "Herpes simplex",
     "Interstitial cystitis",
+    "Pelvic inflammatory disease",
     "Pityriasis rosea",
     "Prostatitis",
     "Sexually transmitted infection",
@@ -5440,6 +5726,7 @@
    "interpret": "Clue cells for bacterial vaginosis, pseudohyphae for candida, motile organisms for trichomonas.",
    "conditions": [
     "Candidiasis",
+    "Pelvic inflammatory disease",
     "Sexually transmitted infection"
    ]
   },
@@ -5528,6 +5815,8 @@
    "why": "Cough over three weeks, suspected pneumonia, breathlessness, chest trauma, and any abnormal chest exam.",
    "interpret": "Lobar infiltrate confirms pneumonia. In asthma it shows hyperinflation, increased markings and atelectasis in children — patchy infiltration is not typical. It cannot confirm COPD.",
    "conditions": [
+    "Aortic dissection",
+    "Aortic stenosis",
     "Asthma",
     "Atelectasis",
     "Atrial septal defect",
@@ -5538,10 +5827,18 @@
     "Congestive heart failure",
     "Cough",
     "Erythema nodosum",
+    "Foreign body aspiration",
+    "Foreign body ingestion",
     "Hypertrophic cardiomyopathy",
     "Influenza",
+    "Mitral regurgitation",
     "Mitral valve prolapse",
+    "Myocardial infarction",
+    "Myocarditis",
+    "Pericarditis",
+    "Pertussis",
     "Pleural disease",
+    "Pleuritis",
     "Pneumonia",
     "Pneumothorax",
     "Pulmonary hypertension",
@@ -5726,6 +6023,8 @@
    "why": "Murmurs, heart failure, and screening for pulmonary hypertension before catheterisation.",
    "interpret": "Gives ejection fraction, valve function and estimated pulmonary pressures.",
    "conditions": [
+    "Angina pectoris",
+    "Aortic stenosis",
     "Atherosclerosis",
     "Atrial fibrillation",
     "Atrial septal defect",
@@ -5737,8 +6036,12 @@
     "Hypertrophic cardiomyopathy",
     "Idiopathic pulmonary fibrosis",
     "Kawasaki disease",
+    "Mitral regurgitation",
     "Mitral valve prolapse",
+    "Myocardial infarction",
+    "Myocarditis",
     "Pediatric hypertension",
+    "Pericarditis",
     "Pulmonary hypertension",
     "Rheumatic fever",
     "Tetralogy of Fallot",
@@ -5754,6 +6057,9 @@
    "interpret": "Read in a fixed order: rate, rhythm, QRS, P waves, PR interval, ST segments, delta waves, T waves — the eight-step sequence from your EKG assignment.",
    "conditions": [
     "Abdominal aortic aneurysm",
+    "Angina pectoris",
+    "Aortic dissection",
+    "Aortic stenosis",
     "Atherosclerosis",
     "Atrial fibrillation",
     "Atrial septal defect",
@@ -5763,7 +6069,11 @@
     "Hyperthyroidism",
     "Hypertrophic cardiomyopathy",
     "Kawasaki disease",
+    "Mitral regurgitation",
     "Mitral valve prolapse",
+    "Myocardial infarction",
+    "Myocarditis",
+    "Pericarditis",
     "Pulmonary embolism",
     "Pulmonary hypertension",
     "Rheumatic fever",
@@ -5844,12 +6154,17 @@
    "why": "Right upper quadrant pain, abnormal liver enzymes, suspected gallstones, hepatomegaly and fatty liver.",
    "interpret": "First-line for gallstones and for characterising the liver.",
    "conditions": [
+    "Abdominal trauma",
+    "Abdominal wall hernia",
+    "Acute pancreatitis",
     "Appendicitis",
     "Cyclical vomiting syndrome",
     "Dyspepsia",
     "Gallstones",
     "Hepatic steatosis",
     "Hepatitis",
+    "Intussusception",
+    "Malrotation and volvulus",
     "Nausea and vomiting"
    ]
   },
@@ -5867,6 +6182,7 @@
     "Kidney stones",
     "Pediatric hypertension",
     "Prostatitis",
+    "Pyelonephritis",
     "Urinary incontinence",
     "Urinary tract infection"
    ]
@@ -5878,8 +6194,17 @@
    "why": "Acute abdomen, suspected appendicitis, renal colic and unexplained mass.",
    "interpret": "Non-contrast CT is the standard for renal colic.",
    "conditions": [
+    "Abdominal trauma",
+    "Abdominal wall hernia",
+    "Acute pancreatitis",
     "Appendicitis",
-    "Kidney stones"
+    "Bowel obstruction",
+    "Foreign body ingestion",
+    "Hirschsprung disease",
+    "Intussusception",
+    "Kidney stones",
+    "Malrotation and volvulus",
+    "Pyelonephritis"
    ]
   },
   {
@@ -5891,8 +6216,10 @@
    "conditions": [
     "Amenorrhea",
     "Dysmenorrhea",
+    "Ectopic pregnancy",
     "Endometriosis",
     "Fertility and preconception",
+    "Pelvic inflammatory disease",
     "Polycystic ovary syndrome"
    ]
   },
@@ -5928,7 +6255,8 @@
     "Celiac disease",
     "Dyspepsia",
     "GERD",
-    "Gastritis"
+    "Gastritis",
+    "Peptic ulcer disease"
    ]
   },
   {
@@ -5939,7 +6267,10 @@
    "interpret": "Cauda equina syndrome is an emergency MRI, not a routine request.",
    "conditions": [
     "Back pain",
-    "Multiple sclerosis"
+    "Cauda equina syndrome",
+    "Multiple sclerosis",
+    "Sciatica and lumbar radiculopathy",
+    "Spinal stenosis"
    ]
   },
   {
@@ -5952,7 +6283,9 @@
     "Back pain",
     "Neck and shoulder pain",
     "Osteoarthritis",
-    "Rheumatoid arthritis"
+    "Rheumatoid arthritis",
+    "Spinal stenosis",
+    "Temporomandibular joint disorder"
    ]
   },
   {
@@ -6236,6 +6569,7 @@
    "why": "Every respiratory presentation.",
    "interpret": "92% or less indicates a need for more advanced care; 88% or less means the emergency department.",
    "conditions": [
+    "Anaphylaxis",
     "Asthma",
     "Atelectasis",
     "Bronchitis",
@@ -6243,6 +6577,7 @@
     "Chronic obstructive pulmonary disease",
     "Common cold",
     "Cough",
+    "Croup",
     "Idiopathic pulmonary fibrosis",
     "Influenza",
     "Obstructive sleep apnea",
@@ -6270,6 +6605,207 @@
    "interpret": "Dr Jill Crista's questionnaire is the one your lecture recommends for documentation and intake.",
    "conditions": [
     "Mold and mycotoxin illness"
+   ]
+  },
+  {
+   "id": "monospot",
+   "name": "Monospot and EBV serology",
+   "kind": "blood",
+   "why": "A sore throat or fatigue with posterior cervical nodes, splenomegaly or palatine petechiae.",
+   "interpret": "The heterophile antibody (monospot) can be negative in the first week and in young children; EBV VCA IgM and IgG separate acute from past infection. A CBC showing over 50 per cent lymphocytes with atypical forms supports the diagnosis.",
+   "conditions": [
+    "Chronic fatigue syndrome",
+    "Fatigue and low energy",
+    "Infectious mononucleosis",
+    "Sore throat"
+   ]
+  },
+  {
+   "id": "rapidstrep",
+   "name": "Rapid strep test and throat culture",
+   "kind": "micro",
+   "why": "Sore throat with fever, tonsillar exudate and anterior cervical nodes and no cough.",
+   "interpret": "A positive rapid test is treated. A negative rapid test in a child is backed up with culture, which is the reference standard. Neither distinguishes infection from carriage, so test only when the clinical picture fits.",
+   "conditions": [
+    "Peritonsillar abscess",
+    "Sore throat"
+   ]
+  },
+  {
+   "id": "tympanogram",
+   "name": "Pneumatic otoscopy and tympanometry",
+   "kind": "function",
+   "why": "Confirming middle ear fluid and drum mobility in otitis media and otitis media with effusion.",
+   "interpret": "A drum that does not move on insufflation means fluid or high middle ear pressure. A flat (type B) tympanogram means effusion; a negative-pressure (type C) trace means eustachian tube dysfunction.",
+   "conditions": [
+    "Cholesteatoma",
+    "Otitis externa",
+    "Otitis media"
+   ]
+  },
+  {
+   "id": "tonometry",
+   "name": "Tonometry",
+   "kind": "function",
+   "why": "Any painful red eye with halos, reduced acuity or a fixed mid-dilated pupil.",
+   "interpret": "Normal intraocular pressure is roughly 10 to 21 mmHg. A pressure in the 40s or above with a red painful eye is acute closed-angle glaucoma and needs emergency ophthalmology.",
+   "conditions": [
+    "Acute closed-angle glaucoma",
+    "Hyphema"
+   ]
+  },
+  {
+   "id": "fluorescein",
+   "name": "Fluorescein staining of the cornea",
+   "kind": "procedure",
+   "why": "Red eye with pain, photophobia, foreign body sensation or a history of HSV.",
+   "interpret": "Punctate uptake means keratitis; a linear or geographic defect means an abrasion; a branching dendrite means herpetic keratitis, which must not be given a topical steroid.",
+   "conditions": [
+    "Conjunctivitis",
+    "Hyphema",
+    "Keratitis"
+   ]
+  },
+  {
+   "id": "nasalsmear",
+   "name": "Nasal smear cytology",
+   "kind": "micro",
+   "why": "Separating allergic from infectious rhinitis when the history is ambiguous.",
+   "interpret": "Eosinophils point at allergic rhinitis; neutrophils point at infectious rhinitis. A smear with neither, in a patient with allergic symptoms, suggests non-allergic (vasomotor) rhinitis.",
+   "conditions": [
+    "Allergic rhinitis",
+    "Rhinitis medicamentosa",
+    "Sinusitis"
+   ]
+  },
+  {
+   "id": "sinusimg",
+   "name": "Sinus and orbital imaging — transillumination, radiograph and CT",
+   "kind": "imaging",
+   "why": "Sinusitis that is chronic, recurrent, unilateral or complicated; suspicion of obstruction or polyps; and any suspicion that infection has crossed the orbital septum.",
+   "interpret": "Decreased transillumination goes with acute sinusitis and is often absent altogether in chronic sinusitis. CT is the test that shows the ostiomeatal complex, polyps and bone involvement; plain films are largely superseded. CT of the orbits is what separates periorbital from orbital cellulitis when the bedside signs — pain on eye movement, proptosis, restricted motion — are equivocal.",
+   "conditions": [
+    "Nasal polyposis",
+    "Orbital and periorbital cellulitis",
+    "Postnasal drainage syndrome",
+    "Sinusitis"
+   ]
+  },
+  {
+   "id": "temporalct",
+   "name": "CT temporal bone",
+   "kind": "imaging",
+   "why": "Suspected mastoiditis or cholesteatoma.",
+   "interpret": "Coalescent mastoiditis shows loss of the bony septa in the mastoid air cells. Cholesteatoma shows a soft tissue mass with bone erosion. Both go to ENT the same day.",
+   "conditions": [
+    "Cholesteatoma",
+    "Mastoiditis"
+   ]
+  },
+  {
+   "id": "pancreatic",
+   "name": "Serum amylase and lipase",
+   "kind": "blood",
+   "why": "Epigastric or left upper quadrant pain radiating to the back, especially with a history of gallstones or alcohol.",
+   "interpret": "Lipase is more specific and stays raised longer than amylase. A level over three times the upper limit of normal with the right pain makes the diagnosis; the height of the number does not predict severity. Add triglycerides, calcium and a liver panel to find the cause.",
+   "conditions": [
+    "Acute pancreatitis",
+    "Gallstones"
+   ]
+  },
+  {
+   "id": "hcg",
+   "name": "Beta-hCG",
+   "kind": "blood",
+   "why": "Every woman of childbearing age with abdominal or pelvic pain, before imaging and before most drugs.",
+   "interpret": "A positive test with pain and no intrauterine pregnancy on ultrasound is an ectopic until proven otherwise. A discriminatory zone of roughly 1500 to 3500 mIU/mL is where a normal intrauterine pregnancy should be visible transvaginally.",
+   "conditions": [
+    "Ectopic pregnancy"
+   ]
+  },
+  {
+   "id": "esophfx",
+   "name": "Oesophageal pH monitoring, manometry and barium swallow",
+   "kind": "function",
+   "why": "Reflux that does not respond to treatment, or where dysphagia, achalasia or a stricture is on the list.",
+   "interpret": "pH monitoring quantifies acid exposure and correlates it with symptoms; manometry measures lower oesophageal sphincter tone and peristalsis; barium swallow shows strictures, rings, hernias and the bird-beak of achalasia.",
+   "conditions": [
+    "Dyspepsia",
+    "GERD",
+    "Gastritis"
+   ]
+  },
+  {
+   "id": "ctangio",
+   "name": "CT angiography of the aorta",
+   "kind": "imaging",
+   "why": "Ripping or tearing chest or back pain, unequal pulses, or a pulsatile abdominal mass.",
+   "interpret": "The test that confirms or excludes dissection and defines its extent. Do not delay transfer for it, and do not anticoagulate on suspicion of dissection.",
+   "conditions": [
+    "Abdominal aortic aneurysm",
+    "Aortic dissection"
+   ]
+  },
+  {
+   "id": "tryptase",
+   "name": "Serum tryptase and histamine",
+   "kind": "blood",
+   "why": "Confirming anaphylaxis after the event, and screening for mast cell disease in recurrent episodes.",
+   "interpret": "Tryptase peaks 1 to 2 hours after the reaction and settles by 6 to 24 hours, so it must be drawn during or just after the episode with a baseline taken later. A normal level does not exclude anaphylaxis, which stays a clinical diagnosis.",
+   "conditions": [
+    "Anaphylaxis",
+    "Urticaria and angioedema"
+   ]
+  },
+  {
+   "id": "contrastenema",
+   "name": "Contrast enema",
+   "kind": "procedure",
+   "why": "Suspected intussusception, and the transition zone in Hirschsprung disease.",
+   "interpret": "In intussusception it is both the diagnostic test and, as a pneumatic (air) enema, the preferred treatment. Perforation is the contraindication.",
+   "conditions": [
+    "Constipation",
+    "Hirschsprung disease",
+    "Intussusception"
+   ]
+  },
+  {
+   "id": "rectalbiopsy",
+   "name": "Rectal suction biopsy",
+   "kind": "procedure",
+   "why": "The gold standard for Hirschsprung disease.",
+   "interpret": "Absence of ganglion cells in the submucosa confirms the diagnosis. Take it above the physiologically aganglionic zone just above the dentate line or the result is uninterpretable.",
+   "conditions": [
+    "Constipation",
+    "Hirschsprung disease"
+   ]
+  },
+  {
+   "id": "resp_pcr",
+   "name": "Respiratory pathogen PCR panel",
+   "kind": "micro",
+   "why": "Cough or fever where influenza, COVID-19, RSV, pertussis or Mycoplasma would change what you do.",
+   "interpret": "Pertussis PCR is most sensitive in the first three weeks of cough and pairs with a marked lymphocytosis and an absent fever. A positive influenza or COVID result inside the treatment window opens antivirals.",
+   "conditions": [
+    "Asthma",
+    "COVID-19",
+    "Common cold",
+    "Cough",
+    "Influenza",
+    "Pertussis",
+    "Sore throat"
+   ]
+  },
+  {
+   "id": "bronchoscopy",
+   "name": "Bronchoscopy",
+   "kind": "procedure",
+   "why": "Suspected foreign body aspiration, and an unexplained persistent focal abnormality on imaging.",
+   "interpret": "Diagnostic and therapeutic in aspiration — the object comes out at the same sitting. In a child with a witnessed choking episode and a normal radiograph, the history outweighs the film.",
+   "conditions": [
+    "Cough",
+    "Foreign body aspiration",
+    "Foreign body ingestion"
    ]
   }
  ],
@@ -6341,7 +6877,8 @@
    "labs": [
     "ige",
     "eos",
-    "cbc"
+    "cbc",
+    "nasalsmear"
    ],
    "note": "Intranasal corticosteroid outperforms an oral antihistamine for persistent symptoms; saline rinsing is the highest-yield non-drug measure.",
    "protocol": "allergies"
@@ -6477,7 +7014,8 @@
     "eos",
     "ige",
     "cxr",
-    "pulseox"
+    "pulseox",
+    "resp_pcr"
    ],
    "note": "An inhaled corticosteroid belongs to every patient with persistent asthma; a LABA is never given alone. In an acute attack, wheeze that quietens is the airway closing, not improving.",
    "reference": [
@@ -6831,7 +7369,8 @@
     "cortisol",
     "mycotoxin",
     "oat",
-    "hepser"
+    "hepser",
+    "monospot"
    ],
    "note": "Pace rather than push — graded exercise can worsen post-exertional malaise. Brain fog with chronic fatigue and multiple systems involved is the pattern your mould lecture asks you to test for."
   },
@@ -7102,7 +7641,8 @@
     "sleephyg"
    ],
    "labs": [
-    "pulseox"
+    "pulseox",
+    "resp_pcr"
    ],
    "note": "Test for a specific pathogen as soon as a patient in a high-risk group becomes symptomatic. In anyone under 19 on long-term aspirin or salicylates, a viral URI raises the risk of Reye's syndrome.",
    "protocol": "upper-respiratory-infections"
@@ -7151,7 +7691,9 @@
    "therapies": [
     "dermcare"
    ],
-   "labs": [],
+   "labs": [
+    "fluorescein"
+   ],
    "note": "Most cases are viral and self-limiting. A contact-lens wearer, photophobia, or vision change needs same-day ophthalmology."
   },
   "Constipation": {
@@ -7179,7 +7721,9 @@
     "cmp",
     "cbc",
     "calpro",
-    "colonoscopy"
+    "colonoscopy",
+    "contrastenema",
+    "rectalbiopsy"
    ],
    "note": "Correct constipation before any detox protocol — your mould lecture is explicit that toxins recirculate when the bowel is not moving.",
    "reference": [
@@ -7333,7 +7877,9 @@
     "spirometry",
     "afb",
     "fet",
-    "pulseox"
+    "pulseox",
+    "resp_pcr",
+    "bronchoscopy"
    ],
    "note": "The three commonest causes of chronic cough are upper airway cough syndrome, asthma and reflux. Cough beyond three weeks, or with haemoptysis, night sweats or weight loss, needs imaging and TB testing."
   },
@@ -7570,6 +8116,24 @@
       "Lycopodium, Nux vomica, Silicea, Sulphur"
      ],
      "source": "Pediatrics final cheat sheet"
+    },
+    {
+     "title": "Diarrhea — mechanisms and infectious causes",
+     "body": [
+      "Secretory diarrhea: secretion of water and electrolytes",
+      "into the gut (cholera).",
+      "Motility-related diarrhea: Altered gastrointestinal motility",
+      "reducing absorption. Uncommon",
+      "Inflammatory diarrhea: mucosal damage/Inflammation ->",
+      "fluid, mucus, and blood loss into the gut (Salmonella,",
+      "Clostridium difficile)",
+      "Viral causes (most common): Rotavirus, Calicivirus",
+      "(Norovirus), Astrovirus, Parvovirus, Pestivirus, Adenovirus",
+      "Bacterial causes: Campylobacter, Salmonella, Escherichia",
+      "coli, Shigella, Vibrio cholera, Clostridium difficile",
+      "Parasitic causes: Giardia, Entamoeba histolytic"
+     ],
+     "source": "Pediatrics final cheat sheet"
     }
    ]
   },
@@ -7631,7 +8195,8 @@
     "egd",
     "cbc",
     "celiac",
-    "abdo_us"
+    "abdo_us",
+    "esophfx"
    ],
    "note": "Alarm features — weight loss, dysphagia, anaemia, vomiting, or new onset over 50 — mean endoscopy before empirical acid suppression."
   },
@@ -7804,7 +8369,8 @@
     "a1c",
     "phq9",
     "stopbang",
-    "cortisol"
+    "cortisol",
+    "monospot"
    ],
    "note": "Work through the common causes before the interesting ones: anaemia, thyroid, sleep apnoea, depression, medication and alcohol."
   },
@@ -7929,7 +8495,8 @@
    "labs": [
     "egd",
     "hpylori_t",
-    "cbc"
+    "cbc",
+    "esophfx"
    ],
    "note": "Raise the head of the bed and leave three hours between the last meal and lying down. Taper a long-term PPI rather than stopping it — rebound acid is real. Peppermint oil must be enteric-coated or it makes reflux worse.",
    "protocol": "gastroesophageal-reflux-disease",
@@ -7981,69 +8548,7 @@
       "sour belching, waterbrash, vomiting sour/cheesy/curdled",
       "matter; throat lump; loss appetite",
       "Others: Arsenicum album, Nux vomica, Pulsatilla, Robinia, Iris",
-      "versicolor, Carbo veg",
-      "Hirschsprung's Disease (HD)",
-      "Pathogenesis: Absence of ganglion cells and enteric nerve",
-      "plexus in intestine → stool backup, obstruction, infection. May",
-      "lead to perforation. More common in boys (4:1).",
-      "Presentation:",
-      "Newborns: Failure to pass meconium within 48 hours, bilious",
-      "vomiting, diarrhea, bloating/gas",
-      "Older children: Chronic constipation/diarrhea, bloating, gas,",
-      "vomiting, growth delays",
-      "PE: Abdominal distention, extremely tight anal sphincter, absent",
-      "rectal vault stool",
-      "Red Flags: Delayed meconium >24 hours, neonatal constipation,",
-      "family history, poor growth, abdominal distention, Down",
-      "syndrome",
-      "Gold Standard Diagnosis: Rectal suction biopsy (lack of",
-      "ganglionic cells in submucosa)",
-      "Conventional Treatment: Surgical resection (pull-through),",
-      "sacral nerve stimulation, pelvic floor therapy. Risks:",
-      "enterocolitis, bowel rupture.",
-      "Naturopathic Treatment: High-fiber diet, adequate hydration,",
-      "healthy bowel function support, microbiome support, anti-",
-      "inflammatory approaches, stress management",
-      "Volvulus & Malrotation",
-      "Presentation: Bilious vomiting, abdominal pain ± mass,",
-      "distention, constipation/diarrhea, rectal bleeding, bloody",
-      "stools, FTT, feeding intolerance/refusal, irritability, tachypnea",
-      "Volvulus = EMERGENT - most common intestinal obstruction",
-      "cause",
-      "Ladd Bands: Peritoneal bands between cecum and intestinal",
-      "wall in malrotation → duodenal blockage by pulling/twisting",
-      "intestines → physical obstruction",
-      "Intussusception",
-      "Definition: Intestine telescopes into adjoining lumen →",
-      "obstruction",
-      "Age: First 2 years (mostly 6-12 months)",
-      "Triad: Pain, sausage mass, currant jelly stool. Dance sign: RUQ",
-      "mass + RLQ emptiness",
-      "Diagnosis: Contrast enema, US (target/kidney sign)",
-      "Treatment:",
-      "Non-surgical: Pneumatic enema (air - preferred)",
-      "Surgical: Manual reduction or resection if needed",
-      "Post-Surgery Naturopathic: Bone broth, probiotics, omega-3s,",
-      "Zinc/Vitamin C, Ginger, Turmeric, Arnica (trauma), Staphysagria",
-      "(incisions)",
-      "Abdominal Emergencies",
-      "Stability Check: Appearance, breathing, circulation, vital signs",
-      "Acute Abdomen: Assess skin color, distension, tenderness,",
-      "guarding, rigidity",
-      "Foreign Body Ingestion",
-      "Usually pass once past pylorus. Serious: Multiple magnets,",
-      "button batteries, sharp objects",
-      "911: Breathing trouble, stridor, wheezing Urgent: Object ≥1 inch,",
-      "age <2, looks sick Home care: Swallow test; watch for choking,",
-      "pain, vomiting, blood",
-      "Abdominal Trauma",
-      "Source: 80% blunt (MVAs, falls, abuse). Penetrating: firearms",
-      "Higher Risk (Children): Thin abdominal wall, flexible ribs,",
-      "exposed organs, less fat, incompletely attached intestines,",
-      "bladder at umbilicus (birth)",
-      "Dosing Formulas",
-      "Clark's: (Weight lbs ÷ 150) × Adult dose Young's: [Age ÷ (Age + 12)] ×",
-      "Adult dose"
+      "versicolor, Carbo veg"
      ],
      "source": "Pediatrics final cheat sheet"
     }
@@ -8068,7 +8573,8 @@
     "abdo_us",
     "lft",
     "cbc",
-    "cmp"
+    "cmp",
+    "pancreatic"
    ],
    "note": "Ultrasound is first-line. Inspiratory arrest on right subcostal palpation — Murphy's sign — with fever means acute cholecystitis and urgent referral."
   },
@@ -8095,7 +8601,8 @@
     "hpylori_t",
     "egd",
     "cbc",
-    "celiac"
+    "celiac",
+    "esophfx"
    ],
    "note": "Test and treat H. pylori. Betaine HCl is contraindicated while the mucosa is inflamed or while on a PPI or NSAID."
   },
@@ -8345,7 +8852,8 @@
    "labs": [
     "pulseox",
     "cxr",
-    "cbc"
+    "cbc",
+    "resp_pcr"
    ],
    "note": "Rapid onset of fatigue, fever, myalgia and headache without loss of taste or smell points to influenza over COVID-19. Antivirals work best within 48 hours."
   },
@@ -8760,7 +9268,8 @@
     "nasalrinse"
    ],
    "labs": [
-    "cbc"
+    "cbc",
+    "tympanogram"
    ],
    "note": "A bulging, immobile, erythematous tympanic membrane is the finding. Many cases resolve without antibiotics — delayed prescribing is reasonable in the well child."
   },
@@ -9050,7 +9559,9 @@
     "nasalswab",
     "cbc",
     "ige",
-    "mycotoxin"
+    "mycotoxin",
+    "sinusimg",
+    "nasalsmear"
    ],
    "note": "Saline irrigation is the highest-yield measure. Treatment-resistant sinusitis is where your mould lecture asks for a nasal swab with BOTH bacterial and fungal components — the fungal side is the one commonly missed."
   },
@@ -9074,7 +9585,10 @@
    ],
    "labs": [
     "cbc",
-    "sti"
+    "sti",
+    "rapidstrep",
+    "monospot",
+    "resp_pcr"
    ],
    "note": "Score before swabbing, and swab before prescribing. In anyone under 19 on long-term salicylates, a viral illness carries Reye's syndrome risk."
   },
@@ -10049,7 +10563,8 @@
     "cbc",
     "cmp",
     "ddimer",
-    "crp"
+    "crp",
+    "resp_pcr"
    ],
    "note": "Resveratrol is the agent that addresses both the inflammation and the thrombus formation. Return to normal activities needs symptom improvement AND no fever for 24 hours — not a negative test.",
    "extra": true
@@ -10170,7 +10685,8 @@
     "aaa_us",
     "lipids",
     "bp_home",
-    "ekg"
+    "ekg",
+    "ctangio"
    ],
    "note": "A widened, expansile pulsation over 3 cm. Blood pressure control and smoking cessation slow expansion; size and growth rate decide repair.",
    "extra": true
@@ -10296,7 +10812,8 @@
     "ige",
     "tsh",
     "thyroidab",
-    "celiac"
+    "celiac",
+    "tryptase"
    ],
    "note": "Airway involvement or anaphylaxis is an emergency. Chronic urticaria warrants a thyroid and coeliac screen.",
    "extra": true,
@@ -12257,19 +12774,7 @@
       "association between high BP and obesity",
       "Secondary HTN: HTN w/identifiable cause, more common in",
       "children. Causes: renal, cardiac, endocrine disorders, and tumors.",
-      "Most common: Renal parenchymal",
-      "Secretory diarrhea: secretion of water and electrolytes",
-      "into the gut (cholera).",
-      "Motility-related diarrhea: Altered gastrointestinal motility",
-      "reducing absorption. Uncommon",
-      "Inflammatory diarrhea: mucosal damage/Inflammation ->",
-      "fluid, mucus, and blood loss into the gut (Salmonella,",
-      "Clostridium difficile)",
-      "Viral causes (most common): Rotavirus, Calicivirus",
-      "(Norovirus), Astrovirus, Parvovirus, Pestivirus, Adenovirus",
-      "Bacterial causes: Campylobacter, Salmonella, Escherichia",
-      "coli, Shigella, Vibrio cholera, Clostridium difficile",
-      "Parasitic causes: Giardia, Entamoeba histolytic"
+      "Most common: Renal parenchymal"
      ],
      "source": "Pediatrics final cheat sheet"
     }
@@ -13072,6 +13577,986 @@
    "note": "Depth and total body surface area decide referral. Cool with running water, never ice, and never break blisters routinely.",
    "extra": true,
    "protocol": "burns"
+  },
+  "Hirschsprung disease": {
+   "pharm": [],
+   "supps": [
+    "probiotic",
+    "glutamine"
+   ],
+   "therapies": [
+    "pelvicfloor",
+    "physio"
+   ],
+   "labs": [
+    "ctabdo",
+    "cbc",
+    "rectalbiopsy",
+    "contrastenema"
+   ],
+   "note": "Congenital aganglionosis. The gold standard is a rectal suction biopsy, and the treatment is surgical — naturopathic care supports bowel function around the pull-through, it does not replace it.",
+   "extra": true,
+   "reference": [
+    {
+     "title": "Hirschsprung's Disease (HD)",
+     "body": [
+      "Pathogenesis: Absence of ganglion cells and enteric nerve",
+      "plexus in intestine → stool backup, obstruction, infection. May",
+      "lead to perforation. More common in boys (4:1).",
+      "Presentation:",
+      "Newborns: Failure to pass meconium within 48 hours, bilious",
+      "vomiting, diarrhea, bloating/gas",
+      "Older children: Chronic constipation/diarrhea, bloating, gas,",
+      "vomiting, growth delays",
+      "PE: Abdominal distention, extremely tight anal sphincter, absent",
+      "rectal vault stool",
+      "Red Flags: Delayed meconium >24 hours, neonatal constipation,",
+      "family history, poor growth, abdominal distention, Down",
+      "syndrome",
+      "Gold Standard Diagnosis: Rectal suction biopsy (lack of",
+      "ganglionic cells in submucosa)",
+      "Conventional Treatment: Surgical resection (pull-through),",
+      "sacral nerve stimulation, pelvic floor therapy. Risks:",
+      "enterocolitis, bowel rupture.",
+      "Naturopathic Treatment: High-fiber diet, adequate hydration,",
+      "healthy bowel function support, microbiome support, anti-",
+      "inflammatory approaches, stress management"
+     ],
+     "source": "Pediatrics final cheat sheet"
+    }
+   ]
+  },
+  "Malrotation and volvulus": {
+   "pharm": [],
+   "supps": [],
+   "therapies": [],
+   "labs": [
+    "ctabdo",
+    "abdo_us"
+   ],
+   "note": "Volvulus is emergent and is the most common cause of intestinal obstruction in children. Bilious vomiting in an infant is a surgical referral until proven otherwise.",
+   "extra": true,
+   "reference": [
+    {
+     "title": "Volvulus & Malrotation",
+     "body": [
+      "Presentation: Bilious vomiting, abdominal pain ± mass,",
+      "distention, constipation/diarrhea, rectal bleeding, bloody",
+      "stools, FTT, feeding intolerance/refusal, irritability, tachypnea",
+      "Volvulus = EMERGENT - most common intestinal obstruction",
+      "cause",
+      "Ladd Bands: Peritoneal bands between cecum and intestinal",
+      "wall in malrotation → duodenal blockage by pulling/twisting",
+      "intestines → physical obstruction"
+     ],
+     "source": "Pediatrics final cheat sheet"
+    }
+   ]
+  },
+  "Intussusception": {
+   "pharm": [],
+   "supps": [
+    "probiotic",
+    "omega3",
+    "zinc",
+    "vitc"
+   ],
+   "therapies": [],
+   "labs": [
+    "abdo_us",
+    "ctabdo",
+    "contrastenema"
+   ],
+   "note": "Reduction is by pneumatic (air) enema where possible, surgery where not. The supplements listed are for recovery after reduction, not instead of it.",
+   "extra": true,
+   "reference": [
+    {
+     "title": "Intussusception",
+     "body": [
+      "Definition: Intestine telescopes into adjoining lumen →",
+      "obstruction",
+      "Age: First 2 years (mostly 6-12 months)",
+      "Triad: Pain, sausage mass, currant jelly stool. Dance sign: RUQ",
+      "mass + RLQ emptiness",
+      "Diagnosis: Contrast enema, US (target/kidney sign)",
+      "Treatment:",
+      "Non-surgical: Pneumatic enema (air - preferred)",
+      "Surgical: Manual reduction or resection if needed",
+      "Post-Surgery Naturopathic: Bone broth, probiotics, omega-3s,",
+      "Zinc/Vitamin C, Ginger, Turmeric, Arnica (trauma), Staphysagria",
+      "(incisions)"
+     ],
+     "source": "Pediatrics final cheat sheet"
+    },
+    {
+     "title": "Dosing Formulas",
+     "body": [
+      "Dosing Formulas",
+      "Clark's: (Weight lbs ÷ 150) × Adult dose Young's: [Age ÷ (Age + 12)] ×",
+      "Adult dose"
+     ],
+     "source": "Pediatrics final cheat sheet"
+    }
+   ]
+  },
+  "Foreign body ingestion": {
+   "pharm": [],
+   "supps": [],
+   "therapies": [],
+   "labs": [
+    "cxr",
+    "ctabdo",
+    "bronchoscopy"
+   ],
+   "note": "Most objects pass once past the pylorus. Multiple magnets, button batteries and sharp objects do not wait — a button battery in the oesophagus burns through in hours.",
+   "extra": true,
+   "reference": [
+    {
+     "title": "Abdominal Emergencies — Foreign Body Ingestion",
+     "body": [
+      "Abdominal Emergencies",
+      "Stability Check: Appearance, breathing, circulation, vital signs",
+      "Acute Abdomen: Assess skin color, distension, tenderness,",
+      "guarding, rigidity",
+      "Foreign Body Ingestion",
+      "Usually pass once past pylorus. Serious: Multiple magnets,",
+      "button batteries, sharp objects",
+      "911: Breathing trouble, stridor, wheezing Urgent: Object ≥1 inch,",
+      "age <2, looks sick Home care: Swallow test; watch for choking,",
+      "pain, vomiting, blood"
+     ],
+     "source": "Pediatrics final cheat sheet"
+    },
+    {
+     "title": "Dosing Formulas",
+     "body": [
+      "Dosing Formulas",
+      "Clark's: (Weight lbs ÷ 150) × Adult dose Young's: [Age ÷ (Age + 12)] ×",
+      "Adult dose"
+     ],
+     "source": "Pediatrics final cheat sheet"
+    }
+   ]
+  },
+  "Abdominal trauma": {
+   "pharm": [
+    "acetamin"
+   ],
+   "supps": [
+    "vitc",
+    "zinc"
+   ],
+   "therapies": [],
+   "labs": [
+    "ctabdo",
+    "cbc",
+    "abdo_us",
+    "ua"
+   ],
+   "note": "Eighty per cent is blunt. Children are at higher risk than adults from the same force: a thin abdominal wall, flexible ribs, less fat and more exposed organs. Consider non-accidental injury.",
+   "extra": true,
+   "reference": [
+    {
+     "title": "Abdominal Trauma",
+     "body": [
+      "Abdominal Trauma",
+      "Source: 80% blunt (MVAs, falls, abuse). Penetrating: firearms",
+      "Higher Risk (Children): Thin abdominal wall, flexible ribs,",
+      "exposed organs, less fat, incompletely attached intestines,",
+      "bladder at umbilicus (birth)"
+     ],
+     "source": "Pediatrics final cheat sheet"
+    },
+    {
+     "title": "Dosing Formulas",
+     "body": [
+      "Dosing Formulas",
+      "Clark's: (Weight lbs ÷ 150) × Adult dose Young's: [Age ÷ (Age + 12)] ×",
+      "Adult dose"
+     ],
+     "source": "Pediatrics final cheat sheet"
+    }
+   ]
+  },
+  "Otitis externa": {
+   "pharm": [
+    "abx_topical_eye",
+    "acetamin",
+    "antifungal"
+   ],
+   "supps": [
+    "garlic",
+    "propolis"
+   ],
+   "therapies": [
+    "dermcare"
+   ],
+   "labs": [
+    "tympanogram"
+   ],
+   "note": "Swimmer's ear. Pain on manipulating the pinna and tragus is what separates it from otitis media. Keep the canal dry; the traditional dispensary answer is a mix of water, vinegar and rubbing alcohol, with antibiotic drops if it does not settle. Diabetes and immunocompromise raise the risk of malignant otitis externa.",
+   "extra": true
+  },
+  "Mastoiditis": {
+   "pharm": [
+    "abx_broad"
+   ],
+   "supps": [],
+   "therapies": [],
+   "labs": [
+    "temporalct",
+    "cbc",
+    "crp"
+   ],
+   "note": "A complication of bacterial otitis media. Tenderness and erythema over the mastoid with the pinna pushed forward is an emergency referral, not a naturopathic case.",
+   "extra": true
+  },
+  "Cholesteatoma": {
+   "pharm": [
+    "abx_resp"
+   ],
+   "supps": [],
+   "therapies": [],
+   "labs": [
+    "temporalct",
+    "tympanogram"
+   ],
+   "note": "An epidermal inclusion cyst of the middle ear or mastoid, usually from repeated middle ear infection. Foul discharge through a perforated drum with white granulation tissue. Surgical, and referred.",
+   "extra": true
+  },
+  "Ramsay Hunt syndrome": {
+   "pharm": [
+    "antiviral_hsv",
+    "acetamin",
+    "sysster"
+   ],
+   "supps": [
+    "vitc",
+    "zinc",
+    "licorice_dgl"
+   ],
+   "therapies": [
+    "hydrotherapy"
+   ],
+   "labs": [
+    "cbc",
+    "crp"
+   ],
+   "note": "Herpes zoster of the facial nerve. Vesicles in and around the ear with same-side facial weakness or hearing loss. Antivirals started within 72 hours change the outcome for the facial nerve, so this is a same-day referral.",
+   "extra": true
+  },
+  "Temporomandibular joint disorder": {
+   "pharm": [
+    "nsaid",
+    "musclerelax"
+   ],
+   "supps": [
+    "magglyc"
+   ],
+   "therapies": [
+    "adjustments",
+    "massage",
+    "physio",
+    "acupuncture"
+   ],
+   "labs": [
+    "xray_joint"
+   ],
+   "note": "Referred ear pain with tenderness over the joint and clicking on movement, often worse in the morning from night grinding. Craniosacral therapy and intraoral manipulation are the manual answers; look for the bruxism driving it.",
+   "extra": true
+  },
+  "Peritonsillar abscess": {
+   "pharm": [
+    "abx_broad"
+   ],
+   "supps": [],
+   "therapies": [],
+   "labs": [
+    "cbc",
+    "rapidstrep"
+   ],
+   "note": "Sore throat with trismus, asymmetric swelling and a muffled voice. Drainage and antibiotics — immediate referral, and airway first.",
+   "extra": true
+  },
+  "Epiglottitis": {
+   "pharm": [
+    "abx_broad",
+    "sysster"
+   ],
+   "supps": [],
+   "therapies": [
+    "o2"
+   ],
+   "labs": [
+    "cbc"
+   ],
+   "note": "Rapid-onset stridor with drooling and a toxic appearance. Do not inspect the throat and do not lie the patient down: examination can precipitate complete obstruction. Emergency airway management.",
+   "extra": true
+  },
+  "Infectious mononucleosis": {
+   "pharm": [
+    "acetamin",
+    "sysster"
+   ],
+   "supps": [
+    "vitc",
+    "zinc",
+    "astragalus",
+    "licorice_dgl",
+    "mushroom"
+   ],
+   "therapies": [
+    "hydrotherapy"
+   ],
+   "labs": [
+    "monospot",
+    "cbc",
+    "lft"
+   ],
+   "note": "EBV in a young adult: slow onset, mild sore throat, posterior cervical nodes, palatine petechiae and splenomegaly. No contact sport while the spleen is enlarged. Amoxicillin given for a presumed strep throat produces the classic rash.",
+   "extra": true
+  },
+  "Croup": {
+   "pharm": [
+    "sysster",
+    "saba"
+   ],
+   "supps": [
+    "vitc",
+    "elderberry"
+   ],
+   "therapies": [
+    "steam",
+    "o2"
+   ],
+   "labs": [
+    "pulseox"
+   ],
+   "note": "Viral laryngotracheobronchitis with a seal-bark cough and inspiratory stridor, worse at night. Mostly a clinical diagnosis. Humidified air and calm; refer if stridor is present at rest.",
+   "extra": true
+  },
+  "Pertussis": {
+   "pharm": [
+    "abx_resp"
+   ],
+   "supps": [
+    "vitc"
+   ],
+   "therapies": [
+    "hydrotherapy",
+    "steam"
+   ],
+   "labs": [
+    "resp_pcr",
+    "cbc",
+    "cxr"
+   ],
+   "note": "A hacking cough with an inspiratory whoop that persists for months, with a marked lymphocytosis and an absent fever. Grindelia is the coursework's botanical answer. Antibiotics limit spread more than they shorten the cough, so treat contacts and check immunisation.",
+   "extra": true
+  },
+  "Nasal polyposis": {
+   "pharm": [
+    "inasal",
+    "sysster",
+    "ltra"
+   ],
+   "supps": [
+    "quercetin",
+    "vitc",
+    "bromelain"
+   ],
+   "therapies": [
+    "nasalrinse",
+    "sinusrinse",
+    "elimdiet"
+   ],
+   "labs": [
+    "sinusimg",
+    "ige"
+   ],
+   "note": "Translucent growths with chronic sinusitis symptoms. Ask about asthma and aspirin intolerance — with polyps that triad is Samter's, and NSAIDs must be avoided.",
+   "extra": true
+  },
+  "Rhinitis medicamentosa": {
+   "pharm": [
+    "inasal"
+   ],
+   "supps": [],
+   "therapies": [
+    "nasalrinse"
+   ],
+   "labs": [
+    "nasalsmear"
+   ],
+   "note": "Rebound congestion from a topical decongestant spray, with swollen dry mucosa and clear mucus. The treatment is stopping the spray and carrying the patient through the rebound with saline and, if needed, a short intranasal steroid.",
+   "extra": true
+  },
+  "Postnasal drainage syndrome": {
+   "pharm": [
+    "inasal",
+    "antihist1",
+    "antihist2"
+   ],
+   "supps": [
+    "nac",
+    "quercetin"
+   ],
+   "therapies": [
+    "nasalrinse",
+    "sinusrinse",
+    "steam"
+   ],
+   "labs": [
+    "sinusimg",
+    "ige"
+   ],
+   "note": "One of the three causes of most chronic cough, alongside asthma and reflux. Cobblestoning in the posterior pharynx with a normal chest exam. Salt water gargle and a neti pot before anything else.",
+   "extra": true
+  },
+  "Acute closed-angle glaucoma": {
+   "pharm": [],
+   "supps": [],
+   "therapies": [],
+   "labs": [
+    "tonometry"
+   ],
+   "note": "Unilateral deep pain with halos, a fixed mid-dilated pupil, a hard red eye and vasovagal nausea. Sight is lost in hours — emergency ophthalmology, and never a mydriatic.",
+   "extra": true
+  },
+  "Iritis and anterior uveitis": {
+   "pharm": [
+    "topster"
+   ],
+   "supps": [
+    "curcumin",
+    "omega3",
+    "vitd"
+   ],
+   "therapies": [],
+   "labs": [
+    "ana",
+    "rf_ccp",
+    "crp"
+   ],
+   "note": "Unilateral aching pain with photophobia, ciliary flush and a smaller, sluggish pupil. Referred same day. Recurrent uveitis is screened for HLA-B27 disease, sarcoidosis and inflammatory bowel disease.",
+   "extra": true
+  },
+  "Keratitis": {
+   "pharm": [
+    "antiviral_hsv",
+    "abx_topical_eye"
+   ],
+   "supps": [
+    "licorice_dgl",
+    "vitc"
+   ],
+   "therapies": [],
+   "labs": [
+    "fluorescein"
+   ],
+   "note": "An inflamed cornea with moderate to severe pain, ciliary flush, cloudy cornea and reduced acuity. A dendrite on fluorescein means herpetic keratitis, which must never be given a topical steroid. Contact lens wear is the other common cause.",
+   "extra": true
+  },
+  "Scleritis and episcleritis": {
+   "pharm": [
+    "nsaid",
+    "sysster"
+   ],
+   "supps": [
+    "omega3",
+    "curcumin"
+   ],
+   "therapies": [],
+   "labs": [
+    "ana",
+    "rf_ccp",
+    "crp"
+   ],
+   "note": "Scleritis is a deep boring pain that wakes the patient, often with a systemic immune disease behind it. Episcleritis is superficial, less painful and self-limiting. The distinction matters: scleritis threatens the eye and is referred.",
+   "extra": true
+  },
+  "Hyphema": {
+   "pharm": [],
+   "supps": [],
+   "therapies": [],
+   "labs": [
+    "fluorescein",
+    "tonometry"
+   ],
+   "note": "Blood layered in the anterior chamber after blunt trauma, with pain, reduced acuity and an irregular pupil. Refer. Sickle cell status matters — even a small hyphema can raise pressure catastrophically.",
+   "extra": true
+  },
+  "Orbital and periorbital cellulitis": {
+   "pharm": [
+    "abx_broad"
+   ],
+   "supps": [],
+   "therapies": [],
+   "labs": [
+    "cbc",
+    "crp",
+    "sinusimg"
+   ],
+   "note": "The distinction is made at the bedside: in periorbital (preseptal) cellulitis the eye moves freely and vision is intact; in orbital cellulitis there is pain on eye movement, proptosis and limited motion. Orbital is an emergency with CT and intravenous antibiotics.",
+   "extra": true
+  },
+  "Eyelid and lacrimal disorders": {
+   "pharm": [
+    "abx_topical_eye",
+    "topster"
+   ],
+   "supps": [
+    "omega3"
+   ],
+   "therapies": [
+    "dermcare"
+   ],
+   "labs": [
+    "cbc"
+   ],
+   "note": "Blepharitis is bilateral, painless and scaling. A hordeolum (stye) is unilateral, painful and points at the lid margin. A chalazion is a chronic painless nodule on the tarsal plate. Dacryocystitis is an acutely painful swelling over the lacrimal sac with pus on pressure. Warm compresses and lid hygiene cover the first three; the fourth needs antibiotics.",
+   "extra": true
+  },
+  "Angina pectoris": {
+   "pharm": [
+    "nitrate",
+    "bblocker",
+    "aspirin",
+    "statin",
+    "ccb"
+   ],
+   "supps": [
+    "coq10",
+    "hawthorn",
+    "omega3",
+    "magglyc"
+   ],
+   "therapies": [
+    "exercise",
+    "medi_diet",
+    "smokingcess",
+    "weightmgmt"
+   ],
+   "labs": [
+    "ekg",
+    "echo",
+    "lipids",
+    "a1c",
+    "trop"
+   ],
+   "note": "Substernal pressure on exertion or stress, relieved by rest or nitroglycerin, radiating to the left shoulder, neck or jaw. Pain at rest, lasting longer, or not relieved by nitroglycerin is unstable and goes to hospital.",
+   "extra": true
+  },
+  "Myocardial infarction": {
+   "pharm": [
+    "aspirin",
+    "anticoag",
+    "bblocker",
+    "statin",
+    "acei",
+    "nitrate"
+   ],
+   "supps": [
+    "coq10",
+    "omega3",
+    "magglyc",
+    "hawthorn"
+   ],
+   "therapies": [
+    "exercise",
+    "medi_diet",
+    "smokingcess",
+    "counselling"
+   ],
+   "labs": [
+    "ekg",
+    "trop",
+    "lipids",
+    "echo",
+    "cxr"
+   ],
+   "note": "Sudden severe central chest pain at rest radiating to the left shoulder, arm, throat or jaw, with diaphoresis, nausea and a sense of impending doom, not relieved by rest or nitroglycerin. Emergency. Naturopathic care belongs to secondary prevention afterwards, never to the acute event.",
+   "extra": true
+  },
+  "Pericarditis": {
+   "pharm": [
+    "nsaid",
+    "colchicine",
+    "sysster"
+   ],
+   "supps": [
+    "curcumin",
+    "omega3"
+   ],
+   "therapies": [],
+   "labs": [
+    "ekg",
+    "crp",
+    "cbc",
+    "echo",
+    "cxr"
+   ],
+   "note": "Sharp stabbing pain referred to the left trapezius ridge, worse on inspiration and lying flat, relieved by sitting forward, with a friction rub. Usually post-viral. Watch for effusion and tamponade.",
+   "extra": true
+  },
+  "Myocarditis": {
+   "pharm": [
+    "nsaid"
+   ],
+   "supps": [
+    "coq10",
+    "carnitine"
+   ],
+   "therapies": [],
+   "labs": [
+    "ekg",
+    "trop",
+    "echo",
+    "cxr",
+    "crp"
+   ],
+   "note": "Chest pain with a recent viral infection, dyspnoea, a murmur or friction rub and fever. Rest is the treatment; exertion during the acute phase is what kills. Cardiology referral.",
+   "extra": true
+  },
+  "Aortic dissection": {
+   "pharm": [],
+   "supps": [],
+   "therapies": [],
+   "labs": [
+    "ctangio",
+    "ekg",
+    "cxr"
+   ],
+   "note": "Ripping, tearing, relentless pain radiating between the shoulder blades, jaw, neck or lower back, in a patient with hypertension, with asymmetric pulses or pressures. Emergency transfer — and do not anticoagulate.",
+   "extra": true
+  },
+  "Aortic stenosis": {
+   "pharm": [
+    "bblocker"
+   ],
+   "supps": [
+    "coq10",
+    "hawthorn"
+   ],
+   "therapies": [],
+   "labs": [
+    "echo",
+    "ekg",
+    "cxr"
+   ],
+   "note": "Exertional chest pain with a loud harsh murmur at the second right intercostal space, a narrow pulse pressure and a diminished radial pulse. The murmur gets louder on squatting and quieter on standing and Valsalva — the opposite of hypertrophic cardiomyopathy. Angina, syncope or heart failure marks severe disease.",
+   "extra": true
+  },
+  "Mitral regurgitation": {
+   "pharm": [
+    "acei",
+    "loop"
+   ],
+   "supps": [
+    "coq10",
+    "hawthorn",
+    "magglyc"
+   ],
+   "therapies": [],
+   "labs": [
+    "echo",
+    "ekg",
+    "cxr"
+   ],
+   "note": "A holosystolic blowing murmur loudest at the apex in the left lateral position, radiating to the axilla, decreasing with inspiration. Follow with serial echocardiography; refer before the ventricle dilates.",
+   "extra": true
+  },
+  "Pleuritis": {
+   "pharm": [
+    "nsaid",
+    "acetamin"
+   ],
+   "supps": [
+    "curcumin",
+    "omega3"
+   ],
+   "therapies": [
+    "steam"
+   ],
+   "labs": [
+    "cxr",
+    "crp",
+    "cbc"
+   ],
+   "note": "Mild localised chest pain worse on deep breathing, with shallow respirations and a pleural friction rub, usually after a URI. Exclude embolism and pneumothorax before calling it pleurisy.",
+   "extra": true
+  },
+  "Foreign body aspiration": {
+   "pharm": [],
+   "supps": [],
+   "therapies": [
+    "o2"
+   ],
+   "labs": [
+    "cxr",
+    "bronchoscopy"
+   ],
+   "note": "Sudden cough and dyspnoea with a choking episode, sometimes followed by a quiet period, then stridor or a persistent focal wheeze. A normal chest radiograph does not exclude it — the history decides, and bronchoscopy is both the test and the treatment.",
+   "extra": true
+  },
+  "Acute pancreatitis": {
+   "pharm": [
+    "acetamin",
+    "ondan"
+   ],
+   "supps": [],
+   "therapies": [],
+   "labs": [
+    "pancreatic",
+    "cbc",
+    "cmp",
+    "lipids",
+    "abdo_us",
+    "ctabdo"
+   ],
+   "note": "Steady dull epigastric or left upper quadrant pain radiating to the back, unrelieved by position, with nausea and vomiting. Gallstones and alcohol cause most of it. Nil by mouth, fluids and analgesia — a hospital diagnosis.",
+   "extra": true
+  },
+  "Peptic ulcer disease": {
+   "pharm": [
+    "ppi",
+    "h2ra",
+    "sucral",
+    "hpylori",
+    "antacid"
+   ],
+   "supps": [
+    "dgl",
+    "zinc",
+    "slipperyelm",
+    "glutamine",
+    "licorice_dgl"
+   ],
+   "therapies": [
+    "elimdiet",
+    "mindfulness"
+   ],
+   "labs": [
+    "hpylori_t",
+    "egd",
+    "cbc",
+    "fob"
+   ],
+   "note": "Burning or gnawing epigastric pain with an empty stomach, relieved by food in duodenal ulcer and worse with food in gastric ulcer. H. pylori and chronic NSAIDs cause most of it. Haematemesis or melena is an emergency.",
+   "extra": true
+  },
+  "Bowel obstruction": {
+   "pharm": [
+    "ondan"
+   ],
+   "supps": [],
+   "therapies": [],
+   "labs": [
+    "ctabdo",
+    "cbc",
+    "cmp"
+   ],
+   "note": "Sudden crampy periumbilical pain with vomiting, distention, high-pitched bowel sounds and an empty rectum on digital examination. Surgical. Never give a prokinetic or a laxative on suspicion of mechanical obstruction.",
+   "extra": true
+  },
+  "Abdominal wall hernia": {
+   "pharm": [
+    "acetamin"
+   ],
+   "supps": [],
+   "therapies": [],
+   "labs": [
+    "abdo_us",
+    "ctabdo"
+   ],
+   "note": "Localised pain and a bulge that increases with exertion or lifting and appears on Valsalva. A hernia that becomes irreducible, tender or discoloured is incarcerated or strangulated and goes to surgery now.",
+   "extra": true
+  },
+  "Ectopic pregnancy": {
+   "pharm": [],
+   "supps": [],
+   "therapies": [],
+   "labs": [
+    "hcg",
+    "pelvic_us"
+   ],
+   "note": "Sudden lower quadrant cramping with spotting after a missed period, cervical motion tenderness and a tender adnexal mass. Beta-hCG first, then transvaginal ultrasound. The reason a last menstrual period is asked in every woman with abdominal pain.",
+   "extra": true
+  },
+  "Pelvic inflammatory disease": {
+   "pharm": [
+    "abx_broad"
+   ],
+   "supps": [
+    "probiotic",
+    "vitc"
+   ],
+   "therapies": [
+    "sitzbath"
+   ],
+   "labs": [
+    "sti",
+    "crp",
+    "cbc",
+    "wetmount",
+    "pelvic_us"
+   ],
+   "note": "Bilateral lower abdominal pain in a sexually active woman with cervical motion and adnexal tenderness, discharge, irregular bleeding and fever. Treat on clinical suspicion and treat the partner; untreated it costs fertility.",
+   "extra": true
+  },
+  "Pyelonephritis": {
+   "pharm": [
+    "abx_uti"
+   ],
+   "supps": [
+    "dmannose",
+    "cranberry",
+    "probiotic",
+    "vitc"
+   ],
+   "therapies": [
+    "hydrotherapy"
+   ],
+   "labs": [
+    "ua",
+    "urineculture",
+    "cbc",
+    "crp",
+    "renal_us",
+    "ctabdo"
+   ],
+   "note": "Flank or back pain with fever, nausea and costovertebral angle tenderness on percussion — an upper tract infection, not a bladder one. Antibiotics, and admission if the patient is systemically unwell, pregnant or vomiting.",
+   "extra": true
+  },
+  "Spinal stenosis": {
+   "pharm": [
+    "nsaid",
+    "gabapentinoid",
+    "acetamin"
+   ],
+   "supps": [
+    "curcumin",
+    "boswellia",
+    "magglyc"
+   ],
+   "therapies": [
+    "physio",
+    "exercise",
+    "adjustments",
+    "acupuncture",
+    "traction"
+   ],
+   "labs": [
+    "mri_spine",
+    "xray_joint"
+   ],
+   "note": "Back and leg pain worse standing and walking, relieved by sitting or leaning forward, with pseudoclaudication. Flexion-based exercise helps; progressive neurological deficit is a surgical referral.",
+   "extra": true
+  },
+  "Sciatica and lumbar radiculopathy": {
+   "pharm": [
+    "nsaid",
+    "gabapentinoid",
+    "musclerelax"
+   ],
+   "supps": [
+    "curcumin",
+    "boswellia",
+    "magglyc",
+    "bcomplex"
+   ],
+   "therapies": [
+    "physio",
+    "exercise",
+    "adjustments",
+    "acupuncture",
+    "massage",
+    "traction"
+   ],
+   "labs": [
+    "mri_spine"
+   ],
+   "note": "Radicular leg pain below the knee with a positive straight leg raise, and dermatomal numbness or weakness. Most settle in six to twelve weeks. Progressive weakness, or any bladder or bowel change, is not one of them.",
+   "extra": true
+  },
+  "Cauda equina syndrome": {
+   "pharm": [],
+   "supps": [],
+   "therapies": [],
+   "labs": [
+    "mri_spine"
+   ],
+   "note": "Saddle anaesthesia, bilateral leg symptoms and loss of bowel or bladder control. Emergency MRI and surgical decompression within hours, not days — this is the red flag every low back history exists to find.",
+   "extra": true
+  },
+  "Anaphylaxis": {
+   "pharm": [
+    "epinephrine",
+    "antihist1",
+    "antihist2",
+    "h2ra",
+    "sysster",
+    "saba",
+    "glucagon"
+   ],
+   "supps": [],
+   "therapies": [
+    "o2"
+   ],
+   "labs": [
+    "tryptase",
+    "ige",
+    "pulseox"
+   ],
+   "note": "A clinical diagnosis. The most common signs are cutaneous — sudden generalised urticaria, angioedema, flushing, pruritus — but 10 to 20 per cent of patients have no skin findings at all. Danger signs are rapid progression, respiratory distress, vomiting, abdominal pain, hypotension, dysrhythmia, chest pain and collapse. Intramuscular epinephrine is first and there are no absolute contraindications to it; antihistamines and glucocorticoids are adjuncts and must never be the initial or sole treatment.",
+   "extra": true,
+   "protocol": "anaphylaxis-emergency",
+   "reference": [
+    {
+     "title": "Anaphylaxis — rapid overview of emergency management",
+     "body": [
+      "Diagnosis is clinical. Most common signs and symptoms are cutaneous (sudden onset of generalized",
+      "urticaria, angioedema, flushing, pruritus). However, 10 to 20% of patients have no skin findings.",
+      "Danger signs — Rapid progression of symptoms, respiratory distress (stridor, wheezing, dyspnea,",
+      "increased work of breathing, persistent cough, cyanosis), vomiting, abdominal pain, hypotension,",
+      "dysrhythmia, chest pain, collapse.",
+      "The first and most important treatment in anaphylaxis is epinephrine. There are NO absolute",
+      "contraindications to epinephrine in the setting of anaphylaxis.",
+      "Airway — Immediate intubation if evidence of impending airway obstruction from angioedema. Delay",
+      "may lead to complete obstruction. Intubation can be difficult and should be performed by the most",
+      "experienced clinician available. Cricothyrotomy may be necessary.",
+      "IM epinephrine (1 mg/mL preparation) — 0.3 to 0.5 mg IM in the mid-outer thigh. Can repeat every",
+      "5 to 15 minutes (or more frequently), as needed. If injected promptly IM, most patients respond to",
+      "1, 2, or at most 3 doses.",
+      "Place patient in recumbent position, if tolerated, and elevate lower extremities.",
+      "Oxygen — nonrebreather mask at 15 liters/minute, or high-flow oxygen mask (70 to 100% oxygen).",
+      "Normal saline rapid bolus — treat hypotension with rapid infusion of 1 to 2 liters IV. Repeat as",
+      "needed. Massive fluid shifts with severe loss of intravascular volume can occur. Monitor urine output.",
+      "Albuterol (salbutamol) — for bronchospasm resistant to IM epinephrine, 2.5 to 5 mg in 3 mL saline",
+      "via nebulizer, or 2 to 3 puffs by metered dose inhaler. Repeat as needed.",
+      "Adjunctive therapies (never initial or sole treatment):",
+      "H1 antihistamine — cetirizine 10 mg IV over 2 minutes, or diphenhydramine 25 to 50 mg IV over",
+      "5 minutes — for relief of urticaria and itching only.",
+      "H2 antihistamine — famotidine 20 mg IV over 2 minutes.",
+      "Glucocorticoid — methylprednisolone 125 mg IV.",
+      "Monitoring — continuous noninvasive hemodynamic monitoring and pulse oximetry. Monitor urine output",
+      "in patients receiving IV fluid resuscitation for severe hypotension or shock.",
+      "Refractory symptoms:",
+      "Epinephrine infusion — for inadequate response to IM epinephrine and IV saline, begin a continuous",
+      "infusion at 0.1 microgram/kg/minute by infusion pump. Titrate continuously to blood pressure,",
+      "cardiac rate and function, and oxygenation. (For a 70 kg patient the initial rate is 7 micrograms/",
+      "minute; non-weight-based dosing for adults is 2 to 10 micrograms/minute.)",
+      "Vasopressors — some patients require a second vasopressor in addition to epinephrine. All should be",
+      "given by infusion pump, titrated continuously, with continuous noninvasive monitoring of blood",
+      "pressure, heart rate and function and oxygen saturation.",
+      "Glucagon — patients on beta blockers may not respond to epinephrine and can be given glucagon 1 to",
+      "5 mg IV over 5 minutes, followed by infusion of 5 to 15 micrograms/minute. Rapid administration of",
+      "glucagon can cause vomiting.",
+      "Adapted from: Simons FER. Anaphylaxis. J Allergy Clin Immunol 2010; 125:S161."
+     ],
+     "source": "Anaphylaxis in adults: rapid overview of emergency management (UpToDate, 2024)"
+    }
+   ]
   }
  },
  "womensHerbs": [
@@ -14537,6 +16022,81 @@
    ],
    "notes": "Scarring is a normal part of wound healing, but early intervention may reduce hypertrophic or keloid formation. Encourage gentle scar massage and correct vitamin D deficiency in at-risk individuals.",
    "flag": "Filed under Wound healing, the nearest condition in this index."
+  },
+  {
+   "id": "anaphylaxis-emergency",
+   "title": "Anaphylaxis — Emergency Management",
+   "condition": "Anaphylaxis",
+   "background": "Anaphylaxis is an acute, potentially fatal multisystem hypersensitivity reaction, most often to a food, drug or insect sting. The diagnosis is made clinically: the most common signs are cutaneous — sudden generalised urticaria, angioedema, flushing and pruritus — but 10 to 20 per cent of patients have no skin findings at all, which is why the absence of a rash never excludes it. Danger signs are rapid progression, respiratory distress (stridor, wheezing, dyspnoea, increased work of breathing, persistent cough, cyanosis), vomiting, abdominal pain, hypotension, dysrhythmia, chest pain and collapse. The first and most important treatment is epinephrine, and there are no absolute contraindications to it in this setting. Antihistamines and glucocorticoids are adjuncts only and must never be used as the initial or sole treatment. This is a hospital protocol reproduced so the sequence is known before it is needed; the naturopathic role is recognition, intramuscular epinephrine and calling for help.",
+   "steps": [
+    {
+     "agent": "Airway",
+     "dose": null,
+     "why": "Immediate intubation if there is evidence of impending airway obstruction from angioedema. Delay may lead to complete obstruction. Intubation can be difficult and should be performed by the most experienced clinician available; cricothyrotomy may be necessary."
+    },
+    {
+     "agent": "IM epinephrine (1 mg/mL preparation)",
+     "dose": "0.3 to 0.5 mg IM into the mid-outer thigh; repeat every 5 to 15 minutes, or more often, as needed",
+     "why": "The first and most important treatment. Given promptly IM, most patients respond to one, two or at most three doses. If symptoms are not responding, prepare an IV infusion."
+    },
+    {
+     "agent": "Position",
+     "dose": null,
+     "why": "Lay the patient recumbent if tolerated and elevate the lower extremities. Sitting or standing a hypotensive patient up has killed people — the empty ventricle syndrome."
+    },
+    {
+     "agent": "Oxygen",
+     "dose": "Non-rebreather mask at 15 L/minute, or a high-flow mask delivering 70 to 100 per cent",
+     "why": "Given promptly and simultaneously with epinephrine, not after it."
+    },
+    {
+     "agent": "Normal saline rapid bolus",
+     "dose": "1 to 2 litres IV rapidly; repeat as needed",
+     "why": "Treats hypotension. Massive fluid shifts with severe loss of intravascular volume can occur. Monitor urine output."
+    },
+    {
+     "agent": "Albuterol (salbutamol)",
+     "dose": "2.5 to 5 mg in 3 mL saline by nebuliser, or 2 to 3 puffs by metered dose inhaler; repeat as needed",
+     "why": "For bronchospasm resistant to IM epinephrine."
+    },
+    {
+     "agent": "H1 antihistamine (adjunct)",
+     "dose": "Cetirizine 10 mg IV over 2 minutes, or diphenhydramine 25 to 50 mg IV over 5 minutes",
+     "why": "For relief of urticaria and itching only. Not initial or sole treatment."
+    },
+    {
+     "agent": "H2 antihistamine (adjunct)",
+     "dose": "Famotidine 20 mg IV over 2 minutes",
+     "why": "Adjunctive only, alongside the H1 blocker. Not initial or sole treatment."
+    },
+    {
+     "agent": "Glucocorticoid (adjunct)",
+     "dose": "Methylprednisolone 125 mg IV",
+     "why": "Adjunctive only; it does nothing for the acute reaction and is given in the hope of blunting a biphasic response. Not initial or sole treatment."
+    },
+    {
+     "agent": "Monitoring",
+     "dose": null,
+     "why": "Continuous non-invasive haemodynamic and pulse oximetry monitoring. Monitor urine output in anyone receiving IV fluid resuscitation for severe hypotension or shock."
+    },
+    {
+     "agent": "Epinephrine infusion (refractory)",
+     "dose": "Begin at 0.1 microgram/kg/minute by infusion pump and titrate continuously",
+     "why": "For an inadequate response to IM epinephrine and IV saline. Titrate to blood pressure, cardiac rate and function, and oxygenation. For a 70 kg patient the initial rate is 7 micrograms/minute; non-weight-based adult dosing is 2 to 10 micrograms/minute."
+    },
+    {
+     "agent": "Second vasopressor (refractory)",
+     "dose": "By infusion pump, titrated continuously",
+     "why": "Some patients need a second vasopressor alongside epinephrine. Anyone on two requires continuous non-invasive monitoring of blood pressure, heart rate and function, and oxygen saturation."
+    },
+    {
+     "agent": "Glucagon (beta blockade)",
+     "dose": "1 to 5 mg IV over 5 minutes, then an infusion of 5 to 15 micrograms/minute",
+     "why": "Patients on beta blockers may not respond to epinephrine. Give it slowly — rapid administration causes vomiting, which is a real aspiration risk in a compromised airway."
+    }
+   ],
+   "notes": null,
+   "flag": "Filed under Anaphylaxis. Reproduced from the UpToDate rapid overview (2024), adapted from Simons FER, J Allergy Clin Immunol 2010;125:S161. Hospital emergency management, not a naturopathic treatment plan."
   }
  ],
  "suffixes": [

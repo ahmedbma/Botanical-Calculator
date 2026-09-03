@@ -11,11 +11,15 @@
   "PED Male Objective Chart",
   "Mental Health Study Guide",
   "Orthopedics Final Study Guide",
-  "Review of Systems intake form"
+  "Review of Systems intake form",
+  "Clinic Entry & Exams (Emily Tan)",
+  "Phys Med 4: Muscles (WI25)"
  ],
  "types": [
   "History",
+  "Chief complaint",
   "Screening",
+  "HEENT",
   "Respiratory",
   "Cardiovascular",
   "Abdominal",
@@ -26,14 +30,259 @@
  ],
  "exams": [
   {
+   "id": "clinic-entry",
+   "type": "History",
+   "name": "Clinic Entry Interview",
+   "region": "Whole visit",
+   "summary": "The order you take a visit in, from the door to the hand wash — introduction, SOGI, the eight parts of the HPI, past medical, family and social history, determinants of health, and the review of systems that points the exam.",
+   "source": "Clinic Entry & Exams (Emily Tan)",
+   "normalsWritten": true,
+   "script": "Everything before you touch the patient. Work down it in order: the history is what decides which physical exam you do, and the last line of the interview is washing your hands. Nothing here is musculoskeletal or neurological — those are not part of the clinic entry exam.",
+   "related": [
+    "Fatigue and low energy",
+    "Chronic pain",
+    "Anxiety",
+    "Fertility and preconception",
+    "Hypertension",
+    "Anaphylaxis"
+   ],
+   "groups": [
+    {
+     "name": "Opening",
+     "steps": [
+      {
+       "step": "Introduce yourself",
+       "how": "Give your name and your role before anything else.",
+       "normal": "Introduced myself and my role to the patient."
+      },
+      {
+       "step": "Confirm identity",
+       "how": "Confirm the patient's last name and date of birth against the chart.",
+       "normal": "Patient identity confirmed by last name and date of birth."
+      },
+      {
+       "step": "SOGI",
+       "how": "Ask what sex they were assigned at birth and what their current gender identity is.",
+       "normal": "Sexual orientation and gender identity recorded as reported by the patient."
+      },
+      {
+       "step": "Empathise and affirm",
+       "how": "Reflect the chief complaint back, acknowledge what it is costing them, and affirm that coming in was the right call.",
+       "normal": "Chief complaint acknowledged and patient affirmed."
+      }
+     ]
+    },
+    {
+     "name": "History of present illness",
+     "note": "OLDCARTS — the eight questions that turn a complaint into a history. Ask all eight even when the answer seems obvious; the one you skip is the one that changes the differential.",
+     "steps": [
+      {
+       "step": "Onset",
+       "how": "When did this start? Tell me about the circumstances when it began.",
+       "normal": "Onset as reported, with the circumstances at onset recorded."
+      },
+      {
+       "step": "Location",
+       "how": "Where exactly is it? Can you point to it?",
+       "normal": "Location as pointed to by the patient."
+      },
+      {
+       "step": "Duration",
+       "how": "How long does it last?",
+       "normal": "Duration as reported."
+      },
+      {
+       "step": "Characteristics",
+       "how": "Tell me more — what does it feel like?",
+       "normal": "Character of the complaint as described by the patient."
+      },
+      {
+       "step": "Alleviating, aggravating and associated symptoms",
+       "how": "Does anything make it better or worse? What other symptoms are you having alongside it?",
+       "normal": "Alleviating and aggravating factors and associated symptoms as reported."
+      },
+      {
+       "step": "Radiation",
+       "how": "Does it radiate anywhere? If it does, point there too.",
+       "normal": "No radiation reported."
+      },
+      {
+       "step": "Timing",
+       "how": "What pattern does it have?",
+       "normal": "Timing and pattern as reported."
+      },
+      {
+       "step": "Severity",
+       "how": "On a scale of one to ten, how bad is it?",
+       "normal": "Severity rated by the patient out of ten."
+      },
+      {
+       "step": "Prior episodes",
+       "how": "Have you experienced something like this before?",
+       "normal": "Denies prior episodes of the same complaint."
+      },
+      {
+       "step": "Contacts",
+       "how": "Is there anyone around you experiencing these symptoms? Ask where an infectious cause is on the list.",
+       "normal": "Denies sick contacts."
+      },
+      {
+       "step": "Anything else",
+       "how": "Is there anything else about your complaint you think I should know before we continue?",
+       "normal": "Patient reports nothing further regarding the chief complaint."
+      }
+     ]
+    },
+    {
+     "name": "Past medical history",
+     "steps": [
+      {
+       "step": "Current and past medical issues",
+       "how": "Tell me about any current or past medical issues.",
+       "normal": "Past medical history as reported."
+      },
+      {
+       "step": "Pregnancy and menstrual history",
+       "how": "For women: is it possible that you are pregnant? Last menstrual period — regular or irregular? Para and gravida.",
+       "normal": "Pregnancy denied; last menstrual period and para/gravida recorded."
+      },
+      {
+       "step": "Infections, travel and trauma",
+       "how": "Previous infections? Previous travel? Any traumas?",
+       "normal": "Denies recent infections, travel and trauma."
+      },
+      {
+       "step": "Surgeries and hospitalisations",
+       "how": "Any major surgeries or prior hospitalisations?",
+       "normal": "Denies major surgeries and prior hospitalisations."
+      },
+      {
+       "step": "Medications and supplements",
+       "how": "List everything taken, prescribed or not, including supplements.",
+       "normal": "Medications and supplements recorded."
+      },
+      {
+       "step": "Allergies",
+       "how": "Ask about drug, food and environmental allergies and what the reaction was.",
+       "normal": "No known drug allergies."
+      },
+      {
+       "step": "Immunisations",
+       "how": "Are immunisations up to date?",
+       "normal": "Immunisations reported up to date."
+      }
+     ]
+    },
+    {
+     "name": "Family history",
+     "steps": [
+      {
+       "step": "Significant family history",
+       "how": "Tell me about any significant family history of disease. Has anyone in your family experienced something like this?",
+       "normal": "Family history as reported."
+      }
+     ]
+    },
+    {
+     "name": "Social history",
+     "steps": [
+      {
+       "step": "Substances",
+       "how": "Tell me about your alcohol, tobacco and recreational drug use.",
+       "normal": "Denies alcohol, tobacco and recreational drug use."
+      },
+      {
+       "step": "Sexual history",
+       "how": "Are you currently sexually active? What method of birth control? Do you use condoms?",
+       "normal": "Sexual history as reported."
+      },
+      {
+       "step": "Occupation",
+       "how": "What do you do for work? Exposures follow from the answer.",
+       "normal": "Occupation recorded, with no relevant occupational exposures."
+      }
+     ]
+    },
+    {
+     "name": "Determinants of health",
+     "steps": [
+      {
+       "step": "Diet",
+       "how": "What does a normal day of eating look like?",
+       "normal": "Diet as reported."
+      },
+      {
+       "step": "Hydration",
+       "how": "How much water, and what else are they drinking?",
+       "normal": "Hydration as reported."
+      },
+      {
+       "step": "Stress",
+       "how": "What is the current load and what supports are in place?",
+       "normal": "Stress load as reported."
+      },
+      {
+       "step": "Sleep",
+       "how": "Hours, quality, and whether it is restorative.",
+       "normal": "Sleep as reported."
+      }
+     ]
+    },
+    {
+     "name": "Closing",
+     "steps": [
+      {
+       "step": "Review of systems",
+       "how": "Constitutional plus every system the complaint touches — see the Review of Systems entry for the full checklist.",
+       "normal": "Review of systems negative apart from as recorded in the history of present illness."
+      },
+      {
+       "step": "Questions and concerns",
+       "how": "Do you have any other questions or concerns?",
+       "normal": "Patient reports no further questions or concerns."
+      },
+      {
+       "step": "Wash hands",
+       "how": "Wash your hands, then complete the appropriate physical exam.",
+       "normal": "Hands washed prior to examination."
+      }
+     ]
+    }
+   ],
+   "findings": [
+    {
+     "finding": "A complaint the patient cannot point to, or that has moved since onset",
+     "suggests": "Visceral or referred pain — gallbladder to the right scapula, spleen to the left shoulder, periumbilical pain migrating to the right lower quadrant in appendicitis",
+     "workup": "Directed by the region; see the chief-complaint entries in this section"
+    },
+    {
+     "finding": "Involuntary weight loss, night sweats or fever alongside the complaint",
+     "suggests": "Infection, inflammatory disease or malignancy rather than a functional cause",
+     "urgent": true,
+     "workup": "CBC with differential, CRP and ESR, CMP, LDH, chest X-ray; imaging directed by the other findings"
+    },
+    {
+     "finding": "A possible pregnancy anywhere in a history of abdominal or pelvic pain",
+     "suggests": "Ectopic pregnancy until excluded, and a bar to most imaging and drugs",
+     "urgent": true,
+     "workup": "Beta-hCG first, then pelvic ultrasound"
+    },
+    {
+     "finding": "A new complaint that started with a medication",
+     "suggests": "An adverse drug effect — ACE inhibitor cough, NSAID ulcer, beta blocker fatigue",
+     "workup": "Review the full medication and supplement list against the onset date before investigating further"
+    }
+   ]
+  },
+  {
    "id": "ros",
    "type": "History",
    "name": "Review of Systems",
    "region": "Thirteen systems",
-   "summary": "The intake checklist, system by system — 54 items across 13 systems. What the patient ticks here is what directs the physical exam that follows.",
-   "source": "Review of Systems intake form",
+   "summary": "The intake checklist, system by system — 110 items across 13 systems. What the patient ticks here is what directs the physical exam that follows.",
+   "source": "Review of Systems intake form; Clinic Entry & Exams (Emily Tan)",
    "normalsWritten": true,
-   "script": "The form is filled in by the patient before you see them. Read it before you walk in, then ask about every box they ticked — and about the ones you would have expected them to tick. A negative review of systems is only meaningful if you asked.",
+   "script": "The form is filled in by the patient before you see them. Read it before you walk in, then ask about every box they ticked — and about the ones you would have expected them to tick. A negative review of systems is only meaningful if you asked. The list is your intake form widened with the review of systems from the clinic-entry notes, so it covers what either sheet asks about.",
    "related": [
     "Fatigue and low energy",
     "Anxiety",
@@ -61,6 +310,11 @@
        "normal": "Denies fever."
       },
       {
+       "step": "Night sweats",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies night sweats."
+      },
+      {
        "step": "Weight gain",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
        "normal": "Denies weight gain."
@@ -76,14 +330,74 @@
      "name": "HEENT",
      "steps": [
       {
+       "step": "Dental problems, oral ulcers or bleeding gums",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies dental problems, oral lesions and bleeding gums."
+      },
+      {
+       "step": "Difficult or painful swallowing (dysphagia, odynophagia)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies dysphagia and odynophagia."
+      },
+      {
+       "step": "Double or blurred vision",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies double or blurred vision."
+      },
+      {
+       "step": "Ear pain (otalgia)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies ear pain."
+      },
+      {
+       "step": "Eye pain",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies eye pain."
+      },
+      {
        "step": "Hearing loss",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
        "normal": "Denies hearing loss."
       },
       {
+       "step": "Hoarseness",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies hoarseness."
+      },
+      {
+       "step": "Neck stiffness",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies neck stiffness."
+      },
+      {
+       "step": "Nosebleeds (epistaxis)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies epistaxis."
+      },
+      {
+       "step": "Ringing in the ear (tinnitus)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies tinnitus."
+      },
+      {
+       "step": "Runny nose (rhinorrhea)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies rhinorrhea."
+      },
+      {
        "step": "Sinus pressure",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
        "normal": "Denies sinus pressure."
+      },
+      {
+       "step": "Sore throat",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies sore throat."
+      },
+      {
+       "step": "Swollen glands",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies swollen glands."
       },
       {
        "step": "Visual changes",
@@ -101,9 +415,19 @@
        "normal": "Denies cough."
       },
       {
+       "step": "Coughing up blood (hemoptysis)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies hemoptysis."
+      },
+      {
        "step": "Shortness of breath",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
        "normal": "Denies shortness of breath."
+      },
+      {
+       "step": "Sputum production",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies sputum production."
       },
       {
        "step": "Wheezing",
@@ -121,9 +445,9 @@
        "normal": "Denies chest pain."
       },
       {
-       "step": "Pain while walking (claudication)",
+       "step": "Cyanosis",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
-       "normal": "Denies pain while walking (claudication)."
+       "normal": "Denies cyanosis."
       },
       {
        "step": "Edema",
@@ -131,9 +455,29 @@
        "normal": "Denies edema."
       },
       {
+       "step": "Pain while walking (claudication)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies pain while walking (claudication)."
+      },
+      {
        "step": "Palpitations",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
        "normal": "Denies palpitations."
+      },
+      {
+       "step": "Shortness of breath at night (paroxysmal nocturnal dyspnea)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies paroxysmal nocturnal dyspnea."
+      },
+      {
+       "step": "Shortness of breath lying down (orthopnea)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies orthopnea."
+      },
+      {
+       "step": "Syncope",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies syncope."
       }
      ]
     },
@@ -146,9 +490,19 @@
        "normal": "Denies abdominal pain."
       },
       {
+       "step": "Black tarry stool (melena)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies melena."
+      },
+      {
        "step": "Blood in stool",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
        "normal": "Denies blood in stool."
+      },
+      {
+       "step": "Change in bowel habits or stools",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies any change in bowel habits or stools."
       },
       {
        "step": "Constipation",
@@ -186,9 +540,24 @@
      "name": "Genitourinary",
      "steps": [
       {
-       "step": "Painful urination (dysuria)",
+       "step": "Blood in the urine (hematuria)",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
-       "normal": "Denies painful urination (dysuria)."
+       "normal": "Denies hematuria."
+      },
+      {
+       "step": "Change in libido",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies any change in libido."
+      },
+      {
+       "step": "Change in menses",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies any change in menses."
+      },
+      {
+       "step": "Erectile dysfunction",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies erectile dysfunction."
       },
       {
        "step": "Excessive amount of urine (polyuria)",
@@ -196,9 +565,49 @@
        "normal": "Denies excessive amount of urine (polyuria)."
       },
       {
+       "step": "Foamy urine",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies foamy urine."
+      },
+      {
+       "step": "Nocturia",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies nocturia."
+      },
+      {
+       "step": "Pain with sex (dyspareunia)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies dyspareunia."
+      },
+      {
+       "step": "Painful periods (dysmenorrhea)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies dysmenorrhea."
+      },
+      {
+       "step": "Painful urination (dysuria)",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies painful urination (dysuria)."
+      },
+      {
+       "step": "Pelvic pain",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies pelvic pain."
+      },
+      {
        "step": "Urinary frequency",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
        "normal": "Denies urinary frequency."
+      },
+      {
+       "step": "Urinary incontinence",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies urinary incontinence."
+      },
+      {
+       "step": "Urinary urgency",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies urinary urgency."
       }
      ]
     },
@@ -206,14 +615,29 @@
      "name": "Metabolic / endocrine",
      "steps": [
       {
+       "step": "Abnormal hair growth",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies abnormal hair growth."
+      },
+      {
+       "step": "Change in appetite",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies any change in appetite."
+      },
+      {
        "step": "Cold intolerance",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
        "normal": "Denies cold intolerance."
       },
       {
-       "step": "Heat intolerance",
+       "step": "Excessive hunger (polyphagia)",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
-       "normal": "Denies heat intolerance."
+       "normal": "Denies excessive hunger (polyphagia)."
+      },
+      {
+       "step": "Excessive sweating",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies excessive sweating."
       },
       {
        "step": "Excessive thirst (polydipsia)",
@@ -221,15 +645,35 @@
        "normal": "Denies excessive thirst (polydipsia)."
       },
       {
-       "step": "Excessive hunger (polyphagia)",
+       "step": "Heat intolerance",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
-       "normal": "Denies excessive hunger (polyphagia)."
+       "normal": "Denies heat intolerance."
+      },
+      {
+       "step": "Neck pain or swelling",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies neck pain and swelling."
       }
      ]
     },
     {
      "name": "Neurological",
      "steps": [
+      {
+       "step": "Ataxia or incoordination",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies ataxia and incoordination."
+      },
+      {
+       "step": "Change in smell or taste",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies any change in smell or taste."
+      },
+      {
+       "step": "Change in speech",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies any change in speech."
+      },
       {
        "step": "Dizziness",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
@@ -246,14 +690,44 @@
        "normal": "Denies extremity weakness."
       },
       {
+       "step": "Facial weakness",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies facial weakness."
+      },
+      {
        "step": "Headaches",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
        "normal": "Denies headaches."
       },
       {
+       "step": "Loss of consciousness or fainting",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies loss of consciousness and fainting."
+      },
+      {
+       "step": "Loss of vision",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies loss of vision."
+      },
+      {
+       "step": "Muscle spasm",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies muscle spasm."
+      },
+      {
+       "step": "Paralysis",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies paralysis."
+      },
+      {
        "step": "Seizures",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
        "normal": "Denies seizures."
+      },
+      {
+       "step": "Tingling",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies tingling."
       },
       {
        "step": "Tremors",
@@ -274,6 +748,26 @@
        "step": "Depression",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
        "normal": "Denies depression."
+      },
+      {
+       "step": "Hallucinations",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies hallucinations."
+      },
+      {
+       "step": "Memory problems",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies memory problems."
+      },
+      {
+       "step": "Mood changes",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies any change in mood."
+      },
+      {
+       "step": "Suicidal ideation",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies suicidal ideation."
       }
      ]
     },
@@ -291,9 +785,24 @@
        "normal": "Denies breast lump."
       },
       {
+       "step": "Change in hair distribution",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies any change in hair distribution."
+      },
+      {
+       "step": "Changes in the nails",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies any change in the nails."
+      },
+      {
        "step": "Hives",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
        "normal": "Denies hives."
+      },
+      {
+       "step": "Itching",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies itching."
       },
       {
        "step": "Mole changes",
@@ -321,9 +830,19 @@
        "normal": "Denies back pain."
       },
       {
+       "step": "Generalized weakness",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies generalized weakness."
+      },
+      {
        "step": "Joint pain",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
        "normal": "Denies joint pain."
+      },
+      {
+       "step": "Joint stiffness",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies joint stiffness."
       },
       {
        "step": "Joint swelling",
@@ -331,9 +850,19 @@
        "normal": "Denies joint swelling."
       },
       {
+       "step": "Muscle pain",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies muscle pain."
+      },
+      {
        "step": "Neck pain",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
        "normal": "Denies neck pain."
+      },
+      {
+       "step": "Numbness",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies numbness."
       }
      ]
     },
@@ -351,14 +880,14 @@
        "normal": "Denies easily bruises."
       },
       {
-       "step": "Lymphedema",
-       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
-       "normal": "Denies lymphedema."
-      },
-      {
        "step": "Issues with blood clots",
        "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
        "normal": "Denies issues with blood clots."
+      },
+      {
+       "step": "Lymphedema",
+       "how": "Ask directly; a positive answer is followed up with onset, duration, severity and what changes it.",
+       "normal": "Denies lymphedema."
       }
      ]
     },
@@ -449,6 +978,2707 @@
      "finding": "Nothing ticked but the patient looks unwell",
      "suggests": "The form is a screen, not a substitute for the history — ask anyway",
      "workup": "Take the history anyway; CBC, CMP, TSH, CRP and urinalysis as a baseline"
+    }
+   ]
+  },
+  {
+   "id": "cc-ear-pain",
+   "type": "Chief complaint",
+   "name": "Ear Pain",
+   "region": "Ear",
+   "summary": "Eleven causes of otalgia separated on four questions — deep or outside, one ear or both, what the discharge looks like, and whether moving the pinna hurts.",
+   "source": "Clinic Entry & Exams (Emily Tan)",
+   "normalsWritten": true,
+   "script": "Two findings do most of the work. Pain on manipulating the pinna and tragus means the outer ear; a bulging immobile drum means the middle ear. Tenderness behind the ear over the mastoid with the pinna pushed forward is mastoiditis and goes straight to emergency referral.",
+   "related": [
+    "Otitis media",
+    "Vertigo",
+    "Sinusitis",
+    "Herpes simplex",
+    "Otitis externa",
+    "Mastoiditis",
+    "Cholesteatoma",
+    "Ramsay Hunt syndrome",
+    "Temporomandibular joint disorder"
+   ],
+   "groups": [
+    {
+     "name": "History of present illness",
+     "steps": [
+      {
+       "step": "Acuity and side",
+       "how": "Is this acute? One ear or both?",
+       "normal": "Ear pain is acute and unilateral."
+      },
+      {
+       "step": "Quality",
+       "how": "Any fullness or popping?",
+       "normal": "Denies fullness and popping."
+      },
+      {
+       "step": "Severity",
+       "how": "How bad is the pain?",
+       "normal": "Pain rated by the patient out of ten."
+      },
+      {
+       "step": "Hearing loss",
+       "how": "Has your hearing changed?",
+       "normal": "Denies hearing loss."
+      },
+      {
+       "step": "Preceding illness",
+       "how": "Any infection or aggravation before it started?",
+       "normal": "Denies preceding infection."
+      },
+      {
+       "step": "Discharge",
+       "how": "Is anything coming out of the ear? What does it look like?",
+       "normal": "Denies otorrhoea."
+      },
+      {
+       "step": "Depth",
+       "how": "Where is the pain — deep inside, or outside?",
+       "normal": "Pain localised by the patient."
+      },
+      {
+       "step": "Tenderness",
+       "how": "Does it hurt to touch?",
+       "normal": "Denies tenderness to touch."
+      }
+     ]
+    },
+    {
+     "name": "Review of systems and past history",
+     "steps": [
+      {
+       "step": "Hearing",
+       "how": "Any difficulty hearing?",
+       "normal": "Denies difficulty hearing."
+      },
+      {
+       "step": "Vestibular",
+       "how": "Dizziness, vertigo or ringing?",
+       "normal": "Denies dizziness, vertigo and tinnitus."
+      },
+      {
+       "step": "Behaviour in children",
+       "how": "Loss of appetite, pulling at the ears, irritability?",
+       "normal": "Denies behavioural change."
+      },
+      {
+       "step": "Infection history",
+       "how": "Fever? Past upper respiratory infection? Previous ear infections?",
+       "normal": "Denies fever, recent URI and previous otitis."
+      },
+      {
+       "step": "Family history",
+       "how": "Any family history of ear disease?",
+       "normal": "No relevant family history."
+      },
+      {
+       "step": "Environment",
+       "how": "Smoke exposure? Swimming? Loud noise?",
+       "normal": "Denies smoke exposure, swimming and noise exposure."
+      },
+      {
+       "step": "Diabetes",
+       "how": "Do you have diabetes?",
+       "normal": "Denies diabetes."
+      },
+      {
+       "step": "Trauma and foreign bodies",
+       "how": "Any trauma, bug bites or foreign objects?",
+       "normal": "Denies trauma and foreign body."
+      }
+     ]
+    }
+   ],
+   "ddxList": [
+    "External otitis",
+    "Acute otitis media",
+    "Otitis media with effusion",
+    "Cholesteatoma",
+    "Mastoiditis",
+    "Foreign body or cerumen impaction",
+    "Barotrauma",
+    "Blunt trauma",
+    "Cervical lymphadenitis",
+    "Referred pain from cranial nerves II and III",
+    "TMJ disorder"
+   ],
+   "differential": [
+    {
+     "condition": "Otitis externa",
+     "note": "More common in adults.",
+     "hpi": "Bilateral, tenderness around the outer ear, sometimes itchy with exudate, occasional hearing loss.",
+     "ros": "Swimming. Diabetes, HIV, dermatitis, psoriasis, eczema.",
+     "pe": "Pain on manipulation of the pinna and tragus; swelling of the preauricular lymph nodes; cheesy, green-blue or grey discharge.",
+     "ddx": "Otomycosis (fungal), contact dermatitis, AOM, carcinoma of the ear canal.",
+     "labs": "Culture if severe or recurrent.",
+     "tx": "Keep the ear dry. A mix of water, vinegar and rubbing alcohol. Antibiotics if it does not get better."
+    },
+    {
+     "condition": "Acute otitis media",
+     "note": "Bacterial or viral; most common in children under 6. Inflammation of the middle ear.",
+     "hpi": "Acute onset, usually after an infection. Unilateral, severe deep pain. A sensation of fullness or blockage that may be relieved when the drum perforates. Possibly nasal congestion, sore throat, fever.",
+     "ros": "Recent URI, difficulty sleeping, smoke exposure, fever, previous otitis media, diabetes.",
+     "pe": "Fever; swelling of the preauricular nodes; bulging, red, opaque tympanic membrane with decreased mobility and a decreased light reflex.",
+     "ddx": "Otitis externa, chronic otitis media, otitis media with effusion, mastoiditis, referred pain, cerumen impaction.",
+     "labs": "Pneumatic otoscopy (insufflation); tympanogram.",
+     "tx": "Onion muff. Mullein garlic oil. Antibiotics."
+    },
+    {
+     "condition": "Otitis media with effusion",
+     "note": "Serous otitis — fluid in the middle ear. Common in children.",
+     "hpi": "Ear pressure or pain, sometimes painless. Bubbling, popping, stuffy ear. Tinnitus or temporary deafness. Swallowing, chewing or blowing the nose may relieve it.",
+     "ros": "Aggravated by URI or nasal congestion. Barotrauma from planes or diving. Diabetes. Recent URI.",
+     "pe": "Collection of fluid resembling mucus or air bubbles, with a fluid line behind the tympanic membrane. The drum may be injected and immobile, bulging or retracted. Conductive hearing loss.",
+     "ddx": "AOM, mastoiditis, cholesteatoma, otitis externa.",
+     "labs": "Pneumatic otoscopy (insufflation).",
+     "tx": "Mullein garlic oil. Antibiotics."
+    },
+    {
+     "condition": "Mastoiditis",
+     "note": "Infection of the soft tissue surrounding the air spaces in the mastoid bone, which connects to the middle ear space.",
+     "hpi": "Severe pain and tenderness over the mastoid bone; possible exudate.",
+     "ros": "Diabetes. History of bacterial otitis media. Fever.",
+     "pe": "Pinna displaced forwards with swelling behind the ear; severe tenderness of the mastoid process with erythema.",
+     "ddx": "Osteomyelitis, cellulitis, lymphadenopathy, tumour of the mastoid bone.",
+     "labs": "",
+     "tx": "Emergency referral.",
+     "urgent": true
+    },
+    {
+     "condition": "Ramsay Hunt syndrome",
+     "note": "Herpes zoster of the facial nerve — a shingles outbreak affecting cranial nerve VII.",
+     "hpi": "Painful rash. Vesicles in, on and around the ear, with burning or tingling beforehand. Facial weakness and/or hearing loss on the same side. Pain of the face and jaw, itching or drainage.",
+     "ros": "Increased sensitivity to pain. History of varicella zoster infection. Immunocompromise.",
+     "pe": "Vesicles on the external ear canal and auricle.",
+     "ddx": "Bell palsy, trigeminal neuralgia, persistent idiopathic facial pain, otitis externa.",
+     "labs": "WBC, ESR, cell culture.",
+     "tx": "Pain relief medication and antivirals. Supportive care such as oat baths.",
+     "urgent": true
+    },
+    {
+     "condition": "TMJ referred pain",
+     "hpi": "Severe, acute, intermittent pain lasting a few minutes and recurring three to four times a day. May have headache. Unilateral. Worse in the morning from teeth grinding.",
+     "ros": "Trauma or overextension of the mouth. Rheumatoid arthritis? Recent dental work.",
+     "pe": "Structures appear normal; tenderness on palpation over the TMJ; clicking with jaw movement.",
+     "ddx": "Herpes zoster, mastoiditis, otitis media, parotitis.",
+     "labs": "Intraotic manipulation; radiograph.",
+     "tx": "Craniosacral therapy."
+    },
+    {
+     "condition": "Cholesteatoma",
+     "note": "An abnormal, non-cancerous skin growth — an epidermal inclusion cyst of the middle ear or mastoid — that develops behind the eardrum. It may be a birth defect, but is most commonly caused by repeated middle ear infections.",
+     "hpi": "Perforation of the tympanic membrane with foul-smelling discharge may occur.",
+     "ros": "History of chronic otitis media.",
+     "pe": "Collection of white granulation tissue with perforation of the tympanic membrane.",
+     "ddx": "Acute otitis media.",
+     "labs": "CT temporal bone.",
+     "tx": "Emergency referral.",
+     "urgent": true
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Tenderness and swelling over the mastoid with the pinna pushed forward",
+     "suggests": "Mastoiditis",
+     "urgent": true,
+     "workup": "Emergency referral; CT temporal bone"
+    },
+    {
+     "finding": "Vesicles on the auricle or canal with facial weakness",
+     "suggests": "Ramsay Hunt syndrome",
+     "urgent": true,
+     "workup": "Start antivirals early; WBC, ESR, viral culture"
+    },
+    {
+     "finding": "Foul-smelling discharge through a perforated drum with white granulation tissue",
+     "suggests": "Cholesteatoma",
+     "urgent": true,
+     "workup": "CT temporal bone; ENT referral"
+    }
+   ]
+  },
+  {
+   "id": "cc-sore-throat",
+   "type": "Chief complaint",
+   "name": "Sore Throat",
+   "region": "Throat",
+   "summary": "Nine causes of pharyngitis, led by the three that must not be missed — epiglottitis, peritonsillar abscess and strep throat.",
+   "source": "Clinic Entry & Exams (Emily Tan)",
+   "normalsWritten": true,
+   "script": "Ask the emergency question first: are they drooling, or unable to swallow, lie down or speak? If so, do not examine the pharynx — refer. After that, the split is fever with exudate, no cough and anterior nodes (strep) against slow onset with posterior nodes and splenomegaly (mono).",
+   "related": [
+    "Sore throat",
+    "Influenza",
+    "COVID-19",
+    "Herpes simplex",
+    "Candidiasis",
+    "Common cold",
+    "Epiglottitis",
+    "Peritonsillar abscess",
+    "Infectious mononucleosis"
+   ],
+   "groups": [
+    {
+     "name": "History of present illness",
+     "steps": [
+      {
+       "step": "OLDCARTS",
+       "how": "Onset, location, duration, characteristics, alleviating and aggravating factors, radiation, timing and severity.",
+       "normal": "History of present illness taken in full."
+      },
+      {
+       "step": "Emergency screen",
+       "how": "Are you drooling? Can you swallow, lie down and speak?",
+       "normal": "No drooling; able to swallow, lie flat and speak normally."
+      },
+      {
+       "step": "Fever and onset",
+       "how": "Any fever? Was the onset sudden?",
+       "normal": "Denies fever; onset gradual."
+      },
+      {
+       "step": "Contacts",
+       "how": "Is anyone else around you sick?",
+       "normal": "Denies sick contacts."
+      },
+      {
+       "step": "Occupation",
+       "how": "What kind of work do you do?",
+       "normal": "Occupation recorded."
+      },
+      {
+       "step": "Sexual behaviour",
+       "how": "Sexual history, where gonococcal or HSV pharyngitis is on the list.",
+       "normal": "Sexual history as reported."
+      },
+      {
+       "step": "Smoking",
+       "how": "Do you smoke?",
+       "normal": "Denies smoking."
+      },
+      {
+       "step": "Immunisations",
+       "how": "Are your immunisations up to date?",
+       "normal": "Immunisations reported up to date."
+      },
+      {
+       "step": "Chronic problems and recent infections",
+       "how": "Any chronic health problems? Any recent infections?",
+       "normal": "Denies chronic health problems and recent infections."
+      }
+     ]
+    },
+    {
+     "name": "Review of systems and past history",
+     "steps": [
+      {
+       "step": "Cough",
+       "how": "Do you have a cough? Its absence points at strep.",
+       "normal": "Denies cough."
+      },
+      {
+       "step": "Nasal",
+       "how": "Runny nose — what colour is the drainage? Any postnasal drip?",
+       "normal": "Denies rhinorrhoea and postnasal drip."
+      },
+      {
+       "step": "Eyes",
+       "how": "Redness, itch, watering or discomfort?",
+       "normal": "Denies eye symptoms."
+      },
+      {
+       "step": "Voice",
+       "how": "Are you hoarse?",
+       "normal": "Denies hoarseness."
+      },
+      {
+       "step": "Airway",
+       "how": "Any wheezing or sneezing?",
+       "normal": "Denies wheezing and sneezing."
+      },
+      {
+       "step": "Muscles",
+       "how": "Any muscle aches?",
+       "normal": "Denies myalgia."
+      },
+      {
+       "step": "GI",
+       "how": "Any nausea, vomiting or diarrhoea?",
+       "normal": "Denies nausea, vomiting and diarrhoea."
+      }
+     ]
+    }
+   ],
+   "ddxList": [
+    "Epiglottitis — must not miss",
+    "Peritonsillar abscess — must not miss",
+    "Strep throat — must not miss",
+    "Viral pharyngitis",
+    "Mononucleosis (EBV)",
+    "Bacterial pharyngitis (gonococcal)",
+    "Allergic symptoms",
+    "Herpes simplex virus",
+    "Candidiasis",
+    "Postnasal drip",
+    "COVID-19"
+   ],
+   "differential": [
+    {
+     "condition": "Strep throat",
+     "note": "Group A beta-haemolytic streptococcal pharyngitis. Most common in 5 to 15 year olds, in autumn and winter.",
+     "hpi": "Sudden onset. Severe sore throat. Pain on swallowing.",
+     "ros": "Known exposure? Fever, malaise. No cough or upper respiratory tract symptoms.",
+     "pe": "High fever; exudate and swollen tonsils; anterior cervical lymphadenopathy.",
+     "ddx": "Mono, pharyngitis, tonsillitis.",
+     "labs": "Rapid strep test; culture.",
+     "tx": "Homeopathy, echinacea. Antibiotics."
+    },
+    {
+     "condition": "Mononucleosis (EBV)",
+     "note": "Most common in young adults.",
+     "hpi": "Mild sore throat.",
+     "ros": "Slow onset of malaise. Fatigue, weight loss. Sexual activity? Poor appetite. Possible abdominal pain or rash.",
+     "pe": "Low-grade fever; pharyngeal exudate present or absent; posterior cervical lymphadenopathy; splenomegaly; palatine petechiae.",
+     "ddx": "Group A strep infection, pharyngitis.",
+     "labs": "Monospot; CBC with lymphocytes over 50 per cent.",
+     "tx": "Homeopathy. Vitamin C, zinc, Astragalus. Avoid contact sport while the spleen is enlarged."
+    },
+    {
+     "condition": "Epiglottitis",
+     "note": "Haemophilus influenzae type B infection — inflammation and oedema of the epiglottis obstructing air flow.",
+     "hpi": "Unable to lie flat or speak. Difficulty swallowing, dyspnoea, drooling, inspiratory stridor, sore throat.",
+     "ros": "Ask about Hib vaccination.",
+     "pe": "Respiratory distress; toxic appearance. Do NOT examine the pharynx — refer immediately.",
+     "ddx": "Peritonsillar abscess, asthmatic attack, allergic reaction.",
+     "labs": "",
+     "tx": "Emergency.",
+     "urgent": true
+    },
+    {
+     "condition": "Peritonsillar abscess",
+     "hpi": "Sore throat with difficulty swallowing. Breathing difficulties, orthopnoea, dyspnoea.",
+     "ros": "History of recurrent pharyngitis. Fever, malaise.",
+     "pe": "Symmetrical swelling; abscess; trismus (lockjaw).",
+     "ddx": "Epiglottitis, pharyngitis.",
+     "labs": "CT scan, head and neck radiographs.",
+     "tx": "Immediate referral. Emergency.",
+     "urgent": true
+    },
+    {
+     "condition": "Influenza",
+     "hpi": "Sudden onset of sore throat. Dry, persistent cough.",
+     "ros": "Fever, chills and sweats. Headache. Rhinorrhoea. Myalgia, weakness.",
+     "pe": "Fever.",
+     "ddx": "Viral pharyngitis, mono, group A strep, nasopharyngitis.",
+     "labs": "PCR.",
+     "tx": "Lots of rest and fluids. Vitamin C. Antivirals."
+    },
+    {
+     "condition": "Viral pharyngitis",
+     "hpi": "Scratchy sore throat.",
+     "ros": "Malaise, myalgia. Headache. Chills. Cough.",
+     "pe": "Erythema or a boggy, pale pharynx; oedema of the throat; tender posterior cervical nodes.",
+     "ddx": "Bacterial pharyngitis, group A strep, mono.",
+     "labs": "",
+     "tx": "Supportive care: echinacea, vitamin C."
+    },
+    {
+     "condition": "HSV type 1 pharyngitis",
+     "hpi": "Mild sore throat with yellow vesicles lasting 2 to 3 weeks, usually painful and recurrent, with prodromal burning, tingling and itching.",
+     "ros": "Sexual history, STIs. Headache. History of trauma to the mucosa.",
+     "pe": "Fever; lymphadenitis; vesicles on the palate, gingiva and pharynx; perioral lesions.",
+     "ddx": "Group A strep infection, mono, pharyngitis.",
+     "labs": "Viral culture.",
+     "tx": "Antivirals — Glycyrrhiza glabra and Melissa officinalis. Lysine."
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Drooling, stridor, tripod posture or an inability to lie flat",
+     "suggests": "Epiglottitis",
+     "urgent": true,
+     "workup": "Do not examine the pharynx. Emergency airway referral."
+    },
+    {
+     "finding": "Trismus with asymmetric swelling and a muffled voice",
+     "suggests": "Peritonsillar abscess",
+     "urgent": true,
+     "workup": "Immediate referral; CT head and neck"
+    },
+    {
+     "finding": "Splenomegaly with sore throat",
+     "suggests": "Infectious mononucleosis — avoid contact sport until it resolves",
+     "workup": "Monospot, CBC; abdominal ultrasound if the spleen is large"
+    }
+   ]
+  },
+  {
+   "id": "cc-cough",
+   "type": "Chief complaint",
+   "name": "Cough",
+   "region": "Airway and lungs",
+   "summary": "Acute against chronic cough — nine acute causes and ten chronic ones, split first on how long it has lasted.",
+   "source": "Clinic Entry & Exams (Emily Tan)",
+   "normalsWritten": true,
+   "script": "Length decides the list: acute is under 3 weeks, subacute 3 to 8, chronic over 8. In a chronic cough the three that account for most cases are postnasal drip, asthma and reflux — and the fourth question is always whether they are on an ACE inhibitor.",
+   "related": [
+    "Cough",
+    "Asthma",
+    "Chronic obstructive pulmonary disease",
+    "Bronchitis",
+    "Pneumonia",
+    "Tuberculosis",
+    "GERD",
+    "Common cold",
+    "Allergic rhinitis",
+    "Cystic fibrosis",
+    "COVID-19",
+    "Croup",
+    "Pertussis",
+    "Foreign body aspiration",
+    "Postnasal drainage syndrome"
+   ],
+   "groups": [
+    {
+     "name": "History of present illness",
+     "steps": [
+      {
+       "step": "OLDCARTS",
+       "how": "Onset, location, duration, characteristics, alleviating and aggravating factors, radiation, timing and severity.",
+       "normal": "History of present illness taken in full."
+      },
+      {
+       "step": "Duration",
+       "how": "How long? Acute is under 3 weeks, subacute 3 to 8 weeks, chronic over 8 weeks.",
+       "normal": "Cough duration recorded."
+      },
+      {
+       "step": "Time of day",
+       "how": "When is it worst?",
+       "normal": "No diurnal pattern reported."
+      },
+      {
+       "step": "Trajectory",
+       "how": "Is it getting worse or more frequent?",
+       "normal": "Cough is not progressing."
+      },
+      {
+       "step": "Sputum",
+       "how": "Are you bringing anything up? What does it look like?",
+       "normal": "Cough is non-productive."
+      },
+      {
+       "step": "Triggers",
+       "how": "Is the cough affected by eating, exercise, or certain times of year?",
+       "normal": "Denies dietary, exertional and seasonal triggers."
+      },
+      {
+       "step": "Contacts",
+       "how": "Is anyone else around you sick?",
+       "normal": "Denies sick contacts."
+      },
+      {
+       "step": "Night waking",
+       "how": "Does the cough wake you at night?",
+       "normal": "Denies nocturnal waking with cough."
+      }
+     ]
+    },
+    {
+     "name": "Review of systems and past history",
+     "steps": [
+      {
+       "step": "Upper airway",
+       "how": "Nasal congestion or sore throat?",
+       "normal": "Denies nasal congestion and sore throat."
+      },
+      {
+       "step": "Systemic",
+       "how": "Fever or chills? Headache? Weight loss?",
+       "normal": "Denies fever, chills, headache and weight loss."
+      },
+      {
+       "step": "Breathlessness",
+       "how": "Any shortness of breath?",
+       "normal": "Denies dyspnoea."
+      },
+      {
+       "step": "Cardiorespiratory history",
+       "how": "Any history of heart failure or asthma?",
+       "normal": "Denies cardiac and respiratory history."
+      },
+      {
+       "step": "Occupational exposure",
+       "how": "What type of work do you do? Any exposures?",
+       "normal": "No relevant occupational exposure."
+      },
+      {
+       "step": "Family history",
+       "how": "Any family history of allergies or asthma?",
+       "normal": "No family history of atopy."
+      },
+      {
+       "step": "Medication",
+       "how": "Any chronic health problems, high blood pressure or heart disease — and are you on an ACE inhibitor?",
+       "normal": "Not taking an ACE inhibitor."
+      },
+      {
+       "step": "Travel and living situation",
+       "how": "Any travel? What is your living situation? Both matter for TB.",
+       "normal": "Denies recent travel; living situation low-risk for TB."
+      },
+      {
+       "step": "Immunisations",
+       "how": "Are immunisations up to date, including pertussis (DTP)?",
+       "normal": "Immunisations reported up to date."
+      }
+     ]
+    }
+   ],
+   "ddxList": [
+    "Acute — nasopharyngitis",
+    "Acute — COPD exacerbation",
+    "Acute — pertussis",
+    "Acute — pneumonia",
+    "Acute — viral URI",
+    "Acute — mycoplasma pneumonia",
+    "Acute — bronchiolitis (RSV)",
+    "Acute — acute bronchitis",
+    "Acute — croup",
+    "Chronic — postnasal drip",
+    "Chronic — asthma",
+    "Chronic — GERD",
+    "Chronic — chronic bronchitis",
+    "Chronic — ACE inhibitor cough",
+    "Chronic — bronchogenic carcinoma",
+    "Chronic — cystic fibrosis",
+    "Chronic — foreign body",
+    "Chronic — allergic rhinitis",
+    "Chronic — chronic sinusitis",
+    "Chronic — tuberculosis",
+    "Chronic — smoking",
+    "Chronic — psychogenic origin"
+   ],
+   "differential": [
+    {
+     "condition": "Nasopharyngitis (common cold)",
+     "hpi": "Recent onset. Worse at night from hypersecretion of mucus. Clear to yellow sputum with nasal congestion. Sore throat.",
+     "ros": "Fever. Malaise.",
+     "pe": "Red and swollen nasal mucosa; pharyngeal erythema; enlarged cervical lymph nodes.",
+     "ddx": "Bronchitis, influenza, sinusitis, COVID-19.",
+     "labs": "Viral or bacterial culture if it does not improve.",
+     "tx": "Vitamin C, zinc. Elderberry."
+    },
+    {
+     "condition": "COVID-19",
+     "hpi": "Cough with difficulty breathing.",
+     "ros": "Shortness of breath. Fever, chills, myalgia. Headache. Possible sore throat. New loss of smell or taste. Possible GI symptoms: nausea, diarrhoea. Neurologic symptoms: headache, dizziness. Underlying health conditions. Recent travel or a known exposure.",
+     "pe": "May have a rash; fever; signs of difficulty breathing with low oxygen saturation and cyanosis.",
+     "ddx": "Pneumonia.",
+     "labs": "COVID antibody test.",
+     "tx": "Supportive therapy: vitamin C, elderberry, steam inhalations."
+    },
+    {
+     "condition": "Viral URI",
+     "hpi": "Cough with nasal congestion and sore throat.",
+     "ros": "Fever, chills, myalgia.",
+     "pe": "Local swelling, erythema and secretions; enlarged anterior cervical lymph nodes; nasal erythema; normal chest exam and tympanic membranes.",
+     "ddx": "Nasopharyngitis, asthma, bacterial pneumonia, COVID-19.",
+     "labs": "Rapid influenza testing.",
+     "tx": "Vitamin C, zinc."
+    },
+    {
+     "condition": "Asthma",
+     "hpi": "Non-productive cough, worse at night. Exercise induced. Triggered by allergens, cigarette smoke and cold air. Previous infection.",
+     "ros": "Recent infection.",
+     "pe": "Prolonged expiratory phase; crackles that clear with coughing; wheeze on forced expiration; use of accessory muscles.",
+     "ddx": "Influenza, nasopharyngitis.",
+     "labs": "Spirometry; chest X-ray; oxygen saturation; allergy testing.",
+     "tx": "Albuterol."
+    },
+    {
+     "condition": "COPD",
+     "note": "Emphysema plus chronic bronchitis, usually from long-term smoking or alpha-1 antitrypsin deficiency.",
+     "hpi": "Chronic cough. Increase in sputum purulence and volume. Acute exacerbations come with a URI, fever and increased wheezing and cough.",
+     "ros": "Heavy smoker. Worsening dyspnoea.",
+     "pe": "Barrel chest; tachypnoea, distant breath sounds; hyperexpansion of the lungs on X-ray; airflow obstruction on spirometry; in an exacerbation, increased respiratory rate and heart rate.",
+     "ddx": "Pneumonia, COVID-19, asthma.",
+     "labs": "Chest X-ray; peak flow.",
+     "tx": "Smoking cessation counselling."
+    },
+    {
+     "condition": "Cystic fibrosis",
+     "hpi": "Persistent cough — initially dry and hacking, loosening to produce purulent sputum. Severe cough in the morning.",
+     "ros": "Family history of the disease.",
+     "pe": "Increased AP diameter; coarse rales and rhonchi; digital clubbing.",
+     "ddx": "Bacterial pneumonia, asthma.",
+     "labs": "Sweat chloride test.",
+     "tx": "Homeopathy, acupuncture."
+    },
+    {
+     "condition": "Bronchitis",
+     "note": "Acute or chronic; usually in winter.",
+     "hpi": "Runny nose with cough and mild fever, followed by a persistent cough. Clear to off-white mucus, worse in the morning. Begins dry and non-productive.",
+     "ros": "Wakens at night. Possible chest pain with cough.",
+     "pe": "Diffuse rhonchi on expiration; elevated or normal WBC; resonant to dull chest, possible barrel chest; prolonged expiration with possible wheezing.",
+     "ddx": "Influenza, asthma, bacterial pneumonia.",
+     "labs": "CBC; chest radiography; peak flow.",
+     "tx": "Steam inhalation."
+    },
+    {
+     "condition": "GERD",
+     "hpi": "Heartburn. Sour taste in the mouth. Worse after eating.",
+     "ros": "Wakens at night. History of oesophagitis. Cigarettes, alcohol, obesity.",
+     "pe": "Usually within normal limits; possible upper abdominal pain.",
+     "ddx": "Oesophageal ulcer, gastritis.",
+     "labs": "Oesophageal pH monitoring.",
+     "tx": "Apple cider vinegar. Tonifying the lower oesophageal sphincter. Mindful eating."
+    },
+    {
+     "condition": "Foreign body obstruction",
+     "hpi": "Cough with shortness of breath. Sudden onset with gagging or choking, sometimes followed by a quiet period. A cough lasting longer than 3 weeks after a choking episode.",
+     "ros": "Dysphagia. Possible stridor or cyanotic episodes.",
+     "pe": "Obstructed airway.",
+     "ddx": "Peritonsillar abscess.",
+     "labs": "Chest radiograph.",
+     "tx": "Referral.",
+     "urgent": true
+    },
+    {
+     "condition": "Pneumonia",
+     "note": "Bacterial.",
+     "hpi": "Greenish or rusty sputum. Acute onset.",
+     "ros": "High fever, chills. Chest pain and shortness of breath. Dyspnoea. Anorexia, malaise, vomiting. Altered mental status.",
+     "pe": "Tachycardia, tachypnoea; inspiratory crackles; tactile fremitus; dull percussion over consolidation; bronchophony and egophony.",
+     "ddx": "Acute bronchitis, Mycoplasma pneumoniae.",
+     "labs": "Chest radiography; CBC; sputum culture; oxygen saturation.",
+     "tx": "Thyme. Wet sheet wrap. Antibiotics if it does not improve."
+    },
+    {
+     "condition": "Pertussis",
+     "note": "Infection of the respiratory tract by Bordetella pertussis.",
+     "hpi": "Gets worse and progresses in stages. Hacking cough with a whoop on inspiration. Persists for a few months.",
+     "ros": "Rhinorrhoea, conjunctivitis. Malaise, anorexia, coryza. Fever absent. Possible vomiting and cyanosis.",
+     "pe": "Can be within normal limits; high lymphocytosis; abnormal PCR.",
+     "ddx": "Pneumonia.",
+     "labs": "Chest X-ray; PCR.",
+     "tx": "Grindelia (gumweed). Fluids and hydrotherapy. Antibiotics if no improvement."
+    },
+    {
+     "condition": "Postnasal drainage syndrome",
+     "hpi": "Chronic dry cough. Throat clearing. A sensation of something at the back of the throat. Worse at night.",
+     "ros": "Allergies, recent infection, environmental irritants. Nasal congestion. Sore throat.",
+     "pe": "Cobblestoning or mucus in the posterior pharynx; tenderness on palpation of the sinuses; normal chest exam.",
+     "ddx": "Allergic rhinitis, chronic sinusitis.",
+     "labs": "Sinus radiograph; CT sinuses; allergy testing.",
+     "tx": "Salt water gargle. Neti pot."
+    },
+    {
+     "condition": "Tuberculosis",
+     "hpi": "Brassy cough. Begins with fever and night sweats. Yellow-green mucus worse in the morning; the cough becomes more productive.",
+     "ros": "Smoking, recent infection, recent travel. History of TB exposure, immunocompromise. Weakness, malaise, weight loss.",
+     "pe": "Multinodular infiltrate above or behind the clavicle; unilateral pleural effusion; acid-fast bacilli in sputum.",
+     "ddx": "Bronchogenic carcinoma, pneumonia, COPD.",
+     "labs": "Sputum culture; CBC; chest X-ray; HIV testing.",
+     "tx": "Isoniazid and rifampin with supportive care through licorice or olive leaf. Lomatium dissectum (desert parsley) and other antimicrobials."
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Haemoptysis with weight loss and night sweats",
+     "suggests": "Tuberculosis or bronchogenic carcinoma",
+     "urgent": true,
+     "workup": "Chest X-ray, sputum acid-fast bacilli and TB NAAT, CBC, HIV testing; chest CT"
+    },
+    {
+     "finding": "Sudden cough with a choking episode, then a quiet period",
+     "suggests": "Foreign body aspiration",
+     "urgent": true,
+     "workup": "Chest radiograph and bronchoscopy"
+    },
+    {
+     "finding": "A dry cough that started within weeks of a new antihypertensive",
+     "suggests": "ACE inhibitor cough — a diagnosis made by stopping the drug",
+     "workup": "Review the medication list against the onset date before investigating further"
+    }
+   ]
+  },
+  {
+   "id": "cc-nasal",
+   "type": "Chief complaint",
+   "name": "Nasal Symptoms and Congestion",
+   "region": "Nose and sinuses",
+   "summary": "Eight causes of nasal obstruction and discharge, separated on the colour of the drainage, whether it is one side or both, and whether the sinuses transilluminate.",
+   "source": "Clinic Entry & Exams (Emily Tan)",
+   "normalsWritten": true,
+   "script": "Clear and watery with sneezing is allergic; purulent yellow or green is infectious. Unilateral is the flag — a foreign body in a child, a tumour in an adult. Ask about nasal sprays: rebound congestion from a decongestant spray looks like rhinitis that will not settle.",
+   "related": [
+    "Allergic rhinitis",
+    "Sinusitis",
+    "Common cold",
+    "Asthma",
+    "Nasal polyposis",
+    "Rhinitis medicamentosa",
+    "Postnasal drainage syndrome"
+   ],
+   "groups": [
+    {
+     "name": "History of present illness",
+     "steps": [
+      {
+       "step": "OLDCARTS",
+       "how": "Onset, location, duration, characteristics, alleviating and aggravating factors, radiation, timing and severity.",
+       "normal": "History of present illness taken in full."
+      },
+      {
+       "step": "Associated pain",
+       "how": "Any associated pain? Where exactly?",
+       "normal": "Denies facial pain."
+      },
+      {
+       "step": "Seasonality",
+       "how": "Do the symptoms occur at a particular time of year?",
+       "normal": "Denies a seasonal pattern."
+      },
+      {
+       "step": "Family history",
+       "how": "Any family history of asthma or allergies?",
+       "normal": "No family history of atopy."
+      },
+      {
+       "step": "Position",
+       "how": "Do the symptoms change with position?",
+       "normal": "No positional change."
+      },
+      {
+       "step": "Sinus history",
+       "how": "Any history of sinus problems?",
+       "normal": "Denies previous sinus disease."
+      },
+      {
+       "step": "Drainage colour",
+       "how": "What colour is the nasal drainage?",
+       "normal": "Drainage is clear."
+      },
+      {
+       "step": "Side",
+       "how": "One side or both? Unilateral is the flag.",
+       "normal": "Symptoms are bilateral."
+      },
+      {
+       "step": "Smoke",
+       "how": "Do you smoke, or are you exposed to smoke?",
+       "normal": "Denies smoke exposure."
+      },
+      {
+       "step": "Trauma and barotrauma",
+       "how": "Any head or facial trauma, diving or swimming?",
+       "normal": "Denies trauma and barotrauma."
+      },
+      {
+       "step": "Recent infection",
+       "how": "Any recent infections or exposures?",
+       "normal": "Denies recent infection."
+      },
+      {
+       "step": "Pregnancy",
+       "how": "Could you be pregnant? Rhinitis of pregnancy is common.",
+       "normal": "Pregnancy denied."
+      },
+      {
+       "step": "Recreational drugs",
+       "how": "Any cocaine use?",
+       "normal": "Denies recreational drug use."
+      }
+     ]
+    },
+    {
+     "name": "Review of systems and past history",
+     "steps": [
+      {
+       "step": "Headache",
+       "how": "Any headaches — where, and what quality?",
+       "normal": "Denies headache."
+      },
+      {
+       "step": "Neurological",
+       "how": "Any change in hearing or vision?",
+       "normal": "Denies hearing and visual change."
+      },
+      {
+       "step": "Respiratory",
+       "how": "Any difficulty breathing?",
+       "normal": "Denies dyspnoea."
+      },
+      {
+       "step": "Facial pressure",
+       "how": "Any facial pain or pressure?",
+       "normal": "Denies facial pain and pressure."
+      },
+      {
+       "step": "Eyes and ears",
+       "how": "Any eye or ear pain or discharge?",
+       "normal": "Denies eye and ear symptoms."
+      },
+      {
+       "step": "Smell",
+       "how": "Any change in smell?",
+       "normal": "Denies anosmia."
+      },
+      {
+       "step": "Teeth",
+       "how": "Any tooth pain? Maxillary sinusitis refers there.",
+       "normal": "Denies tooth pain."
+      },
+      {
+       "step": "Nasal medication",
+       "how": "Any nasal sprays, drops or medications?",
+       "normal": "Denies nasal spray and drop use."
+      },
+      {
+       "step": "Chronic problems",
+       "how": "Any chronic health problems?",
+       "normal": "Denies chronic health problems."
+      }
+     ]
+    }
+   ],
+   "ddxList": [
+    "Infectious rhinitis",
+    "Allergic rhinitis",
+    "Rhinitis medicamentosa",
+    "Acute sinusitis",
+    "Chronic sinusitis",
+    "Obstruction",
+    "Nasal polyps",
+    "Osteomyelitis of the frontal bone"
+   ],
+   "differential": [
+    {
+     "condition": "Infectious rhinitis",
+     "note": "Perennial, more common in winter.",
+     "hpi": "Purulent yellow or green discharge.",
+     "ros": "Recent upper respiratory infection.",
+     "pe": "Red, swollen mucosa.",
+     "ddx": "Allergic rhinitis, nasopharyngitis.",
+     "labs": "Nasal smear showing neutrophils.",
+     "tx": "Neti pot. Vitamin C."
+    },
+    {
+     "condition": "Allergic rhinitis",
+     "note": "More common in children and young adults.",
+     "hpi": "Sneezing. Recurrent pattern. Clear, watery mucus. Constantly running nose.",
+     "ros": "Family history of allergies.",
+     "pe": "Pale, boggy mucosa; rhinorrhoea.",
+     "ddx": "Non-allergic rhinitis — same symptoms but negative for eosinophils.",
+     "labs": "Allergy testing; nasal smear showing eosinophils.",
+     "tx": "Environmental modifications: air filter, clean sheets. Stinging nettle."
+    },
+    {
+     "condition": "Rhinitis medicamentosa",
+     "hpi": "History of medication use, most often a decongestant nasal spray.",
+     "ros": "Rebound congestion that returns as the spray wears off.",
+     "pe": "Swollen, dry mucosa with clear mucus.",
+     "ddx": "Allergic rhinitis, infectious rhinitis.",
+     "labs": "",
+     "tx": "Stop the offending spray; saline irrigation through the rebound period."
+    },
+    {
+     "condition": "Acute sinusitis",
+     "note": "More common in winter.",
+     "hpi": "Worse with forward bending. A sensation of fullness or pressure. Discharge. Possible radiation to the teeth or jaw.",
+     "ros": "Smoker. Recent URI. Postnasal drainage.",
+     "pe": "Purulent discharge; maxillary toothache on percussion; possible cobblestoning of the posterior pharynx; fever; decreased transillumination.",
+     "ddx": "Chronic sinusitis, allergic rhinitis.",
+     "labs": "Transillumination of the sinuses; allergy testing.",
+     "tx": "Neti pot. Steam inhalation."
+    },
+    {
+     "condition": "Chronic sinusitis",
+     "hpi": "Dull ache or possibly no pain. Persistent symptoms. Possible obstruction such as a deviated septum or polyps. Other symptoms as for acute sinusitis.",
+     "ros": "History of previous sinus infections.",
+     "pe": "Decreased or no transillumination.",
+     "ddx": "Acute sinusitis, nasal polyposis.",
+     "labs": "CT scan; nasal endoscopy; allergy testing.",
+     "tx": "Steam inhalations."
+    },
+    {
+     "condition": "Obstruction",
+     "note": "Foreign body in children; tumour in adults.",
+     "hpi": "Increased pain with forward motion or bearing down.",
+     "ros": "History of asthma. Aspirin intolerance. Difficulty feeding.",
+     "pe": "Cyanosis if bilateral; pain with percussion and palpation of the sinuses; no transillumination; septal deviation.",
+     "ddx": "Nasal polyposis, sinusitis.",
+     "labs": "CT scan; sinus radiographs.",
+     "tx": "Referral.",
+     "urgent": true
+    },
+    {
+     "condition": "Nasal polyposis",
+     "hpi": "Chronic sinusitis symptoms.",
+     "ros": "History of asthma. Aspirin intolerance. The triad of asthma, aspirin sensitivity and polyps is Samter's triad.",
+     "pe": "Presence of polyps — translucent growths.",
+     "ddx": "Chronic sinusitis.",
+     "labs": "Nasal endoscopy; biopsy.",
+     "tx": "Homeopathy. Corticosteroids if not improved."
+    },
+    {
+     "condition": "Osteomyelitis of the frontal bone",
+     "note": "A complication of sinusitis.",
+     "hpi": "Puffy eyelids and upper face.",
+     "ros": "History of head trauma or diving.",
+     "pe": "Appears very ill; periorbital and frontal oedema.",
+     "ddx": "Orbital cellulitis, severe sinusitis.",
+     "labs": "Sinus and skull radiographs; blood culture.",
+     "tx": "Referral.",
+     "urgent": true
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Unilateral purulent nasal discharge in a child",
+     "suggests": "Nasal foreign body",
+     "workup": "Direct visualisation and removal; refer if it cannot be seen"
+    },
+    {
+     "finding": "Unilateral obstruction or bleeding in an adult",
+     "suggests": "Nasal or sinus tumour",
+     "urgent": true,
+     "workup": "Nasal endoscopy, CT sinuses, ENT referral"
+    },
+    {
+     "finding": "Puffy eyelids and forehead swelling in a very unwell patient with sinusitis",
+     "suggests": "Osteomyelitis of the frontal bone (Pott's puffy tumour) or orbital extension",
+     "urgent": true,
+     "workup": "CT sinuses and orbits, blood cultures; emergency referral"
+    }
+   ]
+  },
+  {
+   "id": "cc-red-eye",
+   "type": "Chief complaint",
+   "name": "Red Eye",
+   "region": "Eye",
+   "summary": "Sixteen causes of a red eye grouped by the structure involved — lids and lacrimal sac, conjunctiva, sclera and cornea, anterior chamber, orbit, uveal tract and the angle.",
+   "source": "Clinic Entry & Exams (Emily Tan)",
+   "normalsWritten": true,
+   "script": "Three questions sort the list. Does it hurt to move the eye? Is vision affected? Is the pupil normal? A red eye that is painless with normal vision and a normal pupil is almost always conjunctivitis. Pain, reduced acuity or an abnormal pupil is a referral.",
+   "related": [
+    "Conjunctivitis",
+    "Allergic rhinitis",
+    "Herpes simplex",
+    "Autoimmune conditions",
+    "Acute closed-angle glaucoma",
+    "Iritis and anterior uveitis",
+    "Keratitis",
+    "Scleritis and episcleritis",
+    "Hyphema",
+    "Orbital and periorbital cellulitis",
+    "Eyelid and lacrimal disorders"
+   ],
+   "groups": [
+    {
+     "name": "History of present illness",
+     "steps": [
+      {
+       "step": "OLDCARTS",
+       "how": "Onset, location, duration, characteristics, alleviating and aggravating factors, radiation, timing and severity.",
+       "normal": "History of present illness taken in full."
+      },
+      {
+       "step": "Onset and recurrence",
+       "how": "Abrupt or gradual? Has this happened before, and how often?",
+       "normal": "Gradual onset; denies prior episodes."
+      },
+      {
+       "step": "Side",
+       "how": "One eye or both?",
+       "normal": "Symptoms are unilateral."
+      },
+      {
+       "step": "Events at onset",
+       "how": "What happened at the start? Did anything splash into the eye?",
+       "normal": "Denies chemical or foreign body exposure."
+      },
+      {
+       "step": "Trauma",
+       "how": "Any trauma to the eye?",
+       "normal": "Denies ocular trauma."
+      },
+      {
+       "step": "Swelling",
+       "how": "Any swelling or tightness around the eye?",
+       "normal": "Denies periorbital swelling."
+      },
+      {
+       "step": "Pain on movement",
+       "how": "Does it hurt to move the eye? How severe? Does it feel like something is in there?",
+       "normal": "Denies pain on eye movement and foreign body sensation."
+      },
+      {
+       "step": "Discharge",
+       "how": "Any discharge, and what is it like?",
+       "normal": "Denies discharge."
+      },
+      {
+       "step": "Photophobia",
+       "how": "Does light bother or hurt the eye?",
+       "normal": "Denies photophobia."
+      },
+      {
+       "step": "Tearing and itch",
+       "how": "Excessive tearing? Itchy? Any seasonal pattern?",
+       "normal": "Denies excessive tearing and itch."
+      }
+     ]
+    },
+    {
+     "name": "Review of systems and past history",
+     "steps": [
+      {
+       "step": "Fever",
+       "how": "Any fever?",
+       "normal": "Denies fever."
+      },
+      {
+       "step": "Cough",
+       "how": "Any cough?",
+       "normal": "Denies cough."
+      },
+      {
+       "step": "Sinuses",
+       "how": "Any recent sinus infection?",
+       "normal": "Denies recent sinusitis."
+      },
+      {
+       "step": "Vision",
+       "how": "Any change or loss of vision — blurring, double vision, halos, floaters?",
+       "normal": "Denies visual change."
+      }
+     ]
+    }
+   ],
+   "ddxList": [
+    "Lids and lacrimal sac — dacryocystitis",
+    "Lids — blepharitis",
+    "Lids — hordeolum / stye",
+    "Lids — chalazion",
+    "Conjunctiva — bacterial conjunctivitis",
+    "Conjunctiva — viral conjunctivitis",
+    "Conjunctiva — allergic conjunctivitis",
+    "Sclera — scleritis",
+    "Cornea — keratitis",
+    "Cornea — abrasion or foreign body",
+    "Cornea — herpetic keratitis",
+    "Anterior chamber — hyphema",
+    "Orbit — periorbital cellulitis",
+    "Orbit — orbital cellulitis",
+    "Angle — acute closed-angle glaucoma",
+    "Uveal tract — iritis"
+   ],
+   "differential": [
+    {
+     "condition": "Dacryocystitis",
+     "note": "Infection of the lacrimal sac.",
+     "hpi": "Unilateral. Acute onset. Pain.",
+     "ros": "Tearing.",
+     "pe": "Swelling and redness around the lacrimal sac; may have pus.",
+     "ddx": "Periorbital cellulitis, hordeolum.",
+     "labs": "CBC showing leukocytosis.",
+     "tx": "Warm compresses; antibiotics; referral if it does not settle."
+    },
+    {
+     "condition": "Blepharitis",
+     "note": "Inflammation of the eyelids.",
+     "hpi": "Bilateral. Gradual onset. No pain.",
+     "ros": "",
+     "pe": "Lids inflamed; scaling; loss of lid margins or lashes.",
+     "ddx": "Seborrhoeic dermatitis, chalazion.",
+     "labs": "",
+     "tx": "Lid hygiene and warm compresses."
+    },
+    {
+     "condition": "Hordeolum (stye)",
+     "note": "Usually caused by infection; painful and localised to an eyelid margin.",
+     "hpi": "Unilateral. Pain.",
+     "ros": "Possibly a history of diabetes.",
+     "pe": "Swelling of the eyelid; indurated lesion with central pus; erythema.",
+     "ddx": "Chalazion, dacryocystitis.",
+     "labs": "",
+     "tx": "Warm compresses; topical antibiotic if it spreads."
+    },
+    {
+     "condition": "Chalazion",
+     "note": "Non-infectious meibomian gland occlusion — a non-tender nodule in the centre of the eyelid.",
+     "hpi": "Unilateral. Chronic. Painless. Red or itching eye and eyelid.",
+     "ros": "",
+     "pe": "Indurated lesion on the tarsal plate of the lid.",
+     "ddx": "Hordeolum, blepharitis.",
+     "labs": "",
+     "tx": "Warm compresses and lid massage; referral for persistent lesions."
+    },
+    {
+     "condition": "Bacterial conjunctivitis",
+     "hpi": "Gradual onset. Unilateral progressing to bilateral. Discharge, itch, no pain.",
+     "ros": "Photophobia.",
+     "pe": "Peripheral injection; purulent discharge; visual acuity intact; matted eyelids.",
+     "ddx": "Iritis, viral or allergic conjunctivitis.",
+     "labs": "Culture; Gram stain.",
+     "tx": "Compresses. Antibiotics."
+    },
+    {
+     "condition": "Viral conjunctivitis",
+     "note": "A highly contagious acute conjunctival infection, usually caused by adenovirus.",
+     "hpi": "Gradual onset. Unilateral progressing to bilateral. Scratchy, no pain.",
+     "ros": "Light sensitivity. Intermittent blurry vision.",
+     "pe": "Peripheral injection; visual acuity intact; watery discharge; follicular changes in the palpebral conjunctiva.",
+     "ddx": "Iritis, bacterial or allergic conjunctivitis.",
+     "labs": "Culture.",
+     "tx": "Compresses. Lubricant or artificial tears."
+    },
+    {
+     "condition": "Allergic conjunctivitis",
+     "hpi": "Chronic or seasonal. Bilateral. Itchy, no pain. Tearing.",
+     "ros": "History of atopic disease, airborne allergens. Intermittent blurry vision.",
+     "pe": "Peripheral injection; ropy, mucoid discharge; cobblestone mucosa; visual acuity intact.",
+     "ddx": "Bacterial or viral conjunctivitis, episcleritis.",
+     "labs": "Fluorescein staining; allergy testing.",
+     "tx": "Allergen avoidance; cool compresses; antihistamine drops."
+    },
+    {
+     "condition": "Hyphema",
+     "note": "A collection of blood inside the anterior chamber of the eye.",
+     "hpi": "Unilateral. Trauma to the eye. Pain.",
+     "ros": "Nausea. Photophobia. Higher risk in sickle cell disease.",
+     "pe": "Red blood cells in the anterior chamber; visual acuity decreased; pupil irregular and poorly reactive.",
+     "ddx": "Subconjunctival haemorrhage.",
+     "labs": "",
+     "tx": "Referral.",
+     "urgent": true
+    },
+    {
+     "condition": "Scleritis",
+     "note": "Inflammation of the sclera.",
+     "hpi": "Unilateral. Deep, boring pain. Teary.",
+     "ros": "Photophobia. History of systemic immune disease.",
+     "pe": "Ciliary injection; variable visual acuity.",
+     "ddx": "Episcleritis.",
+     "labs": "ANA, RF and anti-CCP where an autoimmune cause is on the list.",
+     "tx": "Referral.",
+     "urgent": true
+    },
+    {
+     "condition": "Keratitis",
+     "note": "The cornea — the clear dome on the front surface of the eye — becomes inflamed.",
+     "hpi": "Unilateral or bilateral. Moderate to severe pain. Discharge, tearing.",
+     "ros": "Photophobia. History of HSV. Blurred vision.",
+     "pe": "Ciliary flush; cloudy cornea; visual acuity decreased.",
+     "ddx": "Corneal abrasion, herpetic keratitis.",
+     "labs": "Fluorescein staining.",
+     "tx": "Referral.",
+     "urgent": true
+    },
+    {
+     "condition": "Periorbital cellulitis",
+     "hpi": "Unilateral.",
+     "ros": "Fever.",
+     "pe": "Redness; swelling of the lid; conjunctiva clear; eye moves freely; vision not impaired.",
+     "ddx": "Orbital cellulitis — the distinction is eye movement and vision.",
+     "labs": "CBC; blood cultures showing leukocytosis.",
+     "tx": "Antibiotics; close follow-up."
+    },
+    {
+     "condition": "Orbital cellulitis",
+     "hpi": "Unilateral with pain. Pain with eye movement.",
+     "ros": "Fever. Blurred vision or diplopia. Headache.",
+     "pe": "Proptosis, lid swelling; patient appears ill; conjunctivitis; limitation of eye motion.",
+     "ddx": "Periorbital cellulitis.",
+     "labs": "CBC; blood cultures; CT scan.",
+     "tx": "Emergency.",
+     "urgent": true
+    },
+    {
+     "condition": "Iritis",
+     "note": "Inflammation of the coloured part of the eye (the iris).",
+     "hpi": "Unilateral. Moderate aching pain. Tearing with watery discharge.",
+     "ros": "Photophobia. May have mildly decreased vision.",
+     "pe": "Affected pupil smaller; ciliary flush; cornea normal.",
+     "ddx": "Keratitis, acute closed-angle glaucoma.",
+     "labs": "",
+     "tx": "Referral.",
+     "urgent": true
+    },
+    {
+     "condition": "Acute closed-angle glaucoma",
+     "note": "When the flow of aqueous humour out of the eye is blocked and the pressure inside the eye becomes too high.",
+     "hpi": "Unilateral. Deep pain. Tears.",
+     "ros": "Photophobia. Halos and blurred vision. Diabetes. Older age. Frontal headache. Vasovagal symptoms — diaphoresis, nausea and vomiting.",
+     "pe": "Ciliary injection; visual acuity decreased with impaired peripheral vision; increased intraocular pressure; fixed pupil.",
+     "ddx": "Iritis, keratitis.",
+     "labs": "Tonometry.",
+     "tx": "Emergency.",
+     "urgent": true
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Pain on eye movement with proptosis and limited motion",
+     "suggests": "Orbital cellulitis",
+     "urgent": true,
+     "workup": "CBC, blood cultures, CT orbits; emergency referral"
+    },
+    {
+     "finding": "Fixed mid-dilated pupil with halos and a hard, red, painful eye",
+     "suggests": "Acute closed-angle glaucoma",
+     "urgent": true,
+     "workup": "Tonometry and emergency ophthalmology referral"
+    },
+    {
+     "finding": "Any red eye with reduced visual acuity or an abnormal pupil",
+     "suggests": "Sight-threatening disease — iritis, keratitis, glaucoma, hyphema — not conjunctivitis",
+     "urgent": true,
+     "workup": "Same-day ophthalmology referral"
+    }
+   ]
+  },
+  {
+   "id": "cc-fatigue",
+   "type": "Chief complaint",
+   "name": "Fatigue",
+   "region": "Constitutional",
+   "summary": "Eight acute and seven chronic causes of tiredness, starting with the question that separates them all — what do you actually mean by fatigue?",
+   "source": "Clinic Entry & Exams (Emily Tan)",
+   "normalsWritten": true,
+   "script": "Start by making them define it: sleepiness, weakness, breathlessness on effort and low mood are four different complaints and four different workups. A slow onset points at a metabolic cause, a sudden one at infection or blood loss.",
+   "related": [
+    "Fatigue and low energy",
+    "Anemia, iron deficiency",
+    "Hypothyroidism",
+    "Hyperthyroidism",
+    "Chronic fatigue syndrome",
+    "Depression",
+    "Fibromyalgia",
+    "Hepatitis",
+    "Obstructive sleep apnea",
+    "Infectious mononucleosis"
+   ],
+   "groups": [
+    {
+     "name": "History of present illness",
+     "steps": [
+      {
+       "step": "Definition",
+       "how": "What do you mean by fatigue?",
+       "normal": "Fatigue characterised by the patient."
+      },
+      {
+       "step": "Onset",
+       "how": "Slow onset — think metabolic — or sudden?",
+       "normal": "Onset recorded."
+      },
+      {
+       "step": "Triggers",
+       "how": "What brings it on? Is it related to anything?",
+       "normal": "No identified trigger."
+      },
+      {
+       "step": "Rest",
+       "how": "Is it relieved by rest or sleep?",
+       "normal": "Fatigue relieved by rest."
+      },
+      {
+       "step": "Activity",
+       "how": "Is it better with physical activity?",
+       "normal": "Response to activity recorded."
+      }
+     ]
+    },
+    {
+     "name": "Review of systems and past history",
+     "steps": [
+      {
+       "step": "Blood loss",
+       "how": "Menstruation, pregnancy, any excess bleeding?",
+       "normal": "Denies abnormal blood loss."
+      },
+      {
+       "step": "Fever",
+       "how": "Any fever — recent infection, inflammation, malignancy or chronic disease?",
+       "normal": "Denies fever."
+      },
+      {
+       "step": "Lifestyle",
+       "how": "Caffeine, sleep, stress, work, nutrition, alcohol, drugs.",
+       "normal": "Lifestyle factors recorded."
+      },
+      {
+       "step": "Camping",
+       "how": "Any recent camping? Think Lyme.",
+       "normal": "Denies outdoor exposure."
+      },
+      {
+       "step": "Exposures",
+       "how": "Body fluids — HIV, hepatitis B — and occupational or environmental exposures.",
+       "normal": "Denies relevant exposures."
+      },
+      {
+       "step": "Sexual health",
+       "how": "What birth control or safe sex method? Assess HIV risk.",
+       "normal": "Sexual history as reported."
+      },
+      {
+       "step": "Medications",
+       "how": "What are you taking? Beta blockers, pain medication and antihistamines are common causes.",
+       "normal": "Medication list reviewed."
+      },
+      {
+       "step": "Weight loss",
+       "how": "Any weight loss — infection, depression or cancer?",
+       "normal": "Denies weight loss."
+      },
+      {
+       "step": "Urination",
+       "how": "Any increase in urination? Think diabetes.",
+       "normal": "Denies polyuria."
+      },
+      {
+       "step": "Joints",
+       "how": "Any joint tenderness? Think rheumatoid arthritis.",
+       "normal": "Denies joint tenderness."
+      },
+      {
+       "step": "Appetite and thirst",
+       "how": "Any change in appetite or thirst?",
+       "normal": "Denies change in appetite and thirst."
+      },
+      {
+       "step": "Bowels",
+       "how": "Any change in bowel movements?",
+       "normal": "Denies change in bowel habit."
+      }
+     ]
+    }
+   ],
+   "ddxList": [
+    "Acute — poor nutritional or sleep status",
+    "Acute — depression",
+    "Acute — anxiety",
+    "Acute — anaemia",
+    "Acute — infection",
+    "Acute — drugs and alcohol",
+    "Acute — hypothyroidism",
+    "Acute — hyperthyroidism",
+    "Chronic — sleep apnoea",
+    "Chronic — medication side effects",
+    "Chronic — heart failure",
+    "Chronic — cancer",
+    "Chronic — mononucleosis (EBV)",
+    "Chronic — hepatitis",
+    "Chronic — fibromyalgia",
+    "Chronic — chronic fatigue syndrome"
+   ],
+   "differential": [
+    {
+     "condition": "Anaemia",
+     "hpi": "Fatigue. Weakness. Shortness of breath on exertion.",
+     "ros": "Low iron diet. Heavy menstrual bleeding or postpartum. Recent surgery.",
+     "pe": "Tachycardia; pale mucosa; smooth red tongue.",
+     "ddx": "Poor nutritional status or deficiency.",
+     "labs": "CBC; serum iron, ferritin and transferrin.",
+     "tx": "Treat the cause of the loss, then replace iron."
+    },
+    {
+     "condition": "Hypothyroidism",
+     "hpi": "Fatigue and tiredness.",
+     "ros": "Cold intolerance. Constipation. Weight gain, poor appetite. Hoarseness. Depression.",
+     "pe": "Bradycardia; coarse, dry hair; dry skin, oedema; thyroid possibly enlarged; delayed deep tendon reflexes; TSH elevated with low T4 and T3.",
+     "ddx": "Depression, anaemia, chronic fatigue syndrome.",
+     "labs": "Thyroid panel.",
+     "tx": "Levothyroxine; treat nutrient cofactors."
+    },
+    {
+     "condition": "Hyperthyroidism (Graves disease)",
+     "hpi": "Hyperactivity.",
+     "ros": "Increased sweating. Heat intolerance. Weight loss. Irritability, disturbed sleep. Menstrual irregularity.",
+     "pe": "Tachycardia; atrial fibrillation; tremor; fine, thinning hair; warm, moist skin; lid lag and bulging eyes; T4 and T3 increased with TSH depressed.",
+     "ddx": "Anxiety, phaeochromocytoma.",
+     "labs": "Thyroid panel.",
+     "tx": "Antithyroid drugs; refer."
+    },
+    {
+     "condition": "Mononucleosis (EBV)",
+     "note": "Most often in young adults.",
+     "hpi": "Gradual onset of low-grade fever. Mild sore throat. Malaise. Rash.",
+     "ros": "",
+     "pe": "May see splenomegaly; fever; palatine petechiae; posterior cervical lymphadenopathy.",
+     "ddx": "Group A strep, CMV, acute HIV.",
+     "labs": "Monospot test; CBC.",
+     "tx": "Rest; avoid contact sport while the spleen is enlarged."
+    },
+    {
+     "condition": "Cancer",
+     "hpi": "Unexplained fatigue that increases with activity and worsens over time.",
+     "ros": "Potential blood in the stool (colon cancer). Anaemia.",
+     "pe": "Physical exam may be normal; lesion, lump or consolidation on palpation.",
+     "ddx": "Anaemia.",
+     "labs": "CBC.",
+     "tx": "Mistletoe alongside oncology care.",
+     "urgent": true
+    },
+    {
+     "condition": "Hepatitis",
+     "note": "Usually B and C are the ones associated with fatigue.",
+     "hpi": "Malaise. Flu-like symptoms. Abdominal pain. Arthralgia.",
+     "ros": "Risky sexual behaviour. Skin rash. Anorexia, weight loss. Exposure to body secretions through blood transfusion, injectable drug use, or contaminated food or water.",
+     "pe": "Jaundice; fever; enlarged, tender liver; bilirubin increased.",
+     "ddx": "Other causes of hepatitis — alcohol, drugs, autoimmune.",
+     "labs": "Hepatitis panel; bilirubin.",
+     "tx": "Antivirals where indicated; liver support."
+    },
+    {
+     "condition": "Fibromyalgia",
+     "note": "Usually in women 20 to 50 years old.",
+     "hpi": "Chronic pain and stiffness, especially the neck, shoulders, low back and hips, with fatigue. Sleep disturbance. Headaches.",
+     "ros": "Bowel irritability. History of depression or chronic fatigue. General body aches.",
+     "pe": "Palpation of tender points elicits pain; the physical exam is otherwise normal.",
+     "ddx": "Chronic fatigue syndrome, hypothyroidism, polymyalgia rheumatica.",
+     "labs": "",
+     "tx": "Sleep, graded exercise and pain modulation; treat the comorbid mood and sleep disorder."
+    },
+    {
+     "condition": "Chronic fatigue syndrome",
+     "hpi": "Severe fatigue lasting longer than 6 months. Sudden onset of flu-like symptoms that persist or recur.",
+     "ros": "In association with at least one of: impaired memory or concentration, sore throat, tender lymph nodes, muscle pain, joint pain, new headaches, non-restorative sleep, post-exertional malaise.",
+     "pe": "Physical exam may be normal; cervical and axillary lymphadenopathy.",
+     "ddx": "Fibromyalgia, hypothyroidism, depression, sleep apnoea.",
+     "labs": "CBC, ESR.",
+     "tx": "Adaptogens; pacing and post-exertional malaise management."
+    },
+    {
+     "condition": "Sleep apnoea",
+     "note": "Usually middle-aged and older men.",
+     "hpi": "Excessive daytime fatigue. Morning headaches. Restless sleep, snoring. Reports difficulty breathing during sleep.",
+     "ros": "History of hypertension, obesity. Erectile dysfunction.",
+     "pe": "Narrowed upper airway.",
+     "ddx": "Hypothyroidism, depression, chronic fatigue syndrome.",
+     "labs": "Sleep studies.",
+     "tx": "CPAP; weight management; positional therapy."
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Fatigue with fever, night sweats and unintentional weight loss",
+     "suggests": "Infection, inflammatory disease or malignancy",
+     "urgent": true,
+     "workup": "CBC with differential, CRP and ESR, CMP, LDH, chest X-ray, blood cultures, HIV and TB testing"
+    },
+    {
+     "finding": "Fatigue that came on with a new medication",
+     "suggests": "Drug effect — beta blockers, analgesics, antihistamines",
+     "workup": "Review the medication list against the onset date"
+    },
+    {
+     "finding": "Fatigue with breathlessness on exertion and pale mucosa",
+     "suggests": "Anaemia — find the source of loss before replacing iron",
+     "workup": "CBC, ferritin with iron studies, FIT, coeliac serology; gynaecological history"
+    }
+   ]
+  },
+  {
+   "id": "cc-abdominal-pain",
+   "type": "Chief complaint",
+   "name": "Abdominal Pain",
+   "region": "Abdomen",
+   "summary": "Fifteen acute causes and eleven chronic ones, split first into acute against chronic and then by whether the pain sits in the upper or the lower abdomen.",
+   "source": "Clinic Entry & Exams (Emily Tan)",
+   "normalsWritten": true,
+   "script": "Have them point to it, then point to where it goes — gallbladder refers to the right scapula, spleen to the right shoulder, and appendicitis migrates from periumbilical to the right lower quadrant. Ask for a last menstrual period in every woman of childbearing age before anything else: ectopic pregnancy is the diagnosis you cannot afford to reach second.",
+   "related": [
+    "GERD",
+    "Gastritis",
+    "Irritable bowel syndrome",
+    "Gallstones",
+    "Inflammatory bowel disease",
+    "Kidney stones",
+    "Urinary tract infection",
+    "Appendicitis",
+    "Celiac disease",
+    "Dysmenorrhea",
+    "Constipation",
+    "Ectopic pregnancy",
+    "Acute pancreatitis",
+    "Peptic ulcer disease",
+    "Pelvic inflammatory disease",
+    "Bowel obstruction",
+    "Abdominal wall hernia",
+    "Pyelonephritis"
+   ],
+   "groups": [
+    {
+     "name": "History of present illness",
+     "steps": [
+      {
+       "step": "OLDCARTS",
+       "how": "Onset, location, duration, characteristics, alleviating and aggravating factors, radiation, timing and severity.",
+       "normal": "History of present illness taken in full."
+      },
+      {
+       "step": "Onset",
+       "how": "Sudden or gradual? Is it getting worse? Acute, chronic or recurrent?",
+       "normal": "Onset and trajectory recorded."
+      },
+      {
+       "step": "Point to it",
+       "how": "Point to the pain. Does it radiate? Point there too. Gallbladder refers to the right scapula, spleen to the right shoulder.",
+       "normal": "Pain localised without radiation."
+      },
+      {
+       "step": "Modifiers",
+       "how": "What makes it better or worse — position, foods, movement?",
+       "normal": "No positional, dietary or movement modifiers."
+      },
+      {
+       "step": "Quality",
+       "how": "Burning, cramping, steady, sharp?",
+       "normal": "Pain quality as described."
+      },
+      {
+       "step": "Prior episodes",
+       "how": "Have you had this pain before? What was the diagnosis and what was used? Antacids helping usually points at GERD, ulcer or gastritis.",
+       "normal": "Denies prior episodes."
+      },
+      {
+       "step": "Night waking",
+       "how": "Does the pain wake you from sleep?",
+       "normal": "Denies nocturnal waking with pain."
+      },
+      {
+       "step": "Context",
+       "how": "Worse with food or stress? What colour and quality are the stools?",
+       "normal": "No dietary or stress relationship; stools normal in colour."
+      },
+      {
+       "step": "Weight loss",
+       "how": "Any involuntary weight loss? Think cancer.",
+       "normal": "Denies involuntary weight loss."
+      },
+      {
+       "step": "Surgery",
+       "how": "Any recent surgeries?",
+       "normal": "Denies recent surgery."
+      }
+     ]
+    },
+    {
+     "name": "Review of systems and past history",
+     "steps": [
+      {
+       "step": "Drugs",
+       "how": "Are you taking an NSAID, aspirin or tetracycline?",
+       "normal": "Denies NSAID, aspirin and tetracycline use."
+      },
+      {
+       "step": "Diet",
+       "how": "Lactose, gluten, spice?",
+       "normal": "No dietary triggers identified."
+      },
+      {
+       "step": "Substances",
+       "how": "Alcohol and tobacco use.",
+       "normal": "Denies alcohol and tobacco use."
+      },
+      {
+       "step": "Vomiting",
+       "how": "Are you vomiting? What does it look like?",
+       "normal": "Denies vomiting."
+      },
+      {
+       "step": "Bowels",
+       "how": "How often are your bowel movements? Any gas, diarrhoea, constipation or heartburn? Is the pain relieved by defecation or belching? Any change in bowel habit, stool or eating?",
+       "normal": "Bowel habit unchanged."
+      },
+      {
+       "step": "Parasite exposure",
+       "how": "Camping, day care, living situation, travel?",
+       "normal": "Denies parasite exposure."
+      },
+      {
+       "step": "Cardiac",
+       "how": "Any chest pain, palpitations, or pain radiating to the arm or jaw?",
+       "normal": "Denies cardiac symptoms."
+      },
+      {
+       "step": "Pregnancy",
+       "how": "Could you be pregnant? Last menstrual period? Any unusual vaginal discharge, irregular bleeding or pain with intercourse?",
+       "normal": "Pregnancy denied; no abnormal vaginal symptoms."
+      },
+      {
+       "step": "Urinary",
+       "how": "Blood in the urine, frequency, urgency, urine colour? Any back or flank pain?",
+       "normal": "Denies urinary symptoms and flank pain."
+      },
+      {
+       "step": "Musculoskeletal",
+       "how": "Does the pain occur with movement? Any joint pain, heat, swelling, restricted movement or difficulty walking?",
+       "normal": "Denies musculoskeletal symptoms."
+      },
+      {
+       "step": "Respiratory",
+       "how": "Cough, difficulty breathing, sore throat, shortness of breath? Pneumonia and pleurisy refer through the phrenic nerve, mostly in children.",
+       "normal": "Denies respiratory symptoms."
+      },
+      {
+       "step": "Psychiatric",
+       "how": "Depression or anxiety? Energy levels? Difficulty engaging in usual activities?",
+       "normal": "Denies mood symptoms."
+      }
+     ]
+    }
+   ],
+   "ddxList": [
+    "Acute — appendicitis",
+    "Acute — ectopic pregnancy",
+    "Acute — peptic ulcer perforation",
+    "Acute — aortic aneurysm dissection",
+    "Acute — myocardial infarction",
+    "Acute — peritonitis",
+    "Acute — acute pancreatitis",
+    "Acute — cholecystitis or cholelithiasis",
+    "Acute — ureterolithiasis",
+    "Acute — UTI or pyelonephritis",
+    "Acute — PID or salpingitis",
+    "Acute — obstruction",
+    "Acute — hernia",
+    "Acute — referred pain from pneumonia",
+    "Chronic lower — IBS",
+    "Chronic lower — Crohn disease",
+    "Chronic lower — lactose intolerance or coeliac",
+    "Chronic lower — diverticular disease",
+    "Chronic lower — dysmenorrhoea",
+    "Chronic lower — ovarian cysts",
+    "Chronic upper — oesophagitis or GERD",
+    "Chronic upper — peptic ulcer disease",
+    "Chronic upper — gastritis",
+    "Chronic upper — gastroenteritis",
+    "Chronic upper — functional dyspepsia"
+   ],
+   "differential": [
+    {
+     "condition": "Appendicitis",
+     "hpi": "Sudden onset. Colicky pain progressing to constant. Can begin epigastric or periumbilical and localise in the right lower quadrant. Worse with coughing or movement.",
+     "ros": "Possible nausea and vomiting. Fever. The patient stays still.",
+     "pe": "Right lower quadrant tenderness; involuntary guarding; rebound tenderness.",
+     "ddx": "PID, diverticulitis, neoplasms.",
+     "labs": "CBC; ultrasound; CT; laparoscopy.",
+     "tx": "Emergency referral.",
+     "urgent": true
+    },
+    {
+     "condition": "Ectopic pregnancy",
+     "note": "Women of childbearing age.",
+     "hpi": "Sudden onset. Spotting. Lower quadrant cramping after a missed period.",
+     "ros": "Haemorrhage and shock symptoms.",
+     "pe": "Enlarged uterus; cervical motion tenderness; tender adnexal mass.",
+     "ddx": "Appendicitis, ovarian torsion, PID.",
+     "labs": "Beta-hCG (positive); ultrasound.",
+     "tx": "Emergency.",
+     "urgent": true
+    },
+    {
+     "condition": "Aortic aneurysm",
+     "hpi": "Sudden onset of severe pain felt in the chest or abdomen. Radiation to the legs or back.",
+     "ros": "History of hypertension.",
+     "pe": "Vital signs reflect shock; deficit or differing femoral pulses.",
+     "ddx": "Renal colic, myocardial infarction, pancreatitis.",
+     "labs": "CT or MRI; ECG and cardiac enzymes.",
+     "tx": "Emergency.",
+     "urgent": true
+    },
+    {
+     "condition": "Acute pancreatitis",
+     "hpi": "Steady, dull pain, unrelieved by change of position. Left upper quadrant, radiating to the back.",
+     "ros": "History of gallstones. Excess alcohol use. Nausea, vomiting, sweating.",
+     "pe": "Patient appears ill; abdominal distention; decreased bowel sounds; rebound tenderness; upper abdominal muscle rigidity; limited diaphragmatic excursion of the lungs.",
+     "ddx": "Peptic ulcer disease, cholecystitis, myocardial infarction.",
+     "labs": "CBC with differential; serum amylase and lipase; triglycerides; calcium; liver panel; ultrasound or CT.",
+     "tx": "Nil by mouth, IV fluid hydration, analgesia.",
+     "urgent": true
+    },
+    {
+     "condition": "Cholecystitis / cholelithiasis",
+     "note": "More common in females and adults.",
+     "hpi": "Colicky pain progressing to constant. Right upper quadrant, radiating to the right scapula. May be worse with certain foods.",
+     "ros": "Nausea, vomiting. Dark urine, light stools.",
+     "pe": "Right upper quadrant tender to palpation; Murphy's sign.",
+     "ddx": "Hepatitis, gastritis, pyelonephritis, peptic ulcer disease, gallbladder cancer.",
+     "labs": "CBC; ultrasound, radiograph; serum amylase and lipase.",
+     "tx": "Antibiotics. Cholecystectomy if severe."
+    },
+    {
+     "condition": "Gastritis",
+     "hpi": "Constant burning pain in the epigastric area. Worse with alcohol, NSAIDs and salicylates.",
+     "ros": "Nausea, vomiting, diarrhoea. History of recent travel or ill family members points at gastroenteritis.",
+     "pe": "Fever maybe; physical exam usually negative. Hyperactive bowel sounds and dehydration in gastroenteritis.",
+     "ddx": "Peptic ulcer disease, GERD, functional dyspepsia.",
+     "labs": "H. pylori testing.",
+     "tx": "Remove the irritant; demulcents and mucosal support."
+    },
+    {
+     "condition": "Functional dyspepsia",
+     "note": "Dyspepsia is the most common upper GI symptom and includes epigastric pain, fullness, discomfort, burning, early satiety, nausea, vomiting and belching. Functional dyspepsia is diagnosed when upper GI endoscopy reveals no organic lesion that might explain the symptoms.",
+     "hpi": "Vague symptoms: heartburn, gas, indigestion, fullness.",
+     "ros": "Belching. Abdominal distention. Maybe nausea.",
+     "pe": "Usually unremarkable.",
+     "ddx": "Peptic ulcer disease, gastritis, GERD.",
+     "labs": "H. pylori; endoscopy; CBC; FOBT or FIT.",
+     "tx": "Mindful eating; bitters; treat H. pylori if positive."
+    },
+    {
+     "condition": "Peptic ulcer (H. pylori infection)",
+     "hpi": "Burning or gnawing pain. Soreness, an empty feeling, hunger. Occurs on an empty stomach, with stress or with alcohol. Relieved by food in duodenal ulcer, worse with food in gastric ulcer. Steady pain in the epigastrium.",
+     "ros": "Family history of cancer. Weight loss or gain. Chronic NSAID use.",
+     "pe": "Epigastric tenderness on palpation.",
+     "ddx": "Gastritis, IBD, GERD, acute pancreatitis.",
+     "labs": "H. pylori testing; endoscopy.",
+     "tx": "H. pylori eradication; stop NSAIDs; mucosal support."
+    },
+    {
+     "condition": "Pelvic inflammatory disease",
+     "note": "Most common in sexually active women.",
+     "hpi": "Lower abdominal pain progressing to more severe. Usually bilateral.",
+     "ros": "Irregular bleeding. Vaginal discharge. Maybe vomiting. Fever.",
+     "pe": "Abdominal tenderness; cervical motion and adnexal tenderness; guarding and rebound tenderness with peritonitis.",
+     "ddx": "Appendicitis, ectopic pregnancy, ovarian torsion.",
+     "labs": "WBC and ESR; cultures; Gram stain for STI.",
+     "tx": "Antibiotics; partner treatment."
+    },
+    {
+     "condition": "Irritable bowel syndrome",
+     "note": "Usually begins in adolescence or young adulthood.",
+     "hpi": "Hypogastric pain. Crampy. Variable, infrequent duration. Bowel dysfunction.",
+     "ros": "Gas, bloating, distention. Relief with passing gas or faeces.",
+     "pe": "Physical exam within normal limits; heme-negative stool.",
+     "ddx": "Coeliac disease, IBD, lactose intolerance.",
+     "labs": "Occult blood test; colonoscopy.",
+     "tx": "Elimination diet; soluble fibre; gut-directed therapy."
+    },
+    {
+     "condition": "Crohn disease",
+     "hpi": "Abdominal pain with chronic bloody diarrhoea.",
+     "ros": "Weight loss.",
+     "pe": "Abdominal tenderness.",
+     "ddx": "Colon cancer, ulcerative colitis, infection.",
+     "labs": "Colonoscopy; stool guaiac.",
+     "tx": "Anti-inflammatory therapy; nutritional repletion."
+    },
+    {
+     "condition": "Obstruction",
+     "hpi": "Sudden onset. Crampy pains, usually in the umbilical area.",
+     "ros": "Vomiting. Constipation or diarrhoea.",
+     "pe": "Hyperactive, high-pitched bowel sounds; palpable faecal mass; abdominal distention; empty rectum on digital exam.",
+     "ddx": "Ileus, volvulus, hernia, malignancy.",
+     "labs": "CT or plain X-ray.",
+     "tx": "Emergency referral.",
+     "urgent": true
+    },
+    {
+     "condition": "Oesophagitis / GERD",
+     "hpi": "Acid reflux. Bad taste in the mouth. Burning, gnawing pain in the mid-epigastrium. Worse lying down or reclining. Made better with antacids.",
+     "ros": "Regurgitation.",
+     "pe": "Physical exam may be within normal limits.",
+     "ddx": "Peptic ulcer disease, gastritis, cardiac pain.",
+     "labs": "Endoscopy; manometry; pH monitoring.",
+     "tx": "Weight loss, smoking cessation, avoid late-night eating; antacids and PPI."
+    },
+    {
+     "condition": "Hernia",
+     "hpi": "Localised pain. Increases with exertion or lifting.",
+     "ros": "",
+     "pe": "Hernia present on examination.",
+     "ddx": "Muscle strain, lipoma.",
+     "labs": "MRI, CT, ultrasound.",
+     "tx": "Surgical referral; urgent if it becomes irreducible or tender."
+    },
+    {
+     "condition": "Ureterolithiasis",
+     "note": "Stones in the ureter.",
+     "hpi": "Sudden onset. Severe, intermittent colicky pain that can progress to constant. Lower abdomen or flank, radiating to the groin.",
+     "ros": "Nausea, vomiting. Abdominal distention. Chills, fever. Increased urinary frequency.",
+     "pe": "CVA tenderness; haematuria; sensitivity in the lumbar and groin areas.",
+     "ddx": "Pyelonephritis, appendicitis, AAA.",
+     "labs": "Urinalysis; CT without contrast.",
+     "tx": "Analgesia and hydration; refer for obstruction or infection."
+    },
+    {
+     "condition": "UTI / pyelonephritis",
+     "hpi": "Urinary frequency. Urgency. Painful urination.",
+     "ros": "Fever. Back pain in pyelonephritis. Cloudy, smelly or pink urine.",
+     "pe": "CVA tenderness; lower abdominal tenderness.",
+     "ddx": "Ureterolithiasis, PID, appendicitis.",
+     "labs": "Urinalysis; culture.",
+     "tx": "Uva ursi. Antibiotics."
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Involuntary guarding, rigidity or rebound tenderness",
+     "suggests": "Peritonitis — most often from a perforated viscus",
+     "urgent": true,
+     "workup": "CBC, CMP, lactate, upright chest X-ray and CT; surgical opinion now"
+    },
+    {
+     "finding": "Abdominal pain in a woman of childbearing age with a missed period",
+     "suggests": "Ectopic pregnancy until excluded",
+     "urgent": true,
+     "workup": "Beta-hCG first, then pelvic ultrasound"
+    },
+    {
+     "finding": "Severe abdominal or back pain with a pulsatile mass or asymmetric femoral pulses",
+     "suggests": "Abdominal aortic aneurysm, possibly dissecting",
+     "urgent": true,
+     "workup": "CT or MRI; emergency vascular referral"
+    },
+    {
+     "finding": "Sudden abdominal pain with hypotension or shock in a patient with cardiac risk factors",
+     "suggests": "Myocardial infarction presenting as abdominal pain, or a ruptured aneurysm",
+     "urgent": true,
+     "workup": "12-lead EKG and troponin alongside the abdominal workup"
+    }
+   ]
+  },
+  {
+   "id": "cc-chest-pain",
+   "type": "Chief complaint",
+   "name": "Chest Pain",
+   "region": "Chest",
+   "summary": "Twenty-two causes of chest pain — the cardiac, vascular and pulmonary emergencies first, then the oesophageal, biliary and musculoskeletal causes that account for most of the clinic.",
+   "source": "Clinic Entry & Exams (Emily Tan)",
+   "normalsWritten": true,
+   "script": "Four features separate the emergencies. Pain not relieved by rest or nitroglycerin, radiating to the left arm, throat or jaw, with a sense of impending doom, is a myocardial infarction until proven otherwise. Ripping pain radiating between the shoulder blades is a dissection. Sudden pleuritic pain with dyspnoea and a risk factor for clot is an embolism. Sharp pain relieved by sitting forward is pericarditis.",
+   "related": [
+    "Atherosclerosis",
+    "Congestive heart failure",
+    "Pulmonary embolism",
+    "Pneumothorax",
+    "Pneumonia",
+    "GERD",
+    "Mitral valve prolapse",
+    "Anxiety",
+    "Chronic obstructive pulmonary disease",
+    "Asthma",
+    "Gallstones",
+    "Angina pectoris",
+    "Myocardial infarction",
+    "Pericarditis",
+    "Myocarditis",
+    "Aortic dissection",
+    "Aortic stenosis",
+    "Mitral regurgitation",
+    "Pleuritis"
+   ],
+   "groups": [
+    {
+     "name": "History of present illness",
+     "steps": [
+      {
+       "step": "OLDCARTS",
+       "how": "Onset, location, duration, characteristics, alleviating and aggravating factors, radiation, timing and severity.",
+       "normal": "History of present illness taken in full."
+      },
+      {
+       "step": "Rest",
+       "how": "Is it relieved by rest?",
+       "normal": "Response to rest recorded."
+      },
+      {
+       "step": "Position",
+       "how": "Does it change when you change position?",
+       "normal": "No positional change."
+      },
+      {
+       "step": "Events at onset",
+       "how": "What was happening when it started?",
+       "normal": "Circumstances at onset recorded."
+      },
+      {
+       "step": "Acuity",
+       "how": "Acute or chronic?",
+       "normal": "Acuity recorded."
+      },
+      {
+       "step": "Night waking",
+       "how": "Does the pain wake you from sleep?",
+       "normal": "Denies nocturnal waking with pain."
+      },
+      {
+       "step": "Eating",
+       "how": "Does the pain change with eating?",
+       "normal": "No relationship to eating."
+      },
+      {
+       "step": "Trajectory",
+       "how": "Is it getting worse?",
+       "normal": "Pain is not progressing."
+      }
+     ]
+    },
+    {
+     "name": "Review of systems and past history",
+     "steps": [
+      {
+       "step": "Smoking",
+       "how": "Do you smoke?",
+       "normal": "Denies smoking."
+      },
+      {
+       "step": "Cardiac risk",
+       "how": "History of high blood pressure, diabetes, heart disease or other chronic health problems?",
+       "normal": "Denies cardiac risk factors."
+      },
+      {
+       "step": "Family history",
+       "how": "Family history of heart attack or stroke? Personal or family history of high cholesterol?",
+       "normal": "No relevant family history."
+      },
+      {
+       "step": "Respiratory",
+       "how": "Any cough or sputum?",
+       "normal": "Denies cough and sputum."
+      },
+      {
+       "step": "Fever",
+       "how": "Any fever?",
+       "normal": "Denies fever."
+      },
+      {
+       "step": "Breathing",
+       "how": "Any difficulty breathing?",
+       "normal": "Denies dyspnoea."
+      },
+      {
+       "step": "Haemodynamic",
+       "how": "Lightheaded, dizzy, or racing heart?",
+       "normal": "Denies presyncope and palpitations."
+      },
+      {
+       "step": "Injury",
+       "how": "Any injuries or strenuous physical activity?",
+       "normal": "Denies injury and unusual exertion."
+      },
+      {
+       "step": "Bleeding",
+       "how": "Any blood in the stool or vomit?",
+       "normal": "Denies haematemesis and melena."
+      },
+      {
+       "step": "Skin",
+       "how": "Any skin problems or rashes? Herpes zoster is on the list.",
+       "normal": "Denies rash."
+      },
+      {
+       "step": "Anxiety",
+       "how": "Any anxiety?",
+       "normal": "Denies anxiety."
+      }
+     ]
+    }
+   ],
+   "ddxList": [
+    "Acute angina",
+    "Myocardial infarction",
+    "Pericarditis",
+    "Myocarditis",
+    "Pulmonary embolism",
+    "Aortic dissection",
+    "Mitral regurgitation",
+    "Pneumonia",
+    "Mitral valve prolapse",
+    "Pleuritis",
+    "Oesophagitis",
+    "Rib fracture",
+    "Costochondritis",
+    "Peptic ulcer disease",
+    "Cholecystitis",
+    "Acute pancreatitis",
+    "Heart failure",
+    "Pneumothorax",
+    "Lung cancer",
+    "Asthma and COPD",
+    "Sarcoidosis",
+    "GERD",
+    "Panic attacks or panic disorder",
+    "Cocaine or methamphetamine use",
+    "Herpes zoster"
+   ],
+   "differential": [
+    {
+     "condition": "Stable angina",
+     "hpi": "Substernal chest pressure after exercise or stress. Relieved by rest or nitroglycerin. Radiates to the left shoulder, neck and jaw. Usually gradual onset.",
+     "ros": "Nausea. Shortness of breath, diaphoresis. Sternal pressure.",
+     "pe": "Exam may be within normal limits; possible S4 gallop.",
+     "ddx": "Costochondritis, unstable angina, aortic stenosis.",
+     "labs": "ECG; treadmill stress testing.",
+     "tx": "Risk factor modification; nitrates; refer for revascularisation assessment."
+    },
+    {
+     "condition": "Myocardial infarction",
+     "hpi": "Sudden onset of pain at rest. Persistent, severe pain. Deep, central chest pain radiating to the shoulders, arms, throat or neck, usually the left. NOT relieved by rest or nitroglycerin.",
+     "ros": "Shortness of breath. Nausea, vomiting, diaphoresis. A sense of impending doom. Cigarette smokers. History of hypertension, hyperlipidaemia, diabetes, obesity. Family history of heart attack.",
+     "pe": "Pallor; cool, diaphoretic skin; transient paradoxical S2; hyper- or hypotensive.",
+     "ddx": "Angina, pulmonary embolism, aortic dissection.",
+     "labs": "12-lead ECG; CK-MB, troponin.",
+     "tx": "Emergency.",
+     "urgent": true
+    },
+    {
+     "condition": "Pericarditis",
+     "hpi": "Sharp, stabbing pain. Referred to the left shoulder or trapezius ridge. Worse coughing or breathing deeply. Relieved by sitting forward.",
+     "ros": "History of viral or bacterial infection, autoimmune disease. Fever prior to the onset of pain. Shallow breathing.",
+     "pe": "Tachycardia; pericardial friction rub.",
+     "ddx": "Myocardial infarction, pulmonary embolism, angina.",
+     "labs": "ECG; ESR, WBC; chest radiograph; echocardiogram.",
+     "tx": "Anti-inflammatory therapy; refer if there is an effusion."
+    },
+    {
+     "condition": "Myocarditis",
+     "hpi": "Chest pain.",
+     "ros": "History of fever. Dyspnoea. Recent viral infection.",
+     "pe": "Heart murmur; friction rub; fever.",
+     "ddx": "Pericarditis.",
+     "labs": "ECG; chest radiograph; echocardiogram.",
+     "tx": "Rest and cardiology referral; avoid exertion."
+    },
+    {
+     "condition": "Pulmonary embolism",
+     "hpi": "Sudden onset. Severe sharp, crushing, non-radiating chest pain. Possible pleuritic chest pain.",
+     "ros": "Dyspnoea. Haemoptysis. A feeling of impending doom. Prior venous thromboembolism. Prolonged immobility, cancer, heart failure, chronic disease, lower limb or pelvic surgery, recent pregnancy, obesity, oral contraceptives, varicose veins.",
+     "pe": "Restlessness; tachycardia; tachypnoea; fever; diminished breath sounds; crackles, wheezes, possible pleural friction rub.",
+     "ddx": "Mitral valve prolapse, myocardial infarction.",
+     "labs": "Chest radiograph; ECG; D-dimer and CT pulmonary angiography.",
+     "tx": "Emergency.",
+     "urgent": true
+    },
+    {
+     "condition": "Pneumothorax",
+     "hpi": "Sharp or tearing chest pain radiating to the ipsilateral shoulder, with sudden onset of shortness of breath.",
+     "ros": "Underlying COPD or asthma.",
+     "pe": "Decreased or absent breath sounds on the affected side; tachycardia, tachypnoea; deviated trachea.",
+     "ddx": "Aortic dissection, pulmonary embolism.",
+     "labs": "Chest radiograph.",
+     "tx": "Emergency.",
+     "urgent": true
+    },
+    {
+     "condition": "Aortic dissection",
+     "hpi": "Ripping, tearing, relentless chest pain radiating to the interscapular region, jaw, neck and lower back.",
+     "ros": "History of hypertension or cardiac disease.",
+     "pe": "Patient distressed; hypotension or increased pulse pressure — it varies.",
+     "ddx": "Pneumothorax, myocardial infarction, pulmonary embolism.",
+     "labs": "Chest radiography; aortic angiogram.",
+     "tx": "Emergency.",
+     "urgent": true
+    },
+    {
+     "condition": "Aortic stenosis",
+     "hpi": "Chest pain on exertion, substernal and anginal in character.",
+     "ros": "Fatigue. Palpitations. Dyspnoea on exertion. Dizziness, syncope.",
+     "pe": "Radial pulse diminished with a narrow pulse pressure; loud, harsh murmur heard best at the second right intercostal space with the patient leaning forward; thrill.",
+     "ddx": "Angina, myocardial infarction, hypotension.",
+     "labs": "Chest radiograph; ECG; echocardiogram.",
+     "tx": "Cardiology referral; the triad of angina, syncope and heart failure marks severe disease."
+    },
+    {
+     "condition": "Mitral regurgitation",
+     "hpi": "Exertional chest pain.",
+     "ros": "Fatigue. Palpitations, dizziness, syncope. Dyspnoea on exertion.",
+     "pe": "Holosystolic, blowing murmur loudest at the apex in the left lateral position, decreasing with inspiration; the murmur can radiate to the axilla and back.",
+     "ddx": "Angina.",
+     "labs": "Chest radiograph; ECG; echocardiogram.",
+     "tx": "Cardiology referral and serial echocardiography."
+    },
+    {
+     "condition": "Pneumonia",
+     "hpi": "Yellow-green or rusty sputum with cough. Pleuritic pain.",
+     "ros": "Fever and chills. Dyspnoea.",
+     "pe": "Tachycardia, tachypnoea; inspiratory crackles, vocal fremitus, rales and rhonchi; percussion dull or flat over consolidation; bronchophony and egophony.",
+     "ddx": "Bronchitis, COPD, asthma, lung cancer, pulmonary emboli, pulmonary oedema.",
+     "labs": "Chest radiograph; sputum cultures.",
+     "tx": "Antibiotics where bacterial; supportive care."
+    },
+    {
+     "condition": "Mitral valve prolapse",
+     "hpi": "Chest pain that varies in location and intensity. Non-exertional. Short duration.",
+     "ros": "Palpitations. Anxiety. History of Marfan syndrome.",
+     "pe": "Arrhythmias, possibly a midsystolic click over the apex while sitting or squatting.",
+     "ddx": "Pulmonary embolism.",
+     "labs": "ECG; echocardiogram.",
+     "tx": "Reassurance where it is benign; magnesium; echocardiographic follow-up."
+    },
+    {
+     "condition": "Pleuritis",
+     "hpi": "Mild, localised chest pain. Worse with deep breathing.",
+     "ros": "Recent upper respiratory infection.",
+     "pe": "Shallow respirations; local tenderness; pleural friction rub.",
+     "ddx": "Pleurodynia, pulmonary embolism, myocardial infarction, pneumothorax, pericarditis, pneumonia.",
+     "labs": "Chest radiography.",
+     "tx": "Treat the underlying cause; anti-inflammatories."
+    },
+    {
+     "condition": "Oesophagitis / GERD",
+     "hpi": "Substernal pain, worse after eating and lying down. Sour taste in the mouth.",
+     "ros": "Family history of heartburn or GERD. Older age. Hiatal hernia. Obesity. Malignancy.",
+     "pe": "Epigastric pain with palpation.",
+     "ddx": "Peptic ulcer disease, angina, achalasia, dyspepsia.",
+     "labs": "Oesophageal pH; H. pylori test; barium swallow; endoscopy.",
+     "tx": "Antacids. PPI. Weight loss, smoking cessation, avoid late-night eating."
+    },
+    {
+     "condition": "Peptic ulcer disease",
+     "hpi": "Epigastric pain 1 to 2 hours after eating. Can be relieved by antacids. Wakes the patient at night.",
+     "ros": "Haematemesis, melena. Smoking history. Alcohol overuse. Signs of hypovolaemia: fatigue, nausea, profuse sweating, headache, dizziness.",
+     "pe": "Tenderness to palpation in the epigastric area.",
+     "ddx": "GERD, dyspepsia, gastritis.",
+     "labs": "Upper GI radiograph; upper endoscopy; CBC, which can show iron deficiency anaemia.",
+     "tx": "H. pylori eradication; stop NSAIDs; acid suppression."
+    },
+    {
+     "condition": "Cholecystitis",
+     "hpi": "Right upper quadrant abdominal pain radiating to the right chest and infrascapular region. After a high fat meal. Colicky and intermittent.",
+     "ros": "Nausea, vomiting.",
+     "pe": "Positive Murphy sign; palpable gallbladder.",
+     "ddx": "Cholelithiasis, hepatitis, gastritis, pyelonephritis, gallbladder cancer, peptic ulcer disease.",
+     "labs": "Ultrasound.",
+     "tx": "Antibiotics. Cholecystectomy if severe."
+    },
+    {
+     "condition": "Acute pancreatitis",
+     "hpi": "Sudden onset of severe epigastric or left upper quadrant pain radiating to the left chest, shoulders and back. Worse in the supine position.",
+     "ros": "Nausea, vomiting. Fever. Restless. Unexplained shock. Hypotension.",
+     "pe": "Pain with palpation to the left upper quadrant.",
+     "ddx": "Myocardial infarction, bacterial pneumonia, cholecystitis, colon cancer, cholelithiasis, IBS, pancreatic cancer, viral hepatitis, peptic ulcer disease.",
+     "labs": "Amylase, lipase; pancreas ultrasound or CT — nothing should be taken by mouth.",
+     "tx": "IV fluid hydration. Analgesics.",
+     "urgent": true
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Crushing central chest pain not relieved by rest or nitroglycerin, with diaphoresis",
+     "suggests": "Myocardial infarction",
+     "urgent": true,
+     "workup": "12-lead EKG and troponin now; emergency transfer"
+    },
+    {
+     "finding": "Ripping or tearing pain radiating between the shoulder blades with unequal pulses",
+     "suggests": "Aortic dissection",
+     "urgent": true,
+     "workup": "CT angiography; emergency transfer — do not anticoagulate"
+    },
+    {
+     "finding": "Sudden pleuritic pain with dyspnoea and a clot risk factor",
+     "suggests": "Pulmonary embolism",
+     "urgent": true,
+     "workup": "D-dimer where pre-test probability is low, CT pulmonary angiography otherwise; EKG, chest X-ray"
+    },
+    {
+     "finding": "Deviated trachea with absent breath sounds on one side",
+     "suggests": "Tension pneumothorax",
+     "urgent": true,
+     "workup": "Decompress before imaging; emergency transfer"
+    }
+   ]
+  },
+  {
+   "id": "cc-dyspnea",
+   "type": "Chief complaint",
+   "name": "Shortness of Breath",
+   "region": "Chest",
+   "summary": "Thirteen causes of dyspnoea, led by the five that kill within the hour — embolism, aspiration, anaphylaxis, pneumothorax and epiglottitis.",
+   "source": "Clinic Entry & Exams (Emily Tan)",
+   "normalsWritten": true,
+   "script": "New onset is the red flag. Take the emergencies off the list first — a clot risk factor, a choking episode, an allergen exposure, sudden pleuritic pain, or stridor with drooling — then work through the chronic causes. Ask about oral contraceptives, recent surgery and immobility in every case.",
+   "related": [
+    "Asthma",
+    "Chronic obstructive pulmonary disease",
+    "Congestive heart failure",
+    "Pulmonary embolism",
+    "Pneumonia",
+    "Pneumothorax",
+    "Anemia, iron deficiency",
+    "Anxiety",
+    "COVID-19",
+    "Anaphylaxis",
+    "Foreign body aspiration",
+    "Croup",
+    "Epiglottitis"
+   ],
+   "groups": [
+    {
+     "name": "History of present illness",
+     "steps": [
+      {
+       "step": "OLDCARTS",
+       "how": "Onset, location, duration, characteristics, alleviating and aggravating factors, radiation, timing and severity.",
+       "normal": "History of present illness taken in full."
+      },
+      {
+       "step": "Events at onset",
+       "how": "What was happening when it started? New onset is a red flag.",
+       "normal": "Circumstances at onset recorded."
+      },
+      {
+       "step": "Activity",
+       "how": "Is it associated with activity?",
+       "normal": "No relationship to exertion."
+      },
+      {
+       "step": "Position",
+       "how": "Do positional changes affect the symptoms?",
+       "normal": "No positional change."
+      }
+     ]
+    },
+    {
+     "name": "Review of systems and past history",
+     "steps": [
+      {
+       "step": "Allergy",
+       "how": "Any itching or swelling?",
+       "normal": "Denies itching and swelling."
+      },
+      {
+       "step": "Infection",
+       "how": "Any cough or recent cold?",
+       "normal": "Denies cough and recent illness."
+      },
+      {
+       "step": "Asthma",
+       "how": "Personal or family history of asthma?",
+       "normal": "No personal or family history of asthma."
+      },
+      {
+       "step": "Trauma",
+       "how": "Any trauma to the chest?",
+       "normal": "Denies chest trauma."
+      },
+      {
+       "step": "Immobility",
+       "how": "Recent surgeries or injuries, recent hospitalisation, confined to bed?",
+       "normal": "Denies recent surgery, hospitalisation and immobility."
+      },
+      {
+       "step": "Hormones",
+       "how": "Are you on an oral contraceptive or oestrogen? Any other medications?",
+       "normal": "Denies oestrogen use."
+      },
+      {
+       "step": "Legs",
+       "how": "Any leg pain, numbness or tingling? Any history of deep vein thrombosis or a family history of clotting disorders?",
+       "normal": "Denies leg symptoms and thrombotic history."
+      },
+      {
+       "step": "Smoking",
+       "how": "Do you smoke?",
+       "normal": "Denies smoking."
+      },
+      {
+       "step": "Anxiety",
+       "how": "Any anxiety or panic?",
+       "normal": "Denies anxiety and panic."
+      },
+      {
+       "step": "Cardiorespiratory history",
+       "how": "Any history of heart or lung problems, asthma or anaemia?",
+       "normal": "Denies cardiorespiratory history."
+      },
+      {
+       "step": "Exposures",
+       "how": "Any allergies, allergen or toxin exposures?",
+       "normal": "Denies relevant exposures."
+      },
+      {
+       "step": "Occupation",
+       "how": "What type of work do you do?",
+       "normal": "Occupation recorded."
+      },
+      {
+       "step": "Eczema",
+       "how": "Any history of eczema? It co-occurs with asthma in many children.",
+       "normal": "Denies eczema."
+      },
+      {
+       "step": "Weight",
+       "how": "Any recent weight gain?",
+       "normal": "Denies recent weight gain."
+      },
+      {
+       "step": "Immunisations",
+       "how": "Are immunisations up to date?",
+       "normal": "Immunisations reported up to date."
+      },
+      {
+       "step": "Neurological",
+       "how": "Any headache or muscle weakness? Botulism is on the list.",
+       "normal": "Denies headache and weakness."
+      }
+     ]
+    }
+   ],
+   "ddxList": [
+    "Pulmonary embolism",
+    "Foreign body aspiration",
+    "Anaphylaxis",
+    "Pneumothorax",
+    "Epiglottitis",
+    "Status asthmaticus",
+    "Botulism",
+    "Pneumonia",
+    "COVID-19",
+    "Heart failure",
+    "Anaemia",
+    "Poor physical conditioning",
+    "Asthma",
+    "COPD"
+   ],
+   "differential": [
+    {
+     "condition": "Pulmonary embolism",
+     "hpi": "Acute onset of dyspnoea.",
+     "ros": "Cough, haemoptysis. Chest pain. A sense of impending doom. History of DVT, recent surgery. Oral contraceptives. Smoker.",
+     "pe": "Restlessness; fever; tachycardia, tachypnoea; diminished breath sounds; crackles, wheezing, pleural friction rub.",
+     "ddx": "Tuberculosis, pleuritis, pericarditis, lung trauma.",
+     "labs": "ECG; chest radiograph.",
+     "tx": "Emergency.",
+     "urgent": true
+    },
+    {
+     "condition": "Foreign body aspiration",
+     "hpi": "Acute onset. Possible cough.",
+     "ros": "History of alcohol abuse. Putting things in the mouth, in children.",
+     "pe": "Apnoea or tachypnoea; restlessness; suprasternal retractions; inspiratory stridor, wheeze.",
+     "ddx": "Asthma, pneumonia, tuberculosis, epiglottitis.",
+     "labs": "Radiograph; bronchoscopy.",
+     "tx": "Emergency airway management.",
+     "urgent": true
+    },
+    {
+     "condition": "Anaphylaxis",
+     "hpi": "Acute onset.",
+     "ros": "History of insect sting, drug ingestion or allergen exposure.",
+     "pe": "Angioedema; tachypnoea, tachycardia; clammy skin; hypotension; bilateral wheezes.",
+     "ddx": "Asthma, pulmonary embolism, foreign body aspiration, stroke or seizure.",
+     "labs": "Histamine and tryptase assessment; allergy testing after the event.",
+     "tx": "Emergency — intramuscular epinephrine first, before anything else.",
+     "urgent": true
+    },
+    {
+     "condition": "Pneumothorax",
+     "note": "A collapsed lung, when air leaks into the space between the lung and the chest wall. It can affect part of the lung or the whole lung.",
+     "hpi": "Acute onset. Sharp, tearing chest pain that can radiate to the ipsilateral shoulder.",
+     "ros": "",
+     "pe": "Tachycardia; diminished breath sounds; decreased tactile fremitus; hyperresonance of the affected lung area; possible hypertension or tracheal shift.",
+     "ddx": "Aortic dissection, acute pericarditis, heart failure, myocardial infarction, pulmonary embolism, rib fracture.",
+     "labs": "Chest radiograph; arterial blood gas.",
+     "tx": "Emergency.",
+     "urgent": true
+    },
+    {
+     "condition": "Croup",
+     "note": "Usually caused by a virus. The infection leads to swelling inside the trachea.",
+     "hpi": "Shortness of breath with a hoarse, seal-bark cough. Non-specific respiratory symptoms — rhinorrhoea, sore throat, cough. Worse at night.",
+     "ros": "Fever. History of upper respiratory infection.",
+     "pe": "Signs of respiratory distress; low-grade fever; inspiratory stridor.",
+     "ddx": "Inhalation injury, measles, paediatric diphtheria, epiglottitis, paediatric mono.",
+     "labs": "Pulse oximetry. Mostly a clinical diagnosis; refer if it worsens.",
+     "tx": "If mild, supportive home treatment. Humidifier or steam inhalation."
+    },
+    {
+     "condition": "Epiglottitis",
+     "note": "Acute inflammation of the supraglottic region.",
+     "hpi": "Rapid onset with stridor. Most often in children aged 2 to 4. Reduced risk with the Hib vaccine — ask about vaccination.",
+     "ros": "Sore throat. Anxious. Odynophagia or dysphagia. Preceding URI in adults.",
+     "pe": "Toxic-looking child, may be sitting forward in the tripod position; high fever; drooling; muffled voice; stridor.",
+     "ddx": "Caustic ingestion, peritonsillar abscess, retropharyngeal abscess.",
+     "labs": "Do not inspect the back of the throat.",
+     "tx": "Emergency.",
+     "urgent": true
+    },
+    {
+     "condition": "Status asthmaticus (asthma attack)",
+     "note": "Bronchoconstriction — an extreme form of asthma exacerbation that is unresponsive to bronchodilators.",
+     "hpi": "Breathlessness.",
+     "ros": "History of atopy or allergies. Pets or smokers in the home. Recent URI. Exposure to allergens.",
+     "pe": "Wheezing, coughing; tachycardia, tachypnoea.",
+     "ddx": "Anaphylaxis, chronic bronchitis, COPD, croup, cystic fibrosis, emphysema.",
+     "labs": "Peak flow; chest radiograph; CBC.",
+     "tx": "Medical emergency. Beta agonists. Corticosteroids. Patient education to prevent attacks.",
+     "urgent": true
+    },
+    {
+     "condition": "Pneumonia",
+     "hpi": "Dyspnoea, cough with red, green or rust-coloured sputum. Pleuritic chest pain.",
+     "ros": "Chills and fever.",
+     "pe": "Tachycardia, tachypnoea; inspiratory crackles, asynchronous breathing; vocal fremitus, bronchophony, egophony; dullness over the area of consolidation.",
+     "ddx": "Asthma, atelectasis, bronchitis, COPD, lung abscess.",
+     "labs": "Chest radiograph; sputum cultures; WBC; arterial blood gases.",
+     "tx": "Respiratory support. Antibiotic therapy if bacterial."
+    },
+    {
+     "condition": "Asthma",
+     "hpi": "Paroxysmal (sudden) cough. Difficulty breathing. Worse with exercise. Shortness of breath. Chest tightness or pain.",
+     "ros": "History of allergies or asthma. Recent respiratory tract infection.",
+     "pe": "Audible wheeze; restless; tachypnoea, accessory muscle use, intercostal retractions; decreased vocal fremitus and decreased breath sounds.",
+     "ddx": "Alpha-1 antitrypsin deficiency, COPD, cystic fibrosis, GERD, heart failure.",
+     "labs": "Spirometry; chest radiograph; arterial blood gases; allergy test.",
+     "tx": "Corticosteroids. Bronchodilator."
+    },
+    {
+     "condition": "Anaemia",
+     "hpi": "Dyspnoea on exertion.",
+     "ros": "Fatigue. Palpitations. Light-headedness. History of chronic disease.",
+     "pe": "Pallor, cool dry skin of the extremities; tachypnoea; possible orthostatic hypotension.",
+     "ddx": "Heart failure, deconditioning.",
+     "labs": "CBC; iron studies.",
+     "tx": "Find and treat the source of loss, then replete."
+    },
+    {
+     "condition": "COPD",
+     "hpi": "Chronic progressive dyspnoea, on exertion.",
+     "ros": "Persistent cough with minimal sputum, clear to yellow, worse in the morning. Easy fatigue, decreased exercise tolerance. History of smoking. Exposure to toxins.",
+     "pe": "Rapid shallow respirations, pursed lip breathing; reddish complexion; increased AP diameter of the thorax; accessory muscle use; decreased tactile fremitus; lungs hyperresonant; distant breath sounds with prolonged expiration.",
+     "ddx": "Bronchitis, chronic cough, congestive heart failure, emphysema, pulmonary embolism, nicotine addiction.",
+     "labs": "Chest radiographs; spirometry; exercise tests; arterial blood gases.",
+     "tx": "Smoking cessation; bronchodilators; pulmonary rehabilitation."
+    },
+    {
+     "condition": "Heart failure",
+     "hpi": "Chronic progressive dyspnoea. Cough with frothy sputum.",
+     "ros": "Fatigue, lightheadedness, syncope. Weight gain, swelling of the ankles. Palpitations, orthopnoea. History of heart disease.",
+     "pe": "Altered level of consciousness; restlessness; jugular venous distension; tachypnoea, use of accessory muscles; rales, rhonchi, wheezes; tachycardia; decreased peripheral pulses, cool extremities; displaced PMI, S3, S4; ascites and liver enlargement.",
+     "ddx": "Bacterial pneumonia, cardiogenic pulmonary oedema, COPD, cirrhosis, emphysema, Goodpasture syndrome, myocardial infarction.",
+     "labs": "ECG; chest radiograph; echocardiogram; arterial blood gases; BNP.",
+     "tx": "Diuresis and afterload reduction; cardiology referral."
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Stridor, drooling and a toxic appearance",
+     "suggests": "Epiglottitis or an upper airway foreign body",
+     "urgent": true,
+     "workup": "Do not examine the throat. Emergency airway management."
+    },
+    {
+     "finding": "Angioedema and wheeze after a sting, drug or food",
+     "suggests": "Anaphylaxis",
+     "urgent": true,
+     "workup": "Intramuscular epinephrine 0.3–0.5 mg in the mid-outer thigh first, then oxygen and fluids"
+    },
+    {
+     "finding": "Sudden dyspnoea with unilateral absent breath sounds",
+     "suggests": "Pneumothorax",
+     "urgent": true,
+     "workup": "Chest radiograph; decompress first if the trachea is deviated"
+    }
+   ]
+  },
+  {
+   "id": "cc-low-back-pain",
+   "type": "Chief complaint",
+   "name": "Low Back Pain",
+   "region": "Lumbar spine",
+   "summary": "Thirteen causes of low back pain — the ones that are not the back at all (kidney, gallbladder, aorta, pelvis) alongside the mechanical and neurological ones.",
+   "source": "Clinic Entry & Exams (Emily Tan)",
+   "normalsWritten": true,
+   "script": "Where the pain travels tells you the system: flank means kidney, legs mean sciatica, upper back means inflammatory arthritis, neck and back together means osteomyelitis. Two questions rule out the emergency — any loss of bowel or bladder control, and any fever.",
+   "related": [
+    "Back pain",
+    "Kidney stones",
+    "Urinary tract infection",
+    "Osteoporosis",
+    "Gallstones",
+    "Abdominal aortic aneurysm",
+    "Chronic pain",
+    "Spinal stenosis",
+    "Sciatica and lumbar radiculopathy",
+    "Cauda equina syndrome",
+    "Pyelonephritis"
+   ],
+   "groups": [
+    {
+     "name": "History of present illness",
+     "steps": [
+      {
+       "step": "OLDCARTS",
+       "how": "Onset, location, duration, characteristics, alleviating and aggravating factors, radiation, timing and severity.",
+       "normal": "History of present illness taken in full."
+      },
+      {
+       "step": "Point to it",
+       "how": "Where exactly does it hurt? Point. Then point to where it travels: flank is kidney, legs are sciatica, upper back is rheumatoid arthritis, neck and back together is osteomyelitis.",
+       "normal": "Pain localised without radiation."
+      },
+      {
+       "step": "Sleep",
+       "how": "Does it interfere with sleep? Night pain points at tumour, infection or inflammation.",
+       "normal": "Denies night pain."
+      },
+      {
+       "step": "Prior episodes",
+       "how": "Have you had this pain before?",
+       "normal": "Denies prior episodes."
+      }
+     ]
+    },
+    {
+     "name": "Review of systems and past history",
+     "steps": [
+      {
+       "step": "Fever",
+       "how": "Any fever?",
+       "normal": "Denies fever."
+      },
+      {
+       "step": "Trauma",
+       "how": "Any trauma to the spine or back?",
+       "normal": "Denies trauma."
+      },
+      {
+       "step": "Cancer history",
+       "how": "Any other health problems? Any history of cancer?",
+       "normal": "Denies malignancy."
+      },
+      {
+       "step": "Cauda equina screen",
+       "how": "Any loss of bowel or bladder control?",
+       "normal": "Denies bowel and bladder dysfunction."
+      },
+      {
+       "step": "Medications",
+       "how": "What are you taking?",
+       "normal": "Medication list reviewed."
+      },
+      {
+       "step": "Neurological",
+       "how": "Any stumbling? Changes in balance or coordination? Numbness or tingling in the extremities?",
+       "normal": "Denies neurological symptoms."
+      },
+      {
+       "step": "Recent illness",
+       "how": "Any recent illnesses?",
+       "normal": "Denies recent illness."
+      },
+      {
+       "step": "Family history",
+       "how": "Any family history of disease, scoliosis or cancer?",
+       "normal": "No relevant family history."
+      }
+     ]
+    }
+   ],
+   "ddxList": [
+    "Spinal fracture",
+    "Tumour, bone cancer or metastases",
+    "Herniated disc",
+    "Cauda equina syndrome",
+    "Sciatica",
+    "Muscle strain",
+    "Spinal stenosis",
+    "Osteoporosis",
+    "Aortic aneurysm",
+    "Gallstones",
+    "Pyelonephritis",
+    "Pelvic inflammatory disease",
+    "Pleuritis",
+    "Psychological or non-specific back pain"
+   ],
+   "differential": [
+    {
+     "condition": "Pyelonephritis",
+     "hpi": "Back or flank pain.",
+     "ros": "Sweating. Nausea. Headache.",
+     "pe": "Ill-appearing; CVA tenderness on percussion.",
+     "ddx": "Urolithiasis, acute bacterial prostatitis, appendicitis, UTI or cystitis.",
+     "labs": "Urinalysis and culture; CT.",
+     "tx": "Antibiotics; emergency referral if systemically unwell.",
+     "urgent": true
+    },
+    {
+     "condition": "Gallstones (cholelithiasis)",
+     "note": "Increased incidence with age.",
+     "hpi": "Steady, intense pain. Right upper quadrant. Radiation to the right scapula or shoulder.",
+     "ros": "Belching, bloating, fatty food intolerance.",
+     "pe": "Normal physical exam; positive Murphy sign.",
+     "ddx": "Acute pancreatitis, appendicitis, cholecystitis, pancreatic cancer, peptic ulcer disease.",
+     "labs": "Abdominal ultrasound.",
+     "tx": "Surgical referral."
+    },
+    {
+     "condition": "Abdominal aortic aneurysm",
+     "note": "Increased risk over 30 years old. Not related to exertion.",
+     "hpi": "Severe, acute onset.",
+     "ros": "Diaphoresis. Anxiety, confusion.",
+     "pe": "Visible pulsatile midline upper quadrant abdominal mass; if dissected, upper extremity pulses and pulse pressures are asymmetric; posterior thoracic pain.",
+     "ddx": "Acute gastritis, appendicitis, UTI or cystitis, diverticulitis, cholelithiasis, myocardial infarction.",
+     "labs": "CT or MRI; abdominal aortic ultrasound.",
+     "tx": "Emergency.",
+     "urgent": true
+    },
+    {
+     "condition": "Pelvic inflammatory disease",
+     "hpi": "Low back and abdominal pain.",
+     "ros": "Sexually active female. History of urinary or vaginal symptoms. History of STI, IUD, multiple sex partners.",
+     "pe": "Cervical and uterine motion tenderness; adnexal tenderness; cervicitis; fever.",
+     "ddx": "Appendicitis, cervicitis, UTI, endometriosis, ovarian torsion, interstitial cystitis.",
+     "labs": "STI testing — gonorrhoea and chlamydia cultures; ESR.",
+     "tx": "Antibiotics; partner treatment."
+    },
+    {
+     "condition": "Osteoporosis",
+     "hpi": "Chronic, poorly localised back pain.",
+     "ros": "Postmenopausal. Slight build. History of inactivity or endocrine disorder.",
+     "pe": "Kyphosis or lordosis; loss of height; possible spine tenderness.",
+     "ddx": "Vertebral fracture, metastatic disease, multiple myeloma.",
+     "labs": "Spinal X-ray; DXA.",
+     "tx": "Weight-bearing exercise; calcium, vitamin D and K2; antiresorptive therapy where indicated."
+    },
+    {
+     "condition": "Spinal stenosis",
+     "hpi": "Pain worse throughout the day. Worse standing, relieved by rest.",
+     "ros": "Pseudoclaudication.",
+     "pe": "Signs of osteoarthritis of the joints; possible neurological signs.",
+     "ddx": "Cauda equina syndrome, vascular claudication, disc herniation.",
+     "labs": "MRI spine.",
+     "tx": "Flexion-based exercise; decompression referral where neurology progresses."
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Saddle anaesthesia with loss of bowel or bladder control",
+     "suggests": "Cauda equina syndrome",
+     "urgent": true,
+     "workup": "Emergency MRI spine and surgical referral — within hours, not days"
+    },
+    {
+     "finding": "Back pain with fever, or in an IV drug user",
+     "suggests": "Spinal osteomyelitis or epidural abscess",
+     "urgent": true,
+     "workup": "CBC, ESR and CRP, blood cultures, MRI spine with contrast"
+    },
+    {
+     "finding": "Night pain, weight loss or a history of cancer",
+     "suggests": "Metastatic disease or myeloma",
+     "urgent": true,
+     "workup": "Plain films, MRI spine, CBC, calcium, ALP, serum protein electrophoresis"
+    },
+    {
+     "finding": "Back pain with a pulsatile abdominal mass in an older patient",
+     "suggests": "Abdominal aortic aneurysm",
+     "urgent": true,
+     "workup": "Abdominal aortic ultrasound now; CT angiography if symptomatic"
     }
    ]
   },
@@ -807,6 +4037,441 @@
    ]
   },
   {
+   "id": "eye",
+   "type": "HEENT",
+   "name": "Eye Exam",
+   "region": "Eyes",
+   "summary": "Acuity, fields, pupils and extraocular movements, then the ophthalmoscope — with the four special manoeuvres: nasolacrimal duct patency, upper lid eversion, cover/uncover and the Hippus test.",
+   "source": "Clinic Entry & Exams (Emily Tan)",
+   "normalsWritten": true,
+   "script": "Test acuity before you touch or dilate anything, and record each eye separately as well as together. Darken the room for the ophthalmoscope: sit the patient at your eye level or looking over your shoulder, come in 15 to 20 degrees lateral to their line of vision with your index finger or thumb on the focus wheel, and use your other hand to lift the lid you are examining.",
+   "related": [
+    "Conjunctivitis",
+    "Hypertension",
+    "Diabetes mellitus, type 2",
+    "Allergic rhinitis",
+    "Migraine",
+    "Acute closed-angle glaucoma",
+    "Iritis and anterior uveitis",
+    "Keratitis",
+    "Eyelid and lacrimal disorders"
+   ],
+   "groups": [
+    {
+     "name": "Patient set up",
+     "steps": [
+      {
+       "step": "Set up",
+       "how": "Seat the patient, explain the exam, and position the light source.",
+       "normal": "Patient prepared and positioned for examination."
+      },
+      {
+       "step": "Hand hygiene",
+       "how": "Wash your hands before the examination.",
+       "normal": "Hands washed prior to the examination."
+      }
+     ]
+    },
+    {
+     "name": "Visual assessment",
+     "steps": [
+      {
+       "step": "Visual acuity",
+       "how": "Snellen chart at distance, each eye separately and then both together; near vision the same way on a Rosenbaum card.",
+       "normal": "Visual acuity is 20/20 in each eye separately and together at distance and near."
+      },
+      {
+       "step": "Pupillary size",
+       "how": "Measure pupil size against the scale on the Rosenbaum card.",
+       "normal": "Pupils are equal and of normal size."
+      },
+      {
+       "step": "Visual fields",
+       "how": "Confrontation testing bilaterally, one quadrant at a time.",
+       "normal": "Visual fields are full to confrontation bilaterally."
+      },
+      {
+       "step": "Cornea and lens",
+       "how": "With a light source, inspect the cornea and lens for opacity or transparency.",
+       "normal": "Cornea and lens are clear and transparent, with no opacities."
+      },
+      {
+       "step": "Pupillary reflexes",
+       "how": "Test direct and consensual response to light and the response to accommodation.",
+       "normal": "Pupils are equal, round and reactive to light and accommodation."
+      },
+      {
+       "step": "Corneal light reflex",
+       "how": "Shine a light at the bridge of the nose from about a foot away and compare the reflection on each cornea.",
+       "normal": "Corneal light reflex is symmetric bilaterally."
+      },
+      {
+       "step": "Extraocular movements",
+       "how": "Follow a target through an H pattern using the eyes only; watch for lid lag and nystagmus.",
+       "normal": "Extraocular movements are intact in all fields of gaze with no lid lag or nystagmus."
+      },
+      {
+       "step": "Convergence",
+       "how": "Bring a target in towards the bridge of the nose and watch both eyes converge.",
+       "normal": "Convergence is intact bilaterally."
+      }
+     ]
+    },
+    {
+     "name": "Ophthalmoscopic examination",
+     "steps": [
+      {
+       "step": "Red reflex",
+       "how": "From about 30 cm, look through the ophthalmoscope at the pupil.",
+       "normal": "Red reflex is present and symmetric bilaterally."
+      },
+      {
+       "step": "Optic disc",
+       "how": "Follow a vessel back to the disc; note size, colour, the cup-to-disc ratio and any cupping or swelling.",
+       "normal": "Optic disc is of normal size and colour with a cup-to-disc ratio under 0.5, and no cupping or swelling."
+      },
+      {
+       "step": "Blood vessels",
+       "how": "Trace the vessels out in all four quadrants; look for arteriovenous nicking, silver or copper wiring and arteriolar narrowing.",
+       "normal": "Retinal vessels show no A/V nicking, silver or copper wiring, or arteriolar narrowing."
+      },
+      {
+       "step": "Retina",
+       "how": "Sweep the retina for haemorrhages, exudates and cotton wool spots.",
+       "normal": "Retina reveals no haemorrhages, exudates or cotton wool spots."
+      },
+      {
+       "step": "Macula and fovea",
+       "how": "Ask the patient to look into the light; examine the macula and fovea for drusen.",
+       "normal": "Macula and fovea are normal with no drusen."
+      }
+     ]
+    },
+    {
+     "name": "Special manoeuvres",
+     "steps": [
+      {
+       "step": "Nasolacrimal duct obstruction",
+       "how": "Ask the patient to look up and press on the lower lid close to the medial canthus. Avoid it if the area is tender or inflamed.",
+       "normal": "No fluid or discharge is regurgitated from the puncta.",
+       "flag": "Mucopurulent discharge on pressure suggests an obstructed nasolacrimal duct."
+      },
+      {
+       "step": "Inspection of the upper conjunctiva",
+       "how": "Have the patient look down; raise the upper lid slightly so the lashes protrude, grasp them and pull down and forward, lay a cotton-tip applicator about 1 cm above the lid margin and push down as you raise the lid edge to evert it, securing the lashes against the eyebrow with your thumb. To release, grasp the lashes, pull gently forward and ask the patient to look up.",
+       "normal": "Everted upper palpebral conjunctiva is clear with no foreign body."
+      },
+      {
+       "step": "Cover / uncover",
+       "how": "Cover the non-deviated eye and watch the deviated one.",
+       "normal": "No deviation on cover or uncover; the eyes stay aligned.",
+       "flag": "In paralytic strabismus the deviated eye does not move. In non-paralytic strabismus it moves back to focus in the midline."
+      },
+      {
+       "step": "Hippus test",
+       "how": "In a semi-darkened room, shine a pen light at 45 degrees from 6 to 12 inches directly at the pupil for 20 seconds and watch for movement.",
+       "normal": "The pupil constricts and holds tight for the full 20 seconds — an excellent result.",
+       "flag": "Graded excellent (holds 20 s), fair (pulses after 10 s), poor (pulses and dilates after 5 s), failure (enlarges over the first 10 s) and extreme failure (immediately enlarges). A pupil that will not stay constricted is read on this rubric as an adrenal imbalance from excess catecholamine production — a naturopathic interpretation, not a conventional one."
+      }
+     ]
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Unilateral deep boring pain with photophobia and a small, poorly reactive pupil",
+     "suggests": "Iritis or anterior uveitis",
+     "urgent": true,
+     "workup": "Same-day ophthalmology referral; ANA, HLA-B27 and inflammatory markers where it recurs"
+    },
+    {
+     "finding": "Unilateral deep pain with halos, a fixed mid-dilated pupil and reduced acuity",
+     "suggests": "Acute closed-angle glaucoma",
+     "urgent": true,
+     "workup": "Tonometry and emergency ophthalmology referral"
+    },
+    {
+     "finding": "Pain on eye movement with proptosis, limited eye motion and fever",
+     "suggests": "Orbital cellulitis — distinguished from periorbital cellulitis, where the eye moves freely and vision is intact",
+     "urgent": true,
+     "workup": "CBC, blood cultures and CT orbits; emergency referral"
+    },
+    {
+     "finding": "Blood layered in the anterior chamber after trauma",
+     "suggests": "Hyphema",
+     "urgent": true,
+     "workup": "Emergency ophthalmology referral; sickle cell status raises the risk"
+    },
+    {
+     "finding": "Purulent discharge with matted lids, unilateral then bilateral",
+     "suggests": "Bacterial conjunctivitis",
+     "workup": "Culture and Gram stain if severe or recurrent"
+    },
+    {
+     "finding": "Watery discharge with follicular changes on the palpebral conjunctiva",
+     "suggests": "Viral conjunctivitis — highly contagious, usually adenovirus",
+     "workup": "Usually clinical; culture where it does not settle"
+    },
+    {
+     "finding": "Ropy mucoid discharge with itch, bilateral and seasonal",
+     "suggests": "Allergic conjunctivitis",
+     "workup": "Allergy testing; fluorescein staining to exclude abrasion"
+    },
+    {
+     "finding": "Cloudy cornea with ciliary flush and reduced acuity",
+     "suggests": "Keratitis — herpetic until proven otherwise where there is a history of HSV",
+     "urgent": true,
+     "workup": "Fluorescein staining and urgent ophthalmology referral"
+    },
+    {
+     "finding": "Arteriovenous nicking, copper wiring or arteriolar narrowing on fundoscopy",
+     "suggests": "Hypertensive retinopathy",
+     "workup": "Blood pressure series, CMP, lipids, HbA1c, urinalysis for protein"
+    },
+    {
+     "finding": "Papilloedema — a swollen disc with blurred margins",
+     "suggests": "Raised intracranial pressure",
+     "urgent": true,
+     "workup": "Urgent neuroimaging before lumbar puncture"
+    }
+   ]
+  },
+  {
+   "id": "hent",
+   "type": "HEENT",
+   "name": "Head, Ears, Nose and Throat Exam",
+   "region": "Head and neck",
+   "summary": "The HENT rubric in order — inspection, palpation of the bony prominences, glands, ten node chains, thyroid and sinuses, then the otoscope, the nasal speculum and the oropharynx, with Weber, Rinne and sinus transillumination.",
+   "source": "Clinic Entry & Exams (Emily Tan)",
+   "normalsWritten": true,
+   "script": "Work outside in and front to back: look at everything first, then palpate, then instrument. Palpating the node chains in the same order every time is what stops you missing one — and the supraclavicular node is the one that matters most and is easiest to skip.",
+   "related": [
+    "Sinusitis",
+    "Otitis media",
+    "Sore throat",
+    "Allergic rhinitis",
+    "Hypothyroidism",
+    "Gingivitis",
+    "Otitis externa",
+    "Mastoiditis",
+    "Infectious mononucleosis",
+    "Peritonsillar abscess"
+   ],
+   "groups": [
+    {
+     "name": "Patient set up",
+     "steps": [
+      {
+       "step": "Set up",
+       "how": "Seat the patient at your eye level, explain the exam, and have the light source, otoscope, speculum, tongue depressor and tuning fork to hand.",
+       "normal": "Patient prepared and positioned for examination."
+      },
+      {
+       "step": "Hand hygiene",
+       "how": "Wash your hands before the examination.",
+       "normal": "Hands washed prior to the examination."
+      }
+     ]
+    },
+    {
+     "name": "Inspection",
+     "steps": [
+      {
+       "step": "Head and face",
+       "how": "Inspect the head, facial skin, external nose, patency of the nares, ears, auditory meatus and mastoid.",
+       "normal": "Head, facial skin, external nose, nares, ears, auditory meatus and mastoid appear normal, with no lesions, asymmetry or discharge."
+      },
+      {
+       "step": "Eyes and periorbital tissue",
+       "how": "Inspect eye alignment, eyebrows, eyelids, conjunctiva and sclera.",
+       "normal": "Eyes are aligned, with normal brows and lids and clear conjunctiva and sclera."
+      },
+      {
+       "step": "Neck",
+       "how": "Inspect the neck for scars, streaking, erythema, oedema and the thyroid.",
+       "normal": "Neck reveals no scars, streaking, erythema or oedema, and no visible thyroid enlargement."
+      },
+      {
+       "step": "Mouth and throat",
+       "how": "Inspect the lips, buccal mucosa, gums, teeth, palate, uvula, tongue and posterior pharynx.",
+       "normal": "Lips, buccal mucosa, gums, teeth, palate, uvula, tongue and posterior pharynx appear normal and moist, with no lesions."
+      }
+     ]
+    },
+    {
+     "name": "Palpation",
+     "steps": [
+      {
+       "step": "Bony prominences, parotids and TMJ",
+       "how": "Palpate the bony prominences, the parotid glands and both temporomandibular joints through opening and closing.",
+       "normal": "Bony prominences, parotid glands and temporomandibular joints are non-tender, with no crepitus or clicking."
+      },
+      {
+       "step": "Pinna, tragus and mastoid",
+       "how": "Palpate the pinna, tragus and mastoid process for tenderness.",
+       "normal": "Pinna, tragus and mastoid process are non-tender bilaterally.",
+       "flag": "Pain on manipulating the pinna and tragus is the finding that separates otitis externa from otitis media; tenderness over the mastoid process with the pinna displaced forward is mastoiditis and an emergency referral."
+      },
+      {
+       "step": "Cervical node chains",
+       "how": "Palpate in order: preauricular, postauricular, occipital, tonsillar, submandibular, submental, superficial cervical, posterior cervical, deep cervical, supraclavicular and infraclavicular.",
+       "normal": "All cervical node chains are non-palpable and non-tender bilaterally."
+      },
+      {
+       "step": "Scalp, hair and temporal arteries",
+       "how": "Palpate the scalp, note the condition of the hair, and palpate the temporal arteries for tenderness and mobility; palpate the external nose.",
+       "normal": "Scalp and hair are normal, temporal arteries are non-tender and mobile, and the external nose is non-tender."
+      },
+      {
+       "step": "Thyroid and airway cartilages",
+       "how": "Palpate the thyroid isthmus and each lobe for tenderness, enlargement and nodules; palpate the trachea, hyoid and cricoid and thyroid cartilage for symmetry, midline position and mobility.",
+       "normal": "Thyroid is non-tender and not enlarged with no nodules; trachea, hyoid and laryngeal cartilages are midline, symmetric and mobile."
+      },
+      {
+       "step": "Paranasal sinuses",
+       "how": "Palpate for tenderness above the eyes at the edge of the bony orbit (frontal), between the eyes (ethmoid) and over the malar eminences (maxillary).",
+       "normal": "Frontal, ethmoid and maxillary sinuses are non-tender to palpation."
+      },
+      {
+       "step": "Oral cavity",
+       "how": "Palpate the lips, buccal and labial mucosa, gums, teeth, tongue, floor of the mouth and palate.",
+       "normal": "Oral structures are non-tender with no masses or lesions on palpation."
+      }
+     ]
+    },
+    {
+     "name": "Assessment",
+     "steps": [
+      {
+       "step": "Nasal cavity",
+       "how": "Inspect the nasal cavity with a light source and nasal speculum.",
+       "normal": "Nasal mucosa is pink and moist, the septum is midline, and there is no discharge, polyp or lesion."
+      },
+      {
+       "step": "Otoscopy",
+       "how": "Straighten the canal and inspect the canal and tympanic membrane; describe your findings.",
+       "normal": "External canals are clear; tympanic membranes are pearly grey and translucent with a visible cone of light and normal landmarks."
+      },
+      {
+       "step": "Gross hearing",
+       "how": "Occlude one ear and present a whispered word or a rubbed-finger sound at arm's length.",
+       "normal": "Gross hearing is intact to whispered voice bilaterally."
+      },
+      {
+       "step": "Oropharynx and cranial nerves IX and X",
+       "how": "With a light source, inspect the oropharynx; have the patient say “ahh” to watch palate rise, test gag where indicated, check for tongue deviation, and grade the tonsils.",
+       "normal": "Oropharynx is clear, palate rises symmetrically, tongue is midline, and tonsils are grade 1 without exudate."
+      }
+     ]
+    },
+    {
+     "name": "Special manoeuvres",
+     "steps": [
+      {
+       "step": "Weber test",
+       "how": "Place a vibrating 512 Hz tuning fork on top of the patient's head and ask whether the sound is heard in one ear or both.",
+       "normal": "Weber test is midline, with the sound heard equally in both ears.",
+       "flag": "Lateralisation to the impaired ear means conductive loss — cerumen impaction, otitis media, a perforated drum. Lateralisation to the good ear means sensorineural loss — noise, ototoxic drugs, infection, ageing."
+      },
+      {
+       "step": "Rinne test",
+       "how": "Place the vibrating 512 Hz fork on the mastoid behind the ear at the level of the canal; when the sound goes, move it beside the canal with the U facing forward. Time the seconds heard by bone and then by air.",
+       "normal": "Rinne test is positive bilaterally with air conduction greater than bone conduction at roughly 2:1.",
+       "flag": "Air conduction still greater than bone but at less than a 2:1 ratio is sensorineural loss; bone conduction greater than air is conductive loss."
+      },
+      {
+       "step": "Transillumination of the sinuses",
+       "how": "In a darkened room, place a light source against the supraorbital rim for the frontal sinus and below the medial aspect of each eye or in the mouth against the hard palate for the maxillary.",
+       "normal": "Frontal and maxillary sinuses transilluminate symmetrically.",
+       "flag": "Decreased or absent transillumination goes with acute sinusitis; in chronic sinusitis it may be absent altogether."
+      }
+     ]
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Pain on manipulating the pinna and tragus with a cheesy green-blue or grey discharge",
+     "suggests": "Otitis externa — more common in adults, associated with swimming, diabetes, HIV and eczema",
+     "workup": "Culture if severe or recurrent"
+    },
+    {
+     "finding": "Bulging, red, opaque tympanic membrane with reduced mobility and a lost light reflex",
+     "suggests": "Acute otitis media",
+     "workup": "Pneumatic otoscopy (insufflation) and tympanogram"
+    },
+    {
+     "finding": "Fluid line or air bubbles behind an immobile tympanic membrane with conductive loss",
+     "suggests": "Otitis media with effusion — often painless, often after a URI or barotrauma",
+     "workup": "Pneumatic otoscopy and tympanogram"
+    },
+    {
+     "finding": "Pinna displaced forwards with swelling, erythema and severe tenderness over the mastoid",
+     "suggests": "Mastoiditis",
+     "urgent": true,
+     "workup": "Emergency referral; CT temporal bone"
+    },
+    {
+     "finding": "White granulation tissue behind or through a perforated drum with foul discharge",
+     "suggests": "Cholesteatoma",
+     "urgent": true,
+     "workup": "CT temporal bone and ENT referral"
+    },
+    {
+     "finding": "Vesicles on the external canal and auricle with facial weakness or hearing loss on the same side",
+     "suggests": "Ramsay Hunt syndrome — herpes zoster of the facial nerve",
+     "urgent": true,
+     "workup": "WBC, ESR, viral culture; antivirals started early"
+    },
+    {
+     "finding": "Tonsillar exudate and anterior cervical lymphadenopathy with fever and no cough",
+     "suggests": "Group A streptococcal pharyngitis",
+     "workup": "Rapid strep test and throat culture"
+    },
+    {
+     "finding": "Posterior cervical lymphadenopathy with splenomegaly and palatine petechiae",
+     "suggests": "Infectious mononucleosis",
+     "workup": "Monospot and CBC — lymphocytes over 50%"
+    },
+    {
+     "finding": "Drooling, stridor, muffled voice and a toxic-looking patient",
+     "suggests": "Epiglottitis",
+     "urgent": true,
+     "workup": "Do not examine the pharynx. Emergency referral for airway management."
+    },
+    {
+     "finding": "Trismus with asymmetric tonsillar swelling and a deviated uvula",
+     "suggests": "Peritonsillar abscess",
+     "urgent": true,
+     "workup": "Immediate referral; CT of head and neck"
+    },
+    {
+     "finding": "Pale, boggy nasal mucosa with clear watery rhinorrhoea",
+     "suggests": "Allergic rhinitis",
+     "workup": "Nasal smear for eosinophils and allergy testing"
+    },
+    {
+     "finding": "Red swollen mucosa with purulent yellow or green discharge",
+     "suggests": "Infectious rhinitis or acute sinusitis",
+     "workup": "Nasal smear for neutrophils; transillumination"
+    },
+    {
+     "finding": "Translucent growths in the nasal cavity",
+     "suggests": "Nasal polyposis — ask about asthma and aspirin intolerance",
+     "workup": "Nasal endoscopy and biopsy"
+    },
+    {
+     "finding": "Thyroid enlargement or a palpable nodule",
+     "suggests": "Goitre, thyroiditis or thyroid nodule",
+     "workup": "TSH with free T4, thyroid antibodies, thyroid ultrasound"
+    },
+    {
+     "finding": "A hard, fixed supraclavicular node",
+     "suggests": "Malignancy — thoracic or abdominal primary",
+     "urgent": true,
+     "workup": "Imaging of chest and abdomen; tissue diagnosis"
+    }
+   ]
+  },
+  {
    "id": "respiratory",
    "type": "Respiratory",
    "name": "Respiratory Exam",
@@ -819,7 +4484,8 @@
     "Chronic obstructive pulmonary disease",
     "Bronchitis",
     "Pneumonia",
-    "Cough"
+    "Cough",
+    "Pleuritis"
    ],
    "groups": [
     {
@@ -909,16 +4575,28 @@
      ]
     },
     {
-     "name": "Special manoeuvre",
+     "name": "Special manoeuvres",
      "steps": [
       {
        "step": "Forced expiratory time",
        "how": "Listen over the trachea with the diaphragm; ask the patient to take a full breath in and blow it out as fast and completely as they can, and time the audible expiration.",
        "normal": "Forced expiratory time is within normal limits at under 5 seconds.",
        "flag": "The source calls this “forced respiratory expiration.” The usual name is the forced expiratory time (FET). Your chart sets normal at under 5 seconds; most texts call 6 seconds or longer a positive test for airflow obstruction, so treat 5–6 seconds as the grey zone."
+      },
+      {
+       "step": "Transmitted voice sounds",
+       "how": "Over any area of dullness or increased fremitus, ask the patient to say “ninety-nine” (bronchophony), then “ee” (egophony), then to whisper “one-two-three” or “ninety-nine” (whispered pectoriloquy).",
+       "normal": "Transmitted voice sounds are muffled and indistinct throughout, with no bronchophony, egophony or whispered pectoriloquy.",
+       "flag": "Louder, clearer “99” is bronchophony; “ee” turning to “ay” is egophony; a whisper that carries clearly is whispered pectoriloquy. All three appear over consolidated lung — pneumonia, pulmonary oedema, fibrosis or haemorrhage — and confirm what dullness and increased fremitus suggested."
+      },
+      {
+       "step": "Identification of a fractured rib",
+       "how": "Compress the chest wall anteroposteriorly, then laterally to medially; then place the handle of a vibrating 128 Hz tuning fork on the rib a few centimetres away from the painful spot.",
+       "normal": "Chest wall compression and tuning-fork testing reproduce no local pain, revealing no signs of rib fracture.",
+       "flag": "Pain felt at a point distant from your hands on compression, or local pain reproduced by the vibrating fork placed away from the site, both suggest a fracture."
       }
      ],
-     "note": "Your chart does not cover diaphragmatic excursion or the transmitted-voice tests — egophony, bronchophony and whispered pectoriloquy — which are the usual way to confirm the consolidation that increased fremitus and dullness suggest. There is no wording of yours to transcribe for them."
+     "note": "Your chart does not cover diaphragmatic excursion; there is no wording of yours to transcribe for it. The transmitted-voice tests and the rib-fracture manoeuvre come from the clinic-entry rubric."
     }
    ],
    "findings": [
@@ -1044,7 +4722,10 @@
     "Congestive heart failure",
     "Varicose veins",
     "Edema",
-    "Raynaud's phenomenon"
+    "Raynaud's phenomenon",
+    "Angina pectoris",
+    "Aortic stenosis",
+    "Mitral regurgitation"
    ],
    "groups": [
     {
@@ -1132,8 +4813,39 @@
     },
     {
      "name": "Special manoeuvres",
-     "steps": [],
-     "note": "The word list ends at this heading with nothing recorded under it, so there is no wording of yours to transcribe. The manoeuvres usually paired with this exam are the Allen test before radial access, the ankle-brachial index where there is claudication, postural (orthostatic) blood pressures, and a check for pulsus paradoxus — worth adding to your notes."
+     "steps": [
+      {
+       "step": "Orthostatic blood pressure and pulse",
+       "how": "Measure blood pressure and pulse after five minutes supine, then stand the patient and measure again at two minutes.",
+       "normal": "Orthostatic vitals reveal only a slight change in systolic pressure and a rise in pulse of fewer than 10 beats per minute.",
+       "flag": "A systolic fall over 20 mmHg or a diastolic fall over 10 mmHg with a pulse rise over 10 bpm points at hypovolaemia; the same pressure fall with a pulse rise under 10 bpm points at autonomic dysfunction, because the heart cannot mount the compensating tachycardia."
+      },
+      {
+       "step": "Left lateral recumbent position",
+       "how": "Roll the patient onto the left side and auscultate the apex with the bell.",
+       "normal": "In the left lateral recumbent position, no murmur, S3 or S4 is brought out at the apex.",
+       "flag": "This position brings the apex to the chest wall and accentuates the murmur of mitral stenosis and the low-pitched S3 and S4."
+      },
+      {
+       "step": "Seated leaning forward",
+       "how": "Sit the patient up and have them lean forward in held expiration; auscultate the base with the diaphragm.",
+       "normal": "Seated and leaning forward, no murmur is heard at the base.",
+       "flag": "Accentuates the early diastolic murmur of aortic regurgitation."
+      },
+      {
+       "step": "Standing or Valsalva",
+       "how": "Auscultate over the mitral area with the patient standing, or through a Valsalva strain.",
+       "normal": "On standing and with Valsalva, no murmur appears or changes in intensity.",
+       "flag": "Both reduce venous return and so reduce left ventricular filling: the murmur of mitral valve prolapse or hypertrophic cardiomyopathy gets louder, while the murmur of aortic stenosis gets quieter. This is the pair of manoeuvres that separates them."
+      },
+      {
+       "step": "Squatting",
+       "how": "Have the patient squat and auscultate over the base of the heart.",
+       "normal": "On squatting, no murmur appears or changes in intensity.",
+       "flag": "Squatting increases venous return and afterload: aortic stenosis gets louder, mitral valve prolapse and hypertrophic cardiomyopathy get quieter — the mirror image of standing and Valsalva."
+      }
+     ],
+     "note": "These five are the manoeuvres your clinic-entry rubric lists. The ones it does not cover, and which are still worth adding to your notes, are the Allen test before radial access, the ankle-brachial index where there is claudication, and a check for pulsus paradoxus."
     }
    ],
    "findings": [
@@ -1357,7 +5069,10 @@
     "Constipation",
     "Bloating and gas",
     "Hepatitis",
-    "Kidney stones"
+    "Kidney stones",
+    "Appendicitis",
+    "Acute pancreatitis",
+    "Bowel obstruction"
    ],
    "groups": [
     {
@@ -1423,6 +5138,11 @@
        "step": "Spleen",
        "how": "Percuss Traube's space and the lowest intercostal space in the left anterior axillary line before and after inspiration.",
        "normal": "The spleen is within normal limits and is on the left midaxillary line."
+      },
+      {
+       "step": "Costovertebral angle tenderness",
+       "how": "With the patient seated, place one palm over each costovertebral angle and strike it with the ulnar surface of your fist.",
+       "normal": "No costovertebral angle tenderness on percussion bilaterally."
       }
      ]
     },
@@ -1459,6 +5179,54 @@
        "step": "McBurney's point",
        "how": "Palpate one third of the way from the right anterior superior iliac spine to the umbilicus.",
        "normal": "McBurney's point is non-tender, revealing no signs of appendicitis."
+      },
+      {
+       "step": "Rovsing's sign",
+       "how": "Press deeply into the left lower quadrant and withdraw quickly.",
+       "normal": "Rovsing's sign is negative, with no referred pain to the right lower quadrant."
+      },
+      {
+       "step": "Psoas sign",
+       "how": "Place your hand above the patient's right knee and ask them to raise the thigh against it, contracting the psoas.",
+       "normal": "Psoas sign is negative, with no increase in abdominal pain."
+      },
+      {
+       "step": "Obturator sign",
+       "how": "Patient supine; flex the right thigh at the hip with the knee bent and rotate the thigh internally to stretch the internal obturator.",
+       "normal": "Obturator sign is negative, with no right hypogastric pain on internal rotation."
+      },
+      {
+       "step": "Murphy's sign",
+       "how": "Point your fingers towards the gallbladder as the patient breathes out, then palpate deeper as they take a second breath in.",
+       "normal": "Murphy's sign is negative; the patient completes inspiration without arrest or a sharp increase in tenderness."
+      },
+      {
+       "step": "Abdominal wall mass test",
+       "how": "With the patient supine, ask them to raise the head off the table to tighten the abdominal muscles, and feel the mass again.",
+       "normal": "No mass is palpable with the abdominal wall tensed or relaxed.",
+       "flag": "A mass that stays palpable is in the abdominal wall — hernia, haematoma, infection, tumour or a congenital anomaly. One that disappears is intra-abdominal."
+      },
+      {
+       "step": "Flank dullness",
+       "how": "Percuss from the midline out to each flank.",
+       "normal": "Percussion is tympanitic throughout with no flank dullness, revealing no signs of ascites.",
+       "flag": "Ascitic fluid gives a central area of tympany surrounded by dullness. Ascites points at liver disease, heart failure, nephrotic syndrome, pericarditis, peritonitis, hypoalbuminaemia or TB."
+      },
+      {
+       "step": "Shifting dullness",
+       "how": "Percuss the abdomen with the patient supine, mark the tympany-dullness line, then roll them onto one side and percuss again.",
+       "normal": "The tympany-dullness line does not shift with position."
+      },
+      {
+       "step": "Fluid wave",
+       "how": "Patient supine; have them press the edges of both hands down the midline, tap one flank sharply and feel the other.",
+       "normal": "No fluid wave is transmitted across the abdomen."
+      },
+      {
+       "step": "Trousseau's sign",
+       "how": "Place a blood pressure cuff on the upper arm and inflate above systolic pressure for two to three minutes.",
+       "normal": "Trousseau's sign is negative, with no carpal spasm.",
+       "flag": "Carpal spasm is a sign of hypocalcaemia, not an abdominal finding — it sits with this exam only because it is on the same rubric."
       }
      ]
     }
@@ -1980,6 +5748,186 @@
      "finding": "Podagra — acute first MTP pain, redness and swelling",
      "suggests": "Gout",
      "workup": "Serum urate (repeat in 2 weeks — it can be normal in a flare), CMP, aspiration if infection is possible"
+    }
+   ]
+  },
+  {
+   "id": "met-lower",
+   "type": "Musculoskeletal",
+   "name": "Muscle Energy Technique — Hip, Thigh and Trunk",
+   "region": "Hip, thigh and trunk",
+   "summary": "Nineteen muscles with origin, insertion and action, and the muscle energy setup for each group — how to position the patient, where they push, and how you take up the new slack.",
+   "source": "Phys Med 4: Muscles (WI25)",
+   "normalsWritten": true,
+   "script": "Muscle energy is a post-isometric relaxation technique. Take the muscle to its first barrier, have the patient contract against your unyielding resistance at about 20 per cent effort for 7 to 10 seconds, let them relax and breathe out, then take up the slack to the new barrier. Three rounds is usual. The barrier is where tissue resistance starts, not where pain starts — if you are at end range you have gone too far.",
+   "related": [
+    "Back pain",
+    "Neck and shoulder pain",
+    "Chronic pain",
+    "Osteoarthritis",
+    "Fibromyalgia",
+    "Sciatica and lumbar radiculopathy"
+   ],
+   "groups": [
+    {
+     "name": "Hamstrings",
+     "note": "Setup for the whole group — position: patient supine, leg bent at hip and knee to 90 degrees, hold the knee and the heel. Contraction: the patient pushes the heel into your hand for 7 to 10 seconds. Stretch: support the ankle on your shoulder, cross your fingers over the knee, and stand slowly while keeping the hip pressed into the table.",
+     "steps": [
+      {
+       "step": "Hamstrings — as a group",
+       "how": "Origin: ischial tuberosity, except the short head of biceps femoris which arises from the linea aspera. Insertion: medial condyle of the tibia (semitendinosus and semimembranosus) and the fibular head (biceps femoris). Action: hip extension and knee flexion.",
+       "normal": "Hamstrings are of normal length and tone bilaterally, with full pain-free hip flexion and no tenderness along the muscle bellies."
+      },
+      {
+       "step": "Semitendinosus",
+       "how": "Origin: ischial tuberosity. Insertion: medial condyle of the tibia. Action: hip extension and knee flexion.",
+       "normal": "Semitendinosus is of normal length and tone with a non-tender medial hamstring tendon."
+      },
+      {
+       "step": "Semimembranosus",
+       "how": "Origin: ischial tuberosity. Insertion: posterior medial condyle of the tibia. Action: hip extension and knee flexion.",
+       "normal": "Semimembranosus is of normal length and tone with no posteromedial knee tenderness."
+      },
+      {
+       "step": "Biceps femoris",
+       "how": "Origin: long head from the ischial tuberosity, short head from the linea aspera. Insertion: fibular head. Action: hip extension by the long head, knee flexion by both heads.",
+       "normal": "Biceps femoris is of normal length and tone with a non-tender lateral hamstring tendon at the fibular head."
+      }
+     ]
+    },
+    {
+     "name": "Quadriceps",
+     "note": "Setup for the whole group — position: patient prone, knee bent to 90 degrees, doctor seated with the patient's foot resting on your shoulder. Contraction: the patient pushes the foot into your shoulder. Stretch: pin the hip into the table and push the foot towards the glutes, optionally elevating the knee on a towel for extra stretch.",
+     "steps": [
+      {
+       "step": "Rectus femoris",
+       "how": "Origin: anterior inferior iliac spine. Insertion: quadriceps tendon to the tibial tuberosity. Action: hip flexion and knee extension.",
+       "normal": "Rectus femoris is of normal length and tone, with a negative Ely's test and no anterior thigh tenderness."
+      },
+      {
+       "step": "Vastus lateralis",
+       "how": "Origin: greater trochanter. Insertion: quadriceps tendon. Action: knee extension.",
+       "normal": "Vastus lateralis is of normal length and tone with no lateral thigh tenderness."
+      },
+      {
+       "step": "Vastus medialis",
+       "how": "Origin: medial aspect of the femur. Insertion: quadriceps tendon. Action: knee extension.",
+       "normal": "Vastus medialis is of normal bulk and tone with no medial thigh tenderness."
+      },
+      {
+       "step": "Vastus intermedius",
+       "how": "Origin: anterolateral surface of the femur. Insertion: quadriceps tendon. Action: knee extension.",
+       "normal": "Vastus intermedius is of normal tone with no deep anterior thigh tenderness."
+      }
+     ]
+    },
+    {
+     "name": "Adductors",
+     "note": "Setup for the whole group — position: patient supine, hold the calcaneus, medially rotate the hip, stabilise the contralateral ASIS. Contraction: the patient adducts the leg against resistance. Stretch: stand on the same side as the leg you are treating, stabilise the ASIS, and abduct the leg.",
+     "steps": [
+      {
+       "step": "Adductors — as a group",
+       "how": "Origin: pubic symphysis and ramus; adductor magnus also from the ischial tuberosity. Insertion: pectineal line and linea aspera; adductor magnus also to the adductor tubercle. Action: hip adduction.",
+       "normal": "Adductor group is of normal length and tone bilaterally, with full pain-free hip abduction and no groin tenderness."
+      },
+      {
+       "step": "Adductor longus",
+       "how": "Origin: pubic body. Insertion: middle third of the linea aspera. Action: hip adduction.",
+       "normal": "Adductor longus is of normal length with a non-tender proximal tendon."
+      },
+      {
+       "step": "Adductor brevis",
+       "how": "Origin: inferior ramus of the pubis. Insertion: proximal linea aspera. Action: hip adduction.",
+       "normal": "Adductor brevis is of normal length and tone with no deep groin tenderness."
+      },
+      {
+       "step": "Adductor magnus",
+       "how": "Origin: ischial tuberosity and inferior pubic ramus. Insertion: linea aspera and adductor tubercle. Action: hip adduction, with hip extension from the hamstring part.",
+       "normal": "Adductor magnus is of normal length and tone with no medial thigh or adductor tubercle tenderness."
+      },
+      {
+       "step": "Pectineus",
+       "how": "Origin: superior ramus of the pubis. Insertion: pectineal line of the femur. Action: hip adduction and flexion.",
+       "normal": "Pectineus is of normal length with no anterior groin tenderness."
+      },
+      {
+       "step": "Gracilis",
+       "how": "Origin: inferior pubic ramus. Insertion: medial surface of the tibia. Action: hip adduction and knee flexion.",
+       "normal": "Gracilis is of normal length with a non-tender pes anserinus insertion."
+      }
+     ]
+    },
+    {
+     "name": "Gluteals and lateral hip",
+     "steps": [
+      {
+       "step": "Gluteus medius",
+       "how": "Origin: iliac crest. Insertion: greater trochanter. Action: hip abduction and medial rotation. MET — position: patient supine with the knee and hip flexed and the foot turned medially; contraction: the patient pushes the knee superiorly and laterally; stretch: push the femur down into the table and swing the leg laterally towards the opposite shoulder.",
+       "normal": "Gluteus medius is of normal strength and tone, with a negative Trendelenburg test and no greater trochanteric tenderness."
+      },
+      {
+       "step": "Gluteus maximus",
+       "how": "Origin: posterior gluteal line, sacrum and coccyx. Insertion: iliotibial band and gluteal tuberosity. Action: hip extension, lateral rotation and abduction. MET — position: patient supine with the knee and hip flexed and the foot turned medially; contraction: the patient pushes into your hands while activating the glutes; stretch: push the femur down and bring the foot medially towards the same shoulder.",
+       "normal": "Gluteus maximus is of normal bulk and strength with full pain-free hip extension."
+      },
+      {
+       "step": "Tensor fasciae latae",
+       "how": "Origin: anterior iliac crest. Insertion: lateral condyle of the tibia via the iliotibial band. Action: hip abduction and flexion. MET — position: patient side-lying, bottom leg bent, top leg straight; contraction: the patient pushes the top leg outward against resistance; stretch: pull the top leg towards you while stabilising the pelvis.",
+       "normal": "Tensor fasciae latae is of normal length with a negative Ober's test and no lateral thigh tenderness."
+      },
+      {
+       "step": "Piriformis",
+       "how": "Origin: lateral edge of the sacrum. Insertion: greater trochanter. Action: hip external rotation and abduction. MET — position: patient supine with the opposite knee bent and the foot on the table, the working knee falling medially; contraction: the patient pushes outward against your hand; stretch: medially rotate the working knee and push the femur down and laterally.",
+       "normal": "Piriformis is of normal length and tone with no deep gluteal tenderness and no reproduction of sciatic symptoms."
+      },
+      {
+       "step": "Sartorius",
+       "how": "Origin: anterior superior iliac spine. Insertion: medial tibia at the pes anserinus. Action: hip flexion, abduction and lateral rotation with knee flexion. MET — position: patient supine, flex the hip and knee and turn the knee outward; contraction: the patient resists as you push the knee medially; stretch: extend the hip while turning the knee outward.",
+       "normal": "Sartorius is of normal length with a non-tender ASIS origin and pes anserinus insertion."
+      }
+     ]
+    },
+    {
+     "name": "Hip flexors and trunk",
+     "steps": [
+      {
+       "step": "Iliopsoas",
+       "how": "Origin: transverse processes of L1 to L5 and the twelfth thoracic vertebra. Insertion: lesser trochanter. Action: hip flexion. MET — position: patient prone with the knee bent to 90 degrees; contraction: the patient pushes the knee downward into the table; stretch: push the straightened leg downward while stabilising the bent knee.",
+       "normal": "Iliopsoas is of normal length with a negative Thomas test and no tenderness on deep abdominal palpation."
+      },
+      {
+       "step": "Quadratus lumborum",
+       "how": "Origin: transverse processes of L1 to L4 and rib 12. Insertion: iliac crest. Action: lateral flexion of the torso. MET — position: patient supine near the edge of the table with the legs crossed; contraction: the patient pushes the torso into a crescent shape away from you; stretch: gently laterally flex the torso towards you while stabilising the ASIS.",
+       "normal": "Quadratus lumborum is of normal length and tone bilaterally, with symmetric lateral flexion and no flank tenderness."
+      }
+     ]
+    }
+   ],
+   "findings": [
+    {
+     "finding": "Pain rather than stretch at the barrier, or pain during the isometric contraction",
+     "suggests": "You are past the barrier, or the tissue is not a candidate for muscle energy — strain, tear or an inflamed joint underneath",
+     "workup": "Stop the technique; reassess with orthopaedic special tests and image if a tear is suspected"
+    },
+    {
+     "finding": "Deep gluteal pain reproducing sciatic symptoms on the piriformis stretch",
+     "suggests": "Piriformis syndrome with sciatic nerve involvement",
+     "workup": "Straight leg raise, neurological exam of the lower limb; MRI lumbar spine where a disc is on the list"
+    },
+    {
+     "finding": "Groin pain on resisted adduction with tenderness at the pubic ramus",
+     "suggests": "Adductor strain or osteitis pubis",
+     "workup": "Plain radiograph of the pelvis; MRI where it does not settle"
+    },
+    {
+     "finding": "Hip flexor that will not lengthen with a positive Thomas test",
+     "suggests": "Chronically shortened iliopsoas — commonly from prolonged sitting, and a driver of anterior pelvic tilt and low back pain",
+     "workup": "Assess lumbar lordosis and gluteal strength; treat the pattern, not the single muscle"
+    },
+    {
+     "finding": "Unilateral quadratus lumborum shortening with an apparent leg length difference",
+     "suggests": "Functional leg length inequality from pelvic obliquity rather than true anatomical difference",
+     "workup": "Measure true and apparent leg lengths; standing radiograph if a structural difference is suspected"
     }
    ]
   },

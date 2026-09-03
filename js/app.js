@@ -1724,6 +1724,10 @@
       (g.steps || []).forEach(function (st) { bits.push(st.step, st.how, st.normal, st.flag || ''); });
     });
     (x.findings || []).forEach(function (f) { bits.push(f.finding, f.suggests, f.workup || ''); });
+    (x.ddxList || []).forEach(function (n) { bits.push(n); });
+    (x.differential || []).forEach(function (r) {
+      bits.push(r.condition, r.note || '', r.hpi, r.ros, r.pe, r.ddx, r.labs, r.tx);
+    });
     if (x.competency) {
       bits.push(x.competency.title, x.competency.source, x.competency.note || '');
       (x.competency.sections || []).forEach(function (sec) {
@@ -1866,6 +1870,64 @@
       }
       row.appendChild(b);
       grid.appendChild(row);
+    });
+    det.appendChild(grid);
+    return det;
+  }
+
+  /* ---- chief-complaint differentials ----
+     A complaint entry carries the shortlist you run through in your head plus a
+     row per condition, in the columns of the source chart: what it is, what the
+     history sounds like, what the past history and review of systems turn up,
+     what you find on exam, what else it could be, what you order and what you
+     do. Urgent rows carry the emergency marker the chart puts on them. */
+  var PE_DXCOLS = [
+    ['hpi', 'HPI'], ['ros', 'ROS / PMHx'], ['pe', 'PE findings'],
+    ['ddx', 'Also consider'], ['labs', 'Labs'], ['tx', 'Treatment']
+  ];
+
+  function peDdxListNode(x, q) {
+    var wrap = el('div', 'pe-ddxlist');
+    wrap.appendChild(el('span', 'pe-rlab', 'Differential \u2014 ' + x.ddxList.length));
+    x.ddxList.forEach(function (n) {
+      var b = el('span', 'chip');
+      b.innerHTML = highlight(n, q);
+      wrap.appendChild(b);
+    });
+    return wrap;
+  }
+
+  function peDifferentialNode(x, q) {
+    var det = el('details', 'pe-dx pe-diff');
+    det.appendChild(el('summary', null, 'Working the differential \u2014 ' +
+      x.differential.length + ' conditions side by side'));
+    if (q) det.open = true;
+    var grid = el('div', 'pe-diffgrid');
+    x.differential.forEach(function (r) {
+      var card = el('article', 'pe-diffrow' + (r.urgent ? ' urgent' : ''));
+      var head = el('div', 'pe-diffhead');
+      var nm = el('h5', null);
+      nm.innerHTML = highlight(r.condition, q);
+      head.appendChild(nm);
+      if (r.urgent) head.appendChild(el('span', 'pe-urgent', 'emergency'));
+      card.appendChild(head);
+      if (r.note) {
+        var nt = el('p', 'pe-diffnote');
+        nt.innerHTML = highlight(r.note, q);
+        card.appendChild(nt);
+      }
+      var cols = el('div', 'pe-diffcols');
+      PE_DXCOLS.forEach(function (c) {
+        if (!r[c[0]]) return;
+        var cell = el('div', 'pe-diffcell');
+        cell.appendChild(el('span', 'pe-difflab', c[1]));
+        var p = el('p');
+        p.innerHTML = highlight(r[c[0]], q);
+        cell.appendChild(p);
+        cols.appendChild(cell);
+      });
+      card.appendChild(cols);
+      grid.appendChild(card);
     });
     det.appendChild(grid);
     return det;
@@ -2040,8 +2102,11 @@
       sum.appendChild(name);
       sum.appendChild(el('span', 'sys', x.type));
       var meta = el('p', 'pe-meta');
+      var unit = x.type === 'Chief complaint'
+        ? x._steps + ' questions · ' + (x.differential || []).length + ' conditions'
+        : x._steps + ' steps';
       meta.innerHTML = highlight(x.summary, q) +
-        ' <em>' + escapeHtml(x.region) + ' · ' + x._steps + ' steps · source: ' +
+        ' <em>' + escapeHtml(x.region) + ' · ' + unit + ' · source: ' +
         escapeHtml(x.source) + '</em>';
       sum.appendChild(meta);
       det.appendChild(sum);
@@ -2061,6 +2126,8 @@
         body.appendChild(sc);
       }
       body.appendChild(peView === 'writeup' ? peWriteupNode(x, q) : peStepsNode(x, q));
+      if (x.ddxList && x.ddxList.length) body.appendChild(peDdxListNode(x, q));
+      if (x.differential && x.differential.length) body.appendChild(peDifferentialNode(x, q));
       if (x.findings && x.findings.length) body.appendChild(peFindingsNode(x, q));
       if (x.competency) body.appendChild(peCompNode(x, q));
       var rel = peRelatedNode(x);
