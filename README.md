@@ -13,6 +13,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 
 | Tool | Purpose |
 |---|---|
+| **Differential Builder** | Type a patient's symptoms in plain words and get the five conditions in this notebook that best match, each with what it matched on and the whole workup already attached to it — labs and imaging, screening tools, pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and herbs. Fifteen red-flag combinations raise a banner. Term matching over this site's own text, not a diagnostic algorithm. |
 | **Conditions** | 75 conditions A–Z plus 111 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 40 of them, **Dr William Mitchell's case protocols** where the compendium carries one, and the sections of your own notes that describe it. |
 | **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The nine **screening instruments** are listed among the exams under *Screening* — STOP-BANG, Epworth, PHQ-9, GAD-7, the MDQ, MMSE/MoCA, AUDIT-C, the COPD Assessment Test and the mould exposure questionnaire — each with a blank form to download or a link to the publisher who licenses it, and the **PHQ-9** and **GAD-7** scoreable in place. |
 | **Labs & Imaging** | 90 tests across blood, urine, stool, microbiology, imaging, function tests, procedures and specialty panels — why you would order each, how to read it, and its **normal and optimal ranges** with the caveat that decides whether the number can be taken at face value. The same tests hang off every abnormal exam finding and every condition. The nine **screening instruments** sit under Physical Exams instead, with their score bands. |
@@ -71,7 +72,7 @@ be kept up for more than a few days.
 ## Project layout
 
 ```
-index.html               markup for all thirteen tools
+index.html               markup for all fourteen tools
 css/styles.css           styling, light/dark, print rules
 js/herbdata.js           herbal reference data as a global (works from file://)
 js/homeopathydata.js     homeopathic remedy data as a global
@@ -83,6 +84,7 @@ js/womensformulasdata.js women's hormone formulas as a global
 js/formularydata.js      the ten practitioner lines as a global
 js/casebookdata.js       the Master Compendium as a global
 js/labrangesdata.js      normal and optimal ranges as a global
+js/dxindexdata.js        the symptom index as a global
 js/app.js                all calculators, the differentiator, the exam index, the screeners and the therapeutics tabs
 data/herbdata.json       the same herbal data as plain JSON, for reuse
 data/homeopathy.json     the same homeopathic data as plain JSON, for reuse
@@ -94,12 +96,13 @@ data/womensformulas.json the same formula data as plain JSON, for reuse
 data/formulary.json      the same formulary data as plain JSON, for reuse
 data/casebook.json       the same compendium data as plain JSON, for reuse
 data/labranges.json      the same range data as plain JSON, for reuse
+data/dxindex.json        the same symptom index as plain JSON, for reuse
 assets/phq9.pdf          blank PHQ-9 form, generated from data/screeners.json
 assets/gad7.pdf          blank GAD-7 form, generated from data/screeners.json
 assets/auditc.pdf        blank AUDIT-C form (the WHO AUDIT consumption items)
 ```
 
-The nine files under `js/` are generated from their counterparts in `data/`; edit the JSON and
+The ten files under `js/` are generated from their counterparts in `data/`; edit the JSON and
 regenerate if you change the reference data.
 
 ## Data
@@ -369,6 +372,31 @@ flagged unless asked for — the tool does not assume who the patient is.
 
 The four conditions of pregnancy with a herb that has a human clinical trial behind it are listed with their
 PubMed IDs in the legend.
+
+### The Differential Builder
+
+**Type symptoms in plain words; get five conditions and their workup.** "42-year-old woman, six months of
+fatigue, cold intolerance, constipation, weight gain and hair loss" returns Hypothyroidism first, with its
+labs (TSH with free T4, thyroid antibodies, free T3 and reverse T3, CBC, ferritin, lipids, B12), its
+pharmaceutical, its supplements, its lifestyle changes and its herbs — every one clickable through to the
+tab it lives in. There is a CSV of the whole workup, and a symptom picker grouped by system for when the
+words won't come.
+
+**How it works.** Each of the 186 conditions carries a weight for each of 118 symptom terms, derived from
+its own name and aliases, the case presentations filed under it, its therapeutics note, its reference
+sections and the physical-exam findings that name it — plus a curated seed table of classic presentations
+written for this tool, because a condition's own prose rarely repeats its cardinal symptom often enough to
+outweigh a verbose neighbour. Scores are normalised so a wordy entry cannot outrank a precise one, and
+breadth is rewarded: a condition that explains four of the symptoms beats one that explains one of them
+very strongly. Entries whose *name is the symptom* — Fatigue and low energy, Constipation, Bloating and gas
+— are halved and labelled *restates the symptom*, because as a differential they are circular.
+
+**What it cannot do.** It has no prior probabilities, so a rare condition matching four terms outranks a
+common one matching three. It does not know age, sex, duration, severity, examination findings, past
+history or medication. It cannot exclude anything. It knows only the conditions in this notebook — an
+absence here is not evidence. The fifteen red-flag rules (chest pain with breathlessness, melaena,
+thoughts of self-harm, headache with fever, unilateral calf swelling with breathlessness) are pattern
+matches, not triage: a patient can be critically unwell and trip none of them.
 
 ### The Master Compendium
 

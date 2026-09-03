@@ -1521,6 +1521,305 @@
   // Topics that carry therapeutics, a protocol or reference notes but no herbs.
   // They render as conditions without a herb grid so the tab is one full index.
   /* ==================================================================
+     DIFFERENTIAL BUILDER
+     Term matching over this notebook's own text. Every condition carries a
+     weight for each symptom term; the entered text is scanned for those terms,
+     the conditions are scored and the top five are shown with what each one
+     matched on, and with the workup already attached to it elsewhere in the
+     site. No probabilities, no reasoning, no knowledge from outside here.
+     ================================================================== */
+  var DX = window.DX_INDEX || { terms: [], weights: {}, redflags: [], systems: [] };
+  var DX_SYMPTOM = {};
+  (DX.symptomEntries || []).forEach(function (c) { DX_SYMPTOM[c] = true; });
+  var DX_TERM = {};
+  (DX.terms || []).forEach(function (t) { DX_TERM[t.id] = t; });
+
+  // Longest synonym first, so "shortness of breath" wins over "breath".
+  var DX_SYNS = [];
+  (DX.terms || []).forEach(function (t) {
+    t.syns.forEach(function (syn) { DX_SYNS.push({ syn: syn, id: t.id }); });
+  });
+  DX_SYNS.sort(function (a, b) { return b.syn.length - a.syn.length; });
+
+  function dxMatch(text) {
+    var hay = ' ' + String(text || '').toLowerCase().replace(/[^a-z0-9'\-]+/g, ' ') + ' ';
+    var found = [], seen = {};
+    DX_SYNS.forEach(function (e) {
+      if (seen[e.id]) return;
+      if (hay.indexOf(' ' + e.syn + ' ') !== -1 ||
+          hay.indexOf(' ' + e.syn.replace(/[^a-z0-9' ]/g, ' ') + ' ') !== -1) {
+        seen[e.id] = e.syn;
+        found.push({ id: e.id, matched: e.syn });
+      }
+    });
+    return found;
+  }
+
+  function dxScore(found) {
+    var out = [];
+    Object.keys(DX.weights || {}).forEach(function (cond) {
+      var row = DX.weights[cond], total = 0, on = [];
+      found.forEach(function (f) {
+        var w = row[f.id];
+        if (w) { total += w; on.push({ id: f.id, w: w }); }
+      });
+      if (!total) return;
+      // reward breadth: a condition that explains four of the symptoms beats one
+      // that explains one of them very strongly
+      total *= 1 + 0.35 * (on.length - 1);
+      // an entry whose name is the symptom explains nothing — it restates it
+      if (DX_SYMPTOM[cond]) total *= 0.5;
+      on.sort(function (a, b) { return b.w - a.w; });
+      out.push({ cond: cond, score: total, on: on, restates: !!DX_SYMPTOM[cond] });
+    });
+    out.sort(function (a, b) { return b.score - a.score || a.cond.localeCompare(b.cond); });
+    return out;
+  }
+
+  function dxRedFlags(found) {
+    var have = {};
+    found.forEach(function (f) { have[f.id] = true; });
+    return (DX.redflags || []).filter(function (r) {
+      return r.terms.every(function (t) { return have[t]; });
+    });
+  }
+
+  // Everything this notebook already attaches to one condition, gathered.
+  function dxWorkup(cond) {
+    var rec = TXBY[cond] || {};
+    var pick = function (key, set) {
+      return (rec[key] || []).map(function (i) { return TX_IDX[set][i]; }).filter(Boolean);
+    };
+    var herbRec = null;
+    CONDS.forEach(function (c) { if (c.condition === cond) herbRec = c; });
+    return {
+      labs: pick('labs', 'labsOnly'),
+      screens: pick('labs', 'screens'),
+      pharm: pick('pharm', 'pharm'),
+      supps: pick('supps', 'nonHerbal'),
+      botanicals: pick('supps', 'botanicals'),
+      therapies: pick('therapies', 'natTherapeutics'),
+      lifestyle: pick('therapies', 'lifestyle'),
+      herbs: (herbRec && herbRec.herbs) || [],
+      protocol: rec.protocol ? TXPROTO[rec.protocol] : null,
+      cases: CB_BY[cond] || [],
+      topic: !!rec.extra
+    };
+  }
+
+  var DX_ROWS = [
+    ['labs', 'Labs & imaging', 'labs'],
+    ['screens', 'Screening tools', 'exams'],
+    ['pharm', 'Pharmaceuticals', 'pharm'],
+    ['supps', 'Supplements', 'supps'],
+    ['botanicals', 'Botanicals', 'herbs'],
+    ['therapies', 'Naturopathic therapeutics', 'therap'],
+    ['lifestyle', 'Lifestyle', 'life']
+  ];
+
+  var dxLast = [];   // what the CSV button writes
+
+  function buildDxChips() {
+    var box = $('#dx-chips');
+    if (!box) return;
+    box.innerHTML = '';
+    (DX.systems || []).forEach(function (sys) {
+      var terms = (DX.terms || []).filter(function (t) { return t.system === sys; });
+      if (!terms.length) return;
+      var wrap = el('div', 'dx-sys');
+      wrap.appendChild(el('h5', null, sys));
+      var row = el('div', 'chips');
+      terms.forEach(function (t) {
+        var b = el('button', 'chip', t.label);
+        b.addEventListener('click', function () {
+          var inp = $('#dx-input');
+          inp.value = (inp.value.trim() ? inp.value.replace(/[,\s]+$/, '') + ', ' : '') + t.label;
+          runDx();
+        });
+        row.appendChild(b);
+      });
+      wrap.appendChild(row);
+      box.appendChild(wrap);
+    });
+  }
+
+  function runDx() {
+    var out = $('#dx-results');
+    if (!out) return;
+    var text = $('#dx-input').value;
+    save('dx', text);
+    out.innerHTML = '';
+    if (!text.trim()) return;
+
+    var found = dxMatch(text);
+    if (!found.length) {
+      out.appendChild(alertBox('info', '<strong>Nothing recognised.</strong> None of the words in that ' +
+        'description matched a symptom this notebook indexes. Try plainer terms — "fatigue", "joint pain", ' +
+        '"loose stools" — or pick from the list above.'));
+      return;
+    }
+
+    dxRedFlags(found).forEach(function (r) {
+      out.appendChild(alertBox('danger', '<strong>Red flag:</strong> ' + escapeHtml(r.text)));
+    });
+
+    var head = el('div', 'dx-matched');
+    head.appendChild(el('span', 'dx-lab', 'read as'));
+    found.forEach(function (f) {
+      var t = DX_TERM[f.id];
+      var chip = el('span', 'dx-chip', t ? t.label : f.id);
+      if (t && f.matched !== t.label) chip.title = 'matched on "' + f.matched + '"';
+      head.appendChild(chip);
+    });
+    out.appendChild(head);
+
+    var ranked = dxScore(found).slice(0, 5);
+    if (!ranked.length) {
+      out.appendChild(alertBox('info', 'Those symptoms matched no condition in this notebook.'));
+      return;
+    }
+    var top = ranked[0].score;
+    dxLast = ranked;
+
+    ranked.forEach(function (r, i) {
+      var w = dxWorkup(r.cond);
+      var art = el('article', 'dxcard');
+
+      var h = el('div', 'dxhead');
+      h.appendChild(el('span', 'dxrank', String(i + 1)));
+      var nm = el('h4', null, r.cond);
+      h.appendChild(nm);
+      if (r.restates) {
+        var sb = el('span', 'txtag warnt', 'restates the symptom');
+        sb.title = 'This entry is named after the symptom you typed, so it explains nothing — it is ' +
+          'here for the therapeutics attached to it, not as a diagnosis.';
+        h.appendChild(sb);
+      } else if (w.topic) {
+        var tb = el('span', 'txtag', 'topic');
+        tb.title = 'Covered by the coursework but not in the herb-based condition index.';
+        h.appendChild(tb);
+      }
+      art.appendChild(h);
+
+      var bar = el('div', 'dxbar');
+      var fill = el('span');
+      fill.style.width = Math.max(6, Math.round(100 * r.score / top)) + '%';
+      bar.appendChild(fill);
+      art.appendChild(bar);
+
+      var on = el('p', 'dxon');
+      on.appendChild(el('span', 'dx-lab', 'matched on'));
+      r.on.forEach(function (o) {
+        var t = DX_TERM[o.id];
+        on.appendChild(el('span', 'dx-chip sm', t ? t.label : o.id));
+      });
+      art.appendChild(on);
+
+      var anyRow = w.herbs.length > 0;
+      DX_ROWS.forEach(function (row) { if ((w[row[0]] || []).length) anyRow = true; });
+      if (!anyRow) {
+        art.appendChild(el('p', 'dxempty', 'No therapeutics are attached to this entry — it is carried ' +
+          'for its case protocols and reference notes. Open it in Conditions to read them.'));
+      }
+      DX_ROWS.forEach(function (row) {
+        var items = w[row[0]];
+        if (!items || !items.length) return;
+        var sec = el('div', 'txrow');
+        sec.appendChild(el('span', 'txrow-lab', row[1]));
+        var box = el('div', 'txrow-items');
+        items.forEach(function (it) {
+          var b = el('button', 'txpill ' + row[0], it.name);
+          var tip = [];
+          if (it.cls) tip.push(it.cls);
+          if (it.kind) tip.push(LAB_KIND_LABEL[it.kind] || it.kind);
+          if (it.dose) tip.push(it.dose);
+          tip.push(it.use || it.why || it.mech || it.what || '');
+          if (it.range) tip.push('Normal: ' + it.range.normal);
+          if (it.caution) tip.push('Caution: ' + it.caution);
+          b.title = tip.filter(Boolean).join(' — ');
+          if (it.caution && /AVOID|contraindicat|Absolutely|boxed|emergency/i.test(it.caution)) {
+            b.classList.add('flagged');
+          }
+          b.addEventListener('click', function () {
+            if (row[2] === 'exams') { scrnJump(it.id); return; }
+            showTab(row[2]);
+            var inp = $('#' + (row[2] === 'herbs' ? 'hr' : row[2]) + '-search');
+            if (inp) {
+              inp.value = row[2] === 'herbs' ? it.name.split(' (')[0] : it.name;
+              inp.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+            if (row[2] === 'herbs') {
+              var bb = $('#bot-box');
+              if (bb) { bb.open = true; bb.scrollIntoView({ block: 'start' }); return; }
+            }
+            $('#panel-' + row[2]).scrollIntoView({ block: 'start' });
+          });
+          box.appendChild(b);
+        });
+        sec.appendChild(box);
+        art.appendChild(sec);
+      });
+
+      if (w.herbs.length) {
+        var hs = el('div', 'txrow');
+        hs.appendChild(el('span', 'txrow-lab', 'Herbs'));
+        var hb = el('div', 'txrow-items');
+        w.herbs.forEach(function (h2) {
+          var b = el('button', 'txpill herb' + (h2.role === 'primary' ? ' primary' : ''), h2.herb);
+          b.title = (h2.common ? h2.common + ' — ' : '') + h2.role + ': ' + h2.why +
+            (h2.lowDose ? ' — LOW DOSE herb, check the maximum' : '');
+          if (h2.lowDose) b.classList.add('flagged');
+          b.addEventListener('click', function () {
+            showTab('herbs');
+            $('#hr-search').value = h2.herb;
+            renderRef();
+            $('#panel-herbs').scrollIntoView({ block: 'start' });
+          });
+          hb.appendChild(b);
+        });
+        hs.appendChild(hb);
+        art.appendChild(hs);
+      }
+
+      var foot = el('div', 'dxfoot');
+      var open = el('button', 'txlink', 'Open ' + r.cond + ' in Conditions');
+      open.addEventListener('click', function () { txJumpToCondition(r.cond); });
+      foot.appendChild(open);
+      if (w.protocol) foot.appendChild(el('span', 'dxnote', '· carries a dosed treatment protocol'));
+      if (w.cases.length) {
+        foot.appendChild(el('span', 'dxnote', '· ' + w.cases.length +
+          (w.cases.length === 1 ? ' case protocol' : ' case protocols')));
+      }
+      art.appendChild(foot);
+      out.appendChild(art);
+    });
+
+    out.appendChild(el('p', 'hint dx-tail', 'Five is what was asked for, not what the evidence supports. ' +
+      'A sixth condition may have scored a hair lower, and the one that matters may not be in this ' +
+      'notebook at all.'));
+  }
+
+  function dxCsv() {
+    if (!dxLast.length) return;
+    var rows = [['Differential builder — Wellness with Noura'],
+                ['Symptoms entered', $('#dx-input').value],
+                ['Generated', new Date().toISOString().slice(0, 10)],
+                [],
+                ['Rank', 'Condition', 'Matched on', 'Category', 'Item']];
+    dxLast.forEach(function (r, i) {
+      var w = dxWorkup(r.cond);
+      var on = r.on.map(function (o) { return (DX_TERM[o.id] || {}).label || o.id; }).join('; ');
+      DX_ROWS.forEach(function (row) {
+        (w[row[0]] || []).forEach(function (it) {
+          rows.push([i + 1, r.cond, on, row[1], it.name]);
+        });
+      });
+      w.herbs.forEach(function (h) { rows.push([i + 1, r.cond, on, 'Herbs', h.herb]); });
+    });
+    downloadCSV('differential.csv', rows);
+  }
+
+  /* ==================================================================
      THE MASTER COMPENDIUM
      Mitchell's case protocols, the respiratory module and the gastroenterology
      study guide. The cases hang off the conditions they treat; the module
@@ -3656,6 +3955,22 @@
     cxAddTherapeuticsToHaystack();
     buildTopicConditions();
     cbIndexConditions();
+    buildDxChips();
+    if ($('#dx-input')) {
+      var saved = load('dx');
+      if (saved) { $('#dx-input').value = saved; runDx(); }
+      $('#dx-run').addEventListener('click', runDx);
+      $('#dx-input').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) runDx();
+      });
+      $('#dx-clear').addEventListener('click', function () {
+        $('#dx-input').value = '';
+        $('#dx-results').innerHTML = '';
+        dxLast = [];
+        save('dx', '');
+      });
+      $('#dx-csv').addEventListener('click', dxCsv);
+    }
     buildSystemChips();
     setSort('az');
     buildExamChips();
