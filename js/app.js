@@ -2472,6 +2472,29 @@
   (WF.targets || []).forEach(function (t) { WF_TARGET[t.id] = t.label; });
   (WF.bases || []).forEach(function (b) { WF_BASE[b.id] = b.label; });
 
+  /* ---- the practitioner formulary ----
+     What each of the ten lines actually stocks. One card per brand-category
+     rather than one per SKU: the products are names on a list, and 273 cards of
+     bare names would bury the agents that carry a dose and a mechanism. Every
+     product name is still searchable from the tab's own box. */
+  var FM = window.FORMULARY_DATA || { brands: [], groups: [] };
+  var FM_BRAND = {};
+  (FM.brands || []).forEach(function (b) { FM_BRAND[b.id] = b; });
+
+  var FM_SUPPS = (FM.groups || []).map(function (g) {
+    var b = FM_BRAND[g.brand] || { name: g.brand, positioning: '' };
+    return {
+      id: 'fm_' + g.id,
+      name: b.name + ' \u2014 ' + g.category,
+      kind: 'Practitioner formulary',
+      examples: g.products,
+      use: b.positioning,
+      caution: g.caution,
+      conditions: [],
+      fmBrand: b.name
+    };
+  });
+
   var WF_SUPPS = (WF.formulas || []).map(function (f) {
     return {
       id: 'wf_' + f.id,
@@ -2485,6 +2508,14 @@
       wfBrand: f.brand
     };
   });
+  FM_SUPPS.forEach(function (x) {
+    x._hay = txHay(x, x.kind) + ' practitioner formulary catalogue';
+    TX.supplements.push(x);
+    TX.nonHerbal.push(x);
+    TX_IDX.supps[x.id] = x;
+    TX_IDX.nonHerbal[x.id] = x;
+  });
+
   WF_SUPPS.forEach(function (x) {
     x._hay = txHay(x, x.kind) + ' ' + x.wfBrand.toLowerCase() + ' practitioner formula';
     TX.supplements.push(x);
@@ -2513,9 +2544,10 @@
   var renderSupps = txMakeTab({
     id: 'supps', key: 'nonHerbal', set: 'nonHerbal', noun: 'supplements',
     condKeys: ['supps'],
-    groupOf: function (x) { return x.wfTarget || 'agent'; },
+    groupOf: function (x) { return x.wfTarget || (x.fmBrand ? 'formulary' : 'agent'); },
     groups: function () {
-      return [{ value: 'agent', label: 'Single agents' }].concat(
+      return [{ value: 'agent', label: 'Single agents' },
+              { value: 'formulary', label: 'Practitioner formulary' }].concat(
         (WF.targets || []).map(function (t) { return { value: t.id, label: t.label }; }));
     }
   });
