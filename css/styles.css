@@ -725,4 +725,11 @@ td.herb input{min-width:190px}
 .scrn-dl,.scrn-src{font-size:.85rem;font-weight:600;color:var(--accent)}
 .scrn-src::before{content:"\2197\00a0"}
 .scrn-lic{flex-basis:100%;margin:0;font-size:.82rem;line-height:1.6;color:var(--muted)}
+.wf-brand{margin:18px 0 6px;font:600 .72rem/1.4 var(--sans);text-transform:uppercase;
+  letter-spacing:.1em;color:var(--accent)}
+.wf-brand:first-child{margin-top:4px}
+.wfcard .txhead{flex-wrap:wrap;gap:6px}
+.txbadge.alt{background:transparent;border:1px solid var(--line);color:var(--muted)}
+#wf-box .chips{margin:10px 0 6px}
+.txalso{margin:2px 0 0;font-size:.8rem;font-style:italic;color:var(--muted)}
 #bot-box .txlist{margin-top:.5rem}

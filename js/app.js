@@ -2330,6 +2330,10 @@
 
     if ($('#' + cfg.id + '-search')) {
       $('#' + cfg.id + '-search').addEventListener('input', render);
+      // the supplements search reaches the formula block below it too
+      if (cfg.id === 'supps') {
+        $('#supps-search').addEventListener('input', function () { renderFormulas(); });
+      }
       chips();
     }
     return render;
@@ -2714,6 +2718,110 @@
     }
     det.appendChild(body);
     return det;
+  }
+
+  /* ==================================================================
+     PROFESSIONAL WOMEN'S HORMONE FORMULAS
+     Branded practitioner formulas rather than single agents, so they sit in a
+     block of their own inside the Supplements tab: the catalogue above is one
+     agent per card, and these are products built from several.
+     ================================================================== */
+  var WF = window.WOMENS_FORMULAS_DATA || { formulas: [], targets: [], bases: [], brands: [] };
+  var WF_TARGET = {}, WF_BASE = {};
+  (WF.targets || []).forEach(function (t) { WF_TARGET[t.id] = t.label; });
+  (WF.bases || []).forEach(function (b) { WF_BASE[b.id] = b.label; });
+  (WF.formulas || []).forEach(function (x) {
+    x._hay = [x.brand, x.name, x.also || '', WF_TARGET[x.target] || '', WF_BASE[x.base] || '',
+              x.actives, x.what, x.caution, (x.conditions || []).join(' ')].join(' ').toLowerCase();
+  });
+  var wfFilter = 'all';
+
+  function buildFormulaChips() {
+    var box = $('#wf-filters');
+    if (!box) return;
+    box.innerHTML = '';
+    var all = el('button', 'chip is-on', 'All');
+    all.dataset.f = 'all';
+    box.appendChild(all);
+    (WF.targets || []).forEach(function (t) {
+      var n = WF.formulas.filter(function (x) { return x.target === t.id; }).length;
+      if (!n) return;
+      var b = el('button', 'chip', t.label + ' (' + n + ')');
+      b.dataset.f = t.id;
+      box.appendChild(b);
+    });
+    box.addEventListener('click', function (e) {
+      if (!e.target.dataset.f) return;
+      wfFilter = e.target.dataset.f;
+      $$('#wf-filters .chip').forEach(function (c) { c.classList.toggle('is-on', c === e.target); });
+      renderFormulas();
+    });
+  }
+
+  function renderFormulas(q) {
+    var out = $('#wf-results');
+    if (!out) return;
+    q = (q === undefined ? ($('#supps-search') ? $('#supps-search').value : '') : q).toLowerCase().trim();
+    var all = WF.formulas || [];
+    var list = all.filter(function (x) {
+      if (wfFilter !== 'all' && x.target !== wfFilter) return false;
+      return !q || x._hay.indexOf(q) !== -1;
+    });
+    $('#wf-count').textContent = list.length === all.length
+      ? all.length + ' formulas'
+      : list.length + ' of ' + all.length + ' formulas';
+    var box = $('#wf-box');
+    if (box && (q || wfFilter !== 'all') && list.length) box.open = true;
+
+    out.innerHTML = '';
+    var frag = document.createDocumentFragment();
+    var brand = null;
+    list.forEach(function (x) {
+      if (x.brand !== brand) {
+        brand = x.brand;
+        frag.appendChild(el('h4', 'wf-brand', brand));
+      }
+      frag.appendChild(formulaCard(x, q));
+    });
+    if (!list.length) frag.appendChild(el('p', 'count', 'No formula matches that.'));
+    out.appendChild(frag);
+  }
+
+  function formulaCard(x, q) {
+    var card = el('article', 'txcard wfcard');
+    var head = el('div', 'txhead');
+    var nm = el('h4');
+    nm.innerHTML = highlight(x.name, q);
+    head.appendChild(nm);
+    head.appendChild(el('span', 'txbadge', WF_TARGET[x.target] || x.target));
+    head.appendChild(el('span', 'txbadge alt', WF_BASE[x.base] || x.base));
+    card.appendChild(head);
+    if (x.also) card.appendChild(el('p', 'txalso', x.also));
+
+    var ac = el('p', 'txdose');
+    ac.innerHTML = '<span class="txlab">what is in it</span> ' + highlight(x.actives, q);
+    card.appendChild(ac);
+
+    var wh = el('p', 'txuse');
+    wh.innerHTML = highlight(x.what, q);
+    card.appendChild(wh);
+
+    if (x.caution) {
+      var c = el('p', 'txcaution' + (/AVOID|contraindicat|not in pregnan|hormone, not/i.test(x.caution) ? ' hard' : ''));
+      c.innerHTML = '<span class="txlab warn">caution</span> ' + highlight(x.caution, q);
+      card.appendChild(c);
+    }
+    if ((x.conditions || []).length) {
+      var cw = el('div', 'txconds');
+      x.conditions.forEach(function (name) {
+        var chip = el('button', 'txchip', name);
+        chip.title = 'Show everything indicated for ' + name;
+        chip.addEventListener('click', function () { txJumpToCondition(name); });
+        cw.appendChild(chip);
+      });
+      card.appendChild(cw);
+    }
+    return card;
   }
 
   /* ---- the screening instruments, listed among the exams ----
@@ -3454,6 +3562,8 @@
     renderExams();
     renderPharm();
     renderSupps();
+    buildFormulaChips();
+    renderFormulas();
     renderTherap();
     renderLife();
     renderLabs();

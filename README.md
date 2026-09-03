@@ -17,7 +17,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The nine **screening instruments** are listed among the exams under *Screening* — STOP-BANG, Epworth, PHQ-9, GAD-7, the MDQ, MMSE/MoCA, AUDIT-C, the COPD Assessment Test and the mould exposure questionnaire — each with a blank form to download or a link to the publisher who licenses it, and the **PHQ-9** and **GAD-7** scoreable in place. |
 | **Labs & Imaging** | 90 tests across blood, urine, stool, microbiology, imaging, function tests, procedures and specialty panels — why you would order each and how to read it. The same tests hang off every abnormal exam finding and every condition. The nine **screening instruments** sit under Physical Exams instead. |
 | **Pharmaceuticals** | 106 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
-| **Supplements** | 63 non-herbal supplements — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients — with typical dose ranges, mechanisms and the cautions that matter, including which must be avoided in which patients. Organised A–Z or by condition. The 34 **botanical** products the conditions call for sit under Herb Reference instead. |
+| **Supplements** | 63 non-herbal supplements — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients — with typical dose ranges, mechanisms and the cautions that matter, including which must be avoided in which patients. Organised A–Z or by condition. The 34 **botanical** products the conditions call for sit under Herb Reference instead. Carries the **women's hormone formulas** block: 40 practitioner-line products across 10 brands, grouped by physiological target. |
 | **Naturopathic Therapeutics** | 41 modalities a practitioner applies — physical medicine (constitutional hydrotherapy, spinal manipulation, acupuncture, massage, therapeutic ultrasound, gua sha, cupping, manual lymphatic drainage, sauna, infrared and low-level laser, TENS, moxibustion, kinesiology taping, traction, castor oil packs), topicals, devices, procedures, rehabilitation and psychotherapy — each with what it is, what it is for, and its contraindications. Filter by kind or switch to *By condition*. |
 | **Lifestyle** | 15 changes a patient makes — diet patterns, sleep hygiene, structured exercise, breathing retraining, stress reduction, caffeine and alcohol reduction, environmental remediation and the rest — kept separate from the things a patient takes and the things a practitioner does. |
 | **Homeopathy** | A remedy differentiator over 148 classical remedies and 42 presenting complaints. Pick the complaint; it asks the questions that best separate the remedies still in contention, and ranks them with the reasoning shown. Includes a searchable remedy reference. |
@@ -79,6 +79,7 @@ js/physicalexamdata.js   physical exam data as a global
 js/therapeuticsdata.js   pharmaceuticals, supplements, therapies and labs as a global
 js/pregnancydata.js      pregnancy and lactation herb safety as a global
 js/screenerdata.js       the PHQ-9 and GAD-7 instruments as a global
+js/womensformulasdata.js women's hormone formulas as a global
 js/app.js                all calculators, the differentiator, the exam index, the screeners and the therapeutics tabs
 data/herbdata.json       the same herbal data as plain JSON, for reuse
 data/homeopathy.json     the same homeopathic data as plain JSON, for reuse
@@ -86,12 +87,13 @@ data/physicalexams.json  the same physical exam data as plain JSON, for reuse
 data/therapeutics.json   the same therapeutics data as plain JSON, for reuse
 data/pregnancysafety.json  the same safety data as plain JSON, for reuse
 data/screeners.json      the same screener data as plain JSON, for reuse
+data/womensformulas.json the same formula data as plain JSON, for reuse
 assets/phq9.pdf          blank PHQ-9 form, generated from data/screeners.json
 assets/gad7.pdf          blank GAD-7 form, generated from data/screeners.json
 assets/auditc.pdf        blank AUDIT-C form (the WHO AUDIT consumption items)
 ```
 
-The five files under `js/` are generated from their counterparts in `data/`; edit the JSON and
+The six files under `js/` are generated from their counterparts in `data/`; edit the JSON and
 regenerate if you change the reference data.
 
 ## Data
@@ -223,6 +225,33 @@ scale, the scoring and the attribution are the instrument as published; the type
 Both are public domain, so reproducing them is permitted — but if you would rather hand out the publisher's
 own file, download it and save it over `assets/phq9.pdf` or `assets/gad7.pdf`. The download link points at
 that filename, so nothing else has to change.
+
+### The women's hormone formulas
+
+**40 practitioner-line products across 10 brands**, in a block of their own inside the **Supplements** tab —
+Thorne, Pure Encapsulations, Ortho Molecular, Metagenics, Integrative Therapeutics, Designs for Health,
+Xymogen, Klaire Labs, Seeking Health and Gaia Herbs. They are branded formulas rather than single agents, so
+they sit apart from the catalogue above them, which is one agent per card.
+
+Grouped by what each is aimed at, the way the professional lines themselves are organised: Phase I/II
+estrogen metabolism (13), luteal and progesterone support (7), ovarian and glycaemic signalling in PCOS (4),
+the neuroendocrine and vasomotor transition (6), steroid precursors (6), the estrobolome (2), the
+adrenal–ovarian axis (1) and hepatic conjugation (1). Each card also says what the product is *built from* —
+nutrient, botanical, both, a hormone precursor, or a probiotic — so the herb/non-herb line the rest of the
+tab keeps still reads here.
+
+**The brand, the formula and its contents are transcribed from Nourhan Shams's own compiled list. The
+caution on each entry is not** — those were written for this tool, because a product reference without the
+contraindications is the dangerous half of the picture. Some of them matter a great deal: the St John's wort
+in Gaia's Women's Balance induces CYP3A4 and causes oral contraceptive failure; DHEA, pregnenolone and
+topical progesterone are hormones with prescribing-scope implications, not nutrients; black cohosh appears in
+nine formulas and carries a rare hepatotoxicity signal; green tea extract adds a second hepatic signal
+alongside it in two of them.
+
+Nothing in the block is evidence that a product works, and two of the models the list itself uses are worth
+naming as models: "pregnenolone steal" has little physiological support — steroidogenesis is
+compartmentalised by tissue, not drawn from a shared pool — and the estrogen–histamine link is plausible but
+not settled. Manufacturers also reformulate without renaming, so the current label is the authority, not this.
 
 ### The screening instruments, and their blank forms
 
