@@ -1596,6 +1596,13 @@
         if (b.ndRank) return 1;
         return a.condition.toLowerCase().localeCompare(b.condition.toLowerCase());
       });
+    } else {
+      // One A-Z run. The herb index and the coursework topics interleave rather
+      // than the list restarting at A partway down; the topic badge is what
+      // tells them apart, and the Topics chip still separates them on demand.
+      list = list.slice().sort(function (a, b) {
+        return a.condition.toLowerCase().localeCompare(b.condition.toLowerCase());
+      });
     }
 
     var universe = CONDS.length + CX_TOPICS.length;
@@ -2183,9 +2190,12 @@
 
   // Condition order: the herb index first, A–Z, then the topics the new
   // coursework covers that the herb index does not.
+  // One A-Z run over conditions and coursework topics together. Grouping the
+  // topics behind the conditions made sense when there were a handful of them;
+  // now that they outnumber the herb index two to one it just makes the list
+  // start again at A halfway down.
   var TX_CONDS = Object.keys(TXBY).sort(function (a, b) {
-    var ea = TXBY[a].extra ? 1 : 0, eb = TXBY[b].extra ? 1 : 0;
-    return ea - eb || a.toLowerCase().localeCompare(b.toLowerCase());
+    return a.toLowerCase().localeCompare(b.toLowerCase());
   });
 
   var LAB_KIND_LABEL = {
