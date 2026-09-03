@@ -15,7 +15,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 |---|---|
 | **Conditions** | 75 conditions A–Z plus 111 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 40 of them, **Dr William Mitchell's case protocols** where the compendium carries one, and the sections of your own notes that describe it. |
 | **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The nine **screening instruments** are listed among the exams under *Screening* — STOP-BANG, Epworth, PHQ-9, GAD-7, the MDQ, MMSE/MoCA, AUDIT-C, the COPD Assessment Test and the mould exposure questionnaire — each with a blank form to download or a link to the publisher who licenses it, and the **PHQ-9** and **GAD-7** scoreable in place. |
-| **Labs & Imaging** | 90 tests across blood, urine, stool, microbiology, imaging, function tests, procedures and specialty panels — why you would order each and how to read it. The same tests hang off every abnormal exam finding and every condition. The nine **screening instruments** sit under Physical Exams instead. |
+| **Labs & Imaging** | 90 tests across blood, urine, stool, microbiology, imaging, function tests, procedures and specialty panels — why you would order each, how to read it, and its **normal and optimal ranges** with the caveat that decides whether the number can be taken at face value. The same tests hang off every abnormal exam finding and every condition. The nine **screening instruments** sit under Physical Exams instead, with their score bands. |
 | **Pharmaceuticals** | 106 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
 | **Supplements** | 147 entries: 63 non-herbal single agents with dose ranges and mechanisms, 40 practitioner-line **women's hormone formulas** grouped by physiological target, and the **practitioner formulary** — what all ten professional lines stock, 44 categories covering some 273 products. Filter chips read the three apart. A–Z or by condition. The 34 **botanical** products the conditions call for sit under Herb Reference instead. |
 | **Naturopathic Therapeutics** | 41 modalities a practitioner applies — physical medicine (constitutional hydrotherapy, spinal manipulation, acupuncture, massage, therapeutic ultrasound, gua sha, cupping, manual lymphatic drainage, sauna, infrared and low-level laser, TENS, moxibustion, kinesiology taping, traction, castor oil packs), topicals, devices, procedures, rehabilitation and psychotherapy — each with what it is, what it is for, and its contraindications. Filter by kind or switch to *By condition*. |
@@ -82,6 +82,7 @@ js/screenerdata.js       the PHQ-9 and GAD-7 instruments as a global
 js/womensformulasdata.js women's hormone formulas as a global
 js/formularydata.js      the ten practitioner lines as a global
 js/casebookdata.js       the Master Compendium as a global
+js/labrangesdata.js      normal and optimal ranges as a global
 js/app.js                all calculators, the differentiator, the exam index, the screeners and the therapeutics tabs
 data/herbdata.json       the same herbal data as plain JSON, for reuse
 data/homeopathy.json     the same homeopathic data as plain JSON, for reuse
@@ -92,12 +93,13 @@ data/screeners.json      the same screener data as plain JSON, for reuse
 data/womensformulas.json the same formula data as plain JSON, for reuse
 data/formulary.json      the same formulary data as plain JSON, for reuse
 data/casebook.json       the same compendium data as plain JSON, for reuse
+data/labranges.json      the same range data as plain JSON, for reuse
 assets/phq9.pdf          blank PHQ-9 form, generated from data/screeners.json
 assets/gad7.pdf          blank GAD-7 form, generated from data/screeners.json
 assets/auditc.pdf        blank AUDIT-C form (the WHO AUDIT consumption items)
 ```
 
-The eight files under `js/` are generated from their counterparts in `data/`; edit the JSON and
+The nine files under `js/` are generated from their counterparts in `data/`; edit the JSON and
 regenerate if you change the reference data.
 
 ## Data
@@ -290,6 +292,28 @@ them change what you would dispense:
 
 None of it is evidence that a product works, and manufacturers reformulate without renaming — the current
 label is the authority.
+
+### Normal and optimal ranges
+
+**All 99 tests carry a reference range**, in a block on the card: the conventional adult range for a
+laboratory test, or a description of a normal study for imaging and procedures — cardiothoracic ratio under
+0.5, LVEF 55–70%, T-score at or above −1.0, AHI under 5, Light's criteria for a transudate.
+
+**48 of them carry an optimal too** — the narrower functional target, where a defensible one exists. Fasting
+insulin 2–5 µIU/mL against a laboratory range that runs to 19.6. ALT under 30 in men and under 19 in women,
+against a range that allows 56. TSH 1.0–2.0 against 0.45–4.5. Ferritin 50–150 rather than 11–336. HbA1c
+4.8–5.3%. Triglyceride-to-HDL under 2.0. hs-CRP under 1.0. Vitamin D 40–60 ng/mL. The other 51 carry none,
+because the concept does not apply to a CT report, a culture or a troponin.
+
+**Every one carries a caveat**, because that is usually what decides the reading: ferritin is an acute-phase
+reactant, so a normal value with a raised CRP does not exclude deficiency; HbA1c is falsely low in
+haemolysis and falsely high in iron deficiency; biotin distorts TSH immunoassays; a negative D-dimer only
+excludes thrombosis at low pre-test probability; provoked heavy-metal urine testing has no validated
+reference range at all; ERMI was never validated for clinical decisions.
+
+**This block was written for this tool** from standard clinical references — it is not from the coursework
+and it is not peer reviewed. Reference intervals are assay-, method-, age- and sex-specific: the range
+printed on the report in front of the patient is the one that governs.
 
 ### The screening instruments, and their blank forms
 

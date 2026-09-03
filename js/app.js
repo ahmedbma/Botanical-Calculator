@@ -2228,7 +2228,41 @@
   TX.pharmaceuticals.forEach(function (x) { x._hay = txHay(x, x.cls); });
   TX.supplements.forEach(function (x) { x._hay = txHay(x); });
   TX.therapies.forEach(function (x) { x._hay = txHay(x, x.kind); });
-  TX.labs.forEach(function (x) { x._hay = txHay(x, LAB_KIND_LABEL[x.kind]); });
+  /* ---- reference ranges ----
+     Written for this tool rather than transcribed: the conventional adult range
+     or normal study on one line, the narrower functional target on the next
+     where one is defensible, and the caveat that decides whether either can be
+     read at face value. */
+  var LR = {};
+  ((window.LABRANGE_DATA || {}).ranges || []).forEach(function (r) { LR[r.id] = r; });
+  TX.labs.forEach(function (x) {
+    var r = LR[x.id];
+    if (r) x.range = r;
+    x._hay = txHay(x, LAB_KIND_LABEL[x.kind]) +
+      (r ? ' ' + [r.units || '', r.normal, r.optimal || '', r.note || ''].join(' ').toLowerCase() : '');
+  });
+
+  // The reference range block, shared by the lab cards and by the screening
+  // instruments listed among the physical exams.
+  function txRangeNode(x, q) {
+    if (!x.range) return null;
+    var rg = el('div', 'txrange');
+    var nm = el('p', 'txrange-row');
+    nm.innerHTML = '<span class="txlab rng">normal</span> ' + highlight(x.range.normal, q) +
+      (x.range.units ? ' <em>(' + escapeHtml(x.range.units) + ')</em>' : '');
+    rg.appendChild(nm);
+    if (x.range.optimal) {
+      var op = el('p', 'txrange-row opt');
+      op.innerHTML = '<span class="txlab opt">optimal</span> ' + highlight(x.range.optimal, q);
+      rg.appendChild(op);
+    }
+    if (x.range.note) {
+      var nt = el('p', 'txrange-note');
+      nt.innerHTML = highlight(x.range.note, q);
+      rg.appendChild(nt);
+    }
+    return rg;
+  }
 
   // One card shape for all four datasets; the fields differ, the layout does not.
   function txCard(x, set, q, showConds) {
@@ -2264,6 +2298,8 @@
       ip.innerHTML = '<span class="txlab alt">reading it</span> ' + highlight(x.interpret, q);
       card.appendChild(ip);
     }
+    var rgNode = txRangeNode(x, q);
+    if (rgNode) card.appendChild(rgNode);
     if (x.form) {
       var fl = el('p', 'txform');
       var a = el('a', null, 'Blank form (PDF)');
@@ -2914,6 +2950,8 @@
       ip.innerHTML = '<span class="txlab alt">reading it</span> ' + highlight(x.interpret, q);
       body.appendChild(ip);
     }
+    var rng = txRangeNode(x, q);
+    if (rng) body.appendChild(rng);
     body.appendChild(screenFormNode(x));
     var conds = (x.conditions || []);
     if (conds.length) {

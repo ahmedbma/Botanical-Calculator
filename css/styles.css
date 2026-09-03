@@ -751,3 +751,15 @@ td.herb input{min-width:190px}
 .cblist{margin:0;padding-left:1.15rem}
 .cblist li{font-size:.88rem;line-height:1.65;margin:3px 0}
 @media print{.cbbox{break-inside:avoid}}
+
+
+/* ---- reference ranges on a lab or screening card ---- */
+.txrange{margin:9px 0 0;padding:9px 12px;border-radius:10px;background:var(--ro-bg);
+  border-left:3px solid var(--accent-soft)}
+.txrange-row{margin:0;font-size:.86rem;line-height:1.65}
+.txrange-row+.txrange-row{margin-top:5px}
+.txrange-row.opt{color:var(--accent)}
+.txlab.rng{background:var(--surface);color:var(--muted);border:1px solid var(--line)}
+.txlab.opt{background:var(--accent);color:var(--accent-ink)}
+.txrange-note{margin:6px 0 0;font-size:.8rem;line-height:1.6;font-style:italic;color:var(--muted)}
+@media print{.txrange{break-inside:avoid}}
