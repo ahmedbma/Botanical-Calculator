@@ -14,6 +14,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | Tool | Purpose |
 |---|---|
 | **Conditions** | 75 conditions A–Z plus 153 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 41 of them, the 97 worked cases from the casebook filed under the conditions they were treated for, and the sections of your own notes that describe it. |
+| **Diagnose** | Enter what the patient is feeling and get the leading three, each with the labs to run, the supplements, botanicals, herbs, naturopathic therapeutics, lifestyle changes and pharmaceuticals the notebook files under it. Emergencies matching two or more of the symptoms are pinned above. Shares its symptom list with **Differential**. |
 | **Differential** | Enter the symptoms a patient presents with; it ranks the conditions in this notebook whose recorded presentation matches, shows the line that matched for each, and says what each ranking does *not* account for. Emergencies matching the picture are pinned above the ranking. 152 symptoms across 13 systems, indexed over every passage in the notebook that describes how a condition looks. |
 | **Physical Exams** | Physical exam and diagnosis, organised by type of exam: the clinic entry interview and review of systems, ten **chief complaints** worked as differentials, a head-to-toe screen, the eye and HENT exams, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, a muscle energy technique reference, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The **PHQ-9** and **GAD-7** are scored here too, with the blank forms downloadable as PDFs. |
 | **Labs & Imaging** | 117 tests across blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels — why you would order each and how to read it. The same tests hang off every abnormal exam finding and every condition. |
@@ -72,7 +73,7 @@ be kept up for more than a few days.
 ## Project layout
 
 ```
-index.html               markup for all fourteen tools
+index.html               markup for all fifteen tools
 css/styles.css           styling, light/dark, print rules
 js/herbdata.js           herbal reference data as a global (works from file://)
 js/homeopathydata.js     homeopathic remedy data as a global
@@ -233,6 +234,32 @@ Physical Exams tab.
 dosing, as the lecture lays them out. Eleven resolve to herbs already in the reference and appear as a
 monograph block on their card; the nine teaching pages that follow them sit under the Herb Reference as
 *Women's herbs — formulating notes*.
+
+### The Diagnose tab
+
+**Symptoms in, a shortlist with a plan out.** It uses the same index and the same scoring as the
+differential builder below — the two share one symptom list, so a symptom added in either appears in both.
+What differs is the answer. The differential shows the whole ranking and the passage behind every match;
+Diagnose shows the leading three, each as a card carrying what the notebook files under that condition:
+the labs to run, the screening tools, the supplements with their doses, the botanicals, the herbs from the
+herb index, the naturopathic therapeutics, the lifestyle changes and the pharmaceuticals. Agents whose
+caution carries an absolute contraindication are marked. A footer says whether that condition also has a
+dosed protocol, sections of your notes, casebook cases or a homeopathic differentiator, and the rest of
+the ranking is one click away.
+
+**Nothing on those cards is written here.** Every item is what the Conditions index already holds for that
+condition, gathered onto one card. That is the point: the tab is a view of the notebook, not a second
+opinion about it.
+
+**Three is a display choice, not a clinical claim.** The fourth is often as good as the third, which is
+why the remainder of the ranking sits directly underneath. The order is not a likelihood, and the plan is
+a starting point rather than a prescription — check the cautions on the condition card, and the pregnancy
+and lactation safety in the Herb Reference, before dispensing anything.
+
+**The must-not-miss block tightens as the picture fills in.** Below three symptoms it lists every urgent
+finding your symptoms touch. At three or more it narrows to the emergencies explaining at least two of
+them, because otherwise every case with fatigue in it leads with cancer. When nothing clears that bar the
+block still appears, but closed, and says the matches are loose.
 
 ### The differential builder
 

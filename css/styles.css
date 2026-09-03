@@ -688,6 +688,8 @@ td.herb input{min-width:190px}
 .dx-flagbox{margin:14px 0 4px;border:1px solid var(--danger);border-radius:var(--radius);
   background:var(--danger-bg);overflow:hidden}
 .dx-flagbox>summary{cursor:pointer;padding:11px 16px;font-weight:700;font-size:.86rem;color:var(--danger)}
+.dx-flagbox.loose{border-color:var(--line);background:var(--ro-bg)}
+.dx-flagbox.loose>summary{color:var(--muted);font-weight:600}
 .dx-flagbody{padding:0 16px 14px}
 .dx-flaglede{margin:0 0 10px;font-size:.83rem;line-height:1.6;color:var(--ink);max-width:84ch}
 .dx-flag{padding:9px 12px;border-radius:8px;background:var(--surface);border:1px solid var(--line);
@@ -736,6 +738,50 @@ td.herb input{min-width:190px}
   .dx-cover{margin-left:0}
 }
 @media print{ .dx-res{break-inside:avoid} .dx-suggest{display:none!important} }
+
+/* ---- diagnose: the leading three with what the notebook files under each ---- */
+.dg-card{margin-top:12px;padding:15px 17px;border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:var(--radius);background:var(--surface)}
+.dg-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.dg-name{margin:0;font:600 1.18rem/1.3 var(--serif)}
+.dg-because{margin:10px 0 0;font-size:.85rem;line-height:1.55;color:var(--ink)}
+.dg-missed{margin:5px 0 0;font-size:.81rem;line-height:1.5;color:var(--muted)}
+.dg-note{margin:9px 0 0;font:italic 500 .88rem/1.6 var(--serif);color:var(--muted);max-width:86ch}
+.dg-hnote{margin:10px 0 0;padding-left:11px;border-left:2px solid var(--accent-soft);
+  font:italic 500 .86rem/1.55 var(--serif);color:var(--muted);max-width:80ch}
+.dg-plan{margin-top:13px;display:grid;gap:10px}
+.dg-row{display:grid;grid-template-columns:minmax(120px,150px) 1fr;gap:5px 14px;align-items:start}
+.dg-rowlab{font:700 .62rem/1.5 var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+  padding-top:4px}
+.dg-rowitems{display:grid;gap:5px}
+.dg-item{display:block;padding:7px 11px;border-radius:8px;background:var(--bg);border:1px solid var(--line)}
+.dg-item.warn{border-color:var(--danger);background:var(--danger-bg)}
+.dg-item.lab{border-left:3px solid var(--accent-soft)}
+.dg-item.bot{border-left:3px solid #7a8b5a}
+.dg-item.life{border-left:3px solid #b08a5a}
+.dg-item.pharm{border-left:3px solid var(--muted)}
+.dg-iname{display:block;font-size:.86rem;line-height:1.4;font-weight:600}
+.dg-idose{display:block;margin-top:3px;font-size:.8rem;line-height:1.45;color:var(--accent)}
+.dg-iwhy{display:block;margin-top:3px;font-size:.8rem;line-height:1.5;color:var(--muted)}
+.dg-empty{margin:12px 0 0;font-size:.84rem;line-height:1.55;color:var(--muted)}
+.dg-extras{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px;padding-top:11px;
+  border-top:1px solid var(--line)}
+.dg-extra{display:inline-block;font:600 .68rem/1 var(--sans);color:var(--muted);background:var(--ro-bg);
+  border:1px solid var(--line);padding:6px 10px;border-radius:99px}
+.dg-extra.link{cursor:pointer}
+.dg-extra.link:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.dg-rest{margin-top:14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);
+  overflow:hidden}
+.dg-rest>summary{cursor:pointer;padding:11px 16px;font-weight:600;font-size:.86rem;color:var(--muted)}
+.dg-restlist{display:grid;gap:4px;padding:0 12px 12px}
+.dg-restrow{display:flex;align-items:baseline;gap:10px;width:100%;text-align:left;cursor:pointer;
+  padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);
+  font:inherit;color:var(--ink)}
+.dg-restrow:hover{border-color:var(--accent);background:var(--accent-soft)}
+.dg-restn{font:700 .7rem/1 var(--sans);color:var(--muted);min-width:18px}
+.dg-restname{font:600 .95rem/1.3 var(--serif)}
+@media (max-width:620px){ .dg-row{grid-template-columns:1fr} .dg-rowlab{padding-top:0} }
+@media print{ .dg-card{break-inside:avoid} }
 
 /* ---- casebook entries, under the condition they were treated for ---- */
 .txcase{margin-top:14px;border:1px solid var(--line);border-left:3px solid var(--accent-soft);

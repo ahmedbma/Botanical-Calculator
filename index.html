@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&amp;family=Jost:wght@400;500;600&amp;display=swap">
 <!-- ?v= is a cache buster. Bump it whenever css/ or js/ changes, or browsers keep
      serving the previous copy and the change looks like it did not take. -->
-<link rel="stylesheet" href="css/styles.css?v=3">
+<link rel="stylesheet" href="css/styles.css?v=4">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23a8536a'/><text x='50' y='73' font-size='60' font-family='Georgia,serif' fill='%23ffffff' text-anchor='middle'>N</text></svg>">
 </head>
 <body>
@@ -26,6 +26,7 @@
 
 <nav class="tabs wrap" role="tablist" aria-label="Calculators">
   <button role="tab" class="tab" data-panel="conditions" aria-selected="true">Conditions</button>
+  <button role="tab" class="tab" data-panel="diag" aria-selected="false">Diagnose</button>
   <button role="tab" class="tab" data-panel="ddx" aria-selected="false">Differential</button>
   <button role="tab" class="tab" data-panel="exams" aria-selected="false">Physical Exams</button>
   <button role="tab" class="tab" data-panel="labs" aria-selected="false">Labs &amp; Imaging</button>
@@ -86,6 +87,39 @@
 </section>
 
 <!-- ==================== PHYSICAL EXAMS &amp; DIAGNOSES ==================== -->
+<section id="panel-diag" class="panel" hidden role="tabpanel">
+  <div class="card">
+    <h2>Diagnose</h2>
+
+    <label class="search"><span class="vh">Add a symptom</span>
+      <input type="search" id="dg-input" placeholder="What is the patient feeling? Type a symptom and press Enter&hellip;"
+        autocomplete="off" role="combobox" aria-expanded="false" aria-controls="dg-suggest">
+    </label>
+    <div id="dg-suggest" class="dx-suggest" role="listbox" aria-label="Matching symptoms" hidden></div>
+
+    <div class="dx-picked" id="dg-picked"></div>
+    <div class="sortrow">
+      <p class="count" id="dg-count"></p>
+      <div class="actions" id="dg-actions"></div>
+    </div>
+
+    <div id="dg-flags"></div>
+    <div id="dg-results"></div>
+
+    <details class="scrnbox" id="dg-browse">
+      <summary>Browse the symptom list &mdash; <span id="dg-vocab-n"></span></summary>
+      <p class="hint">Everything the notebook can be searched on, by system. Your picks are shared with the
+        <strong>Differential</strong> tab, which shows the whole ranking and the evidence behind it.</p>
+      <div id="dg-vocab"></div>
+    </details>
+
+    <details class="srcnote">
+      <summary>What this is, and what it is not</summary>
+      <div id="dg-method"></div>
+    </details>
+  </div>
+</section>
+
 <section id="panel-ddx" class="panel" hidden role="tabpanel">
   <div class="card">
     <h2>Differential Builder</h2>
@@ -749,15 +783,15 @@
      frightening should be seen by a clinician.</p>
 </footer>
 
-<script src="js/herbdata.js?v=3"></script>
-<script src="js/homeopathydata.js?v=3"></script>
-<script src="js/physicalexamdata.js?v=3"></script>
-<script src="js/therapeuticsdata.js?v=3"></script>
-<script src="js/pregnancydata.js?v=3"></script>
-<script src="js/screenerdata.js?v=3"></script>
-<script src="js/womensformulasdata.js?v=3"></script>
-<script src="js/casedata.js?v=3"></script>
-<script src="js/symptomdata.js?v=3"></script>
-<script src="js/app.js?v=3"></script>
+<script src="js/herbdata.js?v=4"></script>
+<script src="js/homeopathydata.js?v=4"></script>
+<script src="js/physicalexamdata.js?v=4"></script>
+<script src="js/therapeuticsdata.js?v=4"></script>
+<script src="js/pregnancydata.js?v=4"></script>
+<script src="js/screenerdata.js?v=4"></script>
+<script src="js/womensformulasdata.js?v=4"></script>
+<script src="js/casedata.js?v=4"></script>
+<script src="js/symptomdata.js?v=4"></script>
+<script src="js/app.js?v=4"></script>
 </body>
 </html>
