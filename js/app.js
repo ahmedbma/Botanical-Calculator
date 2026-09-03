@@ -2026,6 +2026,8 @@
       ? PE_EXAMS.length + ' exams, ' + PE_EXAMS.reduce(function (n, x) { return n + x._steps; }, 0) + ' steps'
       : list.length + ' of ' + PE_EXAMS.length + ' exams';
 
+    renderScreens(q);
+
     var out = $('#pe-results');
     out.innerHTML = '';
     var frag = document.createDocumentFragment();
@@ -2705,18 +2707,28 @@
     return det;
   }
 
-  /* ---- the screening instruments, shown with the physical exams ---- */
-  function renderScreens() {
+  /* ---- the screening instruments, shown with the physical exams ----
+     They answer the same search box as the exams, so looking for "sleep" or
+     "PHQ" finds the questionnaire as readily as the manoeuvre. */
+  function renderScreens(q) {
     var out = $('#screen-results');
     if (!out) return;
-    $('#screen-count').textContent = TX.screens.length + ' instruments';
+    q = (q || '').toLowerCase().trim();
+    var all = TX.screens || [];
+    var list = q ? all.filter(function (x) { return x._hay.indexOf(q) !== -1; }) : all;
+    $('#screen-count').textContent = list.length === all.length
+      ? all.length + ' instruments'
+      : list.length + ' of ' + all.length + ' instruments';
+    var box = $('#screen-box');
+    if (box && q) box.open = true;
     out.innerHTML = '';
     var frag = document.createDocumentFragment();
-    TX.screens.forEach(function (x) {
-      var card = txCard(x, 'screens', '', true);
+    list.forEach(function (x) {
+      var card = txCard(x, 'screens', q, true);
       card.dataset.screen = x.id;
       frag.appendChild(card);
     });
+    if (!list.length) frag.appendChild(el('p', 'count', 'No screening instrument matches that search.'));
     out.appendChild(frag);
   }
   // Open the screening block on the instrument a condition asked for.
