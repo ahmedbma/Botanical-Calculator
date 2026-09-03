@@ -419,6 +419,9 @@ td.herb input{min-width:190px}
 .pe-diffrow.urgent{border-left:3px solid var(--danger)}
 .pe-diffhead{display:flex;align-items:baseline;gap:4px;flex-wrap:wrap}
 .pe-diffhead h5{margin:0;font:600 1rem/1.35 var(--serif)}
+.pe-difflink{font:inherit;color:var(--accent);background:none;border:0;padding:0;cursor:pointer;
+  text-align:left;border-bottom:1px solid transparent}
+.pe-difflink:hover,.pe-difflink:focus-visible{border-bottom-color:var(--accent)}
 .pe-diffnote{margin:6px 0 0;font:italic 500 .92rem/1.55 var(--serif);color:var(--muted);max-width:74ch}
 .pe-diffcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px 18px;margin-top:11px}
 .pe-diffcell p{margin:4px 0 0;font-size:.83rem;line-height:1.55;color:var(--ink)}
@@ -440,6 +443,7 @@ td.herb input{min-width:190px}
   .exam{break-inside:avoid;border:1px solid #999}
   .pe-dx[open]>summary{list-style:none}
   .pe-diffrow{break-inside:avoid}
+  .pe-difflink{color:inherit;border-bottom:0}
 }
 
 /* a source group with a note and no steps records a gap in the notes, not an empty section */

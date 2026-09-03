@@ -1726,7 +1726,7 @@
     (x.findings || []).forEach(function (f) { bits.push(f.finding, f.suggests, f.workup || ''); });
     (x.ddxList || []).forEach(function (n) { bits.push(n); });
     (x.differential || []).forEach(function (r) {
-      bits.push(r.condition, r.note || '', r.hpi, r.ros, r.pe, r.ddx, r.labs, r.tx);
+      bits.push(r.condition, r.link || '', r.note || '', r.hpi, r.ros, r.pe, r.ddx, r.labs, r.tx);
     });
     if (x.competency) {
       bits.push(x.competency.title, x.competency.source, x.competency.note || '');
@@ -1907,7 +1907,17 @@
       var card = el('article', 'pe-diffrow' + (r.urgent ? ' urgent' : ''));
       var head = el('div', 'pe-diffhead');
       var nm = el('h5', null);
-      nm.innerHTML = highlight(r.condition, q);
+      if (r.link) {
+        var go = el('button', 'pe-difflink');
+        go.innerHTML = highlight(r.condition, q);
+        go.title = r.link === r.condition
+          ? 'Open ' + r.link + ' in the Conditions tab.'
+          : 'Open ' + r.link + ' in the Conditions tab \u2014 where this index files it.';
+        go.addEventListener('click', function () { peGoToCondition(r.link); });
+        nm.appendChild(go);
+      } else {
+        nm.innerHTML = highlight(r.condition, q);
+      }
       head.appendChild(nm);
       if (r.urgent) head.appendChild(el('span', 'pe-urgent', 'emergency'));
       card.appendChild(head);
@@ -2059,6 +2069,13 @@
     return det;
   }
 
+  function peGoToCondition(name) {
+    showTab('conditions');
+    $('#cx-search').value = name;
+    renderConditions();
+    $('#panel-conditions').scrollIntoView({ block: 'start' });
+  }
+
   function peRelatedNode(x) {
     if (!x.related || !x.related.length) return null;
     var wrap = el('div', 'pe-related');
@@ -2066,12 +2083,7 @@
     x.related.forEach(function (name) {
       var b = el('button', 'chip', name);
       b.title = 'Open ' + name + ' in the Conditions tab.';
-      b.addEventListener('click', function () {
-        showTab('conditions');
-        $('#cx-search').value = name;
-        renderConditions();
-        $('#panel-conditions').scrollIntoView({ block: 'start' });
-      });
+      b.addEventListener('click', function () { peGoToCondition(name); });
       wrap.appendChild(b);
     });
     return wrap;

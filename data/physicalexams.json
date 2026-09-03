@@ -1109,6 +1109,7 @@
    "differential": [
     {
      "condition": "Otitis externa",
+     "link": "Otitis externa",
      "note": "More common in adults.",
      "hpi": "Bilateral, tenderness around the outer ear, sometimes itchy with exudate, occasional hearing loss.",
      "ros": "Swimming. Diabetes, HIV, dermatitis, psoriasis, eczema.",
@@ -1119,6 +1120,7 @@
     },
     {
      "condition": "Acute otitis media",
+     "link": "Otitis media",
      "note": "Bacterial or viral; most common in children under 6. Inflammation of the middle ear.",
      "hpi": "Acute onset, usually after an infection. Unilateral, severe deep pain. A sensation of fullness or blockage that may be relieved when the drum perforates. Possibly nasal congestion, sore throat, fever.",
      "ros": "Recent URI, difficulty sleeping, smoke exposure, fever, previous otitis media, diabetes.",
@@ -1129,6 +1131,7 @@
     },
     {
      "condition": "Otitis media with effusion",
+     "link": "Otitis media",
      "note": "Serous otitis — fluid in the middle ear. Common in children.",
      "hpi": "Ear pressure or pain, sometimes painless. Bubbling, popping, stuffy ear. Tinnitus or temporary deafness. Swallowing, chewing or blowing the nose may relieve it.",
      "ros": "Aggravated by URI or nasal congestion. Barotrauma from planes or diving. Diabetes. Recent URI.",
@@ -1139,6 +1142,7 @@
     },
     {
      "condition": "Mastoiditis",
+     "link": "Mastoiditis",
      "note": "Infection of the soft tissue surrounding the air spaces in the mastoid bone, which connects to the middle ear space.",
      "hpi": "Severe pain and tenderness over the mastoid bone; possible exudate.",
      "ros": "Diabetes. History of bacterial otitis media. Fever.",
@@ -1150,6 +1154,7 @@
     },
     {
      "condition": "Ramsay Hunt syndrome",
+     "link": "Ramsay Hunt syndrome",
      "note": "Herpes zoster of the facial nerve — a shingles outbreak affecting cranial nerve VII.",
      "hpi": "Painful rash. Vesicles in, on and around the ear, with burning or tingling beforehand. Facial weakness and/or hearing loss on the same side. Pain of the face and jaw, itching or drainage.",
      "ros": "Increased sensitivity to pain. History of varicella zoster infection. Immunocompromise.",
@@ -1161,6 +1166,7 @@
     },
     {
      "condition": "TMJ referred pain",
+     "link": "Temporomandibular joint disorder",
      "hpi": "Severe, acute, intermittent pain lasting a few minutes and recurring three to four times a day. May have headache. Unilateral. Worse in the morning from teeth grinding.",
      "ros": "Trauma or overextension of the mouth. Rheumatoid arthritis? Recent dental work.",
      "pe": "Structures appear normal; tenderness on palpation over the TMJ; clicking with jaw movement.",
@@ -1170,6 +1176,7 @@
     },
     {
      "condition": "Cholesteatoma",
+     "link": "Cholesteatoma",
      "note": "An abnormal, non-cancerous skin growth — an epidermal inclusion cyst of the middle ear or mastoid — that develops behind the eardrum. It may be a birth defect, but is most commonly caused by repeated middle ear infections.",
      "hpi": "Perforation of the tympanic membrane with foul-smelling discharge may occur.",
      "ros": "History of chronic otitis media.",
@@ -1329,6 +1336,7 @@
    "differential": [
     {
      "condition": "Strep throat",
+     "link": "Sore throat",
      "note": "Group A beta-haemolytic streptococcal pharyngitis. Most common in 5 to 15 year olds, in autumn and winter.",
      "hpi": "Sudden onset. Severe sore throat. Pain on swallowing.",
      "ros": "Known exposure? Fever, malaise. No cough or upper respiratory tract symptoms.",
@@ -1339,6 +1347,7 @@
     },
     {
      "condition": "Mononucleosis (EBV)",
+     "link": "Infectious mononucleosis",
      "note": "Most common in young adults.",
      "hpi": "Mild sore throat.",
      "ros": "Slow onset of malaise. Fatigue, weight loss. Sexual activity? Poor appetite. Possible abdominal pain or rash.",
@@ -1349,6 +1358,7 @@
     },
     {
      "condition": "Epiglottitis",
+     "link": "Epiglottitis",
      "note": "Haemophilus influenzae type B infection — inflammation and oedema of the epiglottis obstructing air flow.",
      "hpi": "Unable to lie flat or speak. Difficulty swallowing, dyspnoea, drooling, inspiratory stridor, sore throat.",
      "ros": "Ask about Hib vaccination.",
@@ -1360,6 +1370,7 @@
     },
     {
      "condition": "Peritonsillar abscess",
+     "link": "Peritonsillar abscess",
      "hpi": "Sore throat with difficulty swallowing. Breathing difficulties, orthopnoea, dyspnoea.",
      "ros": "History of recurrent pharyngitis. Fever, malaise.",
      "pe": "Symmetrical swelling; abscess; trismus (lockjaw).",
@@ -1370,6 +1381,7 @@
     },
     {
      "condition": "Influenza",
+     "link": "Influenza",
      "hpi": "Sudden onset of sore throat. Dry, persistent cough.",
      "ros": "Fever, chills and sweats. Headache. Rhinorrhoea. Myalgia, weakness.",
      "pe": "Fever.",
@@ -1379,6 +1391,7 @@
     },
     {
      "condition": "Viral pharyngitis",
+     "link": "Sore throat",
      "hpi": "Scratchy sore throat.",
      "ros": "Malaise, myalgia. Headache. Chills. Cough.",
      "pe": "Erythema or a boggy, pale pharynx; oedema of the throat; tender posterior cervical nodes.",
@@ -1388,6 +1401,7 @@
     },
     {
      "condition": "HSV type 1 pharyngitis",
+     "link": "Herpes simplex",
      "hpi": "Mild sore throat with yellow vesicles lasting 2 to 3 weeks, usually painful and recurrent, with prodromal burning, tingling and itching.",
      "ros": "Sexual history, STIs. Headache. History of trauma to the mucosa.",
      "pe": "Fever; lymphadenitis; vesicles on the palate, gingiva and pharynx; perioral lesions.",
@@ -1566,6 +1580,7 @@
    "differential": [
     {
      "condition": "Nasopharyngitis (common cold)",
+     "link": "Common cold",
      "hpi": "Recent onset. Worse at night from hypersecretion of mucus. Clear to yellow sputum with nasal congestion. Sore throat.",
      "ros": "Fever. Malaise.",
      "pe": "Red and swollen nasal mucosa; pharyngeal erythema; enlarged cervical lymph nodes.",
@@ -1575,6 +1590,7 @@
     },
     {
      "condition": "COVID-19",
+     "link": "COVID-19",
      "hpi": "Cough with difficulty breathing.",
      "ros": "Shortness of breath. Fever, chills, myalgia. Headache. Possible sore throat. New loss of smell or taste. Possible GI symptoms: nausea, diarrhoea. Neurologic symptoms: headache, dizziness. Underlying health conditions. Recent travel or a known exposure.",
      "pe": "May have a rash; fever; signs of difficulty breathing with low oxygen saturation and cyanosis.",
@@ -1584,6 +1600,7 @@
     },
     {
      "condition": "Viral URI",
+     "link": "Common cold",
      "hpi": "Cough with nasal congestion and sore throat.",
      "ros": "Fever, chills, myalgia.",
      "pe": "Local swelling, erythema and secretions; enlarged anterior cervical lymph nodes; nasal erythema; normal chest exam and tympanic membranes.",
@@ -1593,6 +1610,7 @@
     },
     {
      "condition": "Asthma",
+     "link": "Asthma",
      "hpi": "Non-productive cough, worse at night. Exercise induced. Triggered by allergens, cigarette smoke and cold air. Previous infection.",
      "ros": "Recent infection.",
      "pe": "Prolonged expiratory phase; crackles that clear with coughing; wheeze on forced expiration; use of accessory muscles.",
@@ -1602,6 +1620,7 @@
     },
     {
      "condition": "COPD",
+     "link": "Chronic obstructive pulmonary disease",
      "note": "Emphysema plus chronic bronchitis, usually from long-term smoking or alpha-1 antitrypsin deficiency.",
      "hpi": "Chronic cough. Increase in sputum purulence and volume. Acute exacerbations come with a URI, fever and increased wheezing and cough.",
      "ros": "Heavy smoker. Worsening dyspnoea.",
@@ -1612,6 +1631,7 @@
     },
     {
      "condition": "Cystic fibrosis",
+     "link": "Cystic fibrosis",
      "hpi": "Persistent cough — initially dry and hacking, loosening to produce purulent sputum. Severe cough in the morning.",
      "ros": "Family history of the disease.",
      "pe": "Increased AP diameter; coarse rales and rhonchi; digital clubbing.",
@@ -1621,6 +1641,7 @@
     },
     {
      "condition": "Bronchitis",
+     "link": "Bronchitis",
      "note": "Acute or chronic; usually in winter.",
      "hpi": "Runny nose with cough and mild fever, followed by a persistent cough. Clear to off-white mucus, worse in the morning. Begins dry and non-productive.",
      "ros": "Wakens at night. Possible chest pain with cough.",
@@ -1631,6 +1652,7 @@
     },
     {
      "condition": "GERD",
+     "link": "GERD",
      "hpi": "Heartburn. Sour taste in the mouth. Worse after eating.",
      "ros": "Wakens at night. History of oesophagitis. Cigarettes, alcohol, obesity.",
      "pe": "Usually within normal limits; possible upper abdominal pain.",
@@ -1640,6 +1662,7 @@
     },
     {
      "condition": "Foreign body obstruction",
+     "link": "Foreign body aspiration",
      "hpi": "Cough with shortness of breath. Sudden onset with gagging or choking, sometimes followed by a quiet period. A cough lasting longer than 3 weeks after a choking episode.",
      "ros": "Dysphagia. Possible stridor or cyanotic episodes.",
      "pe": "Obstructed airway.",
@@ -1650,6 +1673,7 @@
     },
     {
      "condition": "Pneumonia",
+     "link": "Pneumonia",
      "note": "Bacterial.",
      "hpi": "Greenish or rusty sputum. Acute onset.",
      "ros": "High fever, chills. Chest pain and shortness of breath. Dyspnoea. Anorexia, malaise, vomiting. Altered mental status.",
@@ -1660,6 +1684,7 @@
     },
     {
      "condition": "Pertussis",
+     "link": "Pertussis",
      "note": "Infection of the respiratory tract by Bordetella pertussis.",
      "hpi": "Gets worse and progresses in stages. Hacking cough with a whoop on inspiration. Persists for a few months.",
      "ros": "Rhinorrhoea, conjunctivitis. Malaise, anorexia, coryza. Fever absent. Possible vomiting and cyanosis.",
@@ -1670,6 +1695,7 @@
     },
     {
      "condition": "Postnasal drainage syndrome",
+     "link": "Postnasal drainage syndrome",
      "hpi": "Chronic dry cough. Throat clearing. A sensation of something at the back of the throat. Worse at night.",
      "ros": "Allergies, recent infection, environmental irritants. Nasal congestion. Sore throat.",
      "pe": "Cobblestoning or mucus in the posterior pharynx; tenderness on palpation of the sinuses; normal chest exam.",
@@ -1679,6 +1705,7 @@
     },
     {
      "condition": "Tuberculosis",
+     "link": "Tuberculosis",
      "hpi": "Brassy cough. Begins with fever and night sweats. Yellow-green mucus worse in the morning; the cough becomes more productive.",
      "ros": "Smoking, recent infection, recent travel. History of TB exposure, immunocompromise. Weakness, malaise, weight loss.",
      "pe": "Multinodular infiltrate above or behind the clavicle; unilateral pleural effusion; acid-fast bacilli in sputum.",
@@ -1860,6 +1887,7 @@
    "differential": [
     {
      "condition": "Infectious rhinitis",
+     "link": "Common cold",
      "note": "Perennial, more common in winter.",
      "hpi": "Purulent yellow or green discharge.",
      "ros": "Recent upper respiratory infection.",
@@ -1870,6 +1898,7 @@
     },
     {
      "condition": "Allergic rhinitis",
+     "link": "Allergic rhinitis",
      "note": "More common in children and young adults.",
      "hpi": "Sneezing. Recurrent pattern. Clear, watery mucus. Constantly running nose.",
      "ros": "Family history of allergies.",
@@ -1880,6 +1909,7 @@
     },
     {
      "condition": "Rhinitis medicamentosa",
+     "link": "Rhinitis medicamentosa",
      "hpi": "History of medication use, most often a decongestant nasal spray.",
      "ros": "Rebound congestion that returns as the spray wears off.",
      "pe": "Swollen, dry mucosa with clear mucus.",
@@ -1889,6 +1919,7 @@
     },
     {
      "condition": "Acute sinusitis",
+     "link": "Sinusitis",
      "note": "More common in winter.",
      "hpi": "Worse with forward bending. A sensation of fullness or pressure. Discharge. Possible radiation to the teeth or jaw.",
      "ros": "Smoker. Recent URI. Postnasal drainage.",
@@ -1899,6 +1930,7 @@
     },
     {
      "condition": "Chronic sinusitis",
+     "link": "Sinusitis",
      "hpi": "Dull ache or possibly no pain. Persistent symptoms. Possible obstruction such as a deviated septum or polyps. Other symptoms as for acute sinusitis.",
      "ros": "History of previous sinus infections.",
      "pe": "Decreased or no transillumination.",
@@ -1908,6 +1940,7 @@
     },
     {
      "condition": "Obstruction",
+     "link": "Bowel obstruction",
      "note": "Foreign body in children; tumour in adults.",
      "hpi": "Increased pain with forward motion or bearing down.",
      "ros": "History of asthma. Aspirin intolerance. Difficulty feeding.",
@@ -1919,6 +1952,7 @@
     },
     {
      "condition": "Nasal polyposis",
+     "link": "Nasal polyposis",
      "hpi": "Chronic sinusitis symptoms.",
      "ros": "History of asthma. Aspirin intolerance. The triad of asthma, aspirin sensitivity and polyps is Samter's triad.",
      "pe": "Presence of polyps — translucent growths.",
@@ -1928,6 +1962,7 @@
     },
     {
      "condition": "Osteomyelitis of the frontal bone",
+     "link": "Sinusitis",
      "note": "A complication of sinusitis.",
      "hpi": "Puffy eyelids and upper face.",
      "ros": "History of head trauma or diving.",
@@ -2083,6 +2118,7 @@
    "differential": [
     {
      "condition": "Dacryocystitis",
+     "link": "Eyelid and lacrimal disorders",
      "note": "Infection of the lacrimal sac.",
      "hpi": "Unilateral. Acute onset. Pain.",
      "ros": "Tearing.",
@@ -2093,6 +2129,7 @@
     },
     {
      "condition": "Blepharitis",
+     "link": "Eyelid and lacrimal disorders",
      "note": "Inflammation of the eyelids.",
      "hpi": "Bilateral. Gradual onset. No pain.",
      "ros": "",
@@ -2103,6 +2140,7 @@
     },
     {
      "condition": "Hordeolum (stye)",
+     "link": "Eyelid and lacrimal disorders",
      "note": "Usually caused by infection; painful and localised to an eyelid margin.",
      "hpi": "Unilateral. Pain.",
      "ros": "Possibly a history of diabetes.",
@@ -2113,6 +2151,7 @@
     },
     {
      "condition": "Chalazion",
+     "link": "Eyelid and lacrimal disorders",
      "note": "Non-infectious meibomian gland occlusion — a non-tender nodule in the centre of the eyelid.",
      "hpi": "Unilateral. Chronic. Painless. Red or itching eye and eyelid.",
      "ros": "",
@@ -2123,6 +2162,7 @@
     },
     {
      "condition": "Bacterial conjunctivitis",
+     "link": "Conjunctivitis",
      "hpi": "Gradual onset. Unilateral progressing to bilateral. Discharge, itch, no pain.",
      "ros": "Photophobia.",
      "pe": "Peripheral injection; purulent discharge; visual acuity intact; matted eyelids.",
@@ -2132,6 +2172,7 @@
     },
     {
      "condition": "Viral conjunctivitis",
+     "link": "Conjunctivitis",
      "note": "A highly contagious acute conjunctival infection, usually caused by adenovirus.",
      "hpi": "Gradual onset. Unilateral progressing to bilateral. Scratchy, no pain.",
      "ros": "Light sensitivity. Intermittent blurry vision.",
@@ -2142,6 +2183,7 @@
     },
     {
      "condition": "Allergic conjunctivitis",
+     "link": "Conjunctivitis",
      "hpi": "Chronic or seasonal. Bilateral. Itchy, no pain. Tearing.",
      "ros": "History of atopic disease, airborne allergens. Intermittent blurry vision.",
      "pe": "Peripheral injection; ropy, mucoid discharge; cobblestone mucosa; visual acuity intact.",
@@ -2151,6 +2193,7 @@
     },
     {
      "condition": "Hyphema",
+     "link": "Hyphema",
      "note": "A collection of blood inside the anterior chamber of the eye.",
      "hpi": "Unilateral. Trauma to the eye. Pain.",
      "ros": "Nausea. Photophobia. Higher risk in sickle cell disease.",
@@ -2162,6 +2205,7 @@
     },
     {
      "condition": "Scleritis",
+     "link": "Scleritis and episcleritis",
      "note": "Inflammation of the sclera.",
      "hpi": "Unilateral. Deep, boring pain. Teary.",
      "ros": "Photophobia. History of systemic immune disease.",
@@ -2173,6 +2217,7 @@
     },
     {
      "condition": "Keratitis",
+     "link": "Keratitis",
      "note": "The cornea — the clear dome on the front surface of the eye — becomes inflamed.",
      "hpi": "Unilateral or bilateral. Moderate to severe pain. Discharge, tearing.",
      "ros": "Photophobia. History of HSV. Blurred vision.",
@@ -2184,6 +2229,7 @@
     },
     {
      "condition": "Periorbital cellulitis",
+     "link": "Orbital and periorbital cellulitis",
      "hpi": "Unilateral.",
      "ros": "Fever.",
      "pe": "Redness; swelling of the lid; conjunctiva clear; eye moves freely; vision not impaired.",
@@ -2193,6 +2239,7 @@
     },
     {
      "condition": "Orbital cellulitis",
+     "link": "Orbital and periorbital cellulitis",
      "hpi": "Unilateral with pain. Pain with eye movement.",
      "ros": "Fever. Blurred vision or diplopia. Headache.",
      "pe": "Proptosis, lid swelling; patient appears ill; conjunctivitis; limitation of eye motion.",
@@ -2203,6 +2250,7 @@
     },
     {
      "condition": "Iritis",
+     "link": "Iritis and anterior uveitis",
      "note": "Inflammation of the coloured part of the eye (the iris).",
      "hpi": "Unilateral. Moderate aching pain. Tearing with watery discharge.",
      "ros": "Photophobia. May have mildly decreased vision.",
@@ -2214,6 +2262,7 @@
     },
     {
      "condition": "Acute closed-angle glaucoma",
+     "link": "Acute closed-angle glaucoma",
      "note": "When the flow of aqueous humour out of the eye is blocked and the pressure inside the eye becomes too high.",
      "hpi": "Unilateral. Deep pain. Tears.",
      "ros": "Photophobia. Halos and blurred vision. Diabetes. Older age. Frontal headache. Vasovagal symptoms — diaphoresis, nausea and vomiting.",
@@ -2384,6 +2433,7 @@
    "differential": [
     {
      "condition": "Anaemia",
+     "link": "Anemia, iron deficiency",
      "hpi": "Fatigue. Weakness. Shortness of breath on exertion.",
      "ros": "Low iron diet. Heavy menstrual bleeding or postpartum. Recent surgery.",
      "pe": "Tachycardia; pale mucosa; smooth red tongue.",
@@ -2393,6 +2443,7 @@
     },
     {
      "condition": "Hypothyroidism",
+     "link": "Hypothyroidism",
      "hpi": "Fatigue and tiredness.",
      "ros": "Cold intolerance. Constipation. Weight gain, poor appetite. Hoarseness. Depression.",
      "pe": "Bradycardia; coarse, dry hair; dry skin, oedema; thyroid possibly enlarged; delayed deep tendon reflexes; TSH elevated with low T4 and T3.",
@@ -2402,6 +2453,7 @@
     },
     {
      "condition": "Hyperthyroidism (Graves disease)",
+     "link": "Hyperthyroidism",
      "hpi": "Hyperactivity.",
      "ros": "Increased sweating. Heat intolerance. Weight loss. Irritability, disturbed sleep. Menstrual irregularity.",
      "pe": "Tachycardia; atrial fibrillation; tremor; fine, thinning hair; warm, moist skin; lid lag and bulging eyes; T4 and T3 increased with TSH depressed.",
@@ -2411,6 +2463,7 @@
     },
     {
      "condition": "Mononucleosis (EBV)",
+     "link": "Infectious mononucleosis",
      "note": "Most often in young adults.",
      "hpi": "Gradual onset of low-grade fever. Mild sore throat. Malaise. Rash.",
      "ros": "",
@@ -2431,6 +2484,7 @@
     },
     {
      "condition": "Hepatitis",
+     "link": "Hepatitis",
      "note": "Usually B and C are the ones associated with fatigue.",
      "hpi": "Malaise. Flu-like symptoms. Abdominal pain. Arthralgia.",
      "ros": "Risky sexual behaviour. Skin rash. Anorexia, weight loss. Exposure to body secretions through blood transfusion, injectable drug use, or contaminated food or water.",
@@ -2441,6 +2495,7 @@
     },
     {
      "condition": "Fibromyalgia",
+     "link": "Fibromyalgia",
      "note": "Usually in women 20 to 50 years old.",
      "hpi": "Chronic pain and stiffness, especially the neck, shoulders, low back and hips, with fatigue. Sleep disturbance. Headaches.",
      "ros": "Bowel irritability. History of depression or chronic fatigue. General body aches.",
@@ -2451,6 +2506,7 @@
     },
     {
      "condition": "Chronic fatigue syndrome",
+     "link": "Chronic fatigue syndrome",
      "hpi": "Severe fatigue lasting longer than 6 months. Sudden onset of flu-like symptoms that persist or recur.",
      "ros": "In association with at least one of: impaired memory or concentration, sore throat, tender lymph nodes, muscle pain, joint pain, new headaches, non-restorative sleep, post-exertional malaise.",
      "pe": "Physical exam may be normal; cervical and axillary lymphadenopathy.",
@@ -2460,6 +2516,7 @@
     },
     {
      "condition": "Sleep apnoea",
+     "link": "Obstructive sleep apnea",
      "note": "Usually middle-aged and older men.",
      "hpi": "Excessive daytime fatigue. Morning headaches. Restless sleep, snoring. Reports difficulty breathing during sleep.",
      "ros": "History of hypertension, obesity. Erectile dysfunction.",
@@ -2669,6 +2726,7 @@
    "differential": [
     {
      "condition": "Appendicitis",
+     "link": "Appendicitis",
      "hpi": "Sudden onset. Colicky pain progressing to constant. Can begin epigastric or periumbilical and localise in the right lower quadrant. Worse with coughing or movement.",
      "ros": "Possible nausea and vomiting. Fever. The patient stays still.",
      "pe": "Right lower quadrant tenderness; involuntary guarding; rebound tenderness.",
@@ -2679,6 +2737,7 @@
     },
     {
      "condition": "Ectopic pregnancy",
+     "link": "Ectopic pregnancy",
      "note": "Women of childbearing age.",
      "hpi": "Sudden onset. Spotting. Lower quadrant cramping after a missed period.",
      "ros": "Haemorrhage and shock symptoms.",
@@ -2690,6 +2749,7 @@
     },
     {
      "condition": "Aortic aneurysm",
+     "link": "Abdominal aortic aneurysm",
      "hpi": "Sudden onset of severe pain felt in the chest or abdomen. Radiation to the legs or back.",
      "ros": "History of hypertension.",
      "pe": "Vital signs reflect shock; deficit or differing femoral pulses.",
@@ -2700,6 +2760,7 @@
     },
     {
      "condition": "Acute pancreatitis",
+     "link": "Acute pancreatitis",
      "hpi": "Steady, dull pain, unrelieved by change of position. Left upper quadrant, radiating to the back.",
      "ros": "History of gallstones. Excess alcohol use. Nausea, vomiting, sweating.",
      "pe": "Patient appears ill; abdominal distention; decreased bowel sounds; rebound tenderness; upper abdominal muscle rigidity; limited diaphragmatic excursion of the lungs.",
@@ -2710,6 +2771,7 @@
     },
     {
      "condition": "Cholecystitis / cholelithiasis",
+     "link": "Gallstones",
      "note": "More common in females and adults.",
      "hpi": "Colicky pain progressing to constant. Right upper quadrant, radiating to the right scapula. May be worse with certain foods.",
      "ros": "Nausea, vomiting. Dark urine, light stools.",
@@ -2720,6 +2782,7 @@
     },
     {
      "condition": "Gastritis",
+     "link": "Gastritis",
      "hpi": "Constant burning pain in the epigastric area. Worse with alcohol, NSAIDs and salicylates.",
      "ros": "Nausea, vomiting, diarrhoea. History of recent travel or ill family members points at gastroenteritis.",
      "pe": "Fever maybe; physical exam usually negative. Hyperactive bowel sounds and dehydration in gastroenteritis.",
@@ -2729,6 +2792,7 @@
     },
     {
      "condition": "Functional dyspepsia",
+     "link": "Dyspepsia",
      "note": "Dyspepsia is the most common upper GI symptom and includes epigastric pain, fullness, discomfort, burning, early satiety, nausea, vomiting and belching. Functional dyspepsia is diagnosed when upper GI endoscopy reveals no organic lesion that might explain the symptoms.",
      "hpi": "Vague symptoms: heartburn, gas, indigestion, fullness.",
      "ros": "Belching. Abdominal distention. Maybe nausea.",
@@ -2739,6 +2803,7 @@
     },
     {
      "condition": "Peptic ulcer (H. pylori infection)",
+     "link": "Peptic ulcer disease",
      "hpi": "Burning or gnawing pain. Soreness, an empty feeling, hunger. Occurs on an empty stomach, with stress or with alcohol. Relieved by food in duodenal ulcer, worse with food in gastric ulcer. Steady pain in the epigastrium.",
      "ros": "Family history of cancer. Weight loss or gain. Chronic NSAID use.",
      "pe": "Epigastric tenderness on palpation.",
@@ -2748,6 +2813,7 @@
     },
     {
      "condition": "Pelvic inflammatory disease",
+     "link": "Pelvic inflammatory disease",
      "note": "Most common in sexually active women.",
      "hpi": "Lower abdominal pain progressing to more severe. Usually bilateral.",
      "ros": "Irregular bleeding. Vaginal discharge. Maybe vomiting. Fever.",
@@ -2758,6 +2824,7 @@
     },
     {
      "condition": "Irritable bowel syndrome",
+     "link": "Irritable bowel syndrome",
      "note": "Usually begins in adolescence or young adulthood.",
      "hpi": "Hypogastric pain. Crampy. Variable, infrequent duration. Bowel dysfunction.",
      "ros": "Gas, bloating, distention. Relief with passing gas or faeces.",
@@ -2768,6 +2835,7 @@
     },
     {
      "condition": "Crohn disease",
+     "link": "Inflammatory bowel disease",
      "hpi": "Abdominal pain with chronic bloody diarrhoea.",
      "ros": "Weight loss.",
      "pe": "Abdominal tenderness.",
@@ -2777,6 +2845,7 @@
     },
     {
      "condition": "Obstruction",
+     "link": "Bowel obstruction",
      "hpi": "Sudden onset. Crampy pains, usually in the umbilical area.",
      "ros": "Vomiting. Constipation or diarrhoea.",
      "pe": "Hyperactive, high-pitched bowel sounds; palpable faecal mass; abdominal distention; empty rectum on digital exam.",
@@ -2787,6 +2856,7 @@
     },
     {
      "condition": "Oesophagitis / GERD",
+     "link": "GERD",
      "hpi": "Acid reflux. Bad taste in the mouth. Burning, gnawing pain in the mid-epigastrium. Worse lying down or reclining. Made better with antacids.",
      "ros": "Regurgitation.",
      "pe": "Physical exam may be within normal limits.",
@@ -2796,6 +2866,7 @@
     },
     {
      "condition": "Hernia",
+     "link": "Abdominal wall hernia",
      "hpi": "Localised pain. Increases with exertion or lifting.",
      "ros": "",
      "pe": "Hernia present on examination.",
@@ -2805,6 +2876,7 @@
     },
     {
      "condition": "Ureterolithiasis",
+     "link": "Kidney stones",
      "note": "Stones in the ureter.",
      "hpi": "Sudden onset. Severe, intermittent colicky pain that can progress to constant. Lower abdomen or flank, radiating to the groin.",
      "ros": "Nausea, vomiting. Abdominal distention. Chills, fever. Increased urinary frequency.",
@@ -2815,6 +2887,7 @@
     },
     {
      "condition": "UTI / pyelonephritis",
+     "link": "Urinary tract infection",
      "hpi": "Urinary frequency. Urgency. Painful urination.",
      "ros": "Fever. Back pain in pyelonephritis. Cloudy, smelly or pink urine.",
      "pe": "CVA tenderness; lower abdominal tenderness.",
@@ -3017,6 +3090,7 @@
    "differential": [
     {
      "condition": "Stable angina",
+     "link": "Angina pectoris",
      "hpi": "Substernal chest pressure after exercise or stress. Relieved by rest or nitroglycerin. Radiates to the left shoulder, neck and jaw. Usually gradual onset.",
      "ros": "Nausea. Shortness of breath, diaphoresis. Sternal pressure.",
      "pe": "Exam may be within normal limits; possible S4 gallop.",
@@ -3026,6 +3100,7 @@
     },
     {
      "condition": "Myocardial infarction",
+     "link": "Myocardial infarction",
      "hpi": "Sudden onset of pain at rest. Persistent, severe pain. Deep, central chest pain radiating to the shoulders, arms, throat or neck, usually the left. NOT relieved by rest or nitroglycerin.",
      "ros": "Shortness of breath. Nausea, vomiting, diaphoresis. A sense of impending doom. Cigarette smokers. History of hypertension, hyperlipidaemia, diabetes, obesity. Family history of heart attack.",
      "pe": "Pallor; cool, diaphoretic skin; transient paradoxical S2; hyper- or hypotensive.",
@@ -3036,6 +3111,7 @@
     },
     {
      "condition": "Pericarditis",
+     "link": "Pericarditis",
      "hpi": "Sharp, stabbing pain. Referred to the left shoulder or trapezius ridge. Worse coughing or breathing deeply. Relieved by sitting forward.",
      "ros": "History of viral or bacterial infection, autoimmune disease. Fever prior to the onset of pain. Shallow breathing.",
      "pe": "Tachycardia; pericardial friction rub.",
@@ -3045,6 +3121,7 @@
     },
     {
      "condition": "Myocarditis",
+     "link": "Myocarditis",
      "hpi": "Chest pain.",
      "ros": "History of fever. Dyspnoea. Recent viral infection.",
      "pe": "Heart murmur; friction rub; fever.",
@@ -3054,6 +3131,7 @@
     },
     {
      "condition": "Pulmonary embolism",
+     "link": "Pulmonary embolism",
      "hpi": "Sudden onset. Severe sharp, crushing, non-radiating chest pain. Possible pleuritic chest pain.",
      "ros": "Dyspnoea. Haemoptysis. A feeling of impending doom. Prior venous thromboembolism. Prolonged immobility, cancer, heart failure, chronic disease, lower limb or pelvic surgery, recent pregnancy, obesity, oral contraceptives, varicose veins.",
      "pe": "Restlessness; tachycardia; tachypnoea; fever; diminished breath sounds; crackles, wheezes, possible pleural friction rub.",
@@ -3064,6 +3142,7 @@
     },
     {
      "condition": "Pneumothorax",
+     "link": "Pneumothorax",
      "hpi": "Sharp or tearing chest pain radiating to the ipsilateral shoulder, with sudden onset of shortness of breath.",
      "ros": "Underlying COPD or asthma.",
      "pe": "Decreased or absent breath sounds on the affected side; tachycardia, tachypnoea; deviated trachea.",
@@ -3074,6 +3153,7 @@
     },
     {
      "condition": "Aortic dissection",
+     "link": "Aortic dissection",
      "hpi": "Ripping, tearing, relentless chest pain radiating to the interscapular region, jaw, neck and lower back.",
      "ros": "History of hypertension or cardiac disease.",
      "pe": "Patient distressed; hypotension or increased pulse pressure — it varies.",
@@ -3084,6 +3164,7 @@
     },
     {
      "condition": "Aortic stenosis",
+     "link": "Aortic stenosis",
      "hpi": "Chest pain on exertion, substernal and anginal in character.",
      "ros": "Fatigue. Palpitations. Dyspnoea on exertion. Dizziness, syncope.",
      "pe": "Radial pulse diminished with a narrow pulse pressure; loud, harsh murmur heard best at the second right intercostal space with the patient leaning forward; thrill.",
@@ -3093,6 +3174,7 @@
     },
     {
      "condition": "Mitral regurgitation",
+     "link": "Mitral regurgitation",
      "hpi": "Exertional chest pain.",
      "ros": "Fatigue. Palpitations, dizziness, syncope. Dyspnoea on exertion.",
      "pe": "Holosystolic, blowing murmur loudest at the apex in the left lateral position, decreasing with inspiration; the murmur can radiate to the axilla and back.",
@@ -3102,6 +3184,7 @@
     },
     {
      "condition": "Pneumonia",
+     "link": "Pneumonia",
      "hpi": "Yellow-green or rusty sputum with cough. Pleuritic pain.",
      "ros": "Fever and chills. Dyspnoea.",
      "pe": "Tachycardia, tachypnoea; inspiratory crackles, vocal fremitus, rales and rhonchi; percussion dull or flat over consolidation; bronchophony and egophony.",
@@ -3111,6 +3194,7 @@
     },
     {
      "condition": "Mitral valve prolapse",
+     "link": "Mitral valve prolapse",
      "hpi": "Chest pain that varies in location and intensity. Non-exertional. Short duration.",
      "ros": "Palpitations. Anxiety. History of Marfan syndrome.",
      "pe": "Arrhythmias, possibly a midsystolic click over the apex while sitting or squatting.",
@@ -3120,6 +3204,7 @@
     },
     {
      "condition": "Pleuritis",
+     "link": "Pleuritis",
      "hpi": "Mild, localised chest pain. Worse with deep breathing.",
      "ros": "Recent upper respiratory infection.",
      "pe": "Shallow respirations; local tenderness; pleural friction rub.",
@@ -3129,6 +3214,7 @@
     },
     {
      "condition": "Oesophagitis / GERD",
+     "link": "GERD",
      "hpi": "Substernal pain, worse after eating and lying down. Sour taste in the mouth.",
      "ros": "Family history of heartburn or GERD. Older age. Hiatal hernia. Obesity. Malignancy.",
      "pe": "Epigastric pain with palpation.",
@@ -3138,6 +3224,7 @@
     },
     {
      "condition": "Peptic ulcer disease",
+     "link": "Peptic ulcer disease",
      "hpi": "Epigastric pain 1 to 2 hours after eating. Can be relieved by antacids. Wakes the patient at night.",
      "ros": "Haematemesis, melena. Smoking history. Alcohol overuse. Signs of hypovolaemia: fatigue, nausea, profuse sweating, headache, dizziness.",
      "pe": "Tenderness to palpation in the epigastric area.",
@@ -3147,6 +3234,7 @@
     },
     {
      "condition": "Cholecystitis",
+     "link": "Gallstones",
      "hpi": "Right upper quadrant abdominal pain radiating to the right chest and infrascapular region. After a high fat meal. Colicky and intermittent.",
      "ros": "Nausea, vomiting.",
      "pe": "Positive Murphy sign; palpable gallbladder.",
@@ -3156,6 +3244,7 @@
     },
     {
      "condition": "Acute pancreatitis",
+     "link": "Acute pancreatitis",
      "hpi": "Sudden onset of severe epigastric or left upper quadrant pain radiating to the left chest, shoulders and back. Worse in the supine position.",
      "ros": "Nausea, vomiting. Fever. Restless. Unexplained shock. Hypotension.",
      "pe": "Pain with palpation to the left upper quadrant.",
@@ -3347,6 +3436,7 @@
    "differential": [
     {
      "condition": "Pulmonary embolism",
+     "link": "Pulmonary embolism",
      "hpi": "Acute onset of dyspnoea.",
      "ros": "Cough, haemoptysis. Chest pain. A sense of impending doom. History of DVT, recent surgery. Oral contraceptives. Smoker.",
      "pe": "Restlessness; fever; tachycardia, tachypnoea; diminished breath sounds; crackles, wheezing, pleural friction rub.",
@@ -3357,6 +3447,7 @@
     },
     {
      "condition": "Foreign body aspiration",
+     "link": "Foreign body aspiration",
      "hpi": "Acute onset. Possible cough.",
      "ros": "History of alcohol abuse. Putting things in the mouth, in children.",
      "pe": "Apnoea or tachypnoea; restlessness; suprasternal retractions; inspiratory stridor, wheeze.",
@@ -3367,6 +3458,7 @@
     },
     {
      "condition": "Anaphylaxis",
+     "link": "Anaphylaxis",
      "hpi": "Acute onset.",
      "ros": "History of insect sting, drug ingestion or allergen exposure.",
      "pe": "Angioedema; tachypnoea, tachycardia; clammy skin; hypotension; bilateral wheezes.",
@@ -3377,6 +3469,7 @@
     },
     {
      "condition": "Pneumothorax",
+     "link": "Pneumothorax",
      "note": "A collapsed lung, when air leaks into the space between the lung and the chest wall. It can affect part of the lung or the whole lung.",
      "hpi": "Acute onset. Sharp, tearing chest pain that can radiate to the ipsilateral shoulder.",
      "ros": "",
@@ -3388,6 +3481,7 @@
     },
     {
      "condition": "Croup",
+     "link": "Croup",
      "note": "Usually caused by a virus. The infection leads to swelling inside the trachea.",
      "hpi": "Shortness of breath with a hoarse, seal-bark cough. Non-specific respiratory symptoms — rhinorrhoea, sore throat, cough. Worse at night.",
      "ros": "Fever. History of upper respiratory infection.",
@@ -3398,6 +3492,7 @@
     },
     {
      "condition": "Epiglottitis",
+     "link": "Epiglottitis",
      "note": "Acute inflammation of the supraglottic region.",
      "hpi": "Rapid onset with stridor. Most often in children aged 2 to 4. Reduced risk with the Hib vaccine — ask about vaccination.",
      "ros": "Sore throat. Anxious. Odynophagia or dysphagia. Preceding URI in adults.",
@@ -3409,6 +3504,7 @@
     },
     {
      "condition": "Status asthmaticus (asthma attack)",
+     "link": "Asthma",
      "note": "Bronchoconstriction — an extreme form of asthma exacerbation that is unresponsive to bronchodilators.",
      "hpi": "Breathlessness.",
      "ros": "History of atopy or allergies. Pets or smokers in the home. Recent URI. Exposure to allergens.",
@@ -3420,6 +3516,7 @@
     },
     {
      "condition": "Pneumonia",
+     "link": "Pneumonia",
      "hpi": "Dyspnoea, cough with red, green or rust-coloured sputum. Pleuritic chest pain.",
      "ros": "Chills and fever.",
      "pe": "Tachycardia, tachypnoea; inspiratory crackles, asynchronous breathing; vocal fremitus, bronchophony, egophony; dullness over the area of consolidation.",
@@ -3429,6 +3526,7 @@
     },
     {
      "condition": "Asthma",
+     "link": "Asthma",
      "hpi": "Paroxysmal (sudden) cough. Difficulty breathing. Worse with exercise. Shortness of breath. Chest tightness or pain.",
      "ros": "History of allergies or asthma. Recent respiratory tract infection.",
      "pe": "Audible wheeze; restless; tachypnoea, accessory muscle use, intercostal retractions; decreased vocal fremitus and decreased breath sounds.",
@@ -3438,6 +3536,7 @@
     },
     {
      "condition": "Anaemia",
+     "link": "Anemia, iron deficiency",
      "hpi": "Dyspnoea on exertion.",
      "ros": "Fatigue. Palpitations. Light-headedness. History of chronic disease.",
      "pe": "Pallor, cool dry skin of the extremities; tachypnoea; possible orthostatic hypotension.",
@@ -3447,6 +3546,7 @@
     },
     {
      "condition": "COPD",
+     "link": "Chronic obstructive pulmonary disease",
      "hpi": "Chronic progressive dyspnoea, on exertion.",
      "ros": "Persistent cough with minimal sputum, clear to yellow, worse in the morning. Easy fatigue, decreased exercise tolerance. History of smoking. Exposure to toxins.",
      "pe": "Rapid shallow respirations, pursed lip breathing; reddish complexion; increased AP diameter of the thorax; accessory muscle use; decreased tactile fremitus; lungs hyperresonant; distant breath sounds with prolonged expiration.",
@@ -3456,6 +3556,7 @@
     },
     {
      "condition": "Heart failure",
+     "link": "Congestive heart failure",
      "hpi": "Chronic progressive dyspnoea. Cough with frothy sputum.",
      "ros": "Fatigue, lightheadedness, syncope. Weight gain, swelling of the ankles. Palpitations, orthopnoea. History of heart disease.",
      "pe": "Altered level of consciousness; restlessness; jugular venous distension; tachypnoea, use of accessory muscles; rales, rhonchi, wheezes; tachycardia; decreased peripheral pulses, cool extremities; displaced PMI, S3, S4; ascites and liver enlargement.",
@@ -3598,6 +3699,7 @@
    "differential": [
     {
      "condition": "Pyelonephritis",
+     "link": "Pyelonephritis",
      "hpi": "Back or flank pain.",
      "ros": "Sweating. Nausea. Headache.",
      "pe": "Ill-appearing; CVA tenderness on percussion.",
@@ -3608,6 +3710,7 @@
     },
     {
      "condition": "Gallstones (cholelithiasis)",
+     "link": "Gallstones",
      "note": "Increased incidence with age.",
      "hpi": "Steady, intense pain. Right upper quadrant. Radiation to the right scapula or shoulder.",
      "ros": "Belching, bloating, fatty food intolerance.",
@@ -3618,6 +3721,7 @@
     },
     {
      "condition": "Abdominal aortic aneurysm",
+     "link": "Abdominal aortic aneurysm",
      "note": "Increased risk over 30 years old. Not related to exertion.",
      "hpi": "Severe, acute onset.",
      "ros": "Diaphoresis. Anxiety, confusion.",
@@ -3629,6 +3733,7 @@
     },
     {
      "condition": "Pelvic inflammatory disease",
+     "link": "Pelvic inflammatory disease",
      "hpi": "Low back and abdominal pain.",
      "ros": "Sexually active female. History of urinary or vaginal symptoms. History of STI, IUD, multiple sex partners.",
      "pe": "Cervical and uterine motion tenderness; adnexal tenderness; cervicitis; fever.",
@@ -3638,6 +3743,7 @@
     },
     {
      "condition": "Osteoporosis",
+     "link": "Osteoporosis",
      "hpi": "Chronic, poorly localised back pain.",
      "ros": "Postmenopausal. Slight build. History of inactivity or endocrine disorder.",
      "pe": "Kyphosis or lordosis; loss of height; possible spine tenderness.",
@@ -3647,6 +3753,7 @@
     },
     {
      "condition": "Spinal stenosis",
+     "link": "Spinal stenosis",
      "hpi": "Pain worse throughout the day. Worse standing, relieved by rest.",
      "ros": "Pseudoclaudication.",
      "pe": "Signs of osteoarthritis of the joints; possible neurological signs.",

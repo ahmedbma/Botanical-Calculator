@@ -140,6 +140,9 @@ questions you ask, the review of systems and past history that goes with them, t
 head, and then the conditions side by side in the columns of the source chart — what it is, what the history
 sounds like, what the past history turns up, what you find on exam, what else it could be, what you order and
 what you do. 108 conditions compared in all, with the emergencies flagged where the chart flags them.
+Every condition name opens its entry in the **Conditions** index — 107 of the 108 resolve, and where the
+chart's wording and the index's name differ, the row names its own target, so *Stable angina* opens angina
+pectoris and *Hordeolum (stye)* opens the eyelid and lacrimal disorders entry.
 
 **The muscle energy reference** gives nineteen muscles of the hip, thigh and trunk with origin, insertion and
 action, and the muscle energy setup for each group — how to position the patient, where they push, and how
