@@ -3404,8 +3404,8 @@
     // cancer. Above three symptoms the block tightens to those explaining at
     // least two; if none do, it still shows the best of them, but closed, and
     // says they matched loosely rather than presenting them as the picture.
-    var strong = DX.picked.length >= 3
-      ? flags.filter(function (f) { return f.n >= 2; }) : flags;
+    var tightened = DX.picked.length >= 3;
+    var strong = tightened ? flags.filter(function (f) { return f.n >= 2; }) : flags;
     var loose = !strong.length;
     if (loose) strong = flags.slice(0, 3);
     var shownFlags = strong.slice(0, 6), hiddenFlags = flags.length - shownFlags.length;
@@ -3416,7 +3416,7 @@
         ' urgent findings touch what you entered'
       : 'Must not miss — ' + shownFlags.length +
         (shownFlags.length === 1 ? ' urgent finding matches' : ' urgent findings match') +
-        ' two or more of your symptoms'));
+        (tightened ? ' two or more of your symptoms' : ' what you entered')));
     var body = el('div', 'dx-flagbody');
     body.appendChild(el('p', 'dx-flaglede', loose
       ? 'Each of these answers to only one of the symptoms you entered, so treat them as a checklist ' +
@@ -3591,10 +3591,14 @@
     }
     var sc = dxScore();
     var n = sc.rank.length;
-    $('#dx-count').textContent = n + (n === 1 ? ' condition matches' : ' conditions match') +
-      ' — showing the top ' + Math.min(15, n) +
-      (sc.unmatched.length ? ' · nothing in the notebook records ' +
-        sc.unmatched.map(function (id) { return SYBY[id].name.toLowerCase(); }).join(' or ') : '');
+    var dxSilent = sc.unmatched.length
+      ? 'nothing in the notebook records ' +
+        sc.unmatched.map(function (id) { return SYBY[id].name.toLowerCase(); }).join(' or ')
+      : '';
+    $('#dx-count').textContent = n
+      ? n + (n === 1 ? ' condition matches' : ' conditions match') +
+        ' — showing the top ' + Math.min(15, n) + (dxSilent ? ' · ' + dxSilent : '')
+      : (dxSilent ? dxSilent.charAt(0).toUpperCase() + dxSilent.slice(1) : 'No condition matches that.');
     dxFlagsInto('#dx-flags', sc);
     dxResultsNode(sc);
   }
@@ -4316,10 +4320,14 @@
       return;
     }
     var sc = dxScore();
-    $('#dg-count').textContent = 'Top ' + Math.min(3, sc.rank.length) + ' of ' + sc.rank.length +
-      ' conditions that match' +
-      (sc.unmatched.length ? ' · nothing in the notebook records ' +
-        sc.unmatched.map(function (id) { return SYBY[id].name.toLowerCase(); }).join(' or ') : '');
+    var silent = sc.unmatched.length
+      ? 'nothing in the notebook records ' +
+        sc.unmatched.map(function (id) { return SYBY[id].name.toLowerCase(); }).join(' or ')
+      : '';
+    $('#dg-count').textContent = sc.rank.length
+      ? 'Top ' + Math.min(3, sc.rank.length) + ' of ' + sc.rank.length + ' conditions that match' +
+        (silent ? ' · ' + silent : '')
+      : (silent ? silent.charAt(0).toUpperCase() + silent.slice(1) : 'No condition matches that.');
     dxFlagsInto('#dg-flags', sc);
     dgResultsNode(sc);
   }
