@@ -17,7 +17,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The nine **screening instruments** are listed among the exams under *Screening* — STOP-BANG, Epworth, PHQ-9, GAD-7, the MDQ, MMSE/MoCA, AUDIT-C, the COPD Assessment Test and the mould exposure questionnaire — each with a blank form to download or a link to the publisher who licenses it, and the **PHQ-9** and **GAD-7** scoreable in place. |
 | **Labs & Imaging** | 90 tests across blood, urine, stool, microbiology, imaging, function tests, procedures and specialty panels — why you would order each and how to read it. The same tests hang off every abnormal exam finding and every condition. The nine **screening instruments** sit under Physical Exams instead. |
 | **Pharmaceuticals** | 106 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
-| **Supplements** | 63 non-herbal supplements — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients — with typical dose ranges, mechanisms and the cautions that matter, including which must be avoided in which patients. Organised A–Z or by condition. The 34 **botanical** products the conditions call for sit under Herb Reference instead. Carries the **women's hormone formulas** block: 40 practitioner-line products across 10 brands, grouped by physiological target. |
+| **Supplements** | 103 entries: 63 non-herbal single agents — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients — and 40 practitioner-line **women's hormone formulas** across 10 brands, catalogued together with typical dose ranges, mechanisms and the cautions that matter. Filter chips read the single agents apart from the formulas, which are grouped by physiological target. A–Z or by condition. The 34 **botanical** products the conditions call for sit under Herb Reference instead. |
 | **Naturopathic Therapeutics** | 41 modalities a practitioner applies — physical medicine (constitutional hydrotherapy, spinal manipulation, acupuncture, massage, therapeutic ultrasound, gua sha, cupping, manual lymphatic drainage, sauna, infrared and low-level laser, TENS, moxibustion, kinesiology taping, traction, castor oil packs), topicals, devices, procedures, rehabilitation and psychotherapy — each with what it is, what it is for, and its contraindications. Filter by kind or switch to *By condition*. |
 | **Lifestyle** | 15 changes a patient makes — diet patterns, sleep hygiene, structured exercise, breathing retraining, stress reduction, caffeine and alcohol reduction, environmental remediation and the rest — kept separate from the things a patient takes and the things a practitioner does. |
 | **Homeopathy** | A remedy differentiator over 148 classical remedies and 42 presenting complaints. Pick the complaint; it asks the questions that best separate the remedies still in contention, and ranks them with the reasoning shown. Includes a searchable remedy reference. |
@@ -228,10 +228,12 @@ that filename, so nothing else has to change.
 
 ### The women's hormone formulas
 
-**40 practitioner-line products across 10 brands**, in a block of their own inside the **Supplements** tab —
-Thorne, Pure Encapsulations, Ortho Molecular, Metagenics, Integrative Therapeutics, Designs for Health,
-Xymogen, Klaire Labs, Seeking Health and Gaia Herbs. They are branded formulas rather than single agents, so
-they sit apart from the catalogue above them, which is one agent per card.
+**40 practitioner-line products across 10 brands**, catalogued in the **Supplements** tab alongside the
+single agents — Thorne, Pure Encapsulations, Ortho Molecular, Metagenics, Integrative Therapeutics, Designs
+for Health, Xymogen, Klaire Labs, Seeking Health and Gaia Herbs. Each carries its brand in the name and its
+physiological target as the badge, so the two kinds of entry read apart on the page; the tab's filter chips
+separate them outright — *Single agents* for the 63 plain nutrients, or any one target for the formulas.
+They sort into the same A–Z and appear under the same conditions as everything else.
 
 Grouped by what each is aimed at, the way the professional lines themselves are organised: Phase I/II
 estrogen metabolism (13), luteal and progesterone support (7), ovarian and glycaemic signalling in PCOS (4),
@@ -355,6 +357,7 @@ that call for it.
 | Tab | What lives there | Count |
 |---|---|---|
 | **Supplements** | what a patient takes, non-herbal — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients such as lycopene and beta-sitosterol, fruit concentrates such as tart cherry and cranberry PACs | 63 |
+| **Supplements** → women's hormone formulas | what a patient takes, as a branded practitioner product rather than a single agent | 40 |
 | **Herb Reference** → botanical supplements | what a patient takes, herbal — whole-plant preparations and standardised botanical extracts, including curcumin, berberine, DGL, aloe and the medicinal mushrooms | 34 |
 | **Naturopathic Therapeutics** | what a practitioner applies — physical medicine, topicals, devices, procedures, rehabilitation, psychotherapy | 41 |
 | **Lifestyle** | what a patient changes — diet, sleep, movement, breathing, environment | 15 |

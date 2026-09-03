@@ -2330,10 +2330,6 @@
 
     if ($('#' + cfg.id + '-search')) {
       $('#' + cfg.id + '-search').addEventListener('input', render);
-      // the supplements search reaches the formula block below it too
-      if (cfg.id === 'supps') {
-        $('#supps-search').addEventListener('input', function () { renderFormulas(); });
-      }
       chips();
     }
     return render;
@@ -2361,6 +2357,46 @@
   TX_IDX.labsOnly = txIndex(TX.labsOnly);
   TX_IDX.screens = txIndex(TX.screens);
   window.TX_BOTANICALS = TX.botanicals;   // read by the Herb Reference tab
+
+  /* ---- practitioner women's hormone formulas ----
+     Branded products rather than single agents, but they are supplements a
+     patient takes, so they belong in the Supplements catalogue rather than in a
+     box beside it. Each keeps its brand in the name and its physiological
+     target as the badge, and the tab gains a filter chip per target so the
+     single agents can still be read on their own. */
+  var WF = window.WOMENS_FORMULAS_DATA || { formulas: [], targets: [], bases: [], brands: [] };
+  var WF_TARGET = {}, WF_BASE = {};
+  (WF.targets || []).forEach(function (t) { WF_TARGET[t.id] = t.label; });
+  (WF.bases || []).forEach(function (b) { WF_BASE[b.id] = b.label; });
+
+  var WF_SUPPS = (WF.formulas || []).map(function (f) {
+    return {
+      id: 'wf_' + f.id,
+      name: f.name + ' \u2014 ' + f.brand,
+      kind: WF_TARGET[f.target] || f.target,
+      examples: (WF_BASE[f.base] || f.base) + ' \u00b7 ' + f.actives + (f.also ? ' \u00b7 ' + f.also : ''),
+      use: f.what,
+      caution: f.caution,
+      conditions: (f.conditions || []).slice(),
+      wfTarget: f.target,
+      wfBrand: f.brand
+    };
+  });
+  WF_SUPPS.forEach(function (x) {
+    x._hay = txHay(x, x.kind) + ' ' + x.wfBrand.toLowerCase() + ' practitioner formula';
+    TX.supplements.push(x);
+    TX.nonHerbal.push(x);
+    TX_IDX.supps[x.id] = x;
+    TX_IDX.nonHerbal[x.id] = x;
+    // so each formula reads under the conditions it is indicated for, in this
+    // tab's by-condition view and in the condition's own therapeutics block
+    x.conditions.forEach(function (cond) {
+      var rec = TXBY[cond];
+      if (!rec) return;
+      if (!rec.supps) rec.supps = [];
+      if (rec.supps.indexOf(x.id) === -1) rec.supps.push(x.id);
+    });
+  });
   TX.natTherapeutics = TX.therapies.filter(function (x) { return x.zone !== 'lifestyle'; });
   TX.lifestyle = TX.therapies.filter(function (x) { return x.zone === 'lifestyle'; });
   TX_IDX.natTherapeutics = txIndex(TX.natTherapeutics);
@@ -2374,8 +2410,11 @@
   var renderSupps = txMakeTab({
     id: 'supps', key: 'nonHerbal', set: 'nonHerbal', noun: 'supplements',
     condKeys: ['supps'],
-    groupOf: function () { return 'all'; },
-    groups: function () { return []; }
+    groupOf: function (x) { return x.wfTarget || 'agent'; },
+    groups: function () {
+      return [{ value: 'agent', label: 'Single agents' }].concat(
+        (WF.targets || []).map(function (t) { return { value: t.id, label: t.label }; }));
+    }
   });
   var renderTherap = txMakeTab({
     id: 'therap', key: 'natTherapeutics', set: 'natTherapeutics', noun: 'modalities',
@@ -2718,110 +2757,6 @@
     }
     det.appendChild(body);
     return det;
-  }
-
-  /* ==================================================================
-     PROFESSIONAL WOMEN'S HORMONE FORMULAS
-     Branded practitioner formulas rather than single agents, so they sit in a
-     block of their own inside the Supplements tab: the catalogue above is one
-     agent per card, and these are products built from several.
-     ================================================================== */
-  var WF = window.WOMENS_FORMULAS_DATA || { formulas: [], targets: [], bases: [], brands: [] };
-  var WF_TARGET = {}, WF_BASE = {};
-  (WF.targets || []).forEach(function (t) { WF_TARGET[t.id] = t.label; });
-  (WF.bases || []).forEach(function (b) { WF_BASE[b.id] = b.label; });
-  (WF.formulas || []).forEach(function (x) {
-    x._hay = [x.brand, x.name, x.also || '', WF_TARGET[x.target] || '', WF_BASE[x.base] || '',
-              x.actives, x.what, x.caution, (x.conditions || []).join(' ')].join(' ').toLowerCase();
-  });
-  var wfFilter = 'all';
-
-  function buildFormulaChips() {
-    var box = $('#wf-filters');
-    if (!box) return;
-    box.innerHTML = '';
-    var all = el('button', 'chip is-on', 'All');
-    all.dataset.f = 'all';
-    box.appendChild(all);
-    (WF.targets || []).forEach(function (t) {
-      var n = WF.formulas.filter(function (x) { return x.target === t.id; }).length;
-      if (!n) return;
-      var b = el('button', 'chip', t.label + ' (' + n + ')');
-      b.dataset.f = t.id;
-      box.appendChild(b);
-    });
-    box.addEventListener('click', function (e) {
-      if (!e.target.dataset.f) return;
-      wfFilter = e.target.dataset.f;
-      $$('#wf-filters .chip').forEach(function (c) { c.classList.toggle('is-on', c === e.target); });
-      renderFormulas();
-    });
-  }
-
-  function renderFormulas(q) {
-    var out = $('#wf-results');
-    if (!out) return;
-    q = (q === undefined ? ($('#supps-search') ? $('#supps-search').value : '') : q).toLowerCase().trim();
-    var all = WF.formulas || [];
-    var list = all.filter(function (x) {
-      if (wfFilter !== 'all' && x.target !== wfFilter) return false;
-      return !q || x._hay.indexOf(q) !== -1;
-    });
-    $('#wf-count').textContent = list.length === all.length
-      ? all.length + ' formulas'
-      : list.length + ' of ' + all.length + ' formulas';
-    var box = $('#wf-box');
-    if (box && (q || wfFilter !== 'all') && list.length) box.open = true;
-
-    out.innerHTML = '';
-    var frag = document.createDocumentFragment();
-    var brand = null;
-    list.forEach(function (x) {
-      if (x.brand !== brand) {
-        brand = x.brand;
-        frag.appendChild(el('h4', 'wf-brand', brand));
-      }
-      frag.appendChild(formulaCard(x, q));
-    });
-    if (!list.length) frag.appendChild(el('p', 'count', 'No formula matches that.'));
-    out.appendChild(frag);
-  }
-
-  function formulaCard(x, q) {
-    var card = el('article', 'txcard wfcard');
-    var head = el('div', 'txhead');
-    var nm = el('h4');
-    nm.innerHTML = highlight(x.name, q);
-    head.appendChild(nm);
-    head.appendChild(el('span', 'txbadge', WF_TARGET[x.target] || x.target));
-    head.appendChild(el('span', 'txbadge alt', WF_BASE[x.base] || x.base));
-    card.appendChild(head);
-    if (x.also) card.appendChild(el('p', 'txalso', x.also));
-
-    var ac = el('p', 'txdose');
-    ac.innerHTML = '<span class="txlab">what is in it</span> ' + highlight(x.actives, q);
-    card.appendChild(ac);
-
-    var wh = el('p', 'txuse');
-    wh.innerHTML = highlight(x.what, q);
-    card.appendChild(wh);
-
-    if (x.caution) {
-      var c = el('p', 'txcaution' + (/AVOID|contraindicat|not in pregnan|hormone, not/i.test(x.caution) ? ' hard' : ''));
-      c.innerHTML = '<span class="txlab warn">caution</span> ' + highlight(x.caution, q);
-      card.appendChild(c);
-    }
-    if ((x.conditions || []).length) {
-      var cw = el('div', 'txconds');
-      x.conditions.forEach(function (name) {
-        var chip = el('button', 'txchip', name);
-        chip.title = 'Show everything indicated for ' + name;
-        chip.addEventListener('click', function () { txJumpToCondition(name); });
-        cw.appendChild(chip);
-      });
-      card.appendChild(cw);
-    }
-    return card;
   }
 
   /* ---- the screening instruments, listed among the exams ----
@@ -3562,8 +3497,6 @@
     renderExams();
     renderPharm();
     renderSupps();
-    buildFormulaChips();
-    renderFormulas();
     renderTherap();
     renderLife();
     renderLabs();
