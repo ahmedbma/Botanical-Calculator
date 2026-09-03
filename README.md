@@ -13,11 +13,11 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 
 | Tool | Purpose |
 |---|---|
-| **Conditions** | 75 conditions A–Z plus 122 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 41 of them, and the sections of your own notes that describe it. |
+| **Conditions** | 75 conditions A–Z plus 153 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 41 of them, the 97 worked cases from the casebook filed under the conditions they were treated for, and the sections of your own notes that describe it. |
 | **Physical Exams** | Physical exam and diagnosis, organised by type of exam: the clinic entry interview and review of systems, ten **chief complaints** worked as differentials, a head-to-toe screen, the eye and HENT exams, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, a muscle energy technique reference, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The **PHQ-9** and **GAD-7** are scored here too, with the blank forms downloadable as PDFs. |
-| **Labs & Imaging** | 116 tests across blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels — why you would order each and how to read it. The same tests hang off every abnormal exam finding and every condition. |
+| **Labs & Imaging** | 117 tests across blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels — why you would order each and how to read it. The same tests hang off every abnormal exam finding and every condition. |
 | **Pharmaceuticals** | 109 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
-| **Supplements** | 63 non-herbal supplements — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients — with typical dose ranges, mechanisms and the cautions that matter, including which must be avoided in which patients. Organised A–Z or by condition. The 34 **botanical** products the conditions call for sit under Herb Reference instead. |
+| **Supplements** | 67 non-herbal supplements — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients — with typical dose ranges, mechanisms and the cautions that matter, including which must be avoided in which patients. Organised A–Z or by condition. The 34 **botanical** products the conditions call for sit under Herb Reference instead. |
 | **Naturopathic Therapeutics** | 41 modalities a practitioner applies — physical medicine (constitutional hydrotherapy, spinal manipulation, acupuncture, massage, therapeutic ultrasound, gua sha, cupping, manual lymphatic drainage, sauna, infrared and low-level laser, TENS, moxibustion, kinesiology taping, traction, castor oil packs), topicals, devices, procedures, rehabilitation and psychotherapy — each with what it is, what it is for, and its contraindications. Filter by kind or switch to *By condition*. |
 | **Lifestyle** | 15 changes a patient makes — diet patterns, sleep hygiene, structured exercise, breathing retraining, stress reduction, caffeine and alcohol reduction, environmental remediation and the rest — kept separate from the things a patient takes and the things a practitioner does. |
 | **Homeopathy** | A remedy differentiator over 148 classical remedies and 42 presenting complaints. Pick the complaint; it asks the questions that best separate the remedies still in contention, and ranks them with the reasoning shown. Includes a searchable remedy reference. |
@@ -79,6 +79,7 @@ js/physicalexamdata.js   physical exam data as a global
 js/therapeuticsdata.js   pharmaceuticals, supplements, therapies and labs as a global
 js/pregnancydata.js      pregnancy and lactation herb safety as a global
 js/screenerdata.js       the PHQ-9 and GAD-7 instruments as a global
+js/casedata.js           the clinical casebook as a global
 js/app.js                all calculators, the differentiator, the exam index, the screeners and the therapeutics tabs
 data/herbdata.json       the same herbal data as plain JSON, for reuse
 data/homeopathy.json     the same homeopathic data as plain JSON, for reuse
@@ -86,11 +87,12 @@ data/physicalexams.json  the same physical exam data as plain JSON, for reuse
 data/therapeutics.json   the same therapeutics data as plain JSON, for reuse
 data/pregnancysafety.json  the same safety data as plain JSON, for reuse
 data/screeners.json      the same screener data as plain JSON, for reuse
+data/cases.json          the same casebook data as plain JSON, for reuse
 assets/phq9.pdf          blank PHQ-9 form, generated from data/screeners.json
 assets/gad7.pdf          blank GAD-7 form, generated from data/screeners.json
 ```
 
-The five files under `js/` are generated from their counterparts in `data/`; edit the JSON and
+The seven data files under `js/` are generated from their counterparts in `data/`; edit the JSON and
 regenerate if you change the reference data.
 
 ## Data
@@ -208,7 +210,7 @@ sheet and the UpToDate anaphylaxis overview contributed 122 sections across 68 c
 rewritten or added to — and it is searchable from the Conditions tab, so `Kawasaki`, `cradle cap`, `tet
 spells` and `Berlin` all find their condition.
 
-**Conditions the herb index does not carry became topics.** There are 122 of them now — measles, impetigo,
+**Conditions the herb index does not carry became topics.** There are 153 of them now — measles, impetigo,
 scabies, tetralogy of Fallot, Kawasaki disease, pneumothorax, anaphylaxis, intussusception, cauda equina
 syndrome and the rest. They render in the Conditions tab
 as conditions without a herb grid, badged *topic*, with their own **Topics** filter chip.
@@ -221,6 +223,37 @@ Physical Exams tab.
 dosing, as the lecture lays them out. Eleven resolve to herbs already in the reference and appear as a
 monograph block on their card; the nine teaching pages that follow them sit under the Herb Reference as
 *Women's herbs — formulating notes*.
+
+### The clinical casebook
+
+**Ninety-seven worked cases, filed under the conditions they were treated for.** Chapters 1–5 of a
+naturopathic casebook — addictions, cardiovascular medicine, dermatology, endocrinology and
+gastroenterology — each case giving the patient, what presented, and the protocol as prescribed: 161
+protocol sections and 568 dosed items across 70 conditions. They open as *From the casebook* on the
+condition card, under the herbs, the protocol and the therapeutics, and again in the by-condition views of
+the therapeutics tabs. A case that treats two things — the arrhythmia case that also treats fibrocystic
+breast disease, the acne case that becomes urticaria — reads under both.
+
+**They are records, not recommendations.** Each is transcribed as the casebook writes it, including the
+doses. Several use amounts, routes or botanicals that would not be chosen now, and the casebook does not
+always flag them. Where a case carries a real hazard, a **safety note** written for this tool says so —
+54 of the 97 carry one. They cover teratogenic vitamin A dosing, red yeast rice being lovastatin under
+another name, reserpine-containing Rauvolfia, cardiac glycoside herbs, yohimbe given to a hypertensive
+patient, intravaginal iodine, internal comfrey in a neonate, Podophyllum absorbed through abraded skin,
+antithrombotic stacking after a stroke, and the presentations — ketoacidosis, thyroid storm, spreading
+cellulitis, cauda equina — that are emergencies before they are anything else. Those notes are not in the
+source and say so.
+
+**Thirty-one conditions the casebook treats that the index did not carry became topics** — opioid, alcohol
+and stimulant use disorder, neonatal abstinence syndrome, hyperlipidemia, cardiac arrhythmia, hypoglycemia,
+prediabetes, Hashimoto's thyroiditis, thyroid nodules, prolactinoma, hyperparathyroidism, Barrett's
+esophagus, hepatic cirrhosis, eosinophilic enteropathy, gastroschisis, cellulitis, herpes zoster, rosacea,
+morphea, incontinentia pigmenti, lipoma, pilonidal cyst, contact dermatitis, thrombophlebitis, stroke
+rehabilitation and the rest. Four supplements the casebook prescribes repeatedly — L-lysine, L-tyrosine,
+niacin and the lipotropic factor complex — and MRI of the brain and pituitary joined the catalogues at the
+same time.
+
+The chapters end mid-alphabet in gastroenterology, so the dataset is shaped to take the rest as it arrives.
 
 ### Two outside references
 
@@ -311,8 +344,8 @@ it is filed under inflammatory bowel disease, with irritable bowel syndrome keep
 ### The therapeutics layer
 
 **Written for this tool, and the largest block of non-sourced content in the project.** 109 pharmaceuticals,
-97 supplements (63 non-herbal, 34 botanical), 56 non-drug therapies (41 practitioner-applied, 15 lifestyle)
-and 116 labs and imaging studies, cross-linked to every condition in the index — 2798 links in all. It comes from standard pharmacology, nutritional and naturopathic references
+101 supplements (67 non-herbal, 34 botanical), 56 non-drug therapies (41 practitioner-applied, 15 lifestyle)
+and 117 labs and imaging studies, cross-linked to every condition in the index — 3268 links in all. It comes from standard pharmacology, nutritional and naturopathic references
 together with seven pieces of coursework: the mental health study guide, the respiratory therapeutics quizzes,
 Dr Sabrina Koperski's environmental medicine lecture on mould and mycotoxins, the Mayan abdominal massage
 assignment, the EKG assignment, the clinic entry and exams notes and the GI-MAP stool test interpretation. Entries drawn from those documents say so in their own text. None of it is
@@ -335,7 +368,7 @@ that call for it.
 
 | Tab | What lives there | Count |
 |---|---|---|
-| **Supplements** | what a patient takes, non-herbal — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients such as lycopene and beta-sitosterol, fruit concentrates such as tart cherry and cranberry PACs | 63 |
+| **Supplements** | what a patient takes, non-herbal — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients such as lycopene and beta-sitosterol, fruit concentrates such as tart cherry and cranberry PACs | 67 |
 | **Herb Reference** → botanical supplements | what a patient takes, herbal — whole-plant preparations and standardised botanical extracts, including curcumin, berberine, DGL, aloe and the medicinal mushrooms | 34 |
 | **Naturopathic Therapeutics** | what a practitioner applies — physical medicine, topicals, devices, procedures, rehabilitation, psychotherapy | 41 |
 | **Lifestyle** | what a patient changes — diet, sleep, movement, breathing, environment | 15 |

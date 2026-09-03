@@ -268,13 +268,16 @@
    "caution": "Hyperglycaemia, bone loss, adrenal suppression and mood change with repeated or prolonged courses.",
    "grp": "Pain, MSK & immune",
    "conditions": [
+    "Adrenal fatigue",
     "Anaphylaxis",
     "Asthma",
     "Autoimmune conditions",
     "COVID-19",
     "Chronic obstructive pulmonary disease",
+    "Contact dermatitis",
     "Croup",
     "Drug eruptions",
+    "Eosinophilic enteropathy",
     "Epiglottitis",
     "Erythema multiforme",
     "Erythema nodosum",
@@ -285,6 +288,7 @@
     "Infectious mononucleosis",
     "Inflammatory bowel disease",
     "Kawasaki disease",
+    "Morphea",
     "Multiple sclerosis",
     "Nasal polyposis",
     "Osteoarthritis",
@@ -358,7 +362,8 @@
    "grp": "Mental health",
    "conditions": [
     "Attention deficit disorder",
-    "Depression"
+    "Depression",
+    "Stimulant use disorder"
    ]
   },
   {
@@ -449,10 +454,12 @@
     "Allergic rhinitis",
     "Anaphylaxis",
     "Conjunctivitis",
+    "Contact dermatitis",
     "Drug eruptions",
     "Erythema multiforme",
     "Pityriasis rosea",
     "Postnasal drainage syndrome",
+    "Rosacea",
     "Scabies",
     "Sinusitis",
     "Urticaria and angioedema"
@@ -471,6 +478,7 @@
     "Anxiety",
     "Bronchitis",
     "Common cold",
+    "Contact dermatitis",
     "Cough",
     "Eczema",
     "Hand, foot and mouth disease",
@@ -547,6 +555,7 @@
     "Depression",
     "Irritable bowel syndrome",
     "Menopause",
+    "Non-cardiac chest pain",
     "Parkinson's disease",
     "Post-traumatic stress disorder",
     "Premenstrual syndrome"
@@ -606,6 +615,7 @@
     "Chronic pain",
     "Cyclical vomiting syndrome",
     "Fibromyalgia",
+    "Herpes zoster",
     "Interstitial cystitis",
     "Irritable bowel syndrome",
     "Migraine"
@@ -632,6 +642,7 @@
    "caution": "Not recommended in PTSD — they interfere with extinction learning, the goal of trauma therapy, and carry a high dependence risk. Additive with alcohol and opioids.",
    "grp": "Mental health",
    "conditions": [
+    "Alcohol use disorder",
     "Anxiety",
     "Post-traumatic stress disorder",
     "Seizure disorder",
@@ -735,11 +746,13 @@
    "caution": "Blocks opioid analgesia; stop before procedures needing opioids.",
    "grp": "Pain, MSK & immune",
    "conditions": [
+    "Alcohol use disorder",
     "Autoimmune conditions",
     "Chronic fatigue syndrome",
     "Chronic pain",
     "Fibromyalgia",
     "Multiple sclerosis",
+    "Opioid use disorder",
     "Sarcoidosis"
    ]
   },
@@ -752,10 +765,13 @@
    "caution": "Aim for the shortest effective course. Long-term use is linked to B12, magnesium and iron malabsorption, C. difficile and fracture risk; rebound acid on abrupt stopping — taper.",
    "grp": "Gastrointestinal",
    "conditions": [
+    "Barrett's esophagus",
     "Cough",
     "Dyspepsia",
+    "Eosinophilic enteropathy",
     "GERD",
     "Gastritis",
+    "Non-cardiac chest pain",
     "Peptic ulcer disease"
    ]
   },
@@ -769,6 +785,7 @@
    "grp": "Gastrointestinal",
    "conditions": [
     "Anaphylaxis",
+    "Barrett's esophagus",
     "Dyspepsia",
     "GERD",
     "Gastritis",
@@ -784,6 +801,7 @@
    "caution": "Separate from other medicines by two hours — they impair absorption.",
    "grp": "Gastrointestinal",
    "conditions": [
+    "Barrett's esophagus",
     "Dyspepsia",
     "GERD",
     "Peptic ulcer disease"
@@ -956,11 +974,14 @@
     "Abdominal aortic aneurysm",
     "Angina pectoris",
     "Atherosclerosis",
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2",
     "Erectile dysfunction",
     "Hepatic steatosis",
+    "Hyperlipidemia",
     "Myocardial infarction",
-    "Statin-associated muscle symptoms"
+    "Statin-associated muscle symptoms",
+    "Stroke and cerebrovascular rehabilitation"
    ]
   },
   {
@@ -978,6 +999,7 @@
     "Chronic kidney disease",
     "Coarctation of the aorta",
     "Congestive heart failure",
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2",
     "Erectile dysfunction",
     "Hypertension",
@@ -986,6 +1008,7 @@
     "Mitral valve prolapse",
     "Myocardial infarction",
     "Pediatric hypertension",
+    "Stroke and cerebrovascular rehabilitation",
     "Tetralogy of Fallot",
     "Transposition of the great arteries",
     "Ventricular septal defect"
@@ -1017,6 +1040,7 @@
    "conditions": [
     "Angina pectoris",
     "Atrial fibrillation",
+    "Cardiac arrhythmia",
     "Edema",
     "Hypertension",
     "Pediatric hypertension",
@@ -1053,6 +1077,7 @@
     "Atherosclerosis",
     "Atrial fibrillation",
     "Atrial septal defect",
+    "Cardiac arrhythmia",
     "Coarctation of the aorta",
     "Congestive heart failure",
     "Hypertension",
@@ -1079,6 +1104,7 @@
     "Congestive heart failure",
     "Edema",
     "Hemolytic uremic syndrome",
+    "Hepatic cirrhosis",
     "Mitral regurgitation",
     "Pulmonary hypertension"
    ]
@@ -1095,6 +1121,7 @@
     "Acne",
     "Congestive heart failure",
     "Edema",
+    "Hepatic cirrhosis",
     "Hypertension",
     "Polycystic ovary syndrome"
    ]
@@ -1125,12 +1152,15 @@
     "Angina pectoris",
     "Atherosclerosis",
     "Atrial septal defect",
+    "Cardiac arrhythmia",
     "Coarctation of the aorta",
+    "Hyperlipidemia",
     "Hypertrophic cardiomyopathy",
     "Kawasaki disease",
     "Mitral valve prolapse",
     "Myocardial infarction",
     "Rheumatic fever",
+    "Stroke and cerebrovascular rehabilitation",
     "Tetralogy of Fallot",
     "Transposition of the great arteries",
     "Ventricular septal defect"
@@ -1147,10 +1177,13 @@
    "conditions": [
     "Atrial fibrillation",
     "COVID-19",
+    "Cardiac arrhythmia",
     "Deep vein thrombosis",
     "Myocardial infarction",
     "Pulmonary embolism",
-    "Pulmonary hypertension"
+    "Pulmonary hypertension",
+    "Stroke and cerebrovascular rehabilitation",
+    "Thrombophlebitis"
    ]
   },
   {
@@ -1165,7 +1198,8 @@
     "Diabetes mellitus, type 2",
     "Hepatic steatosis",
     "Obesity",
-    "Polycystic ovary syndrome"
+    "Polycystic ovary syndrome",
+    "Prediabetes"
    ]
   },
   {
@@ -1220,6 +1254,7 @@
    "caution": "Hypoglycaemia; needs structured education and monitoring.",
    "grp": "Cardiometabolic",
    "conditions": [
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2"
    ]
   },
@@ -1233,7 +1268,9 @@
    "grp": "Cardiometabolic",
    "conditions": [
     "Fertility and preconception",
-    "Hypothyroidism"
+    "Hashimoto's thyroiditis",
+    "Hypothyroidism",
+    "Thyroid nodules and cysts"
    ]
   },
   {
@@ -1259,6 +1296,7 @@
    "conditions": [
     "Back pain",
     "Burns",
+    "Cellulitis",
     "Chronic pain",
     "Dysmenorrhea",
     "Endometriosis",
@@ -1269,8 +1307,10 @@
     "Migraine",
     "Myocarditis",
     "Neck and shoulder pain",
+    "Non-cardiac chest pain",
     "Osteoarthritis",
     "Pericarditis",
+    "Pilonidal cyst",
     "Pleural disease",
     "Pleuritis",
     "Premenstrual syndrome",
@@ -1281,6 +1321,7 @@
     "Spinal stenosis",
     "Temporomandibular joint disorder",
     "Thoracic injuries",
+    "Thrombophlebitis",
     "Urinary tract infection",
     "Varicose veins"
    ]
@@ -1300,15 +1341,18 @@
     "Appendicitis",
     "Back pain",
     "Burns",
+    "Cellulitis",
     "Chronic pain",
     "Common cold",
     "Fifth disease",
     "Hand, foot and mouth disease",
+    "Herpes zoster",
     "Infectious mononucleosis",
     "Influenza",
     "Measles",
     "Neck and shoulder pain",
     "Non-specific viral exanthem",
+    "Opioid use disorder",
     "Osteoarthritis",
     "Otitis externa",
     "Otitis media",
@@ -1398,8 +1442,10 @@
     "Back pain",
     "Chronic pain",
     "Fibromyalgia",
+    "Herpes zoster",
     "Interstitial cystitis",
     "Multiple sclerosis",
+    "Opioid use disorder",
     "Parkinson's disease",
     "Sciatica and lumbar radiculopathy",
     "Spinal stenosis"
@@ -1561,6 +1607,7 @@
     "Amenorrhea",
     "Dysmenorrhea",
     "Endometriosis",
+    "Fibrocystic breast changes",
     "Menopause",
     "Polycystic ovary syndrome",
     "Premenstrual syndrome"
@@ -1577,7 +1624,8 @@
    "conditions": [
     "Amenorrhea",
     "Dysmenorrhea",
-    "Endometriosis"
+    "Endometriosis",
+    "Fibrocystic breast changes"
    ]
   },
   {
@@ -1643,15 +1691,19 @@
    "conditions": [
     "Alopecia",
     "Burns",
+    "Contact dermatitis",
     "Diaper dermatitis",
     "Drug eruptions",
     "Eczema",
+    "Eosinophilic enteropathy",
     "Eyelid and lacrimal disorders",
     "Hemorrhoids",
     "Impetigo",
+    "Incontinentia pigmenti",
     "Iritis and anterior uveitis",
     "Keratosis pilaris",
     "Molluscum contagiosum",
+    "Morphea",
     "Pityriasis alba",
     "Pityriasis rosea",
     "Psoriasis",
@@ -1670,6 +1722,7 @@
    "grp": "Skin & infection",
    "conditions": [
     "Eczema",
+    "Morphea",
     "Pityriasis alba",
     "Psoriasis"
    ]
@@ -1684,7 +1737,8 @@
    "grp": "Skin & infection",
    "conditions": [
     "Acne",
-    "Keratosis pilaris"
+    "Keratosis pilaris",
+    "Rosacea"
    ]
   },
   {
@@ -1710,7 +1764,8 @@
    "conditions": [
     "Acne",
     "Folliculitis and boils",
-    "Impetigo"
+    "Impetigo",
+    "Rosacea"
    ]
   },
   {
@@ -1754,6 +1809,7 @@
    "conditions": [
     "Erythema multiforme",
     "Herpes simplex",
+    "Herpes zoster",
     "Keratitis",
     "Ramsay Hunt syndrome",
     "Sexually transmitted infection",
@@ -1835,11 +1891,13 @@
    "caution": "Given intravenously in the emergencies on this list — these are referral diagnoses, not oral outpatient ones. Take cultures before the first dose where it does not delay treatment. Cover Candida overgrowth and rebuild the microbiome afterwards; C. difficile risk is highest with clindamycin and the cephalosporins.",
    "grp": "Skin & infection",
    "conditions": [
+    "Cellulitis",
     "Epiglottitis",
     "Mastoiditis",
     "Orbital and periorbital cellulitis",
     "Pelvic inflammatory disease",
-    "Peritonsillar abscess"
+    "Peritonsillar abscess",
+    "Pilonidal cyst"
    ]
   }
  ],
@@ -1855,6 +1913,7 @@
    "conditions": [
     "Abdominal aortic aneurysm",
     "Acne",
+    "Alcohol use disorder",
     "Angina pectoris",
     "Anxiety",
     "Asthma",
@@ -1865,26 +1924,33 @@
     "Autoimmune conditions",
     "Bipolar disorder",
     "Bronchiectasis",
+    "Cardiac arrhythmia",
     "Chronic kidney disease",
     "Chronic obstructive pulmonary disease",
     "Chronic pain",
     "Coarctation of the aorta",
     "Cognitive decline",
+    "Contact dermatitis",
     "Deep vein thrombosis",
     "Depression",
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2",
     "Dysmenorrhea",
     "Eczema",
     "Endometriosis",
+    "Eosinophilic enteropathy",
     "Erectile dysfunction",
     "Erythema nodosum",
     "Eyelid and lacrimal disorders",
     "Fertility and preconception",
+    "Fibrocystic breast changes",
     "Gingivitis",
     "Gout",
+    "Hashimoto's thyroiditis",
     "Henoch-Schonlein purpura",
     "Hepatic steatosis",
     "Hepatitis",
+    "Hyperlipidemia",
     "Hypertension",
     "Hypertrophic cardiomyopathy",
     "Inflammatory bowel disease",
@@ -1893,14 +1959,17 @@
     "Kawasaki disease",
     "Keratosis pilaris",
     "Lactation support",
+    "Lipoma",
     "Menopause",
     "Migraine",
     "Mitral valve prolapse",
+    "Morphea",
     "Multiple sclerosis",
     "Myocardial infarction",
     "Neck and shoulder pain",
     "Obesity",
     "Obstructive sleep apnea",
+    "Opioid use disorder",
     "Osteoarthritis",
     "Parkinson's disease",
     "Pediatric hypertension",
@@ -1911,6 +1980,7 @@
     "Pleuritis",
     "Polycystic ovary syndrome",
     "Post-traumatic stress disorder",
+    "Prediabetes",
     "Premenstrual syndrome",
     "Psoriasis",
     "Pulmonary embolism",
@@ -1918,12 +1988,16 @@
     "Raynaud's phenomenon",
     "Rheumatic fever",
     "Rheumatoid arthritis",
+    "Rosacea",
     "Sarcoidosis",
     "Scleritis and episcleritis",
     "Seborrheic dermatitis",
     "Seizure disorder",
     "Statin-associated muscle symptoms",
+    "Stimulant use disorder",
+    "Stroke and cerebrovascular rehabilitation",
     "Tetralogy of Fallot",
+    "Thrombophlebitis",
     "Transposition of the great arteries",
     "Ventricular septal defect"
    ]
@@ -1938,6 +2012,8 @@
    "herbal": false,
    "conditions": [
     "Adjustment disorder",
+    "Adrenal fatigue",
+    "Alcohol use disorder",
     "Angina pectoris",
     "Anxiety",
     "Asthma",
@@ -1946,6 +2022,7 @@
     "Attention deficit disorder",
     "Back pain",
     "Bipolar disorder",
+    "Cardiac arrhythmia",
     "Chronic fatigue syndrome",
     "Chronic pain",
     "Coarctation of the aorta",
@@ -1953,16 +2030,21 @@
     "Constipation",
     "Cyclical vomiting syndrome",
     "Depression",
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2",
     "Dysmenorrhea",
     "Edema",
     "Endometriosis",
     "Fatigue and low energy",
+    "Fibrocystic breast changes",
     "Fibromyalgia",
     "Gout",
+    "Hyperparathyroidism",
     "Hypertension",
     "Hyperthyroidism",
     "Hypertrophic cardiomyopathy",
+    "Hypoglycemia",
+    "Hypotension and orthostatic intolerance",
     "Insomnia",
     "Interstitial cystitis",
     "Kidney stones",
@@ -1973,16 +2055,20 @@
     "Myocardial infarction",
     "Nausea and vomiting",
     "Neck and shoulder pain",
+    "Non-cardiac chest pain",
     "Obstructive sleep apnea",
+    "Opioid use disorder",
     "Osteoporosis",
     "Parkinson's disease",
     "Pediatric hypertension",
     "Post-traumatic stress disorder",
+    "Prediabetes",
     "Premenstrual syndrome",
     "Raynaud's phenomenon",
     "Sciatica and lumbar radiculopathy",
     "Seizure disorder",
     "Spinal stenosis",
+    "Stimulant use disorder",
     "Temporomandibular joint disorder",
     "Tetralogy of Fallot",
     "Transposition of the great arteries",
@@ -2018,6 +2104,7 @@
     "Common cold",
     "Cystic fibrosis",
     "Depression",
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2",
     "Diaper dermatitis",
     "Dysmenorrhea",
@@ -2030,9 +2117,11 @@
     "Fibromyalgia",
     "Fifth disease",
     "Gingivitis",
+    "Hashimoto's thyroiditis",
     "Hemolytic uremic syndrome",
     "Hepatitis",
     "Herpes simplex",
+    "Hyperparathyroidism",
     "Hypothyroidism",
     "Idiopathic pulmonary fibrosis",
     "Inflammatory bowel disease",
@@ -2058,6 +2147,8 @@
     "Pityriasis rosea",
     "Pneumonia",
     "Polycystic ovary syndrome",
+    "Prediabetes",
+    "Prolactinoma",
     "Psoriasis",
     "Pulmonary nodules and lung cancer",
     "Respiratory failure and ARDS",
@@ -2068,6 +2159,7 @@
     "Seborrheic dermatitis",
     "Seizure disorder",
     "Statin-associated muscle symptoms",
+    "Thyroid nodules and cysts",
     "Tuberculosis",
     "Urinary incontinence",
     "Urticaria and angioedema",
@@ -2084,6 +2176,8 @@
    "also": "P5P, methylfolate, methylcobalamin",
    "herbal": false,
    "conditions": [
+    "Adrenal fatigue",
+    "Alcohol use disorder",
     "Alopecia",
     "Anxiety",
     "Attention deficit disorder",
@@ -2091,15 +2185,23 @@
     "Chronic fatigue syndrome",
     "Cognitive decline",
     "Depression",
+    "Diabetes mellitus, type 1",
     "Diaper dermatitis",
     "Fatigue and low energy",
+    "Fibrocystic breast changes",
+    "Hepatic cirrhosis",
+    "Herpes zoster",
+    "Hypoglycemia",
+    "Hypotension and orthostatic intolerance",
     "Lactation support",
     "Multiple sclerosis",
     "Nausea and vomiting",
+    "Opioid use disorder",
     "Post-traumatic stress disorder",
     "Premenstrual syndrome",
     "Sciatica and lumbar radiculopathy",
-    "Seizure disorder"
+    "Seizure disorder",
+    "Stimulant use disorder"
    ]
   },
   {
@@ -2137,6 +2239,7 @@
    "herbal": true,
    "conditions": [
     "Adjustment disorder",
+    "Adrenal fatigue",
     "Anxiety",
     "Post-traumatic stress disorder"
    ]
@@ -2226,6 +2329,7 @@
    "also": null,
    "herbal": true,
    "conditions": [
+    "Adrenal fatigue",
     "Chronic fatigue syndrome",
     "Fatigue and low energy"
    ]
@@ -2239,6 +2343,7 @@
    "also": null,
    "herbal": true,
    "conditions": [
+    "Adrenal fatigue",
     "Cognitive decline",
     "Fatigue and low energy"
    ]
@@ -2261,6 +2366,7 @@
     "Cough",
     "Cystic fibrosis",
     "Endometriosis",
+    "Hepatic cirrhosis",
     "Hepatic steatosis",
     "Hepatitis",
     "Idiopathic pulmonary fibrosis",
@@ -2268,8 +2374,10 @@
     "Pneumonia",
     "Postnasal drainage syndrome",
     "Respiratory failure and ARDS",
+    "Rosacea",
     "Sarcoidosis",
-    "Sinusitis"
+    "Sinusitis",
+    "Stimulant use disorder"
    ]
   },
   {
@@ -2283,15 +2391,23 @@
    "conditions": [
     "Allergic rhinitis",
     "Asthma",
+    "Barrett's esophagus",
     "COVID-19",
+    "Contact dermatitis",
+    "Diabetes mellitus, type 1",
     "Drug eruptions",
     "Eczema",
+    "Eosinophilic enteropathy",
+    "Hashimoto's thyroiditis",
     "Henoch-Schonlein purpura",
     "Idiopathic pulmonary fibrosis",
+    "Incontinentia pigmenti",
     "Interstitial cystitis",
+    "Morphea",
     "Nasal polyposis",
     "Postnasal drainage syndrome",
     "Prostatitis",
+    "Rosacea",
     "Sinusitis",
     "Urticaria and angioedema"
    ]
@@ -2319,14 +2435,18 @@
    "conditions": [
     "Abdominal aortic aneurysm",
     "Abdominal trauma",
+    "Adrenal fatigue",
+    "Alcohol use disorder",
     "Allergic rhinitis",
     "Anemia, iron deficiency",
     "Bronchitis",
     "Burns",
     "COVID-19",
+    "Cellulitis",
     "Common cold",
     "Conjunctivitis",
     "Constipation",
+    "Contact dermatitis",
     "Croup",
     "Drug eruptions",
     "Epidermoid cyst",
@@ -2334,12 +2454,17 @@
     "Fifth disease",
     "Folliculitis and boils",
     "Gallstones",
+    "Gastroschisis",
     "Gingivitis",
     "Gout",
     "Hand, foot and mouth disease",
     "Henoch-Schonlein purpura",
     "Herpes simplex",
+    "Herpes zoster",
+    "Hypoglycemia",
+    "Hypotension and orthostatic intolerance",
     "Impetigo",
+    "Incontinentia pigmenti",
     "Infectious mononucleosis",
     "Influenza",
     "Intussusception",
@@ -2347,11 +2472,13 @@
     "Keratitis",
     "MRSA skin infection",
     "Measles",
+    "Morphea",
     "Nasal polyposis",
     "Non-specific viral exanthem",
     "Paronychia",
     "Pelvic inflammatory disease",
     "Pertussis",
+    "Pilonidal cyst",
     "Pityriasis rosea",
     "Pneumonia",
     "Pneumothorax",
@@ -2367,6 +2494,7 @@
     "Sexually transmitted infection",
     "Sinusitis",
     "Sore throat",
+    "Stimulant use disorder",
     "Urinary tract infection",
     "Urticaria and angioedema",
     "Varicella",
@@ -2386,16 +2514,20 @@
    "conditions": [
     "Abdominal trauma",
     "Acne",
+    "Alcohol use disorder",
     "Alopecia",
     "Attention deficit disorder",
+    "Barrett's esophagus",
     "Benign prostatic hyperplasia",
     "Bronchitis",
     "Burns",
     "COVID-19",
     "Candidiasis",
     "Celiac disease",
+    "Cellulitis",
     "Common cold",
     "Conjunctivitis",
+    "Contact dermatitis",
     "Diaper dermatitis",
     "Diarrhea",
     "Eczema",
@@ -2405,8 +2537,12 @@
     "Fifth disease",
     "Folliculitis and boils",
     "Gastritis",
+    "Gastroschisis",
     "Hand, foot and mouth disease",
+    "Hashimoto's thyroiditis",
+    "Hepatic cirrhosis",
     "Herpes simplex",
+    "Herpes zoster",
     "Hypothyroidism",
     "Impetigo",
     "Infectious mononucleosis",
@@ -2420,11 +2556,13 @@
     "Otitis media",
     "Paronychia",
     "Peptic ulcer disease",
+    "Pilonidal cyst",
     "Pneumonia",
     "Polycystic ovary syndrome",
     "Prostatitis",
     "Psoriasis",
     "Ramsay Hunt syndrome",
+    "Rosacea",
     "Roseola",
     "Rubella",
     "Scabies",
@@ -2507,6 +2645,7 @@
     "Common cold",
     "Folliculitis and boils",
     "Head lice",
+    "Hyperlipidemia",
     "Hypertension",
     "Impetigo",
     "MRSA skin infection",
@@ -2553,6 +2692,7 @@
     "Endometriosis",
     "Erythema nodosum",
     "Fibromyalgia",
+    "Hashimoto's thyroiditis",
     "Inflammatory bowel disease",
     "Iritis and anterior uveitis",
     "Neck and shoulder pain",
@@ -2605,6 +2745,7 @@
    "also": null,
    "herbal": false,
    "conditions": [
+    "Hepatic cirrhosis",
     "Mold and mycotoxin illness"
    ]
   },
@@ -2676,18 +2817,22 @@
     "Acne",
     "Allergic rhinitis",
     "Autoimmune conditions",
+    "Barrett's esophagus",
     "Bloating and gas",
     "Bronchiectasis",
     "Candidiasis",
     "Celiac disease",
+    "Cellulitis",
     "Constipation",
     "Diaper dermatitis",
     "Diarrhea",
     "Drug eruptions",
     "Eczema",
+    "Eosinophilic enteropathy",
     "Erythema multiforme",
     "Folliculitis and boils",
     "Food intolerance",
+    "Gastroschisis",
     "Gingivitis",
     "Hemolytic uremic syndrome",
     "Hirschsprung disease",
@@ -2699,15 +2844,18 @@
     "Mold and mycotoxin illness",
     "Multiple sclerosis",
     "Nausea and vomiting",
+    "Neonatal abstinence syndrome",
     "Otitis media",
     "Parasites, intestinal",
     "Parkinson's disease",
     "Pelvic inflammatory disease",
+    "Pilonidal cyst",
     "Prostatitis",
     "Psoriasis",
     "Pyelonephritis",
     "Rheumatic fever",
     "Rheumatoid arthritis",
+    "Rosacea",
     "Seborrheic dermatitis",
     "Sexually transmitted infection",
     "Small intestinal bacterial overgrowth",
@@ -2747,6 +2895,7 @@
     "Chronic kidney disease",
     "Fatigue and low energy",
     "Fertility and preconception",
+    "Hashimoto's thyroiditis",
     "Hypothyroidism",
     "Inflammatory bowel disease",
     "Lactation support",
@@ -2767,6 +2916,8 @@
     "Cognitive decline",
     "Diabetes mellitus, type 2",
     "Fatigue and low energy",
+    "Hashimoto's thyroiditis",
+    "Herpes zoster",
     "Hypothyroidism",
     "Mold and mycotoxin illness",
     "Vertigo"
@@ -2795,8 +2946,10 @@
    "also": null,
    "herbal": false,
    "conditions": [
+    "Fibrocystic breast changes",
     "Hypothyroidism",
-    "Mold and mycotoxin illness"
+    "Mold and mycotoxin illness",
+    "Thyroid nodules and cysts"
    ]
   },
   {
@@ -2809,8 +2962,11 @@
    "herbal": false,
    "conditions": [
     "Autoimmune conditions",
+    "Hashimoto's thyroiditis",
     "Hyperthyroidism",
-    "Hypothyroidism"
+    "Hypothyroidism",
+    "Incontinentia pigmenti",
+    "Thyroid nodules and cysts"
    ]
   },
   {
@@ -2826,7 +2982,8 @@
     "Lactation support",
     "Menopause",
     "Osteoporosis",
-    "Premenstrual syndrome"
+    "Premenstrual syndrome",
+    "Prolactinoma"
    ]
   },
   {
@@ -2840,6 +2997,7 @@
    "conditions": [
     "Atherosclerosis",
     "Cystic fibrosis",
+    "Hyperparathyroidism",
     "Kidney stones",
     "Menopause",
     "Osteoporosis"
@@ -2859,6 +3017,7 @@
     "Atherosclerosis",
     "Atrial fibrillation",
     "Atrial septal defect",
+    "Cardiac arrhythmia",
     "Central sleep apnea",
     "Chronic fatigue syndrome",
     "Chronic obstructive pulmonary disease",
@@ -2866,11 +3025,13 @@
     "Cognitive decline",
     "Congestive heart failure",
     "Cyclical vomiting syndrome",
+    "Diabetes mellitus, type 1",
     "Erectile dysfunction",
     "Fatigue and low energy",
     "Fertility and preconception",
     "Fibromyalgia",
     "Gingivitis",
+    "Hyperlipidemia",
     "Hypertension",
     "Hypertrophic cardiomyopathy",
     "Kawasaki disease",
@@ -2880,10 +3041,12 @@
     "Multiple sclerosis",
     "Myocardial infarction",
     "Myocarditis",
+    "Non-cardiac chest pain",
     "Parkinson's disease",
     "Pediatric hypertension",
     "Pulmonary hypertension",
     "Statin-associated muscle symptoms",
+    "Stroke and cerebrovascular rehabilitation",
     "Tetralogy of Fallot",
     "Transposition of the great arteries",
     "Ventricular septal defect"
@@ -2938,7 +3101,9 @@
    "also": null,
    "herbal": false,
    "conditions": [
-    "Insomnia"
+    "Insomnia",
+    "Neonatal abstinence syndrome",
+    "Opioid use disorder"
    ]
   },
   {
@@ -2950,7 +3115,8 @@
    "also": null,
    "herbal": true,
    "conditions": [
-    "Insomnia"
+    "Insomnia",
+    "Opioid use disorder"
    ]
   },
   {
@@ -2963,7 +3129,8 @@
    "herbal": true,
    "conditions": [
     "Anxiety",
-    "Insomnia"
+    "Insomnia",
+    "Opioid use disorder"
    ]
   },
   {
@@ -2979,9 +3146,11 @@
     "Candidiasis",
     "Diabetes mellitus, type 2",
     "Hepatic steatosis",
+    "Hyperlipidemia",
     "Obesity",
     "Parasites, intestinal",
     "Polycystic ovary syndrome",
+    "Prediabetes",
     "Small intestinal bacterial overgrowth",
     "Tinea"
    ]
@@ -2995,8 +3164,11 @@
    "also": null,
    "herbal": false,
    "conditions": [
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2",
-    "Multiple sclerosis"
+    "Hyperlipidemia",
+    "Multiple sclerosis",
+    "Prediabetes"
    ]
   },
   {
@@ -3008,8 +3180,11 @@
    "also": null,
    "herbal": false,
    "conditions": [
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2",
-    "Obesity"
+    "Hypoglycemia",
+    "Obesity",
+    "Prediabetes"
    ]
   },
   {
@@ -3024,8 +3199,10 @@
     "Amenorrhea",
     "Diabetes mellitus, type 2",
     "Fertility and preconception",
+    "Hypoglycemia",
     "Obesity",
-    "Polycystic ovary syndrome"
+    "Polycystic ovary syndrome",
+    "Prediabetes"
    ]
   },
   {
@@ -3050,7 +3227,9 @@
    "also": null,
    "herbal": true,
    "conditions": [
+    "Barrett's esophagus",
     "Dyspepsia",
+    "Eosinophilic enteropathy",
     "GERD",
     "Gastritis",
     "Peptic ulcer disease"
@@ -3065,6 +3244,7 @@
    "also": null,
    "herbal": true,
    "conditions": [
+    "Barrett's esophagus",
     "Cough",
     "Dyspepsia",
     "GERD",
@@ -3100,6 +3280,7 @@
     "Constipation",
     "Diarrhea",
     "Hemorrhoids",
+    "Hyperlipidemia",
     "Irritable bowel syndrome"
    ]
   },
@@ -3116,9 +3297,11 @@
     "Celiac disease",
     "Cystic fibrosis",
     "Dyspepsia",
+    "Eosinophilic enteropathy",
     "Food intolerance",
     "GERD",
     "Irritable bowel syndrome",
+    "Rosacea",
     "Small intestinal bacterial overgrowth"
    ]
   },
@@ -3134,6 +3317,7 @@
     "Bloating and gas",
     "Dyspepsia",
     "Food intolerance",
+    "Rosacea",
     "Small intestinal bacterial overgrowth"
    ]
   },
@@ -3146,14 +3330,19 @@
    "also": null,
    "herbal": false,
    "conditions": [
+    "Alcohol use disorder",
     "Autoimmune conditions",
+    "Barrett's esophagus",
     "Bloating and gas",
     "Burns",
     "Celiac disease",
     "Diarrhea",
+    "Eosinophilic enteropathy",
     "Food intolerance",
     "Gastritis",
+    "Gastroschisis",
     "Hirschsprung disease",
+    "Hypoglycemia",
     "Inflammatory bowel disease",
     "Interstitial cystitis",
     "Irritable bowel syndrome",
@@ -3171,9 +3360,12 @@
    "also": null,
    "herbal": true,
    "conditions": [
+    "Alcohol use disorder",
     "Gallstones",
+    "Hepatic cirrhosis",
     "Hepatic steatosis",
-    "Hepatitis"
+    "Hepatitis",
+    "Lipoma"
    ]
   },
   {
@@ -3185,6 +3377,7 @@
    "also": null,
    "herbal": false,
    "conditions": [
+    "Barrett's esophagus",
     "GERD"
    ]
   },
@@ -3264,7 +3457,9 @@
    "conditions": [
     "Amenorrhea",
     "Dysmenorrhea",
-    "Premenstrual syndrome"
+    "Fibrocystic breast changes",
+    "Premenstrual syndrome",
+    "Prolactinoma"
    ]
   },
   {
@@ -3278,6 +3473,7 @@
    "conditions": [
     "Acne",
     "Endometriosis",
+    "Fibrocystic breast changes",
     "Polycystic ovary syndrome",
     "Premenstrual syndrome"
    ]
@@ -3373,8 +3569,11 @@
    "conditions": [
     "Allergic rhinitis",
     "Burns",
+    "Hashimoto's thyroiditis",
     "Nasal polyposis",
+    "Pilonidal cyst",
     "Sinusitis",
+    "Thrombophlebitis",
     "Urticaria and angioedema",
     "Wound healing"
    ]
@@ -3425,7 +3624,10 @@
    "also": null,
    "herbal": true,
    "conditions": [
+    "Adrenal fatigue",
     "Fatigue and low energy",
+    "Hypoglycemia",
+    "Hypotension and orthostatic intolerance",
     "Infectious mononucleosis",
     "Keratitis",
     "Peptic ulcer disease",
@@ -3442,6 +3644,7 @@
    "also": "eleuthero, schisandra, holy basil",
    "herbal": true,
    "conditions": [
+    "Adrenal fatigue",
     "Chronic fatigue syndrome",
     "Fatigue and low energy"
    ]
@@ -3516,7 +3719,8 @@
     "Attention deficit disorder",
     "Chronic fatigue syndrome",
     "Cognitive decline",
-    "Fatigue and low energy"
+    "Fatigue and low energy",
+    "Stroke and cerebrovascular rehabilitation"
    ]
   },
   {
@@ -3545,6 +3749,7 @@
     "Dysmenorrhea",
     "Erectile dysfunction",
     "Raynaud's phenomenon",
+    "Stroke and cerebrovascular rehabilitation",
     "Vertigo"
    ]
   },
@@ -3559,6 +3764,7 @@
    "conditions": [
     "Angina pectoris",
     "Aortic stenosis",
+    "Cardiac arrhythmia",
     "Congestive heart failure",
     "Hypertension",
     "Mitral regurgitation",
@@ -3574,10 +3780,14 @@
    "also": null,
    "herbal": false,
    "conditions": [
+    "Cellulitis",
     "Deep vein thrombosis",
     "Edema",
     "Hemorrhoids",
     "Kidney stones",
+    "Morphea",
+    "Stroke and cerebrovascular rehabilitation",
+    "Thrombophlebitis",
     "Varicose veins"
    ]
   },
@@ -3592,6 +3802,7 @@
    "conditions": [
     "Edema",
     "Hemorrhoids",
+    "Thrombophlebitis",
     "Varicose veins"
    ]
   },
@@ -3605,6 +3816,7 @@
    "herbal": true,
    "conditions": [
     "Hemorrhoids",
+    "Thrombophlebitis",
     "Varicose veins"
    ]
   },
@@ -3618,6 +3830,7 @@
    "herbal": true,
    "conditions": [
     "Burns",
+    "Thrombophlebitis",
     "Varicose veins",
     "Wound healing"
    ]
@@ -3653,10 +3866,13 @@
     "Cystic fibrosis",
     "Epidermoid cyst",
     "Fifth disease",
+    "Herpes zoster",
     "Impetigo",
+    "Incontinentia pigmenti",
     "Keratosis pilaris",
     "Measles",
     "Molluscum contagiosum",
+    "Morphea",
     "Non-specific viral exanthem",
     "Pityriasis alba",
     "Roseola",
@@ -3678,7 +3894,14 @@
    "herbal": false,
    "conditions": [
     "Cystic fibrosis",
-    "Hepatic steatosis"
+    "Fibrocystic breast changes",
+    "Hepatic cirrhosis",
+    "Hepatic steatosis",
+    "Hyperlipidemia",
+    "Incontinentia pigmenti",
+    "Lipoma",
+    "Morphea",
+    "Stroke and cerebrovascular rehabilitation"
    ]
   },
   {
@@ -3704,6 +3927,7 @@
    "herbal": false,
    "conditions": [
     "Gallstones",
+    "Hepatic cirrhosis",
     "Hepatic steatosis"
    ]
   },
@@ -3716,12 +3940,15 @@
    "also": null,
    "herbal": false,
    "conditions": [
+    "Alcohol use disorder",
     "Atrial fibrillation",
     "Atrial septal defect",
+    "Cardiac arrhythmia",
     "Coarctation of the aorta",
     "Congestive heart failure",
     "Edema",
     "Gallstones",
+    "Hepatic cirrhosis",
     "Hepatic steatosis",
     "Hepatitis",
     "Hypertension",
@@ -3732,6 +3959,54 @@
     "Tetralogy of Fallot",
     "Transposition of the great arteries",
     "Ventricular septal defect"
+   ]
+  },
+  {
+   "id": "lysine",
+   "name": "L-lysine",
+   "dose": "1000–3000 mg daily during an outbreak; 500–1000 mg for prophylaxis",
+   "mech": "Competitively antagonises arginine uptake by herpes simplex, which needs arginine to replicate; also a collagen cross-linking cofactor.",
+   "caution": "Long-term high doses may raise LDL and are avoided in renal or hepatic impairment. Take away from arginine-rich foods — nuts, seeds, chocolate — for the competition to matter.",
+   "also": null,
+   "herbal": false,
+   "conditions": [
+    "Herpes zoster"
+   ]
+  },
+  {
+   "id": "ltyrosine",
+   "name": "L-tyrosine",
+   "dose": "500–1500 mg on an empty stomach in the morning",
+   "mech": "Precursor to dopamine, noradrenaline and adrenaline, and to thyroid hormone; used for winter lethargy, dopaminergic drive and stimulant withdrawal.",
+   "caution": "Avoid with MAO inhibitors — hypertensive crisis risk — and in hyperthyroidism, melanoma and phaeochromocytoma. Can worsen anxiety and insomnia taken late in the day.",
+   "also": null,
+   "herbal": false,
+   "conditions": [
+    "Stimulant use disorder"
+   ]
+  },
+  {
+   "id": "niacin",
+   "name": "Niacin (nicotinic acid)",
+   "dose": "Titrated with meals from 50 mg TID upward; lipid doses run 1000–3000 mg daily",
+   "mech": "The only agent that raises HDL substantially while lowering LDL, triglycerides and lipoprotein(a). Inositol hexaniacinate is the flush-free ester.",
+   "caution": "Prostaglandin-mediated flushing is dose-limiting and is reduced by taking it with food. Gram doses raise uric acid and blood glucose and can be hepatotoxic — liver enzymes and urate need monitoring, and sustained-release forms carry the highest hepatic risk. Avoid in gout, active liver disease and peptic ulcer.",
+   "also": null,
+   "herbal": false,
+   "conditions": [
+    "Hyperlipidemia"
+   ]
+  },
+  {
+   "id": "lipotropic",
+   "name": "Lipotropic factor complex",
+   "dose": "2 capsules with meals, two to three times daily",
+   "mech": "Choline, inositol, methionine and betaine with B vitamins — the methyl donors that move fat out of the liver and support bile flow and phase II conjugation.",
+   "caution": "Methionine loading raises homocysteine unless B6, B12 and folate are adequate; avoid the betaine-heavy forms in homocystinuria.",
+   "also": null,
+   "herbal": false,
+   "conditions": [
+    "Lipoma"
    ]
   }
  ],
@@ -3965,9 +4240,11 @@
    "caution": "Often overlooked; open drainage before mobilising anything.",
    "zone": "therapeutics",
    "conditions": [
+    "Cellulitis",
     "Chronic fatigue syndrome",
     "Edema",
     "Mold and mycotoxin illness",
+    "Thrombophlebitis",
     "Varicose veins"
    ]
   },
@@ -3992,6 +4269,7 @@
    "conditions": [
     "Allergic rhinitis",
     "Asthma",
+    "Contact dermatitis",
     "Fertility and preconception",
     "Inflammatory bowel disease",
     "Mold and mycotoxin illness",
@@ -4045,6 +4323,7 @@
    "caution": "Simple, free, and worth trying in every positional apnoea.",
    "zone": "lifestyle",
    "conditions": [
+    "Barrett's esophagus",
     "Obstructive sleep apnea"
    ]
   },
@@ -4126,9 +4405,11 @@
     "Bronchiectasis",
     "Bronchitis",
     "COVID-19",
+    "Cardiac arrhythmia",
     "Chronic obstructive pulmonary disease",
     "Cough",
     "Idiopathic pulmonary fibrosis",
+    "Non-cardiac chest pain",
     "Pleural disease",
     "Pneumonia",
     "Pneumothorax",
@@ -4211,6 +4492,7 @@
    "zone": "therapeutics",
    "conditions": [
     "Adjustment disorder",
+    "Alcohol use disorder",
     "Anxiety",
     "Attention deficit disorder",
     "Back pain",
@@ -4224,8 +4506,11 @@
     "Interstitial cystitis",
     "Irritable bowel syndrome",
     "Menopause",
+    "Non-cardiac chest pain",
     "Obesity",
-    "Premenstrual syndrome"
+    "Opioid use disorder",
+    "Premenstrual syndrome",
+    "Stimulant use disorder"
    ]
   },
   {
@@ -4237,18 +4522,21 @@
    "zone": "lifestyle",
    "conditions": [
     "Adjustment disorder",
+    "Adrenal fatigue",
     "Alopecia",
     "Anxiety",
     "Autoimmune conditions",
     "Chronic pain",
     "Fibromyalgia",
     "Gastritis",
+    "Hashimoto's thyroiditis",
     "Herpes simplex",
     "Hyperthyroidism",
     "Inflammatory bowel disease",
     "Interstitial cystitis",
     "Irritable bowel syndrome",
     "Multiple sclerosis",
+    "Non-cardiac chest pain",
     "Peptic ulcer disease",
     "Post-traumatic stress disorder",
     "Prostatitis",
@@ -4265,11 +4553,13 @@
    "zone": "lifestyle",
    "conditions": [
     "Acne",
+    "Alcohol use disorder",
     "Amenorrhea",
     "Anemia, iron deficiency",
     "Angina pectoris",
     "Atherosclerosis",
     "Autoimmune conditions",
+    "Barrett's esophagus",
     "Bipolar disorder",
     "Burns",
     "Celiac disease",
@@ -4279,24 +4569,32 @@
     "Congestive heart failure",
     "Constipation",
     "Depression",
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2",
     "Diarrhea",
+    "Eosinophilic enteropathy",
     "Erectile dysfunction",
     "Fatigue and low energy",
     "Fertility and preconception",
+    "Fibrocystic breast changes",
     "Food intolerance",
     "Gallstones",
     "Gastritis",
     "Gingivitis",
     "Gout",
+    "Hashimoto's thyroiditis",
     "Hemorrhoids",
+    "Hepatic cirrhosis",
     "Hepatic steatosis",
     "Hepatitis",
+    "Hyperlipidemia",
     "Hypertension",
+    "Hypoglycemia",
     "Hypothyroidism",
     "Inflammatory bowel disease",
     "Kidney stones",
     "Lactation support",
+    "Lipoma",
     "Menopause",
     "Mold and mycotoxin illness",
     "Multiple sclerosis",
@@ -4307,9 +4605,12 @@
     "Parkinson's disease",
     "Pediatric hypertension",
     "Polycystic ovary syndrome",
+    "Prediabetes",
     "Premenstrual syndrome",
     "Psoriasis",
     "Rheumatoid arthritis",
+    "Rosacea",
+    "Stroke and cerebrovascular rehabilitation",
     "Wound healing"
    ]
   },
@@ -4326,18 +4627,22 @@
     "Asthma",
     "Attention deficit disorder",
     "Autoimmune conditions",
+    "Barrett's esophagus",
     "Bloating and gas",
     "Candidiasis",
     "Celiac disease",
+    "Contact dermatitis",
     "Cyclical vomiting syndrome",
     "Diarrhea",
     "Drug eruptions",
     "Dyspepsia",
     "Eczema",
     "Endometriosis",
+    "Eosinophilic enteropathy",
     "Food intolerance",
     "GERD",
     "Gastritis",
+    "Hashimoto's thyroiditis",
     "Inflammatory bowel disease",
     "Interstitial cystitis",
     "Irritable bowel syndrome",
@@ -4345,6 +4650,7 @@
     "Nasal polyposis",
     "Parasites, intestinal",
     "Peptic ulcer disease",
+    "Rosacea",
     "Seizure disorder",
     "Small intestinal bacterial overgrowth",
     "Urticaria and angioedema"
@@ -4359,18 +4665,23 @@
    "zone": "lifestyle",
    "conditions": [
     "Acne",
+    "Adrenal fatigue",
     "Anxiety",
     "Attention deficit disorder",
     "Candidiasis",
     "Cyclical vomiting syndrome",
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2",
     "Dyspepsia",
     "Fatigue and low energy",
     "Hepatic steatosis",
+    "Hyperlipidemia",
+    "Hypoglycemia",
     "Migraine",
     "Nausea and vomiting",
     "Pediatric hypertension",
     "Polycystic ovary syndrome",
+    "Prediabetes",
     "Premenstrual syndrome"
    ]
   },
@@ -4384,6 +4695,9 @@
    "conditions": [
     "Anxiety",
     "Atrial fibrillation",
+    "Cardiac arrhythmia",
+    "Fibrocystic breast changes",
+    "Hypoglycemia",
     "Insomnia",
     "Premenstrual syndrome",
     "Urinary incontinence"
@@ -4397,6 +4711,7 @@
    "caution": "Fixing the wake time matters more than fixing the bedtime.",
    "zone": "lifestyle",
    "conditions": [
+    "Adrenal fatigue",
     "Attention deficit disorder",
     "Autoimmune conditions",
     "Bipolar disorder",
@@ -4414,6 +4729,7 @@
     "Hand, foot and mouth disease",
     "Herpes simplex",
     "Hypertension",
+    "Hypoglycemia",
     "Hypothyroidism",
     "Influenza",
     "Insomnia",
@@ -4422,11 +4738,13 @@
     "Migraine",
     "Non-specific viral exanthem",
     "Obesity",
+    "Prediabetes",
     "Roseola",
     "Rubella",
     "Scarlet fever",
     "Seizure disorder",
-    "Sore throat"
+    "Sore throat",
+    "Stimulant use disorder"
    ]
   },
   {
@@ -4474,6 +4792,8 @@
    "conditions": [
     "Abdominal aortic aneurysm",
     "Adjustment disorder",
+    "Adrenal fatigue",
+    "Alcohol use disorder",
     "Amenorrhea",
     "Angina pectoris",
     "Anxiety",
@@ -4486,6 +4806,7 @@
     "Benign prostatic hyperplasia",
     "Bipolar disorder",
     "Bloating and gas",
+    "Cardiac arrhythmia",
     "Chronic kidney disease",
     "Chronic obstructive pulmonary disease",
     "Chronic pain",
@@ -4496,36 +4817,48 @@
     "Cystic fibrosis",
     "Deep vein thrombosis",
     "Depression",
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2",
     "Dysmenorrhea",
     "Edema",
     "Erectile dysfunction",
     "Fatigue and low energy",
+    "Fibrocystic breast changes",
     "Fibromyalgia",
     "Gout",
+    "Hashimoto's thyroiditis",
     "Hemorrhoids",
+    "Hepatic cirrhosis",
     "Hepatic steatosis",
     "Hepatitis",
+    "Hyperlipidemia",
+    "Hyperparathyroidism",
     "Hypertension",
     "Hypertrophic cardiomyopathy",
+    "Hypoglycemia",
+    "Hypotension and orthostatic intolerance",
     "Hypothyroidism",
     "Insomnia",
     "Irritable bowel syndrome",
     "Kidney stones",
+    "Lipoma",
     "Menopause",
     "Migraine",
     "Mitral valve prolapse",
     "Multiple sclerosis",
     "Myocardial infarction",
     "Neck and shoulder pain",
+    "Non-cardiac chest pain",
     "Obesity",
     "Obstructive sleep apnea",
+    "Opioid use disorder",
     "Osteoarthritis",
     "Osteoporosis",
     "Parkinson's disease",
     "Pediatric hypertension",
     "Polycystic ovary syndrome",
     "Post-traumatic stress disorder",
+    "Prediabetes",
     "Premenstrual syndrome",
     "Pulmonary embolism",
     "Pulmonary hypertension",
@@ -4537,7 +4870,11 @@
     "Small intestinal bacterial overgrowth",
     "Spinal stenosis",
     "Statin-associated muscle symptoms",
+    "Stimulant use disorder",
+    "Stroke and cerebrovascular rehabilitation",
     "Tetralogy of Fallot",
+    "Thrombophlebitis",
+    "Thyroid nodules and cysts",
     "Transposition of the great arteries",
     "Urinary incontinence",
     "Varicose veins",
@@ -4555,6 +4892,7 @@
     "Angina pectoris",
     "Atherosclerosis",
     "Atrial fibrillation",
+    "Barrett's esophagus",
     "Benign prostatic hyperplasia",
     "Central sleep apnea",
     "Chronic kidney disease",
@@ -4568,13 +4906,17 @@
     "Gout",
     "Hepatic steatosis",
     "Hepatitis",
+    "Hyperlipidemia",
+    "Hyperparathyroidism",
     "Hypertension",
+    "Lipoma",
     "Obesity",
     "Obstructive sleep apnea",
     "Osteoarthritis",
     "Osteoporosis",
     "Pediatric hypertension",
     "Polycystic ovary syndrome",
+    "Prediabetes",
     "Psoriasis",
     "Urinary incontinence",
     "Varicose veins"
@@ -4592,14 +4934,17 @@
     "Chronic pain",
     "Erythema nodosum",
     "Hirschsprung disease",
+    "Morphea",
     "Multiple sclerosis",
     "Neck and shoulder pain",
+    "Non-cardiac chest pain",
     "Osteoarthritis",
     "Parkinson's disease",
     "Pleural disease",
     "Rheumatoid arthritis",
     "Sciatica and lumbar radiculopathy",
     "Spinal stenosis",
+    "Stroke and cerebrovascular rehabilitation",
     "Temporomandibular joint disorder",
     "Thoracic injuries",
     "Vertigo"
@@ -4613,12 +4958,16 @@
    "caution": "Avoid extremes in cardiovascular instability and neuropathy.",
    "zone": "therapeutics",
    "conditions": [
+    "Adrenal fatigue",
     "Back pain",
     "Burns",
+    "Cellulitis",
     "Chronic pain",
     "Dysmenorrhea",
     "Fibromyalgia",
     "Folliculitis and boils",
+    "Herpes zoster",
+    "Hypotension and orthostatic intolerance",
     "Infectious mononucleosis",
     "Neck and shoulder pain",
     "Osteoarthritis",
@@ -4654,6 +5003,7 @@
     "Migraine",
     "Nausea and vomiting",
     "Neck and shoulder pain",
+    "Opioid use disorder",
     "Osteoarthritis",
     "Sciatica and lumbar radiculopathy",
     "Spinal stenosis",
@@ -4725,9 +5075,12 @@
    "caution": "Check the ankle-brachial index before compressing a limb with suspected arterial disease.",
    "zone": "therapeutics",
    "conditions": [
+    "Cellulitis",
     "Deep vein thrombosis",
     "Edema",
+    "Hypotension and orthostatic intolerance",
     "Pulmonary embolism",
+    "Thrombophlebitis",
     "Varicose veins"
    ]
   },
@@ -4742,6 +5095,7 @@
     "Benign prostatic hyperplasia",
     "Hemorrhoids",
     "Pelvic inflammatory disease",
+    "Pilonidal cyst",
     "Prostatitis",
     "Urinary tract infection",
     "Varicella"
@@ -4759,6 +5113,7 @@
     "Alopecia",
     "Burns",
     "Conjunctivitis",
+    "Contact dermatitis",
     "Diaper dermatitis",
     "Drug eruptions",
     "Eczema",
@@ -4772,16 +5127,20 @@
     "Head lice",
     "Henoch-Schonlein purpura",
     "Impetigo",
+    "Incontinentia pigmenti",
     "Keratosis pilaris",
     "MRSA skin infection",
     "Measles",
     "Molluscum contagiosum",
+    "Morphea",
     "Non-specific viral exanthem",
     "Otitis externa",
     "Paronychia",
+    "Pilonidal cyst",
     "Pityriasis alba",
     "Pityriasis rosea",
     "Psoriasis",
+    "Rosacea",
     "Roseola",
     "Rubella",
     "Scabies",
@@ -4802,6 +5161,7 @@
    "caution": "Short courses under guidance.",
    "zone": "therapeutics",
    "conditions": [
+    "Contact dermatitis",
     "Eczema"
    ]
   },
@@ -4814,6 +5174,7 @@
    "zone": "therapeutics",
    "conditions": [
     "Eczema",
+    "Morphea",
     "Pityriasis rosea",
     "Psoriasis"
    ]
@@ -4827,6 +5188,8 @@
    "zone": "therapeutics",
    "conditions": [
     "Adjustment disorder",
+    "Adrenal fatigue",
+    "Alcohol use disorder",
     "Alopecia",
     "Amenorrhea",
     "Atrial septal defect",
@@ -4836,10 +5199,13 @@
     "Chronic fatigue syndrome",
     "Coarctation of the aorta",
     "Depression",
+    "Diabetes mellitus, type 1",
     "Erectile dysfunction",
     "Fatigue and low energy",
     "Fertility and preconception",
     "Hemolytic uremic syndrome",
+    "Hepatic cirrhosis",
+    "Herpes zoster",
     "Hyperthyroidism",
     "Hypertrophic cardiomyopathy",
     "Kawasaki disease",
@@ -4848,12 +5214,17 @@
     "Mold and mycotoxin illness",
     "Multiple sclerosis",
     "Myocardial infarction",
+    "Neonatal abstinence syndrome",
+    "Opioid use disorder",
     "Parkinson's disease",
     "Polycystic ovary syndrome",
+    "Prolactinoma",
     "Pulmonary nodules and lung cancer",
     "Rheumatic fever",
     "Seizure disorder",
     "Sexually transmitted infection",
+    "Stimulant use disorder",
+    "Stroke and cerebrovascular rehabilitation",
     "Tetralogy of Fallot",
     "Transposition of the great arteries",
     "Tuberculosis",
@@ -4869,14 +5240,18 @@
    "zone": "lifestyle",
    "conditions": [
     "Adjustment disorder",
+    "Alcohol use disorder",
     "Atrial septal defect",
     "Coarctation of the aorta",
     "Cognitive decline",
+    "Hepatic cirrhosis",
     "Hypertrophic cardiomyopathy",
     "Lactation support",
     "Mitral valve prolapse",
+    "Opioid use disorder",
     "Parkinson's disease",
     "Pulmonary nodules and lung cancer",
+    "Stimulant use disorder",
     "Tetralogy of Fallot",
     "Transposition of the great arteries",
     "Ventricular septal defect"
@@ -4891,6 +5266,7 @@
    "zone": "lifestyle",
    "conditions": [
     "Anxiety",
+    "Cardiac arrhythmia",
     "Chronic fatigue syndrome",
     "Hypertension",
     "Insomnia",
@@ -4910,6 +5286,8 @@
    "conditions": [
     "Abdominal trauma",
     "Acute pancreatitis",
+    "Adrenal fatigue",
+    "Alcohol use disorder",
     "Allergic rhinitis",
     "Alopecia",
     "Amenorrhea",
@@ -4924,7 +5302,9 @@
     "Bronchiectasis",
     "Burns",
     "COVID-19",
+    "Cardiac arrhythmia",
     "Celiac disease",
+    "Cellulitis",
     "Chronic fatigue syndrome",
     "Chronic kidney disease",
     "Cognitive decline",
@@ -4951,19 +5331,26 @@
     "GERD",
     "Gallstones",
     "Gastritis",
+    "Gastroschisis",
     "Gingivitis",
     "Gout",
     "Hand, foot and mouth disease",
+    "Hashimoto's thyroiditis",
     "Hemolytic uremic syndrome",
     "Hemorrhoids",
     "Henoch-Schonlein purpura",
+    "Hepatic cirrhosis",
     "Hepatic steatosis",
     "Hepatitis",
     "Herpes simplex",
+    "Herpes zoster",
     "Hirschsprung disease",
     "Hyperthyroidism",
+    "Hypoglycemia",
+    "Hypotension and orthostatic intolerance",
     "Hypothyroidism",
     "Impetigo",
+    "Incontinentia pigmenti",
     "Infectious mononucleosis",
     "Inflammatory bowel disease",
     "Influenza",
@@ -4977,6 +5364,7 @@
     "Mold and mycotoxin illness",
     "Multiple sclerosis",
     "Nausea and vomiting",
+    "Neonatal abstinence syndrome",
     "Non-specific viral exanthem",
     "Orbital and periorbital cellulitis",
     "Osteoporosis",
@@ -4989,6 +5377,7 @@
     "Pericarditis",
     "Peritonsillar abscess",
     "Pertussis",
+    "Pilonidal cyst",
     "Pityriasis rosea",
     "Pleural disease",
     "Pleuritis",
@@ -5010,6 +5399,9 @@
     "Sinusitis",
     "Small intestinal bacterial overgrowth",
     "Sore throat",
+    "Stimulant use disorder",
+    "Stroke and cerebrovascular rehabilitation",
+    "Thrombophlebitis",
     "Tuberculosis",
     "Urticaria and angioedema",
     "Varicella",
@@ -5025,6 +5417,8 @@
    "interpret": "Hyponatraemia raises Legionella, SIADH and paraneoplastic syndromes. A reversed albumin/globulin ratio appears in sarcoidosis.",
    "conditions": [
     "Acute pancreatitis",
+    "Adrenal fatigue",
+    "Alcohol use disorder",
     "Anxiety",
     "Atrial fibrillation",
     "Autoimmune conditions",
@@ -5032,6 +5426,7 @@
     "Bowel obstruction",
     "Burns",
     "COVID-19",
+    "Cardiac arrhythmia",
     "Celiac disease",
     "Chronic fatigue syndrome",
     "Chronic kidney disease",
@@ -5041,17 +5436,24 @@
     "Cyclical vomiting syndrome",
     "Deep vein thrombosis",
     "Depression",
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2",
     "Diarrhea",
     "Edema",
     "Erectile dysfunction",
     "Fatigue and low energy",
     "Gallstones",
+    "Gastroschisis",
     "Gout",
     "Hemolytic uremic syndrome",
     "Henoch-Schonlein purpura",
+    "Hepatic cirrhosis",
     "Hepatitis",
+    "Hyperlipidemia",
+    "Hyperparathyroidism",
     "Hypertension",
+    "Hypoglycemia",
+    "Hypotension and orthostatic intolerance",
     "Inflammatory bowel disease",
     "Kawasaki disease",
     "Kidney stones",
@@ -5062,6 +5464,7 @@
     "Parkinson's disease",
     "Pediatric hypertension",
     "Pneumonia",
+    "Prediabetes",
     "Pulmonary nodules and lung cancer",
     "Respiratory failure and ARDS",
     "Rheumatoid arthritis",
@@ -5079,6 +5482,7 @@
    "why": "Any fatigue, weight change, mood change, menstrual disturbance, constipation or hair loss — and mandatory before attributing psychiatric symptoms to a primary psychiatric cause.",
    "interpret": "High TSH with low free T4 is primary hypothyroidism; suppressed TSH with high free T4 is hyperthyroidism.",
    "conditions": [
+    "Adrenal fatigue",
     "Alopecia",
     "Amenorrhea",
     "Anxiety",
@@ -5086,6 +5490,7 @@
     "Attention deficit disorder",
     "Bipolar disorder",
     "Bloating and gas",
+    "Cardiac arrhythmia",
     "Chronic fatigue syndrome",
     "Chronic pain",
     "Cognitive decline",
@@ -5093,11 +5498,16 @@
     "Constipation",
     "Cyclical vomiting syndrome",
     "Depression",
+    "Diabetes mellitus, type 1",
     "Erectile dysfunction",
     "Fatigue and low energy",
     "Fertility and preconception",
     "Fibromyalgia",
+    "Hashimoto's thyroiditis",
+    "Hyperlipidemia",
     "Hyperthyroidism",
+    "Hypoglycemia",
+    "Hypotension and orthostatic intolerance",
     "Hypothyroidism",
     "Insomnia",
     "Lactation support",
@@ -5109,9 +5519,11 @@
     "Polycystic ovary syndrome",
     "Post-traumatic stress disorder",
     "Premenstrual syndrome",
+    "Prolactinoma",
     "Raynaud's phenomenon",
     "Small intestinal bacterial overgrowth",
     "Statin-associated muscle symptoms",
+    "Thyroid nodules and cysts",
     "Urticaria and angioedema"
    ]
   },
@@ -5125,8 +5537,10 @@
     "Alopecia",
     "Autoimmune conditions",
     "Fertility and preconception",
+    "Hashimoto's thyroiditis",
     "Hyperthyroidism",
     "Hypothyroidism",
+    "Thyroid nodules and cysts",
     "Urticaria and angioedema"
    ]
   },
@@ -5137,7 +5551,9 @@
    "why": "Conversion problems and persistent symptoms on adequate levothyroxine.",
    "interpret": "High reverse T3 with low free T3 suggests impaired conversion under stress or illness.",
    "conditions": [
-    "Hypothyroidism"
+    "Hashimoto's thyroiditis",
+    "Hypothyroidism",
+    "Thyroid nodules and cysts"
    ]
   },
   {
@@ -5147,6 +5563,8 @@
    "why": "Fatigue, hair loss, restless legs, heavy periods, and before iron supplementation.",
    "interpret": "Ferritin under 30 ng/mL is deficiency even with a normal haemoglobin; it is an acute-phase reactant, so read it alongside CRP. Under 50 is often symptomatic in restless legs and hair loss.",
    "conditions": [
+    "Adrenal fatigue",
+    "Alcohol use disorder",
     "Alopecia",
     "Anemia, iron deficiency",
     "Attention deficit disorder",
@@ -5157,6 +5575,8 @@
     "Dysmenorrhea",
     "Fatigue and low energy",
     "Fibromyalgia",
+    "Hashimoto's thyroiditis",
+    "Hepatic cirrhosis",
     "Hypothyroidism",
     "Inflammatory bowel disease",
     "Insomnia",
@@ -5173,13 +5593,17 @@
    "why": "Fatigue, neuropathy, cognitive change, macrocytosis, and anyone on metformin or a long-term PPI.",
    "interpret": "Methylmalonic acid confirms functional B12 deficiency when serum B12 sits in the low-normal grey zone.",
    "conditions": [
+    "Adrenal fatigue",
+    "Alcohol use disorder",
     "Attention deficit disorder",
     "Celiac disease",
     "Chronic fatigue syndrome",
     "Cognitive decline",
     "Depression",
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2",
     "Fatigue and low energy",
+    "Hashimoto's thyroiditis",
     "Hypothyroidism",
     "Multiple sclerosis",
     "Parkinson's disease",
@@ -5193,6 +5617,7 @@
    "why": "Fatigue, mood, bone health, autoimmune and respiratory conditions; sleep apnoea severity tracks with deficiency.",
    "interpret": "25-hydroxy is the storage form to measure. Elevated 1,25-dihydroxy in someone not supplementing suggests granulomatous disease such as sarcoidosis.",
    "conditions": [
+    "Adrenal fatigue",
     "Attention deficit disorder",
     "Autoimmune conditions",
     "Celiac disease",
@@ -5203,6 +5628,7 @@
     "Diabetes mellitus, type 2",
     "Fatigue and low energy",
     "Fibromyalgia",
+    "Hyperparathyroidism",
     "Lactation support",
     "Multiple sclerosis",
     "Osteoporosis",
@@ -5222,18 +5648,23 @@
     "Angina pectoris",
     "Atherosclerosis",
     "Bipolar disorder",
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2",
     "Erectile dysfunction",
     "Gout",
     "Hepatic steatosis",
+    "Hyperlipidemia",
     "Hypertension",
     "Hypothyroidism",
+    "Lipoma",
     "Menopause",
     "Myocardial infarction",
     "Obesity",
     "Pediatric hypertension",
     "Polycystic ovary syndrome",
-    "Psoriasis"
+    "Prediabetes",
+    "Psoriasis",
+    "Stroke and cerebrovascular rehabilitation"
    ]
   },
   {
@@ -5248,6 +5679,7 @@
     "Atherosclerosis",
     "Candidiasis",
     "Chronic kidney disease",
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2",
     "Erectile dysfunction",
     "Fatigue and low energy",
@@ -5256,13 +5688,17 @@
     "Gingivitis",
     "Gout",
     "Hepatic steatosis",
+    "Hyperlipidemia",
     "Hypertension",
+    "Hypoglycemia",
     "Menopause",
     "Obesity",
     "Obstructive sleep apnea",
     "Pediatric hypertension",
     "Polycystic ovary syndrome",
+    "Prediabetes",
     "Psoriasis",
+    "Stroke and cerebrovascular rehabilitation",
     "Tinea",
     "Urinary tract infection",
     "Wound healing"
@@ -5275,10 +5711,13 @@
    "why": "Insulin resistance before HbA1c moves — PCOS, metabolic syndrome, fatty liver.",
    "interpret": "Raised fasting insulin with normal glucose is early insulin resistance.",
    "conditions": [
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2",
     "Hepatic steatosis",
+    "Hypoglycemia",
     "Obesity",
-    "Polycystic ovary syndrome"
+    "Polycystic ovary syndrome",
+    "Prediabetes"
    ]
   },
   {
@@ -5293,6 +5732,7 @@
     "Autoimmune conditions",
     "Back pain",
     "COVID-19",
+    "Cellulitis",
     "Chronic pain",
     "Drug eruptions",
     "Endometriosis",
@@ -5301,12 +5741,14 @@
     "Fibromyalgia",
     "Fifth disease",
     "Henoch-Schonlein purpura",
+    "Herpes zoster",
     "Inflammatory bowel disease",
     "Iritis and anterior uveitis",
     "Kawasaki disease",
     "MRSA skin infection",
     "Mastoiditis",
     "Measles",
+    "Morphea",
     "Myocarditis",
     "Neck and shoulder pain",
     "Non-specific viral exanthem",
@@ -5314,6 +5756,7 @@
     "Osteoarthritis",
     "Pelvic inflammatory disease",
     "Pericarditis",
+    "Pilonidal cyst",
     "Pleural disease",
     "Pleuritis",
     "Psoriasis",
@@ -5327,6 +5770,7 @@
     "Sarcoidosis",
     "Scarlet fever",
     "Scleritis and episcleritis",
+    "Thrombophlebitis",
     "Urticaria and angioedema"
    ]
   },
@@ -5350,7 +5794,8 @@
    "conditions": [
     "COVID-19",
     "Deep vein thrombosis",
-    "Pulmonary embolism"
+    "Pulmonary embolism",
+    "Thrombophlebitis"
    ]
   },
   {
@@ -5401,6 +5846,7 @@
     "Angina pectoris",
     "Myocardial infarction",
     "Myocarditis",
+    "Non-cardiac chest pain",
     "Pulmonary embolism"
    ]
   },
@@ -5424,10 +5870,13 @@
     "Allergic rhinitis",
     "Anaphylaxis",
     "Asthma",
+    "Contact dermatitis",
     "Eczema",
+    "Eosinophilic enteropathy",
     "Food intolerance",
     "Nasal polyposis",
     "Postnasal drainage syndrome",
+    "Rosacea",
     "Sinusitis",
     "Urticaria and angioedema"
    ]
@@ -5441,7 +5890,10 @@
    "conditions": [
     "Allergic rhinitis",
     "Asthma",
-    "Chronic obstructive pulmonary disease"
+    "Chronic obstructive pulmonary disease",
+    "Eosinophilic enteropathy",
+    "Incontinentia pigmenti",
+    "Morphea"
    ]
   },
   {
@@ -5454,7 +5906,9 @@
     "Alopecia",
     "Autoimmune conditions",
     "Erythema nodosum",
+    "Hepatic cirrhosis",
     "Iritis and anterior uveitis",
+    "Morphea",
     "Multiple sclerosis",
     "Psoriasis",
     "Raynaud's phenomenon",
@@ -5493,6 +5947,7 @@
    "why": "Muscle pain on a statin, and myopathy.",
    "interpret": "Marked elevation with weakness needs the statin stopped.",
    "conditions": [
+    "Hyperlipidemia",
     "Statin-associated muscle symptoms"
    ]
   },
@@ -5503,15 +5958,21 @@
    "why": "Hepatitis, fatty liver, and monitoring hepatotoxic drugs and botanicals.",
    "interpret": "An ALT above AST suggests fatty liver; AST above ALT in a 2:1 ratio suggests alcohol.",
    "conditions": [
+    "Alcohol use disorder",
     "Drug eruptions",
     "Gallstones",
+    "Hepatic cirrhosis",
     "Hepatic steatosis",
     "Hepatitis",
+    "Hyperlipidemia",
     "Hyperthyroidism",
     "Infectious mononucleosis",
     "Obesity",
+    "Opioid use disorder",
+    "Prediabetes",
     "Psoriasis",
-    "Statin-associated muscle symptoms"
+    "Statin-associated muscle symptoms",
+    "Stimulant use disorder"
    ]
   },
   {
@@ -5522,8 +5983,10 @@
    "interpret": "Hepatitis B must be excluded before starting a biologic.",
    "conditions": [
     "Chronic fatigue syndrome",
+    "Hepatic cirrhosis",
     "Hepatic steatosis",
     "Hepatitis",
+    "Opioid use disorder",
     "Rheumatoid arthritis"
    ]
   },
@@ -5535,6 +5998,7 @@
    "interpret": "Urea breath test or stool antigen; stop PPIs two weeks and antibiotics four weeks before testing or it will read falsely negative.",
    "conditions": [
     "Anemia, iron deficiency",
+    "Barrett's esophagus",
     "Dyspepsia",
     "GERD",
     "Gastritis",
@@ -5553,11 +6017,14 @@
     "Autoimmune conditions",
     "Bloating and gas",
     "Celiac disease",
+    "Diabetes mellitus, type 1",
     "Diarrhea",
     "Dyspepsia",
+    "Eosinophilic enteropathy",
     "Erythema nodosum",
     "Food intolerance",
     "Gastritis",
+    "Hashimoto's thyroiditis",
     "Irritable bowel syndrome",
     "Small intestinal bacterial overgrowth",
     "Urticaria and angioedema"
@@ -5571,6 +6038,7 @@
    "interpret": "A PCR panel is more sensitive than microscopy; treat on a positive result rather than on suspicion.",
    "conditions": [
     "Diarrhea",
+    "Eosinophilic enteropathy",
     "Hemolytic uremic syndrome",
     "Inflammatory bowel disease",
     "Irritable bowel syndrome",
@@ -5631,6 +6099,7 @@
     "Bloating and gas",
     "Food intolerance",
     "Irritable bowel syndrome",
+    "Rosacea",
     "Small intestinal bacterial overgrowth"
    ]
   },
@@ -5645,10 +6114,12 @@
     "Appendicitis",
     "Benign prostatic hyperplasia",
     "Chronic kidney disease",
+    "Diabetes mellitus, type 1",
     "Diabetes mellitus, type 2",
     "Edema",
     "Hemolytic uremic syndrome",
     "Henoch-Schonlein purpura",
+    "Hyperparathyroidism",
     "Hypertension",
     "Interstitial cystitis",
     "Kawasaki disease",
@@ -5670,6 +6141,7 @@
    "interpret": "Take before starting antibiotics wherever possible.",
    "conditions": [
     "Benign prostatic hyperplasia",
+    "Cellulitis",
     "Interstitial cystitis",
     "Prostatitis",
     "Pyelonephritis",
@@ -5709,6 +6181,7 @@
     "Erythema multiforme",
     "Herpes simplex",
     "Interstitial cystitis",
+    "Opioid use disorder",
     "Pelvic inflammatory disease",
     "Pityriasis rosea",
     "Prostatitis",
@@ -5746,7 +6219,8 @@
     "Fertility and preconception",
     "Menopause",
     "Polycystic ovary syndrome",
-    "Premenstrual syndrome"
+    "Premenstrual syndrome",
+    "Prolactinoma"
    ]
   },
   {
@@ -5770,7 +6244,8 @@
    "conditions": [
     "Amenorrhea",
     "Fertility and preconception",
-    "Polycystic ovary syndrome"
+    "Polycystic ovary syndrome",
+    "Prolactinoma"
    ]
   },
   {
@@ -5780,8 +6255,11 @@
    "why": "Fatigue, stress-related presentations and suspected HPA dysregulation.",
    "interpret": "Four-point sampling shows the curve rather than a single value. In PTSD your notes describe high CRH with blunted ACTH and low cortisol.",
    "conditions": [
+    "Adrenal fatigue",
     "Chronic fatigue syndrome",
     "Fatigue and low energy",
+    "Hypoglycemia",
+    "Hypotension and orthostatic intolerance",
     "Post-traumatic stress disorder"
    ]
   },
@@ -5803,6 +6281,7 @@
    "interpret": "T-score at or below −2.5 is osteoporosis; −1.0 to −2.5 is osteopenia.",
    "conditions": [
     "Celiac disease",
+    "Hyperparathyroidism",
     "Hyperthyroidism",
     "Menopause",
     "Osteoporosis"
@@ -6028,6 +6507,7 @@
     "Atherosclerosis",
     "Atrial fibrillation",
     "Atrial septal defect",
+    "Cardiac arrhythmia",
     "Central sleep apnea",
     "Coarctation of the aorta",
     "Congestive heart failure",
@@ -6040,10 +6520,12 @@
     "Mitral valve prolapse",
     "Myocardial infarction",
     "Myocarditis",
+    "Non-cardiac chest pain",
     "Pediatric hypertension",
     "Pericarditis",
     "Pulmonary hypertension",
     "Rheumatic fever",
+    "Stroke and cerebrovascular rehabilitation",
     "Tetralogy of Fallot",
     "Transposition of the great arteries",
     "Ventricular septal defect"
@@ -6063,20 +6545,25 @@
     "Atherosclerosis",
     "Atrial fibrillation",
     "Atrial septal defect",
+    "Cardiac arrhythmia",
     "Coarctation of the aorta",
     "Congestive heart failure",
     "Hypertension",
     "Hyperthyroidism",
     "Hypertrophic cardiomyopathy",
+    "Hypotension and orthostatic intolerance",
     "Kawasaki disease",
     "Mitral regurgitation",
     "Mitral valve prolapse",
     "Myocardial infarction",
     "Myocarditis",
+    "Non-cardiac chest pain",
     "Pericarditis",
     "Pulmonary embolism",
     "Pulmonary hypertension",
     "Rheumatic fever",
+    "Stimulant use disorder",
+    "Stroke and cerebrovascular rehabilitation",
     "Tetralogy of Fallot",
     "Thoracic injuries",
     "Transposition of the great arteries",
@@ -6093,9 +6580,11 @@
    "conditions": [
     "Atrial fibrillation",
     "Atrial septal defect",
+    "Cardiac arrhythmia",
     "Coarctation of the aorta",
     "Hypertrophic cardiomyopathy",
     "Mitral valve prolapse",
+    "Stroke and cerebrovascular rehabilitation",
     "Tetralogy of Fallot",
     "Transposition of the great arteries",
     "Ventricular septal defect"
@@ -6124,6 +6613,7 @@
     "Deep vein thrombosis",
     "Edema",
     "Pulmonary embolism",
+    "Thrombophlebitis",
     "Varicose veins"
    ]
   },
@@ -6134,7 +6624,8 @@
    "why": "Carotid bruit, transient ischaemic attack or stroke.",
    "interpret": "Quantifies stenosis and guides intervention.",
    "conditions": [
-    "Atherosclerosis"
+    "Atherosclerosis",
+    "Stroke and cerebrovascular rehabilitation"
    ]
   },
   {
@@ -6161,9 +6652,12 @@
     "Cyclical vomiting syndrome",
     "Dyspepsia",
     "Gallstones",
+    "Gastroschisis",
+    "Hepatic cirrhosis",
     "Hepatic steatosis",
     "Hepatitis",
     "Intussusception",
+    "Lipoma",
     "Malrotation and volvulus",
     "Nausea and vomiting"
    ]
@@ -6178,6 +6672,7 @@
     "Benign prostatic hyperplasia",
     "Chronic kidney disease",
     "Hemolytic uremic syndrome",
+    "Hyperparathyroidism",
     "Interstitial cystitis",
     "Kidney stones",
     "Pediatric hypertension",
@@ -6201,6 +6696,7 @@
     "Bowel obstruction",
     "Foreign body ingestion",
     "Hirschsprung disease",
+    "Hyperparathyroidism",
     "Intussusception",
     "Kidney stones",
     "Malrotation and volvulus",
@@ -6230,6 +6726,7 @@
    "why": "A breast lump, skin or nipple change, and routine screening.",
    "interpret": "Any discrete new lump needs imaging regardless of a reassuring examination.",
    "conditions": [
+    "Fibrocystic breast changes",
     "Menopause"
    ]
   },
@@ -6241,6 +6738,7 @@
    "interpret": "The investigation a palpable rectal mass or blood on the glove leads to.",
    "conditions": [
     "Constipation",
+    "Eosinophilic enteropathy",
     "Hemorrhoids",
     "Inflammatory bowel disease"
    ]
@@ -6252,8 +6750,10 @@
    "why": "Alarm dyspepsia — weight loss, dysphagia, anaemia, vomiting, or onset over 50 — and reflux not responding to therapy.",
    "interpret": "Allows biopsy for H. pylori, coeliac disease and Barrett's oesophagus.",
    "conditions": [
+    "Barrett's esophagus",
     "Celiac disease",
     "Dyspepsia",
+    "Eosinophilic enteropathy",
     "GERD",
     "Gastritis",
     "Peptic ulcer disease"
@@ -6317,10 +6817,14 @@
    "interpret": "The answer for anything atypical or refractory.",
    "conditions": [
     "Burns",
+    "Contact dermatitis",
     "Drug eruptions",
     "Epidermoid cyst",
     "Erythema multiforme",
     "Henoch-Schonlein purpura",
+    "Incontinentia pigmenti",
+    "Lipoma",
+    "Morphea",
     "Scabies",
     "Warts",
     "Wound healing"
@@ -6342,6 +6846,7 @@
     "MRSA skin infection",
     "Paronychia",
     "Pityriasis alba",
+    "Rosacea",
     "Tinea"
    ]
   },
@@ -6497,8 +7002,11 @@
     "Bipolar disorder",
     "Cognitive decline",
     "Depression",
+    "Neonatal abstinence syndrome",
+    "Opioid use disorder",
     "Post-traumatic stress disorder",
-    "Seizure disorder"
+    "Seizure disorder",
+    "Stimulant use disorder"
    ]
   },
   {
@@ -6521,6 +7029,7 @@
    "why": "Alcohol and substance use as a driver of mood, sleep, liver and cardiac findings.",
    "interpret": "Brief and well validated; ask everyone.",
    "conditions": [
+    "Alcohol use disorder",
     "Depression"
    ]
   },
@@ -6549,6 +7058,7 @@
    "why": "Dizziness, syncope, fatigue and suspected dysautonomia.",
    "interpret": "A fall of 20 systolic or 10 diastolic on standing defines orthostatic hypotension.",
    "conditions": [
+    "Hypotension and orthostatic intolerance",
     "Vertigo"
    ]
   },
@@ -6730,9 +7240,11 @@
    "why": "Reflux that does not respond to treatment, or where dysphagia, achalasia or a stricture is on the list.",
    "interpret": "pH monitoring quantifies acid exposure and correlates it with symptoms; manometry measures lower oesophageal sphincter tone and peristalsis; barium swallow shows strictures, rings, hernias and the bird-beak of achalasia.",
    "conditions": [
+    "Barrett's esophagus",
     "Dyspepsia",
     "GERD",
-    "Gastritis"
+    "Gastritis",
+    "Non-cardiac chest pain"
    ]
   },
   {
@@ -6806,6 +7318,17 @@
     "Cough",
     "Foreign body aspiration",
     "Foreign body ingestion"
+   ]
+  },
+  {
+   "id": "mri_brain",
+   "name": "MRI brain and pituitary",
+   "kind": "imaging",
+   "why": "Suspected pituitary adenoma, and structural imaging after a stroke or a new focal neurological deficit.",
+   "interpret": "A dedicated pituitary protocol with thin cuts and contrast is needed to see a microadenoma — a routine brain MRI will miss one. After a stroke, diffusion-weighted imaging dates the infarct and separates it from an old lesion.",
+   "conditions": [
+    "Prolactinoma",
+    "Stroke and cerebrovascular rehabilitation"
    ]
   }
  ],
@@ -14557,6 +15080,840 @@
      "source": "Anaphylaxis in adults: rapid overview of emergency management (UpToDate, 2024)"
     }
    ]
+  },
+  "Neonatal abstinence syndrome": {
+   "pharm": [],
+   "supps": [
+    "glycine",
+    "probiotic"
+   ],
+   "therapies": [
+    "counselling"
+   ],
+   "labs": [
+    "utox",
+    "cbc"
+   ],
+   "note": "Withdrawal in a newborn exposed in utero to opioids, stimulants, nicotine or alcohol. Scored on a Finnegan or ESC assessment; low stimulation, swaddling and rooming-in come before pharmacotherapy, and the mother's treatment is part of the infant's.",
+   "extra": true
+  },
+  "Opioid use disorder": {
+   "pharm": [
+    "naltrexone_ld",
+    "gabapentinoid",
+    "acetamin"
+   ],
+   "supps": [
+    "glycine",
+    "magglyc",
+    "valerian",
+    "passionflower",
+    "bcomplex",
+    "omega3"
+   ],
+   "therapies": [
+    "counselling",
+    "cbt",
+    "groupsupport",
+    "acupuncture",
+    "exercise"
+   ],
+   "labs": [
+    "utox",
+    "lft",
+    "hepser",
+    "sti"
+   ],
+   "note": "Withdrawal is rarely fatal but is what drives relapse, and relapse after a period of abstinence is when overdose happens because tolerance has fallen. Buprenorphine or methadone are the treatments with a mortality benefit; naloxone should be in the house.",
+   "extra": true
+  },
+  "Alcohol use disorder": {
+   "pharm": [
+    "naltrexone_ld",
+    "benzo"
+   ],
+   "supps": [
+    "bcomplex",
+    "magglyc",
+    "zinc",
+    "glutamine",
+    "milkthistle",
+    "vitc",
+    "omega3",
+    "taurine"
+   ],
+   "therapies": [
+    "counselling",
+    "cbt",
+    "groupsupport",
+    "medi_diet",
+    "exercise"
+   ],
+   "labs": [
+    "lft",
+    "cbc",
+    "cmp",
+    "audit",
+    "b12folate",
+    "ferritin"
+   ],
+   "note": "Thiamine before glucose, always — a glucose load given first can precipitate Wernicke encephalopathy. Withdrawal in a heavy daily drinker can seize and needs medical cover, not botanical support alone.",
+   "extra": true
+  },
+  "Stimulant use disorder": {
+   "pharm": [
+    "bupropion"
+   ],
+   "supps": [
+    "ltyrosine",
+    "bcomplex",
+    "magglyc",
+    "vitc",
+    "omega3",
+    "nac"
+   ],
+   "therapies": [
+    "counselling",
+    "cbt",
+    "groupsupport",
+    "exercise",
+    "sleephyg"
+   ],
+   "labs": [
+    "utox",
+    "ekg",
+    "lft",
+    "cbc"
+   ],
+   "note": "Cocaine and amphetamine withdrawal is a crash rather than a physiologic syndrome — anhedonia, hypersomnia and craving. Screen the heart: stimulant use accelerates coronary disease and causes cardiomyopathy and arrhythmia.",
+   "extra": true
+  },
+  "Cardiac arrhythmia": {
+   "pharm": [
+    "bblocker",
+    "ccb",
+    "anticoag",
+    "aspirin"
+   ],
+   "supps": [
+    "magglyc",
+    "coq10",
+    "omega3",
+    "hawthorn",
+    "taurine"
+   ],
+   "therapies": [
+    "caffeine_cut",
+    "exercise",
+    "breathing",
+    "vagal"
+   ],
+   "labs": [
+    "ekg",
+    "holter",
+    "echo",
+    "tsh",
+    "cmp",
+    "cbc"
+   ],
+   "note": "Magnesium and potassium are the two correctable causes worth excluding before anything else. Palpitations with syncope, chest pain or a family history of sudden death are a cardiology referral, not a mineral deficiency.",
+   "extra": true
+  },
+  "Non-cardiac chest pain": {
+   "pharm": [
+    "nsaid",
+    "ppi",
+    "ssri"
+   ],
+   "supps": [
+    "magglyc",
+    "coq10"
+   ],
+   "therapies": [
+    "breathing",
+    "physio",
+    "cbt",
+    "mindfulness",
+    "exercise"
+   ],
+   "labs": [
+    "ekg",
+    "trop",
+    "echo",
+    "esophfx"
+   ],
+   "note": "A diagnosis of exclusion. Musculoskeletal, oesophageal and panic-related chest pain are all common, but each is named only after the cardiac workup is clear.",
+   "extra": true
+  },
+  "Hyperlipidemia": {
+   "pharm": [
+    "statin",
+    "aspirin"
+   ],
+   "supps": [
+    "omega3",
+    "coq10",
+    "berberine",
+    "alphalipoic",
+    "niacin",
+    "garlic",
+    "psyllium",
+    "vite"
+   ],
+   "therapies": [
+    "medi_diet",
+    "exercise",
+    "weightmgmt",
+    "glycemic"
+   ],
+   "labs": [
+    "lipids",
+    "a1c",
+    "tsh",
+    "lft",
+    "ck",
+    "cmp"
+   ],
+   "note": "Cholesterol and triglycerides move on different levers: saturated fat and cholesterol clearance drive LDL, while refined carbohydrate and alcohol drive triglycerides. Red yeast rice is lovastatin and is not additive to a prescribed statin. Triglycerides over about 500 mg/dL are a pancreatitis risk in their own right.",
+   "extra": true
+  },
+  "Hypotension and orthostatic intolerance": {
+   "pharm": [],
+   "supps": [
+    "magglyc",
+    "bcomplex",
+    "vitc",
+    "licorice_dgl"
+   ],
+   "therapies": [
+    "exercise",
+    "compression",
+    "hydrotherapy"
+   ],
+   "labs": [
+    "orthostatic",
+    "cmp",
+    "cbc",
+    "tsh",
+    "cortisol",
+    "ekg"
+   ],
+   "note": "Liberal salt and fluid, compression and a slow rise are the first line. Exclude blood loss, adrenal insufficiency, medication effect and autonomic neuropathy before calling it constitutional.",
+   "extra": true
+  },
+  "Stroke and cerebrovascular rehabilitation": {
+   "pharm": [
+    "anticoag",
+    "aspirin",
+    "statin",
+    "acei"
+   ],
+   "supps": [
+    "omega3",
+    "phosphatidyl",
+    "citrusflav",
+    "ginkgo",
+    "coq10",
+    "vite"
+   ],
+   "therapies": [
+    "physio",
+    "exercise",
+    "counselling",
+    "medi_diet"
+   ],
+   "labs": [
+    "ekg",
+    "holter",
+    "echo",
+    "carotid_us",
+    "lipids",
+    "a1c",
+    "cbc",
+    "mri_brain"
+   ],
+   "note": "Secondary prevention is the whole task: blood pressure, lipids, glycaemia, atrial fibrillation and smoking. Stacking antithrombotic botanicals on prescribed anticoagulation raises haemorrhagic risk in someone who has already bled or clotted.",
+   "extra": true
+  },
+  "Thrombophlebitis": {
+   "pharm": [
+    "nsaid",
+    "anticoag"
+   ],
+   "supps": [
+    "horsechest",
+    "butchers",
+    "gotukola",
+    "citrusflav",
+    "omega3",
+    "bromelain"
+   ],
+   "therapies": [
+    "compression",
+    "exercise",
+    "lymphatic"
+   ],
+   "labs": [
+    "venous_us",
+    "cbc",
+    "crp",
+    "ddimer"
+   ],
+   "note": "Superficial thrombophlebitis in the greater saphenous vein can extend into the deep system at the saphenofemoral junction; extent on duplex ultrasound is what decides whether it is treated topically or anticoagulated.",
+   "extra": true
+  },
+  "Cellulitis": {
+   "pharm": [
+    "abx_broad",
+    "nsaid",
+    "acetamin"
+   ],
+   "supps": [
+    "vitc",
+    "zinc",
+    "citrusflav",
+    "probiotic"
+   ],
+   "therapies": [
+    "compression",
+    "lymphatic",
+    "hydrotherapy"
+   ],
+   "labs": [
+    "cbc",
+    "crp",
+    "urineculture"
+   ],
+   "note": "A clinical diagnosis. Mark the border and review: spread past the mark, fever, lymphangitic streaking or systemic upset is same-day antibiotic treatment. Erysipelas is the sharply demarcated, superficial streptococcal form.",
+   "extra": true
+  },
+  "Herpes zoster": {
+   "pharm": [
+    "antiviral_hsv",
+    "gabapentinoid",
+    "acetamin",
+    "tca"
+   ],
+   "supps": [
+    "zinc",
+    "vitc",
+    "bcomplex",
+    "b12",
+    "lysine",
+    "vitaminA"
+   ],
+   "therapies": [
+    "hydrotherapy",
+    "counselling"
+   ],
+   "labs": [
+    "cbc",
+    "crp"
+   ],
+   "note": "Antivirals within 72 hours of the rash are what reduce post-herpetic neuralgia. Ophthalmic-division zoster, Ramsay Hunt syndrome and any disseminated rash are urgent referrals.",
+   "extra": true
+  },
+  "Incontinentia pigmenti": {
+   "pharm": [
+    "topster"
+   ],
+   "supps": [
+    "quercetin",
+    "selenium",
+    "vitaminA",
+    "vite",
+    "vitc"
+   ],
+   "therapies": [
+    "dermcare"
+   ],
+   "labs": [
+    "skinbiopsy",
+    "cbc",
+    "eos"
+   ],
+   "note": "An X-linked dominant NEMO-pathway disorder, usually lethal in males. The skin passes through vesicular, verrucous, hyperpigmented and atrophic stages; the ophthalmological, dental and neurological surveillance matters more than the skin does.",
+   "extra": true
+  },
+  "Lipoma": {
+   "pharm": [],
+   "supps": [
+    "omega3",
+    "lipotropic",
+    "vite",
+    "milkthistle"
+   ],
+   "therapies": [
+    "medi_diet",
+    "weightmgmt",
+    "exercise"
+   ],
+   "labs": [
+    "lipids",
+    "abdo_us",
+    "skinbiopsy"
+   ],
+   "note": "Benign and mobile. A lesion that is fixed, tender, rapidly growing or over 5 cm is imaged and biopsied — liposarcoma is the reason. Multiple lipomas with dyslipidemia is worth a lipid panel.",
+   "extra": true
+  },
+  "Morphea": {
+   "pharm": [
+    "topster",
+    "topcalc",
+    "sysster"
+   ],
+   "supps": [
+    "vite",
+    "vitc",
+    "omega3",
+    "vitaminA",
+    "quercetin",
+    "citrusflav"
+   ],
+   "therapies": [
+    "uvb",
+    "physio",
+    "dermcare"
+   ],
+   "labs": [
+    "ana",
+    "skinbiopsy",
+    "crp",
+    "eos"
+   ],
+   "note": "Localised scleroderma without the internal organ involvement of systemic sclerosis. Linear morphea crossing a joint or the face (en coup de sabre) is the form that causes lasting deformity and is treated actively rather than watched.",
+   "extra": true
+  },
+  "Pilonidal cyst": {
+   "pharm": [
+    "abx_broad",
+    "nsaid"
+   ],
+   "supps": [
+    "zinc",
+    "vitc",
+    "probiotic",
+    "bromelain"
+   ],
+   "therapies": [
+    "dermcare",
+    "sitzbath"
+   ],
+   "labs": [
+    "cbc",
+    "crp"
+   ],
+   "note": "An acute abscess is drained; nothing topical substitutes for that. Recurrence is reduced by keeping the natal cleft hair-free and dry, and healing by secondary intention — a sealed surface over an undrained tract is how it comes back.",
+   "extra": true
+  },
+  "Contact dermatitis": {
+   "pharm": [
+    "topster",
+    "antihist1",
+    "antihist2",
+    "sysster"
+   ],
+   "supps": [
+    "quercetin",
+    "vitc",
+    "zinc",
+    "omega3"
+   ],
+   "therapies": [
+    "dermcare",
+    "elimdiet",
+    "wetwrap",
+    "remediation"
+   ],
+   "labs": [
+    "skinbiopsy",
+    "ige"
+   ],
+   "note": "Allergic contact dermatitis appears 24–72 hours after exposure and takes the shape of the contact. Urushiol from poison ivy and oak stays active on clothing, tools and pet fur; washing those is as much of the treatment as anything applied to the skin.",
+   "extra": true
+  },
+  "Rosacea": {
+   "pharm": [
+    "acne_abx",
+    "topretin",
+    "antihist2"
+   ],
+   "supps": [
+    "zinc",
+    "betaine",
+    "digenzyme",
+    "quercetin",
+    "nac",
+    "probiotic",
+    "omega3"
+   ],
+   "therapies": [
+    "elimdiet",
+    "dermcare",
+    "medi_diet"
+   ],
+   "labs": [
+    "sibo",
+    "ige",
+    "kohprep"
+   ],
+   "note": "Trigger-led: heat, sun, alcohol, spice and stress. Not acne — comedones are absent, and topical steroids make it worse and cause steroid-induced rosacea. Ocular involvement is common and under-asked-about.",
+   "extra": true
+  },
+  "Adrenal fatigue": {
+   "pharm": [
+    "sysster"
+   ],
+   "supps": [
+    "vitc",
+    "bcomplex",
+    "adaptogen_blend",
+    "ashwagandha",
+    "rhodiola",
+    "ginseng",
+    "licorice_dgl",
+    "magglyc"
+   ],
+   "therapies": [
+    "sleephyg",
+    "mindfulness",
+    "exercise",
+    "counselling",
+    "hydrotherapy",
+    "glycemic"
+   ],
+   "labs": [
+    "cortisol",
+    "tsh",
+    "cbc",
+    "cmp",
+    "ferritin",
+    "vitdlab",
+    "b12folate"
+   ],
+   "note": "Not a recognised diagnosis. The presentation is real and the differential — anaemia, hypothyroidism, sleep apnoea, depression, iron or B12 deficiency, and true adrenal insufficiency — is what needs excluding. Licorice at solid-extract doses raises blood pressure and drops potassium.",
+   "extra": true
+  },
+  "Diabetes mellitus, type 1": {
+   "pharm": [
+    "insulin",
+    "acei",
+    "statin"
+   ],
+   "supps": [
+    "chromium",
+    "magglyc",
+    "vitd",
+    "omega3",
+    "alphalipoic",
+    "quercetin",
+    "bcomplex",
+    "coq10"
+   ],
+   "therapies": [
+    "glycemic",
+    "exercise",
+    "medi_diet",
+    "counselling"
+   ],
+   "labs": [
+    "a1c",
+    "fastingins",
+    "cmp",
+    "lipids",
+    "ua",
+    "tsh",
+    "celiac",
+    "b12folate"
+   ],
+   "note": "Autoimmune beta-cell destruction: insulin is not optional and no botanical replaces it. Screen for the conditions that travel with it — coeliac disease and autoimmune thyroiditis. Ketoacidosis is an emergency.",
+   "extra": true
+  },
+  "Hypoglycemia": {
+   "pharm": [],
+   "supps": [
+    "chromium",
+    "magglyc",
+    "bcomplex",
+    "vitc",
+    "glutamine",
+    "licorice_dgl",
+    "inositol"
+   ],
+   "therapies": [
+    "glycemic",
+    "medi_diet",
+    "exercise",
+    "sleephyg",
+    "caffeine_cut"
+   ],
+   "labs": [
+    "fastingins",
+    "a1c",
+    "cortisol",
+    "tsh",
+    "cmp",
+    "cbc"
+   ],
+   "note": "Reactive hypoglycaemia is diagnosed on Whipple's triad — symptoms, a documented low glucose, and relief on feeding — not on symptoms alone. A genuinely low fasting glucose in a non-diabetic is a different and more serious problem than a postprandial dip.",
+   "extra": true
+  },
+  "Prediabetes": {
+   "pharm": [
+    "metformin"
+   ],
+   "supps": [
+    "chromium",
+    "magglyc",
+    "berberine",
+    "alphalipoic",
+    "inositol",
+    "vitd",
+    "omega3"
+   ],
+   "therapies": [
+    "glycemic",
+    "exercise",
+    "weightmgmt",
+    "medi_diet",
+    "sleephyg"
+   ],
+   "labs": [
+    "a1c",
+    "fastingins",
+    "lipids",
+    "lft",
+    "cmp"
+   ],
+   "note": "HbA1c 5.7–6.4% or a fasting glucose of 100–125 mg/dL. Intensive lifestyle change outperforms metformin at this stage, and the window for reversal is real.",
+   "extra": true
+  },
+  "Hashimoto's thyroiditis": {
+   "pharm": [
+    "levothyrox"
+   ],
+   "supps": [
+    "selenium",
+    "vitd",
+    "zinc",
+    "omega3",
+    "quercetin",
+    "curcumin",
+    "bromelain",
+    "iron",
+    "b12"
+   ],
+   "therapies": [
+    "elimdiet",
+    "medi_diet",
+    "exercise",
+    "mindfulness"
+   ],
+   "labs": [
+    "tsh",
+    "thyroidab",
+    "t3rt3",
+    "cbc",
+    "ferritin",
+    "b12folate",
+    "celiac"
+   ],
+   "note": "The commonest cause of hypothyroidism where iodine is sufficient. Selenium lowers TPO antibodies; iodine supplementation can make it worse and can tip the gland either way. Antibody titres are for diagnosis, not for tracking treatment.",
+   "extra": true
+  },
+  "Hyperparathyroidism": {
+   "pharm": [],
+   "supps": [
+    "vitd",
+    "magglyc",
+    "vitk2"
+   ],
+   "therapies": [
+    "exercise",
+    "weightmgmt"
+   ],
+   "labs": [
+    "cmp",
+    "vitdlab",
+    "dexa",
+    "renal_us",
+    "ua",
+    "ctabdo"
+   ],
+   "note": "Primary disease is usually a single adenoma and the cure is surgical. Restricting dietary calcium raises oxalate absorption and stone risk without helping the hypercalcaemia — vitamin D deficiency is corrected, not avoided.",
+   "extra": true
+  },
+  "Prolactinoma": {
+   "pharm": [],
+   "supps": [
+    "vitex",
+    "vitd",
+    "calcium"
+   ],
+   "therapies": [
+    "counselling"
+   ],
+   "labs": [
+    "prolactin",
+    "tsh",
+    "hormones_f",
+    "mri_brain"
+   ],
+   "note": "Amenorrhoea with galactorrhoea. Exclude pregnancy, hypothyroidism and the many drugs that raise prolactin — antipsychotics above all — before imaging. Visual field loss means chiasmal compression and is urgent. Dopamine agonists shrink the tumour; Vitex has no role in a macroadenoma.",
+   "extra": true
+  },
+  "Thyroid nodules and cysts": {
+   "pharm": [
+    "levothyrox"
+   ],
+   "supps": [
+    "selenium",
+    "iodine",
+    "vitd"
+   ],
+   "therapies": [
+    "exercise"
+   ],
+   "labs": [
+    "tsh",
+    "thyroidab",
+    "t3rt3"
+   ],
+   "note": "Every palpable nodule gets a TSH and an ultrasound, and fine-needle aspiration where the sonographic features or size warrant it. Compressive symptoms — a change in voice, swallowing or breathing — move it up the list.",
+   "extra": true
+  },
+  "Barrett's esophagus": {
+   "pharm": [
+    "ppi",
+    "h2ra",
+    "antacid"
+   ],
+   "supps": [
+    "dgl",
+    "slipperyelm",
+    "glutamine",
+    "zinc",
+    "melatonin_gerd",
+    "probiotic",
+    "quercetin"
+   ],
+   "therapies": [
+    "weightmgmt",
+    "elimdiet",
+    "posturaltherapy",
+    "medi_diet"
+   ],
+   "labs": [
+    "egd",
+    "hpylori_t",
+    "esophfx"
+   ],
+   "note": "Intestinal metaplasia of the distal oesophagus and the precursor lesion to adenocarcinoma. It stays under endoscopic surveillance at an interval set by the degree of dysplasia; acid suppression treats the reflux, not the metaplasia.",
+   "extra": true
+  },
+  "Hepatic cirrhosis": {
+   "pharm": [
+    "loop",
+    "mra"
+   ],
+   "supps": [
+    "milkthistle",
+    "nac",
+    "glutathione",
+    "bcomplex",
+    "zinc",
+    "vite",
+    "taurine",
+    "hepavit"
+   ],
+   "therapies": [
+    "medi_diet",
+    "counselling",
+    "groupsupport",
+    "exercise"
+   ],
+   "labs": [
+    "lft",
+    "cbc",
+    "cmp",
+    "abdo_us",
+    "hepser",
+    "ferritin",
+    "ana"
+   ],
+   "note": "Decompensation shows as ascites, variceal bleeding, encephalopathy or jaundice. Alcohol and hepatotoxic drugs stop; that includes high-dose vitamin A, which the liver clears and which is itself hepatotoxic. Thrombocytopenia is a sign of portal hypertension.",
+   "extra": true
+  },
+  "Eosinophilic enteropathy": {
+   "pharm": [
+    "ppi",
+    "sysster",
+    "topster"
+   ],
+   "supps": [
+    "quercetin",
+    "digenzyme",
+    "probiotic",
+    "glutamine",
+    "dgl",
+    "omega3"
+   ],
+   "therapies": [
+    "elimdiet",
+    "medi_diet"
+   ],
+   "labs": [
+    "eos",
+    "ige",
+    "egd",
+    "colonoscopy",
+    "celiac",
+    "stoolcx"
+   ],
+   "note": "Diagnosed on biopsy eosinophil counts, not on a blood eosinophilia. Elimination diet and topical or swallowed steroid are the mainstays; exclude parasites and drug reaction before treating it as allergic.",
+   "extra": true
+  },
+  "Fibrocystic breast changes": {
+   "pharm": [
+    "ocp",
+    "progestin"
+   ],
+   "supps": [
+    "iodine",
+    "vite",
+    "omega3",
+    "magglyc",
+    "bcomplex",
+    "vitex",
+    "dim"
+   ],
+   "therapies": [
+    "caffeine_cut",
+    "medi_diet",
+    "exercise"
+   ],
+   "labs": [
+    "mammo"
+   ],
+   "note": "Benign, cyclical and hormonally driven. Any discrete, hard, fixed or new dominant mass is imaged and worked up on its own merits, however lumpy the rest of the breast is.",
+   "extra": true
+  },
+  "Gastroschisis": {
+   "pharm": [],
+   "supps": [
+    "glutamine",
+    "probiotic",
+    "zinc",
+    "vitc"
+   ],
+   "therapies": [],
+   "labs": [
+    "abdo_us",
+    "cbc",
+    "cmp"
+   ],
+   "note": "A congenital paraumbilical abdominal wall defect with unprotected bowel, diagnosed antenatally and closed surgically at birth. Recovery hinges on bowel function returning; prolonged parenteral nutrition and short-gut are the complications.",
+   "extra": true
   }
  },
  "womensHerbs": [

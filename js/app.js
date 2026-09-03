@@ -1460,6 +1460,9 @@
         c._hay += ' ' + (r.title + ' ' + r.body.join(' ')).toLowerCase();
       });
     });
+    CONDS.forEach(function (c) {
+      (CASES_BY_COND[c.condition] || []).forEach(function (k) { c._hay += ' ' + k._hay; });
+    });
   }
 
   function escapeHtml(str) {
@@ -1536,7 +1539,8 @@
         });
         var refText = (rec.reference || []).map(function (r) {
           return r.title + ' ' + r.body.join(' ');
-        }).join(' ');
+        }).join(' ') + ' ' +
+          (CASES_BY_COND[name] || []).map(function (k) { return k._hay; }).join(' ');
         return {
           condition: name, system: 'topic', aliases: [], herbs: [], topic: true,
           _hay: (name + ' ' + names.join(' ') + ' ' + (rec.note || '') + ' ' + refText).toLowerCase()
@@ -1681,6 +1685,8 @@
       if (proto) body.appendChild(proto);
       var ref = typeof txReferenceNode === 'function' ? txReferenceNode(c.condition, q) : null;
       if (ref) body.appendChild(ref);
+      var cs = typeof txCasesNode === 'function' ? txCasesNode(c.condition, q) : null;
+      if (cs) body.appendChild(cs);
       var tx = typeof txForCondition === 'function' ? txForCondition(c.condition, q) : null;
       if (tx) {
         var txd = el('details', 'txdrop');
@@ -2381,6 +2387,8 @@
           if (pnode) sec.appendChild(pnode);
           var rnode = txReferenceNode(cond, state.q);
           if (rnode) sec.appendChild(rnode);
+          var cnode = txCasesNode(cond, state.q);
+          if (cnode) sec.appendChild(cnode);
           frag.appendChild(sec);
         });
         out.appendChild(frag);
@@ -2483,6 +2491,107 @@
       });
       body.appendChild(sec);
     });
+    det.appendChild(body);
+    return det;
+  }
+
+  /* ---- casebook entries attached to a condition ----
+     Each case is a record of one patient: what presented and what was prescribed
+     for them. Like the reference notes, they read inside the condition rather
+     than in a tab of their own. A case can belong to more than one condition —
+     an arrhythmia case that also treats fibrocystic breast disease shows under
+     both — so the index is built once from the primary condition plus `also`. */
+  var CASES = (window.CASE_DATA || { cases: [] });
+  var CASES_BY_COND = {};
+  (CASES.cases || []).forEach(function (c) {
+    [c.condition].concat(c.also || []).forEach(function (name) {
+      (CASES_BY_COND[name] = CASES_BY_COND[name] || []).push(c);
+    });
+    var bits = [c.title, c.patient || '', c.chapter, c.presentation, c.caution || '', c.outcome || ''];
+    (c.sections || []).forEach(function (sec) {
+      bits.push(sec.name, sec.text || '');
+      (sec.items || []).forEach(function (it) {
+        bits.push(it.agent, it.dose || '', it.why || '');
+      });
+    });
+    c._hay = bits.join(' ').toLowerCase();
+  });
+
+  function txCasesNode(cond, q) {
+    var list = CASES_BY_COND[cond];
+    if (!list || !list.length) return null;
+    var det = el('details', 'txcase');
+    var sum = el('summary');
+    sum.appendChild(el('span', null, 'From the casebook \u2014 ' + list.length +
+      (list.length === 1 ? ' case' : ' cases')));
+    var chs = {};
+    list.forEach(function (c) { chs[c.chapter] = true; });
+    sum.appendChild(el('span', 'txref-src', Object.keys(chs).join(' \u00b7 ')));
+    det.appendChild(sum);
+    if (q) det.open = true;
+
+    var body = el('div', 'txcase-body');
+    list.forEach(function (c) {
+      var art = el('article', 'txcase-one');
+      var h = el('h5');
+      h.innerHTML = 'Case ' + c.n + ' \u2014 ' + highlight(c.title, q);
+      art.appendChild(h);
+      var meta = [];
+      if (c.patient) meta.push(c.patient);
+      meta.push(c.chapter);
+      art.appendChild(el('p', 'txcase-meta', meta.join(' \u00b7 ')));
+
+      var pres = el('p', 'txcase-pres');
+      pres.innerHTML = '<span class="txlab">presented</span> ' + highlight(c.presentation, q);
+      art.appendChild(pres);
+
+      (c.sections || []).forEach(function (sec) {
+        var box = el('section', 'txcase-sec');
+        var sh = el('h6');
+        sh.innerHTML = highlight(sec.name, q);
+        box.appendChild(sh);
+        if (sec.text) {
+          var tp = el('p', 'txcase-text');
+          tp.innerHTML = highlight(sec.text, q);
+          box.appendChild(tp);
+        }
+        if (sec.items && sec.items.length) {
+          var ul = el('ul', 'txcase-items');
+          sec.items.forEach(function (it) {
+            var li = el('li');
+            var a = el('p', 'txcase-agent');
+            a.innerHTML = highlight(it.agent, q);
+            li.appendChild(a);
+            if (it.dose) {
+              var dz = el('p', 'txcase-dose');
+              dz.innerHTML = '<span class="txlab">dose</span> ' + highlight(it.dose, q);
+              li.appendChild(dz);
+            }
+            if (it.why) {
+              var w = el('p', 'txcase-why');
+              w.innerHTML = highlight(it.why, q);
+              li.appendChild(w);
+            }
+            ul.appendChild(li);
+          });
+          box.appendChild(ul);
+        }
+        art.appendChild(box);
+      });
+
+      if (c.outcome) {
+        var oc = el('p', 'txcase-outcome');
+        oc.innerHTML = '<span class="txlab">outcome</span> ' + highlight(c.outcome, q);
+        art.appendChild(oc);
+      }
+      if (c.caution) {
+        var cn = el('p', 'txcase-caution');
+        cn.innerHTML = '<span class="txcase-cmark">safety note</span> ' + highlight(c.caution, q);
+        art.appendChild(cn);
+      }
+      body.appendChild(art);
+    });
+    body.appendChild(el('p', 'txcase-caveat', CASES.caveat || ''));
     det.appendChild(body);
     return det;
   }
