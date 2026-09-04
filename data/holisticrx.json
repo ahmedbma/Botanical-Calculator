@@ -98,6 +98,34 @@
     {
       "name": "Macular degeneration",
       "blurb": "Age-related retinal breakdown (dry or wet AMD) causing progressive loss of central vision."
+    },
+    {
+      "name": "Pediatric foundations and gut health (general)",
+      "blurb": "General diet, stress, supplement, and modality guidance for supporting a child's growth, gut health, and resilience."
+    },
+    {
+      "name": "Autism spectrum disorder",
+      "blurb": "A neurobehavioral disorder of childhood with social, communication, and sensory features that respond to targeted testing and biomedical support."
+    },
+    {
+      "name": "PANDAS (pediatric autoimmune neuropsychiatric disorders associated with streptococcus)",
+      "blurb": "Sudden-onset tics, obsessions/compulsions, and mood changes triggered or worsened by streptococcal infection in children."
+    },
+    {
+      "name": "Colic",
+      "blurb": "Excessive infant crying and fussiness often tied to gut immaturity or maternal-diet food sensitivities passed through breast milk."
+    },
+    {
+      "name": "Failure to thrive",
+      "blurb": "Inadequate weight gain or growth in a child, often driven by poor absorption or ongoing gut inflammation."
+    },
+    {
+      "name": "Picky eating",
+      "blurb": "Selective or limited eating in children that can leave nutrient gaps needing targeted supplementation and consistent family habits."
+    },
+    {
+      "name": "Dyspraxia",
+      "blurb": "A developmental coordination disorder affecting motor planning and movement in children."
     }
   ],
   "sections": [
@@ -1203,6 +1231,126 @@
       ],
       "conditions": [
         "Macular degeneration"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_peds_general_dd",
+      "chapter": "pediatrics",
+      "title": "Pediatric foundations and gut health (general) — the Holistic Rx",
+      "body": [
+        "Diet and detox special considerations: educate children early about food and the \"good bugs\" living in their belly, and teach them to prioritize vegetables, clean protein, and healthy fat at every meal. Breast milk is the most perfect food for babies, supporting a healthy gut microbiome; if a baby doesn't seem to tolerate breast milk, look for food sensitivities behind colic, gas, or reflux. If breastfeeding isn't possible, use a natural organic formula and supplement with fish oil and probiotics, following a proper weaning schedule. Limit juice, which displaces nutrient-rich foods and lowers immunity, and limit screen time in favor of outdoor play — the microbes that live in soil increase biodiversity for optimal health and happiness.",
+        "Watch for subtle signs of imbalance — colic, gas, spitting up, indigestion, congestion, rash or hives, cough, difficulty breathing, constipation or other digestive issues, chronic ear infections, cradle cap, projectile vomiting, tics, sinus issues, or adenoids — as risk factors for bigger problems down the road like autism, autoimmune disease, or mood disorders. Remove one or two problematic foods at a time, starting with the food the child eats the most, following the Gut Rx; breastfeeding mothers can eliminate the same foods and watch for symptoms in their baby. For serious issues like colitis, autoimmunity, seizures, or autism, a gut-healing diet such as GAPS (Gut and Psychology Syndrome Diet), combined with avoiding food sensitivities and the foundational good-health principles, is a good starting point. Add supplements slowly and gradually — some children with autism may regress on certain supplements like B12 or GABA/glutamate — and children with folate deficiency should avoid all dairy, including camel's milk.",
+        "Clean up the child's surroundings: pesticides and other environmental toxins can cause neurodevelopmental damage and disrupt the endocrine system. Heavy metal detoxification is important for improving autism by helping the body maximize glutathione, and optimizing gut health while limiting daily toxin exposure helps protect against adverse vaccine effects; homeopathics can also be used to help prevent or limit vaccine side effects.",
+        "The Four Big S's — special considerations: managing stress is essential to any healing and disease-prevention program, since a child's thoughts, feelings, and emotions directly affect physical health, and parenting itself shapes a child's brain chemistry. Loving, respectful bonds activate a sensory nerve that releases oxytocin and natural opioids, lowering stress-response systems and supporting brain development — get down and cuddle, play, make eye contact, laugh, read together, and offer imaginative, exploratory activities. Establish family rules and clear boundaries to lower everyone's stress and help children feel secure; keep communication open, avoid judging or negating feelings, and discipline in ways that preserve the child's dignity. Older children can reduce stress with abdominal breathing or mindfulness practices such as meditation, prayer, yoga, and tai chi. Keep proper bedtimes so the adrenal glands don't go into overtime, and build gratitude, humor, optimism, and resilience through daily practice — be honest about your own stress and emotions, since children are like sponges who sense even subtle changes in a parent's mood or behavior.",
+        "Supplements and botanical safety: most children should be taking fish oil, vitamin D, or cod liver oil, and probiotics to optimize health and prevent illness, especially if these aren't coming from the diet already. Botanical medicines NOT to be used in infants and toddlers: aloe vera (under ten years of age), buckthorn bark, cajeput oil, camphor, eucalyptus, fennel oil, horseradish, mint and peppermint oils (external application), nasturtium, rhubarb root, senna, and watercress.",
+        "Homeopathy is an excellent, effective choice for children, using the same remedy types and dosages as for adults. Acupressure: adult points also work for children and can be given while massaging, bathing, dressing, or nursing — infants respond quickly, so use only ten- to fifteen-minute sessions with a small circular motion and light pressure held for ten to thirty seconds at a time; stretching isn't required for infants. Colic points: LI2, B47, K3, HP3, LV3. Teeth pain: TW5, LU9, LI4, LI11, ST3, SI18. Sleep: GB20, SP4, SP6, H5, HP4. Pain: LI4, LV3. Digestion and nausea: P6, ST36. Anxiety: GV20.",
+        "Aromatherapy is very beneficial for children — essential oils are potent, so only a small amount is needed, and they should be well diluted in a carrier oil since a child's skin is thinner. Teething: clove and grapefruit oils. Temper tantrums: ylang-ylang, rose. Colic: lavender, roman chamomile, fennel, marjoram, bergamot, ylang-ylang. Age-appropriate essential oils — three days to three months: Roman chamomile, lavender, mandarin. Three months to five years: the above plus bergamot, cedarwood, eucalyptus smithii, frankincense, geranium, ginger, lemon, sweet marjoram, sweet orange, rose, rosemary, sandalwood, tea tree, and thyme linalool. Five years to puberty: all oils considered safe for adults are safe for children, but used in smaller amounts.",
+        "Bodywork: massage and chiropractic/osteopathic manipulation are very beneficial for children, stimulating hormone release that supports development, deepens bonding, and improves circulation and healing. Hydrotherapy is also very healing for a child."
+      ],
+      "conditions": [
+        "Pediatric foundations and gut health (general)"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_peds_autism",
+      "chapter": "pediatrics",
+      "title": "Autism spectrum disorder — the Holistic Rx",
+      "body": [
+        "Autism is a neurobehavioral disorder that presents early in childhood in varying degrees, with symptoms that may include social challenges, communication difficulties, repetitive behaviors, sensory processing problems, sleep problems, seizure disorders, and other associated medical issues. Diagnosis is via detailed history and professional assessment by a developmental pediatrician or other qualified professional, but getting to the root causes of the symptoms requires additional testing.",
+        "Testing: start with the basic workup (see chapter 4, Adjusting the Holistic Rx for Your Condition). Common deficiencies seen in children with autism include calcium, selenium, zinc, magnesium, iron, cysteine, sulfate, taurine, B12, B6, lysine, methionine, essential fatty acids, and vitamins D, E, and A. Consider: red blood cell or whole-blood minerals (zinc, copper), urine organic acids, amino acids, essential fatty acids, fat-soluble vitamins, reduced glutathione, lipid peroxides, plasma cysteine, plasma sulfate, CSDA, food allergy testing, immune testing (IgA, IgM, IgG, IgG subclasses, lymphocyte subsets, natural killer cell activity, vaccine titers, viral titers), thyroid antibodies, anti-myelin basic protein (MBP) antibodies, folate receptor antibody test, PANDAS profile (ASO titer, anti-DNase B titer), provoked urine testing for heavy metals, urine porphyrins and genetic polymorphisms, mold testing, and testing for chronic viral/bacterial infection (see the Autoimmune Disease chapter) — start with viral IgG/IgM titers to HHV1, HHV2, HHV6, CMV, and Epstein-Barr, and consider a Lyme panel, ESR, hsCRP, platelets, streptococcus markers (ASO titers and anti-DNase antibodies), stool cultures, urine cultures, and urine organic acid testing.",
+        "Supplements: fish oil (1,000–3,000 mg EPA/DHA combined); probiotic; cod liver oil with vitamin D (2,000–5,000 IU daily with meals); digestive enzyme (one to two capsules with each meal); B complex with B12 (1,000 mcg daily) and B6 (0.6 mg/kg); multivitamin with zinc (10–20 mg daily), selenium (50–100 mcg daily depending on weight), calcium and magnesium (6 mg/kg), vitamin E (100–400 IU daily) with an essential amino acid combination, and vitamin C.",
+        "Detoxification: antioxidants such as vitamin C (1,000 mg/day), vitamin A (5,000 IU/day minimum), NAC (600 mg daily), selenium (100 mcg daily), transdermal glutathione (100–200 mg twice daily), and melatonin (1 mg/day). To support methylation: methyl-B12 injections (check with an integrative practitioner first), raising glutathione (IV, transdermal, or nebulized), folic acid, TMG/trimethylglycine (start with 250 mg twice daily — side effects include hyperactivity and more emotional behavior) or DMG/dimethylglycine, and NAC (oral NAC can cause yeast overgrowth in some children, so give it transdermally at 100–200 mg twice daily, up to 2,000 mg/day if needed).",
+        "To reduce behaviors commonly seen in autism such as sensory defensiveness, sleeplessness, eye aversion, stimming, and scripting: tyrosine, TMG, GABA, NADH, tryptophan (100 mg daily), essential amino acid combination (500–2,000 mg daily), GABA (500–1,000 mg three times daily). Treat infections with oregano oil, olive leaf extract, garlic, lauricidin, and caprylic acid. Others to discuss with your physician: taurine, coenzyme Q10, iron (especially if deficient, 10–80 mg elemental iron/day), chromium (50–100 mcg daily), vitamin K, L-carnitine (250–500 mg daily), DMAE (100–500 mg/day), silymarin, 5-HTP, activated charcoal, pantothenic acid (B5), phosphatidylcholine, oral gamma globulin, pycnogenol, quercetin, curcumin, creatine (750 mg to several grams/day), carnosine (400 mg twice daily or as directed — improves neurological function), and SAMe. BH4/tetrahydrobiopterin (1–2 mg/kg body weight) can be tried for treatment. Melatonin (1–3 mg/day, increasing weekly by 1–2 mg if not effective) helps with sleep issues.",
+        "To limit die-off, use Epsom salt baths for detoxification support; start one new supplement at a time, giving three to four days before adding another, and start at half the target dose for one to two days to check tolerance. Keep a diary and watch for patterns of behavior change. Treat hyperactivity or inactivity per the Psychiatry chapter, poor sleep as for insomnia, and digestive issues per the Gastroenterology chapter.",
+        "Homeopathy: finding a constitutional remedy is key — work with a licensed homeopathic practitioner for a personalized plan. Chamomilla suits children who repeatedly bang their heads on the wall, get upset with noise, lash out when approached, and are restless and irritable. Silicea suits those with night head sweats, who count things over and over on the floor, and who have sweaty, smelly feet. Hyoscyamus suits children who go into fits of laughter, mutter, play with their genitals, and are suspicious of unfamiliar objects. Agaricus suits those who are fearless, mutter and sing, talk but don't answer, move their head constantly, and have double vision. Cuprum metallicum suits tense, aggressive, obsessive, inflexible, irritable children with tics and hand-banging behavior.",
+        "Acupressure: traditional Chinese medicine points can help with behavioral problems in autism by addressing specific energy points and pathways — see a licensed practitioner for a personalized plan. Aromatherapy: lavender oil for calmness; frankincense oil to support the brain; vetiver essential oil to help balance brain waves; sandalwood and cedarwood can also help.",
+        "Other therapies: hyperbaric oxygen therapy (begin the supplement protocol and detox first; weigh the risks — fatigue, lightheadedness, ear pain, or even serious lung complications, mostly at high duration or pressure — against the benefits); infrared sauna; chelation detox; allergy desensitization."
+      ],
+      "conditions": [
+        "Autism spectrum disorder"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_peds_otitis_media",
+      "chapter": "pediatrics",
+      "title": "Otitis media (ear infections) — the Holistic Rx",
+      "body": [
+        "Ear infections (otitis media) occur when fluid becomes trapped in the middle ear, leading to earache and thick drainage from the ear; other symptoms include fever, loss of appetite, digestive issues, irritability, or trouble sleeping. Infections can be viral or bacterial, usually arising from swelling of the eustachian tubes after an upper respiratory infection or an allergy that traps fluid, which then becomes infected. Diagnosis is by detailed history and exam.",
+        "Supplements: fish oil; garlic oil, or a garlic/mullein or probiotic mixture in olive oil, a few drops in each ear; zinc (10 mg twice daily for children older than two); vitamin C (500 mg twice daily for children six to twelve); echinacea (2 mL four times daily for children); vitamin D3 (400–2,000 IU daily for children two to twelve). Others: vitamin A (2,000–5,000 IU daily for up to five days, for children up to six years old); goldenseal (2 mL four times daily for children); or larix (one to two teaspoons for infants, four times a day for older children).",
+        "Homeopathy: read through the remedies below and match the one that best fits the presenting symptoms; give 6C, 15C, or 30C once or twice daily, or 30C hourly up to six doses for an acute earache. Children may continue the remedy as long as symptoms persist and stop once they improve. Aconitum napellus for the first six hours of an ear infection, with bright red ears and violent pain with increased thirst, often after cold, dry-wind exposure. Belladonna for sudden-onset earache with staring eyes, a hot flushed face, fever, cold feet, unusual sensitivity to touch, and excited, incoherent behavior — the right ear more affected than the left. Chamomilla for the very irritable, angry, screaming/crying child who wants to be carried, with the ear infection often tied to teething and one cheek red while the other is pale. Hepar sulphuris when pus or drainage is present, the child is irritable, the ears are sensitive, and sharp pain improves with warmth. Pulsatilla for the weepy, feverish child with pushing-out pressure pain and yellow-green nasal discharge, worse in warmth and better with cold applications or open air, who wants to be held and comforted. Lachesis when the left ear is infected or the infection moves from left to right, improved at night and with warmth. Lycopodium for right-sided ear infections in an irritable, gassy child with digestive upset, improved with warmth and worse between 4:00 and 8:00 p.m. Mercurius solubilis (or vivus) for earache with smelly drainage, increased sweat, bad breath, and increased salivation, worse at night with a thick coating on the tongue. Silicea for chronic ear infections, or for acute infections in thin, cold-sensitive children (especially sensitive to wind); also useful for eardrum perforation. Ferrum phosphoricum for those who have fever but don't act sick.",
+        "Acupuncture and acupressure: TW21, SI19, GB2, TB17, K3 help ease pain. Aromatherapy: tea tree oil has powerful antiseptic properties; others that are beneficial are basil, cajeput, roman chamomile, eucalyptus radiata, lavender, and rosemary, massaged onto the outer ear."
+      ],
+      "conditions": [
+        "Otitis media"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_peds_pandas",
+      "chapter": "pediatrics",
+      "title": "PANDAS — the Holistic Rx",
+      "body": [
+        "PANDAS (pediatric autoimmune neuropsychiatric disorders associated with streptococcus) is diagnosed when motor and/or vocal tics, obsessions and/or compulsions, moody or irritable behavior, separation anxiety, and anxiety attacks appear suddenly or worsen following a streptococcal infection. It usually affects children from about age three to puberty. Diagnosis is via history, physical exam, and laboratory testing (see the autism testing list above, including a PANDAS profile with ASO titer and anti-DNase B titer).",
+        "Supplements: vitamin D3, B12, calcium, magnesium, zinc, iodine, and omega-3s, along with detoxification and gut-healing support.",
+        "Homeopathy, acupressure, and aromatherapy follow the same approaches used for autism and for anxiety (see the Psychiatry chapter)."
+      ],
+      "conditions": [
+        "PANDAS (pediatric autoimmune neuropsychiatric disorders associated with streptococcus)"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_peds_colic",
+      "chapter": "pediatrics",
+      "title": "Colic — the Holistic Rx",
+      "body": [
+        "Colic responds to probiotics, plus fennel tea (1/4 teaspoon three times daily) or chamomile tea (1/4 cup three times daily). Because food sensitivities transmitted through breast milk can drive colic, gas, and reflux, a breastfeeding mother can follow an elimination approach similar to the Gut Rx, removing the most-eaten problematic food first and watching the baby's symptoms.",
+        "Acupressure: colic points LI2, B47, K3, HP3, LV3, applied for ten to fifteen minutes in a small circular motion with light pressure held for ten to thirty seconds at a time.",
+        "Aromatherapy: lavender, roman chamomile, fennel, marjoram, bergamot, and ylang-ylang oils, well diluted in a carrier oil, since a baby's skin is thinner than an adult's."
+      ],
+      "conditions": [
+        "Colic"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_peds_failure_to_thrive",
+      "chapter": "pediatrics",
+      "title": "Failure to thrive — the Holistic Rx",
+      "body": [
+        "Failure to thrive responds to glutamine (250 mg/kg) and probiotics to support gut healing and nutrient absorption. Address underlying food sensitivities and build the diet around the foundational, nutrient-dense pediatric approach, since inadequate absorption or ongoing gut inflammation is often the real driver of poor growth."
+      ],
+      "conditions": [
+        "Failure to thrive"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_peds_picky_eating",
+      "chapter": "pediatrics",
+      "title": "Picky eating — the Holistic Rx",
+      "body": [
+        "Picky eating often reflects incomplete nutrition rather than pure preference. If dairy is eliminated, replace the lost calcium with 900–1,000 mg daily, split into two doses, and introduce one new food every two weeks. Add zinc (15 mg daily) once the child is older than three, along with a multivitamin, vitamin C (100 mg), vitamin D (800–1,000 IU per day), vitamin A (2,500 IU or less), selenium, and chromium.",
+        "Tips for picky eaters: stock the home only with appropriate, healthy foods, so that's what's available; set a good example, since children imitate their guardians; make family mealtime the standard, with everyone eating the same meal; involve children in picking out vegetables, fruit, protein, and fat sources at the store and in food preparation; make it fun by cutting vegetables into shapes and arranging them in rainbow colors; and stand your ground and stay consistent — don't give in to unhealthy substitutes. One good bite of food is better than no good bite, but no bite of food is better than a bite of poison; children may occasionally need to go to bed hungry, but they won't let themselves starve.",
+        "Educate children about the relationship between food and the body: explain what happens when they eat good food versus bad food, and about the good bugs/\"pets\" living in their belly that need to be fed well so the bad guys can go away and the good guys can win. Swap for healthy: exchange favorite foods for healthier versions (such as almond-flour brownies) as a treat after they finish their vegetables, protein, and fat."
+      ],
+      "conditions": [
+        "Picky eating"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_peds_dyspraxia",
+      "chapter": "pediatrics",
+      "title": "Dyspraxia — the Holistic Rx",
+      "body": [
+        "Dyspraxia responds to fish oil, a vitamin D complex, and phosphatidylcholine to support neurological development and motor coordination."
+      ],
+      "conditions": [
+        "Dyspraxia"
       ],
       "source": "The Holistic Rx — Madiha Saeed, MD"
     }

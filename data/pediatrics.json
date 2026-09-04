@@ -401,6 +401,36 @@
    "condition": "Bipolar disorder",
    "age": "adolescent",
    "angle": "Screen before starting an antidepressant: an antidepressant alone can precipitate mania."
+  },
+  {
+   "condition": "Autism spectrum disorder",
+   "age": "toddler",
+   "angle": "Signs typically emerge by 12–24 months. Workup here looks past behavior to gut, immune, methylation and heavy-metal status — biomedical support, not just therapy referral."
+  },
+  {
+   "condition": "PANDAS (pediatric autoimmune neuropsychiatric disorders associated with streptococcus)",
+   "age": "child",
+   "angle": "Sudden-onset tics and OCD-like behavior tied to a strep trigger, ages roughly three to puberty — an autoimmune-flavored diagnosis adults don't get."
+  },
+  {
+   "condition": "Colic",
+   "age": "infant",
+   "angle": "Excessive crying in an otherwise healthy infant under about five months; often traced to maternal-diet food sensitivities passed through breast milk rather than the baby's own pathology."
+  },
+  {
+   "condition": "Failure to thrive",
+   "age": "infant",
+   "angle": "Growth faltering has no adult equivalent — the driver is usually poor absorption or gut inflammation limiting nutrient uptake during the fastest-growth period of life."
+  },
+  {
+   "condition": "Picky eating",
+   "age": "toddler",
+   "angle": "Selective eating peaks in toddlerhood and can create real nutrient gaps (calcium, zinc, vitamins) behind an otherwise normal-looking child."
+  },
+  {
+   "condition": "Dyspraxia",
+   "age": "child",
+   "angle": "A developmental coordination disorder diagnosed against age-expected motor milestones — irrelevant framing once motor skills are fully established in adulthood."
   }
  ],
  "sections": [
