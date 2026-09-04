@@ -1870,6 +1870,36 @@
     Object.keys(CB_HAY).forEach(function (k) { CB_HAY[k] = CB_HAY[k].toLowerCase(); });
   })();
 
+  /* ==================================================================
+     THE HOLISTIC RX
+     Madiha Saeed, MD's per-condition Holistic Rx write-ups, transcribed
+     from her book. Sections join the reference notes already filed under
+     each condition, same as the Master Compendium above; a condition the
+     book covers that the therapeutics index does not is registered as a
+     topic so nothing is dropped for want of a home.
+     ================================================================== */
+  var HRX = window.HOLISTICRX_DATA || { sections: [], topics: [] };
+
+  (function buildHolisticRx() {
+    var by = (window.THERAPEUTICS_DATA || {}).byCondition;
+    if (!by) return;
+    (HRX.topics || []).forEach(function (t) {
+      if (by[t.name]) return;
+      by[t.name] = { extra: true, note: t.blurb, pharm: [], supps: [], therapies: [], labs: [],
+                     reference: [] };
+    });
+    (HRX.sections || []).forEach(function (sec) {
+      sec.conditions.forEach(function (cond) {
+        var rec = by[cond];
+        if (!rec) return;
+        if (!rec.reference) rec.reference = [];
+        rec.reference.push({ title: sec.title, body: sec.body, source: sec.source || HRX.source });
+        CB_HAY[cond] = (CB_HAY[cond] || '') + ' ' + sec.title + ' ' + sec.body.join(' ');
+      });
+    });
+    Object.keys(CB_HAY).forEach(function (k) { CB_HAY[k] = CB_HAY[k].toLowerCase(); });
+  })();
+
   // The case protocols filed under one condition.
   function cbCaseNode(cond, q) {
     var cases = CB_BY[cond];
