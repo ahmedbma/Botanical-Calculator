@@ -18,6 +18,14 @@
     {
       "name": "Hyperlipidemia",
       "blurb": "Elevated cholesterol/triglycerides — a major modifiable cardiovascular risk factor addressed with diet, targeted supplements, and lab-guided therapy."
+    },
+    {
+      "name": "Tooth decay",
+      "blurb": "Dental caries and enamel demineralization driven by mineral and fat-soluble-vitamin deficiency, excess sugar, and phytic acid — addressed with a remineralizing diet, targeted supplements, and homeopathy."
+    },
+    {
+      "name": "Toothache",
+      "blurb": "Acute tooth or gum pain, matched here to individual homeopathic remedies by its exact character, location, and triggers."
     }
   ],
   "sections": [
@@ -215,6 +223,65 @@
       ],
       "conditions": [
         "Hypertension"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_dental_general_dd",
+      "chapter": "dental",
+      "title": "Dental health — the Holistic Rx (diet, detox and lifestyle)",
+      "body": [
+        "Healing the gut, keeping blood sugar regulated, and creating an alkaline environment is key in healing tooth decay and getting you on the path to remineralization. Four things can contribute to tooth decay: lack of minerals in the diet, like magnesium, calcium, and phosphorus; lack of fat-soluble vitamins like D, A, E, and K; too much sugar consumption; and too much phytic-acid-rich foods. Limit foods high in phytic acid — grains, nuts, seeds, and legumes — especially when starting out the process of remineralization, and incorporate soups with gut-healing bone broth daily.",
+        "Eat high amounts of fat-soluble vitamins and healthy fats from fermented cod liver oil, grass-fed organic raw dairy (if tolerated, eat butter), seafood, and coconut oil. Focus on bone broths and organ and gland meats like bone marrow and liver to help boost the endocrine system and balance hormones. Monitor sweet intake, including maple syrup, fruit, and honey. Activator X — important for tooth mineralization and bright, healthy teeth — is found primarily in grass-fed butter and raw milk; aim for 1–1½ tablespoons per day of grass-fed butter if tolerated. Other foods to incorporate for healthy teeth: zucchini, string beans, kale, chard, seaweed, vegetable juice, and fermented foods. Cranberry juice has anti-adhesion properties and can decrease bad bacteria in the mouth.",
+        "Add a remineralizing or special probiotic toothpaste and practice oil pulling to support tooth and gum health. To help prevent gum disease, aim the toothbrush at the gum line while brushing. Charcoal can help whiten teeth. To further optimize oral health, use colloidal silver (swish and swallow, one teaspoon, three times per day for sixty seconds) and spray xylitol on the gums three times per day.",
+        "The Four Big S's: lowering stress and getting enough sleep have a large impact on oral health — they help stabilize hormones and optimize calcium and other nutrient levels in the body. Practicing gratitude daily will keep you smiling."
+      ],
+      "conditions": [
+        "Gingivitis",
+        "Tooth decay"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_dental_tooth_decay",
+      "chapter": "dental",
+      "title": "Tooth decay — the Holistic Rx (supplements and homeopathy)",
+      "body": [
+        "Supplements: fermented cod liver oil (½–1½ tsp/day total), gelatin, B vitamins like B6, B9, and B12, CoQ10, oral probiotics, calcium, magnesium, vitamin C, vitamin D, vitamin K, omega-3, and zinc. For added fat-soluble nutrients, add skate liver oil (⅛–¼ tsp, two to three times per day), or a butter-and-fermented-cod-liver-oil mixture. Children's dosing (butter/cod liver oil mixture): 25 lbs — ¼ tsp/day; 35 lbs — ⅓ tsp/day; 45 lbs — ½ tsp/day; 55 lbs — ⅔ tsp/day.",
+        "Homeopathy for tooth decay: Mercurius for decay that is black and loose with bleeding gums and excessive salivation. Silicea for multiple decayed teeth, especially in thin children with a large head. Calcarea for those who are overweight, prone to head sweats, with decay in many teeth. Kreosotum for black tooth decay with foul-smelling breath and constipation. Sulphur for tooth decay with sensitivity to touch; teeth are black and hurt after food or drink."
+      ],
+      "conditions": [
+        "Tooth decay"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_dental_toothache_homeopathy",
+      "chapter": "dental",
+      "title": "Toothache — the Holistic Rx (homeopathy)",
+      "body": [
+        "Plantago for tooth pain that improves with eating and worsens with cold air or pressure; mouth full of saliva, pain feels nervy. Coffea for pain improved with cold and worse with heat. Chamomilla for unbearable pain with a sore head, worsened with food, drink, coffee, at night, and by cold air.",
+        "Mercurius for tooth pain that shoots up to the ears, with loose teeth, tender gums that bleed easily, bad breath, and marked thirst. Staphisagria for tearing toothache with red cheeks and a disintegrating black tooth, worse with pressure, food, and cold air. Pulsatilla for tooth pain improved in open air and cold water, worsened with hot food or drink, in a person who isn't thirsty.",
+        "Arnica for pain after a filling or an extraction. Belladonna for a developing gum boil that leads to throbbing pain and a dry mouth. Apis for burning, stinging toothache with swollen, tight-feeling gums.",
+        "Bryonia for teeth that feel too long, with pain improved by lying on the painful side and by pressure, worse with hot food, drink, and movement. Calcarea for toothache worse with food, cold drinks, or during pregnancy. Magnesia phosphorica for electric-shock-type pain that is soothed by warmth."
+      ],
+      "conditions": [
+        "Toothache"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_dental_acupressure_aromatherapy",
+      "chapter": "dental",
+      "title": "Dental health — the Holistic Rx (acupressure and aromatherapy)",
+      "body": [
+        "Acupressure: LI4, ST6, ST7, ST36, TW13, ST44, K3, SJ2, SJ5, GV14, SI18. Lower jaw: ST6, ST5, TB17. Molars: TB23, GB2. Distal points: LI1, LI4, ST40, B60.",
+        "Aromatherapy: essential oils can reduce gum inflammation — myrrh and clove have a numbing effect that helps relieve pain and soreness. Oregano is antibacterial and can reduce bad breath. German chamomile and lemon can also be used for a toothache. Others good for mouth and gum care are cistus, cardamom, fennel, tea tree, peppermint, and nutmeg. Add peppermint oil along with tea tree oil to your toothbrush for natural whitening."
+      ],
+      "conditions": [
+        "Gingivitis",
+        "Tooth decay",
+        "Toothache"
       ],
       "source": "The Holistic Rx — Madiha Saeed, MD"
     }
