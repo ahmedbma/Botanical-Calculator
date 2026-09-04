@@ -58,6 +58,26 @@
     {
       "name": "Cancer (general oncology support)",
       "blurb": "General nutritional, supplement, and immune-support protocol to use alongside conventional cancer treatment."
+    },
+    {
+      "name": "Brain health and neuroinflammation (general)",
+      "blurb": "Gut-brain axis, BDNF, and general brain-protective diet and lifestyle strategies underlying every neurologic protocol."
+    },
+    {
+      "name": "Dementia and Alzheimer's disease",
+      "blurb": "Progressive memory, behavior, and thinking decline; supplement, homeopathic, and lifestyle support for cognitive protection."
+    },
+    {
+      "name": "Headaches (tension, cluster, and migraine)",
+      "blurb": "Recurring head pain — tension, cluster, and migraine subtypes — with targeted supplement and homeopathic protocols."
+    },
+    {
+      "name": "Peripheral neuropathy (nerve pain)",
+      "blurb": "Pins-and-needles, burning, or electric-shock nerve pain from diabetes, deficiency, trauma, toxins, or infection."
+    },
+    {
+      "name": "Restless leg syndrome",
+      "blurb": "Uncontrollable urge to move the legs with tingling, cramping, or creeping sensations, worse in the evening."
     }
   ],
   "sections": [
@@ -951,6 +971,117 @@
       ],
       "conditions": [
         "Kidney stones"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_neuro_general_brain_health",
+      "chapter": "neurology",
+      "title": "Brain health and neuroinflammation — the Holistic Rx (general)",
+      "body": [
+        "The gut and brain are intimately connected: lowering inflammation in the brain requires lowering inflammation in the gut and controlling insulin resistance. Brain-derived neurotrophic factor (BDNF) allows the growth of new neurons; low BDNF is linked to a higher risk of Alzheimer's disease. Raise BDNF with turmeric, DHA omega-3, coffee, and coffee fruit extract. Other foods that support the brain include grass-fed butter (high in butyrate and BDNF-raising), other healthy fats, and probiotic and prebiotic foods like garlic, leeks, onions, and acacia gum.",
+        "The Four Big S's apply strongly to brain health: emotional stress and anxiety can trigger inflammation and the release of brain chemicals that provoke vascular changes and symptoms like migraines, so relaxation strategies and regular aerobic exercise are essential for optimal brain function."
+      ],
+      "conditions": [
+        "Brain health and neuroinflammation (general)"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_neuro_dementia",
+      "chapter": "neurology",
+      "title": "Dementia and Alzheimer's disease — the Holistic Rx",
+      "body": [
+        "Dementia, including Alzheimer's disease (now referred to by some as \"diabetes type 3\"), causes problems with memory, behavior, and thinking that worsen over time and interfere with day-to-day living. Diagnosis is based on a detailed history, exam, and laboratory tests.",
+        "Supplements: resveratrol (100 mg twice daily), turmeric (350 mg twice daily, or a standardized extract at 1,500 mg daily), alpha lipoic acid (600 mg per day), and coconut oil (1–2 tbsp daily). Others: vitamin E (2,000 IU per day), CoQ10 (200 mg daily), ginkgo biloba (120 mg daily), phosphatidylserine (300 mg daily, shown to improve brain cell communication and memory and to help early-stage Alzheimer's disease), astaxanthin (2–4 g twice daily), huperzine extract (0.2 mg of huperzine A daily), bacopa monnieri (150–450 mg per day), acetyl-L-carnitine (1,000 mg three times daily, improves brain cell communication and memory), vitamin B12 (800–1,600 mcg daily), DMAE, L-glutamine (500 mg three times daily), magnesium, NAC (500 mg three times per day), NADH or coenzyme Q10, potassium (500 mg per day), SAMe (400–600 mg), vitamin C (500–1,000 mg in three divided doses), melatonin, increased B-vitamin doses, and jellyfish extract (10–20 mg daily of a standardized extract).",
+        "Homeopathy: Alumina for sudden worsening of confusion with memory impairment and constipation (30C daily for three or four days). Lycopodium for trouble recalling words with fearfulness (30C twice daily for two weeks). Calcarea for those who can't remember most words and show childish behavior and wandering attention. Plumbum for colicky, anemic patients with a nervous complaint and difficulty finding words. Anacardium for memory problems related to names, absent-mindedness, and a sense of two conflicting personalities. Sulphur for difficulty remembering names and words.",
+        "Acupressure: K1, H7 (improve memory), L7, P6, LU1, GV24.5, and ST36.",
+        "Aromatherapy: rosemary and frankincense support brain function. Lavender, ylang-ylang, orange, sandalwood, and rose provide a calming effect for dementia symptoms. For concentration and focus, use peppermint, basil, thyme, and cardamom."
+      ],
+      "conditions": [
+        "Dementia and Alzheimer's disease"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_neuro_headaches",
+      "chapter": "neurology",
+      "title": "Headaches (tension, cluster, and migraine) — the Holistic Rx",
+      "body": [
+        "Headache pain can occur anywhere in the head or neck region. Types include tension headaches, cluster headaches, and migraines, with throbbing, pulsating, or pounding pain that may begin on one side and spread to both, lasting anywhere from four to seventy-two hours; nausea, vomiting, irritability, loss of appetite, fatigue, numbness, and sensitivity to light, noise, or movement may accompany the pain. Diagnosis is by detailed history and physical exam, plus imaging if needed.",
+        "Supplements: magnesium (200–600 mg per day), butterbur (50 mg two to three times daily with a meal), a B-complex combination of B2 (400 mg daily), folic acid (2 mg), B6 (25–75 mg), and B12 (400 mcg per day), plus additional B12, 5-HTP (50–100 mg three times daily), coenzyme Q10 (100 mg three times daily), and alpha lipoic acid. Others: feverfew (250–500 mcg of parthenolides daily), ginger root (fresh, about 10 g per day, or dried 500 mg four times daily, extract standardized to 20% gingerol) and shogaol (100–200 mg three times daily for prevention; 200 mg every two hours up to six times daily for an acute migraine), medicinal mushrooms, capsaicin cream, kudzu, and melatonin. For children — tension headaches: magnesium (200–400 mg daily), melatonin (3 mg daily); migraines: CoQ10 (100–300 mg daily), fish oil (EPA/DHA 2–4 g daily), vitamin B2 (40 mg daily), butterbur extract (15% petasins, 50–150 mg daily), feverfew (20–100 mg daily), and magnesium (400 mg per day).",
+        "Homeopathy: Aconite for sudden-onset headaches that feel like a tight band around the head, with apprehension, worse in cold or drafty surroundings. Arnica for sharp, bruised, achy headache pain aggravated by stooping. Apis for stabbing, burning, or stinging headache with a tender, bruised body sensation, worse in hot, stuffy environments. Belladonna for right-sided throbbing, congestive headaches beginning in the back of the head and extending to the right eye or forehead, with dilated pupils, light sensitivity, hot skin, and a flushed face, aggravated by hot sun, noise, and jolts, improved lying down in a dark quiet room. Bryonia for left-sided pain in the eye or forehead extending over the whole head, with constipation, nausea, irritability, wanting to be alone, and thirst; worse with movement, better with rest and pressure. Calcarea phosphorica for irritable school-age children with digestive aches and chronic headaches, intense pain in the back of the head, and cravings for smoked meats. Cimicifuga for headache with neck stiffness tied to hormonal changes during menopause or the menstrual cycle. Gelsemium for tight-band, mostly occipital headaches with neck pain, bruised-feeling eyes, a purple congested face, weak shaky limbs, fatigue, dizziness, blurred vision, and dilated pupils, improved by urinating and raising the head, sometimes preceded by visual disturbances. Glonoinum for violent, congestive, pounding headaches worse with head movement, stooping, and heat, improved by cold applications. Hypericum for a bursting or aching headache with a hypersensitive scalp, aggravated by foggy, damp weather. Ignatia for a tight band or nail-like pain on the side of the head with neck/back spasms, following trauma or emotional grief, worse from the slightest emotion or effort, better with distraction. Iris for constricted migraine headaches with nausea, bilious vomiting, and blurred vision, improved with movement, occurring on days off or at the start of vacations, with burning throughout the digestive tract. Lachesis for left-sided pulsating, burning headaches present on waking, with a flushed face, better in open air, worse from heat and touch. Lycopodium for right-sided temple or forehead headaches worse between 4:00 and 8:00 p.m., from hunger, overheating, or concentrating, with dizziness. Magnesia phosphorica to relax tight muscles and tension headaches. Natrum muriaticum for blinding, throbbing headaches triggered by sunlight, grief, or stress, improved lying down in a dark, cool room, sometimes with lip, tongue, or nose tingling. Natrum sulphuricum for headaches triggered by head injury. Nux vomica for bruising headaches triggered by food sensitivities, constipation, overwork, or stress, worse first thing in the morning and with noise/light, better on rising or with cold applications, with irritability, stomachache, nausea, and dizziness. Pulsatilla for a bursting headache worse in the evening or around menses, aggravated by rich fatty food, with easy tears. Ruta for a pressing headache aggravated by reading, improved by rest, with fatigue. Sanguinaria canadensis for congestive throbbing/burning headaches starting in the morning, peaking midday, improving in the afternoon, with cheek redness, pain moving from the back to the top of the head and settling over the right eye, improved by sleeping, releasing gas, or lying down, worse from motion, light, noise, or odors. Silicea for headaches beginning at the back of the head and located above the eye, with head sweats, improved by keeping the head warm. Spigelia for sharp, darting pain over the left eye, worse from stooping or sudden movement. Thuja for left-sided, nail-like piercing headaches.",
+        "Homeopathy for headaches with digestive symptoms: Lac defloratum for headaches with constipation, pain starting in the front and moving to the back of the head. Lac caninum for headaches that change sides. Kali bichromicum for supraorbital migraines with pain in one spot on the right side, yellow discharge, nausea, vomiting, gastritis, and visual problems, improved with pressure, worse from beer. Venus mercenaria for headaches with constipation, gas, and a coated tongue. Iris also applies here.",
+        "Homeopathy for headaches tied to emotion or overwork: Kali phosphoricum for headaches from being overworked and fatigued, with increased sexual desire. Phosphoricum acidum for a headache with heaviness and pressure, worse from motion and noise, better from rest and lying down, with an inability to concentrate, fatigue, and weakened memory. Zincum metallicum for headaches worse from intellectual effort and nervous fatigue, in pale individuals intolerant of wine or alcohol with decreased vision. Anacardium orientale for headaches with irritability and a sense of split personality in overworked individuals, improved by eating. Cyclamen for headaches related to menstruation, preceded by visual disturbances or dizziness, worse from coffee or open air. Actaea racemosa (black cohosh) for headaches proportional to menstrual flow with painful periods.",
+        "Acupressure: cluster headache — GB14, GB20, hold B2 with B10, fan fingers over GB6–11, end with LI4. Migraine — B10, TW16, GB12, GB6–11, GB14, LI4. Tension — GB21, GB20, GB12, GB6–11, B3–9, LI4. Sinus — GB20, GB17, SI8, LI20, ST1, B1, B2, GB14, LI4.",
+        "Aromatherapy: peppermint, lavender, eucalyptus, frankincense, rosemary, rosewood, grapefruit, coriander, lemongrass, bay laurel, lemon balm, marjoram, ginger, sandalwood, wintergreen, anise, basil, linalool, and Roman chamomile may all be beneficial."
+      ],
+      "conditions": [
+        "Headaches (tension, cluster, and migraine)"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_neuro_nerve_pain",
+      "chapter": "neurology",
+      "title": "Peripheral neuropathy (nerve pain) — the Holistic Rx",
+      "body": [
+        "Nerve pain causes pins and needles, electric shocks, and tingling in the affected extremity due to nerve damage. Causes include diabetes or prediabetes, other chronic illness, trauma, medication, toxins, autoimmunity, cancer, deficiencies (like B12), or infections such as Lyme disease or herpes zoster. Diagnosis is made via detailed history, physical exam, lab testing, imaging, and nerve conduction studies.",
+        "Supplements: alpha lipoic acid (300 mg twice daily) protects against nerve damage and lowers insulin resistance. Capsaicin cream (0.075%) applied up to four times daily. Evening primrose oil (360 mg daily) lowers pain sensations. Chromium (600 mcg daily) improves insulin sensitivity. Cinnamon (1–2 tsp with a daily meal). Vitamin B12 (500–5,000 mcg per day depending on lab values) and B6 (30 mg per day). Others: an energy revitalizing multinutrient powder, acetyl-L-carnitine (500–1,500 mg twice daily) to generate energy for healing nerve cells, topical Neuro-Eze rubbed into the area two to three times daily (most effective in early-phase small-fiber neuropathy), and magnesium.",
+        "Homeopathy: Mezereum for nerve pain worse with warmth and at night, best for ciliary neuralgia and pain tied to tooth decay. Hypericum perforatum for shooting pain with numbness, tingling, and burning. Lachesis for pain worse after falling asleep. Aconite for a congested, numb feeling in the affected part after cold exposure. Arsenicum for searing, hot-needle-like burning pain triggered by cold, with exhaustion, restlessness, and chilliness. Colocynth for lacerating pain improved by heat, triggered by cold or damp, especially facial neuralgia. Magnesia phosphorica for intermittent, sudden darting pain improved by pressure or heat and worse from cold and bending forward, especially of the head and neck. Ranunculus for pain above the eye or over the rib cage. Spigelia for pain above the left eye aggravated by any motion. Pulsatilla for acute, rheumatic facial neuralgia. Verbascum for pressure/crushing pain in the zygomatic bones, aggravated by talking, sneezing, chewing, cold air, or pressure. Platinum for constrictive, cramping pain with numbness and tingling, worse at night and at rest, with profuse, exhausting menses. Belladonna for infraorbital neuralgic pain radiating to the temples, ears, and back of the neck, worse around midnight, from noise, motion, chewing, or cold air, relieved by rest. Chamomilla for violent pain with numbness, improved by heat. Kalmia latifolia for pain that follows the course of a nerve, worse with movement and during the first part of the night. Aranea diadema for nerve pain after cold, damp weather exposure, with arm numbness that can wake the patient, a swollen feeling of the limb, worse at night. Others that can help: Allium sativum, Arsenicum album, Capsicum annuum, Carbolicum acidum, Dioscorea villosa, Dolichos pruriens, Gnaphalium polycephalum, Iris versicolor, Kreosotum, Mercurius solubilis, Phytolacca decandra, Sanguinaria canadensis, Selenium metallicum, Stannum metallicum, Staphysagria, Thallium metallicum, and Thuja occidentalis; for peripheral neuropathy specifically, Coffea cruda.",
+        "Acupressure: SI18, LI4. Lower extremity — K6, B62, GB30, GB34, GB39, SP6. Hands — LU10, LI4, SJ5, LI11, LI15, and the baxie points. Trigeminal neuralgia — LI4, ST25, ST44, TB17, GB20.",
+        "Aromatherapy: lavender, peppermint, and frankincense lower inflammation and dull pain. Others that help nerve pain: cajuput, chamomile, citronella, clove, geranium, marjoram, nutmeg, peppermint, rosemary cineole, sandalwood, yarrow, and St. John's wort–infused oil."
+      ],
+      "conditions": [
+        "Peripheral neuropathy (nerve pain)"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_neuro_parkinsons",
+      "chapter": "neurology",
+      "title": "Parkinson's disease — the Holistic Rx",
+      "body": [
+        "Parkinson's disease is a chronic degenerative condition of the nervous system in which the dopamine-producing nerve cells in the brain break down and die; because dopamine is a neurotransmitter that signals the parts of the brain controlling movement, this leads to movement impairment. Symptoms include tremor, loss of balance, stiffness and rigidity, poor posture, slowed blinking and movement, memory loss, mood disorders, dementia, and digestive and speech issues. Diagnosis is made via history, physical exam, and imaging.",
+        "Supplements: coenzyme Q10 (1,200 mg daily), vitamin C (750 mg four times daily), vitamin E (400 IU per day), and a green superfood formula with spirulina, chlorella, and wheatgrass. Others: inosine monophosphate (500–3,000 mg/day depending on uric acid levels), carnitine monohydrate (20 g for five days, then 4–10 g per day), caffeine pills (50–200 mg twice daily max, or one to two cups of coffee), NADH (5 mg twice daily), NAC (500 mg three times daily), melatonin (300 mcg–1 mg per night), proanthocyanidins (increase from 80 mg to 380 mg daily in three divided doses; don't exceed 380 mg daily), and vitamin B6 (increase from 75 mg to 150 mg daily; don't exceed 150 mg daily — contraindicated with levodopa), plus zinc (30 mg per day; large doses can interfere with mineral absorption, impair blood cell function, and depress immune function). Iron and manganese should be avoided.",
+        "Homeopathy: Argenticum nitricum for uncoordinated movement, imbalance, and hand tremor. Causticum for hand tremor worse with writing, with slow paralysis mostly on the right side. Helleborus for brain fog and slow speech. Mercurius for trembling hands and stammered speech with excessive sweating, patchy memory and concentration, loss of willpower, excess saliva, and a sweet metallic taste, worse from perspiration, sensitive to heat and cold. Natrum muriaticum for hand tremor, constant head nodding, and dropping things. Plumbum for progressive paralysis, cramping, and muscle wasting. Hyoscyamus for obscene behavior, jealousy, suspicion, restlessness, and muscle twitching. Agaricus for extreme spinal sensitivity with jerking, trembling stiffness of the extremities. Rhus tox for stiffness or cramping improved by movement and worse from dampness or immobility, with difficulty on first movement and little tremor. Gelsemium for staggering gait, tremor, and weakness affecting the eyes, tongue, and swallowing. Manganum can be used when no other remedy fits.",
+        "Acupressure: B18, B23, GB20, GB34, GV14. Others: GV14, K3, LV3, SP6, LV2, GV20, GV21, CV23, ST36.",
+        "Aromatherapy: frankincense oil reduces inflammation and vetiver oil can reduce tremors. Essential oils for muscle aches and pains — myrrh (promotes mental balance), lavender, cardamom, tea tree, clove, nutmeg, fennel, and peppermint — can also help."
+      ],
+      "conditions": [
+        "Parkinson's disease"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_neuro_rls",
+      "chapter": "neurology",
+      "title": "Restless leg syndrome — the Holistic Rx",
+      "body": [
+        "Restless leg syndrome is a chronic neurological disorder causing unpleasant sensations in the legs and an uncontrollable urge to move them, typically occurring in the evening and disturbing sleep, with tingling, cramping, burning, throbbing, or creeping sensations. Diagnosis is by detailed history, physical exam, and lab tests. Primary RLS can have no apparent cause; secondary RLS can be associated with conditions like Parkinson's disease, peripheral neuropathy, diabetes, thyroid disease, fibromyalgia, anemia or iron deficiency, ADHD, nutrient deficiency (magnesium or folate), varicose veins, other chronic medical conditions, and pregnancy.",
+        "Supplements: iron (30–60 mg) and calcium (100 mg) on an empty stomach to bring ferritin above 60 ng/mL. Magnesium, vitamin D (400 mg), folic acid, and 5-HTP. Amino acid L-tryptophan. Sufficient iron, B vitamins, omega-3 fatty acids, magnesium, calcium, and trace minerals. To boost the brain's ability to make GABA, use taurine along with NAC (500 mg–2 g) and alpha lipoic acid (600 mg).",
+        "Homeopathy: Arsenicum album for chilliness, restlessness, anxiety, and a constant urge to move the legs. Phosphorus for those who take catnaps that steady the limbs, with twitching worse lying on the right side, especially in elderly patients. Zinc for twitching, restless, trembling lower extremities even while asleep. Agaricus for legs that twitch, tingle, tremble, and itch, waking the person, worse in cold weather or early sleep. Belladonna for legs that spasm and feel hot despite feeling cold, worse when trying to fall asleep. Ignatia for jerky legs after emotional trauma, with insomnia and despair of ever sleeping again. Kali carbonicum for jerking movements occurring mostly between 2:00 and 4:00 a.m. Sepia for restless legs worse during the day, improved with exercise. Tarentula for the irresistible urge to move the legs constantly, with twitching, jerking, and yawning.",
+        "Acupressure: CV6, ST38, GV20, GV26, B20, LV3, LV5, CV17, ST36.",
+        "Aromatherapy: cypress, rosemary, black pepper, ginger, lavender, marjoram, nutmeg, and cedarwood have antispasmodic qualities that can help. Others that can help: frankincense and chamomile."
+      ],
+      "conditions": [
+        "Restless leg syndrome"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_neuro_seizure",
+      "chapter": "neurology",
+      "title": "Seizure disorder — the Holistic Rx",
+      "body": [
+        "A seizure happens when there is abnormal electrical activity in the brain that may come on suddenly, varying in duration and severity; recurrent seizures are known as epilepsy. Types include generalized (tonic-clonic and absence in adults; febrile and infantile spasms in children) and partial seizures. Symptoms range from muscle twitching to brief loss of consciousness. Causes can include stroke, brain tumor or injury, electrolyte imbalance, cancer, medications, or infection. Diagnosis is made via history, neurological exam, and testing including EEG.",
+        "Supplements: B6 (50 mg three times per day), folic acid (0.4–4 mg per day), and zinc (25 mg per day). Bacopa leaf (200–400 mg per day in two to three divided doses of an extract standardized to 20% bacosides). Others: sedative herbs such as chamomile, kava, valerian, and passionflower; manganese (10 mg three times per day), selenium (100 mcg per day), taurine (500 mg three times per day), and ubiquinone (100 mg per day). Avoid ginkgo biloba, Panax ginseng, St. John's wort (interacts with seizure medications), and white willow. For children: fish oil (2–4 g of EPA/DHA per day), taurine (500 mg three times daily), GABA (750–1,500 mg daily), B6 and B12, and melatonin (3 mg per day).",
+        "Homeopathy: Aconite for seizures brought on by fever or fright. Aethusa for episodes with teeth clenching, thumbs clenched inside the fists, drowsiness after vomiting or passing stool, dilated pupils, and a seizure that follows digestive symptoms or gastroenteritis. Belladonna for wide, staring eyes, a red, hot face, worse from excessive movement or jolting, useful for febrile seizures. Chamomilla for thumbs clenched inside the palms, one cheek red and one pale, green-yellow watery diarrhea, episodes triggered by anger or teething. Cuprum metallicum for a violent attack triggered by vomiting or menstruation, with a blue face, clenched lips and fists, and mental dullness. Glonoinum for a seizure triggered by heat or sun exposure, with fingers and toes spread wide and a hot, congested head. Ignatia for facial twitching with pallor, triggered by emotional trauma or upset. Zinc for irritability before an attack, head rolling side to side with fidgety lower-limb movements, and a pre-rash stage of infectious illness. Causticum for seizures triggered by emotional shock, with hopelessness and fearfulness. Cicuta for status post-seizure occurring after a head injury.",
+        "Acupressure: GV20, GV26, CV14, SI3, SP4, B15, LV1, B60, K6, LV3, ST40.",
+        "Aromatherapy: calming, relaxing oils can help relieve stress-related triggers — jasmine, ylang-ylang, chamomile, lavender, and clary sage. Frankincense oil is helpful for decreasing seizures. Avoid rosemary, fennel, sage, eucalyptus, hyssop, pennyroyal, tansy, thuja, wormwood, and spike lavender."
+      ],
+      "conditions": [
+        "Seizure disorder"
       ],
       "source": "The Holistic Rx — Madiha Saeed, MD"
     }
