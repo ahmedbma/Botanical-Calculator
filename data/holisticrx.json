@@ -26,6 +26,10 @@
     {
       "name": "Toothache",
       "blurb": "Acute tooth or gum pain, matched here to individual homeopathic remedies by its exact character, location, and triggers."
+    },
+    {
+      "name": "Rosacea",
+      "blurb": "Chronic inflammatory facial redness with flushing, bumps, and visible blood vessels, often triggered by diet, stress, or Candida."
     }
   ],
   "sections": [
@@ -282,6 +286,88 @@
         "Gingivitis",
         "Tooth decay",
         "Toothache"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_derm_acne",
+      "chapter": "dermatology",
+      "title": "Acne — the Holistic Rx",
+      "body": [
+        "Pores are open to allow hair growth and to secrete sebum (oil) from the sebaceous glands. When pores get blocked, excess oil builds up and triggers rapid growth of Propionibacterium acnes — the more bacteria present, the more breakouts occur — and the resulting inflammation forms a pimple. Pores can be blocked by dead skin cells, overactive oil glands, P. acnes, and inflammation, leading to whiteheads, blackheads, and cysts. Elevated blood sugar increases acute inflammation and the inflammatory response behind breakouts, so regulating blood sugar and healing the gut are important steps in managing acne. Diagnosis is made via history and exam.",
+        "Supplements: Zinc (50 mg twice daily with meals for three months, then can reduce to 50 mg daily); can take copper (3–5 mg) along with the zinc, since zinc sulfate isn't easily absorbed. Nicotinamide combo (750 mg nicotinamide, zinc 25 mg, copper 1.5 mg, folic acid 500 mcg per day, plus daily vitamin B6) for four to eight weeks can reduce pimples. Tea tree oil (5% solution diluted in water, dabbed onto blemishes twice daily) can act similarly to benzoyl peroxide. Vitex (chasteberry) (160 mg of a standardized Vitex extract) reduces acne formation. Others: vitamin A (2,000–4,000 IU daily) reduces oil and keratin production — going over the upper limit can be a problem, and it can be dangerous for pregnant women; prenatal vitamins should not contain more than 3,000 IU of preformed vitamin A. Burdock root (Arctium lappa) (300–500 mg capsule, or thirty drops of tincture, or 1 cup of tea, three times daily). Topical steam treatment: pour boiling water over strawberry leaves, eucalyptus, thyme, and wintergreen; place a towel over the head and lean over the bowl for ten to fifteen minutes. Natural clay mask: bentonite clay or Fuller's earth mixed with rose water into a paste, left on for 10 minutes. Children: vitamin A (1,000–5,000 IU daily), B3 (4% niacinamide wash applied topically daily), zinc (10 mg daily).",
+        "Homeopathy: Antimonium crudum helps acne associated with digestive disorders. Calcarea sulphurica can help chronic or cystic acne presenting with a yellowish discharge. Hepar sulphuris calcareum helps acne filled with pus that is painful to touch and improves with warmth. Ledum palustre helps pustular acne on the nose and cheeks that feels better with cold. Pulsatilla is for acne associated with hormonal changes. Silicea is for chronic white pustules. Selenium is best for acne accompanied by hyperseborrhea and hair loss. Sulphur is for inflamed, sore, red acne worsened by heat, in a patient who is also impatient, irritable, and moody — washing or heat can aggravate symptoms. Nux vomica is indicated for acne aggravated by excessive medications, stimulants, or rich food. Kali bromatum is for teenagers who are easily depressed and anxious, with acne and anxiety shown through nonstop movement. Eugenia jambosa is for acne with a small white suppuration spot at its center.",
+        "Acupressure: LI4, LU5, CV9. Others: GB14, SP10, B23, B47, ST2, B10.",
+        "Aromatherapy: Lavender oil, geranium, and bergamot (an astringent and antidepressant) can help improve inflammation. Once the skin improves, apply a lotion made with diluted water, lavender, and orange blossom to reduce scarring. Others that can help: clove, geranium, lavender, and tea tree oils. Clary sage, juniper, lemongrass, mandarin, and lemon can help with blackheads."
+      ],
+      "conditions": [
+        "Acne"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_derm_eczema",
+      "chapter": "dermatology",
+      "title": "Eczema — the Holistic Rx",
+      "body": [
+        "Eczema is a chronic skin condition where an itchy, red rash appears over the body. Symptoms include dry, red, inflamed, sensitive skin, intense itching, recurring rash, scaly areas, and rough, leathery patches that can be accompanied by oozing or crusting. Diagnosis is made via history and physical exam.",
+        "Supplements: Essential fatty acids (1–2 g EPA/DHA daily, or 2 tbsp of flaxseed oil daily). Evening primrose oil (3 g daily) or borage oil contains GLA and can be used orally or topically. Vitamin E (400 IU) helps the body use fatty acids and promotes wound healing. Burdock root (300 mg capsule or 1 mL of tincture) helps cleanse the skin; vitamin C with bioflavonoids (1–3 g daily) improves the immune system; natural creams with chamomile; licorice root gel 2% (to reduce inflammation and itching); zinc (50 mg three times daily for six weeks); copper (2 mg daily); black cumin seed oil (20–40 mg daily per pound of body weight), taken orally or mixed into lotion for the skin; neem oil; quercetin (500–1,000 mg three to four times daily) as an anti-inflammatory; and turmeric, which is also anti-inflammatory. Improve wound healing with B5, vitamin C, zinc, and fatty acids. Children: fish oil (EPA/DHA 1,000–4,000 mg daily), probiotics, vitamin D (1,000–4,000 IU per day), zinc (10–20 mg daily).",
+        "Homeopathy by phase: erythematous phase — apis, urticaria urens, belladonna. Vesicular phase — rhus toxicodendron, rhus vernix or rhus venenata, mezereum, cantharis, anagallis arvensis, croton tiglium. Exudative phase — graphites, mezereum, petroleum, antimonium crudum, viola tricolor. Desquamative phase — arsenicum album, arsenicum iodatum, natrum sulphuricum, berberis vulgaris, hydrocotyle asiatica. Fissure phase — nitricum acidum, graphites, antimonium crudum, petroleum, sepia.",
+        "Homeopathy for itching and individual presentations: staphysagria (itching on eyelids and genitals), cistus canadensis (red, oozing, scabby lesions on cheeks and backs of hands), manganum aceticum (itching of joint creases with scales or fissures), radium bromatum (burning, itching thick skin), dolichos pruriens (itching with constipation), chamomilla (itching that causes behavioral disturbance). Arsenicum album is for tender, dry, itchy, swollen skin eruptions, worse in winter, with itching intense between midnight and 2:00 a.m.; the patient feels restless. Alumina is for dry, itchy skin in a constipated person. Calendula soothes affected inflamed areas topically. Calcarea carbonica helps eczema that's worse in winter, with clammy hands and feet and cravings for sweets and eggs — a great remedy for cradle cap. Graphites is for eczema mainly affecting the palms and areas behind the ears, with dry, thick, honey-like discharge, and itching intensified by a warm bed. Hepar sulph is for skin that is easily infected and sensitive, worse in the cold. Medorrhinum helps those who've had eczema since very young — they tend to be warm, sweat easily, and crave ice and oranges. Mezereum is for blistering eczema that oozes and crusts, feeling better in open air and cold. Petroleum is for dry, cracked skin on the palms and hands, itching worse at night and with warmth of the bed. Psorinum is for eczema that looks dirty, is irritated, and is prone to infection, scratched until it bleeds, with general chilliness. Rhus toxicodendron is for itchy, blistering eczema that improves with warmth and movement, craving cold milk, itching worse at night or in damp weather. Sulphur helps when skin is red, rough, itchy, and dry, with early-morning diarrhea, aggravated by heat and washing.",
+        "Acupressure: LI11 (helps with itching), B40, SP10, B23, B47, ST36, B10, LI4, LU9, B13. Weeping eczema: SP9, B52, CV9. Severe itching: LU7, SP10, LV5, B13.",
+        "Aromatherapy: essential oils can help soothe inflammation and itching, including juniper, peppermint, bergamot, carrot, jojoba, lavender, frankincense, thyme, benzoin, sweet marjoram, geranium, and chamomile.",
+        "Other Recommendations: biofeedback and climatotherapy (using water and sunlight as therapy) can also be helpful."
+      ],
+      "conditions": [
+        "Eczema"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_derm_alopecia",
+      "chapter": "dermatology",
+      "title": "Alopecia (Hair Loss) — the Holistic Rx",
+      "body": [
+        "Hair loss, or alopecia, can occur at any age and in any gender and can be due to multiple causes, including medication side effects, hormonal issues, and nutritional deficiencies (e.g., ferritin). Diagnosis can be made with a detailed history, examination, and testing, including biopsy.",
+        "Supplements: Saw palmetto (320 mg daily) improves hair growth. Pygeum (100 mg twice daily) slows hair loss and improves prostate health. Pumpkin seed oil (8 g, or 1 tbsp, daily). Aloe vera juice (1/2 cup twice daily). B vitamins like biotin (2,000–3,000 mcg daily) and pantothenic acid (100 mg per day). Others: silicon (orthosilicic acid); MSM (1,000–3,000 mg daily), which promotes hair development; bamboo extract (900 mg twice daily). Children (to stimulate hair growth): vitamin C (500–1,000 mg daily), vitamin D (1,000–4,000 IU daily), L-carnitine (500–1,000 mg daily), zinc (20 mg daily).",
+        "Homeopathy: alopecia areata — eberthinum, paratyphoidinum. Postpartum — eberthinum. Totalis — Thallium metallicum. Seborrheic — Selenium metallicum. Arsenicum album is helpful when hair loss results from stress, with the person very fearful and restless. Aurum muriaticum helps hair loss associated with headaches and boils on the head, symptoms worse at night, with a high likelihood of depression. Fluoric acidum helps brittle hair that falls out in little tufts. Selenium helps painful, sensitive skin with loss of body hair as well. Arnica is for hair loss associated with severe injury. Kali carbonicum helps hair loss associated with dryness of hair and scalp. Baryta carb helps hair loss in an elderly, mentally slow person with poor circulation. Ignatia amara is for hair loss that comes on with acute grief or emotional trauma. Lycopodium clavatum is for hair loss after childbirth and for premature balding and graying. Natrum muriaticum is for hair loss with dandruff and white crusts on the scalp, with depression and salt cravings. Phosphoric acidum is for hair loss after extreme emotion and grief, with a fatigued, indifferent patient. Sepia is for hair loss associated with hormonal changes, like after childbirth or at menopause. Silica (Silicea) is helpful when hair loss accompanies a chronic illness — the hair is brittle and the person tends to be thin, chilly, and easily fatigued. Phosphorus helps with hair that falls out in handfuls.",
+        "Acupressure: Baihui point (improves blood circulation), hollow point, ST36.",
+        "Aromatherapy: rosemary, lavender, clary sage, and cypress can stimulate hair growth; jasmine, rose, and geranium have relaxing properties. These can be added to homemade shampoos."
+      ],
+      "conditions": [
+        "Alopecia"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_derm_psoriasis",
+      "chapter": "dermatology",
+      "title": "Psoriasis — the Holistic Rx",
+      "body": [
+        "Psoriasis is an autoimmune condition of the skin characterized by thick plaques. Diagnosis is via history, examination, and possible biopsy.",
+        "Supplements: Digestive enzymes (one to two capsules with each meal) help digest effectively. Hydrochloric acid (one to three capsules with each meal, decreasing the dose if a burning sensation occurs) helps with protein digestion. Optimize vitamin D and B12. Others: milk thistle (70–210 mg three times per day), sarsaparilla (250–500 mg three times per day) to reduce bacterial toxin effects; a good multivitamin with 25,000 IU of vitamin A (a critical nutrient for healthy skin), 400 IU of vitamin E, 800 mcg folic acid, 200 mcg selenium, 200 mcg chromium, 25–50 mg zinc, and other antioxidants; burdock root, cleavers, barberry, calendula, and oil of anise. Topical aloe vera (0.5%) cream has been effective for psoriasis. Creams that help contain avocado oil, B12, and Oregon grape (10%) cream. Others to try: creams with vitamin E, vitamin A, zinc, sarsaparilla, and goldenseal. Psoriatic arthritis: evening primrose, borage, fish oil, curcumin, bromelain, and quercetin. Children: fish oil (1–2 g EPA/DHA per day), vitamin A (1,000–4,000 IU daily), vitamin D (0.005% applied topically three times a day), aloe vera gel (three times daily), Oregon grape root (10% cream applied three times daily).",
+        "Homeopathy: Arsenicum iodatum helps dry, scaly, itchy skin that leaves large scales when exfoliated, leaving a raw, exuding surface, with a weak, exhausted patient who sweats profusely. Kali sulphuricum is indicated for scaly dermatosis. Arsenicum album helps restless, anxious patients with dry, itchy, scaly plaques that feel like burning skin, improving with warm applications. Belladonna can treat rectal psoriasis. Calcarea carbonica is for dry, scaly plaques that often open up, in a person who is fatigued, overwhelmed, anxious, overweight, and chilly, craving eggs, dairy, and sweets. Graphites may help psoriasis affecting the skin behind the ears, backs of the hands, scalp/head, and genitals, with honey-colored oozing pus, worse at night. Kali arsenicosum helps extremely scaly lesions aggravated by warmth. Petroleum is for a condition aggravated by cold, worse in winter, with dry, itchy skin worsened by the warmth of the bed. Mercurius solubilis helps those with swollen lymph nodes and greasy-looking skin that becomes easily infected, in introverted people with strong emotions who are sensitive to temperature changes. Mezereum is for fine, white, scaly psoriasis covering large areas, with crusting and itching that feels better with cold. Rhus toxicodendron helps psoriasis that is raw, itchy, red, dry, and chapped, improving with heat or baths, in a person who craves milk and is restless. Sepia is one of the most common remedies for psoriasis, with thickening of the skin, circular eruptions, and dryness, often on the elbow — recommended for women with hormonal imbalance who feel chilly and irritable. Staphysagria helps when psoriasis affects the scalp and erupts after suppressed grief or emotions. Sulphur helps dry, scaly, red, itchy/burning patches that are often moist and oozing, worse after baths and from warmth — used for psoriatic arthritis and when the person often feels too hot.",
+        "Acupressure: GB20, LI4, LV3, ST36, and B10.",
+        "Aromatherapy: essential oils can bring relief to inflamed skin and support healing, including lavender oil (especially for stress and inflammation), frankincense, tea tree, myrrh, geranium, and carrot seed oil (scalp psoriasis). Coconut oil can be used as the base oil — always check a small test patch first to make sure you aren't reacting to a specific oil. Juniper baths may also be helpful."
+      ],
+      "conditions": [
+        "Psoriasis"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_derm_rosacea",
+      "chapter": "dermatology",
+      "title": "Rosacea — the Holistic Rx",
+      "body": [
+        "Rosacea is a chronic inflammatory condition of the skin on the cheeks, chin, eyelids, nose, or forehead that becomes inflamed and red. There are often small red bumps or pustules on the affected areas, small spider-like blood vessels on the face, a red nose, and a tendency to blush or flush easily; over time it can give the nose a swollen, waxy look. Common triggers are emotional stress, hot or cold weather, sunshine, spicy food, MSG, vinegar, cinnamon oil, alcohol, and occasionally some skincare products — even links to Candida have been noted. High doses of B6 and B12 can trigger rosacea. Diagnosis can be made via history and exam.",
+        "Supplements: betaine hydrochloride (one to three capsules with each meal, reducing the dose if burning occurs) improves digestion. Licorice helps reduce inflammation and soothe irritation. Feverfew helps reduce redness and dryness — choose a parthenolide-free extract. Nicotinamide combo (750 mg, zinc 25 mg, copper 1.5 mg, folic acid 500 mcg) helps improve symptoms after four to eight weeks. Zinc (60–70 mg per day for no more than three months, then 15–20 mg per day). Others: azelaic acid topical cream (3–10%), gentian root (300 mg, or ten to twenty drops, five to fifteen minutes before meals to improve digestion), burdock root (300 mg or 3 mL three times per day) improves detoxification and hormone balance; natural progesterone has anti-inflammatory benefits and improves skin conditions; B vitamin (50 mg twice daily), especially B12 (400–800 mcg sublingually daily); pancreatin (350–500 mg before meals); and brewer's or nutritional yeast (1½ tsp daily). Turmeric, ginger, aloe vera gel, and raw honey applied to the skin have also been shown to improve symptoms.",
+        "Homeopathy: Arsenicum album helps anxious people who get cold easily, with lesions that are hot, dry, and flaky, and who prefer warm drinks. Pulsatilla is for rosacea that feels better in fresh air and worse in warm rooms, with symptoms associated with hormonal changes like puberty or menopause, in individuals who are weepy, sensitive, and crave sweets. Sepia is for rosacea associated with hormonal changes in a woman who is fatigued and irritable, craves salty, sour, and sweet foods, and has a tendency toward depression. Sulphur helps chronic redness and inflammation aggravated by heat, sun, and warmer climates, in a person who prefers coolness. Carbo animalis is for facial lesions of rosacea. Arnica montana is a remedy for papulo-pustules. Sanguinaria canadensis helps rosacea with burning sensations and itching, hot flushes with redness of the cheeks, aggravated by heat. Eugenia jambosa is indicated for rosacea common in alcoholics, who often have cramps in the feet. Calcarea fluorica helps those with severe telangiectasias. Lachesis mutus is prescribed for rhinophyma, especially when symptoms are aggravated by hormonal changes. Thuja occidentalis helps those with rosacea accompanied by varicose veins on the cheeks.",
+        "Acupressure: the Yin Tang point, LI20, SI18, ST4, LI4, ST36, SP10, ST3, B10 (helps with anxiety and stress).",
+        "Aromatherapy: tea tree oil, eucalyptus, geranium, chamomile, rose, rosemary, thyme, and lavender essential oil can help relieve skin inflammation — try applying with a cool compress."
+      ],
+      "conditions": [
+        "Rosacea"
       ],
       "source": "The Holistic Rx — Madiha Saeed, MD"
     }
