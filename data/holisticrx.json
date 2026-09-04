@@ -498,7 +498,12 @@
         "Flushing pollen from the nasal passages eases sinus pressure, congestion, and inflammation: use a neti pot in the morning and before bed with 8 oz of warm water (never tap water) mixed with 1/4 tsp of salt, or premixed saline.",
         "The Four Big S's — special consideration: stress worsens inflammation, so managing stress is key to healing. Release negative emotions with energy-medicine modalities such as Reiki, qigong, craniosacral therapy, and therapeutic touch."
       ],
-      "conditions": [],
+      "conditions": [
+        "Allergic rhinitis",
+        "Sinusitis",
+        "Vertigo",
+        "Tinnitus"
+      ],
       "source": "The Holistic Rx — Madiha Saeed, MD"
     },
     {
