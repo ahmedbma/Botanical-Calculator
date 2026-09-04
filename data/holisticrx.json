@@ -1555,7 +1555,13 @@
         "By controlling our breath, we can control our universe from the inside out — the goal is to lower inflammation so we can maximize the moments that take our breath away. Healing the gut and avoiding food sensitivities like dairy helps reduce excess mucus production. Detoxifying your environment regularly is key, and maintaining the health of the mucous membranes is important: eat foods rich in carotenoids and vitamin A, like sweet potatoes, carrots, berries, and leafy greens. Magnesium can improve muscle spasms and promote muscle relaxation. Quercetin, found in garlic, mustard seeds, and onions, helps fight bacterial infections and improves overall immune health. Folate protects the lungs and can be found in green leafy vegetables, nuts, and lentils. Omega-3 fatty acid foods, like fish, nuts, and flaxseeds, reduce airway inflammation. Foods with vitamins B5 and B6 help support stress and adrenal function. Staying hydrated is important for airways to function appropriately.",
         "The Four Big S's — special consideration: stress can worsen breathing issues and airway inflammation, so incorporating relaxation skills and targeting specific emotional imbalances are vital steps for optimal health and can improve airway function. Exercising in cold air can exacerbate attacks, so cover the nose and mouth as needed."
       ],
-      "conditions": [],
+      "conditions": [
+        "Asthma",
+        "Chronic obstructive pulmonary disease",
+        "Bronchitis",
+        "Pneumonia",
+        "Cough"
+      ],
       "source": "The Holistic Rx — Madiha Saeed, MD"
     },
     {
