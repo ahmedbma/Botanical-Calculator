@@ -54,6 +54,10 @@
     {
       "name": "Irregular periods and abnormal uterine bleeding",
       "blurb": "Menstrual cycle irregularities, missed periods, and abnormal bleeding from hormonal imbalance."
+    },
+    {
+      "name": "Cancer (general oncology support)",
+      "blurb": "General nutritional, supplement, and immune-support protocol to use alongside conventional cancer treatment."
     }
   ],
   "sections": [
@@ -879,6 +883,44 @@
       ],
       "conditions": [
         "Candidiasis"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_hemeonc_anemia",
+      "chapter": "hemeonc",
+      "title": "Anemia, iron deficiency — the Holistic Rx",
+      "body": [
+        "Anemia occurs when the blood doesn't have enough red blood cells to carry oxygen to your organs, so the body isn't getting enough oxygen. Types include anemia from a vitamin deficiency (B12 or folic acid), anemia of chronic disease (cancer, Crohn's disease, kidney failure), aplastic anemia (bone marrow can't make all three blood cell types), hemolytic anemia (red blood cells destroyed faster than the marrow can replace them), and sickle cell anemia (red blood cells form a crescent/sickle shape that can block blood flow, causing pain). Symptoms: fatigue, pale skin, shortness of breath, feeling cold, irritability, chest pain, dizziness/lightheadedness, palpitations or rapid heartbeat, and headache. Severe anemia can damage organs. Iron deficiency anemia is the most common type. Diagnosis is by history, physical exam, blood tests, and occasionally biopsy.",
+        "Diet and detox: heal the gut first, since appropriate digestion and absorption of B12, zinc, and magnesium depends on it. Nourish the spleen (responsible for red blood cell production) with squash, green leafy vegetables, and bitters like romaine and arugula. Eat iron-rich foods — beef/chicken liver, organic grass-fed meats, leafy greens, and beets — and remove processed and junk foods, balancing insulin levels. Foods rich in vitamin C help the body absorb and retain iron. Also helpful: blackstrap molasses, leeks, figs, eggs, cherries, strawberries, cashews, and brewer's yeast (rich in iron, folic acid, and B12). Cook in cast-iron pots or pans, since food absorbs minerals from the cookware. Juicing can sometimes make foods easier to digest and absorb.",
+        "Stress and worry can deplete the spleen and liver, so managing stress is part of the protocol.",
+        "Supplements: iron (50–100 mg of a well-absorbed form like ferrous fumarate, gluconate, or citrate), taken with vitamin C to help absorption. Vitamin B12 (1,000–2,000 mcg daily, methylcobalamin form, sublingual) and folic acid (800–1,200 mcg daily, sublingual) if your doctor has diagnosed a deficiency. Vitamin C (250–500 mg with each dose of iron). Green superfood powder — spirulina (2,000 mg daily, or one heaping teaspoon daily) — stimulates RBC production; choose one that contains spirulina, vitamin B12, dandelion, and folic acid. Other herbs — alfalfa, dandelion, burdock, and yellow dock (one capsule or twenty drops of tincture), plus gentian — improve iron absorption, help clean the blood, and have been used to treat anemia by stimulating the digestive system to more easily absorb iron and other nutrients; don't use with chronic pain or frequent urination, and be aware they may lower blood pressure.",
+        "Homeopathy: Ferrum phosphoricum for iron deficiency in someone with a pale face that flushes easily, a generally robust appearance, and oversensitivity. Calcarea phosphorica for anemia during growth spurts (the first two years of life or adolescence) or chronic anemia in adults, accompanied by poor digestion and irritability. China officinalis for anemia from blood loss or illness, in a patient who is usually cold, overly sensitive, and exhausted. Natrum muriaticum for anemia with a dull or muddy complexion, dry mouth and lips, headaches, and a tendency to cold sores and constipation. Picric acidum for anemia coupled with mental overload. Arsenicum for those with B12 deficiency.",
+        "Acupressure: SP6, ST36 (support circulation); LI4 (headache); CV4, SP10, LI6 (stress, headaches, or neck/facial pain).",
+        "Aromatherapy: ginger oil and citrus oils may improve iron absorption and anemia symptoms. Cinnamon oil supports blood sugar balance; ginger, eucalyptus, and black pepper can improve poor circulation. Ledum can be tried for liver cleansing or support. Others that help: lemon, thyme, chamomile, peppermint, and spikenard."
+      ],
+      "conditions": [
+        "Anemia, iron deficiency"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_hemeonc_cancer",
+      "chapter": "hemeonc",
+      "title": "Cancer (general oncology support) — the Holistic Rx",
+      "body": [
+        "Cancer refers to diseases characterized by abnormal cells that grow and divide without control and can invade and destroy normal tissue. Tumors form when these abnormal cells form masses, but some cancers, like leukemia, don't form solid tumors. The immune system plays an extremely important role in defending against and removing cancer. Lowering inflammation gives the body a fighting chance and helps build a stronger, healthier you — one able to combat symptoms and side effects of cancer treatment and lower the risk of relapse, recurrence, or a second cancer.",
+        "Diet and detox: maintain an acid/alkaline balance by drinking alkaline water (add lemon or lime juice and/or hydrogen peroxide), increase raw vegetables, and remove grains and dairy to optimize detoxification. Increase omega-3 fatty acids, calcium, vitamin D (e.g. cod liver oil), blue-green algae, conjugated linoleic acid, mushrooms, folic acid (effective against breast, pancreatic, and colorectal cancer), melatonin, vitamin B6 (pyridoxine), and vitamin C. Low-carbohydrate diets with intermittent fasting help stabilize insulin, which improves estrogen dominance — tumor cells overexpress insulin receptors, letting more glucose in to feed the tumor, so managing insulin resistance matters. Fiber lowers circulating estrogen and estrogen metabolites that stimulate breast tissue, and lowers insulin and glucose levels that feed tumor cells. Anticancer foods: cruciferous vegetables, pomegranate, turmeric, garlic, green tea, oolong tea, olive oil, bean sprouts, strawberries, figs, olives, selenium, tomatoes, dietary fiber, ginger, onions, and quercetin (found in capers, cocoa, and hot chili peppers). Postmenopausal women should prioritize calcium and selenium. Keep BMI below 25. Intermittent fasting may lower cancer risk, but always discuss it with your doctor, since it should be avoided during active treatment or when weak. Men should avoid beta-carotene and take as little vitamin E and calcium as possible. Also avoid vitamin E, alcohol, grilling or cooking in a wok, and blood in meat.",
+        "Stress is a carcinogen, similar to environmental toxins — reducing it improves quality of life and has an inhibiting effect on tumor growth. Releasing suppressed emotions and replacing them with positive ones supports emotional health, since caging in suppressed emotions can contribute to illness. Strong social support, connecting to your inner intuition, and following your sense of calling and purpose all matter.",
+        "Supplements shown to help reduce cancer risk: probiotics (optimize the immune system), vitamin D (preventive effect on recurrence of malignancies, supports healthy bones), vitamin C (antioxidant activity), calcium/magnesium (bone health), omega-3 fatty acids (studies suggest biochemical and clinical benefits in breast, prostate, and non-small-cell lung cancer), mushroom supplements, turmeric (antitumor activity), and CoQ10 (antioxidant, may help in malignancies, especially in those receiving cardiotoxic chemotherapy).",
+        "Supplements that can be taken during and after cancer treatment, by symptom: stress, fatigue, and depression — levocarnitine, ginseng, royal jelly, brewer's yeast, maca powder, wheat germ, camu camu, zinc, and magnesium. Hair growth — brewer's yeast, B1, and B6. Weight loss — green tea, caffeine, common ash, and meadowsweet. Erectile dysfunction — vitamin D, L-arginine (2–5 g daily), pycnogenol (40 mg two to three times daily). Always check with your doctor about supplement–drug interactions before use: botanicals can decrease the concentration and efficacy of cancer treatment (e.g. echinacea, grapeseed, kava, St. John's wort, and possibly garlic), and ginkgo can increase toxicity of chemotherapy.",
+        "Homeopathy: cancer represents a profound breakdown at every level, so home prescribing generally isn't appropriate — for acute symptoms, a 30C potency four times daily may be used under guidance. Cadmium sulphuratum for vomiting, hair loss, and fatigue. Nux vomica for GI symptoms like indigestion, nausea, or constipation. Ipecacuanha for persistent vomiting and nausea, especially when vomiting doesn't relieve symptoms. Arsenicum for restlessness, burning pains, anxiety, and nausea. Radium bromatum specifically for radiation poisoning, especially when followed by arthritic complaints. Arnica montana for bruised or restless sensations. Eupatorium for aching bone pain that's worse with motion, often with stiffness and chills.",
+        "Acupressure: P6, LI4 (reduces pain); extra 1 acupoint (anxiety); LV4 (abdominal distention or pain). To support the immune system and liver: B23, B47, CV6, K27, and ST36.",
+        "Aromatherapy: combine bergamot, chamomile, and lavender for immune support, in a warm bath or for massage. By symptom — fatigue: rose, jasmine, or geranium. Anxiety or stress: lavender and Melissa. Pain: black pepper, rosemary, and ginger. Antibacterial/antifungal/antiviral: tea tree oil. Digestive issues and nausea: peppermint or ginger oil. Juniper can help break down toxins; others that help are cedarwood, frankincense, mandarin, sweet orange, and rose.",
+        "Nutritional protocols: supplemental nutritional programs discussed include the Gerson Therapy and juicing, the Budwig protocol, proteolytic enzyme therapy, vitamin C chelation, frankincense essential oil therapy, and oxygen therapy."
+      ],
+      "conditions": [
+        "Cancer (general oncology support)"
       ],
       "source": "The Holistic Rx — Madiha Saeed, MD"
     }
