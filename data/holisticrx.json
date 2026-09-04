@@ -78,6 +78,26 @@
     {
       "name": "Restless leg syndrome",
       "blurb": "Uncontrollable urge to move the legs with tingling, cramping, or creeping sensations, worse in the evening."
+    },
+    {
+      "name": "Cataracts",
+      "blurb": "Clumps of protein clouding the eye's lens, the leading cause of vision loss after age forty."
+    },
+    {
+      "name": "Diabetic retinopathy",
+      "blurb": "Diabetes-related damage to the blood vessels of the retina that can progress to blindness."
+    },
+    {
+      "name": "Dry eye",
+      "blurb": "Inadequate tear production or drainage leaving the eyes under-lubricated and irritated."
+    },
+    {
+      "name": "Glaucoma",
+      "blurb": "Slow-progressing build-up of eye fluid pressure that damages the optic nerve and vision."
+    },
+    {
+      "name": "Macular degeneration",
+      "blurb": "Age-related retinal breakdown (dry or wet AMD) causing progressive loss of central vision."
     }
   ],
   "sections": [
@@ -1082,6 +1102,107 @@
       ],
       "conditions": [
         "Seizure disorder"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_ophtho_general_dd",
+      "chapter": "ophthalmology",
+      "title": "Eye health — the Holistic Rx (diet, detox and lifestyle)",
+      "body": [
+        "Your eyes are a window to your outer and internal world — the inflammation that may otherwise be silent in your body can be seen literally from deep within the eye, giving your doctor a glimpse inside. Optimize your health by lowering inflammation for a clearer window to the world.",
+        "Some of the best foods for your eyes are dark greens, carrots, green beans, red peppers, peas, nuts/seeds, berries, egg yolks, and wild-caught fish, as these contain antioxidants; eye vitamins like A, E, and C; and zinc with carotenoids like lutein and zeaxanthin that protect the eyes by lowering free radicals and relieving inflammation. Blueberries and cherries contain anthocyanin, which helps fight the free radicals that can damage your eyes and keeps the collagen around the eye flexible. Chromium (present in brewer's yeast) and magnesium both have beneficial effects on the eye.",
+        "The Four Big S's: relieving stress, improving sleep, and optimizing social and spiritual health are important to healing the overall inflammation behind chronic eye conditions. Avoid tanning beds, and protect your eyes from heat when taking a sauna. Use eye exercises and acupressure to keep them feeling comfortable, and massage the temporomandibular joint (TMJ), temples, and neck three times a day. Wear sunglasses and a hat for UV light protection."
+      ],
+      "conditions": [
+        "Cataracts",
+        "Diabetic retinopathy",
+        "Dry eye",
+        "Glaucoma",
+        "Macular degeneration"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_ophtho_cataracts",
+      "chapter": "ophthalmology",
+      "title": "Cataracts — the Holistic Rx",
+      "body": [
+        "Cataracts are clumps of protein that collect on the lens of the eye and are the most common cause of vision loss in people over forty; most develop slowly over time. Symptoms depend on the maturity and location of the cataract (cortical, posterior subcapsular, or nuclear) and can include blurred or double vision, halos around lights, fading or yellowing of colors, frequent changes in eyeglass or contact lens prescription, brown spots in the visual field, and increasing difficulty with night vision. Diagnosis is made via history and a detailed eye examination; some professionals believe cataracts can be prevented and delayed.",
+        "Supplements: a multivitamin (one or two daily) with B-complex (50–100 mg daily) — B2 and B3 are protective; vitamin C (1,000 mg three times daily, if tolerated); and vitamin E (400–800 IU daily with a meal), which helps with healing after laser eye surgery. Vitamin A (10,000 IU daily with a meal), an antioxidant. Others: riboflavin (3–5 mg per day), selenium, and bilberry (an anthocyanoside; 80 mg two to three times daily) to decrease free radicals.",
+        "Homeopathy: for temporary treatment, choose the appropriate remedy and take 6C three times a day for one week, then twice daily for up to one month; if vision continues to improve, take a two-day break, then resume twice daily for another month. Ideally, work with a homeopath to find a constitutional remedy. Calcarea can be taken as soon as circular lines are visible on the lens and a doctor confirms early-stage cataracts. Once symptoms begin, switch to a different remedy: Phosphorus for a sensation of mist or a veil before the eyes, or of something pulled tightly over them. Silicea for later stages that begin to interfere severely with sight. Ruta graveolens for red, hot eyes with dimmed vision. Digitalis purpurea for dim and double vision, with lid margins red, swollen, and agglutinated in the morning. Secale cornutum for hard or soft cataracts accompanied by headaches, roaring in the ears, and vertigo. Naphthalinum for a cortical cataract.",
+        "Acupressure: UB1 and UB2 at early stages; Yuyao, SJ23, GB1, Qiuhou, ST1, LI3 to improve circulation; LI4.",
+        "Aromatherapy: essential oils should never be put in the eye or on the eyelids. Clove oil, taken internally, is a powerful antioxidant that can help prevent and slow cataracts; lavender can also be helpful."
+      ],
+      "conditions": [
+        "Cataracts"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_ophtho_diabetic_retinopathy",
+      "chapter": "ophthalmology",
+      "title": "Diabetic retinopathy — the Holistic Rx",
+      "body": [
+        "Diabetic retinopathy is a complication of diabetes caused by damage to the blood vessels of the light-sensitive tissues in the retina. It initially causes no symptoms but can progress to blindness. Diagnosis is made via a dilated eye exam.",
+        "Supplements: a multivitamin with B-complex (50–100 mg daily), B12 (1–2 mg daily, if tolerated), vitamin C (1,000 mg three times per day), and vitamin D. Vitamin E (400–800 IU daily at mealtime). Vitamin A (5,000 IU per day). Magnesium (500–1,000 mg at bedtime). Zinc (30 mg daily for several months). Essential fatty acids (500 mg twice daily). Alpha-lipoic acid (200 mg twice daily). Lutein (6–10 mg daily). Zeaxanthin (0.5–1.0 mg daily). Chromium (50–200 mcg daily). Copper (2 mg daily while taking zinc). Bilberry (100 mg twice daily). Garlic (one odorless pill daily). Others: quercetin (1,000 mg daily), vanadyl sulfate (20 mg daily for two weeks, then 2 mg daily), phosphatidylinositol (PI), Gymnema sylvestre (50 mg per day), and fenugreek (15 mg per day).",
+        "Homeopathy: Arnica as soon as floaters in the eye are seen. Conium if Arnica doesn't stabilize the condition within twelve hours. Lachesis to help prevent further leakage of blood vessels in the retina once the condition has been stabilized (can be taken every four hours for up to six doses).",
+        "Acupressure: similar to general eye-health acupressure points combined with diabetic acupressure points.",
+        "Aromatherapy: cinnamon oil and coriander oil can help relieve diabetes by supporting the pancreas, improving weight loss, and aiding general diabetes management and prevention; coriander oil enhances the secretion of insulin from the pancreas and exhibits insulin-like activity at the cellular level."
+      ],
+      "conditions": [
+        "Diabetic retinopathy",
+        "Diabetes mellitus, type 2"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_ophtho_dry_eye",
+      "chapter": "ophthalmology",
+      "title": "Dry eye — the Holistic Rx",
+      "body": [
+        "Dry eye occurs when a person doesn't have adequate tears to lubricate and nourish the eyes, from an imbalance of tear production and drainage. Causes include hormonal changes, medications, and medical conditions like rheumatoid arthritis, Sjögren's, diabetes, thyroid disease, and inflammation of the eyelids; environmental factors like smoke, dry or windy climates, and even LASIK surgery can also contribute. Diagnosis is made via an eye exam and complete history, along with measuring tear volume and production using the Schirmer's test.",
+        "Supplements: fatty acids (1,000 mg DHA and 500 mg EPA once or twice a day) and fat-soluble vitamins like A (20,000 IU daily for the first month, then 10,000 IU daily) and E (400–800 IU daily with a meal). Magnesium (500 mg at bedtime). B-complex (50–100 mg daily) with B12. Vitamin C (1,000 mg three times daily, if tolerated). Calcium (750 mg daily, at a different time from magnesium). Zinc (30 mg daily for several months). Copper (2 mg daily while taking zinc). Chondroitin and glucosamine sulfate (100–500 mg daily).",
+        "Homeopathy: Alumina for dry eye when objects look yellow and the eyes feel cold. Belladonna for a very hot, red, or swollen eye with dilated pupils. Bryonia alba for dryness associated with eye pain. Nux moschata for dry eye when objects look larger, look very distant, or vanish, and the patient is unable to open the eyes.",
+        "Acupressure: UB1, ST1, GB1.",
+        "Aromatherapy: castor oil and flaxseed oil can help with dry eye."
+      ],
+      "conditions": [
+        "Dry eye"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_ophtho_glaucoma",
+      "chapter": "ophthalmology",
+      "title": "Glaucoma — the Holistic Rx",
+      "body": [
+        "Glaucoma is a slow-progressing chronic disease causing a build-up of fluid in the eye that can lead to optic nerve, retinal, and lens damage; it is the second leading cause of blindness. There are no early symptoms, but as the disease progresses side vision is lost, followed by central vision loss; other symptoms include blurry vision, rainbow-colored halos around lights, red eye, headache, nausea, vomiting, and pain. Diagnosis is made by an eye care professional with visual acuity, visual field, pupil dilation, and tonometry tests.",
+        "Supplements: B-complex (50–100 mg daily) with B12. Fish oil (600 mg EPA and 400 mg DHA daily) helps relieve intraocular pressure. Magnesium (500–1,000 mg daily) helps relax the blood vessel wall and improve blood flow. Vitamins A and D (unless already in a multivitamin). Vitamin C (1,000 mg three times daily). Vitamin E (400–800 IU daily, taken with a meal). Zinc (30 mg daily for several months). Copper (2 mg daily while taking zinc). Alpha-lipoic acid (200 mg daily), an antioxidant shown to improve vision for some people with this disease. Lutein (6–10 mg daily). Garlic (one odorless pill daily). Others: bilberry (160 mg twice daily); astaxanthin (2 mg per day); CoQ10 (300 mg daily) to help prevent free radical damage; Ginkgo biloba extract to improve circulation (fifteen drops twice daily); Coleus forskohlii; Trifola.",
+        "Homeopathy: Physostigma venenosum for open-angle glaucoma with muscle spasms and neurological problems. Phosphorus for glaucoma with vertigo. Spigelia for sharp pains. Belladonna (30C) for glaucoma with blurred vision and pain in one eye that is made worse by bright light.",
+        "Acupressure — especially helpful for people who use their eyes a great deal and suffer from eyestrain: ST3 relieves pressure on the eyes; UB10 soothes tired eyes and headaches; LI3, LI4, Cuan Zhu, and B1.",
+        "Aromatherapy: frankincense and helichrysum oil can improve eyesight; cypress oil improves circulation, which can relieve glaucoma; lavender, rose, sandalwood or ylang-ylang, bergamot, and jasmine can help reduce anxiety and tension.",
+        "Other recommendations: avoid eyestrain for long periods of time, don't watch TV in the dark, and avoid drugs that jeopardize the eye."
+      ],
+      "conditions": [
+        "Glaucoma"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_ophtho_macular_degeneration",
+      "chapter": "ophthalmology",
+      "title": "Macular degeneration — the Holistic Rx",
+      "body": [
+        "Macular degeneration is an age-related chronic illness and the leading cause of vision loss in people over sixty in the United States. It affects the macula, the part of the retina responsible for central vision, leading to blurred vision, a blind spot in the center of vision, and difficulty with reading and everyday tasks in one or both eyes; often the first symptom is needing more light to see up close. Dry AMD (age-related macular degeneration, the more common type) is gradual degeneration of the macula causing gradual loss of central vision; wet AMD involves blood vessels growing under the retina that leak fluid and blood, causing a sudden loss of central vision. Symptoms of dry AMD include blurring of print when reading, haziness of vision, and a blurred spot in the central visual field that may grow larger and darker; symptoms of wet AMD include sudden loss of central vision, a sudden blind spot, objects appearing farther away or smaller than usual, and straight lines appearing wavy. Diagnosis is via a visual field test and an Amsler grid (covering one eye and staring at the black dot in the center of a checkerboard-like grid — wavy or missing lines can point to macular degeneration), plus fluorescein angiography and optical coherence tomography as needed.",
+        "Supplements: a multivitamin (one or two capsules as directed with a meal) with vitamin A (10,000 IU per day) and D, magnesium (500 mg daily), fish oil DHA (500 mg twice daily), selenium (50–200 mcg daily), taurine (200 mg daily), B-complex (50–100 mg per day), B12 (1–2 mg per day), chromium (200 mcg daily), zinc (30 mg or less daily), and vitamin E (400–800 IU daily with meals). Digestive enzymes as required. Vitamin C (1,000 mg, one to three times daily, if tolerated). Garlic (one odorless 1,000 mg pill daily). CoQ10 (60–120 mg daily). Ginkgo biloba extract (fifteen drops once or twice daily). Beta-carotene (5,000–10,000 IU daily). Lutein (6–20 mg daily with a meal), an antioxidant that protects the eyes and skin and prevents oxidative damage of the macula. Zeaxanthin (0.5–1.0 mg daily with a meal) protects the eye tissues (lens and macula) for clear vision, prevents oxidative damage, and prevents glare and light sensitivity. Bilberry (100 mg twice daily), an antioxidant. Copper (2 mg daily while using zinc). Others: astaxanthin (2 mg daily) to help prevent retinal damage.",
+        "Homeopathy: a constitutional remedy can be helpful for macular degeneration, matched to the person's symptoms, so seeing a licensed homeopath is important.",
+        "Acupressure: ST36 improves digestion and nutrition absorption; GB37 improves vision and relieves watery eyes; GB39, LI3, LI4, UB1, GB20, Tai yang, P6, LV2, SP6.",
+        "Aromatherapy: frankincense oil has been shown to improve eyesight, cypress oil can improve circulation, and helichrysum can improve vision and support nerve tissue function — three drops can be applied twice daily to the lateral area of the eye, but never directly into the eyes.",
+        "Other recommendations: test yourself regularly with the Amsler grid. Eliminate unnecessary medication, as some medications may deplete essential nutrients, vitamins, and minerals and accelerate macular degeneration. Optical devices that enlarge visual images and other low-vision aids are available as needed."
+      ],
+      "conditions": [
+        "Macular degeneration"
       ],
       "source": "The Holistic Rx — Madiha Saeed, MD"
     }
