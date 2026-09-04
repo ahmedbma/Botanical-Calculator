@@ -14,6 +14,10 @@
     {
       "name": "Systemic lupus erythematosus (SLE)",
       "blurb": "Chronic autoimmune disease that can attack skin, joints, brain, heart, lungs and blood cells."
+    },
+    {
+      "name": "Hyperlipidemia",
+      "blurb": "Elevated cholesterol/triglycerides — a major modifiable cardiovascular risk factor addressed with diet, targeted supplements, and lab-guided therapy."
     }
   ],
   "sections": [
@@ -144,6 +148,73 @@
       ],
       "conditions": [
         "Rheumatoid arthritis"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_cardiology_dd_general",
+      "chapter": "cardiology",
+      "title": "Cardiology — the Holistic Rx (diet, detox and lifestyle)",
+      "body": [
+        "Almost all cardiac risk factors are related to lifestyle, environment, and inflammation, so treating insulin resistance and lowering inflammation are the cornerstones of preventing and healing heart disease. Add herbs and spices — turmeric, garlic, ginger, cinnamon, curry powder, rosemary, thyme, basil, chili peppers, and coriander — and focus on fiber and healthy fats. Green, black, and oolong tea are great for the heart, as they contain flavonoids and have an anticlotting effect. Increase fiber up to 50 g per day with nuts, seeds, berries, and vegetables. High-potassium foods (avocados, melons, spinach, broccoli, squash) and apple cider vinegar (helps keep the body alkaline) have been shown to improve blood pressure; omega-3 foods like grass-fed beef, wild-caught salmon, chia, and flax are great for the heart. Other foods to focus on: pomegranate juice (8 oz)/seeds, watercress, goji berries, apples, capers, olives, onions, green pepper, and scallions. Limit/eliminate alcohol and caffeine, and eat about an ounce of dark chocolate daily. Detoxify the environment from lead, cadmium, and mercury.",
+        "The Four Big S's: stress raises blood pressure — it constricts blood vessels and worsens heart disease — so a daily relaxation technique is important. Moderate exercise lowers insulin resistance, inflammation, and blood pressure (consult a doctor before starting a program, as some conditions need to be addressed first). Chiropractic care can also improve cardiovascular problems."
+      ],
+      "conditions": [
+        "Atherosclerosis",
+        "Hypertension",
+        "Hyperlipidemia"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_cardiology_atherosclerosis",
+      "chapter": "cardiology",
+      "title": "Atherosclerosis / coronary heart disease — the Holistic Rx",
+      "body": [
+        "Coronary heart disease is a chronic disease in which plaque (a waxy substance) builds up over many years inside the coronary arteries that supply oxygen-rich blood to the heart. Symptoms: chest pain or pain radiating into the arm, neck, jaw, or back (may feel like indigestion), shortness of breath, sleep issues, and fatigue; pain can be triggered by stress and worsens with activity — any chest pain warrants an immediate ER visit. Once an acute event has passed, preventing another is accomplished with lifestyle changes.",
+        "Labs: micronutrient testing, carotid doppler, stress testing, coronary artery calcium scoring, and carotid intima-media thickness testing (especially once past age fifty, or if smoking, high cholesterol, or a family history of vascular disease) — plus Endo-PAT testing for those with known or suspected disease. Advanced lipid testing breaks lipoprotein particles down by size/subclass (small, dense, oxidized particles are the ones that squeeze through vessel-wall cracks and seed plaque) and also flags oxidative stress, endothelial dysfunction, and inflammation markers. A comprehensive nutrition panel (e.g., ION panel) evaluates amino acids, vitamins, minerals, antioxidants, fats, urinary organic acids (how effectively the body turns food into energy), and heavy metals — correcting deficiencies found here, alongside lifestyle change, can meaningfully lower cardiovascular risk. A lipoprotein(a) test helps detect early cardiovascular disease, especially alongside an abnormal calcium score or thickened carotid artery — always look at the whole picture rather than any single value.",
+        "Supplements: fish oil (1 tablespoon daily). B vitamins — B1, B3/niacin (500 mg two to three times daily), B6 (50 mg/day), B9, B12. Taurine (3 g twice daily). CoQ10 (100–300 mg daily) — an antioxidant that protects the heart and vessels from free-radical damage and helps stabilize blood sugar. Garlic/Allium sativum (1,200 mg/day) — antioxidant and natural blood-thinning properties; reduces cholesterol and homocysteine. Curcumin (500–1,000 mg/day). Magnesium (500 mg daily) for circulation and blood pressure. Carotenoids. Vitamin C (250–500 mg twice daily) — avoid supplemental doses over 300 mg within 24 hours of lab testing, as it can interfere with results. Vitamins D, E, and K. Carnitine tartrate (500–1,000 mg twice daily, up to 3 g twice daily) to produce ATP and power the heart. Others: quercetin (250–1,000 mg/day), choline (do not exceed 3,500 mg/day; pair with B vitamins, particularly pantothenic acid), grapeseed extract (300 mg/day), L-citrulline (500 mg/day), sytrinol (150 mg/day), ALA (300 mg twice daily), PQQ (20 mg/day), pterostilbene (50 mg/day), ribose (5 g two to three times daily — mitochondrial energy production), NAC (600 mg/day), resveratrol (250 mg/day), alpha-lipoic acid, L-theanine, green tea extract, ashwagandha, berberine (500–1,000 mg/day), selenium, red yeast rice (1,200–2,400 mg daily — lowers LDL and reduces heart-related deaths), and hawthorn (500–900 mg daily — improves circulation to the heart and lowers blood pressure). Glucomannan capsules can help bind toxins. Branched-chain amino acids (leucine, valine, isoleucine in a 4:1:1 ratio; 5,000 mg/day), phosphatidylserine (300–600 mg twice daily).",
+        "Plaque stabilization and reversal/reduction: vitamin K2 — menaquinone-7 (100–500 mcg/day) and MK-4 (1,000 mcg/day) — omega-3 (5 g/day), aged garlic extract (600–1,200 mg twice daily), curcumin (1,000–5,000 mg/day), quercetin (500 mg twice daily), vitamin C (1,000 mg twice daily).",
+        "Homeopathy: see a licensed homeopath for a constitutional remedy; the following are for temporary/emergency use only. If experiencing heart-attack symptoms, call 911 first — while waiting for the ambulance, a 30C potency can be taken every two to three minutes. Aconitum napellus for numbness and pain in the left arm with intense fear and anxiety. Arnica for a squeezing or bruising sensation in the heart. Cactus for angina, especially with the sensation of a band tightening around the chest.",
+        "Acupressure: H3, H4, H7 (stimulates circulation); GV24.5 (produces a sense of calm); CV17 (reduces sadness/anxiety); P3 (eases pain); P6 (improves anxiety-related palpitations); SP4; B15. For chest pain: HP4, HP7, HP6, K27, CV14, CV17.",
+        "Aromatherapy: essential oils help inflammation and reduce oxidative stress — ylang ylang, lemon, frankincense, lemongrass, ginger, and helichrysum. For poor circulation, a stimulating massage blend of almond oil with thyme, black pepper, ginger, rosemary, and clove essential oils."
+      ],
+      "conditions": [
+        "Atherosclerosis"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_cardiology_hyperlipidemia",
+      "chapter": "cardiology",
+      "title": "Hyperlipidemia — the Holistic Rx",
+      "body": [
+        "One in three Americans has elevated cholesterol. Statins block HMG-CoA reductase, the liver enzyme that drives cholesterol production, thereby lowering blood cholesterol — but among people who take a statin for five years, only about one in eighty-three lives is saved, one in one hundred develops diabetes, one in ten suffers muscular damage, and roughly 18 percent develop undesirable side effects (liver dysfunction, memory loss, increased cancer risk, anemia, sexual dysfunction). Statins also block CoQ10, an antioxidant enzyme central to cellular energy production, heart function, and blood-glucose regulation. Some people do benefit from a statin — always discuss risks versus benefits with your doctor, as alternatives exist depending on your situation.",
+        "Supplements: fish oil (1–2 g EPA/DHA per day) to reduce cholesterol and triglycerides. CoQ10 (200–300 mg daily), especially if on lipid-lowering medication. Red yeast rice (start 600 mg twice daily, up to 1,200 mg twice daily at bedtime; take 25–100 mg CoQ10 alongside to prevent deficiency; look for a citrinin-free product). Niacin (1,500–3,000 mg/day if diabetic — high doses can raise blood sugar). B5/pantothenic acid. Chromium. Choline. Phytosterols/plant sterols and stanols (2,000 mg/day). Others: garlic (500 mg/day) lowers cholesterol and raises HDL; berberine (500 mg two to three times daily); guggul (1,500 mg/day standardized to 5% guggulsterones, equivalent to 75 mg guggulsterones — raises HDL, lowers cholesterol); glucomannan (two to four capsules fifteen minutes before meals with a glass of water); artichoke extract (500 mg three times daily); acetyl-L-carnitine (1,000 mg daily) for high triglycerides.",
+        "Children: fish oil (EPA/DHA 1–2 g daily), pycnogenol (50–100 mg daily), vitamin B3 (5–20 mg daily), decaf green tea (4–6 cups daily), psyllium (6 g daily), plant sterols (2–2.5 g daily).",
+        "Homeopathy: Allium sativum for excessive meat-eaters with belching, burning, and increased appetite. Aurum metallicum for a rapid pulse, depression, or anger, with pain behind the sternum especially at night. Baryta muriaticum for elderly patients with vertigo and heaviness. Nux vomica for those who crave alcohol and fatty foods. Calcarea carbonica for those who are overweight, cold-sensitive, with continuous scalp perspiration and tight, palpitating chest. Lycopodium for a desire for sweets with flatulence and other digestive symptoms.",
+        "Acupressure: Liver point, LI11, LI4, and LV3.",
+        "Aromatherapy: essential oils can lower cholesterol by decreasing emotional stress and improving circulation, with cardio-supportive and antioxidant properties — lavender, cypress, and rosemary oil support overall heart health."
+      ],
+      "conditions": [
+        "Hyperlipidemia"
+      ],
+      "source": "The Holistic Rx — Madiha Saeed, MD"
+    },
+    {
+      "id": "hrx_cardiology_hypertension",
+      "chapter": "cardiology",
+      "title": "Hypertension — the Holistic Rx",
+      "body": [
+        "Hypertension (high blood pressure) reflects resistance to blood flow in the arteries and the volume of blood the heart pumps. Most people are asymptomatic, though some have headaches, nosebleeds, or shortness of breath with severe hypertension. Diagnosis is made by history and office blood-pressure measurement.",
+        "Supplements: if already on BP medication, talk to your doctor first — these can lower pressure further and combining can be dangerous. Omega-3 fatty acids (1,000–2,000 mg daily EPA/DHA) reduce blood pressure with long-term use. Magnesium (500 mg daily) relaxes smooth muscle. CoQ10 (100–300 mg daily) reduces blood pressure and supports heart health — if on warfarin, monitor levels, as it can lower them (GI side effects can occur). Garlic (600 mg aged extract). Others: vitamin C (600 mg daily) induces sodium diuresis; L-arginine (4–8 g/day) or L-citrulline (2–4 g/day); hawthorn/Crataegus oxyacantha (250 mg standardized extract three times daily) dilates artery walls and lowers blood pressure; hibiscus tea (1.25 g steeped in 240 mL water, three times daily). If on diuretics: calcium (750 mg), potassium (100 mg), vitamin B1 (300 mg), P5P/B6 (50 mg), zinc (25 mg), magnesium glycinate (240 mg/day). If on a beta blocker: CoQ10 (start 200–300 mg/day) and melatonin (6 mg at bedtime).",
+        "Children: fish oil (EPA/DHA 1–2 g daily), magnesium (200–400 mg daily), arginine (1–2 g daily).",
+        "Homeopathy (hypertension and atherosclerosis): Arsenicum album for those who are pale, thin, and cold-sensitive with alternating weakness and vascular lesions; also (15C) for lipid disorders. Arsenicum iodatum to help prevent arterial sclerosis, preventive or curative (five pellets daily to once weekly). Baryta carbonica for elderly patients with high blood pressure, memory disorders, headaches, fatigue, palpitations, and possible aneurysm. Sulphur for hyperphagic, congestive presentations. Thuja occidentalis for truncal obesity. Natrum sulphuricum 15C for heaviness of trunk/shoulders/hips with a tendency to joint pain, bronchitis, and frequent diarrhea. Natrum muriaticum for high blood pressure after emotional upset, salt cravings, intense thirst, sun intolerance, desire to be alone, headaches, palpitations, and insomnia. Phosphorus for labile hypertension with salt cravings, nervousness, and frequent fainting spells. Vanadium for frequent fainting, dizziness, a sense of chest compression, confusion, and mental deterioration. Glonoinum for a pounding arterial sensation with tachycardia, congestion, a tight headache, flushed face, and throbbing carotid pain worse with heat, sun, or alcohol. Arnica to limit hemorrhage/edema and prevent thrombosis via its action on capillaries. Arsenicum metallicum (9C daily) for anxious, depressive patients with hypertensive vascular erethism, palpitations, extrasystoles, and hot flashes that improve with hot air. Aconitum for acute hypertensive attacks with a congested face, tense pulse, severe headache, palpitations, anxiety, and agitation. Argentum nitricum for stress-triggered symptoms with cravings for salt and sweets. Belladonna for a flushed face, pounding headaches, and immediate heat with cold hands/feet and light sensitivity. Lachesis for suspicious, jealous, talkative patients who feel warm and congested, are intolerant of anything touching the neck, bruise easily, and are prone to hypertension around menopause that improves with bleeding (menses, nosebleed). Nux vomica for stress-driven hypertension with irritability, impatience, stimulant/alcohol cravings, overeating, digestive issues, chilliness, and constipation, improving after a short nap. Ignatia for sudden BP spikes with hypersensitivity to worry and frustration. Calcarea fluorica for early-onset atherosclerosis with ligament hyperlaxity. Lycopodium for heart disease with cholesterol, liver, uric-acid, or kidney issues. Plumbum metallicum for renal insufficiency and thin arteries, especially in the elderly. Silicea for thin patients prone to osteoporosis and chronic suppurations. Calcarea carbonica (15C) for familial obesity with a tendency to diabetes, polyps, and kidney/gallbladder stones.",
+        "Acupressure: ST36, H7, LI11, P6, LV2 (acute stage), LV3 (during remission); GB20, K3, B38, CV17 (chest tension with stress); GV20, LI4, K1, GB34.",
+        "Aromatherapy: essential oils decrease emotional and oxidative stress while dilating arteries — lavender, ylang-ylang, frankincense, geranium, mandarin, marjoram, eucalyptus citriodora, yarrow, and clary sage calm the body and lower blood pressure. A juniper oil massage helps break down fatty deposits in the body and arteries. For atherosclerosis specifically: lemon, ginger, black pepper, basil, linalool, rosemary, cineole, and juniper."
+      ],
+      "conditions": [
+        "Hypertension"
       ],
       "source": "The Holistic Rx — Madiha Saeed, MD"
     }
