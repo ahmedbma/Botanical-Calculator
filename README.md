@@ -14,7 +14,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | Tool | Purpose |
 |---|---|
 | **Differential Builder** | Type a patient's symptoms in plain words and get the five conditions in this notebook that best match, each with what it matched on and the whole workup already attached to it — labs and imaging, screening tools, pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and herbs. Fifteen red-flag combinations raise a banner. Term matching over this site's own text, not a diagnostic algorithm. |
-| **Conditions** | 75 conditions A–Z plus 111 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 40 of them, **Dr William Mitchell's case protocols** where the compendium carries one, and the sections of your own notes that describe it. |
+| **Conditions** | 75 conditions A–Z plus 111 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 40 of them, **Dr William Mitchell's case protocols** where the compendium carries one, and the sections of your own notes that describe it. Carries a **paediatrics** section: a filter for the 75 conditions that present in childhood, each with its age band and what changes in a child, over a reference block of vitals by age, dosing rules, red flags, dehydration, milestones and fever. |
 | **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The nine **screening instruments** are listed among the exams under *Screening* — STOP-BANG, Epworth, PHQ-9, GAD-7, the MDQ, MMSE/MoCA, AUDIT-C, the COPD Assessment Test and the mould exposure questionnaire — each with a blank form to download or a link to the publisher who licenses it, and the **PHQ-9** and **GAD-7** scoreable in place. |
 | **Labs & Imaging** | 90 tests across blood, urine, stool, microbiology, imaging, function tests, procedures and specialty panels — why you would order each, how to read it, and its **normal and optimal ranges** with the caveat that decides whether the number can be taken at face value. The same tests hang off every abnormal exam finding and every condition. The nine **screening instruments** sit under Physical Exams instead, with their score bands. |
 | **Pharmaceuticals** | 106 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
@@ -85,6 +85,7 @@ js/formularydata.js      the ten practitioner lines as a global
 js/casebookdata.js       the Master Compendium as a global
 js/labrangesdata.js      normal and optimal ranges as a global
 js/dxindexdata.js        the symptom index as a global
+js/pediatricsdata.js     the paediatrics section as a global
 js/app.js                all calculators, the differentiator, the exam index, the screeners and the therapeutics tabs
 data/herbdata.json       the same herbal data as plain JSON, for reuse
 data/homeopathy.json     the same homeopathic data as plain JSON, for reuse
@@ -97,12 +98,13 @@ data/formulary.json      the same formulary data as plain JSON, for reuse
 data/casebook.json       the same compendium data as plain JSON, for reuse
 data/labranges.json      the same range data as plain JSON, for reuse
 data/dxindex.json        the same symptom index as plain JSON, for reuse
+data/pediatrics.json     the same paediatric data as plain JSON, for reuse
 assets/phq9.pdf          blank PHQ-9 form, generated from data/screeners.json
 assets/gad7.pdf          blank GAD-7 form, generated from data/screeners.json
 assets/auditc.pdf        blank AUDIT-C form (the WHO AUDIT consumption items)
 ```
 
-The ten files under `js/` are generated from their counterparts in `data/`; edit the JSON and
+The eleven files under `js/` are generated from their counterparts in `data/`; edit the JSON and
 regenerate if you change the reference data.
 
 ## Data
@@ -397,6 +399,42 @@ history or medication. It cannot exclude anything. It knows only the conditions 
 absence here is not evidence. The fifteen red-flag rules (chest pain with breathlessness, melaena,
 thoughts of self-harm, headache with fever, unilateral calf swelling with breathlessness) are pattern
 matches, not triage: a patient can be critically unwell and trip none of them.
+
+### Paediatrics
+
+**A section in the Conditions tab, in two halves.**
+
+The **Paediatrics** filter chip narrows the index to the **75 conditions that present in childhood** —
+Kawasaki disease, roseola, cradle cap, bronchiolitis, tet spells, febrile seizures, toddler's diarrhoea,
+adolescent acne. Each carries an age band (neonate, infant, toddler, child, adolescent) and a line on what
+changes about it in a child: irritant nappy rash spares the folds and candidal infection involves them;
+bilious vomiting in an infant is malrotation until surgery says otherwise; the frontal sinuses do not
+pneumatise until 7 to 8 years, so frontal tenderness in a young child is something else; growth failure and
+delayed puberty can precede any bowel symptom in adolescent IBD by years. That tagging is applied to
+entries the notebook already carried.
+
+Above the list sits the **reference block**, seven sections written for this tool:
+
+- **Normal vital signs by age** — heart rate, respiratory rate and systolic BP across six age bands, with
+  the 90 + (2 × age) and 70 + (2 × age) rules, and the reminder that hypotension is a late and
+  pre-terminal sign in a child.
+- **Age- and weight-based dosing** — Clark's, Young's, Fried's and body-surface-area rules, with the
+  tincture arithmetic worked through (Clark's on a 30-drop adult dose gives a 20 kg child about 9 drops)
+  and the warning never to scale a low-dose botanical this way.
+- **Red flags by age** — fever under 28 days, non-blanching rash, bilious vomiting, grunting and recession,
+  reduced wet nappies, a limp, and an injury whose mechanism does not fit the history.
+- **Assessing dehydration** — the three severity bands with their fluid arithmetic, and the 4-2-1
+  maintenance rule.
+- **Developmental milestones** with their red flags, including that regression at any age is always a
+  referral.
+- **Fever in a child** — treat for distress not for the number, paracetamol and ibuprofen dosing, never
+  aspirin under 16, and urine in any child under 3 with fever without a source.
+- **Botanicals and supplements in children** — no honey under 1, no salicylate herbs in a febrile child,
+  no essential oils internally, glycerites over tinctures under 12, and iron as the leading cause of fatal
+  childhood poisoning.
+
+This block is not from the coursework and is not peer reviewed. Weight-based dosing from a current
+formulary outranks the historical rules every time.
 
 ### The Master Compendium
 

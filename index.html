@@ -57,10 +57,21 @@
         <button class="segbtn" id="cx-sort-nd">By ND frequency</button>
       </div>
     </div>
+
+    <details class="pedsbox" id="peds-box">
+      <summary>Paediatrics &mdash; the reference that goes with the child in front of you</summary>
+      <p class="hint">Normal vital signs by age, the dosing rules, the red flags, dehydration assessment,
+        developmental milestones, fever, and what changes about botanicals and supplements in a child.
+        Written for this tool from standard paediatric references &mdash; not from your coursework, and
+        not peer reviewed. The <strong>Paediatrics</strong> filter chip above narrows the condition list to
+        the entries that present in childhood.</p>
+      <div id="peds-body"></div>
+    </details>
     <div id="cx-results" class="condlist"></div>
 
     <details class="srcnote">
       <summary>Where this comes from</summary>
+      <p><strong>The paediatrics section is two different things.</strong> The <strong>Paediatrics</strong> filter chip and the age band and paediatric note on each condition are a tagging of entries this notebook already carries &mdash; 75 of them present in childhood, and each says what changes about it in a child. The <strong>reference block</strong> above the list &mdash; vital signs by age, the dosing rules, red flags by age, dehydration assessment, developmental milestones, fever, and paediatric prescribing &mdash; was written for this tool from standard paediatric references. It is not from your coursework and it is not peer reviewed. Clark's, Young's and Fried's rules are historical approximations kept for when no paediatric dose exists; weight-based dosing from a current formulary outranks all three, every time.</p>
       <p><strong>The case protocols are Dr William A. Mitchell Jr's, transcribed from your Master Compendium.</strong> 95 cases across addictions, cardiovascular medicine, dermatology, endocrinology, gastroenterology and respiratory medicine, each with its presentation and its dosed protocol, filed under every condition it treats. The respiratory module (the gut&ndash;lung axis, short-chain fatty acids, asthma, COPD, cystic fibrosis, lung cancer, pneumonia and PASC) and the gastroenterology study guide (adverse food reactions, intestinal permeability, the 5R framework, coeliac disease, SIBO, exocrine pancreatic insufficiency, gallbladder disease and the gut&ndash;liver axis) join the <em>From your notes</em> sections under the conditions they describe. 34 conditions the compendium covers that this index did not are carried as topics. Every dose in that material is the compendium's; none of it was written for this tool, and none of it is peer reviewed &mdash; several protocols carry prescription drugs, injections and intravenous formulations that are outside a student's scope.</p>
       <p><strong>Not from your workbook.</strong> The Yarnell Formulator Tool contains no condition-to-herb mapping. Which conditions appear here follows naturopathic practice-pattern research; the herbs and rationale come from general Western herbal and naturopathic materia medica. Both are cited under <em>Where this comes from</em> below. Treat every entry as a <em>starting point for formula design</em> that you verify against your own references &mdash; not as a protocol, and not with the authority of the dosing data in the other tabs.</p>
       <p><strong>Herb selection and rationale:</strong> general Western herbal and naturopathic materia
@@ -782,6 +793,7 @@
 <script src="js/casebookdata.js"></script>
 <script src="js/labrangesdata.js"></script>
 <script src="js/dxindexdata.js"></script>
+<script src="js/pediatricsdata.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

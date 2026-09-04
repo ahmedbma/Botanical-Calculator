@@ -803,3 +803,26 @@ td.herb input{min-width:190px}
 .dx-tail{margin-top:16px;font-style:italic}
 .txtag.warnt{background:var(--warn-bg);color:var(--warn)}
 @media print{.dx-picker,.dxfoot{display:none!important}.dxcard{break-inside:avoid}}
+
+
+/* ---- paediatrics in the conditions tab ---- */
+.pedsbox{margin:6px 0 18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.pedsbox>summary{cursor:pointer;padding:12px 16px;font-size:.92rem;font-weight:600;color:var(--accent);
+  list-style:none;display:flex;align-items:baseline;gap:8px}
+.pedsbox>summary::-webkit-details-marker{display:none}
+.pedsbox>summary::before{content:"\25B8";font-size:.7rem;color:var(--muted)}
+.pedsbox[open]>summary::before{content:"\25BE"}
+.pedsbox .hint{margin:0 16px 10px;max-width:74ch}
+#peds-body{padding:0 16px 14px}
+.peds-sec{border-top:1px solid var(--line)}
+.peds-sec>summary{cursor:pointer;padding:10px 2px;font:600 .88rem/1.4 var(--sans);color:var(--ink)}
+.peds-secbody{padding:0 2px 12px}
+.peds-flag{margin:0 0 8px;font-size:.82rem;line-height:1.6;color:var(--muted)}
+.peds-list{margin:0;padding-left:1.15rem}
+.peds-list li{font-size:.88rem;line-height:1.7;margin:5px 0}
+.sys.peds{background:var(--accent-soft);color:var(--accent)}
+.peds-angle{margin:0 0 14px;padding:10px 14px;border-radius:10px;background:var(--accent-soft);
+  border-left:3px solid var(--accent)}
+.peds-angle p{margin:4px 0 0;font-size:.88rem;line-height:1.65}
+.peds-age{font:700 .62rem/1 var(--sans);text-transform:uppercase;letter-spacing:.07em;color:var(--accent)}
+@media print{.pedsbox{break-inside:avoid}}

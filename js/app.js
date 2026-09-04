@@ -1491,6 +1491,12 @@
     nd.title = 'The 30 conditions most commonly seen in naturopathic practice.';
     box.appendChild(nd);
 
+    var pd = el('button', 'chip', 'Paediatrics (' + (PD.conditions || []).length + ')');
+    pd.dataset.sys = '__peds';
+    pd.title = 'The conditions in this index that present in childhood, each with its age band and what ' +
+      'changes about it in a child.';
+    box.appendChild(pd);
+
     (D.niches || []).forEach(function (n) {
       var count = CONDS.filter(function (c) { return c.niche === n; }).length;
       if (!count) return;
@@ -1502,6 +1508,8 @@
     box.addEventListener('click', function (e) {
       if (!e.target.dataset.sys) return;
       cxSystem = e.target.dataset.sys;
+      var pbox = $('#peds-box');
+      if (pbox && cxSystem === '__peds') { pbox.open = true; }
       $$('#cx-filters .chip').forEach(function (c) { c.classList.toggle('is-on', c === e.target); });
       renderConditions();
     });
@@ -1899,6 +1907,49 @@
     return det;
   }
 
+  /* ==================================================================
+     PAEDIATRICS
+     A tagging of the conditions that present in childhood — the age band and
+     what changes about each in a child — with the reference that goes beside
+     them: vitals by age, the dosing rules, red flags, dehydration, milestones,
+     fever and paediatric prescribing.
+     ================================================================== */
+  var PD = window.PEDS_DATA || { conditions: [], sections: [], ages: [] };
+  var PD_BY = {}, PD_AGE = {};
+  (PD.ages || []).forEach(function (a) { PD_AGE[a.id] = a.label; });
+  (PD.conditions || []).forEach(function (c) { PD_BY[c.condition] = c; });
+
+  function buildPedsBody() {
+    var host = $('#peds-body');
+    if (!host) return;
+    host.innerHTML = '';
+    (PD.sections || []).forEach(function (sec) {
+      var det = el('details', 'peds-sec');
+      det.appendChild(el('summary', null, sec.title));
+      var body = el('div', 'peds-secbody');
+      if (sec.flag) {
+        var fl = el('p', 'peds-flag');
+        fl.innerHTML = '<span class="pe-flagmark">written for this tool</span> ' + escapeHtml(sec.flag);
+        body.appendChild(fl);
+      }
+      var ul = el('ul', 'peds-list');
+      sec.body.forEach(function (line) { ul.appendChild(el('li', null, line)); });
+      body.appendChild(ul);
+      det.appendChild(body);
+      host.appendChild(det);
+    });
+  }
+
+  // The paediatric angle on one condition, shown inside its card.
+  function pedsNode(cond) {
+    var rec = PD_BY[cond];
+    if (!rec) return null;
+    var box = el('div', 'peds-angle');
+    box.appendChild(el('span', 'peds-age', PD_AGE[rec.age] || rec.age));
+    box.appendChild(el('p', null, rec.angle));
+    return box;
+  }
+
   var CX_TOPICS = [];
   function buildTopicConditions() {
     var by = (window.THERAPEUTICS_DATA || {}).byCondition || {};
@@ -1939,6 +1990,7 @@
     var q = $('#cx-search').value.toLowerCase().trim();
     var list = CONDS.concat(CX_TOPICS).filter(function (c) {
       if (cxSystem === '__topics') return !!c.topic && (!q || c._hay.indexOf(q) !== -1);
+      if (cxSystem === '__peds') return !!PD_BY[c.condition] && (!q || c._hay.indexOf(q) !== -1);
       if (c.topic && cxSystem !== 'all') return false;
       if (cxSystem === '__nd') { if (!c.ndRank) return false; }
       else if (cxSystem.indexOf('niche:') === 0) { if (c.niche !== cxSystem.slice(6)) return false; }
@@ -2012,6 +2064,11 @@
         if (fs) fb.title = fs[0] + '. Source: ' + fs[1];
         sum.appendChild(fb);
       }
+      if (PD_BY[c.condition]) {
+        var pb = el('span', 'sys peds', 'paediatric');
+        pb.title = PD_AGE[PD_BY[c.condition].age] || '';
+        sum.appendChild(pb);
+      }
       if (c.niche) {
         var nn = el('span', 'sys niche', c.niche);
         sum.appendChild(nn);
@@ -2028,6 +2085,8 @@
       det.appendChild(sum);
 
       var body = el('div', 'body');
+      var pnode = pedsNode(c.condition);
+      if (pnode) body.appendChild(pnode);
       var grid = el('div', 'hgrid');
       (c.herbs || []).forEach(function (h) {
         var row = el('div', 'hrow' + (h.role === 'primary' ? ' primary' : ''));
@@ -3955,6 +4014,7 @@
     cxAddTherapeuticsToHaystack();
     buildTopicConditions();
     cbIndexConditions();
+    buildPedsBody();
     buildDxChips();
     if ($('#dx-input')) {
       var saved = load('dx');
