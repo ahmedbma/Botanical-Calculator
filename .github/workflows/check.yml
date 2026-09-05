@@ -1,0 +1,26 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run checks
+        run: tools/check.sh
+
+      # tools/check.sh already fails on stale data, but this makes the fix
+      # obvious in the log rather than something you have to run locally to see.
+      - name: Show what regenerating would change
+        if: failure()
+        run: |
+          node tools/build-data.js || true
+          git --no-pager diff --stat

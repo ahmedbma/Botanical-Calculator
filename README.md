@@ -14,7 +14,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | Tool | Purpose |
 |---|---|
 | **Differential Builder** | Type a patient's symptoms in plain words and get the five conditions in this notebook that best match, each with what it matched on and the whole workup already attached to it — labs and imaging, screening tools, pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and herbs. Fifteen red-flag combinations raise a banner, and a **must-not-miss** block pins the urgent findings in the exam bank that the entered picture touches above the ranking. Term matching over this site's own text, not a diagnostic algorithm. |
-| **Conditions** | 75 conditions A–Z plus 157 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 41 of them, **Dr William Mitchell's case protocols** where the compendium carries one (48 of them with a safety note written for this tool), and the sections of your own notes that describe it. Carries a **paediatrics** section: a filter for the conditions that present in childhood, each with its age band and what changes in a child, over a reference block of vitals by age, dosing rules, red flags, dehydration, milestones and fever. |
+| **Conditions** | 75 conditions A–Z plus 189 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 41 of them, **Dr William Mitchell's case protocols** where the compendium carries one (48 of them with a safety note written for this tool), and the sections of your own notes that describe it. Carries a **paediatrics** section: a filter for the conditions that present in childhood, each with its age band and what changes in a child, over a reference block of vitals by age, dosing rules, red flags, dehydration, milestones and fever. |
 | **Physical Exams** | Physical exam and diagnosis, organised by type of exam: the clinic entry interview and review of systems, ten **chief complaints** worked as differentials, a head-to-toe screen, the eye and HENT exams, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, a muscle energy technique reference, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The nine **screening instruments** are listed among the exams under *Screening* — STOP-BANG, Epworth, PHQ-9, GAD-7, the MDQ, MMSE/MoCA, AUDIT-C, the COPD Assessment Test and the mould exposure questionnaire — each with a blank form to download or a link to the publisher who licenses it, and the **PHQ-9** and **GAD-7** scoreable in place. |
 | **Labs & Imaging** | 117 tests across blood, urine, stool, microbiology, imaging, function tests, procedures and specialty panels — why you would order each, how to read it, and its **normal and optimal ranges** with the caveat that decides whether the number can be taken at face value. The same tests hang off every abnormal exam finding and every condition. The nine **screening instruments** sit under Physical Exams instead, with their score bands. |
 | **Pharmaceuticals** | 109 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
@@ -22,7 +22,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | **Naturopathic Therapeutics** | 41 modalities a practitioner applies — physical medicine (constitutional hydrotherapy, spinal manipulation, acupuncture, massage, therapeutic ultrasound, gua sha, cupping, manual lymphatic drainage, sauna, infrared and low-level laser, TENS, moxibustion, kinesiology taping, traction, castor oil packs), topicals, devices, procedures, rehabilitation and psychotherapy — each with what it is, what it is for, and its contraindications. Filter by kind or switch to *By condition*. |
 | **Lifestyle** | 15 changes a patient makes — diet patterns, sleep hygiene, structured exercise, breathing retraining, stress reduction, caffeine and alcohol reduction, environmental remediation and the rest — kept separate from the things a patient takes and the things a practitioner does. |
 | **Homeopathy** | A remedy differentiator over 148 classical remedies and 42 presenting complaints. Pick the complaint; it asks the questions that best separate the remedies still in contention, and ranks them with the reasoning shown. Includes a searchable remedy reference. |
-| **Herb Reference** | 396 herbs — Latin and common names, plant part, actions, available dose forms, dispensary availability, tea density and substitutes, plus **pregnancy and lactation safety** for the 205 that carry a rating and a **women's herbs monograph** for 15 of them. Filter to what to avoid in pregnancy or lactation, or to what has evidence of safety. Also carries the **botanical supplements** block: the 34 herbal products the conditions call for, with dose, mechanism and cautions. |
+| **Herb Reference** | 394 herbs — Latin and common names, plant part, actions, available dose forms, dispensary availability, tea density and substitutes, plus **pregnancy and lactation safety** for the 205 that carry a rating and a **women's herbs monograph** for 15 of them. Filter to what to avoid in pregnancy or lactation, or to what has evidence of safety. Also carries the **botanical supplements** block: the 34 herbal products the conditions call for, with dose, mechanism and cautions. |
 | **Tea Formulator** | Build a dry-herb tea. Gives tsp and grams per cup, grams per day, and grams/oz to dispense, using measured dry-herb densities. |
 | **Tincture Formulator** | Build a liquid-extract formula from herb shares. Gives ml and gtt per dose, dry-herb equivalent per dose and per day, ml of each extract to dispense, and a running "pour to" column for filling a graduated cylinder. Rounds the course up to a stock bottle size. |
 | **Dose per Herb** | Work out how much of a single herb a patient actually receives from a combination formula, in ml, gtt and mg of dry-herb equivalent. |
@@ -83,6 +83,7 @@ js/screenerdata.js       the PHQ-9 and GAD-7 instruments as a global
 js/womensformulasdata.js women's hormone formulas as a global
 js/formularydata.js      the ten practitioner lines as a global
 js/casebookdata.js       the Master Compendium as a global
+js/holisticrxdata.js     The Holistic Rx write-ups as a global
 js/labrangesdata.js      normal and optimal ranges as a global
 js/dxindexdata.js        the symptom index as a global
 js/pediatricsdata.js     the paediatrics section as a global
@@ -96,20 +97,29 @@ data/screeners.json      the same screener data as plain JSON, for reuse
 data/womensformulas.json the same formula data as plain JSON, for reuse
 data/formulary.json      the same formulary data as plain JSON, for reuse
 data/casebook.json       the same compendium data as plain JSON, for reuse
+data/holisticrx.json     the same Holistic Rx data as plain JSON, for reuse
 data/labranges.json      the same range data as plain JSON, for reuse
 data/dxindex.json        the same symptom index as plain JSON, for reuse
 data/pediatrics.json     the same paediatric data as plain JSON, for reuse
 assets/phq9.pdf          blank PHQ-9 form, generated from data/screeners.json
 assets/gad7.pdf          blank GAD-7 form, generated from data/screeners.json
 assets/auditc.pdf        blank AUDIT-C form (the WHO AUDIT consumption items)
+assets/fonts/            Cormorant Garamond and Jost, self-hosted (SIL OFL 1.1)
+tools/build-data.js      regenerates js/*data.js from data/*.json
+tools/check.sh           the pre-push / CI check
 ```
 
-The twelve data files under `js/` are generated from their counterparts in `data/`; edit the JSON and
-regenerate if you change the reference data.
+The thirteen data files under `js/` are generated from their counterparts in `data/`. Edit the JSON, then:
+
+```
+node tools/build-data.js       # regenerate js/*data.js from data/*.json
+tools/check.sh                 # everything CI checks, before you push
+```
 
 Every local `css/` and `js/` reference in `index.html` carries a `?v=` cache buster. **Bump it whenever
-you change either directory** — there is no build step to do it for you, and without it browsers go on
-serving the previous copy, so a change looks like it silently did not take.
+you change either directory** — without it browsers go on serving the previous copy, so a change looks
+like it silently did not take. `tools/check.sh` fails if the two directories disagree about the number,
+if the generated data is stale, or if the counts quoted in this file have drifted from the data.
 
 ## Data
 
@@ -457,7 +467,7 @@ appears, but closed, and says the matches are loose. The absence of the block me
 
 **A section in the Conditions tab, in two halves.**
 
-The **Paediatrics** filter chip narrows the index to the **75 conditions that present in childhood** —
+The **Paediatrics** filter chip narrows the index to the **81 conditions that present in childhood** —
 Kawasaki disease, roseola, cradle cap, bronchiolitis, tet spells, febrile seizures, toddler's diarrhoea,
 adolescent acne. Each carries an age band (neonate, infant, toddler, child, adolescent) and a line on what
 changes about it in a child: irritant nappy rash spares the folds and candidal infection involves them;
@@ -542,6 +552,30 @@ no reactive postprandial hypoglycaemia case at all, and in three cases it does c
 agent the note was about — the zinc tail of the mitral stenosis protocol, the comfrey allantoin on the
 pilonidal cyst, and the yohimbe in the corn-sensitivity case. A warning about an agent that is not on the
 page would be worse than no warning.
+
+### The Holistic Rx
+
+**140 write-up sections and 37 conditions this index did not previously carry** — transcribed from
+Nourhan Shams's copy of *The Holistic Rx: Your Guide to Healing Chronic Inflammation and Disease*
+(Madiha Saeed, MD; Rowman & Littlefield, 2021).
+
+It covers the book's foundations chapters — inflammation, digestive health and detoxification, and the
+Four Big S's (stress, sleep, social health, spirituality) — and its seventeen specialty chapters, from
+autoimmune disease through urology. Each protocol carries what the book prescribes for that condition:
+diet, supplements and their doses, herbs, homeopathy, acupressure, aromatherapy, and the labs to check.
+
+It is filed exactly the way the Master Compendium is: each protocol joins the *From your notes* section
+under every condition it treats, and is **credited separately from Dr Mitchell's material** even where
+both cover the same condition, so it is always clear which book a recommendation came from. The 37
+conditions the book covers that the herb index does not are carried as topics.
+
+**Every recommendation in it is the book's.** None of it was written for this tool, none of it is peer
+reviewed, and none of it has been checked against the doses in the other tabs.
+
+> **Licensing.** This is a substantial transcription of an in-copyright commercial book, and attribution
+> is not a licence. Before this repository or the site it publishes is shared any further, that needs
+> resolving — by permission, by cutting the material back to unprotectable facts, or by taking the
+> repository private.
 
 ### Treatment protocols
 
