@@ -4,13 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
 <title>Wellness with Noura</title>
-<meta name="description" content="Nourhan Shams’s clinical notebook: herbal formulation and dosing calculators, a condition index with pharmaceuticals, supplements, therapies and labs, a homeopathic remedy differentiator, a physical exam and diagnosis index and a 396-herb reference.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&amp;family=Jost:wght@400;500;600&amp;display=swap">
+<meta name="description" content="Nourhan Shams’s clinical notebook: herbal formulation and dosing calculators, a condition index with pharmaceuticals, supplements, therapies and labs, a homeopathic remedy differentiator, a physical exam and diagnosis index and a 394-herb reference.">
+<!-- The fonts are self-hosted in assets/fonts and declared at the top of
+     styles.css. They used to come from fonts.googleapis.com, from a stylesheet
+     link that sat right here, above every script on the page. A stylesheet
+     blocks script execution, so whenever Google was slow or unreachable this
+     page painted its markup and then no calculator ever initialised -- it
+     looked loaded and was entirely dead. Nothing here reaches the network now,
+     which is what an offline clinical reference needs. -->
 <!-- ?v= is a cache buster. Bump it whenever css/ or js/ changes, or browsers keep
-     serving the previous copy and the change looks like it did not take. -->
-<link rel="stylesheet" href="css/styles.css?v=10">
+     serving the previous copy and the change looks like it did not take.
+     tools/check.sh fails if these fall out of step with each other. -->
+<link rel="stylesheet" href="css/styles.css?v=11">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23a8536a'/><text x='50' y='73' font-size='60' font-family='Georgia,serif' fill='%23ffffff' text-anchor='middle'>N</text></svg>">
 </head>
 <body>
@@ -25,26 +30,26 @@
 </header>
 
 <nav class="tabs wrap" role="tablist" aria-label="Calculators">
-  <button role="tab" class="tab" data-panel="conditions" aria-selected="true">Conditions</button>
-  <button role="tab" class="tab" data-panel="dx" aria-selected="false">Differential Builder</button>
-  <button role="tab" class="tab" data-panel="exams" aria-selected="false">Physical Exams</button>
-  <button role="tab" class="tab" data-panel="labs" aria-selected="false">Labs &amp; Imaging</button>
-  <button role="tab" class="tab" data-panel="pharm" aria-selected="false">Pharmaceuticals</button>
-  <button role="tab" class="tab" data-panel="supps" aria-selected="false">Supplements</button>
-  <button role="tab" class="tab" data-panel="therap" aria-selected="false">Naturopathic Therapeutics</button>
-  <button role="tab" class="tab" data-panel="life" aria-selected="false">Lifestyle</button>
-  <button role="tab" class="tab" data-panel="homeo" aria-selected="false">Homeopathy</button>
-  <button role="tab" class="tab" data-panel="herbs" aria-selected="false">Herb Reference</button>
-  <button role="tab" class="tab" data-panel="tea" aria-selected="false">Tea Formulator</button>
-  <button role="tab" class="tab" data-panel="tincture" aria-selected="false">Tincture Formulator</button>
-  <button role="tab" class="tab" data-panel="dose" aria-selected="false">Dose per Herb</button>
-  <button role="tab" class="tab" data-panel="lowdose" aria-selected="false">Low-Dose Reference</button>
+  <button role="tab" class="tab" id="tab-conditions" data-panel="conditions" aria-controls="panel-conditions" aria-selected="true">Conditions</button>
+  <button role="tab" class="tab" id="tab-dx" data-panel="dx" aria-controls="panel-dx" aria-selected="false">Differential Builder</button>
+  <button role="tab" class="tab" id="tab-exams" data-panel="exams" aria-controls="panel-exams" aria-selected="false">Physical Exams</button>
+  <button role="tab" class="tab" id="tab-labs" data-panel="labs" aria-controls="panel-labs" aria-selected="false">Labs &amp; Imaging</button>
+  <button role="tab" class="tab" id="tab-pharm" data-panel="pharm" aria-controls="panel-pharm" aria-selected="false">Pharmaceuticals</button>
+  <button role="tab" class="tab" id="tab-supps" data-panel="supps" aria-controls="panel-supps" aria-selected="false">Supplements</button>
+  <button role="tab" class="tab" id="tab-therap" data-panel="therap" aria-controls="panel-therap" aria-selected="false">Naturopathic Therapeutics</button>
+  <button role="tab" class="tab" id="tab-life" data-panel="life" aria-controls="panel-life" aria-selected="false">Lifestyle</button>
+  <button role="tab" class="tab" id="tab-homeo" data-panel="homeo" aria-controls="panel-homeo" aria-selected="false">Homeopathy</button>
+  <button role="tab" class="tab" id="tab-herbs" data-panel="herbs" aria-controls="panel-herbs" aria-selected="false">Herb Reference</button>
+  <button role="tab" class="tab" id="tab-tea" data-panel="tea" aria-controls="panel-tea" aria-selected="false">Tea Formulator</button>
+  <button role="tab" class="tab" id="tab-tincture" data-panel="tincture" aria-controls="panel-tincture" aria-selected="false">Tincture Formulator</button>
+  <button role="tab" class="tab" id="tab-dose" data-panel="dose" aria-controls="panel-dose" aria-selected="false">Dose per Herb</button>
+  <button role="tab" class="tab" id="tab-lowdose" data-panel="lowdose" aria-controls="panel-lowdose" aria-selected="false">Low-Dose Reference</button>
 </nav>
 
 <main class="wrap">
 
 <!-- ==================== CONDITIONS ==================== -->
-<section id="panel-conditions" class="panel" role="tabpanel">
+<section id="panel-conditions" class="panel" role="tabpanel" aria-labelledby="tab-conditions" tabindex="0">
   <div class="card">
     <h2>Herbs by Condition</h2>
 
@@ -73,7 +78,7 @@
 
     <details class="srcnote">
       <summary>Where this comes from</summary>
-      <p><strong>The paediatrics section is two different things.</strong> The <strong>Paediatrics</strong> filter chip and the age band and paediatric note on each condition are a tagging of entries this notebook already carries &mdash; 75 of them present in childhood, and each says what changes about it in a child. The <strong>reference block</strong> above the list &mdash; vital signs by age, the dosing rules, red flags by age, dehydration assessment, developmental milestones, fever, and paediatric prescribing &mdash; was written for this tool from standard paediatric references. It is not from your coursework and it is not peer reviewed. Clark's, Young's and Fried's rules are historical approximations kept for when no paediatric dose exists; weight-based dosing from a current formulary outranks all three, every time.</p>
+      <p><strong>The paediatrics section is two different things.</strong> The <strong>Paediatrics</strong> filter chip and the age band and paediatric note on each condition are a tagging of entries this notebook already carries &mdash; 81 of them present in childhood, and each says what changes about it in a child. The <strong>reference block</strong> above the list &mdash; vital signs by age, the dosing rules, red flags by age, dehydration assessment, developmental milestones, fever, and paediatric prescribing &mdash; was written for this tool from standard paediatric references. It is not from your coursework and it is not peer reviewed. Clark's, Young's and Fried's rules are historical approximations kept for when no paediatric dose exists; weight-based dosing from a current formulary outranks all three, every time.</p>
       <p><strong>The case protocols are Dr William A. Mitchell Jr's, transcribed from your Master Compendium.</strong> 95 cases across addictions, cardiovascular medicine, dermatology, endocrinology, gastroenterology and respiratory medicine, each with its presentation and its dosed protocol, filed under every condition it treats. The respiratory module (the gut&ndash;lung axis, short-chain fatty acids, asthma, COPD, cystic fibrosis, lung cancer, pneumonia and PASC) and the gastroenterology study guide (adverse food reactions, intestinal permeability, the 5R framework, coeliac disease, SIBO, exocrine pancreatic insufficiency, gallbladder disease and the gut&ndash;liver axis) join the <em>From your notes</em> sections under the conditions they describe. 34 conditions the compendium covers that this index did not are carried as topics. Every dose in that material is the compendium's; none of it was written for this tool, and none of it is peer reviewed &mdash; several protocols carry prescription drugs, injections and intravenous formulations that are outside a student's scope.</p>
       <p><strong>The Holistic Rx write-ups are Madiha Saeed, MD's, transcribed from her book of the same name.</strong> Its foundations chapters (inflammation, digestive health and detoxification, and the Four Big S's &mdash; stress, sleep, social health and spirituality) and its seventeen specialty chapters, from autoimmune disease through urology, are filed the same way as the Master Compendium above: each protocol &mdash; diet, supplements and doses, herbs, homeopathy, acupressure, aromatherapy, labs to check &mdash; joins the <em>From your notes</em> section under every condition it treats, credited separately from Dr Mitchell's material even where both cover the same condition. 37 conditions the book covers that this index did not are carried as topics. Every recommendation in that material is the book's; none of it was written for this tool, and none of it is peer reviewed.</p>
       <p><strong>Not from your workbook.</strong> The Yarnell Formulator Tool contains no condition-to-herb mapping. Which conditions appear here follows naturopathic practice-pattern research; the herbs and rationale come from general Western herbal and naturopathic materia medica. Both are cited under <em>Where this comes from</em> below. Treat every entry as a <em>starting point for formula design</em> that you verify against your own references &mdash; not as a protocol, and not with the authority of the dosing data in the other tabs.</p>
@@ -99,7 +104,7 @@
 </section>
 
 <!-- ==================== DIFFERENTIAL BUILDER ==================== -->
-<section id="panel-dx" class="panel" hidden role="tabpanel">
+<section id="panel-dx" class="panel" hidden role="tabpanel" aria-labelledby="tab-dx" tabindex="0">
   <div class="card">
     <h2>Differential Builder</h2>
 
@@ -152,7 +157,7 @@
 </section>
 
 <!-- ==================== PHYSICAL EXAMS &amp; DIAGNOSES ==================== -->
-<section id="panel-exams" class="panel" hidden role="tabpanel">
+<section id="panel-exams" class="panel" hidden role="tabpanel" aria-labelledby="tab-exams" tabindex="0">
   <div class="card">
     <h2>Physical Exams &amp; Diagnoses</h2>
 
@@ -221,7 +226,7 @@
 </section>
 
 <!-- ==================== LABS &amp; IMAGING ==================== -->
-<section id="panel-labs" class="panel" hidden role="tabpanel">
+<section id="panel-labs" class="panel" hidden role="tabpanel" aria-labelledby="tab-labs" tabindex="0">
   <div class="card">
     <h2>Labs &amp; Imaging</h2>
 
@@ -259,7 +264,7 @@
 </section>
 
 <!-- ==================== PHARMACEUTICALS ==================== -->
-<section id="panel-pharm" class="panel" hidden role="tabpanel">
+<section id="panel-pharm" class="panel" hidden role="tabpanel" aria-labelledby="tab-pharm" tabindex="0">
   <div class="card">
     <h2>Pharmaceuticals</h2>
 
@@ -305,7 +310,7 @@
   </div>
 </section>
 <!-- ==================== SUPPLEMENTS ==================== -->
-<section id="panel-supps" class="panel" hidden role="tabpanel">
+<section id="panel-supps" class="panel" hidden role="tabpanel" aria-labelledby="tab-supps" tabindex="0">
   <div class="card">
     <h2>Supplements</h2>
 
@@ -344,7 +349,7 @@
   </div>
 </section>
 <!-- ==================== NATUROPATHIC THERAPEUTICS ==================== -->
-<section id="panel-therap" class="panel" hidden role="tabpanel">
+<section id="panel-therap" class="panel" hidden role="tabpanel" aria-labelledby="tab-therap" tabindex="0">
   <div class="card">
     <h2>Naturopathic Therapeutics</h2>
     <label class="search"><span class="vh">Search Naturopathic Therapeutics</span>
@@ -369,7 +374,7 @@
   </div>
 </section>
 <!-- ==================== LIFESTYLE ==================== -->
-<section id="panel-life" class="panel" hidden role="tabpanel">
+<section id="panel-life" class="panel" hidden role="tabpanel" aria-labelledby="tab-life" tabindex="0">
   <div class="card">
     <h2>Lifestyle</h2>
     <label class="search"><span class="vh">Search Lifestyle</span>
@@ -395,7 +400,7 @@
 </section>
 
 <!-- ==================== HOMEOPATHY ==================== -->
-<section id="panel-homeo" class="panel" hidden role="tabpanel">
+<section id="panel-homeo" class="panel" hidden role="tabpanel" aria-labelledby="tab-homeo" tabindex="0">
   <div class="card">
     <h2>Homeopathic Remedy Differentiator</h2>
 
@@ -497,7 +502,7 @@
 </section>
 
 <!-- ==================== HERB REFERENCE ==================== -->
-<section id="panel-herbs" class="panel" hidden role="tabpanel">
+<section id="panel-herbs" class="panel" hidden role="tabpanel" aria-labelledby="tab-herbs" tabindex="0">
   <div class="card">
     <h2>Herb Reference</h2>
     
@@ -537,7 +542,7 @@
   </div>
 </section>
 <!-- ==================== TEA FORMULATOR ==================== -->
-<section id="panel-tea" class="panel" hidden role="tabpanel">
+<section id="panel-tea" class="panel" hidden role="tabpanel" aria-labelledby="tab-tea" tabindex="0">
   <div class="card">
     <h2>Tea Formulator</h2>
 
@@ -619,7 +624,7 @@
 </section>
 
 <!-- ==================== TINCTURE FORMULATOR ==================== -->
-<section id="panel-tincture" class="panel" hidden role="tabpanel">
+<section id="panel-tincture" class="panel" hidden role="tabpanel" aria-labelledby="tab-tincture" tabindex="0">
   <div class="card">
     <h2>Liquid Extract (Tincture) Formulator</h2>
 
@@ -710,7 +715,7 @@
 </section>
 
 <!-- ==================== DOSE PER HERB ==================== -->
-<section id="panel-dose" class="panel" hidden role="tabpanel">
+<section id="panel-dose" class="panel" hidden role="tabpanel" aria-labelledby="tab-dose" tabindex="0">
   <div class="card narrow">
     <h2>Dose per Herb Calculator</h2>
     
@@ -727,7 +732,7 @@
 </section>
 
 <!-- ==================== LOW-DOSE REFERENCE ==================== -->
-<section id="panel-lowdose" class="panel" hidden role="tabpanel">
+<section id="panel-lowdose" class="panel" hidden role="tabpanel" aria-labelledby="tab-lowdose" tabindex="0">
   <div class="card">
     <h2>Maximum Doses — Low-Dose Botanicals</h2>
     
@@ -788,19 +793,19 @@
      frightening should be seen by a clinician.</p>
 </footer>
 
-<script src="js/herbdata.js?v=10"></script>
-<script src="js/homeopathydata.js?v=10"></script>
-<script src="js/physicalexamdata.js?v=10"></script>
-<script src="js/therapeuticsdata.js?v=10"></script>
-<script src="js/pregnancydata.js?v=10"></script>
-<script src="js/screenerdata.js?v=10"></script>
-<script src="js/womensformulasdata.js?v=10"></script>
-<script src="js/formularydata.js?v=10"></script>
-<script src="js/casebookdata.js?v=10"></script>
-<script src="js/holisticrxdata.js?v=10"></script>
-<script src="js/labrangesdata.js?v=10"></script>
-<script src="js/dxindexdata.js?v=10"></script>
-<script src="js/pediatricsdata.js?v=10"></script>
-<script src="js/app.js?v=10"></script>
+<script src="js/herbdata.js?v=11"></script>
+<script src="js/homeopathydata.js?v=11"></script>
+<script src="js/physicalexamdata.js?v=11"></script>
+<script src="js/therapeuticsdata.js?v=11"></script>
+<script src="js/pregnancydata.js?v=11"></script>
+<script src="js/screenerdata.js?v=11"></script>
+<script src="js/womensformulasdata.js?v=11"></script>
+<script src="js/formularydata.js?v=11"></script>
+<script src="js/casebookdata.js?v=11"></script>
+<script src="js/holisticrxdata.js?v=11"></script>
+<script src="js/labrangesdata.js?v=11"></script>
+<script src="js/dxindexdata.js?v=11"></script>
+<script src="js/pediatricsdata.js?v=11"></script>
+<script src="js/app.js?v=11"></script>
 </body>
 </html>
