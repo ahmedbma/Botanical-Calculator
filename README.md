@@ -13,13 +13,12 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 
 | Tool | Purpose |
 |---|---|
-| **Conditions** | 75 conditions A–Z plus 153 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 41 of them, **Dr William Mitchell's case protocols** where the compendium carries one, and the sections of your own notes that describe it. |
-| **Diagnose** | Enter what the patient is feeling and get the leading three, each with the labs to run, the supplements, botanicals, herbs, naturopathic therapeutics, lifestyle changes and pharmaceuticals the notebook files under it. Emergencies matching two or more of the symptoms are pinned above. Shares its symptom list with **Differential**. |
-| **Differential** | Enter the symptoms a patient presents with; it ranks the conditions in this notebook whose recorded presentation matches, shows the line that matched for each, and says what each ranking does *not* account for. Emergencies matching the picture are pinned above the ranking. 152 symptoms across 13 systems, indexed over every passage in the notebook that describes how a condition looks. |
-| **Physical Exams** | Physical exam and diagnosis, organised by type of exam: the clinic entry interview and review of systems, ten **chief complaints** worked as differentials, a head-to-toe screen, the eye and HENT exams, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, a muscle energy technique reference, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The **PHQ-9** and **GAD-7** are scored here too, with the blank forms downloadable as PDFs. |
-| **Labs & Imaging** | 117 tests across blood, urine, stool, microbiology, imaging, function tests, screening instruments, procedures and specialty panels — why you would order each and how to read it. The same tests hang off every abnormal exam finding and every condition. |
+| **Differential Builder** | Type a patient's symptoms in plain words and get the five conditions in this notebook that best match, each with what it matched on and the whole workup already attached to it — labs and imaging, screening tools, pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and herbs. Fifteen red-flag combinations raise a banner, and a **must-not-miss** block pins the urgent findings in the exam bank that the entered picture touches above the ranking. Term matching over this site's own text, not a diagnostic algorithm. |
+| **Conditions** | 75 conditions A–Z plus 157 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 41 of them, **Dr William Mitchell's case protocols** where the compendium carries one, and the sections of your own notes that describe it. Carries a **paediatrics** section: a filter for the conditions that present in childhood, each with its age band and what changes in a child, over a reference block of vitals by age, dosing rules, red flags, dehydration, milestones and fever. |
+| **Physical Exams** | Physical exam and diagnosis, organised by type of exam: the clinic entry interview and review of systems, ten **chief complaints** worked as differentials, a head-to-toe screen, the eye and HENT exams, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, a muscle energy technique reference, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The nine **screening instruments** are listed among the exams under *Screening* — STOP-BANG, Epworth, PHQ-9, GAD-7, the MDQ, MMSE/MoCA, AUDIT-C, the COPD Assessment Test and the mould exposure questionnaire — each with a blank form to download or a link to the publisher who licenses it, and the **PHQ-9** and **GAD-7** scoreable in place. |
+| **Labs & Imaging** | 117 tests across blood, urine, stool, microbiology, imaging, function tests, procedures and specialty panels — why you would order each, how to read it, and its **normal and optimal ranges** with the caveat that decides whether the number can be taken at face value. The same tests hang off every abnormal exam finding and every condition. The nine **screening instruments** sit under Physical Exams instead, with their score bands. |
 | **Pharmaceuticals** | 109 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
-| **Supplements** | 67 non-herbal supplements — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients — with typical dose ranges, mechanisms and the cautions that matter, including which must be avoided in which patients. Organised A–Z or by condition. The 34 **botanical** products the conditions call for sit under Herb Reference instead. |
+| **Supplements** | 67 non-herbal single agents with dose ranges and mechanisms, 40 practitioner-line **women's hormone formulas** grouped by physiological target, and the **practitioner formulary** — what all ten professional lines stock, 44 categories covering some 273 products. Filter chips read the three apart. A–Z or by condition. The 34 **botanical** products the conditions call for sit under Herb Reference instead. |
 | **Naturopathic Therapeutics** | 41 modalities a practitioner applies — physical medicine (constitutional hydrotherapy, spinal manipulation, acupuncture, massage, therapeutic ultrasound, gua sha, cupping, manual lymphatic drainage, sauna, infrared and low-level laser, TENS, moxibustion, kinesiology taping, traction, castor oil packs), topicals, devices, procedures, rehabilitation and psychotherapy — each with what it is, what it is for, and its contraindications. Filter by kind or switch to *By condition*. |
 | **Lifestyle** | 15 changes a patient makes — diet patterns, sleep hygiene, structured exercise, breathing retraining, stress reduction, caffeine and alcohol reduction, environmental remediation and the rest — kept separate from the things a patient takes and the things a practitioner does. |
 | **Homeopathy** | A remedy differentiator over 148 classical remedies and 42 presenting complaints. Pick the complaint; it asks the questions that best separate the remedies still in contention, and ranks them with the reasoning shown. Includes a searchable remedy reference. |
@@ -73,7 +72,7 @@ be kept up for more than a few days.
 ## Project layout
 
 ```
-index.html               markup for all fifteen tools
+index.html               markup for all fourteen tools
 css/styles.css           styling, light/dark, print rules
 js/herbdata.js           herbal reference data as a global (works from file://)
 js/homeopathydata.js     homeopathic remedy data as a global
@@ -85,8 +84,9 @@ js/womensformulasdata.js women's hormone formulas as a global
 js/formularydata.js      the ten practitioner lines as a global
 js/casebookdata.js       the Master Compendium as a global
 js/labrangesdata.js      normal and optimal ranges as a global
-js/symptomdata.js        the symptom vocabulary for the differential builder
-js/app.js                all calculators, both differentiators, the exam index, the screeners, the formulas, the formulary and the therapeutics tabs
+js/dxindexdata.js        the symptom index as a global
+js/pediatricsdata.js     the paediatrics section as a global
+js/app.js                all calculators, the differentiator, the exam index, the screeners, the formulas, the formulary and the therapeutics tabs
 data/herbdata.json       the same herbal data as plain JSON, for reuse
 data/homeopathy.json     the same homeopathic data as plain JSON, for reuse
 data/physicalexams.json  the same physical exam data as plain JSON, for reuse
@@ -97,13 +97,14 @@ data/womensformulas.json the same formula data as plain JSON, for reuse
 data/formulary.json      the same formulary data as plain JSON, for reuse
 data/casebook.json       the same compendium data as plain JSON, for reuse
 data/labranges.json      the same range data as plain JSON, for reuse
-data/symptoms.json       the same symptom vocabulary as plain JSON, for reuse
+data/dxindex.json        the same symptom index as plain JSON, for reuse
+data/pediatrics.json     the same paediatric data as plain JSON, for reuse
 assets/phq9.pdf          blank PHQ-9 form, generated from data/screeners.json
 assets/gad7.pdf          blank GAD-7 form, generated from data/screeners.json
 assets/auditc.pdf        blank AUDIT-C form (the WHO AUDIT consumption items)
 ```
 
-The eleven data files under `js/` are generated from their counterparts in `data/`; edit the JSON and
+The twelve data files under `js/` are generated from their counterparts in `data/`; edit the JSON and
 regenerate if you change the reference data.
 
 Every local `css/` and `js/` reference in `index.html` carries a `?v=` cache buster. **Bump it whenever
@@ -238,64 +239,6 @@ Physical Exams tab.
 dosing, as the lecture lays them out. Eleven resolve to herbs already in the reference and appear as a
 monograph block on their card; the nine teaching pages that follow them sit under the Herb Reference as
 *Women's herbs — formulating notes*.
-
-### The Diagnose tab
-
-**Symptoms in, a shortlist with a plan out.** It uses the same index and the same scoring as the
-differential builder below — the two share one symptom list, so a symptom added in either appears in both.
-What differs is the answer. The differential shows the whole ranking and the passage behind every match;
-Diagnose shows the leading three, each as a card carrying what the notebook files under that condition:
-the labs to run, the screening tools, the supplements with their doses, the botanicals, the herbs from the
-herb index, the naturopathic therapeutics, the lifestyle changes and the pharmaceuticals. Agents whose
-caution carries an absolute contraindication are marked. A footer says whether that condition also has a
-dosed protocol, sections of your notes, casebook cases or a homeopathic differentiator, and the rest of
-the ranking is one click away.
-
-**Nothing on those cards is written here.** Every item is what the Conditions index already holds for that
-condition, gathered onto one card. That is the point: the tab is a view of the notebook, not a second
-opinion about it.
-
-**Three is a display choice, not a clinical claim.** The fourth is often as good as the third, which is
-why the remainder of the ranking sits directly underneath. The order is not a likelihood, and the plan is
-a starting point rather than a prescription — check the cautions on the condition card, and the pregnancy
-and lactation safety in the Herb Reference, before dispensing anything.
-
-**The must-not-miss block tightens as the picture fills in.** Below three symptoms it lists every urgent
-finding your symptoms touch. At three or more it narrows to the emergencies explaining at least two of
-them, because otherwise every case with fatigue in it leads with cancer. When nothing clears that bar the
-block still appears, but closed, and says the matches are loose.
-
-### The differential builder
-
-**It searches what the notebook already says, and shows its working.** The index is built at runtime from
-the material in the other tabs — the ten chief-complaint differentials, the presentation of each casebook
-case, the verbatim study-note sections, the condition notes and the protocol backgrounds. A little over a
-thousand passages across all 228 conditions and topics, indexed on a vocabulary of 152 symptoms in 13
-systems. Because it is derived rather than authored, it cannot drift out of step with the tabs it points
-at: add a case or a note and the differential learns it.
-
-**How it ranks.** A condition scores for each symptom it accounts for. Each hit is worth the strength of
-the evidence behind it — an objective exam finding, or a named place in a chief-complaint differential,
-counts for more than a passing mention in a note — multiplied by how rare that symptom is across the
-index. A symptom that fits fifty conditions separates nothing; one that fits two separates a great deal.
-That is inverse document frequency and it is the whole of the cleverness. Results are ordered by how many
-of your symptoms they explain, ties broken on that score.
-
-**Every result shows its working.** Under each condition: which of your symptoms it matched, what kind of
-evidence matched it, and which passage that was — so `Fever · history · Cough — Tuberculosis` means the
-fever came from the tuberculosis row of the cough differential. Each result also names the symptoms it
-does *not* account for, which is usually the more useful half. Any symptom that matched nothing at all is
-reported too: it means the notebook is silent on it.
-
-**Emergencies are pinned above the ranking**, ordered by how much of the picture they account for. They
-are listed first because they are ruled out first, not because they are likely — chest pain, breathlessness
-and diaphoresis puts myocardial infarction, pulmonary embolism and pneumothorax at the top of that block
-whatever the ranking below it says.
-
-**It is not a diagnosis and the order is not a likelihood.** Real likelihood turns on prevalence, age, sex,
-exposure and season, none of which is in this data. A condition can only appear if something in the
-notebook describes it, so absence from the list means the notebook is silent, not that the diagnosis is
-excluded. The tab says all of this in place, under *How the ranking works, and what it is not*.
 
 ### Two outside references
 
@@ -473,6 +416,78 @@ flagged unless asked for — the tool does not assume who the patient is.
 
 The four conditions of pregnancy with a herb that has a human clinical trial behind it are listed with their
 PubMed IDs in the legend.
+
+### The Differential Builder
+
+**Type symptoms in plain words; get five conditions and their workup.** "42-year-old woman, six months of
+fatigue, cold intolerance, constipation, weight gain and hair loss" returns Hypothyroidism first, with its
+labs (TSH with free T4, thyroid antibodies, free T3 and reverse T3, CBC, ferritin, lipids, B12), its
+pharmaceutical, its supplements, its lifestyle changes and its herbs — every one clickable through to the
+tab it lives in. There is a CSV of the whole workup, and a symptom picker grouped by system for when the
+words won't come.
+
+**How it works.** Each of the 186 conditions carries a weight for each of 118 symptom terms, derived from
+its own name and aliases, the case presentations filed under it, its therapeutics note, its reference
+sections and the physical-exam findings that name it — plus a curated seed table of classic presentations
+written for this tool, because a condition's own prose rarely repeats its cardinal symptom often enough to
+outweigh a verbose neighbour. Scores are normalised so a wordy entry cannot outrank a precise one, and
+breadth is rewarded: a condition that explains four of the symptoms beats one that explains one of them
+very strongly. Entries whose *name is the symptom* — Fatigue and low energy, Constipation, Bloating and gas
+— are halved and labelled *restates the symptom*, because as a differential they are circular.
+
+**What it cannot do.** It has no prior probabilities, so a rare condition matching four terms outranks a
+common one matching three. It does not know age, sex, duration, severity, examination findings, past
+history or medication. It cannot exclude anything. It knows only the conditions in this notebook — an
+absence here is not evidence. The fifteen red-flag rules (chest pain with breathlessness, melaena,
+thoughts of self-harm, headache with fever, unilateral calf swelling with breathlessness) are pattern
+matches, not triage: a patient can be critically unwell and trip none of them.
+
+**The must-not-miss block is the other half of that.** Above the ranking sits every finding the exam bank
+already marks *urgent* whose wording your symptoms touch — read through the same vocabulary as the text
+box, so it costs nothing to keep in step with the Physical Exams tab. Each carries what it suggests, what
+to run, and which exam or chief-complaint differential named it. It ranks nothing: they are listed first
+because they are ruled out first, not because they are likely.
+
+**It tightens as the picture fills in.** Below three recognised symptoms it lists every urgent finding your
+symptoms touch. At three or more it narrows to the emergencies explaining at least two of them, because
+otherwise every case with fatigue in it leads with cancer. When nothing clears that bar the block still
+appears, but closed, and says the matches are loose. The absence of the block means nothing at all.
+
+### Paediatrics
+
+**A section in the Conditions tab, in two halves.**
+
+The **Paediatrics** filter chip narrows the index to the **75 conditions that present in childhood** —
+Kawasaki disease, roseola, cradle cap, bronchiolitis, tet spells, febrile seizures, toddler's diarrhoea,
+adolescent acne. Each carries an age band (neonate, infant, toddler, child, adolescent) and a line on what
+changes about it in a child: irritant nappy rash spares the folds and candidal infection involves them;
+bilious vomiting in an infant is malrotation until surgery says otherwise; the frontal sinuses do not
+pneumatise until 7 to 8 years, so frontal tenderness in a young child is something else; growth failure and
+delayed puberty can precede any bowel symptom in adolescent IBD by years. That tagging is applied to
+entries the notebook already carried.
+
+Above the list sits the **reference block**, seven sections written for this tool:
+
+- **Normal vital signs by age** — heart rate, respiratory rate and systolic BP across six age bands, with
+  the 90 + (2 × age) and 70 + (2 × age) rules, and the reminder that hypotension is a late and
+  pre-terminal sign in a child.
+- **Age- and weight-based dosing** — Clark's, Young's, Fried's and body-surface-area rules, with the
+  tincture arithmetic worked through (Clark's on a 30-drop adult dose gives a 20 kg child about 9 drops)
+  and the warning never to scale a low-dose botanical this way.
+- **Red flags by age** — fever under 28 days, non-blanching rash, bilious vomiting, grunting and recession,
+  reduced wet nappies, a limp, and an injury whose mechanism does not fit the history.
+- **Assessing dehydration** — the three severity bands with their fluid arithmetic, and the 4-2-1
+  maintenance rule.
+- **Developmental milestones** with their red flags, including that regression at any age is always a
+  referral.
+- **Fever in a child** — treat for distress not for the number, paracetamol and ibuprofen dosing, never
+  aspirin under 16, and urine in any child under 3 with fever without a source.
+- **Botanicals and supplements in children** — no honey under 1, no salicylate herbs in a febrile child,
+  no essential oils internally, glycerites over tinctures under 12, and iron as the leading cause of fatal
+  childhood poisoning.
+
+This block is not from the coursework and is not peer reviewed. Weight-based dosing from a current
+formulary outranks the historical rules every time.
 
 ### The Master Compendium
 

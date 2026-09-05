@@ -458,12 +458,10 @@
     $$('.tab').forEach(function (t) { t.setAttribute('aria-selected', String(t.dataset.panel === name)); });
     $$('.panel').forEach(function (p) { p.hidden = p.id !== 'panel-' + name; });
     try { localStorage.setItem('bc.tab', name); } catch (e) { /* storage may be blocked */ }
-    // The differential index takes about a second to build over the whole
-    // notebook. Do it while the panel is still empty rather than on the first
-    // keystroke, where it would read as lag.
-    if ((name === 'ddx' || name === 'diag') && typeof dxBuild === 'function' && !DX.index) {
-      setTimeout(dxBuild, 0);
-    }
+    // The must-not-miss index is scanned out of the whole exam bank. Do it while
+    // the panel is still empty rather than on the first keystroke, where the
+    // pause would read as lag.
+    if (name === 'dx' && typeof dxUrgentIndex === 'function') setTimeout(dxUrgentIndex, 0);
   }
   $$('.tab').forEach(function (tab) {
     tab.addEventListener('click', function () { showTab(tab.dataset.panel); });
@@ -1500,6 +1498,12 @@
     nd.title = 'The 30 conditions most commonly seen in naturopathic practice.';
     box.appendChild(nd);
 
+    var pd = el('button', 'chip', 'Paediatrics (' + (PD.conditions || []).length + ')');
+    pd.dataset.sys = '__peds';
+    pd.title = 'The conditions in this index that present in childhood, each with its age band and what ' +
+      'changes about it in a child.';
+    box.appendChild(pd);
+
     (D.niches || []).forEach(function (n) {
       var count = CONDS.filter(function (c) { return c.niche === n; }).length;
       if (!count) return;
@@ -1511,6 +1515,8 @@
     box.addEventListener('click', function (e) {
       if (!e.target.dataset.sys) return;
       cxSystem = e.target.dataset.sys;
+      var pbox = $('#peds-box');
+      if (pbox && cxSystem === '__peds') { pbox.open = true; }
       $$('#cx-filters .chip').forEach(function (c) { c.classList.toggle('is-on', c === e.target); });
       renderConditions();
     });
@@ -1529,6 +1535,412 @@
 
   // Topics that carry therapeutics, a protocol or reference notes but no herbs.
   // They render as conditions without a herb grid so the tab is one full index.
+  /* ==================================================================
+     DIFFERENTIAL BUILDER
+     Term matching over this notebook's own text. Every condition carries a
+     weight for each symptom term; the entered text is scanned for those terms,
+     the conditions are scored and the top five are shown with what each one
+     matched on, and with the workup already attached to it elsewhere in the
+     site. No probabilities, no reasoning, no knowledge from outside here.
+     ================================================================== */
+  var DX = window.DX_INDEX || { terms: [], weights: {}, redflags: [], systems: [] };
+  var DX_SYMPTOM = {};
+  (DX.symptomEntries || []).forEach(function (c) { DX_SYMPTOM[c] = true; });
+  var DX_TERM = {};
+  (DX.terms || []).forEach(function (t) { DX_TERM[t.id] = t; });
+
+  // Longest synonym first, so "shortness of breath" wins over "breath".
+  var DX_SYNS = [];
+  (DX.terms || []).forEach(function (t) {
+    t.syns.forEach(function (syn) { DX_SYNS.push({ syn: syn, id: t.id }); });
+  });
+  DX_SYNS.sort(function (a, b) { return b.syn.length - a.syn.length; });
+
+  function dxMatch(text) {
+    var hay = ' ' + String(text || '').toLowerCase().replace(/[^a-z0-9'\-]+/g, ' ') + ' ';
+    var found = [], seen = {};
+    DX_SYNS.forEach(function (e) {
+      if (seen[e.id]) return;
+      if (hay.indexOf(' ' + e.syn + ' ') !== -1 ||
+          hay.indexOf(' ' + e.syn.replace(/[^a-z0-9' ]/g, ' ') + ' ') !== -1) {
+        seen[e.id] = e.syn;
+        found.push({ id: e.id, matched: e.syn });
+      }
+    });
+    return found;
+  }
+
+  function dxScore(found) {
+    var out = [];
+    Object.keys(DX.weights || {}).forEach(function (cond) {
+      var row = DX.weights[cond], total = 0, on = [];
+      found.forEach(function (f) {
+        var w = row[f.id];
+        if (w) { total += w; on.push({ id: f.id, w: w }); }
+      });
+      if (!total) return;
+      // reward breadth: a condition that explains four of the symptoms beats one
+      // that explains one of them very strongly
+      total *= 1 + 0.35 * (on.length - 1);
+      // an entry whose name is the symptom explains nothing — it restates it
+      if (DX_SYMPTOM[cond]) total *= 0.5;
+      on.sort(function (a, b) { return b.w - a.w; });
+      out.push({ cond: cond, score: total, on: on, restates: !!DX_SYMPTOM[cond] });
+    });
+    out.sort(function (a, b) { return b.score - a.score || a.cond.localeCompare(b.cond); });
+    return out;
+  }
+
+  function dxRedFlags(found) {
+    var have = {};
+    found.forEach(function (f) { have[f.id] = true; });
+    return (DX.redflags || []).filter(function (r) {
+      return r.terms.every(function (t) { return have[t]; });
+    });
+  }
+
+  /* ---------------- must not miss ----------------
+     The red flags above are fifteen hand-written combinations. This is the
+     other half: every finding the exam bank already marks urgent, read
+     through the same symptom vocabulary as the text box. It ranks nothing
+     and diagnoses nothing — it is the list of things ruled out first
+     because of what they cost when missed, not because they are likely. */
+  var DX_URGENT = null;
+
+  function dxUrgentIndex() {
+    if (DX_URGENT) return DX_URGENT;
+    var rows = [];
+    PE_EXAMS.forEach(function (e) {
+      (e.findings || []).forEach(function (f) {
+        if (!f.urgent) return;
+        rows.push({ finding: f.finding, suggests: f.suggests, workup: f.workup || '',
+                    from: e.name, cond: null,
+                    text: f.finding + ' ' + f.suggests + ' ' + (f.workup || '') });
+      });
+      (e.differential || []).forEach(function (r) {
+        if (!r.urgent) return;
+        rows.push({ finding: r.condition, suggests: r.tx || '', workup: r.labs || '',
+                    from: e.name, cond: r.link || null,
+                    text: [r.condition, r.hpi, r.ros, r.pe, r.ddx].filter(Boolean).join(' ') });
+      });
+    });
+    rows.forEach(function (r) {
+      r.terms = {};
+      dxMatch(r.text).forEach(function (m) { r.terms[m.id] = true; });
+    });
+    DX_URGENT = rows;
+    return rows;
+  }
+
+  function dxMustNotMiss(found) {
+    var rows = dxUrgentIndex(), seen = {}, hits = [];
+    rows.forEach(function (r) {
+      var n = 0;
+      found.forEach(function (f) { if (r.terms[f.id]) n++; });
+      if (!n) return;
+      // the same emergency is named by more than one chief complaint's
+      // differential; key on what it is and what it means, not on which list
+      // it came from, and keep the entry that explains the most
+      var k = r.finding + '|' + r.suggests;
+      if (seen[k]) { if (n > seen[k].n) seen[k].n = n; return; }
+      seen[k] = { r: r, n: n };
+      hits.push(seen[k]);
+    });
+    if (!hits.length) return null;
+    hits.sort(function (a, b) {
+      return b.n - a.n || a.r.finding.localeCompare(b.r.finding);
+    });
+    // Once there is a real picture to match against, an emergency that answers
+    // to only one of five symptoms is noise — every fatigue case would lead
+    // with cancer. Above three symptoms the block tightens to those explaining
+    // at least two; if none do, it still shows the best of them, but closed,
+    // and says they matched loosely rather than presenting them as the picture.
+    var tightened = found.length >= 3;
+    var strong = tightened ? hits.filter(function (h) { return h.n >= 2; }) : hits;
+    var loose = !strong.length;
+    if (loose) strong = hits.slice(0, 3);
+    var shown = strong.slice(0, 6), hidden = hits.length - shown.length;
+
+    var det = el('details', 'dx-flagbox' + (loose ? ' loose' : ''));
+    det.open = !loose;
+    det.appendChild(el('summary', null, loose
+      ? 'Must not miss \u2014 nothing here matches more than one symptom, but ' + hits.length +
+        ' urgent findings touch what you entered'
+      : 'Must not miss \u2014 ' + shown.length +
+        (shown.length === 1 ? ' urgent finding matches' : ' urgent findings match') +
+        (tightened ? ' two or more of your symptoms' : ' what you entered')));
+    var body = el('div', 'dx-flagbody');
+    body.appendChild(el('p', 'dx-flaglede', loose
+      ? 'Each of these answers to only one of the symptoms you entered, so treat them as a checklist ' +
+        'rather than as the picture.'
+      : 'These are the emergency findings in the exam index whose wording your symptoms touch. They are ' +
+        'listed first because they are ruled out first, not because they are likely.'));
+    shown.forEach(function (h) {
+      var r = h.r, row = el('div', 'dx-flag');
+      row.appendChild(el('p', 'dx-flagname', r.finding));
+      if (r.suggests) row.appendChild(el('p', 'dx-flagsugg', r.suggests));
+      if (r.workup) {
+        var w = el('p', 'dx-flagrun');
+        w.innerHTML = '<span class="pe-wlab">run</span> ' + escapeHtml(r.workup);
+        row.appendChild(w);
+      }
+      row.appendChild(el('p', 'dx-flagfrom', r.from +
+        (h.n > 1 ? ' \u00b7 matches ' + h.n + ' of your symptoms' : '')));
+      if (r.cond && TXBY[r.cond]) {
+        var open = el('button', 'txlink', 'Open ' + r.cond + ' in Conditions');
+        open.addEventListener('click', function () { txJumpToCondition(r.cond); });
+        row.appendChild(open);
+      }
+      body.appendChild(row);
+    });
+    if (hidden > 0) {
+      body.appendChild(el('p', 'dx-flagmore', hidden +
+        ' further urgent findings touch what you entered more loosely; they are in the Physical Exams tab.'));
+    }
+    det.appendChild(body);
+    return det;
+  }
+
+  // Everything this notebook already attaches to one condition, gathered.
+  function dxWorkup(cond) {
+    var rec = TXBY[cond] || {};
+    var pick = function (key, set) {
+      return (rec[key] || []).map(function (i) { return TX_IDX[set][i]; }).filter(Boolean);
+    };
+    var herbRec = null;
+    CONDS.forEach(function (c) { if (c.condition === cond) herbRec = c; });
+    return {
+      labs: pick('labs', 'labsOnly'),
+      screens: pick('labs', 'screens'),
+      pharm: pick('pharm', 'pharm'),
+      supps: pick('supps', 'nonHerbal'),
+      botanicals: pick('supps', 'botanicals'),
+      therapies: pick('therapies', 'natTherapeutics'),
+      lifestyle: pick('therapies', 'lifestyle'),
+      herbs: (herbRec && herbRec.herbs) || [],
+      protocol: rec.protocol ? TXPROTO[rec.protocol] : null,
+      cases: CB_BY[cond] || [],
+      topic: !!rec.extra
+    };
+  }
+
+  var DX_ROWS = [
+    ['labs', 'Labs & imaging', 'labs'],
+    ['screens', 'Screening tools', 'exams'],
+    ['pharm', 'Pharmaceuticals', 'pharm'],
+    ['supps', 'Supplements', 'supps'],
+    ['botanicals', 'Botanicals', 'herbs'],
+    ['therapies', 'Naturopathic therapeutics', 'therap'],
+    ['lifestyle', 'Lifestyle', 'life']
+  ];
+
+  var dxLast = [];   // what the CSV button writes
+
+  function buildDxChips() {
+    var box = $('#dx-chips');
+    if (!box) return;
+    box.innerHTML = '';
+    (DX.systems || []).forEach(function (sys) {
+      var terms = (DX.terms || []).filter(function (t) { return t.system === sys; });
+      if (!terms.length) return;
+      var wrap = el('div', 'dx-sys');
+      wrap.appendChild(el('h5', null, sys));
+      var row = el('div', 'chips');
+      terms.forEach(function (t) {
+        var b = el('button', 'chip', t.label);
+        b.addEventListener('click', function () {
+          var inp = $('#dx-input');
+          inp.value = (inp.value.trim() ? inp.value.replace(/[,\s]+$/, '') + ', ' : '') + t.label;
+          runDx();
+        });
+        row.appendChild(b);
+      });
+      wrap.appendChild(row);
+      box.appendChild(wrap);
+    });
+  }
+
+  function runDx() {
+    var out = $('#dx-results');
+    if (!out) return;
+    var text = $('#dx-input').value;
+    save('dx', text);
+    out.innerHTML = '';
+    if (!text.trim()) return;
+
+    var found = dxMatch(text);
+    if (!found.length) {
+      out.appendChild(alertBox('info', '<strong>Nothing recognised.</strong> None of the words in that ' +
+        'description matched a symptom this notebook indexes. Try plainer terms — "fatigue", "joint pain", ' +
+        '"loose stools" — or pick from the list above.'));
+      return;
+    }
+
+    dxRedFlags(found).forEach(function (r) {
+      out.appendChild(alertBox('danger', '<strong>Red flag:</strong> ' + escapeHtml(r.text)));
+    });
+
+    // Pinned above the ranking: what this picture could be that cannot wait,
+    // whether or not it scored well.
+    var mnm = dxMustNotMiss(found);
+    if (mnm) out.appendChild(mnm);
+
+    var head = el('div', 'dx-matched');
+    head.appendChild(el('span', 'dx-lab', 'read as'));
+    found.forEach(function (f) {
+      var t = DX_TERM[f.id];
+      var chip = el('span', 'dx-chip', t ? t.label : f.id);
+      if (t && f.matched !== t.label) chip.title = 'matched on "' + f.matched + '"';
+      head.appendChild(chip);
+    });
+    out.appendChild(head);
+
+    var ranked = dxScore(found).slice(0, 5);
+    if (!ranked.length) {
+      out.appendChild(alertBox('info', 'Those symptoms matched no condition in this notebook.'));
+      return;
+    }
+    var top = ranked[0].score;
+    dxLast = ranked;
+
+    ranked.forEach(function (r, i) {
+      var w = dxWorkup(r.cond);
+      var art = el('article', 'dxcard');
+
+      var h = el('div', 'dxhead');
+      h.appendChild(el('span', 'dxrank', String(i + 1)));
+      var nm = el('h4', null, r.cond);
+      h.appendChild(nm);
+      if (r.restates) {
+        var sb = el('span', 'txtag warnt', 'restates the symptom');
+        sb.title = 'This entry is named after the symptom you typed, so it explains nothing — it is ' +
+          'here for the therapeutics attached to it, not as a diagnosis.';
+        h.appendChild(sb);
+      } else if (w.topic) {
+        var tb = el('span', 'txtag', 'topic');
+        tb.title = 'Covered by the coursework but not in the herb-based condition index.';
+        h.appendChild(tb);
+      }
+      art.appendChild(h);
+
+      var bar = el('div', 'dxbar');
+      var fill = el('span');
+      fill.style.width = Math.max(6, Math.round(100 * r.score / top)) + '%';
+      bar.appendChild(fill);
+      art.appendChild(bar);
+
+      var on = el('p', 'dxon');
+      on.appendChild(el('span', 'dx-lab', 'matched on'));
+      r.on.forEach(function (o) {
+        var t = DX_TERM[o.id];
+        on.appendChild(el('span', 'dx-chip sm', t ? t.label : o.id));
+      });
+      art.appendChild(on);
+
+      var anyRow = w.herbs.length > 0;
+      DX_ROWS.forEach(function (row) { if ((w[row[0]] || []).length) anyRow = true; });
+      if (!anyRow) {
+        art.appendChild(el('p', 'dxempty', 'No therapeutics are attached to this entry — it is carried ' +
+          'for its case protocols and reference notes. Open it in Conditions to read them.'));
+      }
+      DX_ROWS.forEach(function (row) {
+        var items = w[row[0]];
+        if (!items || !items.length) return;
+        var sec = el('div', 'txrow');
+        sec.appendChild(el('span', 'txrow-lab', row[1]));
+        var box = el('div', 'txrow-items');
+        items.forEach(function (it) {
+          var b = el('button', 'txpill ' + row[0], it.name);
+          var tip = [];
+          if (it.cls) tip.push(it.cls);
+          if (it.kind) tip.push(LAB_KIND_LABEL[it.kind] || it.kind);
+          if (it.dose) tip.push(it.dose);
+          tip.push(it.use || it.why || it.mech || it.what || '');
+          if (it.range) tip.push('Normal: ' + it.range.normal);
+          if (it.caution) tip.push('Caution: ' + it.caution);
+          b.title = tip.filter(Boolean).join(' — ');
+          if (it.caution && /AVOID|contraindicat|Absolutely|boxed|emergency/i.test(it.caution)) {
+            b.classList.add('flagged');
+          }
+          b.addEventListener('click', function () {
+            if (row[2] === 'exams') { scrnJump(it.id); return; }
+            showTab(row[2]);
+            var inp = $('#' + (row[2] === 'herbs' ? 'hr' : row[2]) + '-search');
+            if (inp) {
+              inp.value = row[2] === 'herbs' ? it.name.split(' (')[0] : it.name;
+              inp.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+            if (row[2] === 'herbs') {
+              var bb = $('#bot-box');
+              if (bb) { bb.open = true; bb.scrollIntoView({ block: 'start' }); return; }
+            }
+            $('#panel-' + row[2]).scrollIntoView({ block: 'start' });
+          });
+          box.appendChild(b);
+        });
+        sec.appendChild(box);
+        art.appendChild(sec);
+      });
+
+      if (w.herbs.length) {
+        var hs = el('div', 'txrow');
+        hs.appendChild(el('span', 'txrow-lab', 'Herbs'));
+        var hb = el('div', 'txrow-items');
+        w.herbs.forEach(function (h2) {
+          var b = el('button', 'txpill herb' + (h2.role === 'primary' ? ' primary' : ''), h2.herb);
+          b.title = (h2.common ? h2.common + ' — ' : '') + h2.role + ': ' + h2.why +
+            (h2.lowDose ? ' — LOW DOSE herb, check the maximum' : '');
+          if (h2.lowDose) b.classList.add('flagged');
+          b.addEventListener('click', function () {
+            showTab('herbs');
+            $('#hr-search').value = h2.herb;
+            renderRef();
+            $('#panel-herbs').scrollIntoView({ block: 'start' });
+          });
+          hb.appendChild(b);
+        });
+        hs.appendChild(hb);
+        art.appendChild(hs);
+      }
+
+      var foot = el('div', 'dxfoot');
+      var open = el('button', 'txlink', 'Open ' + r.cond + ' in Conditions');
+      open.addEventListener('click', function () { txJumpToCondition(r.cond); });
+      foot.appendChild(open);
+      if (w.protocol) foot.appendChild(el('span', 'dxnote', '· carries a dosed treatment protocol'));
+      if (w.cases.length) {
+        foot.appendChild(el('span', 'dxnote', '· ' + w.cases.length +
+          (w.cases.length === 1 ? ' case protocol' : ' case protocols')));
+      }
+      art.appendChild(foot);
+      out.appendChild(art);
+    });
+
+    out.appendChild(el('p', 'hint dx-tail', 'Five is what was asked for, not what the evidence supports. ' +
+      'A sixth condition may have scored a hair lower, and the one that matters may not be in this ' +
+      'notebook at all.'));
+  }
+
+  function dxCsv() {
+    if (!dxLast.length) return;
+    var rows = [['Differential builder — Wellness with Noura'],
+                ['Symptoms entered', $('#dx-input').value],
+                ['Generated', new Date().toISOString().slice(0, 10)],
+                [],
+                ['Rank', 'Condition', 'Matched on', 'Category', 'Item']];
+    dxLast.forEach(function (r, i) {
+      var w = dxWorkup(r.cond);
+      var on = r.on.map(function (o) { return (DX_TERM[o.id] || {}).label || o.id; }).join('; ');
+      DX_ROWS.forEach(function (row) {
+        (w[row[0]] || []).forEach(function (it) {
+          rows.push([i + 1, r.cond, on, row[1], it.name]);
+        });
+      });
+      w.herbs.forEach(function (h) { rows.push([i + 1, r.cond, on, 'Herbs', h.herb]); });
+    });
+    downloadCSV('differential.csv', rows);
+  }
+
   /* ==================================================================
      THE MASTER COMPENDIUM
      Mitchell's case protocols, the respiratory module and the gastroenterology
@@ -1629,6 +2041,49 @@
     return det;
   }
 
+  /* ==================================================================
+     PAEDIATRICS
+     A tagging of the conditions that present in childhood — the age band and
+     what changes about each in a child — with the reference that goes beside
+     them: vitals by age, the dosing rules, red flags, dehydration, milestones,
+     fever and paediatric prescribing.
+     ================================================================== */
+  var PD = window.PEDS_DATA || { conditions: [], sections: [], ages: [] };
+  var PD_BY = {}, PD_AGE = {};
+  (PD.ages || []).forEach(function (a) { PD_AGE[a.id] = a.label; });
+  (PD.conditions || []).forEach(function (c) { PD_BY[c.condition] = c; });
+
+  function buildPedsBody() {
+    var host = $('#peds-body');
+    if (!host) return;
+    host.innerHTML = '';
+    (PD.sections || []).forEach(function (sec) {
+      var det = el('details', 'peds-sec');
+      det.appendChild(el('summary', null, sec.title));
+      var body = el('div', 'peds-secbody');
+      if (sec.flag) {
+        var fl = el('p', 'peds-flag');
+        fl.innerHTML = '<span class="pe-flagmark">written for this tool</span> ' + escapeHtml(sec.flag);
+        body.appendChild(fl);
+      }
+      var ul = el('ul', 'peds-list');
+      sec.body.forEach(function (line) { ul.appendChild(el('li', null, line)); });
+      body.appendChild(ul);
+      det.appendChild(body);
+      host.appendChild(det);
+    });
+  }
+
+  // The paediatric angle on one condition, shown inside its card.
+  function pedsNode(cond) {
+    var rec = PD_BY[cond];
+    if (!rec) return null;
+    var box = el('div', 'peds-angle');
+    box.appendChild(el('span', 'peds-age', PD_AGE[rec.age] || rec.age));
+    box.appendChild(el('p', null, rec.angle));
+    return box;
+  }
+
   var CX_TOPICS = [];
   function buildTopicConditions() {
     var by = (window.THERAPEUTICS_DATA || {}).byCondition || {};
@@ -1669,6 +2124,7 @@
     var q = $('#cx-search').value.toLowerCase().trim();
     var list = CONDS.concat(CX_TOPICS).filter(function (c) {
       if (cxSystem === '__topics') return !!c.topic && (!q || c._hay.indexOf(q) !== -1);
+      if (cxSystem === '__peds') return !!PD_BY[c.condition] && (!q || c._hay.indexOf(q) !== -1);
       if (c.topic && cxSystem !== 'all') return false;
       if (cxSystem === '__nd') { if (!c.ndRank) return false; }
       else if (cxSystem.indexOf('niche:') === 0) { if (c.niche !== cxSystem.slice(6)) return false; }
@@ -1749,6 +2205,11 @@
         if (fs) fb.title = fs[0] + '. Source: ' + fs[1];
         sum.appendChild(fb);
       }
+      if (PD_BY[c.condition]) {
+        var pb = el('span', 'sys peds', 'paediatric');
+        pb.title = PD_AGE[PD_BY[c.condition].age] || '';
+        sum.appendChild(pb);
+      }
       if (c.niche) {
         var nn = el('span', 'sys niche', c.niche);
         sum.appendChild(nn);
@@ -1765,6 +2226,8 @@
       det.appendChild(sum);
 
       var body = el('div', 'body');
+      var pnode = pedsNode(c.condition);
+      if (pnode) body.appendChild(pnode);
       var grid = el('div', 'hgrid');
       (c.herbs || []).forEach(function (h) {
         var row = el('div', 'hrow' + (h.role === 'primary' ? ' primary' : ''));
@@ -3212,508 +3675,6 @@
   }
 
   /* ==================================================================
-     DIFFERENTIAL BUILDER
-     Ranks the conditions in this notebook whose recorded presentation
-     matches the symptoms entered. The index is built at runtime from the
-     material already loaded — the chief-complaint differentials, the
-     casebook presentations, the study-note sections, the condition notes
-     and the protocol backgrounds — so it can never disagree with the tabs
-     it points at.
-
-     Scoring is deliberately plain. Each symptom is worth the strength of
-     the best evidence tying it to that condition, weighted by how rare the
-     symptom is across the index: a symptom that fits fifty conditions
-     separates nothing, one that fits two separates a great deal. That is
-     inverse document frequency, and it is the whole of the cleverness.
-     What it is not is a probability — prevalence, age, sex and exposure
-     are not in this data, and the ranking says so on its face.
-     ================================================================== */
-  var SY = window.SYMPTOM_DATA || { symptoms: [], systems: [] };
-  var DXW = { complaint: 3, exam: 3, history: 3, notes: 2, case: 2, note: 1 };
-  var DXKIND = {
-    complaint: 'named in the differential',
-    exam: 'exam finding',
-    history: 'history',
-    notes: 'your notes',
-    'case': 'casebook',
-    note: 'condition note'
-  };
-  var DX = { picked: [], index: null };
-
-  // Every place the notebook records what a condition looks like.
-  function dxCorpus() {
-    var rows = [];
-    var known = {};
-    CONDS.forEach(function (c) { known[c.condition] = true; });
-    Object.keys(TXBY).forEach(function (n) { known[n] = true; });
-
-    function add(cond, text, kind, label) {
-      if (cond && known[cond] && text) {
-        rows.push({ cond: cond, text: String(text).toLowerCase(), kind: kind, label: label });
-      }
-    }
-    PE_EXAMS.forEach(function (e) {
-      var head = e.type === 'Chief complaint'
-        ? (e.name + ' ' + e.region + ' ' + e.summary + ' ' + e.script) : null;
-      (e.differential || []).forEach(function (r) {
-        add(r.link, r.hpi, 'history', e.name + ' — ' + r.condition);
-        add(r.link, r.ros, 'history', e.name + ' — ' + r.condition);
-        add(r.link, r.pe, 'exam', e.name + ' — ' + r.condition);
-        add(r.link, r.note, 'note', e.name + ' — ' + r.condition);
-        if (head) add(r.link, head, 'complaint', 'Listed in the ' + e.name + ' differential');
-      });
-    });
-    (CB.cases || []).forEach(function (c) {
-      (c.conditions || []).forEach(function (n) {
-        add(n, c.presentation, 'case', 'Case ' + c.n + ' — ' + c.title);
-      });
-    });
-    Object.keys(TXBY).forEach(function (cond) {
-      var rec = TXBY[cond];
-      add(cond, rec.note, 'note', 'Condition note');
-      (rec.reference || []).forEach(function (r) {
-        add(cond, r.body.join(' '), 'notes', r.title);
-      });
-      var pr = rec.protocol && TXPROTO[rec.protocol];
-      if (pr) {
-        add(cond, pr.background, 'note', 'Protocol — ' + pr.title);
-        add(cond, pr.steps.map(function (st) { return st.why || ''; }).join(' '),
-            'note', 'Protocol — ' + pr.title);
-      }
-    });
-    CONDS.forEach(function (c) {
-      add(c.condition, (c.herbs || []).map(function (h) { return h.why || ''; }).join(' '),
-          'note', 'Herb indications');
-    });
-    return rows;
-  }
-
-  // Urgent findings and emergency differential rows, matched on the same terms.
-  function dxRedflagSource() {
-    var out = [];
-    PE_EXAMS.forEach(function (e) {
-      (e.findings || []).forEach(function (f) {
-        if (!f.urgent) return;
-        out.push({ text: (f.finding + ' ' + f.suggests).toLowerCase(), finding: f.finding,
-                   suggests: f.suggests, workup: f.workup || '', from: e.name, cond: null });
-      });
-      (e.differential || []).forEach(function (r) {
-        if (!r.urgent) return;
-        out.push({ text: [r.hpi, r.ros, r.pe].join(' ').toLowerCase(),
-                   finding: r.condition, suggests: r.tx || '', workup: r.labs || '',
-                   from: e.name, cond: r.link || null });
-      });
-    });
-    return out;
-  }
-
-  function dxBuild() {
-    if (DX.index) return DX.index;
-    var rows = dxCorpus(), flags = dxRedflagSource();
-    var byS = {}, flagBy = {}, nConds = 0, seen = {};
-    rows.forEach(function (r) { if (!seen[r.cond]) { seen[r.cond] = 1; nConds++; } });
-
-    SY.symptoms.forEach(function (s) {
-      var rx;
-      try {
-        rx = new RegExp('\\b(?:' + s.terms.map(function (t) {
-          return t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        }).join('|') + ')', 'i');
-      } catch (e) { return; }
-      var best = {};
-      rows.forEach(function (r) {
-        if (!rx.test(r.text)) return;
-        var w = DXW[r.kind] || 1;
-        if (!best[r.cond] || best[r.cond].w < w) {
-          best[r.cond] = { w: w, kind: r.kind, label: r.label };
-        }
-      });
-      byS[s.id] = best;
-      flagBy[s.id] = flags.filter(function (f) { return rx.test(f.text); });
-    });
-
-    // A symptom that fits half the index separates nothing; one that fits two
-    // separates a great deal. Floored so a single very rare hit cannot run away
-    // with the ranking on its own.
-    var idf = {};
-    SY.symptoms.forEach(function (s) {
-      var n = Object.keys(byS[s.id] || {}).length;
-      idf[s.id] = n ? Math.max(0.35, Math.log(nConds / n)) : 0;
-    });
-    DX.index = { byS: byS, idf: idf, flagBy: flagBy, nConds: nConds, nRows: rows.length };
-    return DX.index;
-  }
-
-  function dxScore() {
-    var ix = dxBuild();
-    var picked = DX.picked;
-    var s = {}, why = {};
-    picked.forEach(function (id) {
-      var hits = ix.byS[id] || {};
-      Object.keys(hits).forEach(function (cond) {
-        var h = hits[cond];
-        s[cond] = (s[cond] || 0) + h.w * ix.idf[id];
-        (why[cond] = why[cond] || []).push({ id: id, w: h.w, kind: h.kind, label: h.label });
-      });
-    });
-    var rank = Object.keys(s).sort(function (a, b) {
-      return (why[b].length - why[a].length) || (s[b] - s[a]) || a.localeCompare(b);
-    });
-    var unmatched = picked.filter(function (id) {
-      return !Object.keys(ix.byS[id] || {}).length;
-    });
-    return { s: s, why: why, rank: rank, unmatched: unmatched, ix: ix };
-  }
-
-  // Relative weight across the shortlist, shown as a bar. Explicitly a share of
-  // this ranking, not a probability of the diagnosis.
-  function dxShare(sc, list) {
-    var top = sc.s[list[0]] || 1, tot = 0, p = {};
-    list.forEach(function (c) { var e = Math.exp((sc.s[c] - top) / (top / 3 || 1)); p[c] = e; tot += e; });
-    list.forEach(function (c) { p[c] = tot ? p[c] / tot : 0; });
-    return p;
-  }
-
-  /* ---------------- the differential tab ---------------- */
-  var SYBY = {};
-  SY.symptoms.forEach(function (s) { SYBY[s.id] = s; });
-
-  function dxSave() { save('ddx', DX.picked); }
-  function dxLoad() {
-    var v = load('ddx');
-    if (v && v.length) DX.picked = v.filter(function (id) { return SYBY[id]; });
-  }
-
-  // The Differential and Diagnose tabs are two readings of one symptom list,
-  // so every change redraws both rather than letting them drift apart.
-  function dxRenderAll() {
-    renderDdx();
-    if (typeof renderDiag === 'function') renderDiag();
-  }
-  function dxAdd(id) {
-    if (!SYBY[id] || DX.picked.indexOf(id) !== -1) return;
-    DX.picked.push(id);
-    dxSave();
-    dxRenderAll();
-  }
-  function dxRemove(id) {
-    var i = DX.picked.indexOf(id);
-    if (i !== -1) { DX.picked.splice(i, 1); dxSave(); dxRenderAll(); }
-  }
-
-  // Free text is matched against the same terms the index is built on, so what
-  // you type and what the notebook was searched for are never two different things.
-  function dxLookup(q) {
-    q = q.toLowerCase().trim();
-    if (!q) return [];
-    var starts = [], contains = [];
-    SY.symptoms.forEach(function (s) {
-      if (DX.picked.indexOf(s.id) !== -1) return;
-      var hay = [s.name].concat(s.terms).map(function (t) { return t.toLowerCase(); });
-      var best = -1;
-      hay.forEach(function (t) {
-        var i = t.indexOf(q);
-        if (i === 0) best = Math.max(best, 2);
-        else if (i > 0 && best < 2) best = Math.max(best, 1);
-      });
-      if (best === 2) starts.push(s); else if (best === 1) contains.push(s);
-    });
-    return starts.concat(contains).slice(0, 8);
-  }
-
-  function dxSuggestInto(boxSel, inputSel, q) {
-    var box = $(boxSel);
-    var list = dxLookup(q);
-    box.innerHTML = '';
-    box.hidden = !list.length;
-    list.forEach(function (s) {
-      var b = el('button', 'dx-sugg');
-      b.setAttribute('role', 'option');
-      b.innerHTML = highlight(s.name, q) + '<span class="dx-sys">' + escapeHtml(s.system) + '</span>';
-      b.addEventListener('click', function () {
-        $(inputSel).value = '';
-        box.hidden = true;
-        dxAdd(s.id);
-        $(inputSel).focus();
-      });
-      box.appendChild(b);
-    });
-  }
-
-  function dxPickedInto(sel) {
-    var host = $(sel);
-    host.innerHTML = '';
-    if (!DX.picked.length) {
-      host.appendChild(el('p', 'hint', 'No symptoms yet. Type one above, or open the symptom list below.'));
-      return;
-    }
-    DX.picked.forEach(function (id) {
-      var s = SYBY[id];
-      var chip = el('button', 'chip dx-chip', s.name);
-      chip.title = 'Remove ' + s.name;
-      chip.appendChild(el('span', 'dx-x', '×'));
-      chip.addEventListener('click', function () { dxRemove(id); });
-      host.appendChild(chip);
-    });
-  }
-
-  function dxFlagsInto(sel, sc) {
-    var host = $(sel);
-    host.innerHTML = '';
-    if (!DX.picked.length) return;
-    // An emergency that answers to three of the entered symptoms is more to the
-    // point than one that brushes a single word, so they are ordered by how much
-    // of the picture they account for and only the leaders are shown.
-    var seen = {}, flags = [];
-    DX.picked.forEach(function (id) {
-      (sc.ix.flagBy[id] || []).forEach(function (f) {
-        // the same emergency is named by more than one complaint's differential;
-        // key on what it is and what it means, not on which list it came from
-        var k = f.finding + '|' + f.suggests;
-        if (seen[k]) { seen[k].n++; return; }
-        seen[k] = { f: f, n: 1 };
-        flags.push(seen[k]);
-      });
-    });
-    if (!flags.length) return;
-    flags.sort(function (a, b) { return b.n - a.n; });
-    // Once there is a real picture to match against, an emergency that answers to
-    // only one of five symptoms is noise — every fatigue case would lead with
-    // cancer. Above three symptoms the block tightens to those explaining at
-    // least two; if none do, it still shows the best of them, but closed, and
-    // says they matched loosely rather than presenting them as the picture.
-    var tightened = DX.picked.length >= 3;
-    var strong = tightened ? flags.filter(function (f) { return f.n >= 2; }) : flags;
-    var loose = !strong.length;
-    if (loose) strong = flags.slice(0, 3);
-    var shownFlags = strong.slice(0, 6), hiddenFlags = flags.length - shownFlags.length;
-    var det = el('details', 'dx-flagbox' + (loose ? ' loose' : ''));
-    det.open = !loose;
-    det.appendChild(el('summary', null, loose
-      ? 'Must not miss — nothing here matches more than one symptom, but ' + flags.length +
-        ' urgent findings touch what you entered'
-      : 'Must not miss — ' + shownFlags.length +
-        (shownFlags.length === 1 ? ' urgent finding matches' : ' urgent findings match') +
-        (tightened ? ' two or more of your symptoms' : ' what you entered')));
-    var body = el('div', 'dx-flagbody');
-    body.appendChild(el('p', 'dx-flaglede', loose
-      ? 'Each of these answers to only one of the symptoms you entered, so treat them as a checklist ' +
-        'rather than as the picture.'
-      : 'These are the emergency findings in the exam index whose wording your symptoms touch. They are ' +
-        'listed first because they are ruled out first, not because they are likely.'));
-    shownFlags.forEach(function (entry) {
-      var f = entry.f;
-      var row = el('div', 'dx-flag');
-      row.appendChild(el('p', 'dx-flagname', f.finding));
-      if (f.suggests) row.appendChild(el('p', 'dx-flagsugg', f.suggests));
-      if (f.workup) {
-        var w = el('p', 'dx-flagrun');
-        w.innerHTML = '<span class="pe-wlab">run</span> ' + escapeHtml(f.workup);
-        row.appendChild(w);
-      }
-      row.appendChild(el('p', 'dx-flagfrom', f.from +
-        (entry.n > 1 ? ' · matches ' + entry.n + ' of your symptoms' : '')));
-      body.appendChild(row);
-    });
-    if (hiddenFlags > 0) {
-      body.appendChild(el('p', 'dx-flagmore', hiddenFlags +
-        ' further urgent findings touch what you entered more loosely; they are in the Physical Exams tab.'));
-    }
-    det.appendChild(body);
-    host.appendChild(det);
-  }
-
-  function dxResultsNode(sc) {
-    var out = $('#dx-results');
-    out.innerHTML = '';
-    if (!DX.picked.length) return;
-
-    var list = sc.rank.slice(0, 15);
-    if (!list.length) {
-      out.appendChild(el('p', 'count',
-        'Nothing in the notebook records a condition presenting this way. Try a broader symptom, ' +
-        'or fewer of them.'));
-      return;
-    }
-    var share = dxShare(sc, list);
-    var frag = document.createDocumentFragment();
-
-    list.forEach(function (cond, i) {
-      var det = el('details', 'dx-res');
-      if (i < 3) det.open = true;
-      var sum = el('summary');
-      var rowTop = el('div', 'dx-restop');
-      rowTop.appendChild(el('span', 'dx-rank', String(i + 1)));
-      var nm = el('span', 'dx-name', cond);
-      rowTop.appendChild(nm);
-      rowTop.appendChild(el('span', 'dx-cover',
-        'explains ' + sc.why[cond].length + ' of ' + DX.picked.length));
-      sum.appendChild(rowTop);
-      var bar = el('div', 'dx-bar');
-      var fill = el('span');
-      fill.style.width = Math.max(3, Math.round(share[cond] * 100)) + '%';
-      bar.appendChild(fill);
-      sum.appendChild(bar);
-      det.appendChild(sum);
-
-      var body = el('div', 'dx-resbody');
-      var note = TXBY[cond] && TXBY[cond].note;
-      if (note) body.appendChild(el('p', 'dx-note', note));
-
-      var ul = el('ul', 'dx-evid');
-      sc.why[cond].slice().sort(function (a, b) { return b.w - a.w; }).forEach(function (h) {
-        var li = el('li');
-        li.appendChild(el('span', 'dx-ename', SYBY[h.id].name));
-        li.appendChild(el('span', 'dx-ekind', DXKIND[h.kind] || h.kind));
-        li.appendChild(el('span', 'dx-elabel', h.label));
-        ul.appendChild(li);
-      });
-      body.appendChild(ul);
-
-      var missed = DX.picked.filter(function (id) {
-        return !sc.why[cond].some(function (h) { return h.id === id; });
-      });
-      if (missed.length) {
-        body.appendChild(el('p', 'dx-missed', 'Does not account for: ' +
-          missed.map(function (id) { return SYBY[id].name.toLowerCase(); }).join(', ') + '.'));
-      }
-
-      var act = el('div', 'actions');
-      var open = el('button', 'btn ghost', 'Open in Conditions');
-      open.addEventListener('click', function () { peGoToCondition(cond); });
-      act.appendChild(open);
-      body.appendChild(act);
-      det.appendChild(body);
-      frag.appendChild(det);
-    });
-    out.appendChild(frag);
-  }
-
-  function dxVocabInto(hostSel, countSel, panelSel) {
-    var host = $(hostSel);
-    if (!host || host.dataset.built) return;
-    host.dataset.built = '1';
-    $(countSel).textContent = SY.symptoms.length + ' symptoms across ' + SY.systems.length + ' systems';
-    SY.systems.forEach(function (sysn) {
-      var box = el('section', 'dx-vgroup');
-      box.appendChild(el('h4', null, sysn));
-      var wrap = el('div', 'chips');
-      SY.symptoms.filter(function (s) { return s.system === sysn; }).forEach(function (s) {
-        var b = el('button', 'chip', s.name);
-        b.addEventListener('click', function () {
-          dxAdd(s.id);
-          $(panelSel).scrollIntoView({ block: 'start' });
-        });
-        wrap.appendChild(b);
-      });
-      box.appendChild(wrap);
-      host.appendChild(box);
-    });
-  }
-
-  function dxMethodNode() {
-    var host = $('#dx-method');
-    if (!host || host.dataset.built) return;
-    host.dataset.built = '1';
-    var ix = dxBuild();
-    [
-      ['What it searches', 'Every place this notebook records what a condition looks like: the ' +
-       'chief-complaint differentials, the presentation of each casebook case, the verbatim study-note ' +
-       'sections, the condition notes and the protocol backgrounds. ' + ix.nRows + ' passages across ' +
-       ix.nConds + ' conditions, indexed on ' + SY.symptoms.length + ' symptom terms.'],
-      ['How it ranks', 'A condition scores for each of your symptoms it accounts for. Each hit is worth ' +
-       'the strength of the evidence behind it — an objective exam finding or a named place in a ' +
-       'differential counts for more than a passing mention in a note — multiplied by how rare that ' +
-       'symptom is across the index. A symptom that fits fifty conditions separates nothing; one that ' +
-       'fits two separates a great deal. Conditions are then ordered by how many of your symptoms they ' +
-       'explain, and ties broken on that score.'],
-      ['What the bar is', 'The share of this ranking a condition holds, relative to the leader. It is a ' +
-       'reading aid, not a probability. Nothing here estimates how likely a diagnosis actually is.'],
-      ['What it is not', 'It is not a diagnosis and it is not a likelihood. Real likelihood turns on ' +
-       'prevalence, age, sex, exposure, season and the rest of the history — none of which is in this ' +
-       'data. A condition can only appear if something in the notebook describes it, so absence from ' +
-       'the list means the notebook is silent, not that the diagnosis is excluded. Work from the ' +
-       'evidence line shown under each result, not from the order.']
-    ].forEach(function (pair) {
-      host.appendChild(el('h4', 'dx-mh', pair[0]));
-      host.appendChild(el('p', 'dx-mp', pair[1]));
-    });
-  }
-
-  function renderDdx() {
-    if (!$('#dx-results')) return;
-    dxPickedInto('#dx-picked');
-    var acts = $('#dx-actions');
-    acts.innerHTML = '';
-    if (DX.picked.length) {
-      var clear = el('button', 'btn ghost danger', 'Clear all');
-      clear.addEventListener('click', function () { DX.picked = []; dxSave(); dxRenderAll(); });
-      acts.appendChild(clear);
-      var csv = el('button', 'btn ghost', 'Download CSV');
-      csv.addEventListener('click', function () {
-        var sc = dxScore();
-        var rows = [['Rank', 'Condition', 'Symptoms explained', 'Of', 'Score', 'Matched on']];
-        sc.rank.forEach(function (c, i) {
-          rows.push([i + 1, c, sc.why[c].length, DX.picked.length, sc.s[c].toFixed(2),
-            sc.why[c].map(function (h) { return SYBY[h.id].name + ' (' + h.label + ')'; }).join('; ')]);
-        });
-        downloadCSV('differential', rows);
-      });
-      acts.appendChild(csv);
-    }
-    if (!DX.picked.length) {
-      $('#dx-count').textContent = '';
-      $('#dx-flags').innerHTML = '';
-      $('#dx-results').innerHTML = '';
-      return;
-    }
-    var sc = dxScore();
-    var n = sc.rank.length;
-    var dxSilent = sc.unmatched.length
-      ? 'nothing in the notebook records ' +
-        sc.unmatched.map(function (id) { return SYBY[id].name.toLowerCase(); }).join(' or ')
-      : '';
-    $('#dx-count').textContent = n
-      ? n + (n === 1 ? ' condition matches' : ' conditions match') +
-        ' — showing the top ' + Math.min(15, n) + (dxSilent ? ' · ' + dxSilent : '')
-      : (dxSilent ? dxSilent.charAt(0).toUpperCase() + dxSilent.slice(1) : 'No condition matches that.');
-    dxFlagsInto('#dx-flags', sc);
-    dxResultsNode(sc);
-  }
-
-
-  // Both symptom tabs drive the same picker, so they are wired the same way.
-  function dxWire(prefix, panelSel, methodFn) {
-    var input = $('#' + prefix + '-input');
-    if (!input) return;
-    var suggest = '#' + prefix + '-suggest';
-    input.addEventListener('input', function () {
-      dxSuggestInto(suggest, '#' + prefix + '-input', input.value);
-    });
-    input.addEventListener('keydown', function (e) {
-      if (e.key !== 'Enter') return;
-      e.preventDefault();
-      var first = dxLookup(input.value)[0];
-      if (first) { input.value = ''; $(suggest).hidden = true; dxAdd(first.id); }
-    });
-    // let a click on a suggestion land before the list closes
-    input.addEventListener('blur', function () {
-      setTimeout(function () { $(suggest).hidden = true; }, 150);
-    });
-    input.addEventListener('focus', function () {
-      dxSuggestInto(suggest, '#' + prefix + '-input', input.value);
-    });
-    $('#' + prefix + '-browse').addEventListener('toggle', function (e) {
-      if (e.target.open) dxVocabInto('#' + prefix + '-vocab', '#' + prefix + '-vocab-n', panelSel);
-    });
-    $(panelSel).querySelector('.srcnote').addEventListener('toggle', function (e) {
-      if (e.target.open) methodFn();
-    });
-  }
-  dxWire('dx', '#panel-ddx', function () { dxMethodNode(); });
-  dxWire('dg', '#panel-diag', function () { dgMethodNode(); });
-
-  /* ==================================================================
      HOMEOPATHY DIFFERENTIATOR
      Boger's synoptic method: the generals outrank the local symptoms, and
      the case is decided by what separates the remedies rather than by a
@@ -4147,269 +4108,6 @@
   }
 
 
-  /* ==================================================================
-     DIAGNOSE
-     The same index and the same scoring as the Differential tab — one
-     symptom list, shared between them — but a different answer. The
-     Differential shows the whole ranking and its working; this shows the
-     leading three with what the notebook files under each: what to run,
-     what to give, and what a practitioner does. Everything below comes
-     from the Conditions index rather than being written here, so it is the
-     same material the other tabs carry, gathered per diagnosis.
-     ================================================================== */
-  var DG_ROWS = [
-    ['labs',      'Labs to run',               'labsOnly'],
-    ['labs',      'Screening tools',           'screens'],
-    ['supps',     'Supplements',               'nonHerbal'],
-    ['supps',     'Botanicals',                'botanicals'],
-    ['therapies', 'Naturopathic therapeutics', 'natTherapeutics'],
-    ['therapies', 'Lifestyle',                 'lifestyle'],
-    ['pharm',     'Pharmaceuticals',           'pharm']
-  ];
-  var DG_HERBS = {};
-  CONDS.forEach(function (c) { DG_HERBS[c.condition] = c; });
-  var DG_HOMEO = {};
-  (H.conditions || []).forEach(function (c) { DG_HOMEO[c.condition] = c; });
-
-  function dgPlanRow(label, items, cls) {
-    var sec = el('div', 'dg-row');
-    sec.appendChild(el('span', 'dg-rowlab', label));
-    var box = el('div', 'dg-rowitems');
-    items.forEach(function (it) {
-      var b = el('span', 'dg-item ' + cls);
-      b.appendChild(el('span', 'dg-iname', it.name));
-      if (it.dose) b.appendChild(el('span', 'dg-idose', it.dose));
-      if (it.why) b.appendChild(el('span', 'dg-iwhy', it.why));
-      if (it.warn) b.classList.add('warn');
-      box.appendChild(b);
-    });
-    sec.appendChild(box);
-    return sec;
-  }
-
-  function dgPlanNode(cond) {
-    var rec = TXBY[cond];
-    var wrap = el('div', 'dg-plan');
-    var any = false;
-    if (rec) {
-      DG_ROWS.forEach(function (r) {
-        var items = (rec[r[0]] || []).map(function (i) { return TX_IDX[r[2]][i]; })
-          .filter(Boolean).map(function (x) {
-            return {
-              name: x.name,
-              dose: x.dose || '',
-              why: x.why || x.use || x.mech || x.what || '',
-              warn: !!(x.caution && /AVOID|contraindicat|Absolutely|boxed|emergency|never/i.test(x.caution))
-            };
-          });
-        if (!items.length) return;
-        any = true;
-        wrap.appendChild(dgPlanRow(r[1], items,
-          r[2] === 'lifestyle' ? 'life' : r[2] === 'botanicals' ? 'bot'
-          : r[0] === 'labs' ? 'lab' : r[0]));
-      });
-    }
-    // the herb index is a separate source from the therapeutics catalogue
-    var hc = DG_HERBS[cond];
-    if (hc && hc.herbs && hc.herbs.length) {
-      any = true;
-      wrap.appendChild(dgPlanRow('Herbs', hc.herbs.slice(0, 8).map(function (h) {
-        return { name: h.herb + (h.common ? ' (' + h.common + ')' : ''), dose: '', why: h.why || '' };
-      }), 'bot'));
-    }
-    if (hc && hc.notes) {
-      var hn = el('p', 'dg-hnote');
-      hn.textContent = hc.notes;
-      wrap.appendChild(hn);
-    }
-    if (!any) {
-      wrap.appendChild(el('p', 'dg-empty',
-        'The notebook carries no labs, supplements or therapies filed under this one — only the notes on ' +
-        'the condition card.'));
-    }
-    return wrap;
-  }
-
-  function dgExtrasNode(cond) {
-    var rec = TXBY[cond] || {};
-    var wrap = el('div', 'dg-extras');
-    var pr = rec.protocol && TXPROTO[rec.protocol];
-    if (pr) {
-      var n = (pr.steps || []).filter(function (st) { return !st.heading; }).length;
-      wrap.appendChild(el('span', 'dg-extra',
-        'Dosed protocol — ' + n + ' agents, on the condition card'));
-    }
-    if ((rec.reference || []).length) {
-      wrap.appendChild(el('span', 'dg-extra',
-        'Your notes — ' + rec.reference.length +
-        (rec.reference.length === 1 ? ' section' : ' sections')));
-    }
-    var cs = CB_BY[cond];
-    if (cs && cs.length) {
-      wrap.appendChild(el('span', 'dg-extra',
-        'Case protocols — ' + cs.length + (cs.length === 1 ? ' case' : ' cases')));
-    }
-    if (DG_HOMEO[cond]) {
-      var b = el('button', 'dg-extra link', 'Homeopathic differentiator');
-      b.addEventListener('click', function () {
-        showTab('homeo');
-        $('#panel-homeo').scrollIntoView({ block: 'start' });
-      });
-      wrap.appendChild(b);
-    }
-    return wrap.childNodes.length ? wrap : null;
-  }
-
-  function dgResultsNode(sc) {
-    var out = $('#dg-results');
-    out.innerHTML = '';
-    if (!DX.picked.length) return;
-    if (!sc.rank.length) {
-      out.appendChild(el('p', 'count',
-        'Nothing in the notebook records a condition presenting this way. Try a broader symptom, or fewer.'));
-      return;
-    }
-    var top = sc.rank.slice(0, 3);
-    var share = dxShare(sc, sc.rank.slice(0, 15));
-    var frag = document.createDocumentFragment();
-
-    top.forEach(function (cond, i) {
-      var card = el('article', 'dg-card');
-      var head = el('div', 'dg-head');
-      head.appendChild(el('span', 'dx-rank', String(i + 1)));
-      head.appendChild(el('h3', 'dg-name', cond));
-      head.appendChild(el('span', 'dx-cover',
-        'explains ' + sc.why[cond].length + ' of ' + DX.picked.length));
-      card.appendChild(head);
-
-      var bar = el('div', 'dx-bar');
-      var fill = el('span');
-      fill.style.width = Math.max(3, Math.round(share[cond] * 100)) + '%';
-      bar.appendChild(fill);
-      card.appendChild(bar);
-
-      card.appendChild(el('p', 'dg-because', 'Fits: ' +
-        sc.why[cond].map(function (h) { return SYBY[h.id].name.toLowerCase(); }).join(', ') + '.'));
-      var missed = DX.picked.filter(function (id) {
-        return !sc.why[cond].some(function (h) { return h.id === id; });
-      });
-      if (missed.length) {
-        card.appendChild(el('p', 'dg-missed', 'Does not explain: ' +
-          missed.map(function (id) { return SYBY[id].name.toLowerCase(); }).join(', ') + '.'));
-      }
-      if (TXBY[cond] && TXBY[cond].note) {
-        card.appendChild(el('p', 'dg-note', TXBY[cond].note));
-      }
-      card.appendChild(dgPlanNode(cond));
-      var ex = dgExtrasNode(cond);
-      if (ex) card.appendChild(ex);
-
-      var act = el('div', 'actions');
-      var open = el('button', 'btn ghost', 'Open ' + cond + ' in Conditions');
-      open.addEventListener('click', function () { peGoToCondition(cond); });
-      act.appendChild(open);
-      card.appendChild(act);
-      frag.appendChild(card);
-    });
-    out.appendChild(frag);
-
-    if (sc.rank.length > 3) {
-      var det = el('details', 'dg-rest');
-      det.appendChild(el('summary', null,
-        'Also in the running — ' + (sc.rank.length - 3) + ' more, ranked'));
-      var list = el('div', 'dg-restlist');
-      sc.rank.slice(3, 15).forEach(function (cond, i) {
-        var row = el('button', 'dg-restrow');
-        row.appendChild(el('span', 'dg-restn', String(i + 4)));
-        row.appendChild(el('span', 'dg-restname', cond));
-        row.appendChild(el('span', 'dx-cover',
-          'explains ' + sc.why[cond].length + ' of ' + DX.picked.length));
-        row.addEventListener('click', function () { peGoToCondition(cond); });
-        list.appendChild(row);
-      });
-      det.appendChild(list);
-      out.appendChild(det);
-    }
-  }
-
-  function dgMethodNode() {
-    var host = $('#dg-method');
-    if (!host || host.dataset.built) return;
-    host.dataset.built = '1';
-    var ix = dxBuild();
-    [['Where the three come from',
-      'The same index and scoring as the Differential tab: ' + ix.nRows + ' passages across ' +
-      ix.nConds + ' conditions, matched on ' + SY.symptoms.length + ' symptoms, ranked by how many of ' +
-      'your symptoms each condition accounts for and how rare those symptoms are. Your picks are shared ' +
-      'between the two tabs — the Differential shows the whole ranking and the passage behind every match.'],
-     ['Where the plan comes from',
-      'Nothing under a diagnosis is written here. The labs, supplements, botanicals, therapeutics, ' +
-      'lifestyle changes and pharmaceuticals are exactly what the Conditions index already files under ' +
-      'that condition, gathered onto one card, with the herbs from the herb index alongside them.'],
-     ['It is a shortlist, not a diagnosis',
-      'Three is a display choice, not a clinical claim — the fourth is often as good as the third, which ' +
-      'is why the rest of the ranking is one click away. The order is not a likelihood: prevalence, age, ' +
-      'sex, exposure and season are not in this data. A condition can only appear if the notebook ' +
-      'describes it, so absence means the notebook is silent, not that the diagnosis is excluded.'],
-     ['The plan is a starting point, not a prescription',
-      'These are the agents the notebook associates with a condition, not a protocol chosen for a ' +
-      'patient. Doses shown are the catalogue’s typical ranges. Check every caution on the ' +
-      'condition card, and the pregnancy and lactation safety in the Herb Reference, before dispensing ' +
-      'anything. Agents whose caution carries an absolute contraindication are marked.']
-    ].forEach(function (p) {
-      host.appendChild(el('h4', 'dx-mh', p[0]));
-      host.appendChild(el('p', 'dx-mp', p[1]));
-    });
-  }
-
-  function renderDiag() {
-    if (!$('#dg-results')) return;
-    dxPickedInto('#dg-picked');
-    var acts = $('#dg-actions');
-    acts.innerHTML = '';
-    if (DX.picked.length) {
-      var clear = el('button', 'btn ghost danger', 'Clear all');
-      clear.addEventListener('click', function () { DX.picked = []; dxSave(); dxRenderAll(); });
-      acts.appendChild(clear);
-      var csv = el('button', 'btn ghost', 'Download CSV');
-      csv.addEventListener('click', function () {
-        var sc = dxScore();
-        var rows = [['Rank', 'Condition', 'Explains', 'Of', 'Category', 'Item', 'Dose']];
-        sc.rank.slice(0, 3).forEach(function (c, i) {
-          var rec = TXBY[c] || {};
-          DG_ROWS.forEach(function (r) {
-            (rec[r[0]] || []).forEach(function (id) {
-              var it = TX_IDX[r[2]][id];
-              if (it) rows.push([i + 1, c, sc.why[c].length, DX.picked.length, r[1], it.name, it.dose || '']);
-            });
-          });
-          (DG_HERBS[c] && DG_HERBS[c].herbs || []).forEach(function (h) {
-            rows.push([i + 1, c, sc.why[c].length, DX.picked.length, 'Herbs', h.herb, '']);
-          });
-        });
-        downloadCSV('diagnose', rows);
-      });
-      acts.appendChild(csv);
-    }
-    if (!DX.picked.length) {
-      $('#dg-count').textContent = '';
-      $('#dg-flags').innerHTML = '';
-      $('#dg-results').innerHTML = '';
-      return;
-    }
-    var sc = dxScore();
-    var silent = sc.unmatched.length
-      ? 'nothing in the notebook records ' +
-        sc.unmatched.map(function (id) { return SYBY[id].name.toLowerCase(); }).join(' or ')
-      : '';
-    $('#dg-count').textContent = sc.rank.length
-      ? 'Top ' + Math.min(3, sc.rank.length) + ' of ' + sc.rank.length + ' conditions that match' +
-        (silent ? ' · ' + silent : '')
-      : (silent ? silent.charAt(0).toUpperCase() + silent.slice(1) : 'No condition matches that.');
-    dxFlagsInto('#dg-flags', sc);
-    dgResultsNode(sc);
-  }
-
   /* ---------------- remedy reference ---------------- */
   function hxRenderRef() {
     var q = $('#hr2-search').value.toLowerCase().trim();
@@ -4540,6 +4238,23 @@
     cxAddTherapeuticsToHaystack();
     buildTopicConditions();
     cbIndexConditions();
+    buildPedsBody();
+    buildDxChips();
+    if ($('#dx-input')) {
+      var saved = load('dx');
+      if (saved) { $('#dx-input').value = saved; runDx(); }
+      $('#dx-run').addEventListener('click', runDx);
+      $('#dx-input').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) runDx();
+      });
+      $('#dx-clear').addEventListener('click', function () {
+        $('#dx-input').value = '';
+        $('#dx-results').innerHTML = '';
+        dxLast = [];
+        save('dx', '');
+      });
+      $('#dx-csv').addEventListener('click', dxCsv);
+    }
     buildSystemChips();
     setSort('az');
     buildExamChips();
@@ -4552,9 +4267,6 @@
     renderSuffixes();
     buildScreeners();
     buildWomensNotes();
-    dxLoad();
-    dxRenderAll();
-
     hxRenderPick();
     hxRenderRef();
     var sh = load('homeo');

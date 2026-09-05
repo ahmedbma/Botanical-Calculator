@@ -1,0 +1,508 @@
+{
+ "note": "Which of this notebook's conditions present in childhood, in which age band, and what changes about them in a child — a tagging of existing entries. The reference sections were written for this tool from standard paediatric references; they are not from the coursework and are not peer reviewed.",
+ "ages": [
+  {
+   "id": "neonate",
+   "label": "Neonate (0–28 days)"
+  },
+  {
+   "id": "infant",
+   "label": "Infant (1–12 months)"
+  },
+  {
+   "id": "toddler",
+   "label": "Toddler (1–3 years)"
+  },
+  {
+   "id": "child",
+   "label": "Child (3–12 years)"
+  },
+  {
+   "id": "adolescent",
+   "label": "Adolescent (12–18 years)"
+  },
+  {
+   "id": "any",
+   "label": "Any age in childhood"
+  }
+ ],
+ "conditions": [
+  {
+   "condition": "Kawasaki disease",
+   "age": "child",
+   "angle": "Fever of five days or more with four of five criteria. The leading cause of acquired heart disease in children in the US and Japan — echocardiography and IVIG within 10 days, not a naturopathic problem."
+  },
+  {
+   "condition": "Scarlet fever",
+   "age": "child",
+   "angle": "Sandpaper rash, strawberry tongue and Pastia's lines after a streptococcal pharyngitis. Antibiotics prevent rheumatic fever; this is a prescription, not a preference."
+  },
+  {
+   "condition": "Rheumatic fever",
+   "age": "child",
+   "angle": "Jones criteria two to four weeks after untreated group A strep. Carditis is the finding that decides the child's future."
+  },
+  {
+   "condition": "Measles",
+   "age": "child",
+   "angle": "Koplik spots precede the rash by a day or two. Notifiable, and vitamin A reduces mortality in deficiency; airborne precautions for 4 days after rash onset."
+  },
+  {
+   "condition": "Rubella",
+   "age": "child",
+   "angle": "Mild in the child, catastrophic in the first-trimester fetus — the exposure history of every pregnant contact matters more than the child's own course."
+  },
+  {
+   "condition": "Varicella",
+   "age": "child",
+   "angle": "Crops of lesions at different stages. Never aspirin — Reye's syndrome. Watch for secondary bacterial infection of excoriated lesions."
+  },
+  {
+   "condition": "Roseola",
+   "age": "infant",
+   "angle": "Three to five days of high fever in a well-looking infant, then the rash appears as the fever breaks. The commonest cause of a first febrile seizure."
+  },
+  {
+   "condition": "Fifth disease",
+   "age": "child",
+   "angle": "Slapped-cheek then lacy reticular rash; no longer infectious once the rash appears. Aplastic crisis in sickle cell disease and hydrops in pregnancy are the real risks."
+  },
+  {
+   "condition": "Hand, foot and mouth disease",
+   "age": "toddler",
+   "angle": "Coxsackie A16 or enterovirus 71. Oral ulcers drive refusal to drink — the management question is hydration, not the rash."
+  },
+  {
+   "condition": "Non-specific viral exanthem",
+   "age": "child",
+   "angle": "The commonest paediatric rash by far, and a diagnosis of exclusion once the specific exanthems and meningococcal disease are ruled out."
+  },
+  {
+   "condition": "Otitis media",
+   "age": "toddler",
+   "angle": "Peak incidence 6 to 24 months. A bulging, immobile tympanic membrane, not just a red one. Watchful waiting with analgesia is appropriate in the older, well child."
+  },
+  {
+   "condition": "Impetigo",
+   "age": "child",
+   "angle": "Honey-crusted lesions, highly contagious in nurseries. Topical treatment for limited disease; keep the child off until 48 hours of treatment or crusting."
+  },
+  {
+   "condition": "Sore throat",
+   "age": "child",
+   "angle": "Centor is unreliable under 3. Test before treating, and remember that a strawberry tongue changes the diagnosis."
+  },
+  {
+   "condition": "Common cold",
+   "age": "child",
+   "angle": "Six to eight a year is normal in a nursery-going child. No cough or cold preparation is licensed under 6, and honey is contraindicated under 1 (infant botulism)."
+  },
+  {
+   "condition": "Influenza",
+   "age": "child",
+   "angle": "Children shed longer and higher. Never aspirin. Watch for secondary bacterial pneumonia at the second fever."
+  },
+  {
+   "condition": "Pneumonia",
+   "age": "child",
+   "angle": "Tachypnoea is the most sensitive sign — count the respiratory rate for a full minute against the age-band table below. Chest radiography is not needed in uncomplicated community-acquired disease."
+  },
+  {
+   "condition": "Bronchitis",
+   "age": "infant",
+   "angle": "Under 2, the picture is usually bronchiolitis rather than bronchitis: RSV, widespread crackles and wheeze, and feeding difficulty as the admission criterion."
+  },
+  {
+   "condition": "Urinary tract infection",
+   "age": "infant",
+   "angle": "In the pre-verbal child, a UTI presents as fever without a source, vomiting or poor feeding. A clean catch or catheter specimen — bag urine is not diagnostic — and imaging after the first proven infection."
+  },
+  {
+   "condition": "Sexually transmitted infection",
+   "age": "adolescent",
+   "angle": "In a prepubertal child, a sexually transmitted infection is a safeguarding matter before it is a microbiological one."
+  },
+  {
+   "condition": "Diaper dermatitis",
+   "age": "infant",
+   "angle": "Irritant dermatitis spares the skin folds; candidal infection involves them and has satellite lesions. That distinction decides the treatment."
+  },
+  {
+   "condition": "Eczema",
+   "age": "infant",
+   "angle": "Face and extensor surfaces in infancy, flexural from toddlerhood. Emollients are the treatment; restricting a child's diet on an IgG panel risks nutritional harm for little gain."
+  },
+  {
+   "condition": "Seborrheic dermatitis",
+   "age": "infant",
+   "angle": "Cradle cap: greasy yellow scale on the scalp of a well infant, self-limiting over weeks. Loosen with oil and a soft brush; ketoconazole shampoo only if extensive."
+  },
+  {
+   "condition": "Molluscum contagiosum",
+   "age": "child",
+   "angle": "Self-limiting over months to two years. Most children need reassurance and time, not a procedure."
+  },
+  {
+   "condition": "Warts",
+   "age": "child",
+   "angle": "Two-thirds resolve within two years untreated. Salicylate and occlusion first."
+  },
+  {
+   "condition": "Head lice",
+   "age": "child",
+   "angle": "Diagnosis needs a living louse, not nits alone. Wet combing and a topical agent; treat the household, not the classroom."
+  },
+  {
+   "condition": "Scabies",
+   "age": "child",
+   "angle": "Infants get palm, sole and scalp involvement that older children do not. Treat every household contact on the same day, and warn that the itch outlasts the mite by weeks."
+  },
+  {
+   "condition": "Tinea",
+   "age": "child",
+   "angle": "Tinea capitis needs oral treatment — topicals do not reach the follicle — and a look at the family and any pets."
+  },
+  {
+   "condition": "Keratosis pilaris",
+   "age": "child",
+   "angle": "Follicular roughness on the outer arms and cheeks. Benign, familial, and largely cosmetic; emollients and patience."
+  },
+  {
+   "condition": "Pityriasis alba",
+   "age": "child",
+   "angle": "Hypopigmented dry patches on the face of an atopic child, more visible after sun exposure. Not vitiligo and not tinea."
+  },
+  {
+   "condition": "Pityriasis rosea",
+   "age": "adolescent",
+   "angle": "Herald patch then a Christmas-tree distribution. Self-limiting over 6 to 8 weeks; exclude secondary syphilis in the sexually active adolescent."
+  },
+  {
+   "condition": "Acne",
+   "age": "adolescent",
+   "angle": "Treat early and treat scarring aggressively. Screen mood before and during isotretinoin, and never use tetracyclines under 8 years or in pregnancy."
+  },
+  {
+   "condition": "Urticaria and angioedema",
+   "age": "child",
+   "angle": "Acute urticaria in a child is usually post-viral, not allergic. Facial or tongue swelling with breathing difficulty is anaphylaxis until proven otherwise."
+  },
+  {
+   "condition": "Henoch-Schonlein purpura",
+   "age": "child",
+   "angle": "Palpable purpura on the buttocks and legs, arthritis, abdominal pain. Check urine for blood and protein weekly for six months — the kidney is what determines outcome."
+  },
+  {
+   "condition": "Incontinentia pigmenti",
+   "age": "infant",
+   "angle": "X-linked dominant; the four skin stages evolve over infancy. Ophthalmology and neurology review, because the eye and brain are involved more often than the skin suggests."
+  },
+  {
+   "condition": "Erythema multiforme",
+   "age": "child",
+   "angle": "Target lesions, usually post-herpetic. Mucosal involvement moves it toward Stevens-Johnson and out of outpatient care."
+  },
+  {
+   "condition": "Erythema nodosum",
+   "age": "adolescent",
+   "angle": "Tender shin nodules; in a child, look for streptococcus, tuberculosis and inflammatory bowel disease."
+  },
+  {
+   "condition": "Burns",
+   "age": "child",
+   "angle": "Use the age-adjusted body surface area chart — the paediatric head is proportionally far larger. Any burn with an inconsistent history is a safeguarding referral."
+  },
+  {
+   "condition": "Wound healing",
+   "age": "child",
+   "angle": "Children heal fast and scar readily; sun protection of a new scar for a year."
+  },
+  {
+   "condition": "Asthma",
+   "age": "child",
+   "angle": "Diagnosis under 5 is clinical — spirometry is unreliable before school age. Inhaler technique with a spacer outranks every dose adjustment, and check growth on inhaled steroids."
+  },
+  {
+   "condition": "Allergic rhinitis",
+   "age": "child",
+   "angle": "Allergic shiners, the transverse nasal crease and mouth breathing. Untreated, it worsens asthma control and disturbs sleep."
+  },
+  {
+   "condition": "Cystic fibrosis",
+   "age": "infant",
+   "angle": "Newborn screening then sweat chloride. Failure to thrive with steatorrhoea and recurrent chest infection is the classic missed presentation."
+  },
+  {
+   "condition": "Cough",
+   "age": "child",
+   "angle": "A cough over 4 weeks in a child needs a cause, not a syrup. Consider inhaled foreign body, pertussis, asthma and bronchiectasis."
+  },
+  {
+   "condition": "Obstructive sleep apnea",
+   "age": "child",
+   "angle": "Adenotonsillar hypertrophy, not obesity, is the usual cause. Presents as behavioural difficulty, bedwetting and poor growth rather than daytime sleepiness."
+  },
+  {
+   "condition": "Sinusitis",
+   "age": "child",
+   "angle": "The frontal sinuses do not pneumatise until 7 to 8 years — frontal tenderness in a young child is something else."
+  },
+  {
+   "condition": "GERD",
+   "age": "infant",
+   "angle": "Physiological posseting in a thriving infant needs reassurance, not a proton pump inhibitor. Back-arching, refusal to feed, faltering growth or blood change that."
+  },
+  {
+   "condition": "Constipation",
+   "age": "child",
+   "angle": "Functional in the great majority. Disimpact first, then maintain for months — stopping early is why it recurs. Delayed meconium, ribbon stools or failure to thrive point elsewhere."
+  },
+  {
+   "condition": "Diarrhea",
+   "age": "toddler",
+   "angle": "Toddler's diarrhoea in a thriving child needs fat in the diet and less fruit juice. In the unwell child, dehydration assessment governs everything."
+  },
+  {
+   "condition": "Celiac disease",
+   "age": "child",
+   "angle": "Faltering growth, abdominal distension and irritability after weaning onto gluten. Test on a gluten-containing diet, and check the total IgA."
+  },
+  {
+   "condition": "Food intolerance",
+   "age": "child",
+   "angle": "Distinguish IgE allergy — minutes, reproducible, anaphylaxis risk — from delayed intolerance. Elimination diets in children carry a real nutritional cost."
+  },
+  {
+   "condition": "Inflammatory bowel disease",
+   "age": "adolescent",
+   "angle": "Growth failure and delayed puberty may precede any bowel symptom by years. Plot the growth chart."
+  },
+  {
+   "condition": "Parasites, intestinal",
+   "age": "child",
+   "angle": "Pinworm presents as nocturnal perianal itch and disturbed sleep; treat the household and repeat at two weeks."
+  },
+  {
+   "condition": "Functional abdominal pain (pediatric)",
+   "age": "child",
+   "angle": "Periumbilical, no red flags, normal growth and examination. The diagnosis is positive, not one of exclusion by investigation."
+  },
+  {
+   "condition": "Cyclical vomiting syndrome",
+   "age": "child",
+   "angle": "Stereotyped attacks with well intervals, often with a migraine family history."
+  },
+  {
+   "condition": "Nausea and vomiting",
+   "age": "infant",
+   "angle": "Bilious vomiting in an infant is malrotation with volvulus until surgery says otherwise. Projectile vomiting at 3 to 6 weeks is pyloric stenosis."
+  },
+  {
+   "condition": "Gastroschisis",
+   "age": "neonate",
+   "angle": "Antenatally diagnosed, surgically managed. The postoperative questions are gut function and nutrition."
+  },
+  {
+   "condition": "Appendicitis",
+   "age": "child",
+   "angle": "Presents atypically under 5 and perforates earlier. Serial examination beats a single score."
+  },
+  {
+   "condition": "Pediatric hypertension",
+   "age": "child",
+   "angle": "Normal is a percentile, not a number — read the child's blood pressure against age, sex and height. Under 6, hypertension is secondary until proven otherwise, usually renal."
+  },
+  {
+   "condition": "Obesity",
+   "age": "child",
+   "angle": "Plot BMI centile, not BMI. Weight-neutral language, family-level change, and screening for insulin resistance, fatty liver and sleep apnoea."
+  },
+  {
+   "condition": "Diabetes mellitus, type 1",
+   "age": "child",
+   "angle": "Polyuria, polydipsia and weight loss in a child is type 1 diabetes until a glucose says otherwise — same-day capillary glucose and ketones, never a routine appointment."
+  },
+  {
+   "condition": "Anemia, iron deficiency",
+   "age": "toddler",
+   "angle": "Excess cow's milk is the commonest cause after the first year. Iron deficiency without anaemia already affects development."
+  },
+  {
+   "condition": "Kidney stones",
+   "age": "adolescent",
+   "angle": "Uncommon enough in childhood to warrant metabolic screening after the first stone."
+  },
+  {
+   "condition": "Hemolytic uremic syndrome",
+   "age": "child",
+   "angle": "Bloody diarrhoea followed by pallor, oliguria and bruising. Avoid antibiotics and antimotility agents in E. coli O157 colitis — they raise the risk."
+  },
+  {
+   "condition": "Tetralogy of Fallot",
+   "age": "infant",
+   "angle": "Tet spells: knee-to-chest position, oxygen, morphine and fluids. A murmur that softens during a spell is a worsening sign."
+  },
+  {
+   "condition": "Ventricular septal defect",
+   "age": "infant",
+   "angle": "The loudest murmurs are the smallest defects. Faltering growth and sweating with feeds signal a significant shunt."
+  },
+  {
+   "condition": "Atrial septal defect",
+   "age": "child",
+   "angle": "Fixed split second heart sound, often silent until adulthood."
+  },
+  {
+   "condition": "Coarctation of the aorta",
+   "age": "neonate",
+   "angle": "Radiofemoral delay and a blood pressure difference between arm and leg. Collapse when the duct closes."
+  },
+  {
+   "condition": "Transposition of the great arteries",
+   "age": "neonate",
+   "angle": "Cyanosis in the first day of life that does not correct with oxygen. Prostaglandin keeps the duct open until surgery."
+  },
+  {
+   "condition": "Neonatal abstinence syndrome",
+   "age": "neonate",
+   "angle": "Scored, not guessed — Finnegan or ESC. Non-pharmacological care first: rooming-in, feeding on cue, swaddling and low stimulation."
+  },
+  {
+   "condition": "Lactation support",
+   "age": "infant",
+   "angle": "Assess the latch before anything else. Weight, output and maternal pain are the working measures."
+  },
+  {
+   "condition": "Seizure disorder",
+   "age": "child",
+   "angle": "A simple febrile seizure between 6 months and 6 years needs no imaging or EEG. Focal, prolonged or recurrent features within one illness change that."
+  },
+  {
+   "condition": "Attention deficit disorder",
+   "age": "child",
+   "angle": "Symptoms in two or more settings before 12, with functional impairment. Screen sleep, hearing and vision before attributing anything to attention."
+  },
+  {
+   "condition": "Anxiety",
+   "age": "child",
+   "angle": "Presents as somatic complaint, school refusal and irritability rather than as stated worry."
+  },
+  {
+   "condition": "Depression",
+   "age": "adolescent",
+   "angle": "Irritability may replace low mood. Ask directly about self-harm, and never take the parent's account as the whole picture — see the adolescent alone."
+  },
+  {
+   "condition": "Insomnia",
+   "age": "child",
+   "angle": "Behavioural sleep problems, not primary insomnia. Melatonin is for circadian shift, not for a bedtime battle."
+  },
+  {
+   "condition": "Bipolar disorder",
+   "age": "adolescent",
+   "angle": "Screen before starting an antidepressant: an antidepressant alone can precipitate mania."
+  }
+ ],
+ "sections": [
+  {
+   "id": "vitals",
+   "title": "Normal vital signs by age",
+   "body": [
+    "Neonate (0–28 days): heart rate 100–180, respiratory rate 30–60, systolic BP 60–90 mmHg.",
+    "Infant (1–12 months): heart rate 100–160, respiratory rate 30–53, systolic BP 72–104 mmHg.",
+    "Toddler (1–3 years): heart rate 90–150, respiratory rate 22–37, systolic BP 86–106 mmHg.",
+    "Preschool (3–5 years): heart rate 80–140, respiratory rate 20–28, systolic BP 89–112 mmHg.",
+    "School age (6–11 years): heart rate 70–120, respiratory rate 18–25, systolic BP 97–120 mmHg.",
+    "Adolescent (12–18 years): heart rate 60–100, respiratory rate 12–20, systolic BP 110–131 mmHg.",
+    "Rough rules: expected systolic BP = 90 + (2 × age in years); the 5th centile, below which is hypotension, = 70 + (2 × age in years). Hypotension is a late and pre-terminal sign in a child — tachycardia, prolonged capillary refill and reduced consciousness come first.",
+    "Count the respiratory rate over a full minute in a calm child. Tachypnoea is the most sensitive sign of pneumonia and of shock."
+   ],
+   "flag": null
+  },
+  {
+   "id": "dosing",
+   "title": "Age- and weight-based dosing rules",
+   "body": [
+    "Weight-based dosing (mg/kg) is the standard and should be used wherever a paediatric dose exists. The rules below are historical approximations for when it does not, and none of them is a prescribing authority.",
+    "Clark's rule: child dose = adult dose × (weight in pounds ÷ 150). The most defensible of the three, because it uses weight.",
+    "Young's rule: child dose = adult dose × age in years ÷ (age + 12). For children 2 to 12 years.",
+    "Fried's rule: infant dose = adult dose × age in months ÷ 150. For infants under 2 years.",
+    "Body surface area: child dose = adult dose × (BSA in m² ÷ 1.73). The most accurate for cytotoxics and narrow-therapeutic-index drugs. Mosteller: BSA = √(height in cm × weight in kg ÷ 3600).",
+    "Herbal tinctures follow the same logic. Clark's rule applied to an adult dose of 30 drops gives a 20 kg (44 lb) child roughly 9 drops. Give alcohol-based tinctures in hot water to flash off the alcohol, or use a glycerite for children under 12.",
+    "Never scale an adult dose of a low-dose botanical this way. Those maxima are toxicity thresholds, not efficacy targets — see the Low-Dose Reference tab."
+   ],
+   "flag": "Written for this tool. Weight-based paediatric dosing from a current formulary always outranks any of these rules."
+  },
+  {
+   "id": "redflags",
+   "title": "Red flags by age",
+   "body": [
+    "Any fever in an infant under 28 days is a full septic screen and admission, however well the baby looks. Between 1 and 3 months, the threshold for investigation stays very low.",
+    "A non-blanching rash with fever is meningococcal disease until proven otherwise — this is an ambulance, not an appointment.",
+    "Bilious (green) vomiting in an infant is malrotation with volvulus until surgery says otherwise.",
+    "Bulging fontanelle, high-pitched cry, or a fontanelle that is sunken with reduced skin turgor.",
+    "Grunting, head bobbing, nasal flaring, tracheal tug, intercostal or subcostal recession — respiratory distress that is compensating, and will not compensate for long.",
+    "A child who is not interested in their surroundings, will not smile, or cannot be roused to a normal state. Parental report that 'this is not my child' outranks any score.",
+    "Reduced urine output — fewer than four wet nappies a day in an infant, or no urine for 8 hours in an older child.",
+    "Faltering growth crossing two centile lines, or any weight loss in an infant.",
+    "A limp or a refusal to weight-bear, with or without fever: septic arthritis and osteomyelitis first.",
+    "An injury whose mechanism does not fit the history, the developmental stage, or the pattern of bruising — a safeguarding referral, made the same day."
+   ],
+   "flag": null
+  },
+  {
+   "id": "dehydration",
+   "title": "Assessing dehydration",
+   "body": [
+    "No clinically detectable dehydration (under 5%): alert, normal pulse and skin turgor, moist mucous membranes, normal urine output. Oral fluids and continued feeding.",
+    "Clinical dehydration (5–10%): irritable or lethargic, mildly tachycardic, sunken eyes, dry mucous membranes, reduced urine output, capillary refill under 2 seconds still. Oral rehydration solution, 50 mL/kg over 4 hours plus maintenance, in small frequent volumes.",
+    "Shock (over 10%): decreased consciousness, pale or mottled, cold extremities, tachycardia, weak pulses, capillary refill over 2 seconds, hypotension as a late sign. Intravenous bolus 10–20 mL/kg, and escalate.",
+    "Maintenance fluid, the 4-2-1 rule: 4 mL/kg/hour for the first 10 kg, 2 mL/kg/hour for the next 10 kg, 1 mL/kg/hour for every kilogram beyond 20.",
+    "Weight change is the most accurate measure of fluid deficit there is — a recent well-child weight is worth more than any examination sign."
+   ],
+   "flag": null
+  },
+  {
+   "id": "milestones",
+   "title": "Developmental milestones and the red flags that go with them",
+   "body": [
+    "6 weeks: fixes and follows, smiles responsively, startles to noise. Red flag — no social smile by 10 weeks.",
+    "6 months: sits with support, reaches and transfers, babbles, turns to a voice. Red flag — persistent primitive reflexes, hand preference before 12 months (suggests hemiplegia).",
+    "9–12 months: sits unsupported, pincer grip, waves and points, says one or two words with meaning. Red flag — not sitting by 12 months.",
+    "18 months: walks steadily, 6 to 20 words, scribbles, feeds with a spoon. Red flag — not walking by 18 months.",
+    "2 years: runs, two-word phrases, half of speech intelligible to a stranger, symbolic play. Red flag — no words by 18 months, no phrases by 2 years, any loss of skills at any age.",
+    "3 years: climbs stairs alternating feet, three-word sentences, copies a circle, plays with other children.",
+    "4–5 years: hops, copies a cross then a square, counts, dresses independently.",
+    "Regression — the loss of a skill once acquired — is a red flag at every age and always warrants specialist referral."
+   ],
+   "flag": null
+  },
+  {
+   "id": "fever",
+   "title": "Fever in a child",
+   "body": [
+    "The height of a fever does not grade the seriousness of the illness after the neonatal period. How the child looks between fevers does.",
+    "Treat for distress, not for the number. Paracetamol 15 mg/kg 4- to 6-hourly (maximum 4 doses in 24 hours) or ibuprofen 5–10 mg/kg 6- to 8-hourly with food. Do not alternate routinely, and do not use ibuprofen in dehydration or varicella.",
+    "Never aspirin under 16 years outside of Kawasaki disease and specialist rheumatology — Reye's syndrome.",
+    "Fever without a source in a child under 3 needs a urine sample. It is the commonest occult bacterial infection at that age.",
+    "A febrile seizure between 6 months and 6 years, lasting under 15 minutes, generalised, and with a full recovery within an hour, needs no imaging or EEG — and does not mean epilepsy."
+   ],
+   "flag": null
+  },
+  {
+   "id": "prescribing",
+   "title": "Botanicals and supplements in children",
+   "body": [
+    "No honey under 1 year — infant botulism.",
+    "No aspirin or salicylate-containing herbs in a febrile child under 16 — Reye's syndrome. That includes willow bark and meadowsweet.",
+    "Essential oils are not for internal use in children, and peppermint or eucalyptus applied near the face of an infant can cause laryngospasm.",
+    "Avoid alcohol-extracted tinctures where possible under 12: use a glycerite, or add the tincture to hot water and let it stand to drive off the alcohol.",
+    "Vitamin D: 400 IU daily from birth for breastfed infants, per most national guidance. Preformed vitamin A is easy to over-give in drops, and is teratogenic in the adolescent who may be pregnant.",
+    "Iron is the leading cause of fatal poisoning in small children. Dispense with that warning, every time.",
+    "Choking risk: no whole nuts, no hard sweets and no capsules that must be swallowed whole under about 4 years.",
+    "Weigh the child at every visit and dose from that weight — not from the last recorded one, and not from age."
+   ],
+   "flag": null
+  }
+ ]
+}

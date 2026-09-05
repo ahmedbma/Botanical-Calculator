@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&amp;family=Jost:wght@400;500;600&amp;display=swap">
 <!-- ?v= is a cache buster. Bump it whenever css/ or js/ changes, or browsers keep
      serving the previous copy and the change looks like it did not take. -->
-<link rel="stylesheet" href="css/styles.css?v=7">
+<link rel="stylesheet" href="css/styles.css?v=8">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23a8536a'/><text x='50' y='73' font-size='60' font-family='Georgia,serif' fill='%23ffffff' text-anchor='middle'>N</text></svg>">
 </head>
 <body>
@@ -26,8 +26,7 @@
 
 <nav class="tabs wrap" role="tablist" aria-label="Calculators">
   <button role="tab" class="tab" data-panel="conditions" aria-selected="true">Conditions</button>
-  <button role="tab" class="tab" data-panel="diag" aria-selected="false">Diagnose</button>
-  <button role="tab" class="tab" data-panel="ddx" aria-selected="false">Differential</button>
+  <button role="tab" class="tab" data-panel="dx" aria-selected="false">Differential Builder</button>
   <button role="tab" class="tab" data-panel="exams" aria-selected="false">Physical Exams</button>
   <button role="tab" class="tab" data-panel="labs" aria-selected="false">Labs &amp; Imaging</button>
   <button role="tab" class="tab" data-panel="pharm" aria-selected="false">Pharmaceuticals</button>
@@ -60,10 +59,21 @@
         <button class="segbtn" id="cx-sort-nd">By ND frequency</button>
       </div>
     </div>
+
+    <details class="pedsbox" id="peds-box">
+      <summary>Paediatrics &mdash; the reference that goes with the child in front of you</summary>
+      <p class="hint">Normal vital signs by age, the dosing rules, the red flags, dehydration assessment,
+        developmental milestones, fever, and what changes about botanicals and supplements in a child.
+        Written for this tool from standard paediatric references &mdash; not from your coursework, and
+        not peer reviewed. The <strong>Paediatrics</strong> filter chip above narrows the condition list to
+        the entries that present in childhood.</p>
+      <div id="peds-body"></div>
+    </details>
     <div id="cx-results" class="condlist"></div>
 
     <details class="srcnote">
       <summary>Where this comes from</summary>
+      <p><strong>The paediatrics section is two different things.</strong> The <strong>Paediatrics</strong> filter chip and the age band and paediatric note on each condition are a tagging of entries this notebook already carries &mdash; 75 of them present in childhood, and each says what changes about it in a child. The <strong>reference block</strong> above the list &mdash; vital signs by age, the dosing rules, red flags by age, dehydration assessment, developmental milestones, fever, and paediatric prescribing &mdash; was written for this tool from standard paediatric references. It is not from your coursework and it is not peer reviewed. Clark's, Young's and Fried's rules are historical approximations kept for when no paediatric dose exists; weight-based dosing from a current formulary outranks all three, every time.</p>
       <p><strong>The case protocols are Dr William A. Mitchell Jr's, transcribed from your Master Compendium.</strong> 95 cases across addictions, cardiovascular medicine, dermatology, endocrinology, gastroenterology and respiratory medicine, each with its presentation and its dosed protocol, filed under every condition it treats. The respiratory module (the gut&ndash;lung axis, short-chain fatty acids, asthma, COPD, cystic fibrosis, lung cancer, pneumonia and PASC) and the gastroenterology study guide (adverse food reactions, intestinal permeability, the 5R framework, coeliac disease, SIBO, exocrine pancreatic insufficiency, gallbladder disease and the gut&ndash;liver axis) join the <em>From your notes</em> sections under the conditions they describe. 34 conditions the compendium covers that this index did not are carried as topics. Every dose in that material is the compendium's; none of it was written for this tool, and none of it is peer reviewed &mdash; several protocols carry prescription drugs, injections and intravenous formulations that are outside a student's scope.</p>
       <p><strong>Not from your workbook.</strong> The Yarnell Formulator Tool contains no condition-to-herb mapping. Which conditions appear here follows naturopathic practice-pattern research; the herbs and rationale come from general Western herbal and naturopathic materia medica. Both are cited under <em>Where this comes from</em> below. Treat every entry as a <em>starting point for formula design</em> that you verify against your own references &mdash; not as a protocol, and not with the authority of the dosing data in the other tabs.</p>
       <p><strong>Herb selection and rationale:</strong> general Western herbal and naturopathic materia
@@ -87,72 +97,60 @@
   </div>
 </section>
 
-<!-- ==================== PHYSICAL EXAMS &amp; DIAGNOSES ==================== -->
-<section id="panel-diag" class="panel" hidden role="tabpanel">
-  <div class="card">
-    <h2>Diagnose</h2>
-
-    <label class="search"><span class="vh">Add a symptom</span>
-      <input type="search" id="dg-input" placeholder="What is the patient feeling? Type a symptom and press Enter&hellip;"
-        autocomplete="off" role="combobox" aria-expanded="false" aria-controls="dg-suggest">
-    </label>
-    <div id="dg-suggest" class="dx-suggest" role="listbox" aria-label="Matching symptoms" hidden></div>
-
-    <div class="dx-picked" id="dg-picked"></div>
-    <div class="sortrow">
-      <p class="count" id="dg-count"></p>
-      <div class="actions" id="dg-actions"></div>
-    </div>
-
-    <div id="dg-flags"></div>
-    <div id="dg-results"></div>
-
-    <details class="scrnbox" id="dg-browse">
-      <summary>Browse the symptom list &mdash; <span id="dg-vocab-n"></span></summary>
-      <p class="hint">Everything the notebook can be searched on, by system. Your picks are shared with the
-        <strong>Differential</strong> tab, which shows the whole ranking and the evidence behind it.</p>
-      <div id="dg-vocab"></div>
-    </details>
-
-    <details class="srcnote">
-      <summary>What this is, and what it is not</summary>
-      <div id="dg-method"></div>
-    </details>
-  </div>
-</section>
-
-<section id="panel-ddx" class="panel" hidden role="tabpanel">
+<!-- ==================== DIFFERENTIAL BUILDER ==================== -->
+<section id="panel-dx" class="panel" hidden role="tabpanel">
   <div class="card">
     <h2>Differential Builder</h2>
-    <label class="search"><span class="vh">Add a symptom</span>
-      <input type="search" id="dx-input" placeholder="Type a symptom and press Enter &mdash; fever, right lower quadrant pain, night sweats&hellip;"
-        autocomplete="off" role="combobox" aria-expand="false" aria-controls="dx-suggest">
-    </label>
-    <div id="dx-suggest" class="dx-suggest" role="listbox" aria-label="Matching symptoms" hidden></div>
 
-    <div class="dx-picked" id="dx-picked"></div>
-    <div class="sortrow">
-      <p class="count" id="dx-count"></p>
-      <div class="actions" id="dx-actions"></div>
+    <div class="alert warn dx-warn"><strong>This is a study aid, not a diagnosis.</strong> It matches the
+      words you type against what this notebook already says about each condition &mdash; the case
+      presentations, the reference notes, the exam findings. It has no access to your patient, no
+      probabilities, and no knowledge of anything outside this site. Read the five it offers as prompts to
+      think with, and take the workup it suggests to your own references before you order anything.</div>
+
+    <label class="dx-field"><span>Presenting symptoms, in your own words</span>
+      <textarea id="dx-input" rows="4" placeholder="e.g. 42-year-old woman, six months of fatigue, cold intolerance, constipation, weight gain and hair loss"></textarea>
+    </label>
+    <div class="actions">
+      <button class="btn" id="dx-run">Build the differential</button>
+      <button class="btn ghost" id="dx-clear">Clear</button>
+      <button class="btn ghost" id="dx-csv">Download the workup (CSV)</button>
     </div>
 
-    <div id="dx-flags"></div>
-    <div id="dx-results" class="dxlist"></div>
-
-    <details class="scrnbox" id="dx-browse">
-      <summary>Browse the symptom list &mdash; <span id="dx-vocab-n"></span></summary>
-      <p class="hint">Everything the notebook can be searched on, by system. A symptom that matches nothing
-        is left in the list rather than hidden: it tells you the notebook is silent on it.</p>
-      <div id="dx-vocab"></div>
+    <details class="dx-picker">
+      <summary>Or pick symptoms from the list</summary>
+      <div id="dx-chips"></div>
     </details>
 
+    <div id="dx-results"></div>
+
     <details class="srcnote">
-      <summary>How the ranking works, and what it is not</summary>
-      <div id="dx-method"></div>
+      <summary>How this works, and what it cannot do</summary>
+      <p><strong>It is term matching, not reasoning.</strong> Every condition in this notebook carries a
+        weight for each of the 118 symptom terms in the vocabulary, derived from its own name and aliases,
+        the case presentations filed under it, its therapeutics note, its reference sections, and the
+        physical-exam findings that name it &mdash; plus a curated seed table of classic presentations
+        written for this tool. Your text is scanned for those terms; the conditions are scored, normalised
+        so a verbose entry cannot outrank a precise one, and the top five are shown with the terms each one
+        matched on.</p>
+      <p><strong>What it cannot do.</strong> It has no prior probabilities, so a rare condition that
+        matches four terms will outrank a common one that matches three. It does not know age, sex,
+        duration, severity, examination findings, past history or medication. It cannot exclude anything.
+        It only knows the 186 conditions and topics in this notebook &mdash; a condition that is not in the
+        Conditions tab cannot appear here, and that absence is not evidence.</p>
+      <p><strong>Red flags are pattern rules, not a triage system.</strong> Fifteen combinations raise a
+        banner &mdash; chest pain with breathlessness, melaena, thoughts of self-harm, headache with
+        fever. The absence of a banner means nothing; a patient can be critically unwell and trip none of
+        them.</p>
+      <p><strong>The workup under each condition is not new content.</strong> It is the same labs,
+        imaging, pharmaceuticals, supplements, botanicals, therapeutics, lifestyle changes and herbs
+        already attached to that condition in the other tabs, gathered in one place. Their provenance and
+        their cautions are the ones stated there.</p>
     </details>
   </div>
 </section>
 
+<!-- ==================== PHYSICAL EXAMS &amp; DIAGNOSES ==================== -->
 <section id="panel-exams" class="panel" hidden role="tabpanel">
   <div class="card">
     <h2>Physical Exams &amp; Diagnoses</h2>
@@ -786,17 +784,18 @@
      frightening should be seen by a clinician.</p>
 </footer>
 
-<script src="js/herbdata.js?v=7"></script>
-<script src="js/homeopathydata.js?v=7"></script>
-<script src="js/physicalexamdata.js?v=7"></script>
-<script src="js/therapeuticsdata.js?v=7"></script>
-<script src="js/pregnancydata.js?v=7"></script>
-<script src="js/screenerdata.js?v=7"></script>
-<script src="js/womensformulasdata.js?v=7"></script>
-<script src="js/formularydata.js?v=7"></script>
-<script src="js/casebookdata.js?v=7"></script>
-<script src="js/labrangesdata.js?v=7"></script>
-<script src="js/symptomdata.js?v=7"></script>
-<script src="js/app.js?v=7"></script>
+<script src="js/herbdata.js?v=8"></script>
+<script src="js/homeopathydata.js?v=8"></script>
+<script src="js/physicalexamdata.js?v=8"></script>
+<script src="js/therapeuticsdata.js?v=8"></script>
+<script src="js/pregnancydata.js?v=8"></script>
+<script src="js/screenerdata.js?v=8"></script>
+<script src="js/womensformulasdata.js?v=8"></script>
+<script src="js/formularydata.js?v=8"></script>
+<script src="js/casebookdata.js?v=8"></script>
+<script src="js/labrangesdata.js?v=8"></script>
+<script src="js/dxindexdata.js?v=8"></script>
+<script src="js/pediatricsdata.js?v=8"></script>
+<script src="js/app.js?v=8"></script>
 </body>
 </html>
