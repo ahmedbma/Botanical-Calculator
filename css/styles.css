@@ -410,6 +410,24 @@ td.herb input{min-width:190px}
   letter-spacing:.06em;color:var(--danger);background:var(--danger-bg);padding:3px 7px;border-radius:99px;
   vertical-align:1px}
 
+/* ---- chief-complaint differentials ---- */
+.pe-ddxlist{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:18px;
+  border-top:1px solid var(--line);padding-top:14px}
+.pe-ddxlist .chip{cursor:default}
+.pe-diffgrid{display:grid;gap:10px;margin-top:12px}
+.pe-diffrow{padding:12px 14px;border-radius:8px;background:var(--surface);border:1px solid var(--line)}
+.pe-diffrow.urgent{border-left:3px solid var(--danger)}
+.pe-diffhead{display:flex;align-items:baseline;gap:4px;flex-wrap:wrap}
+.pe-diffhead h5{margin:0;font:600 1rem/1.35 var(--serif)}
+.pe-difflink{font:inherit;color:var(--accent);background:none;border:0;padding:0;cursor:pointer;
+  text-align:left;border-bottom:1px solid transparent}
+.pe-difflink:hover,.pe-difflink:focus-visible{border-bottom-color:var(--accent)}
+.pe-diffnote{margin:6px 0 0;font:italic 500 .92rem/1.55 var(--serif);color:var(--muted);max-width:74ch}
+.pe-diffcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px 18px;margin-top:11px}
+.pe-diffcell p{margin:4px 0 0;font-size:.83rem;line-height:1.55;color:var(--ink)}
+.pe-difflab{display:inline-block;font:700 .6rem/1 var(--sans);text-transform:uppercase;letter-spacing:.06em;
+  color:var(--muted);border:1px solid var(--line);padding:3px 7px;border-radius:99px}
+
 .pe-related{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:16px;
   border-top:1px solid var(--line);padding-top:14px}
 .pe-rlab{font:700 .66rem/1 var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
@@ -418,11 +436,14 @@ td.herb input{min-width:190px}
 
 @media (max-width:620px){
   .pe-step,.pe-dxrow{grid-template-columns:1fr}
+  .pe-diffcols{grid-template-columns:1fr}
 }
 @media print{
   .pe-related,.pe-script{display:none!important}
   .exam{break-inside:avoid;border:1px solid #999}
   .pe-dx[open]>summary{list-style:none}
+  .pe-diffrow{break-inside:avoid}
+  .pe-difflink{color:inherit;border-bottom:0}
 }
 
 /* a source group with a note and no steps records a gap in the notes, not an empty section */
@@ -648,6 +669,67 @@ td.herb input{min-width:190px}
 .txref-sec p{margin:6px 0 0;font-size:.85rem;line-height:1.65;color:var(--ink);max-width:88ch}
 .txref mark{background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:0 2px}
 .txcond .txref{margin:0 16px 16px}
+
+/* ---- must not miss: the urgent findings the entered picture touches ---- */
+.dx-flagbox{margin:18px 0 4px;border:1px solid var(--danger);border-radius:var(--radius);
+  background:var(--danger-bg)}
+.dx-flagbox>summary{cursor:pointer;padding:11px 16px;font-weight:700;font-size:.86rem;color:var(--danger)}
+.dx-flagbox.loose{border-color:var(--line);background:var(--ro-bg)}
+.dx-flagbox.loose>summary{color:var(--muted);font-weight:600}
+.dx-flagbody{padding:0 16px 14px}
+.dx-flaglede{margin:0 0 10px;font-size:.83rem;line-height:1.6;color:var(--ink);max-width:84ch}
+.dx-flag{padding:9px 12px;border-radius:8px;background:var(--surface);border:1px solid var(--line);
+  margin-bottom:7px}
+.dx-flag p{margin:0}
+.dx-flagname{font-size:.87rem;line-height:1.45;font-weight:600}
+.dx-flagsugg{margin-top:4px!important;font-size:.84rem;line-height:1.5;color:var(--muted)}
+.dx-flagrun{margin-top:6px!important;font-size:.81rem;line-height:1.5;color:var(--ink)}
+.dx-flagfrom{margin-top:6px!important;font:600 .6rem/1 var(--sans);text-transform:uppercase;
+  letter-spacing:.05em;color:var(--muted)}
+.dx-flag .txlink{margin-top:8px}
+.dx-flagmore{margin:9px 0 0;font-size:.81rem;line-height:1.5;color:var(--muted)}
+@media print{ .dx-flagbox{break-inside:avoid} .dx-flagbox>summary{color:#000} }
+
+/* ---- casebook entries, under the condition they were treated for ---- */
+.txcase{margin-top:14px;border:1px solid var(--line);border-left:3px solid var(--accent-soft);
+  border-radius:var(--radius);background:var(--bg);overflow:hidden}
+.txcase>summary{cursor:pointer;padding:11px 16px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  font-weight:600;font-size:.86rem;color:var(--muted);list-style:none}
+.txcase>summary::-webkit-details-marker{display:none}
+.txcase>summary::before{content:"\25B8";font-size:.78rem;transition:transform .15s ease;display:inline-block}
+.txcase[open]>summary::before{transform:rotate(90deg)}
+.txcase>summary:hover{background:var(--accent-soft);color:var(--accent)}
+.txcase-body{padding:2px 16px 14px;border-top:1px solid var(--line)}
+.txcase-one{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.txcase-one:first-child{border-top:0;padding-top:0}
+.txcase-one h5{margin:0;font:600 1rem/1.35 var(--serif)}
+.txcase-meta{margin:3px 0 0;font:600 .62rem/1 var(--sans);text-transform:uppercase;letter-spacing:.05em;
+  color:var(--muted)}
+.txcase-pres{margin:9px 0 0;font-size:.85rem;line-height:1.65;color:var(--ink);max-width:88ch}
+.txcase-sec{margin-top:12px}
+.txcase-sec h6{margin:0;font:700 .66rem/1.4 var(--sans);text-transform:uppercase;letter-spacing:.06em;
+  color:var(--accent)}
+.txcase-text{margin:6px 0 0;font-size:.85rem;line-height:1.65;color:var(--ink);max-width:88ch}
+.txcase-items{list-style:none;margin:7px 0 0;padding:0;display:grid;gap:7px}
+.txcase-items>li{padding:8px 12px;border-radius:8px;background:var(--surface);border:1px solid var(--line)}
+.txcase-items p{margin:0}
+.txcase-agent{font-size:.87rem;line-height:1.45;font-weight:600}
+.txcase-dose{margin-top:5px!important;font-size:.83rem;line-height:1.5;color:var(--ink)}
+.txcase-why{margin-top:5px!important;font-size:.83rem;line-height:1.55;color:var(--muted)}
+.txcase-outcome{margin:11px 0 0;font-size:.84rem;line-height:1.6;color:var(--ink);max-width:88ch}
+.txcase-caution{margin:11px 0 0;padding:9px 12px;border-radius:8px;background:var(--danger-bg);
+  font-size:.83rem;line-height:1.6;color:var(--ink);max-width:88ch}
+.txcase-cmark{display:inline-block;font:700 .6rem/1 var(--sans);text-transform:uppercase;letter-spacing:.06em;
+  color:var(--danger);border:1px solid var(--danger);padding:3px 7px;border-radius:99px;
+  margin-right:7px;vertical-align:1px}
+.txcase-caveat{margin:18px 0 0;padding-top:12px;border-top:1px solid var(--line);
+  font:italic 500 .82rem/1.6 var(--serif);color:var(--muted);max-width:88ch}
+.txcase mark{background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:0 2px}
+.txcond .txcase{margin:0 16px 16px}
+@media print{
+  .txcase-caution{border:1px solid #999}
+  .txcase-one{break-inside:avoid}
+}
 
 /* ---- women's formulating notes, under the herb reference ---- */
 .wnote{border:1px solid var(--line);border-radius:8px;background:var(--bg);margin-bottom:6px;overflow:hidden}
