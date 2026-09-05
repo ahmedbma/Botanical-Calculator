@@ -1,5 +1,5 @@
 {
- "note": "Transcribed from Nourhan Shams's own Master Compendium: Dr William A. Mitchell Jr's clinical case protocols, the respiratory medicine and gut-lung axis module, and the gastroenterology study guide (NM7405). Every dose here is the compendium's; nothing in this dataset was written for the tool.",
+ "note": "Transcribed from Nourhan Shams's own Master Compendium: Dr William A. Mitchell Jr's clinical case protocols, the respiratory medicine and gut-lung axis module, and the gastroenterology study guide (NM7405). Every dose here is the compendium's. The one thing written for this tool is the safety note on 48 of the cases, labelled as such on each: the compendium records what was given, not what to watch for, and several of these protocols carry a hazard — a teratogenic dose, a hepatotoxin, a drug interaction, an emergency the case treats as routine — that a reader coming to it cold would not see.",
  "source": "Master Compendium: Naturopathic Clinical Protocols, Respiratory Therapeutics and Gastrointestinal Medicine",
  "chapters": [
   {
@@ -83,7 +83,8 @@
    "conditions": [
     "Opioid use disorder"
    ],
-   "note": null
+   "note": null,
+   "caution": "Lactuca virosa and L. quercina are sedative and, at the doses given here, are being used as an opioid substitute in withdrawal — a setting where autonomic instability, dehydration and relapse risk need medical supervision rather than self-management."
   },
   {
    "id": "c03",
@@ -177,7 +178,8 @@
    "conditions": [
     "Opioid use disorder"
    ],
-   "note": null
+   "note": null,
+   "caution": "Thiamine before glucose in anyone with a history of alcohol or poly-substance use — a glucose load given first can precipitate Wernicke encephalopathy. The intravenous protocol is a physician-administered procedure."
   },
   {
    "id": "c06",
@@ -210,7 +212,8 @@
     "Angina pectoris",
     "Atherosclerosis"
    ],
-   "note": null
+   "note": null,
+   "caution": "Chest pain that is new, changed in pattern, or not relieved by rest is unstable angina or infarction until proven otherwise, and none of these agents substitute for that assessment."
   },
   {
    "id": "c07",
@@ -258,7 +261,8 @@
     "Cardiac arrhythmia",
     "Fibrocystic breast changes"
    ],
-   "note": null
+   "note": null,
+   "caution": "The intravaginal Lugol's application is transcribed as the case records it. Iodine is absorbed readily across vaginal mucosa, can provoke mucosal burns, and can disturb thyroid function — it is not a self-administered therapy, and is contraindicated in pregnancy and in thyroid disease."
   },
   {
    "id": "c09",
@@ -309,7 +313,8 @@
     "Coronary artery disease, secondary prevention",
     "Atherosclerosis"
    ],
-   "note": null
+   "note": null,
+   "caution": "Vitamin E at 800 IU alongside aspirin and dipyridamole compounds antiplatelet effect; bleeding risk and any planned procedure need to be weighed by the prescribing physician."
   },
   {
    "id": "c11",
@@ -382,7 +387,8 @@
    "conditions": [
     "Hyperlipidemia"
    ],
-   "note": null
+   "note": null,
+   "caution": "Red yeast rice contains monacolin K, which is lovastatin — the same myopathy, hepatotoxicity and interaction profile applies, and it must not be stacked on a prescribed statin. Triglycerides near 1000 mg/dL carry a real risk of acute pancreatitis."
   },
   {
    "id": "c14",
@@ -437,7 +443,8 @@
     "Hyperlipidemia",
     "Atherosclerosis"
    ],
-   "note": null
+   "note": null,
+   "caution": "Red yeast rice is lovastatin by another name; pairing it with prescribed lovastatin, as the co-management note describes, doubles the statin dose. Niacin at gram doses raises uric acid and glucose and can precipitate gout and hepatotoxicity."
   },
   {
    "id": "c16",
@@ -461,7 +468,8 @@
    "conditions": [
     "Hypertension"
    ],
-   "note": null
+   "note": null,
+   "caution": "Rauvolfia contains reserpine, which depletes central catecholamines: it can precipitate severe depression and suicidality, and is contraindicated with a history of depression or peptic ulcer."
   },
   {
    "id": "c17",
@@ -491,7 +499,8 @@
    "conditions": [
     "Hypertension"
    ],
-   "note": null
+   "note": null,
+   "caution": "Naringenin is the grapefruit constituent that inhibits intestinal CYP3A4 — it raises blood levels of many drugs, calcium channel blockers and statins among them. Cypripedium is a conservation-listed genus."
   },
   {
    "id": "c18",
@@ -584,7 +593,8 @@
     "Congestive heart failure",
     "Coronary artery disease, secondary prevention"
    ],
-   "note": null
+   "note": null,
+   "caution": "Convallaria is a cardiac glycoside herb with a narrow therapeutic index and the same toxicity and interaction profile as digoxin; it is on the low-dose botanical list for that reason."
   },
   {
    "id": "c22",
@@ -608,7 +618,8 @@
    "conditions": [
     "Stroke rehabilitation"
    ],
-   "note": null
+   "note": null,
+   "caution": "Nattokinase, ginkgo, bromelain and vitamin E are each antithrombotic; stacked, and especially alongside prescribed anticoagulation, they raise haemorrhagic risk in a patient who has already had a cerebrovascular event."
   },
   {
    "id": "c23",
@@ -660,7 +671,8 @@
    "conditions": [
     "Varicose veins"
    ],
-   "note": null
+   "note": null,
+   "caution": "Phytolacca is a low-dose botanical — it is emetic and purgative above small doses and the root is the most toxic part."
   },
   {
    "id": "c25",
@@ -704,7 +716,8 @@
    "conditions": [
     "Acne"
    ],
-   "note": null
+   "note": null,
+   "caution": "Vitamin A at 100,000 IU daily is above the tolerable upper intake and is teratogenic. It must not be given to anyone who could become pregnant without contraception, and the hepatic monitoring the case specifies is not optional."
   },
   {
    "id": "c26",
@@ -727,7 +740,8 @@
    "conditions": [
     "Acne"
    ],
-   "note": null
+   "note": null,
+   "caution": "Chelidonium majus is a documented cause of idiosyncratic hepatitis; it warrants liver enzyme monitoring and immediate withdrawal if transaminases rise."
   },
   {
    "id": "c27",
@@ -817,7 +831,8 @@
    "conditions": [
     "Cellulitis"
    ],
-   "note": null
+   "note": null,
+   "caution": "Spreading cellulitis with fever, lymphangitic streaking or systemic upset is a same-day medical problem; the escalation threshold in this case is the point at which botanical management stops."
   },
   {
    "id": "c30",
@@ -847,7 +862,8 @@
     "Drug eruptions",
     "Urticaria and angioedema"
    ],
-   "note": null
+   "note": null,
+   "caution": "Long-term pyridoxine above roughly 100 mg daily also causes a sensory peripheral neuropathy, which is the more serious consequence of the same exposure and is only partly reversible."
   },
   {
    "id": "c31",
@@ -874,7 +890,8 @@
    "conditions": [
     "Eczema"
    ],
-   "note": null
+   "note": null,
+   "caution": "Glycyrrhiza at solid-extract doses raises blood pressure and depletes potassium through pseudoaldosteronism; it is the one agent here that needs a blood pressure check on review."
   },
   {
    "id": "c32",
@@ -980,7 +997,8 @@
    "conditions": [
     "Herpes zoster"
    ],
-   "note": null
+   "note": null,
+   "caution": "Antiviral therapy started within 72 hours of the rash is what reduces post-herpetic neuralgia; zoster involving the ophthalmic division, the ear, or a disseminated rash is an urgent referral."
   },
   {
    "id": "c36",
@@ -1026,7 +1044,8 @@
    "conditions": [
     "Drug eruptions"
    ],
-   "note": null
+   "note": null,
+   "caution": "The whole-body rash Lomatium is known for is the reason for the protocol; adding Podophyllum, a cytotoxic purgative, and Chelidonium, a hepatotoxin, to clear a drug reaction carries its own risk and belongs under supervision."
   },
   {
    "id": "c38",
@@ -1104,7 +1123,8 @@
     "Molluscum contagiosum",
     "Eczema"
    ],
-   "note": null
+   "note": null,
+   "caution": "Podophyllum resin is cytotoxic and systemically absorbed through broken skin — the scoring step is exactly what raises that absorption. It is contraindicated in pregnancy, and molluscum is self-limiting in children, which is the argument against aggressive treatment at all."
   },
   {
    "id": "c41",
@@ -1152,7 +1172,8 @@
     "MRSA skin infection",
     "Wound healing"
    ],
-   "note": null
+   "note": null,
+   "caution": "MRSA in a hospitalised patient with a deep pressure ulcer is a culture-and-sensitivity problem with real bacteremia risk; this was adjunctive care in a terminal patient, not an alternative to antimicrobial therapy."
   },
   {
    "id": "c43",
@@ -1213,7 +1234,8 @@
    "conditions": [
     "Warts"
    ],
-   "note": null
+   "note": null,
+   "caution": "Podophyllum is cytotoxic, is absorbed through abraded skin, and is contraindicated in pregnancy. None of these debridement approaches belongs on the foot of a diabetic or anyone with peripheral neuropathy or arterial disease."
   },
   {
    "id": "c45",
@@ -1268,7 +1290,8 @@
    "conditions": [
     "Psoriasis"
    ],
-   "note": null
+   "note": null,
+   "caution": "Momordica charantia is hypoglycaemic and abortifacient. Long-term daily hydrocortisone under occlusion thins skin and can rebound on withdrawal, and vitamin D at 5000 IU needs a 25-OH-D level rather than open-ended dosing."
   },
   {
    "id": "c47",
@@ -1338,7 +1361,8 @@
    "conditions": [
     "Rosacea"
    ],
-   "note": null
+   "note": null,
+   "caution": "Betaine HCl is contraindicated with active peptic ulcer or on acid-suppressing therapy, and the titration is stopped by warmth or burning, not pushed through it."
   },
   {
    "id": "c50",
@@ -1395,7 +1419,8 @@
    "conditions": [
     "Urticaria and angioedema"
    ],
-   "note": null
+   "note": null,
+   "caution": "Vitamin K1 at 20 mg daily antagonises warfarin outright. Urticaria with any lip, tongue or throat swelling, or wheeze, is anaphylaxis and is treated as such."
   },
   {
    "id": "c52",
@@ -1422,7 +1447,8 @@
     "Adrenal fatigue and HPA dysregulation",
     "Fatigue and low energy"
    ],
-   "note": null
+   "note": null,
+   "caution": "Licorice solid extract taken daily raises blood pressure and depletes potassium; “adrenal fatigue” is not a recognised diagnosis, and true adrenal insufficiency needs a cortisol measurement before it is treated as exhaustion."
   },
   {
    "id": "c53",
@@ -1451,7 +1477,8 @@
    "conditions": [
     "Diabetes mellitus, type 1"
    ],
-   "note": null
+   "note": null,
+   "caution": "Diabetic ketoacidosis is a medical emergency needing intravenous fluids, insulin and electrolyte correction. Oral bicarbonate does not treat it and delay is what kills — the referral is the treatment, and everything else here is for after the crisis."
   },
   {
    "id": "c54",
@@ -1544,7 +1571,8 @@
    "conditions": [
     "Diabetes mellitus, type 2"
    ],
-   "note": null
+   "note": null,
+   "caution": "Artemisia absinthium contains thujone and is a low-dose botanical, not a long-term daily herb."
   },
   {
    "id": "c57",
@@ -1606,7 +1634,8 @@
     "Hypothyroidism",
     "Autoimmune conditions"
    ],
-   "note": null
+   "note": null,
+   "caution": "Fucus is an iodine source, and iodine can worsen autoimmune thyroiditis and precipitate either hypo- or hyperthyroidism in Hashimoto's; thyroid function needs monitoring on this formula."
   },
   {
    "id": "c59",
@@ -1631,7 +1660,8 @@
     "Hypothyroidism",
     "Adrenal fatigue and HPA dysregulation"
    ],
-   "note": null
+   "note": null,
+   "caution": "Desiccated thyroid and “protomorphogen” glandulars vary in hormone content between batches and can suppress TSH; they are not an inert nutritional support."
   },
   {
    "id": "c60",
@@ -1686,7 +1716,8 @@
     "Kidney stones",
     "Primary hyperparathyroidism"
    ],
-   "note": null
+   "note": null,
+   "caution": "Ammi visnaga is a low-dose botanical and is phototoxic. Restricting dietary calcium in calcium oxalate stone disease increases oxalate absorption and is now generally advised against."
   },
   {
    "id": "c62",
@@ -1708,7 +1739,8 @@
     "Prolactinoma",
     "Amenorrhea"
    ],
-   "note": null
+   "note": null,
+   "caution": "Bitemporal field loss means the adenoma is compressing the optic chiasm — this is a neurosurgical and endocrinological referral, and the medication is prescribed and monitored, not self-managed."
   },
   {
    "id": "c63",
@@ -1757,7 +1789,8 @@
    "conditions": [
     "Hypothyroidism"
    ],
-   "note": null
+   "note": null,
+   "caution": "An elevated T4 with a non-suppressed TSH is the pattern of a TSH-secreting adenoma or thyroid hormone resistance; it warrants pituitary imaging rather than more thyroid hormone."
   },
   {
    "id": "c65",
@@ -1776,7 +1809,8 @@
    "conditions": [
     "Hyperthyroidism"
    ],
-   "note": null
+   "note": null,
+   "caution": "Untreated thyrotoxicosis at this severity can tip into thyroid storm, which is fatal without urgent care. This case is recorded as conventional management for exactly that reason."
   },
   {
    "id": "c66",
@@ -1801,7 +1835,8 @@
     "Parasites, intestinal",
     "Diarrhea"
    ],
-   "note": null
+   "note": null,
+   "caution": "Invasive amebiasis can seed a liver abscess and needs confirmed eradication; right lower quadrant pain with McBurney's tenderness also has to exclude appendicitis before it is treated as a parasite."
   },
   {
    "id": "c67",
@@ -1824,7 +1859,8 @@
    "conditions": [
     "Parasites, intestinal"
    ],
-   "note": null
+   "note": null,
+   "caution": "Spigelia is a low-dose botanical with cardiac and neurological toxicity in overdose. A heavy Ascaris burden can obstruct the bowel or migrate into the biliary tree when the worms are irritated rather than killed outright."
   },
   {
    "id": "c68",
@@ -1851,7 +1887,8 @@
     "Barrett's esophagus",
     "GERD"
    ],
-   "note": null
+   "note": null,
+   "caution": "Barrett's is a premalignant lesion and stays under endoscopic surveillance on an interval set by the degree of dysplasia, whatever else is added."
   },
   {
    "id": "c69",
@@ -1900,7 +1937,8 @@
    "conditions": [
     "Candidiasis"
    ],
-   "note": null
+   "note": null,
+   "caution": "Lomatium is the botanical whose whole-body rash is documented elsewhere in this casebook; start low and stop at the first sign of an exanthem."
   },
   {
    "id": "c71",
@@ -1956,7 +1994,8 @@
     "Hepatic steatosis",
     "Alcohol use disorder"
    ],
-   "note": null
+   "note": null,
+   "caution": "Vitamin A is cleared by the liver and is itself hepatotoxic in cirrhosis; thrombocytopenia here signals portal hypertension, and bromelain and vitamin E add antiplatelet effect on top of it."
   },
   {
    "id": "c73",
@@ -2032,7 +2071,8 @@
    "conditions": [
     "Diarrhea"
    ],
-   "note": null
+   "note": null,
+   "caution": "Decades of twice-weekly colonic irrigation carries its own risks — electrolyte disturbance, perforation, and dependence; this case records maintenance of an existing practice, not a recommendation to begin one."
   },
   {
    "id": "c76",
@@ -2066,7 +2106,8 @@
     "Inflammatory bowel disease",
     "Anemia, iron deficiency"
    ],
-   "note": null
+   "note": null,
+   "caution": "Prednisone is never stopped abruptly after long-term use — adrenal suppression makes the taper a medical one. A haematocrit in the low 20s with ongoing bleeding is a transfusion decision, not a supplement one."
   },
   {
    "id": "c77",
@@ -2113,7 +2154,8 @@
    "conditions": [
     "Constipation"
    ],
-   "note": null
+   "note": null,
+   "caution": "Constipation from birth with delayed passage of meconium is Hirschsprung disease until excluded — the rectal suction biopsy comes before a mineral protocol."
   },
   {
    "id": "c79",
@@ -2143,7 +2185,8 @@
     "Constipation",
     "Opioid use disorder"
    ],
-   "note": null
+   "note": null,
+   "caution": "Bulk-forming psyllium is contraindicated while a post-operative ileus or obstruction is still possible — peristalsis has to be confirmed present first. Stimulant anthraquinone laxatives are for short-term use only."
   },
   {
    "id": "c80",
@@ -2167,7 +2210,8 @@
    "conditions": [
     "Inflammatory bowel disease"
    ],
-   "note": null
+   "note": null,
+   "caution": "The weaning described was physician-supervised. Stopping azathioprine or prednisone independently risks a severe flare and, with steroids, adrenal crisis."
   },
   {
    "id": "c81",
@@ -2243,7 +2287,8 @@
    "conditions": [
     "Parasites, intestinal"
    ],
-   "note": null
+   "note": null,
+   "caution": "Pinworm reinfects through the household; treating the index patient without treating contacts and laundering bedding is what makes it recur."
   },
   {
    "id": "c84",
@@ -2300,7 +2345,8 @@
     "Peptic ulcer disease",
     "Gastritis"
    ],
-   "note": null
+   "note": null,
+   "caution": "Duodenal ulcer is tested for H. pylori and eradicated where positive; melena or haematemesis is an emergency."
   },
   {
    "id": "c86",
@@ -2403,7 +2449,8 @@
     "Bloating and gas",
     "Exocrine pancreatic insufficiency"
    ],
-   "note": null
+   "note": null,
+   "caution": "Betaine HCl on a background of duodenitis can reproduce the ulcer pain it is meant to relieve; it is stopped, not pushed through, if burning appears."
   },
   {
    "id": "c90",
@@ -2455,7 +2502,8 @@
     "Gastroschisis",
     "Wound healing"
    ],
-   "note": null
+   "note": null,
+   "caution": "Comfrey contains hepatotoxic pyrrolizidine alkaloids and is not given internally, least of all to a neonate. Gastroschisis is a surgical emergency at birth and this is adjunctive support only."
   },
   {
    "id": "c92",

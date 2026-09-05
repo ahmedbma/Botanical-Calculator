@@ -1994,7 +1994,8 @@
     });
     (CB.cases || []).forEach(function (kase) {
       var text = kase.title + ' ' + kase.presentation + ' ' +
-        kase.blocks.map(function (b) { return b.label + ' ' + b.items.join(' '); }).join(' ');
+        kase.blocks.map(function (b) { return b.label + ' ' + b.items.join(' '); }).join(' ') +
+        ' ' + (kase.caution || '');
       kase.conditions.map(cbName).forEach(function (cond) {
         if (!by[cond]) return;
         (CB_BY[cond] = CB_BY[cond] || []).push(kase);
@@ -2016,6 +2017,11 @@
     det.appendChild(sum);
     if (q) det.open = true;
     var body = el('div', 'cbbody');
+    // Say once, where the notes appear, whose voice they are in.
+    if (cases.some(function (k) { return !!k.caution; })) {
+      body.appendChild(el('p', 'cbcaunote', 'The safety notes below are written for this tool. ' +
+        'Everything else is the compendium\u2019s own wording.'));
+    }
     cases.forEach(function (kase) {
       var art = el('article', 'cbcase');
       var h = el('h5');
@@ -2035,6 +2041,17 @@
         });
         art.appendChild(ul);
       });
+      // Written for this tool, not transcribed with the case — the compendium
+      // records what was given, not what to watch for. Labelled so the two are
+      // never read as the same voice.
+      if (kase.caution) {
+        var cau = el('div', 'cbcaution');
+        cau.appendChild(el('span', 'cbcaulab', 'safety note'));
+        var ct = el('p');
+        ct.innerHTML = highlight(kase.caution, q);
+        cau.appendChild(ct);
+        art.appendChild(cau);
+      }
       body.appendChild(art);
     });
     det.appendChild(body);

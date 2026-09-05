@@ -14,7 +14,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | Tool | Purpose |
 |---|---|
 | **Differential Builder** | Type a patient's symptoms in plain words and get the five conditions in this notebook that best match, each with what it matched on and the whole workup already attached to it — labs and imaging, screening tools, pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and herbs. Fifteen red-flag combinations raise a banner, and a **must-not-miss** block pins the urgent findings in the exam bank that the entered picture touches above the ranking. Term matching over this site's own text, not a diagnostic algorithm. |
-| **Conditions** | 75 conditions A–Z plus 157 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 41 of them, **Dr William Mitchell's case protocols** where the compendium carries one, and the sections of your own notes that describe it. Carries a **paediatrics** section: a filter for the conditions that present in childhood, each with its age band and what changes in a child, over a reference block of vitals by age, dosing rules, red flags, dehydration, milestones and fever. |
+| **Conditions** | 75 conditions A–Z plus 157 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 41 of them, **Dr William Mitchell's case protocols** where the compendium carries one (48 of them with a safety note written for this tool), and the sections of your own notes that describe it. Carries a **paediatrics** section: a filter for the conditions that present in childhood, each with its age band and what changes in a child, over a reference block of vitals by age, dosing rules, red flags, dehydration, milestones and fever. |
 | **Physical Exams** | Physical exam and diagnosis, organised by type of exam: the clinic entry interview and review of systems, ten **chief complaints** worked as differentials, a head-to-toe screen, the eye and HENT exams, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, a muscle energy technique reference, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The nine **screening instruments** are listed among the exams under *Screening* — STOP-BANG, Epworth, PHQ-9, GAD-7, the MDQ, MMSE/MoCA, AUDIT-C, the COPD Assessment Test and the mould exposure questionnaire — each with a blank form to download or a link to the publisher who licenses it, and the **PHQ-9** and **GAD-7** scoreable in place. |
 | **Labs & Imaging** | 117 tests across blood, urine, stool, microbiology, imaging, function tests, procedures and specialty panels — why you would order each, how to read it, and its **normal and optimal ranges** with the caveat that decides whether the number can be taken at face value. The same tests hang off every abnormal exam finding and every condition. The nine **screening instruments** sit under Physical Exams instead, with their score bands. |
 | **Pharmaceuticals** | 109 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
@@ -492,7 +492,7 @@ formulary outranks the historical rules every time.
 ### The Master Compendium
 
 **95 clinical case protocols, 22 module sections, and 34 conditions this index did not previously carry** —
-transcribed from Nourhan Shams's own Master Compendium.
+transcribed from Nourhan Shams's own Master Compendium, with a safety note added to 48 of the cases.
 
 **Part 1 — Dr William A. Mitchell Jr's case protocols.** 95 cases across six chapters: addictions (5),
 cardiovascular medicine (19), dermatology (27), endocrinology (14), gastroenterology (29) and respiratory
@@ -519,11 +519,29 @@ oesophagus, cirrhosis, peptic ulcer disease, exocrine pancreatic insufficiency, 
 rest. They appear under the *Topics* filter with no herbs attached, because the herb index was never built
 for them.
 
-Everything in this dataset is the compendium's own text. **Nothing here was written for the tool**, and none
-of it is peer reviewed. Several protocols carry prescription drugs, intramuscular injections and
-intravenous formulations — Dr Gaby's withdrawal IV, B12 injections, cephalexin, bromocriptine,
-levothyroxine — that sit outside a student's scope of practice. The search box reaches all of it: `robert's
-formula`, `mustard plaster`, `jewelweed` and `Somogyi` each land on the condition that carries them.
+Every protocol line is the compendium's own text, and none of it is peer reviewed. Several protocols carry
+prescription drugs, intramuscular injections and intravenous formulations — Dr Gaby's withdrawal IV, B12
+injections, cephalexin, bromocriptine, levothyroxine — that sit outside a student's scope of practice. The
+search box reaches all of it: `robert's formula`, `mustard plaster`, `jewelweed` and `Somogyi` each land on
+the condition that carries them.
+
+**The one thing written for the tool is the safety note on 48 of the 95 cases.** The compendium records
+what was given, not what to watch for, and a reader coming to a protocol cold would not see the hazard in
+it: vitamin A at 100,000 IU daily is teratogenic; red yeast rice is lovastatin under another name and must
+not be stacked on a prescribed statin; Rauvolfia is reserpine and can precipitate suicidality; Podophyllum
+is cytotoxic and absorbed through the abraded skin the protocol creates; comfrey given internally to a
+neonate is a hepatotoxin; yohimbe was given to a patient sitting at 170/100; diabetic ketoacidosis is an
+emergency that oral bicarbonate does not treat. Each note is boxed under the case it belongs to, labelled
+*safety note*, and preceded by a line saying the notes are the tool's and the rest is the compendium's, so
+the two voices are never confused. They are searchable with everything else — `comfrey` and `red yeast
+rice` both find the conditions whose cases carry them.
+
+Six further notes were written and are **not** in the dataset, because the compendium's transcription has
+nothing for them to attach to: it carries no primary hypothyroidism case, no benign thyroid cyst case and
+no reactive postprandial hypoglycaemia case at all, and in three cases it does carry it omits the very
+agent the note was about — the zinc tail of the mitral stenosis protocol, the comfrey allantoin on the
+pilonidal cyst, and the yohimbe in the corn-sensitivity case. A warning about an agent that is not on the
+page would be worse than no warning.
 
 ### Treatment protocols
 

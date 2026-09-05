@@ -832,7 +832,13 @@ td.herb input{min-width:190px}
   color:var(--accent)}
 .cblist{margin:0;padding-left:1.15rem}
 .cblist li{font-size:.88rem;line-height:1.65;margin:3px 0}
-@media print{.cbbox{break-inside:avoid}}
+.cbcaunote{margin:0 0 4px;font-size:.78rem;line-height:1.5;color:var(--muted);font-style:italic}
+.cbcaution{margin:10px 0 2px;padding:9px 12px;border-radius:10px;background:var(--danger-bg);
+  border-left:3px solid var(--danger)}
+.cbcaulab{display:block;margin-bottom:3px;font:700 .6rem/1 var(--sans);text-transform:uppercase;
+  letter-spacing:.06em;color:var(--danger)}
+.cbcaution p{margin:0;font-size:.85rem;line-height:1.6;color:var(--ink);max-width:88ch}
+@media print{.cbbox{break-inside:avoid}.cbcaution{break-inside:avoid}}
 
 
 /* ---- reference ranges on a lab or screening card ---- */
