@@ -32,6 +32,26 @@
   }
   function numOf(v) { var n = parseFloat(v); return isFinite(n) ? n : 0; }
 
+  /* Search boxes re-render their whole list synchronously. Conditions was the
+     worst -- 213 ms per keystroke on a desktop, because every card is rebuilt
+     with its nested case, protocol and therapeutics nodes, and a query opens
+     them all. Multiply by four to six for a phone. Waiting for a short pause in
+     typing costs nothing and makes the field feel like a text field again.
+     .now() renders immediately, for the code paths that read the result. */
+  function debounced(fn, ms) {
+    var timer = null;
+    function d() {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(function () { timer = null; fn(); }, ms);
+    }
+    d.now = function () {
+      if (timer) { clearTimeout(timer); timer = null; }
+      fn();
+    };
+    return d;
+  }
+  var SEARCH_WAIT = 140;
+
   function fmt(n, dp) {
     if (n == null || !isFinite(n) || n === 0) return n === 0 ? '0' : '—';
     dp = dp == null ? 2 : dp;
@@ -53,8 +73,24 @@
   }
   function genusSpecies(s) { return norm(s).split(' ').slice(0, 2).join(' '); }
 
-  /* ---------------- lookup indexes ---------------- */
-  var lowDoseIndex = {};
+  /* ---------------- lookup indexes ----------------
+     Every map below is keyed by text the user types into a herb field, so they
+     are built with no prototype. A plain {} inherits Object.prototype, and a
+     herb named "constructor", "toString", "valueOf" or "__proto__" then finds
+     an inherited function instead of missing. That surfaced as a phantom
+     safety alert -- "undefined is a low-dose botanical. Maximums at 1:—:
+     single — ml" -- on a tool whose whole job is telling you when a dose is
+     unsafe. A null-prototype map has nothing to inherit, so a miss is a miss.
+     Use dict() for any new map keyed by user input; use adopt() to take one
+     over from the JSON data, which arrives with the normal prototype. */
+  function dict() { return Object.create(null); }
+  function adopt(src) {
+    var out = Object.create(null);
+    if (src) Object.keys(src).forEach(function (k) { out[k] = src[k]; });
+    return out;
+  }
+
+  var lowDoseIndex = dict();
   D.lowDose.forEach(function (h) {
     var rec = {
       herb: h.herb,
@@ -78,7 +114,8 @@
      "spp" row. A genus match is labelled as such rather than passed off as the
      species being rated. */
   var PREG = window.PREGNANCY_DATA || { herbs: [], index: {}, legend: {}, levels: {} };
-  var pregTable = {};
+  var PREG_INDEX = adopt(PREG.index);
+  var pregTable = dict();
   (PREG.herbs || []).forEach(function (r) {
     var k = genusSpecies(r.herb);
     if (!k) return;
@@ -87,7 +124,7 @@
   function lookupPreg(name) {
     var k = genusSpecies(name);
     if (!k) return null;
-    var hit = (PREG.index || {})[k];
+    var hit = PREG_INDEX[k];
     if (!hit) return null;
     var recs = pregTable[hit.key] || [];
     if (!recs.length) return null;
@@ -96,7 +133,7 @@
   }
   var PREG_LABEL = { avoid: 'avoid', caution: 'caution', evidence: 'evidence of safety', unrated: 'not rated' };
 
-  var densityIndex = {};
+  var densityIndex = dict();
   // Whole cut-and-sifted herb is the usual tea ingredient, so it wins over a powder
   // when the same species is listed more than once.
   function isPowder(d) { return /powder/i.test(d.part || d.herb || ''); }
@@ -122,14 +159,14 @@
     return null;
   }
 
-  var genericDensity = {};
+  var genericDensity = dict();
   D.genericDensity.forEach(function (g) { genericDensity[g.part] = g.gPerTbsp; });
 
   /* ---------------- common names ----------------
      The workbook carries a common name on the herb-reference and dispensary
      sheets but not on the density sheet, so fall back to the genus and species
      when a name differs only by a parenthetical or a supplier's variant. */
-  var COMMON = {}, COMMON_GS = {};
+  var COMMON = dict(), COMMON_GS = dict();
   function addCommon(latin, common) {
     if (!latin || !common) return;
     var c = String(common).trim().toLowerCase();
@@ -150,13 +187,13 @@
      Two rows in the source workbook are not herbs at all -- a sheet footer and
      a column header that were parsed as entries. Keep them out of the pickers
      and out of the reference index. */
-  var NOT_A_HERB = {
+  var NOT_A_HERB = adopt({
     'all information provided here is by eric yarnell nd': true,
     'amount in formula': true
-  };
+  });
   function isHerbName(n) { return !!n && !NOT_A_HERB[norm(n)]; }
 
-  var nameSet = {};
+  var nameSet = dict();
   function addName(n) { if (isHerbName(n)) nameSet[n] = true; }
   D.bcnhProducts.forEach(function (p) { addName(p.latin); });
   D.herbRef.forEach(function (h) { addName(h.herb); });
@@ -174,13 +211,13 @@
   // botanical reference sheet uses, then the one carrying a measured density,
   // and fall back to the fuller spelling, which is the one a typo has lost a
   // letter from.
-  var inHerbRef = {}, inDensity = {};
+  var inHerbRef = dict(), inDensity = dict();
   D.herbRef.forEach(function (h) { inHerbRef[h.herb] = true; });
   D.density.forEach(function (h) { inDensity[h.herb] = true; });
   function spellingScore(n) {
     return (inHerbRef[n] ? 4 : 0) + (inDensity[n] ? 2 : 0) + n.length / 1000;
   }
-  var BY_COMMON = {};
+  var BY_COMMON = dict();
   Object.keys(COMMON).forEach(function (latin) {
     var c = norm(COMMON[latin]);
     if (!c || !nameSet[latin]) return;
@@ -454,8 +491,31 @@
   }
 
   /* ---------------- tabs ---------------- */
+  /* Every tab used to be built during init, all fourteen of them, which put
+     44,275 elements in the document before the first paint -- thirteen panels'
+     worth that nobody had asked to see. On a mid-range phone that was about a
+     second of blocked main thread on every load. TAB_BUILD holds what each
+     panel needs; ensureTab runs it once, the first time that panel is shown.
+     Filled in below, after the render functions it names exist. */
+  var TAB_BUILD = dict();
+  var tabBuilt = dict();
+
+  function ensureTab(name) {
+    if (tabBuilt[name]) return;
+    tabBuilt[name] = true;                 // set first: a builder that throws
+    var build = TAB_BUILD[name];           // must not run again on every click
+    if (build) build();
+  }
+
   function showTab(name) {
-    $$('.tab').forEach(function (t) { t.setAttribute('aria-selected', String(t.dataset.panel === name)); });
+    ensureTab(name);
+    $$('.tab').forEach(function (t) {
+      var on = t.dataset.panel === name;
+      t.setAttribute('aria-selected', String(on));
+      // Roving tabindex: one stop in the tab order for the whole tablist, as
+      // the tabs pattern expects. Arrow keys move between them from there.
+      t.tabIndex = on ? 0 : -1;
+    });
     $$('.panel').forEach(function (p) { p.hidden = p.id !== 'panel-' + name; });
     try { localStorage.setItem('bc.tab', name); } catch (e) { /* storage may be blocked */ }
     // The must-not-miss index is scanned out of the whole exam bank. Do it while
@@ -463,8 +523,25 @@
     // pause would read as lag.
     if (name === 'dx' && typeof dxUrgentIndex === 'function') setTimeout(dxUrgentIndex, 0);
   }
-  $$('.tab').forEach(function (tab) {
+
+  var TABS = $$('.tab');
+  TABS.forEach(function (tab, i) {
+    tab.tabIndex = tab.getAttribute('aria-selected') === 'true' ? 0 : -1;
     tab.addEventListener('click', function () { showTab(tab.dataset.panel); });
+    // The markup declared role="tablist" but arrow keys did nothing, so a
+    // keyboard or screen-reader user was told "tab 3 of 14" and then had to
+    // Tab through all fourteen. Left/Right wrap, Home/End jump to the ends.
+    tab.addEventListener('keydown', function (e) {
+      var to = -1;
+      if (e.key === 'ArrowRight') to = (i + 1) % TABS.length;
+      else if (e.key === 'ArrowLeft') to = (i - 1 + TABS.length) % TABS.length;
+      else if (e.key === 'Home') to = 0;
+      else if (e.key === 'End') to = TABS.length - 1;
+      else return;
+      e.preventDefault();
+      showTab(TABS[to].dataset.panel);
+      TABS[to].focus();
+    });
   });
 
   // The pregnancy and lactation switches re-run the formula they belong to.
@@ -696,7 +773,11 @@
       var tag = tr.querySelector('.lowtag');
       tag.hidden = !ld;
       if (ld && share > 0) {
-        var name = row.herb;
+        // The herb name is whatever was typed into the field, and alertBox()
+        // sets innerHTML -- so it has to be escaped, the way pregAlerts() does
+        // twenty lines down. Unescaped it executed markup, and an ampersand in
+        // a name came out as "&amp;".
+        var name = escapeHtml(row.herb);
         if (herbMl > ld.singleMl + 1e-9) {
           alerts.push(['danger', '<strong>' + name + '</strong> — single dose ' + fmt(herbMl, 2) +
             ' ml exceeds the maximum single dose of ' + fmt(ld.singleMl, 2) + ' ml.']);
@@ -969,12 +1050,12 @@
         'Percentages total <strong>' + fmt(propSum, 2) + '%</strong>, not 100%.']);
     }
     if (missing.length) {
-      alerts.push(['info', 'No density on file for <strong>' + missing.join(', ') +
+      alerts.push(['info', 'No density on file for <strong>' + escapeHtml(missing.join(', ')) +
         '</strong>. Enter g/Tbsp directly, or pick a plant part for a generic value.']);
     }
     if (approx.length) {
       alerts.push(['warn', 'Density borrowed from another species in the same genus: <strong>' +
-        approx.join('; ') + '</strong>. Densities differ a lot between plant parts — confirm or override the value.']);
+        escapeHtml(approx.join('; ')) + '</strong>. Densities differ a lot between plant parts — confirm or override the value.']);
     }
     var box = $('#te-alerts');
     box.innerHTML = '';
@@ -1412,7 +1493,7 @@
     list.forEach(function (x) { frag.appendChild(txCard(x, 'botanicals', q, true)); });
     out.appendChild(frag);
   }
-  $('#hr-search').addEventListener('input', renderRef);
+  $('#hr-search').addEventListener('input', debounced(renderRef, SEARCH_WAIT));
   $$('#hr-filters .chip').forEach(function (chip) {
     chip.addEventListener('click', function () {
       hrFilter = chip.dataset.f;
@@ -1474,11 +1555,22 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch];
     });
   }
+  // Match on the raw text and escape the pieces, rather than escaping first and
+  // running the search over the result -- that let a query match inside an
+  // entity the escaping had just produced. Searching "&" turned every
+  // "Cardiometabolic & cellular health" into "Cardiometabolic &amp; cellular
+  // health" on screen; "amp", "quot", "lt" and "gt" did the same.
   function highlight(text, q) {
-    var safe = escapeHtml(text);
-    if (!q) return safe;
-    var rx = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig');
-    return safe.replace(rx, '<mark>$1</mark>');
+    var raw = String(text == null ? '' : text);
+    if (!q) return escapeHtml(raw);
+    var rx = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'ig');
+    var out = '', last = 0, m;
+    while ((m = rx.exec(raw)) !== null) {
+      if (m[0] === '') { rx.lastIndex++; continue; }   // never spin on an empty match
+      out += escapeHtml(raw.slice(last, m.index)) + '<mark>' + escapeHtml(m[0]) + '</mark>';
+      last = m.index + m[0].length;
+    }
+    return out + escapeHtml(raw.slice(last));
   }
 
   function buildSystemChips() {
@@ -2273,69 +2365,83 @@
       }
       det.appendChild(sum);
 
-      var body = el('div', 'body');
-      var pnode = pedsNode(c.condition);
-      if (pnode) body.appendChild(pnode);
-      var grid = el('div', 'hgrid');
-      (c.herbs || []).forEach(function (h) {
-        var row = el('div', 'hrow' + (h.role === 'primary' ? ' primary' : ''));
-        var left = el('div');
-        var nm = el('div', 'nm');
-        nm.innerHTML = highlight(h.herb, q);
-        left.appendChild(nm);
-        if (h.common) {
-          var cn = el('div', 'cn');
-          cn.innerHTML = highlight(h.common, q);
-          left.appendChild(cn);
-        }
-        var tags = el('div', 'tags');
-        tags.appendChild(el('span', 'tg role', h.role));
-        if (h.lowDose) {
-          var lowTag = el('span', 'tg low', h.maxSingleMl != null
-            ? 'low dose \u00b7 max ' + fmt(h.maxSingleMl, 2) + ' ml'
-            : 'low dose');
-          if (h.maxSingleMl != null) {
-            lowTag.title = 'Maximum single dose ' + fmt(h.maxSingleMl, 2) + ' ml at 1:' +
-              fmt(h.maxDilution, 1) + '. Suitable for long-term use: ' + (h.longTerm || 'unknown') +
-              '. See the Low-Dose Reference tab.';
+      // Every card's body was built up front: 22,277 elements for 264 cards,
+      // almost none of them open. Build on first open instead. A search opens
+      // its own results (det.open above), so those still build immediately --
+      // the trade is that browser find-in-page no longer reaches inside a card
+      // that has never been opened. The tab's own search box does, and that is
+      // the one that searches aliases, herbs and notes rather than just what is
+      // on screen.
+      var bodyBuilt = false;
+      function buildCardBody() {
+        if (bodyBuilt) return;
+        bodyBuilt = true;
+        var body = el('div', 'body');
+        var pnode = pedsNode(c.condition);
+        if (pnode) body.appendChild(pnode);
+        var grid = el('div', 'hgrid');
+        (c.herbs || []).forEach(function (h) {
+          var row = el('div', 'hrow' + (h.role === 'primary' ? ' primary' : ''));
+          var left = el('div');
+          var nm = el('div', 'nm');
+          nm.innerHTML = highlight(h.herb, q);
+          left.appendChild(nm);
+          if (h.common) {
+            var cn = el('div', 'cn');
+            cn.innerHTML = highlight(h.common, q);
+            left.appendChild(cn);
           }
-          tags.appendChild(lowTag);
+          var tags = el('div', 'tags');
+          tags.appendChild(el('span', 'tg role', h.role));
+          if (h.lowDose) {
+            var lowTag = el('span', 'tg low', h.maxSingleMl != null
+              ? 'low dose \u00b7 max ' + fmt(h.maxSingleMl, 2) + ' ml'
+              : 'low dose');
+            if (h.maxSingleMl != null) {
+              lowTag.title = 'Maximum single dose ' + fmt(h.maxSingleMl, 2) + ' ml at 1:' +
+                fmt(h.maxDilution, 1) + '. Suitable for long-term use: ' + (h.longTerm || 'unknown') +
+                '. See the Low-Dose Reference tab.';
+            }
+            tags.appendChild(lowTag);
+          }
+          if (h.dispensary) tags.appendChild(el('span', 'tg disp', 'in dispensary'));
+          if (h.unlisted) {
+            var u = el('span', 'tg unl', 'not in your data');
+            u.title = 'This herb is not in the workbook\u2019s reference sheets or the BCNH product list.';
+            tags.appendChild(u);
+          }
+          left.appendChild(tags);
+          row.appendChild(left);
+          var why = el('div', 'why');
+          why.innerHTML = highlight(h.why, q);
+          row.appendChild(why);
+          grid.appendChild(row);
+        });
+        if (c.herbs && c.herbs.length) body.appendChild(grid);
+        if (c.notes) body.appendChild(el('p', 'note', c.notes));
+        var kases = typeof cbCaseNode === 'function' ? cbCaseNode(c.condition, q) : null;
+        if (kases) body.appendChild(kases);
+        var proto = typeof txProtocolNode === 'function' ? txProtocolNode(c.condition, q) : null;
+        if (proto) body.appendChild(proto);
+        var ref = typeof txReferenceNode === 'function' ? txReferenceNode(c.condition, q) : null;
+        if (ref) body.appendChild(ref);
+        var tx = typeof txForCondition === 'function' ? txForCondition(c.condition, q) : null;
+        if (tx) {
+          var txd = el('details', 'txdrop');
+          var counts = (TXBY[c.condition] || {});
+          var n = ['pharm', 'supps', 'therapies', 'labs'].reduce(function (a, k) {
+            return a + ((counts[k] || []).length);
+          }, 0);
+          txd.appendChild(el('summary', null,
+            'Pharmaceuticals, supplements, therapies and labs — ' + n + ' entries'));
+          if (q) txd.open = true;
+          txd.appendChild(tx);
+          body.appendChild(txd);
         }
-        if (h.dispensary) tags.appendChild(el('span', 'tg disp', 'in dispensary'));
-        if (h.unlisted) {
-          var u = el('span', 'tg unl', 'not in your data');
-          u.title = 'This herb is not in the workbook\u2019s reference sheets or the BCNH product list.';
-          tags.appendChild(u);
-        }
-        left.appendChild(tags);
-        row.appendChild(left);
-        var why = el('div', 'why');
-        why.innerHTML = highlight(h.why, q);
-        row.appendChild(why);
-        grid.appendChild(row);
-      });
-      if (c.herbs && c.herbs.length) body.appendChild(grid);
-      if (c.notes) body.appendChild(el('p', 'note', c.notes));
-      var kases = typeof cbCaseNode === 'function' ? cbCaseNode(c.condition, q) : null;
-      if (kases) body.appendChild(kases);
-      var proto = typeof txProtocolNode === 'function' ? txProtocolNode(c.condition, q) : null;
-      if (proto) body.appendChild(proto);
-      var ref = typeof txReferenceNode === 'function' ? txReferenceNode(c.condition, q) : null;
-      if (ref) body.appendChild(ref);
-      var tx = typeof txForCondition === 'function' ? txForCondition(c.condition, q) : null;
-      if (tx) {
-        var txd = el('details', 'txdrop');
-        var counts = (TXBY[c.condition] || {});
-        var n = ['pharm', 'supps', 'therapies', 'labs'].reduce(function (a, k) {
-          return a + ((counts[k] || []).length);
-        }, 0);
-        txd.appendChild(el('summary', null,
-          'Pharmaceuticals, supplements, therapies and labs — ' + n + ' entries'));
-        if (q) txd.open = true;
-        txd.appendChild(tx);
-        body.appendChild(txd);
+        det.appendChild(body);
       }
-      det.appendChild(body);
+      if (det.open) buildCardBody();
+      else det.addEventListener('toggle', buildCardBody);
       frag.appendChild(det);
     });
 
@@ -2344,7 +2450,7 @@
       out.appendChild(el('p', 'count', 'No condition matches that. Try a synonym, a body system, or a herb name.'));
     }
   }
-  $('#cx-search').addEventListener('input', renderConditions);
+  $('#cx-search').addEventListener('input', debounced(renderConditions, SEARCH_WAIT));
 
   /* ==================================================================
      PHYSICAL EXAMS & DIAGNOSES
@@ -2805,7 +2911,7 @@
       out.appendChild(el('p', 'count', 'No exam matches that. Try a manoeuvre, a body part or a sign.'));
     }
   }
-  if ($('#pe-search')) $('#pe-search').addEventListener('input', renderExams);
+  if ($('#pe-search')) $('#pe-search').addEventListener('input', debounced(renderExams, SEARCH_WAIT));
 
   /* ==================================================================
      THERAPEUTICS — pharmaceuticals, supplements, therapies, labs & imaging
@@ -3088,7 +3194,7 @@
     }
 
     if ($('#' + cfg.id + '-search')) {
-      $('#' + cfg.id + '-search').addEventListener('input', render);
+      $('#' + cfg.id + '-search').addEventListener('input', debounced(render, SEARCH_WAIT));
       chips();
     }
     return render;
@@ -3641,8 +3747,11 @@
     showTab('exams');
     var det = $('#pe-results [data-screen="' + id + '"]');
     if (!det) {
+      // Clear the filter and re-render right now -- dispatching an input event
+      // would go through the debounce and this read would beat the render.
       var inp = $('#pe-search');
-      if (inp) { inp.value = ''; inp.dispatchEvent(new Event('input', { bubbles: true })); }
+      if (inp) inp.value = '';
+      renderExams();
       det = $('#pe-results [data-screen="' + id + '"]');
     }
     if (!det) { $('#panel-exams').scrollIntoView({ block: 'start' }); return; }
@@ -4280,17 +4389,24 @@
       if ($('#te-lact')) $('#te-lact').checked = !!sf.teLact;
     }
     fillListNotes();
-    renderLowDose('');
-    buildPregLegend();
-    renderRef();
+
+    // Index building, not DOM: cheap, and several panels read these, so it
+    // stays eager. The DOM was the expensive half and that is what moved.
     cxAddTherapeuticsToHaystack();
     buildTopicConditions();
     cbIndexConditions();
-    buildPedsBody();
-    buildDxChips();
-    if ($('#dx-input')) {
-      var saved = load('dx');
-      if (saved) { $('#dx-input').value = saved; runDx(); }
+
+    /* ---- what each panel needs, run once when it is first shown ---- */
+    TAB_BUILD.conditions = function () {
+      buildPedsBody();
+      buildSystemChips();
+      setSort('az');            // calls renderConditions
+    };
+    TAB_BUILD.dx = function () {
+      buildDxChips();
+      if (!$('#dx-input')) return;
+      var savedDx = load('dx');
+      if (savedDx) { $('#dx-input').value = savedDx; runDx(); }
       $('#dx-run').addEventListener('click', runDx);
       $('#dx-input').addEventListener('keydown', function (e) {
         if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) runDx();
@@ -4302,36 +4418,32 @@
         save('dx', '');
       });
       $('#dx-csv').addEventListener('click', dxCsv);
-    }
-    buildSystemChips();
-    setSort('az');
-    buildExamChips();
-    renderExams();
-    renderPharm();
-    renderSupps();
-    renderTherap();
-    renderLife();
-    renderLabs();
-    renderSuffixes();
-    buildScreeners();
-    buildWomensNotes();
-    hxRenderPick();
-    hxRenderRef();
-    var sh = load('homeo');
-    if (sh && sh.cond) {
-      var saved = H.conditions.filter(function (c) { return c.condition === sh.cond; })[0];
-      if (saved) {
-        HX = { cond: saved, answers: (sh.answers || []).filter(function (a) { return HQ[a.q]; }), done: !!sh.done };
-        if (HX.done) hxFinish(); else hxRenderAsk();
-      }
-    }
+    };
+    TAB_BUILD.exams = function () { buildExamChips(); buildScreeners(); renderExams(); };
+    TAB_BUILD.labs = renderLabs;
+    TAB_BUILD.pharm = function () { renderPharm(); renderSuffixes(); };
+    TAB_BUILD.supps = renderSupps;
+    TAB_BUILD.therap = renderTherap;
+    TAB_BUILD.life = renderLife;
+    TAB_BUILD.herbs = function () { buildPregLegend(); buildWomensNotes(); renderRef(); };
+    TAB_BUILD.lowdose = function () { renderLowDose(''); };
+    TAB_BUILD.homeo = function () {
+      hxRenderPick();
+      hxRenderRef();
+      var sh = load('homeo');
+      if (!sh || !sh.cond) return;
+      var savedHx = H.conditions.filter(function (c) { return c.condition === sh.cond; })[0];
+      if (!savedHx) return;
+      HX = { cond: savedHx, answers: (sh.answers || []).filter(function (a) { return HQ[a.q]; }), done: !!sh.done };
+      if (HX.done) hxFinish(); else hxRenderAsk();
+    };
+    // tincture, tea and dose are already built above: three rows each, and the
+    // saved formula has to be restored whether or not that tab is on screen.
 
     var tab = null;
     try { tab = localStorage.getItem('bc.tab'); } catch (e) { tab = null; }
-    if (tab) {
-      var btn = $('.tab[data-panel="' + tab + '"]');
-      if (btn) btn.click();
-    }
+    if (!tab || !$('.tab[data-panel="' + tab + '"]')) tab = 'conditions';
+    showTab(tab);
   }
   init();
 })();
