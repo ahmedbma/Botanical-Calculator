@@ -458,6 +458,10 @@
     $$('.tab').forEach(function (t) { t.setAttribute('aria-selected', String(t.dataset.panel === name)); });
     $$('.panel').forEach(function (p) { p.hidden = p.id !== 'panel-' + name; });
     try { localStorage.setItem('bc.tab', name); } catch (e) { /* storage may be blocked */ }
+    // The must-not-miss index is scanned out of the whole exam bank. Do it while
+    // the panel is still empty rather than on the first keystroke, where the
+    // pause would read as lag.
+    if (name === 'dx' && typeof dxUrgentIndex === 'function') setTimeout(dxUrgentIndex, 0);
   }
   $$('.tab').forEach(function (tab) {
     tab.addEventListener('click', function () { showTab(tab.dataset.panel); });
@@ -1460,6 +1464,9 @@
         c._hay += ' ' + (r.title + ' ' + r.body.join(' ')).toLowerCase();
       });
     });
+    CONDS.forEach(function (c) {
+      if (CB_HAY[c.condition]) c._hay += ' ' + CB_HAY[c.condition];
+    });
   }
 
   function escapeHtml(str) {
@@ -1592,6 +1599,108 @@
     });
   }
 
+  /* ---------------- must not miss ----------------
+     The red flags above are fifteen hand-written combinations. This is the
+     other half: every finding the exam bank already marks urgent, read
+     through the same symptom vocabulary as the text box. It ranks nothing
+     and diagnoses nothing — it is the list of things ruled out first
+     because of what they cost when missed, not because they are likely. */
+  var DX_URGENT = null;
+
+  function dxUrgentIndex() {
+    if (DX_URGENT) return DX_URGENT;
+    var rows = [];
+    PE_EXAMS.forEach(function (e) {
+      (e.findings || []).forEach(function (f) {
+        if (!f.urgent) return;
+        rows.push({ finding: f.finding, suggests: f.suggests, workup: f.workup || '',
+                    from: e.name, cond: null,
+                    text: f.finding + ' ' + f.suggests + ' ' + (f.workup || '') });
+      });
+      (e.differential || []).forEach(function (r) {
+        if (!r.urgent) return;
+        rows.push({ finding: r.condition, suggests: r.tx || '', workup: r.labs || '',
+                    from: e.name, cond: r.link || null,
+                    text: [r.condition, r.hpi, r.ros, r.pe, r.ddx].filter(Boolean).join(' ') });
+      });
+    });
+    rows.forEach(function (r) {
+      r.terms = {};
+      dxMatch(r.text).forEach(function (m) { r.terms[m.id] = true; });
+    });
+    DX_URGENT = rows;
+    return rows;
+  }
+
+  function dxMustNotMiss(found) {
+    var rows = dxUrgentIndex(), seen = {}, hits = [];
+    rows.forEach(function (r) {
+      var n = 0;
+      found.forEach(function (f) { if (r.terms[f.id]) n++; });
+      if (!n) return;
+      // the same emergency is named by more than one chief complaint's
+      // differential; key on what it is and what it means, not on which list
+      // it came from, and keep the entry that explains the most
+      var k = r.finding + '|' + r.suggests;
+      if (seen[k]) { if (n > seen[k].n) seen[k].n = n; return; }
+      seen[k] = { r: r, n: n };
+      hits.push(seen[k]);
+    });
+    if (!hits.length) return null;
+    hits.sort(function (a, b) {
+      return b.n - a.n || a.r.finding.localeCompare(b.r.finding);
+    });
+    // Once there is a real picture to match against, an emergency that answers
+    // to only one of five symptoms is noise — every fatigue case would lead
+    // with cancer. Above three symptoms the block tightens to those explaining
+    // at least two; if none do, it still shows the best of them, but closed,
+    // and says they matched loosely rather than presenting them as the picture.
+    var tightened = found.length >= 3;
+    var strong = tightened ? hits.filter(function (h) { return h.n >= 2; }) : hits;
+    var loose = !strong.length;
+    if (loose) strong = hits.slice(0, 3);
+    var shown = strong.slice(0, 6), hidden = hits.length - shown.length;
+
+    var det = el('details', 'dx-flagbox' + (loose ? ' loose' : ''));
+    det.open = !loose;
+    det.appendChild(el('summary', null, loose
+      ? 'Must not miss \u2014 nothing here matches more than one symptom, but ' + hits.length +
+        ' urgent findings touch what you entered'
+      : 'Must not miss \u2014 ' + shown.length +
+        (shown.length === 1 ? ' urgent finding matches' : ' urgent findings match') +
+        (tightened ? ' two or more of your symptoms' : ' what you entered')));
+    var body = el('div', 'dx-flagbody');
+    body.appendChild(el('p', 'dx-flaglede', loose
+      ? 'Each of these answers to only one of the symptoms you entered, so treat them as a checklist ' +
+        'rather than as the picture.'
+      : 'These are the emergency findings in the exam index whose wording your symptoms touch. They are ' +
+        'listed first because they are ruled out first, not because they are likely.'));
+    shown.forEach(function (h) {
+      var r = h.r, row = el('div', 'dx-flag');
+      row.appendChild(el('p', 'dx-flagname', r.finding));
+      if (r.suggests) row.appendChild(el('p', 'dx-flagsugg', r.suggests));
+      if (r.workup) {
+        var w = el('p', 'dx-flagrun');
+        w.innerHTML = '<span class="pe-wlab">run</span> ' + escapeHtml(r.workup);
+        row.appendChild(w);
+      }
+      row.appendChild(el('p', 'dx-flagfrom', r.from +
+        (h.n > 1 ? ' \u00b7 matches ' + h.n + ' of your symptoms' : '')));
+      if (r.cond && TXBY[r.cond]) {
+        var open = el('button', 'txlink', 'Open ' + r.cond + ' in Conditions');
+        open.addEventListener('click', function () { txJumpToCondition(r.cond); });
+        row.appendChild(open);
+      }
+      body.appendChild(row);
+    });
+    if (hidden > 0) {
+      body.appendChild(el('p', 'dx-flagmore', hidden +
+        ' further urgent findings touch what you entered more loosely; they are in the Physical Exams tab.'));
+    }
+    det.appendChild(body);
+    return det;
+  }
+
   // Everything this notebook already attaches to one condition, gathered.
   function dxWorkup(cond) {
     var rec = TXBY[cond] || {};
@@ -1670,6 +1779,11 @@
     dxRedFlags(found).forEach(function (r) {
       out.appendChild(alertBox('danger', '<strong>Red flag:</strong> ' + escapeHtml(r.text)));
     });
+
+    // Pinned above the ranking: what this picture could be that cannot wait,
+    // whether or not it scored well.
+    var mnm = dxMustNotMiss(found);
+    if (mnm) out.appendChild(mnm);
 
     var head = el('div', 'dx-matched');
     head.appendChild(el('span', 'dx-lab', 'read as'));
@@ -1841,16 +1955,36 @@
   var CB_BY = {};        // condition name -> the cases that treat it
   var CB_HAY = {};       // condition name -> everything the compendium says about it
 
+  /* Ten of the compendium's topics are conditions the index already carries under
+     a different wording. Left alone they would double up in the A-Z list, and the
+     case would attach to the new empty topic rather than to the one that already
+     holds the labs, supplements and therapeutics. Folding them in keeps one entry
+     per condition and puts the case where the rest of the material is. */
+  var CB_ALIAS = {
+    'Adrenal fatigue and HPA dysregulation': 'Adrenal fatigue',
+    'Cirrhosis': 'Hepatic cirrhosis',
+    'Coronary artery disease, secondary prevention': 'Atherosclerosis',
+    'Hypotension': 'Hypotension and orthostatic intolerance',
+    'Morphea (localized scleroderma)': 'Morphea',
+    'Pilonidal disease': 'Pilonidal cyst',
+    'Primary hyperparathyroidism': 'Hyperparathyroidism',
+    'Reactive hypoglycemia': 'Hypoglycemia',
+    'Stroke rehabilitation': 'Stroke and cerebrovascular rehabilitation',
+    'Thyroid nodule': 'Thyroid nodules and cysts'
+  };
+  function cbName(n) { return CB_ALIAS[n] || n; }
+
   (function buildCasebook() {
     var by = (window.THERAPEUTICS_DATA || {}).byCondition;
     if (!by) return;
     (CB.topics || []).forEach(function (t) {
-      if (by[t.name]) return;
-      by[t.name] = { extra: true, note: t.blurb, pharm: [], supps: [], therapies: [], labs: [],
-                     reference: [] };
+      var name = cbName(t.name);
+      if (by[name]) return;
+      by[name] = { extra: true, note: t.blurb, pharm: [], supps: [], therapies: [], labs: [],
+                   reference: [] };
     });
     (CB.sections || []).forEach(function (sec) {
-      sec.conditions.forEach(function (cond) {
+      sec.conditions.map(cbName).forEach(function (cond) {
         var rec = by[cond];
         if (!rec) return;
         if (!rec.reference) rec.reference = [];
@@ -1860,8 +1994,9 @@
     });
     (CB.cases || []).forEach(function (kase) {
       var text = kase.title + ' ' + kase.presentation + ' ' +
-        kase.blocks.map(function (b) { return b.label + ' ' + b.items.join(' '); }).join(' ');
-      kase.conditions.forEach(function (cond) {
+        kase.blocks.map(function (b) { return b.label + ' ' + b.items.join(' '); }).join(' ') +
+        ' ' + (kase.caution || '');
+      kase.conditions.map(cbName).forEach(function (cond) {
         if (!by[cond]) return;
         (CB_BY[cond] = CB_BY[cond] || []).push(kase);
         CB_HAY[cond] = (CB_HAY[cond] || '') + ' ' + text;
@@ -1884,12 +2019,13 @@
     var by = (window.THERAPEUTICS_DATA || {}).byCondition;
     if (!by) return;
     (HRX.topics || []).forEach(function (t) {
-      if (by[t.name]) return;
-      by[t.name] = { extra: true, note: t.blurb, pharm: [], supps: [], therapies: [], labs: [],
-                     reference: [] };
+      var name = cbName(t.name);
+      if (by[name]) return;
+      by[name] = { extra: true, note: t.blurb, pharm: [], supps: [], therapies: [], labs: [],
+                   reference: [] };
     });
     (HRX.sections || []).forEach(function (sec) {
-      sec.conditions.forEach(function (cond) {
+      sec.conditions.map(cbName).forEach(function (cond) {
         var rec = by[cond];
         if (!rec) return;
         if (!rec.reference) rec.reference = [];
@@ -1912,6 +2048,11 @@
     det.appendChild(sum);
     if (q) det.open = true;
     var body = el('div', 'cbbody');
+    // Say once, where the notes appear, whose voice they are in.
+    if (cases.some(function (k) { return !!k.caution; })) {
+      body.appendChild(el('p', 'cbcaunote', 'The safety notes below are written for this tool. ' +
+        'Everything else is the compendium\u2019s own wording.'));
+    }
     cases.forEach(function (kase) {
       var art = el('article', 'cbcase');
       var h = el('h5');
@@ -1931,6 +2072,17 @@
         });
         art.appendChild(ul);
       });
+      // Written for this tool, not transcribed with the case — the compendium
+      // records what was given, not what to watch for. Labelled so the two are
+      // never read as the same voice.
+      if (kase.caution) {
+        var cau = el('div', 'cbcaution');
+        cau.appendChild(el('span', 'cbcaulab', 'safety note'));
+        var ct = el('p');
+        ct.innerHTML = highlight(kase.caution, q);
+        cau.appendChild(ct);
+        art.appendChild(cau);
+      }
       body.appendChild(art);
     });
     det.appendChild(body);
@@ -1996,7 +2148,7 @@
         });
         var refText = (rec.reference || []).map(function (r) {
           return r.title + ' ' + r.body.join(' ');
-        }).join(' ');
+        }).join(' ') + ' ' + (CB_HAY[name] || '');
         return {
           condition: name, system: 'topic', aliases: [], herbs: [], topic: true,
           _hay: (name + ' ' + names.join(' ') + ' ' + (rec.note || '') + ' ' + refText).toLowerCase()
@@ -2057,6 +2209,13 @@
         if (a.ndRank && b.ndRank) return a.ndRank - b.ndRank;
         if (a.ndRank) return -1;
         if (b.ndRank) return 1;
+        return a.condition.toLowerCase().localeCompare(b.condition.toLowerCase());
+      });
+    } else {
+      // One A-Z run. The herb index and the coursework topics interleave rather
+      // than the list restarting at A partway down; the topic badge is what
+      // tells them apart, and the Topics chip still separates them on demand.
+      list = list.slice().sort(function (a, b) {
         return a.condition.toLowerCase().localeCompare(b.condition.toLowerCase());
       });
     }
@@ -2206,6 +2365,10 @@
       (g.steps || []).forEach(function (st) { bits.push(st.step, st.how, st.normal, st.flag || ''); });
     });
     (x.findings || []).forEach(function (f) { bits.push(f.finding, f.suggests, f.workup || ''); });
+    (x.ddxList || []).forEach(function (n) { bits.push(n); });
+    (x.differential || []).forEach(function (r) {
+      bits.push(r.condition, r.link || '', r.note || '', r.hpi, r.ros, r.pe, r.ddx, r.labs, r.tx);
+    });
     if (x.competency) {
       bits.push(x.competency.title, x.competency.source, x.competency.note || '');
       (x.competency.sections || []).forEach(function (sec) {
@@ -2354,6 +2517,74 @@
     return det;
   }
 
+  /* ---- chief-complaint differentials ----
+     A complaint entry carries the shortlist you run through in your head plus a
+     row per condition, in the columns of the source chart: what it is, what the
+     history sounds like, what the past history and review of systems turn up,
+     what you find on exam, what else it could be, what you order and what you
+     do. Urgent rows carry the emergency marker the chart puts on them. */
+  var PE_DXCOLS = [
+    ['hpi', 'HPI'], ['ros', 'ROS / PMHx'], ['pe', 'PE findings'],
+    ['ddx', 'Also consider'], ['labs', 'Labs'], ['tx', 'Treatment']
+  ];
+
+  function peDdxListNode(x, q) {
+    var wrap = el('div', 'pe-ddxlist');
+    wrap.appendChild(el('span', 'pe-rlab', 'Differential \u2014 ' + x.ddxList.length));
+    x.ddxList.forEach(function (n) {
+      var b = el('span', 'chip');
+      b.innerHTML = highlight(n, q);
+      wrap.appendChild(b);
+    });
+    return wrap;
+  }
+
+  function peDifferentialNode(x, q) {
+    var det = el('details', 'pe-dx pe-diff');
+    det.appendChild(el('summary', null, 'Working the differential \u2014 ' +
+      x.differential.length + ' conditions side by side'));
+    if (q) det.open = true;
+    var grid = el('div', 'pe-diffgrid');
+    x.differential.forEach(function (r) {
+      var card = el('article', 'pe-diffrow' + (r.urgent ? ' urgent' : ''));
+      var head = el('div', 'pe-diffhead');
+      var nm = el('h5', null);
+      if (r.link) {
+        var go = el('button', 'pe-difflink');
+        go.innerHTML = highlight(r.condition, q);
+        go.title = r.link === r.condition
+          ? 'Open ' + r.link + ' in the Conditions tab.'
+          : 'Open ' + r.link + ' in the Conditions tab \u2014 where this index files it.';
+        go.addEventListener('click', function () { peGoToCondition(r.link); });
+        nm.appendChild(go);
+      } else {
+        nm.innerHTML = highlight(r.condition, q);
+      }
+      head.appendChild(nm);
+      if (r.urgent) head.appendChild(el('span', 'pe-urgent', 'emergency'));
+      card.appendChild(head);
+      if (r.note) {
+        var nt = el('p', 'pe-diffnote');
+        nt.innerHTML = highlight(r.note, q);
+        card.appendChild(nt);
+      }
+      var cols = el('div', 'pe-diffcols');
+      PE_DXCOLS.forEach(function (c) {
+        if (!r[c[0]]) return;
+        var cell = el('div', 'pe-diffcell');
+        cell.appendChild(el('span', 'pe-difflab', c[1]));
+        var p = el('p');
+        p.innerHTML = highlight(r[c[0]], q);
+        cell.appendChild(p);
+        cols.appendChild(cell);
+      });
+      card.appendChild(cols);
+      grid.appendChild(card);
+    });
+    det.appendChild(grid);
+    return det;
+  }
+
   /* The competency form is scored 0-2 per item; the running total and the band
      it falls in are the whole point of the sheet, so they update as you tick. */
   function peBand(comp, total) {
@@ -2480,6 +2711,13 @@
     return det;
   }
 
+  function peGoToCondition(name) {
+    showTab('conditions');
+    $('#cx-search').value = name;
+    renderConditions();
+    $('#panel-conditions').scrollIntoView({ block: 'start' });
+  }
+
   function peRelatedNode(x) {
     if (!x.related || !x.related.length) return null;
     var wrap = el('div', 'pe-related');
@@ -2487,12 +2725,7 @@
     x.related.forEach(function (name) {
       var b = el('button', 'chip', name);
       b.title = 'Open ' + name + ' in the Conditions tab.';
-      b.addEventListener('click', function () {
-        showTab('conditions');
-        $('#cx-search').value = name;
-        renderConditions();
-        $('#panel-conditions').scrollIntoView({ block: 'start' });
-      });
+      b.addEventListener('click', function () { peGoToCondition(name); });
       wrap.appendChild(b);
     });
     return wrap;
@@ -2531,8 +2764,11 @@
       sum.appendChild(name);
       sum.appendChild(el('span', 'sys', x.type));
       var meta = el('p', 'pe-meta');
+      var unit = x.type === 'Chief complaint'
+        ? x._steps + ' questions · ' + (x.differential || []).length + ' conditions'
+        : x._steps + ' steps';
       meta.innerHTML = highlight(x.summary, q) +
-        ' <em>' + escapeHtml(x.region) + ' · ' + x._steps + ' steps · source: ' +
+        ' <em>' + escapeHtml(x.region) + ' · ' + unit + ' · source: ' +
         escapeHtml(x.source) + '</em>';
       sum.appendChild(meta);
       det.appendChild(sum);
@@ -2552,6 +2788,8 @@
         body.appendChild(sc);
       }
       body.appendChild(peView === 'writeup' ? peWriteupNode(x, q) : peStepsNode(x, q));
+      if (x.ddxList && x.ddxList.length) body.appendChild(peDdxListNode(x, q));
+      if (x.differential && x.differential.length) body.appendChild(peDifferentialNode(x, q));
       if (x.findings && x.findings.length) body.appendChild(peFindingsNode(x, q));
       if (x.competency) body.appendChild(peCompNode(x, q));
       var rel = peRelatedNode(x);
@@ -2585,9 +2823,12 @@
 
   // Condition order: the herb index first, A–Z, then the topics the new
   // coursework covers that the herb index does not.
+  // One A-Z run over conditions and coursework topics together. Grouping the
+  // topics behind the conditions made sense when there were a handful of them;
+  // now that they outnumber the herb index two to one it just makes the list
+  // start again at A halfway down.
   var TX_CONDS = Object.keys(TXBY).sort(function (a, b) {
-    var ea = TXBY[a].extra ? 1 : 0, eb = TXBY[b].extra ? 1 : 0;
-    return ea - eb || a.toLowerCase().localeCompare(b.toLowerCase());
+    return a.toLowerCase().localeCompare(b.toLowerCase());
   });
 
   var LAB_KIND_LABEL = {
@@ -3914,6 +4155,7 @@
     box.appendChild(d);
   }
 
+
   /* ---------------- remedy reference ---------------- */
   function hxRenderRef() {
     var q = $('#hr2-search').value.toLowerCase().trim();
@@ -4073,7 +4315,6 @@
     renderSuffixes();
     buildScreeners();
     buildWomensNotes();
-
     hxRenderPick();
     hxRenderRef();
     var sh = load('homeo');

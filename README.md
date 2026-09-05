@@ -13,12 +13,12 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 
 | Tool | Purpose |
 |---|---|
-| **Differential Builder** | Type a patient's symptoms in plain words and get the five conditions in this notebook that best match, each with what it matched on and the whole workup already attached to it — labs and imaging, screening tools, pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and herbs. Fifteen red-flag combinations raise a banner. Term matching over this site's own text, not a diagnostic algorithm. |
-| **Conditions** | 75 conditions A–Z plus 111 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 40 of them, **Dr William Mitchell's case protocols** where the compendium carries one, and the sections of your own notes that describe it. Carries a **paediatrics** section: a filter for the 75 conditions that present in childhood, each with its age band and what changes in a child, over a reference block of vitals by age, dosing rules, red flags, dehydration, milestones and fever. |
-| **Physical Exams** | Physical exam and diagnosis, organised by type of exam: a head-to-toe screen, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The nine **screening instruments** are listed among the exams under *Screening* — STOP-BANG, Epworth, PHQ-9, GAD-7, the MDQ, MMSE/MoCA, AUDIT-C, the COPD Assessment Test and the mould exposure questionnaire — each with a blank form to download or a link to the publisher who licenses it, and the **PHQ-9** and **GAD-7** scoreable in place. |
-| **Labs & Imaging** | 90 tests across blood, urine, stool, microbiology, imaging, function tests, procedures and specialty panels — why you would order each, how to read it, and its **normal and optimal ranges** with the caveat that decides whether the number can be taken at face value. The same tests hang off every abnormal exam finding and every condition. The nine **screening instruments** sit under Physical Exams instead, with their score bands. |
-| **Pharmaceuticals** | 106 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
-| **Supplements** | 147 entries: 63 non-herbal single agents with dose ranges and mechanisms, 40 practitioner-line **women's hormone formulas** grouped by physiological target, and the **practitioner formulary** — what all ten professional lines stock, 44 categories covering some 273 products. Filter chips read the three apart. A–Z or by condition. The 34 **botanical** products the conditions call for sit under Herb Reference instead. |
+| **Differential Builder** | Type a patient's symptoms in plain words and get the five conditions in this notebook that best match, each with what it matched on and the whole workup already attached to it — labs and imaging, screening tools, pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and herbs. Fifteen red-flag combinations raise a banner, and a **must-not-miss** block pins the urgent findings in the exam bank that the entered picture touches above the ranking. Term matching over this site's own text, not a diagnostic algorithm. |
+| **Conditions** | 75 conditions A–Z plus 157 further topics from the coursework, each with its herbs and why they are indicated, the pharmaceuticals, supplements, botanicals, naturopathic therapeutics, lifestyle changes and labs indicated for it, a dosed treatment protocol for 41 of them, **Dr William Mitchell's case protocols** where the compendium carries one (48 of them with a safety note written for this tool), and the sections of your own notes that describe it. Carries a **paediatrics** section: a filter for the conditions that present in childhood, each with its age band and what changes in a child, over a reference block of vitals by age, dosing rules, red flags, dehydration, milestones and fever. |
+| **Physical Exams** | Physical exam and diagnosis, organised by type of exam: the clinic entry interview and review of systems, ten **chief complaints** worked as differentials, a head-to-toe screen, the eye and HENT exams, the respiratory exam, the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, a muscle energy technique reference, the neurological exam, and the female and male genitourinary exams. Each step gives the technique, the wording to chart a normal finding, and what the abnormal version of that finding suggests. Switch to the write-up view for the normal narrative alone, ready to copy into a SOAP note. The cardiovascular exam carries the NMS3 competency form, scoreable in place out of 26. The nine **screening instruments** are listed among the exams under *Screening* — STOP-BANG, Epworth, PHQ-9, GAD-7, the MDQ, MMSE/MoCA, AUDIT-C, the COPD Assessment Test and the mould exposure questionnaire — each with a blank form to download or a link to the publisher who licenses it, and the **PHQ-9** and **GAD-7** scoreable in place. |
+| **Labs & Imaging** | 117 tests across blood, urine, stool, microbiology, imaging, function tests, procedures and specialty panels — why you would order each, how to read it, and its **normal and optimal ranges** with the caveat that decides whether the number can be taken at face value. The same tests hang off every abnormal exam finding and every condition. The nine **screening instruments** sit under Physical Exams instead, with their score bands. |
+| **Pharmaceuticals** | 109 drug entries — class, what it is for, and the cautions and interactions that change a decision. No doses, deliberately. Filter by body system or switch to *By condition*. Includes a searchable medication-suffix reference: 41 stems, what each names and its caution. |
+| **Supplements** | 67 non-herbal single agents with dose ranges and mechanisms, 40 practitioner-line **women's hormone formulas** grouped by physiological target, and the **practitioner formulary** — what all ten professional lines stock, 44 categories covering some 273 products. Filter chips read the three apart. A–Z or by condition. The 34 **botanical** products the conditions call for sit under Herb Reference instead. |
 | **Naturopathic Therapeutics** | 41 modalities a practitioner applies — physical medicine (constitutional hydrotherapy, spinal manipulation, acupuncture, massage, therapeutic ultrasound, gua sha, cupping, manual lymphatic drainage, sauna, infrared and low-level laser, TENS, moxibustion, kinesiology taping, traction, castor oil packs), topicals, devices, procedures, rehabilitation and psychotherapy — each with what it is, what it is for, and its contraindications. Filter by kind or switch to *By condition*. |
 | **Lifestyle** | 15 changes a patient makes — diet patterns, sleep hygiene, structured exercise, breathing retraining, stress reduction, caffeine and alcohol reduction, environmental remediation and the rest — kept separate from the things a patient takes and the things a practitioner does. |
 | **Homeopathy** | A remedy differentiator over 148 classical remedies and 42 presenting complaints. Pick the complaint; it asks the questions that best separate the remedies still in contention, and ranks them with the reasoning shown. Includes a searchable remedy reference. |
@@ -86,7 +86,7 @@ js/casebookdata.js       the Master Compendium as a global
 js/labrangesdata.js      normal and optimal ranges as a global
 js/dxindexdata.js        the symptom index as a global
 js/pediatricsdata.js     the paediatrics section as a global
-js/app.js                all calculators, the differentiator, the exam index, the screeners and the therapeutics tabs
+js/app.js                all calculators, the differentiator, the exam index, the screeners, the formulas, the formulary and the therapeutics tabs
 data/herbdata.json       the same herbal data as plain JSON, for reuse
 data/homeopathy.json     the same homeopathic data as plain JSON, for reuse
 data/physicalexams.json  the same physical exam data as plain JSON, for reuse
@@ -104,8 +104,12 @@ assets/gad7.pdf          blank GAD-7 form, generated from data/screeners.json
 assets/auditc.pdf        blank AUDIT-C form (the WHO AUDIT consumption items)
 ```
 
-The eleven files under `js/` are generated from their counterparts in `data/`; edit the JSON and
+The twelve data files under `js/` are generated from their counterparts in `data/`; edit the JSON and
 regenerate if you change the reference data.
+
+Every local `css/` and `js/` reference in `index.html` carries a `?v=` cache buster. **Bump it whenever
+you change either directory** — there is no build step to do it for you, and without it browsers go on
+serving the previous copy, so a change looks like it silently did not take.
 
 ## Data
 
@@ -134,22 +138,38 @@ as protocols, and not with the authority of the dosing data in the other tabs.
 ### The physical exams tab
 
 **A source of its own: your coursework.** The exam sequence and the normal-findings wording are transcribed
-from ten Physical Exam & Diagnosis documents — the head-to-toe objectives, the respiratory exam chart, the
+from twelve Physical Exam & Diagnosis documents — the head-to-toe objectives, the respiratory exam chart, the
 cardiovascular exam word list, the PED 2 abdominal exam chart, the MSK word list, the neuro exam word list,
-the PED 3 objective female findings, the male objective chart, the orthopedics final study guide and the
-review of systems intake form — plus the NMS3 cardiovascular competency form from the BU SNM Student Clinic
-Handbook. Nothing there comes from the Yarnell workbook.
+the PED 3 objective female findings, the male objective chart, the orthopedics final study guide, the
+review of systems intake form, the clinic entry and exams notes and the Phys Med 4 muscle table — plus the
+NMS3 cardiovascular competency form from the BU SNM Student Clinic Handbook. Nothing there comes from the
+Yarnell workbook.
 
-**Organised by type of exam**, 14 in all: the review of systems, a head-to-toe screen, the respiratory exam,
-the cardiovascular and peripheral vascular exam, the abdominal exam, four musculoskeletal regions, an 87-test
-orthopaedic special-test bank, the neurological exam, the breast and female pelvic and male genitourinary
-exams, and the mental status exam. 309 steps and 267 abnormal findings between them, every finding carrying the
-labs and imaging it calls for.
+**Organised by type of exam**, 29 in all: the clinic entry interview and the review of systems, ten chief
+complaints, a head-to-toe screen, the eye and HENT exams, the respiratory exam, the cardiovascular and
+peripheral vascular exam, the abdominal exam, four musculoskeletal regions, a 19-muscle muscle energy
+technique reference, an 87-test orthopaedic special-test bank, the neurological exam, the pediatric skin
+evaluation, the breast and female pelvic and male genitourinary exams, and the mental status exam. 682 steps
+and 341 abnormal findings between them, every finding carrying the labs and imaging it calls for.
+
+**The chief complaints are the clinic-entry differentials.** Ear pain, sore throat, cough, nasal symptoms,
+red eye, abdominal pain, fatigue, chest pain, shortness of breath and low back pain, each with the history
+questions you ask, the review of systems and past history that goes with them, the shortlist you run in your
+head, and then the conditions side by side in the columns of the source chart — what it is, what the history
+sounds like, what the past history turns up, what you find on exam, what else it could be, what you order and
+what you do. 108 conditions compared in all, with the emergencies flagged where the chart flags them.
+Every condition name opens its entry in the **Conditions** index — 107 of the 108 resolve, and where the
+chart's wording and the index's name differ, the row names its own target, so *Stable angina* opens angina
+pectoris and *Hordeolum (stye)* opens the eyelid and lacrimal disorders entry.
+
+**The muscle energy reference** gives nineteen muscles of the hip, thigh and trunk with origin, insertion and
+action, and the muscle energy setup for each group — how to position the patient, where they push, and how
+you take up the new slack.
 
 **Two layers, kept apart in the tab as they are here.** The *normal* line of each step is the source
 document's own wording, edited only for spelling, expanded abbreviations and consistent tense, so the
 write-up view reproduces what you would actually chart. The *technique* line and the *what an abnormal
-finding suggests* table (152 findings) were written for this tool from standard physical-diagnosis teaching.
+finding suggests* table (341 findings) were written for this tool from standard physical-diagnosis teaching.
 They are not in the notes, are not peer reviewed, and are study prompts for a differential rather than a
 diagnosis. Findings needing same-day assessment carry an **urgent** flag.
 
@@ -185,25 +205,30 @@ place with a *source note* saying what the notes read and why it was changed:
 - "Forced respiratory expiration" for the forced expiratory time (FET). The chart sets normal under 5
   seconds; most texts call 6 seconds or more a positive test, so 5–6 seconds is noted as the grey zone.
 
-**Two gaps are left as gaps.** The cardiovascular word list ends at a "Special Manoeuvre" heading with
-nothing under it, and the respiratory chart covers neither diaphragmatic excursion nor the transmitted-voice
-tests (egophony, bronchophony, whispered pectoriloquy) that confirm the consolidation increased fremitus and
-dullness suggest. Rather than invent wording and attribute it to the notes, those sections say so and name
-what is missing. A group with no steps is skipped in the write-up view, since there is nothing to chart.
+**Two gaps that were left as gaps are now filled from the clinic-entry rubric.** The cardiovascular word
+list ended at a "Special Manoeuvre" heading with nothing under it; it now carries the orthostatic blood
+pressure and the four dynamic manoeuvres — left lateral recumbent, seated leaning forward, standing or
+Valsalva, and squatting — that separate mitral valve prolapse and hypertrophic cardiomyopathy from aortic
+stenosis. The respiratory chart carries the transmitted-voice tests (egophony, bronchophony, whispered
+pectoriloquy) and the tuning-fork rib-fracture test. The abdominal exam, which had only McBurney's point,
+carries Rovsing's, psoas, obturator and Murphy's signs, the three tests for ascites, the abdominal wall mass
+test and costovertebral angle tenderness. Diaphragmatic excursion is still not in the notes and still says so.
+A group with no steps is skipped in the write-up view, since there is nothing to chart.
 
 Where an exam raises a condition the **Conditions** index already covers, the tab links straight across to it.
 
 ### Reference notes, filed under the conditions they describe
 
-**Every section of the three revision documents reads inside the condition it is about.** The pediatric
-dermatology final study guide, the respiratory therapeutics exam cheat sheet and the pediatrics final cheat
-sheet contributed 112 sections across 62 conditions, each opening as *From your notes* under the herbs, the
-protocol and the therapeutics for that condition. The text is kept exactly as written — nothing was
+**Every section of the revision documents reads inside the condition it is about.** The pediatric
+dermatology final study guide, the respiratory therapeutics exam cheat sheet, the pediatrics final cheat
+sheet and the UpToDate anaphylaxis overview contributed 122 sections across 68 conditions, each opening as
+*From your notes* under the herbs, the protocol and the therapeutics for that condition. The text is kept exactly as written — nothing was
 rewritten or added to — and it is searchable from the Conditions tab, so `Kawasaki`, `cradle cap`, `tet
 spells` and `Berlin` all find their condition.
 
-**Conditions the herb index does not carry became topics.** There are 77 of them now — measles, impetigo,
-scabies, tetralogy of Fallot, Kawasaki disease, pneumothorax and the rest. They render in the Conditions tab
+**Conditions the herb index does not carry became topics.** There are 153 of them now — measles, impetigo,
+scabies, tetralogy of Fallot, Kawasaki disease, pneumothorax, anaphylaxis, intussusception, cauda equina
+syndrome and the rest. They render in the Conditions tab
 as conditions without a herb grid, badged *topic*, with their own **Topics** filter chip.
 
 **The approach sections became an exam.** How to take a dermatological history in a child, examine, describe
@@ -214,6 +239,23 @@ Physical Exams tab.
 dosing, as the lecture lays them out. Eleven resolve to herbs already in the reference and appear as a
 monograph block on their card; the nine teaching pages that follow them sit under the Herb Reference as
 *Women's herbs — formulating notes*.
+
+### Two outside references
+
+Two documents in the notes are not coursework and are marked as such wherever they appear.
+
+**The UpToDate anaphylaxis rapid overview (2024)** is reproduced as a treatment protocol and as a reference
+section under **Anaphylaxis**, which is a topic of its own in the Conditions index. It is hospital emergency
+management, not a naturopathic treatment plan, and the protocol says so: intramuscular epinephrine is first
+and has no absolute contraindication in this setting, while the antihistamines and the glucocorticoid are
+adjuncts that must never be the initial or sole treatment. Epinephrine and glucagon are in the
+Pharmaceuticals tab for the same reason, and serum tryptase is in Labs & Imaging.
+
+**The GI-MAP stool test interpretation** fills out the comprehensive stool analysis entry in Labs & Imaging:
+the ten marker groups the panel reports, and how the abnormal groups read — C. difficile toxins, H. pylori
+with its virulence factors, low commensals against high opportunists, and raised beta-glucuronidase and
+zonulin — each with the cause, the symptoms and the treatment the notes give. The entry keeps its caution
+that these findings are frequently over-read.
 
 ### The PHQ-9 and the GAD-7
 
@@ -400,6 +442,17 @@ absence here is not evidence. The fifteen red-flag rules (chest pain with breath
 thoughts of self-harm, headache with fever, unilateral calf swelling with breathlessness) are pattern
 matches, not triage: a patient can be critically unwell and trip none of them.
 
+**The must-not-miss block is the other half of that.** Above the ranking sits every finding the exam bank
+already marks *urgent* whose wording your symptoms touch — read through the same vocabulary as the text
+box, so it costs nothing to keep in step with the Physical Exams tab. Each carries what it suggests, what
+to run, and which exam or chief-complaint differential named it. It ranks nothing: they are listed first
+because they are ruled out first, not because they are likely.
+
+**It tightens as the picture fills in.** Below three recognised symptoms it lists every urgent finding your
+symptoms touch. At three or more it narrows to the emergencies explaining at least two of them, because
+otherwise every case with fatigue in it leads with cancer. When nothing clears that bar the block still
+appears, but closed, and says the matches are loose. The absence of the block means nothing at all.
+
 ### Paediatrics
 
 **A section in the Conditions tab, in two halves.**
@@ -439,7 +492,7 @@ formulary outranks the historical rules every time.
 ### The Master Compendium
 
 **95 clinical case protocols, 22 module sections, and 34 conditions this index did not previously carry** —
-transcribed from Nourhan Shams's own Master Compendium.
+transcribed from Nourhan Shams's own Master Compendium, with a safety note added to 48 of the cases.
 
 **Part 1 — Dr William A. Mitchell Jr's case protocols.** 95 cases across six chapters: addictions (5),
 cardiovascular medicine (19), dermatology (27), endocrinology (14), gastroenterology (29) and respiratory
@@ -466,21 +519,40 @@ oesophagus, cirrhosis, peptic ulcer disease, exocrine pancreatic insufficiency, 
 rest. They appear under the *Topics* filter with no herbs attached, because the herb index was never built
 for them.
 
-Everything in this dataset is the compendium's own text. **Nothing here was written for the tool**, and none
-of it is peer reviewed. Several protocols carry prescription drugs, intramuscular injections and
-intravenous formulations — Dr Gaby's withdrawal IV, B12 injections, cephalexin, bromocriptine,
-levothyroxine — that sit outside a student's scope of practice. The search box reaches all of it: `robert's
-formula`, `mustard plaster`, `jewelweed` and `Somogyi` each land on the condition that carries them.
+Every protocol line is the compendium's own text, and none of it is peer reviewed. Several protocols carry
+prescription drugs, intramuscular injections and intravenous formulations — Dr Gaby's withdrawal IV, B12
+injections, cephalexin, bromocriptine, levothyroxine — that sit outside a student's scope of practice. The
+search box reaches all of it: `robert's formula`, `mustard plaster`, `jewelweed` and `Somogyi` each land on
+the condition that carries them.
+
+**The one thing written for the tool is the safety note on 48 of the 95 cases.** The compendium records
+what was given, not what to watch for, and a reader coming to a protocol cold would not see the hazard in
+it: vitamin A at 100,000 IU daily is teratogenic; red yeast rice is lovastatin under another name and must
+not be stacked on a prescribed statin; Rauvolfia is reserpine and can precipitate suicidality; Podophyllum
+is cytotoxic and absorbed through the abraded skin the protocol creates; comfrey given internally to a
+neonate is a hepatotoxin; yohimbe was given to a patient sitting at 170/100; diabetic ketoacidosis is an
+emergency that oral bicarbonate does not treat. Each note is boxed under the case it belongs to, labelled
+*safety note*, and preceded by a line saying the notes are the tool's and the rest is the compendium's, so
+the two voices are never confused. They are searchable with everything else — `comfrey` and `red yeast
+rice` both find the conditions whose cases carry them.
+
+Six further notes were written and are **not** in the dataset, because the compendium's transcription has
+nothing for them to attach to: it carries no primary hypothyroidism case, no benign thyroid cyst case and
+no reactive postprandial hypoglycaemia case at all, and in three cases it does carry it omits the very
+agent the note was about — the zinc tail of the mitral stenosis protocol, the comfrey allantoin on the
+pilonidal cyst, and the yohimbe in the corn-sensitivity case. A warning about an agent that is not on the
+page would be worse than no warning.
 
 ### Treatment protocols
 
-**40 dosed protocols, transcribed from your own coursework.** Each carries the document's background paragraph
-— aetiology, epidemiology, pathophysiology, presentation, differential, diagnosis, management and prognosis —
-and its treatment plan: 174 agents in all, each with the dose, the schedule and the reasoning. They appear as a
+**41 dosed protocols.** Forty are transcribed from your own coursework; the forty-first is the UpToDate
+anaphylaxis emergency overview. Each carries the document's background paragraph — aetiology, epidemiology,
+pathophysiology, presentation, differential, diagnosis, management and prognosis — and its treatment plan:
+187 agents in all, each with the dose, the schedule and the reasoning. They appear as a
 *Treatment protocol* section inside the matching condition, and again in the by-condition views of the
 therapeutics tabs.
 
-Forty of the index's conditions have one. Eleven protocols cover topics the herb index does not, so those
+Forty-one of the index's conditions have one. Eleven protocols cover topics the herb index does not, so those
 became topics of their own: sexually transmitted infection, erectile dysfunction, attention deficit disorder,
 seizure disorder, multiple sclerosis, Parkinson's disease, hepatic steatosis, coeliac disease, small
 intestinal bacterial overgrowth, warts and burns.
@@ -493,12 +565,12 @@ it is filed under inflammatory bowel disease, with irritable bowel syndrome keep
 
 ### The therapeutics layer
 
-**Written for this tool, and the largest block of non-sourced content in the project.** 106 pharmaceuticals,
-97 supplements (63 non-herbal, 34 botanical), 56 non-drug therapies (41 practitioner-applied, 15 lifestyle)
-and 99 labs, imaging studies and screening instruments, cross-linked to every condition in the index — 2453 links in all. It comes from standard pharmacology, nutritional and naturopathic references
-together with five pieces of coursework: the mental health study guide, the respiratory therapeutics quizzes,
+**Written for this tool, and the largest block of non-sourced content in the project.** 109 pharmaceuticals,
+101 supplements (67 non-herbal, 34 botanical), 56 non-drug therapies (41 practitioner-applied, 15 lifestyle)
+and 117 labs, imaging studies and screening instruments, cross-linked to every condition in the index — 3268 links in all. It comes from standard pharmacology, nutritional and naturopathic references
+together with seven pieces of coursework: the mental health study guide, the respiratory therapeutics quizzes,
 Dr Sabrina Koperski's environmental medicine lecture on mould and mycotoxins, the Mayan abdominal massage
-assignment and the EKG assignment. Entries drawn from those documents say so in their own text. None of it is
+assignment, the EKG assignment, the clinic entry and exams notes and the GI-MAP stool test interpretation. Entries drawn from those documents say so in their own text. None of it is
 peer reviewed.
 
 **Drug entries carry no doses.** Each gives the class, what it is for, and the cautions and interactions that
@@ -508,9 +580,10 @@ ranges are typical adult figures; the ones marked as coming from your notes carr
 lecture's own numbers.
 
 **Where it appears.** Five tabs of their own — Pharmaceuticals, Supplements, Naturopathic Therapeutics,
-Lifestyle and Labs & Imaging — plus the screening instruments under Physical Exams, plus a block inside every
-condition in the **Conditions** tab listing the pharmaceuticals, supplements, botanicals, naturopathic
-therapeutics, lifestyle changes, screening tools and labs indicated for it, plus a *what to run* line on every one of the 167 abnormal findings in the **Physical Exams** tab.
+Lifestyle and Labs & Imaging — plus the screening instruments under Physical Exams, plus a block
+inside every condition in the **Conditions** tab listing the pharmaceuticals, supplements,
+botanicals, naturopathic therapeutics, lifestyle changes, screening tools and labs indicated for
+it, plus a *what to run* line on every one of the 341 abnormal findings in the **Physical Exams** tab.
 Searching the Conditions tab reaches the therapeutics too, so `spirometry` or `metformin` finds the conditions
 that call for it.
 
@@ -518,7 +591,7 @@ that call for it.
 
 | Tab | What lives there | Count |
 |---|---|---|
-| **Supplements** | what a patient takes, non-herbal — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients such as lycopene and beta-sitosterol, fruit concentrates such as tart cherry and cranberry PACs | 63 |
+| **Supplements** | what a patient takes, non-herbal — vitamins, minerals, amino acids, fatty acids, probiotics, isolated phytonutrients such as lycopene and beta-sitosterol, fruit concentrates such as tart cherry and cranberry PACs | 67 |
 | **Supplements** → women's hormone formulas | what a patient takes, as a branded practitioner product rather than a single agent | 40 |
 | **Herb Reference** → botanical supplements | what a patient takes, herbal — whole-plant preparations and standardised botanical extracts, including curcumin, berberine, DGL, aloe and the medicinal mushrooms | 34 |
 | **Naturopathic Therapeutics** | what a practitioner applies — physical medicine, topicals, devices, procedures, rehabilitation, psychotherapy | 41 |
