@@ -15,16 +15,33 @@
 <!-- ?v= is a cache buster. Bump it whenever css/ or js/ changes, or browsers keep
      serving the previous copy and the change looks like it did not take.
      tools/check.sh fails if these fall out of step with each other. -->
-<link rel="stylesheet" href="css/styles.css?v=11">
+<link rel="stylesheet" href="css/styles.css?v=12">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23a8536a'/><text x='50' y='73' font-size='60' font-family='Georgia,serif' fill='%23ffffff' text-anchor='middle'>N</text></svg>">
 </head>
 <body>
 <header class="topbar">
   <div class="wrap">
     <span class="monogram" aria-hidden="true">N</span>
-    <div>
+    <div class="masthead">
       <h1>Wellness with Noura</h1>
       <p class="tagline">Nourhan Shams&rsquo;s Clinical Notebook</p>
+    </div>
+    <!-- One field over the whole notebook. Every tab already has its own search
+         box, but each one only ever saw its own dataset: to find an interaction
+         you had to know it was filed under Pharmaceuticals before you could look
+         it up. This one searches every dataset at once and hands you over to the
+         tab that holds the hit, with that tab's own box already filled in. It
+         sits in the masthead so it is on screen whichever panel is open. -->
+    <div class="sitesearch" id="gs-box">
+      <label class="vh" for="gs-input">Search the whole notebook</label>
+      <input type="search" id="gs-input" autocomplete="off" spellcheck="false"
+             role="combobox" aria-expanded="false" aria-controls="gs-list" aria-autocomplete="list"
+             aria-describedby="gs-help"
+             placeholder="Search everything &mdash; a herb, a condition, a drug, a remedy&hellip;">
+      <p class="vh" id="gs-help">Searches every tab. Results open the tab that holds them.
+        Press the slash key from anywhere on the page to come back to this field.</p>
+      <ul class="gs-list" id="gs-list" role="listbox" aria-label="Search results" hidden></ul>
+      <p class="vh" id="gs-status" role="status"></p>
     </div>
   </div>
 </header>
@@ -793,19 +810,19 @@
      frightening should be seen by a clinician.</p>
 </footer>
 
-<script src="js/herbdata.js?v=11"></script>
-<script src="js/homeopathydata.js?v=11"></script>
-<script src="js/physicalexamdata.js?v=11"></script>
-<script src="js/therapeuticsdata.js?v=11"></script>
-<script src="js/pregnancydata.js?v=11"></script>
-<script src="js/screenerdata.js?v=11"></script>
-<script src="js/womensformulasdata.js?v=11"></script>
-<script src="js/formularydata.js?v=11"></script>
-<script src="js/casebookdata.js?v=11"></script>
-<script src="js/holisticrxdata.js?v=11"></script>
-<script src="js/labrangesdata.js?v=11"></script>
-<script src="js/dxindexdata.js?v=11"></script>
-<script src="js/pediatricsdata.js?v=11"></script>
-<script src="js/app.js?v=11"></script>
+<script src="js/herbdata.js?v=12"></script>
+<script src="js/homeopathydata.js?v=12"></script>
+<script src="js/physicalexamdata.js?v=12"></script>
+<script src="js/therapeuticsdata.js?v=12"></script>
+<script src="js/pregnancydata.js?v=12"></script>
+<script src="js/screenerdata.js?v=12"></script>
+<script src="js/womensformulasdata.js?v=12"></script>
+<script src="js/formularydata.js?v=12"></script>
+<script src="js/casebookdata.js?v=12"></script>
+<script src="js/holisticrxdata.js?v=12"></script>
+<script src="js/labrangesdata.js?v=12"></script>
+<script src="js/dxindexdata.js?v=12"></script>
+<script src="js/pediatricsdata.js?v=12"></script>
+<script src="js/app.js?v=12"></script>
 </body>
 </html>
