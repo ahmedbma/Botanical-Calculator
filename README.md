@@ -30,6 +30,12 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 
 ### Beyond the spreadsheet
 
+- **One search over the whole site.** The field in the masthead searches every dataset at once —
+  conditions and the protocols, cases and notes filed under them, herbs and their safety ratings,
+  remedies, drugs and their suffixes, supplements and practitioner formulas, therapies, lifestyle
+  changes, labs, exams and the individual exam findings. Choosing a result opens the tab that holds
+  it with that tab's own search already filled in. `/` or ctrl/cmd-K focuses it from anywhere on the
+  page; the arrow keys and Enter work the results without touching the mouse.
 - **Live low-dose safety checks.** Both formulators cross-reference the low-dose table. If a herb's
   share pushes it past its maximum single dose, its chronic daily dose, or its acute daily dose, the
   formula flags it — including a note when the formula's extract ratio differs from the dilution the
@@ -87,7 +93,7 @@ js/holisticrxdata.js     The Holistic Rx write-ups as a global
 js/labrangesdata.js      normal and optimal ranges as a global
 js/dxindexdata.js        the symptom index as a global
 js/pediatricsdata.js     the paediatrics section as a global
-js/app.js                all calculators, the differentiator, the exam index, the screeners, the formulas, the formulary and the therapeutics tabs
+js/app.js                all calculators, the site search, the differentiator, the exam index, the screeners, the formulas, the formulary and the therapeutics tabs
 data/herbdata.json       the same herbal data as plain JSON, for reuse
 data/homeopathy.json     the same homeopathic data as plain JSON, for reuse
 data/physicalexams.json  the same physical exam data as plain JSON, for reuse
@@ -692,6 +698,31 @@ cases: often enough to be worth reading, rarely enough to mean something.
 The dataset is checked against 47 textbook cases whose expected remedy is well established — Bryonia's
 dry painful cough, Ledum's puncture wound, Argentum nitricum's anticipatory panic, and so on — and all 47
 resolve to the expected remedy.
+
+### Site search
+
+Each tab has its own search box, and each one only ever saw its own dataset: to look something up you
+first had to know which tab it was filed under. The masthead field is one search over all of them.
+
+It renders nothing itself. Roughly two thousand entries are indexed — one per condition, topic, case
+protocol, treatment protocol, reference section, herb, monograph, low-dose maximum, remedy, complaint,
+drug, drug suffix, supplement, practitioner formula, therapy, lifestyle change, lab, exam, exam
+finding and tab — and each entry records which tab holds it and which of that tab's own boxes to fill
+in. Choosing a result switches to that tab, resets its filter chips to *All* so a narrowed chip cannot
+hide the hit, fills its search box with the query, opens the box or section the entry lives in where
+it is not a list, and scrolls to it. Anything the panels can already show, the search can reach.
+
+Some entries are reached through something else, because that is how the site files them. A case
+protocol has no card of its own — it reads inside the condition it treats, so the query is the case
+title and the condition's own haystack finds it. A women's herbs monograph reads inside a herb card,
+so the query is the spelling the herb reference files that herb under. Both land you on the material
+with the term already highlighted.
+
+Every word of a query has to appear somewhere in the entry, and results are ordered by *where* the
+query hit: an exact name, then the start of a name, then a word inside it, then the summary line, then
+anything else in the record. The index is built on the first keystroke rather than at load — it costs
+about 30 ms and the whole point of the lazy tab building is that nothing blocks the first paint — and
+a query over it takes a few milliseconds.
 
 ### Why the tincture and tea herb lists differ
 

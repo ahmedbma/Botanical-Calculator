@@ -2199,6 +2199,7 @@
     host.innerHTML = '';
     (PD.sections || []).forEach(function (sec) {
       var det = el('details', 'peds-sec');
+      det.id = 'peds-sec-' + sec.id;      // so site search can open this one section
       det.appendChild(el('summary', null, sec.title));
       var body = el('div', 'peds-secbody');
       if (sec.flag) {
@@ -4332,6 +4333,478 @@
     rows.push([], ['A study tool only. Not a diagnosis, not a treatment plan, and not evidence-based medicine.']);
     downloadCSV('remedy-differentiation-' + HX.cond.condition.toLowerCase().replace(/\s+/g, '-'), rows);
   });
+
+  /* ==================================================================
+     SITE SEARCH
+     Every tab has its own search box, and each one only ever saw its own
+     dataset: to look something up you first had to know which tab it was filed
+     under. A drug interaction is under Pharmaceuticals, the herb that shares it
+     is under Herb Reference, and the condition that calls for both is under
+     Conditions -- three boxes, three guesses.
+
+     This is one field over all of it, in the masthead so it is on screen
+     whichever panel is open. It renders none of that material itself. Each
+     entry in the index knows which tab holds it and which of that tab's own
+     boxes to fill in, so choosing a result hands you to the panel that already
+     knows how to draw it, with its filter reset to All and its search box
+     carrying the query. Anything the panels can already show, this can reach.
+
+     The index is built on the first keystroke rather than at load. It is a few
+     thousand short strings and costs a few milliseconds, but the whole point of
+     the lazy tab building above is that nothing blocks the first paint.
+     ================================================================== */
+
+  var GS = { rows: null, hits: [], active: -1 };
+  var GS_MAX = 25;          // rows drawn; the footer says how many there were
+  var GS_NOTE = 150;        // characters of the one-line note under a result
+
+  // The datasets nest differently -- a case has blocks of items, a protocol has
+  // steps of agents, a section has a body of paragraphs. The index only wants
+  // the words, so walk whatever shape it is and keep the strings.
+  function gsText(v, depth) {
+    if (v == null) return '';
+    if (typeof v === 'string') return v;
+    if (typeof v === 'number') return String(v);
+    depth = depth || 0;
+    if (depth > 4 || typeof v !== 'object') return '';
+    var out = [];
+    Object.keys(v).forEach(function (k) { out.push(gsText(v[k], depth + 1)); });
+    return out.join(' ');
+  }
+
+  function gsTrim(s) {
+    s = String(s == null ? '' : s).replace(/\s+/g, ' ').trim();
+    if (s.length <= GS_NOTE) return s;
+    var cut = s.slice(0, GS_NOTE);
+    var sp = cut.lastIndexOf(' ');
+    return (sp > 60 ? cut.slice(0, sp) : cut) + '…';
+  }
+
+  function gsIndex() {
+    if (GS.rows) return GS.rows;
+    var rows = [];
+    /* label: what the row reads as. where: the badge, which says which part of
+       the notebook it came from. tab/field: where choosing it sends you and
+       which box gets the query. q: what to type there, when it is not the label
+       -- a case protocol is found through the condition that carries it, so the
+       query is the case title and the condition's own haystack does the rest.
+       rank breaks score ties towards the primary indexes. */
+    function add(label, where, tab, field, opts) {
+      if (!label) return;
+      opts = opts || {};
+      var note = gsTrim(opts.note || '');
+      rows.push({
+        label: String(label), where: where, tab: tab, field: field || null,
+        q: opts.q == null ? String(label) : opts.q,
+        note: note, open: opts.open || null, click: opts.click || null,
+        rank: opts.rank == null ? 5 : opts.rank,
+        hay: (label + ' ' + note + ' ' + (opts.hay || '')).toLowerCase()
+      });
+    }
+
+    /* ---- conditions, and everything filed under a condition ---- */
+    CONDS.forEach(function (c) {
+      add(c.condition, 'Condition', 'conditions', 'cx-search', {
+        rank: 0, hay: c._hay,
+        note: c.system + ((c.aliases || []).length ? ' · ' + c.aliases.slice(0, 4).join(', ') : '')
+      });
+    });
+    CX_TOPICS.forEach(function (c) {
+      add(c.condition, 'Topic', 'conditions', 'cx-search', {
+        rank: 2, hay: c._hay,
+        note: 'A topic your coursework covers that the herb-based index does not.'
+      });
+    });
+    (TX.protocols || []).forEach(function (p) {
+      add(p.title, 'Treatment protocol', 'conditions', 'cx-search', {
+        rank: 3, note: p.background, hay: gsText(p.steps) + ' ' + gsText(p.notes)
+      });
+    });
+    (CB.cases || []).forEach(function (k) {
+      add(k.title, 'Case protocol', 'conditions', 'cx-search', {
+        rank: 3, note: k.presentation,
+        hay: (CB_CHAPTER[k.chapter] || '') + ' ' + gsText(k.blocks) + ' ' + (k.caution || '')
+      });
+    });
+    (CB.sections || []).forEach(function (s) {
+      add(s.title, 'Study module', 'conditions', 'cx-search', {
+        rank: 3, note: (s.body || [])[0], hay: gsText(s.body) + ' ' + (s.source || '')
+      });
+    });
+    (HRX.sections || []).forEach(function (s) {
+      add(s.title, 'The Holistic Rx', 'conditions', 'cx-search', {
+        rank: 3, note: (s.body || [])[0], hay: gsText(s.body)
+      });
+    });
+    // The paediatric reference is a box on the Conditions tab rather than a
+    // searchable list, so a hit opens the box and clears the condition filter.
+    (PD.sections || []).forEach(function (s) {
+      add(s.title, 'Paediatrics', 'conditions', 'cx-search', {
+        rank: 3, q: '', open: 'peds-sec-' + s.id, note: (s.body || [])[0], hay: gsText(s.body)
+      });
+    });
+
+    /* ---- herbs ---- */
+    var refByGenus = {};
+    REF.forEach(function (e) {
+      var k = genusSpecies(e.name);
+      if (k && !refByGenus[k]) refByGenus[k] = e.name;
+      var ps = lookupPreg(e.name);
+      add(e.name, 'Herb', 'herbs', 'hr-search', {
+        rank: 0,
+        note: [e.common, e.part, (e.actions || []).join(', ')].filter(Boolean).join(' · '),
+        hay: [e.common, e.part, e.substituteFor, (e.actions || []).join(' '),
+              Object.keys(e.forms).join(' '), e.lowDose ? 'low dose' : '',
+              ps ? gsText(ps.recs) : ''].join(' ')
+      });
+    });
+    // A monograph has no card of its own: it reads inside the herb's card, so
+    // the query is the spelling the herb reference files that herb under.
+    (TX.womensHerbs || []).forEach(function (w) {
+      var host = refByGenus[genusSpecies(w.latin)];
+      if (!host) return;
+      add(w.latin + " — women's herbs monograph", "Women's herb", 'herbs', 'hr-search', {
+        rank: 2, q: host, note: w.actionsUses,
+        hay: [w.common, w.parts, w.family, w.constituentsFocus, w.safety, w.dosing].join(' ')
+      });
+    });
+    (TX.botanicals || []).forEach(function (x) {
+      add(x.name, 'Botanical', 'herbs', 'hr-search', {
+        rank: 1, note: x.mech || x.use || '', hay: x._hay
+      });
+    });
+    (D.lowDose || []).forEach(function (h) {
+      add(h.herb, 'Low-dose maximum', 'lowdose', 'ld-search', {
+        rank: 2,
+        note: 'Maximum single dose ' + fmt(h.singleMl, 2) + ' ml' +
+          (h.dilution ? ' at 1:' + fmt(h.dilution, 1) : '') +
+          ' · long-term use: ' + (h.longTerm || 'not stated')
+      });
+    });
+
+    /* ---- homeopathy ---- */
+    (H.remedies || []).forEach(function (r) {
+      add(r.name, 'Homeopathic remedy', 'homeo', 'hr2-search', {
+        rank: 1, note: r.keynote, hay: (r.common || '') + ' ' + (r.confirm || []).join(' ')
+      });
+    });
+    // The differentiator may be mid-interview, so show the picker first --
+    // the same thing the tab's own "change complaint" button does.
+    (H.conditions || []).forEach(function (c) {
+      add(c.condition, 'Homeopathy complaint', 'homeo', 'hx-search', {
+        rank: 2, click: 'hx-change', note: c.note,
+        hay: c.system + ' ' + (c.aliases || []).join(' ')
+      });
+    });
+
+    /* ---- therapeutics: the same catalogue the four tabs read ---- */
+    (TX.pharmaceuticals || []).forEach(function (x) {
+      add(x.name, 'Pharmaceutical', 'pharm', 'pharm-search', {
+        rank: 1, note: x.use, hay: x._hay
+      });
+    });
+    (TX.suffixes || []).forEach(function (s) {
+      add(s.suffix, 'Drug suffix', 'pharm', 'sfx-search', {
+        rank: 3, open: 'pharm-suffixes',
+        note: s.cls + ' · e.g. ' + s.example, hay: s.caution + ' ' + s.group
+      });
+    });
+    (TX.nonHerbal || []).forEach(function (x) {
+      add(x.name, x.fmBrand ? 'Practitioner formulary' : (x.wfTarget ? "Women's formula" : 'Supplement'),
+        'supps', 'supps-search', { rank: 1, note: x.mech || x.use || '', hay: x._hay });
+    });
+    (TX.natTherapeutics || []).forEach(function (x) {
+      add(x.name, 'Therapy', 'therap', 'therap-search', { rank: 1, note: x.what, hay: x._hay });
+    });
+    (TX.lifestyle || []).forEach(function (x) {
+      add(x.name, 'Lifestyle', 'life', 'life-search', { rank: 1, note: x.what, hay: x._hay });
+    });
+    (TX.labsOnly || []).forEach(function (x) {
+      add(x.name, 'Lab or imaging', 'labs', 'labs-search', { rank: 1, note: x.why, hay: x._hay });
+    });
+    (TX.screens || []).forEach(function (x) {
+      add(x.name, 'Screening tool', 'exams', 'pe-search', { rank: 2, note: x.why, hay: x._hay });
+    });
+
+    /* ---- physical exams, and the findings inside them ---- */
+    PE_EXAMS.forEach(function (x) {
+      add(x.name, 'Physical exam', 'exams', 'pe-search', {
+        rank: 1, note: x.summary, hay: x._hay
+      });
+      // A sign is what you actually search for, and the exam it belongs to is
+      // rarely the word you have in mind when you find one.
+      (x.findings || []).forEach(function (f) {
+        add(f.finding, 'Exam finding', 'exams', 'pe-search', {
+          rank: 4, note: f.suggests, hay: x.name + ' ' + x.region + ' ' + (f.workup || '')
+        });
+      });
+    });
+    add('Score a screener — PHQ-9 and GAD-7', 'Tool', 'exams', 'pe-search', {
+      rank: 6, q: '', open: 'pe-screeners',
+      note: 'Score the two public-domain instruments in place, or print a blank form.',
+      hay: 'phq9 phq-9 gad7 gad-7 depression anxiety questionnaire score'
+    });
+
+    /* ---- the tabs themselves, so the calculators are reachable by name ---- */
+    $$('.tab').forEach(function (t) {
+      var name = t.textContent.trim();
+      add(name, 'Tab', t.dataset.panel, null, {
+        rank: 8, note: 'Open the ' + name + ' tab.'
+      });
+    });
+
+    GS.rows = rows;
+    return rows;
+  }
+
+  function gsEscapeRx(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+  // Where the query hit decides the order: the name of the thing first, then a
+  // word inside the name, then the one-line note, then anything in the record.
+  function gsScore(rec, q, terms) {
+    var label = rec.label.toLowerCase(), s;
+    if (label === q) s = 200;
+    else if (label.indexOf(q) === 0) s = 160;
+    else if (new RegExp('\\b' + gsEscapeRx(q)).test(label)) s = 130;
+    else if (label.indexOf(q) !== -1) s = 100;
+    else if (terms.every(function (t) { return label.indexOf(t) !== -1; })) s = 80;
+    else if (rec.note.toLowerCase().indexOf(q) !== -1) s = 50;
+    else s = 20;
+    return s - rec.rank;
+  }
+
+  function gsSearch(q) {
+    var terms = q.split(/\s+/).filter(Boolean);
+    var rows = gsIndex(), hits = [];
+    for (var i = 0; i < rows.length; i++) {
+      var rec = rows[i], ok = true;
+      for (var t = 0; t < terms.length; t++) {
+        if (rec.hay.indexOf(terms[t]) === -1) { ok = false; break; }
+      }
+      if (ok) hits.push({ rec: rec, score: gsScore(rec, q, terms) });
+    }
+    hits.sort(function (a, b) {
+      if (b.score !== a.score) return b.score - a.score;
+      return a.rec.label.toLowerCase().localeCompare(b.rec.label.toLowerCase());
+    });
+    return hits;
+  }
+
+  function gsOpen() {
+    var list = $('#gs-list');
+    if (!list.hidden) return;
+    list.hidden = false;
+    list.scrollTop = 0;
+    $('#gs-input').setAttribute('aria-expanded', 'true');
+  }
+
+  function gsClose() {
+    var list = $('#gs-list');
+    list.hidden = true;
+    GS.active = -1;
+    $('#gs-input').setAttribute('aria-expanded', 'false');
+    $('#gs-input').removeAttribute('aria-activedescendant');
+  }
+
+  function gsRow(cls, html) {
+    var li = el('li', cls);
+    li.setAttribute('role', 'presentation');   // not a choice, so not an option
+    li.innerHTML = html;
+    return li;
+  }
+
+  function gsRender() {
+    var input = $('#gs-input'), list = $('#gs-list');
+    var q = input.value.toLowerCase().replace(/\s+/g, ' ').trim();
+    list.innerHTML = '';
+    GS.hits = [];
+    GS.active = -1;
+    input.removeAttribute('aria-activedescendant');
+
+    if (!q) {
+      list.appendChild(gsRow('gs-empty', '<strong>Search the whole notebook.</strong> ' +
+        'Conditions and their protocols, herbs and their safety ratings, remedies, drugs, ' +
+        'supplements, therapies, labs, exams and findings — all fourteen tabs at once. ' +
+        'A result opens the tab that holds it.'));
+      $('#gs-status').textContent = '';
+      gsOpen();
+      return;
+    }
+
+    var hits = gsSearch(q);
+    GS.hits = hits.slice(0, GS_MAX);
+    if (!hits.length) {
+      list.appendChild(gsRow('gs-empty', '<strong>Nothing matches that.</strong> ' +
+        'Every word has to appear somewhere in the entry — try fewer of them, ' +
+        'or a Latin name, a symptom or a drug class.'));
+      $('#gs-status').textContent = 'No results';
+      gsOpen();
+      return;
+    }
+
+    GS.hits.forEach(function (h, i) {
+      var li = el('li', 'gs-opt');
+      li.id = 'gs-opt-' + i;
+      li.setAttribute('role', 'option');
+      li.setAttribute('aria-selected', 'false');
+      li.dataset.i = String(i);
+      var nm = el('span', 'nm');
+      nm.innerHTML = highlight(h.rec.label, q);
+      li.appendChild(nm);
+      li.appendChild(el('span', 'where', h.rec.where));
+      if (h.rec.note) {
+        var note = el('span', 'note');
+        note.innerHTML = highlight(h.rec.note, q);
+        li.appendChild(note);
+      }
+      list.appendChild(li);
+    });
+
+    var shown = GS.hits.length;
+    list.appendChild(gsRow('gs-foot',
+      '<span>' + (hits.length > shown
+        ? 'Showing ' + shown + ' of ' + hits.length + ' matches'
+        : hits.length + (hits.length === 1 ? ' match' : ' matches')) + '</span>' +
+      '<span>↑↓ move · Enter opens · Esc closes</span>'));
+    $('#gs-status').textContent = hits.length + (hits.length === 1 ? ' result' : ' results') +
+      '. Use the arrow keys to review them.';
+    gsOpen();
+    list.scrollTop = 0;
+  }
+
+  function gsHighlight(i) {
+    var opts = $$('.gs-opt', $('#gs-list'));
+    if (!opts.length) return;
+    GS.active = (i + opts.length) % opts.length;
+    opts.forEach(function (o, n) {
+      var on = n === GS.active;
+      o.classList.toggle('is-on', on);
+      o.setAttribute('aria-selected', String(on));
+      if (!on) return;
+      $('#gs-input').setAttribute('aria-activedescendant', o.id);
+      var list = $('#gs-list'), top = o.offsetTop, h = o.offsetHeight;
+      if (top < list.scrollTop) list.scrollTop = top;
+      else if (top + h > list.scrollTop + list.clientHeight) list.scrollTop = top + h - list.clientHeight;
+    });
+  }
+
+  function gsGo(i) {
+    var hit = GS.hits[i];
+    if (!hit) return;
+    var rec = hit.rec;
+    gsClose();
+    showTab(rec.tab);
+
+    var panel = document.getElementById('panel-' + rec.tab);
+    // A panel keeps whatever filter chip was last clicked on it, and a chip that
+    // excludes the hit would land you on an empty list. "All" is always first.
+    if (panel) {
+      var chip = panel.querySelector('.chips .chip');
+      if (chip && !chip.classList.contains('is-on')) chip.click();
+    }
+    if (rec.click) {
+      var btn = document.getElementById(rec.click);
+      if (btn) btn.click();
+    }
+
+    var target = panel;
+    if (rec.field) {
+      var box = document.getElementById(rec.field);
+      if (box) {
+        box.value = rec.q;
+        // Every panel renders off its own box's input event, debounced or not,
+        // so this is the one call that works for all of them.
+        box.dispatchEvent(new Event('input', { bubbles: true }));
+        target = (box.closest && box.closest('.card')) || panel;
+      }
+    }
+    if (rec.open) {
+      var det = document.getElementById(rec.open);
+      if (det) {
+        // A section inside a shut box is still a shut box: open its parents too.
+        for (var node = det; node; node = node.parentNode) {
+          if (node.tagName === 'DETAILS') node.open = true;
+          if (node === panel) break;
+        }
+        target = det;
+      }
+    }
+    // Move focus out of the search field and onto the panel, which is what a
+    // screen reader then reads out; the panel's own search box would be the
+    // more useful landing point but focusing a text field on a phone raises the
+    // keyboard over the thing you just asked to see.
+    if (panel && panel.focus) panel.focus({ preventScroll: true });
+    if (target && target.scrollIntoView) target.scrollIntoView({ block: 'start' });
+  }
+
+  (function gsWire() {
+    var input = $('#gs-input'), list = $('#gs-list');
+    if (!input || !list) return;
+    var render = debounced(gsRender, SEARCH_WAIT);
+
+    input.addEventListener('input', render);
+    input.addEventListener('focus', function () { render.now(); });
+    // Clicking a field that already has focus fires no focus event, so coming
+    // back to the box after choosing a result would leave the list shut.
+    input.addEventListener('click', function () { if (list.hidden) render.now(); });
+
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (list.hidden) { render.now(); return; }
+        gsHighlight(GS.active + (e.key === 'ArrowDown' ? 1 : -1));
+        return;
+      }
+      if (e.key === 'Enter') {
+        // Nothing picked yet: Enter takes the first result, which is what the
+        // ranking is for.
+        if (list.hidden) { render.now(); return; }
+        e.preventDefault();
+        gsGo(GS.active === -1 ? 0 : GS.active);
+        return;
+      }
+      if (e.key === 'Escape') {
+        if (!list.hidden) { e.stopPropagation(); gsClose(); }
+        else if (input.value) { input.value = ''; }
+        return;
+      }
+      if (e.key === 'Tab') gsClose();
+    });
+
+    // Selection on click, not pointerdown: preventing the default on a touch
+    // pointerdown cancels the gesture, and the list could then not be dragged
+    // to scroll. Same reasoning as the herb combobox above.
+    list.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'mouse') e.preventDefault();
+    });
+    list.addEventListener('click', function (e) {
+      var li = e.target.closest ? e.target.closest('.gs-opt') : null;
+      if (li) gsGo(Number(li.dataset.i));
+    });
+    list.addEventListener('mousemove', function (e) {
+      var li = e.target.closest ? e.target.closest('.gs-opt') : null;
+      if (li) gsHighlight(Number(li.dataset.i));
+    });
+
+    document.addEventListener('pointerdown', function (e) {
+      if (!$('#gs-box').contains(e.target)) gsClose();
+    });
+
+    // A search field is only useful if it is one key away. "/" is the web's
+    // convention for it; ctrl/cmd-K is the other one people try.
+    document.addEventListener('keydown', function (e) {
+      var k = e.key;
+      if (k !== '/' && !((e.metaKey || e.ctrlKey) && (k === 'k' || k === 'K'))) return;
+      var t = e.target;
+      var typing = t && (t.isContentEditable ||
+        /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName || ''));
+      if (k === '/' && typing) return;          // a slash inside a field is a slash
+      if (typing && t === input) return;
+      e.preventDefault();
+      input.focus();
+      input.select();
+    });
+  })();
 
   /* ==================================================================
      INIT
