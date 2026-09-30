@@ -1,17 +1,4 @@
 {
-  "history": [
-    {
-      "id": "run-test",
-      "when": 1727650000000,
-      "mode": "drill",
-      "modeLabel": "Drill",
-      "gea": "all",
-      "geaLabel": "All areas",
-      "total": 5,
-      "right": 5,
-      "wrong": 0,
-      "percent": 100
-    }
-  ],
+  "history": [],
   "missed": []
 }
