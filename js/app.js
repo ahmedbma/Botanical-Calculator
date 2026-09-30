@@ -4915,6 +4915,11 @@
 
     var tab = null;
     try { tab = localStorage.getItem('bc.tab'); } catch (e) { tab = null; }
+    try {
+      var params = new URLSearchParams(location.search);
+      var qtab = params.get('tab');
+      if (qtab && $('.tab[data-panel="' + qtab + '"]')) tab = qtab;
+    } catch (e) { /* old browsers */ }
     if (!tab || !$('.tab[data-panel="' + tab + '"]')) tab = 'conditions';
     showTab(tab);
   }
