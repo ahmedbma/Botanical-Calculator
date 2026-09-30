@@ -1,0 +1,7 @@
+{
+  "name": "Wellness with Noura",
+  "description": "Nourhan Shams's clinical notebook: herbal formulation and dosing calculators, a condition index with pharmaceuticals, supplements, therapies and labs, a homeopathic remedy differentiator, a physical exam and diagnosis index and a 394-herb reference.",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

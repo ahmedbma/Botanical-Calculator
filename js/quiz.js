@@ -1161,7 +1161,9 @@
     i: 0,
     answers: [],
     picked: null,
-    revealed: false
+    revealed: false,
+    confirmClearHistory: false,
+    confirmClearMissed: false
   };
 
   function flattenCases(filterGea) {
@@ -1214,8 +1216,19 @@
     } else if (state.mode === 'missed') {
       var missed = loadMissed();
       pool = missed.map(function (q) {
-        q.opts = shuffle(q.opts.map(function (o) { return { t: o.t, ok: o.ok }; }));
-        return q;
+        var clonedOpts = shuffle((q.opts || []).map(function (o) { return { t: o.t, ok: !!o.ok }; }));
+        return {
+          gea: q.gea,
+          sea: q.sea,
+          q: q.q,
+          opts: clonedOpts,
+          explain: q.explain,
+          tab: q.tab,
+          kind: q.kind,
+          vignette: q.vignette,
+          caseTitle: q.caseTitle,
+          caseId: q.caseId
+        };
       });
       shuffle(pool);
     } else {
@@ -1227,6 +1240,7 @@
     }
     if (!pool.length) {
       state.view = 'setup';
+      state.mode = 'drill';
       render();
       return;
     }
@@ -1273,35 +1287,154 @@
     window.scrollTo(0, 0);
   }
 
+  function questionKey(q) {
+    if (!q) return '';
+    return (q.kind === 'case' ? (q.caseId || '') + '::' : '') +
+      (q.vignette ? clip(q.vignette, 35) + '::' : '') +
+      String(q.q || '').trim();
+  }
+
+  function formatDate(ts) {
+    if (!ts) return '';
+    var d = new Date(ts);
+    var now = new Date();
+    var diffMs = now.getTime() - d.getTime();
+    var diffMins = Math.floor(diffMs / 60000);
+    if (diffMins < 1) return 'Just now';
+    if (diffMins < 60) return diffMins + ' min' + (diffMins === 1 ? '' : 's') + ' ago';
+    var diffHours = Math.floor(diffMins / 60);
+    if (diffHours < 24 && now.getDate() === d.getDate() && now.getMonth() === d.getMonth() && now.getFullYear() === d.getFullYear()) {
+      return 'Today at ' + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+    return d.toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' }) + ' · ' +
+      d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+
   var STORE = 'bc.quiz';
   function loadStore() {
-    try { return JSON.parse(localStorage.getItem(STORE) || '{}') || {}; }
-    catch (e) { return {}; }
+    try {
+      var s = JSON.parse(localStorage.getItem(STORE) || '{}') || {};
+      if (!Array.isArray(s.missed)) s.missed = [];
+      if (!Array.isArray(s.history)) s.history = [];
+      return s;
+    } catch (e) {
+      return { missed: [], history: [] };
+    }
   }
   function saveStore(s) {
     try { localStorage.setItem(STORE, JSON.stringify(s)); } catch (e) { /* blocked */ }
   }
+  function loadMissed() { return loadStore().missed || []; }
+  function loadHistory() { return loadStore().history || []; }
+
+  function clearHistory() {
+    var s = loadStore();
+    s.history = [];
+    s.runs = 0;
+    s.answered = 0;
+    s.correct = 0;
+    s.best = null;
+    s.last = null;
+    saveStore(s);
+  }
+
+  function clearMissed() {
+    var s = loadStore();
+    s.missed = [];
+    saveStore(s);
+  }
+
+  function removeSingleMissed(idOrKey) {
+    if (!idOrKey) return;
+    var s = loadStore();
+    s.missed = (s.missed || []).filter(function (m) {
+      return m.id !== idOrKey && m.key !== idOrKey && questionKey(m) !== idOrKey;
+    });
+    saveStore(s);
+  }
+
   function persistRun() {
     var s = loadStore();
     var total = state.answers.length;
     var right = state.answers.filter(function (a) { return a.ok; }).length;
-    s.last = { when: Date.now(), right: right, total: total, mode: state.mode, gea: state.gea };
+    var missedAnswers = state.answers.filter(function (a) { return !a.ok; });
+    var now = Date.now();
+
+    s.last = { when: now, right: right, total: total, mode: state.mode, gea: state.gea };
     s.runs = (s.runs || 0) + 1;
     s.answered = (s.answered || 0) + total;
     s.correct = (s.correct || 0) + right;
-    if (!s.best || right / total > s.best.right / s.best.total) {
+    if (!s.best || (total > 0 && right / total > s.best.right / s.best.total)) {
       s.best = { right: right, total: total, mode: state.mode };
     }
-    var missed = state.answers.filter(function (a) { return !a.ok; }).map(function (a) {
-      return {
-        gea: a.q.gea, sea: a.q.sea, q: a.q.q, opts: a.q.opts, explain: a.q.explain,
-        tab: a.q.tab, kind: a.q.kind, vignette: a.q.vignette, caseTitle: a.q.caseTitle
-      };
+
+    /* Accumulate mistakes so past mistakes are saved until cleared */
+    s.missed = s.missed || [];
+    missedAnswers.forEach(function (a) {
+      var k = questionKey(a.q);
+      var pickedChoice = a.q.opts && a.q.opts[a.picked];
+      var pickedText = pickedChoice ? pickedChoice.t : '';
+      var correctChoice = a.q.opts ? a.q.opts.filter(function (o) { return o.ok; })[0] : null;
+      var correctText = correctChoice ? correctChoice.t : '';
+
+      var found = null;
+      for (var idx = 0; idx < s.missed.length; idx++) {
+        if (s.missed[idx].key === k || questionKey(s.missed[idx]) === k || s.missed[idx].q === a.q.q) {
+          found = s.missed[idx];
+          break;
+        }
+      }
+
+      if (found) {
+        found.missCount = (found.missCount || 1) + 1;
+        found.lastMissedAt = now;
+        found.lastPicked = pickedText;
+        found.correctAnswer = correctText;
+        found.opts = a.q.opts;
+        found.explain = a.q.explain;
+        found.tab = a.q.tab;
+      } else {
+        s.missed.unshift({
+          id: 'm-' + now + '-' + Math.floor(Math.random() * 100000),
+          key: k,
+          gea: a.q.gea,
+          sea: a.q.sea,
+          q: a.q.q,
+          opts: a.q.opts,
+          explain: a.q.explain,
+          tab: a.q.tab,
+          kind: a.q.kind,
+          vignette: a.q.vignette,
+          caseTitle: a.q.caseTitle,
+          caseId: a.q.caseId,
+          missCount: 1,
+          firstMissedAt: now,
+          lastMissedAt: now,
+          lastPicked: pickedText,
+          correctAnswer: correctText
+        });
+      }
     });
-    s.missed = missed;
+
+    /* Append history record */
+    s.history = s.history || [];
+    var hist = {
+      id: 'run-' + now + '-' + Math.floor(Math.random() * 100000),
+      when: now,
+      mode: state.mode,
+      modeLabel: state.mode === 'cases' ? 'Cases' : state.mode === 'missed' ? 'Saved Mistakes' : 'Drill',
+      gea: state.gea,
+      geaLabel: GEA_NAME[state.gea] || 'All areas',
+      total: total,
+      right: right,
+      wrong: missedAnswers.length,
+      percent: total ? Math.round((right / total) * 100) : 0
+    };
+    s.history.unshift(hist);
+    if (s.history.length > 100) s.history = s.history.slice(0, 100);
+
     saveStore(s);
   }
-  function loadMissed() { return loadStore().missed || []; }
 
   /* ------------------------------------------------------------------ */
   /* Render */
@@ -1312,6 +1445,8 @@
     if (state.view === 'setup') root.innerHTML = viewSetup();
     else if (state.view === 'question') root.innerHTML = viewQuestion();
     else if (state.view === 'results') root.innerHTML = viewResults();
+    else if (state.view === 'history') root.innerHTML = viewHistory();
+    else if (state.view === 'mistakes') root.innerHTML = viewMistakes();
     bind();
   }
 
@@ -1319,14 +1454,23 @@
     var s = loadStore();
     var nDrill = bank.filter(function (q) { return state.gea === 'all' || q.gea === state.gea; }).length;
     var nCase = flattenCases(state.gea).length;
-    var missed = loadMissed();
+    var missed = s.missed || [];
+    var hist = s.history || [];
     var stats = '';
     if (s.last) {
       stats = '<p class="count" id="quiz-stats">Last sitting: <strong>' + s.last.right + '/' + s.last.total + '</strong>' +
         (s.best ? ' · best ' + s.best.right + '/' + s.best.total : '') +
-        (s.answered ? ' · lifetime ' + s.correct + '/' + s.answered + '</p>' : '</p>');
+        (s.answered ? ' · lifetime ' + s.correct + '/' + s.answered : '') +
+        ' · <button type="button" class="btn ghost sm" data-nav-view="history">View History (' + hist.length + ')</button>' +
+        (missed.length ? ' <button type="button" class="btn ghost sm" data-nav-view="mistakes">Saved Mistakes (' + missed.length + ')</button>' : '') +
+        '</p>';
     }
     return (
+      '<div class="quiz-nav-sub" role="tablist" aria-label="Quiz navigation">' +
+        '<button type="button" class="tab" data-nav-view="setup" aria-selected="true">Quiz Setup</button>' +
+        '<button type="button" class="tab" data-nav-view="history" aria-selected="false">History (' + hist.length + ')</button>' +
+        '<button type="button" class="tab" data-nav-view="mistakes" aria-selected="false">Saved Mistakes (' + missed.length + ')</button>' +
+      '</div>' +
       '<h2>NPLEX 2 quiz</h2>' +
       '<p class="hint">Multiple-choice items written from this notebook, grouped the way Part II is grouped: ' +
       'diagnosis, materia medica (botanical medicine and homeopathy), other modalities, and medical interventions. ' +
@@ -1339,7 +1483,7 @@
       '<div class="seg" role="group" aria-label="Mode">' +
         btnSeg('mode', 'drill', 'Drill', state.mode === 'drill') +
         btnSeg('mode', 'cases', 'Cases', state.mode === 'cases') +
-        (missed.length ? btnSeg('mode', 'missed', 'Missed (' + missed.length + ')', state.mode === 'missed') : '') +
+        (missed.length ? btnSeg('mode', 'missed', 'Saved Mistakes (' + missed.length + ')', state.mode === 'missed') : '') +
       '</div>' +
       '<h3 class="quiz-h">Area</h3>' +
       '<div class="chips" id="quiz-gea">' +
@@ -1358,11 +1502,13 @@
         (state.mode === 'cases'
           ? nCase + ' case items in this area'
           : state.mode === 'missed'
-            ? missed.length + ' items you missed last time'
+            ? missed.length + ' saved mistake' + (missed.length === 1 ? '' : 's') + ' in your bank'
             : nDrill + ' drill items in this area') +
       '</p>' +
       '<div class="actions">' +
         '<button type="button" class="btn" id="quiz-start">Start</button>' +
+        '<button type="button" class="btn ghost" data-nav-view="history">History (' + hist.length + ')</button>' +
+        (missed.length ? '<button type="button" class="btn ghost" data-nav-view="mistakes">Saved Mistakes (' + missed.length + ')</button>' : '') +
       '</div>' +
       '<details class="srcnote quiz-src"><summary>Where the questions come from</summary>' +
       '<p>Drill items are generated from the same JSON the tabs load: herb names and actions, the condition-to-herb map, ' +
@@ -1446,6 +1592,7 @@
   }
 
   function viewResults() {
+    var s = loadStore();
     var total = state.answers.length;
     var right = state.answers.filter(function (a) { return a.ok; }).length;
     var pct = total ? Math.round((right / total) * 100) : 0;
@@ -1463,36 +1610,192 @@
         '<div class="qprog"><span style="width:' + p + '%"></span></div></div>';
     }).join('');
     var missed = state.answers.filter(function (a) { return !a.ok; });
+    var totalBankMissed = (s.missed || []).length;
     var review = missed.map(function (a, i) {
       var correct = a.q.opts.filter(function (o) { return o.ok; })[0];
       var picked = a.q.opts[a.picked];
-      return '<details class="quiz-miss"><summary>' + esc(clip(a.q.q, 110)) + '</summary>' +
+      var mKey = questionKey(a.q);
+      return '<details class="quiz-miss" open><summary>' + esc(clip(a.q.q, 110)) + '</summary>' +
         (a.q.vignette ? '<p class="quiz-vignette">' + esc(a.q.vignette) + '</p>' : '') +
-        '<p><strong>You chose:</strong> ' + esc(picked ? picked.t : '—') + '<br>' +
-        '<strong>Answer:</strong> ' + esc(correct ? correct.t : '—') + '</p>' +
-        '<p>' + esc(a.q.explain) + '</p>' +
-        (a.q.tab && TAB_HREF[a.q.tab]
-          ? '<p><a class="quiz-open" href="' + TAB_HREF[a.q.tab] + '">Open the ' + tabLabel(a.q.tab) + ' tab</a></p>'
-          : '') +
-        '</details>';
+        '<div style="margin:0 14px 10px; font-size:.88rem; line-height:1.6;">' +
+          '<p style="margin:4px 0;"><strong>You chose:</strong> <span style="color:var(--danger)">' + esc(picked ? picked.t : '—') + '</span><br>' +
+          '<strong>Answer:</strong> <span style="color:var(--accent-deep); font-weight:600;">' + esc(correct ? correct.t : '—') + '</span></p>' +
+          '<p style="margin:6px 0;">' + esc(a.q.explain) + '</p>' +
+          '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-top:10px; padding-top:8px; border-top:1px solid var(--line);">' +
+            (a.q.tab && TAB_HREF[a.q.tab] ? '<a class="quiz-open" href="' + TAB_HREF[a.q.tab] + '">Open the ' + tabLabel(a.q.tab) + ' tab</a>' : '<span></span>') +
+            '<div style="display:flex; gap:8px; align-items:center;">' +
+              '<span class="quiz-tag danger">Saved to mistakes</span>' +
+              '<button type="button" class="btn ghost danger sm" data-remove-missed="' + esc(mKey) + '">Remove</button>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</details>';
     }).join('');
     return (
       '<h2>Sitting complete</h2>' +
       '<p class="quiz-score">' + right + ' <span>/ ' + total + '</span></p>' +
       '<p class="hint">' + pct + '% · ' +
-        (pct >= 80 ? 'Solid. Review the misses and sit a case set next.' :
-         pct >= 60 ? 'Keep going — the misses below are the syllabus.' :
+        (pct >= 80 ? 'Solid. Review any misses and sit a case set next.' :
+         pct >= 60 ? 'Keep going — mistakes are automatically saved for your practice.' :
          'Use each miss as a ticket back into the notebook.') +
       '</p>' +
       '<div class="quiz-bars">' + rows + '</div>' +
       '<div class="actions">' +
         '<button type="button" class="btn" id="quiz-again">Same setup again</button>' +
-        (missed.length ? '<button type="button" class="btn ghost" id="quiz-retry">Retry misses</button>' : '') +
+        (totalBankMissed ? '<button type="button" class="btn ghost" id="quiz-retry">Practice saved mistakes (' + totalBankMissed + ')</button>' : '') +
+        '<button type="button" class="btn ghost" data-nav-view="history">View History</button>' +
+        '<button type="button" class="btn ghost" data-nav-view="mistakes">Saved Mistakes (' + totalBankMissed + ')</button>' +
         '<button type="button" class="btn ghost" id="quiz-home">Change setup</button>' +
       '</div>' +
       (missed.length
-        ? '<h3 class="quiz-h">Missed items</h3>' + review
-        : '<p class="hint">Nothing missed in this sitting.</p>')
+        ? '<h3 class="quiz-h">Missed in this sitting (' + missed.length + ')</h3>' + review
+        : '<p class="hint">Nothing missed in this sitting. Clean sheet!</p>')
+    );
+  }
+
+  function viewHistory() {
+    var s = loadStore();
+    var hist = s.history || [];
+    var missed = s.missed || [];
+    var lifetimePct = s.answered ? Math.round((s.correct / s.answered) * 100) : 0;
+
+    var confirmBox = '';
+    if (state.confirmClearHistory) {
+      confirmBox = '<div class="alert warn quiz-confirm-box">' +
+        '<p><strong>Clear quiz history?</strong> This will erase all past sitting records and lifetime statistics.</p>' +
+        '<div class="actions">' +
+          '<button type="button" class="btn ghost danger" id="quiz-confirm-clear-history">Yes, clear history</button>' +
+          '<button type="button" class="btn ghost" id="quiz-cancel-clear-history">Cancel</button>' +
+        '</div>' +
+      '</div>';
+    }
+
+    var statsGrid = '';
+    if (hist.length > 0) {
+      statsGrid = '<div class="quiz-stat-grid">' +
+        '<div class="quiz-stat-card"><div class="quiz-stat-val">' + hist.length + '</div><div class="quiz-stat-lab">Sittings</div></div>' +
+        '<div class="quiz-stat-card"><div class="quiz-stat-val">' + (s.answered || 0) + '</div><div class="quiz-stat-lab">Answered</div></div>' +
+        '<div class="quiz-stat-card"><div class="quiz-stat-val">' + (s.answered ? lifetimePct + '%' : '—') + '</div><div class="quiz-stat-lab">Accuracy</div></div>' +
+        '<div class="quiz-stat-card"><div class="quiz-stat-val">' + (s.best ? s.best.right + '/' + s.best.total : '—') + '</div><div class="quiz-stat-lab">Best Sitting</div></div>' +
+      '</div>';
+    }
+
+    var listHtml = '';
+    if (hist.length === 0) {
+      listHtml = '<div class="quiz-empty">' +
+        '<p><strong>No quiz history yet.</strong></p>' +
+        '<p class="hint">Complete a drill or case sitting and your score, date, and mistakes will be logged here.</p>' +
+      '</div>';
+    } else {
+      listHtml = '<div class="quiz-history-list">' +
+        hist.map(function (item) {
+          var pColor = item.percent >= 80 ? 'var(--accent-deep)' : item.percent >= 60 ? 'var(--ink)' : 'var(--danger)';
+          return '<div class="quiz-hist-item">' +
+            '<div>' +
+              '<div class="quiz-hist-meta">' +
+                '<span class="quiz-tag accent">' + esc(item.modeLabel) + '</span>' +
+                '<span class="quiz-tag">' + esc(item.geaLabel) + '</span>' +
+                '<span>' + esc(formatDate(item.when)) + '</span>' +
+              '</div>' +
+              '<p style="margin:6px 0 0; font-size:.85rem; color:var(--muted)">' +
+                item.total + ' questions · ' +
+                (item.wrong > 0
+                  ? '<strong style="color:var(--danger)">' + item.wrong + ' mistake' + (item.wrong === 1 ? '' : 's') + '</strong>'
+                  : '<strong style="color:var(--accent-deep)">100% clean sheet</strong>') +
+              '</p>' +
+            '</div>' +
+            '<div class="quiz-hist-score">' +
+              '<div class="quiz-hist-num">' + item.right + ' <span style="font-size:.85rem; color:var(--muted)">/ ' + item.total + '</span></div>' +
+              '<div class="quiz-hist-pct" style="color:' + pColor + '">' + item.percent + '%</div>' +
+            '</div>' +
+          '</div>';
+        }).join('') +
+      '</div>';
+    }
+
+    return (
+      '<div class="quiz-nav-sub" role="tablist" aria-label="Quiz navigation">' +
+        '<button type="button" class="tab" data-nav-view="setup" aria-selected="false">Quiz Setup</button>' +
+        '<button type="button" class="tab" data-nav-view="history" aria-selected="true">History (' + hist.length + ')</button>' +
+        '<button type="button" class="tab" data-nav-view="mistakes" aria-selected="false">Saved Mistakes (' + missed.length + ')</button>' +
+      '</div>' +
+      '<h2>Quiz History</h2>' +
+      '<p class="hint">A complete log of your past quiz sittings, scores, and areas drilled. Saved locally in your browser.</p>' +
+      confirmBox +
+      statsGrid +
+      '<div class="actions">' +
+        '<button type="button" class="btn" data-nav-view="setup">Start New Quiz</button>' +
+        (missed.length ? '<button type="button" class="btn ghost" data-nav-view="mistakes">Saved Mistakes (' + missed.length + ')</button>' : '') +
+        (hist.length ? '<button type="button" class="btn ghost danger" id="quiz-clear-history">Clear History</button>' : '') +
+      '</div>' +
+      listHtml
+    );
+  }
+
+  function viewMistakes() {
+    var s = loadStore();
+    var missed = s.missed || [];
+    var hist = s.history || [];
+
+    var confirmBox = '';
+    if (state.confirmClearMissed) {
+      confirmBox = '<div class="alert warn quiz-confirm-box">' +
+        '<p><strong>Clear all saved mistakes?</strong> This will remove all ' + missed.length + ' question(s) from your mistake bank.</p>' +
+        '<div class="actions">' +
+          '<button type="button" class="btn ghost danger" id="quiz-confirm-clear-missed">Yes, clear all mistakes</button>' +
+          '<button type="button" class="btn ghost" id="quiz-cancel-clear-missed">Cancel</button>' +
+        '</div>' +
+      '</div>';
+    }
+
+    var listHtml = '';
+    if (missed.length === 0) {
+      listHtml = '<div class="quiz-empty">' +
+        '<p><strong>No saved mistakes in your bank!</strong></p>' +
+        '<p class="hint">Whenever you miss a question during drill or case sittings, it will be automatically saved here so you can review and practice it.</p>' +
+      '</div>';
+    } else {
+      listHtml = missed.map(function (m) {
+        var correct = m.opts ? m.opts.filter(function (o) { return o.ok; })[0] : null;
+        var correctTxt = correct ? correct.t : (m.correctAnswer || '—');
+        var mKey = m.id || m.key || questionKey(m);
+        var missBadge = m.missCount > 1 ? 'Missed ' + m.missCount + '×' : 'Missed 1×';
+        return '<details class="quiz-miss" open>' +
+          '<summary style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">' +
+            '<span>' + esc(clip(m.q, 100)) + '</span>' +
+            '<span class="quiz-tag warn" style="flex:none">' + esc(missBadge) + '</span>' +
+          '</summary>' +
+          (m.vignette ? '<p class="quiz-vignette">' + esc(m.vignette) + '</p>' : '') +
+          '<div style="margin:0 14px 10px; font-size:.88rem; line-height:1.6;">' +
+            '<p style="margin:4px 0;">' +
+              (m.lastPicked ? '<strong>Your last answer:</strong> <span style="color:var(--danger)">' + esc(m.lastPicked) + '</span><br>' : '') +
+              '<strong>Correct answer:</strong> <span style="color:var(--accent-deep); font-weight:600;">' + esc(correctTxt) + '</span>' +
+            '</p>' +
+            '<p style="margin:6px 0;">' + esc(m.explain) + '</p>' +
+            '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-top:10px; padding-top:8px; border-top:1px solid var(--line);">' +
+              (m.tab && TAB_HREF[m.tab] ? '<a class="quiz-open" href="' + TAB_HREF[m.tab] + '">Open the ' + tabLabel(m.tab) + ' tab</a>' : '<span></span>') +
+              '<button type="button" class="btn ghost danger sm" data-remove-missed="' + esc(mKey) + '">Remove from mistakes</button>' +
+            '</div>' +
+          '</div>' +
+        '</details>';
+      }).join('');
+    }
+
+    return (
+      '<div class="quiz-nav-sub" role="tablist" aria-label="Quiz navigation">' +
+        '<button type="button" class="tab" data-nav-view="setup" aria-selected="false">Quiz Setup</button>' +
+        '<button type="button" class="tab" data-nav-view="history" aria-selected="false">History (' + hist.length + ')</button>' +
+        '<button type="button" class="tab" data-nav-view="mistakes" aria-selected="true">Saved Mistakes (' + missed.length + ')</button>' +
+      '</div>' +
+      '<h2>Saved Mistakes Bank</h2>' +
+      '<p class="hint">Questions you missed are automatically preserved here. Practice them, review their notebook entries, or remove them when mastered.</p>' +
+      confirmBox +
+      '<div class="actions">' +
+        (missed.length ? '<button type="button" class="btn" id="quiz-practice-mistakes">Practice These Mistakes (' + missed.length + ')</button>' : '') +
+        '<button type="button" class="btn ghost" data-nav-view="setup">New Quiz</button>' +
+        (missed.length ? '<button type="button" class="btn ghost danger" id="quiz-clear-missed">Clear All Mistakes</button>' : '') +
+      '</div>' +
+      listHtml
     );
   }
 
@@ -1533,8 +1836,70 @@
     if (retry) retry.addEventListener('click', function () {
       startSession({ mode: 'missed', gea: 'all', n: 'all' });
     });
+    var pracMis = $('#quiz-practice-mistakes');
+    if (pracMis) pracMis.addEventListener('click', function () {
+      startSession({ mode: 'missed', gea: 'all', n: 'all' });
+    });
     var home = $('#quiz-home');
     if (home) home.addEventListener('click', function () { state.view = 'setup'; render(); });
+
+    /* Sub-navigation tabs */
+    $$('[data-nav-view]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var targetView = b.getAttribute('data-nav-view');
+        state.view = targetView;
+        state.confirmClearHistory = false;
+        state.confirmClearMissed = false;
+        render();
+      });
+    });
+
+    /* Clear history controls */
+    var btnClearHist = $('#quiz-clear-history');
+    if (btnClearHist) btnClearHist.addEventListener('click', function () {
+      state.confirmClearHistory = true;
+      render();
+    });
+    var btnConfClearHist = $('#quiz-confirm-clear-history');
+    if (btnConfClearHist) btnConfClearHist.addEventListener('click', function () {
+      clearHistory();
+      state.confirmClearHistory = false;
+      render();
+    });
+    var btnCancelClearHist = $('#quiz-cancel-clear-history');
+    if (btnCancelClearHist) btnCancelClearHist.addEventListener('click', function () {
+      state.confirmClearHistory = false;
+      render();
+    });
+
+    /* Clear mistakes controls */
+    var btnClearMis = $('#quiz-clear-missed');
+    if (btnClearMis) btnClearMis.addEventListener('click', function () {
+      state.confirmClearMissed = true;
+      render();
+    });
+    var btnConfClearMis = $('#quiz-confirm-clear-missed');
+    if (btnConfClearMis) btnConfClearMis.addEventListener('click', function () {
+      clearMissed();
+      state.confirmClearMissed = false;
+      if (state.mode === 'missed') state.mode = 'drill';
+      render();
+    });
+    var btnCancelClearMis = $('#quiz-cancel-clear-missed');
+    if (btnCancelClearMis) btnCancelClearMis.addEventListener('click', function () {
+      state.confirmClearMissed = false;
+      render();
+    });
+
+    /* Remove single mistake */
+    $$('[data-remove-missed]').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var key = b.getAttribute('data-remove-missed');
+        removeSingleMissed(key);
+        render();
+      });
+    });
   }
 
   function onKey(e) {

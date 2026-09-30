@@ -1,0 +1,16 @@
+{
+  "name": "wellness-with-noura",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Nourhan Shams's clinical notebook: herbal formulation and dosing calculators, a condition index with pharmaceuticals, supplements, therapies and labs, a homeopathic remedy differentiator, a physical exam and diagnosis index and a 394-herb reference.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "node tools/build-data.js",
+    "test": "node tools/check-consistency.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
