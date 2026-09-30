@@ -1166,8 +1166,9 @@
     confirmClearMissed: false,
     sync: {
       status: 'idle',
-      label: 'Checking GitHub / cloud sync…',
-      configured: false
+      label: 'Checking GitHub / sync…',
+      configured: false,
+      showSettings: false
     }
   };
 
@@ -1361,18 +1362,50 @@
     saveRemoteHistory(s);
   }
 
+  var GITHUB_REPO = 'ahmedbma/Botanical-Calculator';
+  var GITHUB_BRANCH = 'main';
+  var GITHUB_FILE_PATH = 'data/quiz-history.json';
+  var GITHUB_RAW_URL = 'https://raw.githubusercontent.com/' + GITHUB_REPO + '/' + GITHUB_BRANCH + '/' + GITHUB_FILE_PATH;
+  var GITHUB_API_URL = 'https://api.github.com/repos/' + GITHUB_REPO + '/contents/' + GITHUB_FILE_PATH;
+  var PAT_STORAGE_KEY = 'bc.github_pat';
+
+  function getClientPat() {
+    try {
+      return (localStorage.getItem(PAT_STORAGE_KEY) || '').trim();
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function setClientPat(token) {
+    try {
+      if (token) localStorage.setItem(PAT_STORAGE_KEY, token.trim());
+      else localStorage.removeItem(PAT_STORAGE_KEY);
+    } catch (e) {}
+  }
+
+  function toBase64Utf8(str) {
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (match, p1) {
+      return String.fromCharCode(parseInt(p1, 16));
+    }));
+  }
+
+  function fromBase64Utf8(b64) {
+    return decodeURIComponent(Array.prototype.map.call(atob(b64), function (c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+  }
+
   function mergeStore(local, remote) {
     local = local || {};
     remote = remote || {};
     var res = {};
-    res.runs = Math.max(local.runs || 0, remote.runs || 0);
-    res.answered = Math.max(local.answered || 0, remote.answered || 0);
-    res.correct = Math.max(local.correct || 0, remote.correct || 0);
 
     var histMap = Object.create(null);
     var histCombined = (local.history || []).concat(remote.history || []);
     res.history = [];
     histCombined.forEach(function (h) {
+      if (!h) return;
       var hk = h.id || (h.when + '-' + h.mode + '-' + h.right + '-' + h.total);
       if (!histMap[hk]) {
         histMap[hk] = true;
@@ -1386,6 +1419,7 @@
     res.missed = [];
     var missedCombined = (local.missed || []).concat(remote.missed || []);
     missedCombined.forEach(function (m) {
+      if (!m) return;
       var mk = m.id || m.key || questionKey(m);
       if (!mk) return;
       if (!missMap[mk]) {
@@ -1402,62 +1436,210 @@
       }
     });
 
-    res.last = (remote.last && (!local.last || (remote.last.when || 0) >= (local.last.when || 0)))
-      ? remote.last : (local.last || remote.last || null);
+    res.runs = res.history.length;
+    res.answered = res.history.reduce(function (sum, h) { return sum + (h.total || 0); }, 0);
+    res.correct = res.history.reduce(function (sum, h) { return sum + (h.right || 0); }, 0);
 
-    res.best = local.best || remote.best || null;
-    if (local.best && remote.best) {
-      res.best = (local.best.right / (local.best.total || 1) >= remote.best.right / (remote.best.total || 1))
-        ? local.best : remote.best;
-    }
+    res.last = res.history[0] || (remote.last && (!local.last || (remote.last.when || 0) >= (local.last.when || 0))
+      ? remote.last : (local.last || remote.last || null));
+
+    var bestRun = null;
+    res.history.forEach(function (h) {
+      if (h.total > 0) {
+        if (!bestRun || (h.right / h.total > bestRun.right / bestRun.total)) {
+          bestRun = { right: h.right, total: h.total, mode: h.mode };
+        }
+      }
+    });
+    res.best = bestRun || local.best || remote.best || null;
+
     return res;
+  }
+
+  function handleIncomingRemoteData(remoteData, meta) {
+    var local = loadStore();
+    var remoteHistCount = (remoteData.history || []).length;
+    var remoteMissCount = (remoteData.missed || []).length;
+
+    var merged = mergeStore(local, remoteData);
+    saveStore(merged);
+
+    var hasLocalOnlyItems = false;
+    if (merged.history.length > remoteHistCount || merged.missed.length > remoteMissCount) {
+      hasLocalOnlyItems = true;
+    }
+
+    if (meta.mode === 'server') {
+      if (meta.synced) {
+        state.sync.status = 'ok';
+        state.sync.configured = true;
+        state.sync.label = 'Synced with GitHub repository';
+        if (hasLocalOnlyItems) saveRemoteHistory(merged);
+      } else if (meta.configured) {
+        state.sync.status = 'warn';
+        state.sync.configured = true;
+        state.sync.label = 'Server cached (GitHub push issue)';
+      } else {
+        state.sync.status = 'hint';
+        state.sync.configured = false;
+        state.sync.label = 'Saved to cloud server';
+      }
+    } else {
+      if (meta.configured) {
+        state.sync.status = 'ok';
+        state.sync.configured = true;
+        state.sync.label = 'Synced with GitHub (' + GITHUB_REPO.split('/')[0] + ')';
+        if (hasLocalOnlyItems) saveRemoteHistory(merged);
+      } else {
+        state.sync.status = 'hint';
+        state.sync.configured = false;
+        state.sync.label = 'Loaded from GitHub · Connect token to push from this device';
+      }
+    }
   }
 
   function loadRemoteHistory(cb) {
     state.sync.status = 'syncing';
-    state.sync.label = 'Checking GitHub / server sync…';
+    state.sync.label = 'Checking GitHub / cloud sync…';
     updateSyncBar();
 
-    fetch('/api/quiz-history')
-      .then(function (r) { return r.json(); })
+    // 1. First try server endpoint /api/quiz-history
+    fetch('/api/quiz-history?_t=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
       .then(function (res) {
         if (res && res.success && res.data) {
-          var local = loadStore();
-          var localHistCount = (local.history || []).length;
-          var localMissCount = (local.missed || []).length;
-          var remoteHistCount = (res.data.history || []).length;
-          var remoteMissCount = (res.data.missed || []).length;
-
-          var merged = mergeStore(local, res.data);
-          saveStore(merged);
-
-          if (res.synced) {
-            state.sync.status = 'ok';
-            state.sync.configured = true;
-            state.sync.label = 'Synced with GitHub repository';
-            // If local device had history items not yet on GitHub, push the merged state immediately!
-            if (localHistCount > remoteHistCount || localMissCount > remoteMissCount) {
-              saveRemoteHistory(merged);
-            }
-          } else if (res.configured) {
-            state.sync.status = 'warn';
-            state.sync.configured = true;
-            state.sync.label = res.error || 'Server cached (GitHub push issue)';
-          } else {
-            state.sync.status = 'hint';
-            state.sync.configured = false;
-            state.sync.label = 'Saved to cloud server. Add GITHUB_PAT to .env to push commits directly to GitHub repo.';
-          }
+          handleIncomingRemoteData(res.data, {
+            synced: res.synced,
+            configured: res.configured,
+            mode: 'server'
+          });
         }
         if (cb) cb();
         render();
       })
       .catch(function () {
-        state.sync.status = 'hint';
-        state.sync.label = 'Working locally in browser.';
-        if (cb) cb();
-        updateSyncBar();
+        // 2. Fallback to direct GitHub fetch (for GitHub Pages or static host)
+        var pat = getClientPat();
+        var headers = { 'Accept': 'application/vnd.github.v3+json' };
+        if (pat) headers['Authorization'] = 'Bearer ' + pat;
+
+        var fetchUrl = pat
+          ? (GITHUB_API_URL + '?ref=' + GITHUB_BRANCH + '&_t=' + Date.now())
+          : (GITHUB_RAW_URL + '?_t=' + Date.now());
+
+        fetch(fetchUrl, { cache: 'no-store', headers: pat ? headers : undefined })
+          .then(function (r) {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.json();
+          })
+          .then(function (ghData) {
+            var parsed = null;
+            if (ghData && ghData.content) {
+              try {
+                parsed = JSON.parse(fromBase64Utf8(ghData.content.replace(/\s/g, '')));
+              } catch (e) {}
+            } else if (ghData && (Array.isArray(ghData.history) || Array.isArray(ghData.missed))) {
+              parsed = ghData;
+            }
+            if (parsed) {
+              handleIncomingRemoteData(parsed, {
+                synced: true,
+                configured: !!pat,
+                mode: 'github-direct'
+              });
+            } else {
+              state.sync.status = 'hint';
+              state.sync.label = pat ? 'Ready to sync with GitHub' : 'Local mode (connect GitHub Token to sync across devices)';
+              updateSyncBar();
+            }
+            if (cb) cb();
+            render();
+          })
+          .catch(function () {
+            state.sync.status = 'hint';
+            state.sync.label = pat
+              ? 'Could not connect to GitHub. Working locally in browser.'
+              : 'Local mode (connect GitHub Token to sync across browsers)';
+            if (cb) cb();
+            updateSyncBar();
+          });
       });
+  }
+
+  function pushToGitHubDirect(payload) {
+    var pat = getClientPat();
+    if (!pat) return;
+
+    state.sync.status = 'syncing';
+    state.sync.label = 'Pushing directly to GitHub repository…';
+    updateSyncBar();
+
+    fetch(GITHUB_API_URL + '?ref=' + GITHUB_BRANCH + '&_t=' + Date.now(), {
+      cache: 'no-store',
+      headers: {
+        'Authorization': 'Bearer ' + pat,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    })
+    .then(function (r) {
+      if (r.status === 200) return r.json();
+      if (r.status === 404) return { sha: null, content: null };
+      throw new Error('HTTP ' + r.status);
+    })
+    .then(function (fileInfo) {
+      var sha = fileInfo.sha || null;
+      var remoteData = {};
+      if (fileInfo.content) {
+        try {
+          remoteData = JSON.parse(fromBase64Utf8(fileInfo.content.replace(/\s/g, '')));
+        } catch (e) {}
+      }
+
+      var finalData = mergeStore(payload, remoteData);
+      saveStore(finalData);
+
+      var jsonStr = JSON.stringify(finalData, null, 2);
+      var b64Content = toBase64Utf8(jsonStr);
+
+      return fetch(GITHUB_API_URL, {
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + pat,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: 'Update quiz history [skip ci]',
+          content: b64Content,
+          branch: GITHUB_BRANCH,
+          sha: sha || undefined
+        })
+      });
+    })
+    .then(function (putRes) {
+      if (!putRes.ok) {
+        return putRes.json().then(function (err) {
+          throw new Error(err.message || ('HTTP ' + putRes.status));
+        });
+      }
+      return putRes.json();
+    })
+    .then(function (result) {
+      var commitSha = (result.commit && result.commit.sha) ? result.commit.sha.slice(0, 7) : '';
+      state.sync.status = 'ok';
+      state.sync.configured = true;
+      state.sync.label = 'Pushed to GitHub' + (commitSha ? ' (' + commitSha + ')' : '');
+      updateSyncBar();
+    })
+    .catch(function (err) {
+      state.sync.status = 'danger';
+      state.sync.configured = true;
+      state.sync.label = 'GitHub push failed: ' + (err.message || 'Network error');
+      updateSyncBar();
+    });
   }
 
   function saveRemoteHistory(s) {
@@ -1465,13 +1647,20 @@
     state.sync.label = 'Saving to server / pushing to GitHub…';
     updateSyncBar();
 
+    // 1. Try server POST endpoint
     fetch('/api/quiz-history', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(s)
     })
-    .then(function (r) { return r.json(); })
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
     .then(function (res) {
+      if (res && res.data) {
+        saveStore(res.data);
+      }
       if (res && res.synced) {
         state.sync.status = 'ok';
         state.sync.configured = true;
@@ -1483,14 +1672,21 @@
       } else {
         state.sync.status = 'hint';
         state.sync.configured = false;
-        state.sync.label = 'Saved to cloud server. (Set GITHUB_PAT in .env to auto-push to GitHub).';
+        state.sync.label = 'Saved to cloud server.';
       }
       updateSyncBar();
     })
     .catch(function () {
-      state.sync.status = 'warn';
-      state.sync.label = 'Saved locally in browser.';
-      updateSyncBar();
+      // 2. Fallback to direct client-side GitHub commit (for GitHub Pages or static host)
+      var pat = getClientPat();
+      if (!pat) {
+        state.sync.status = 'hint';
+        state.sync.configured = false;
+        state.sync.label = 'Saved in this browser. Connect GitHub Token to sync across devices.';
+        updateSyncBar();
+        return;
+      }
+      pushToGitHubDirect(s);
     });
   }
 
@@ -1502,38 +1698,156 @@
     var icon = state.sync.status === 'ok' ? '✓'
       : state.sync.status === 'syncing' ? '⟳'
       : 'ℹ';
+    var pat = getClientPat();
+
+    var panelHtml = '';
+    if (state.sync.showSettings) {
+      panelHtml = (
+        '<div class="quiz-sync-panel" id="quiz-sync-settings-card">' +
+          '<h4>' +
+            '<span>GitHub Multi-Device Sync</span>' +
+            '<button type="button" class="btn ghost sm" id="quiz-btn-close-sync-settings" style="padding:2px 8px;">✕</button>' +
+          '</h4>' +
+          '<p>Sync your quiz scores, test history, and saved mistakes across all your browsers and devices (Chrome, Safari, iPhone, iPad, PC) using your GitHub repository (<code>' + esc(GITHUB_REPO) + '</code>).</p>' +
+          '<div class="input-row">' +
+            '<input type="password" id="quiz-input-pat" placeholder="github_pat_... or ghp_..." value="' + esc(pat) + '">' +
+            '<button type="button" class="btn sm" id="quiz-btn-save-pat">Save & Connect</button>' +
+            (pat ? '<button type="button" class="btn ghost sm danger" id="quiz-btn-clear-pat">Disconnect</button>' : '') +
+          '</div>' +
+          '<div id="quiz-sync-feedback" class="quiz-sync-msg ' + (pat ? 'ok' : '') + '">' +
+            (pat ? '✓ Token configured in this browser.' : 'Enter your GitHub Personal Access Token once on each device to enable 2-way sync.') +
+          '</div>' +
+        '</div>'
+      );
+    }
+
     return (
+      panelHtml +
       '<div class="quiz-sync-bar" id="quiz-sync-status-box">' +
         '<span class="quiz-sync-status ' + cls + '">' +
           '<span>' + icon + '</span> <span>' + esc(state.sync.label) + '</span>' +
         '</span>' +
-        '<button type="button" class="btn ghost sm" id="quiz-btn-sync-now" style="padding:2px 8px; font-size:.72rem;">Sync now</button>' +
+        '<div class="quiz-sync-actions">' +
+          '<button type="button" class="btn ghost sm" id="quiz-btn-sync-now" style="padding:2px 8px; font-size:.72rem;">Sync now</button>' +
+          '<button type="button" class="btn ghost sm" id="quiz-btn-toggle-sync-settings" style="padding:2px 8px; font-size:.72rem;" title="Configure cross-device sync">' +
+            (pat ? '⚙ Settings' : '🔑 Connect Token') +
+          '</button>' +
+        '</div>' +
       '</div>'
     );
   }
 
   function updateSyncBar() {
     var box = $('#quiz-sync-status-box');
-    if (box) {
-      var cls = state.sync.status === 'ok' ? 'ok'
-        : state.sync.status === 'syncing' ? 'syncing'
-        : state.sync.status === 'danger' ? 'danger'
-        : 'warn';
-      var icon = state.sync.status === 'ok' ? '✓'
-        : state.sync.status === 'syncing' ? '⟳'
-        : 'ℹ';
-      box.innerHTML = (
-        '<span class="quiz-sync-status ' + cls + '">' +
-          '<span>' + icon + '</span> <span>' + esc(state.sync.label) + '</span>' +
-        '</span>' +
-        '<button type="button" class="btn ghost sm" id="quiz-btn-sync-now" style="padding:2px 8px; font-size:.72rem;">Sync now</button>'
-      );
-      var btn = $('#quiz-btn-sync-now');
-      if (btn) btn.addEventListener('click', function () {
+    if (!box) return;
+    var cls = state.sync.status === 'ok' ? 'ok'
+      : state.sync.status === 'syncing' ? 'syncing'
+      : state.sync.status === 'danger' ? 'danger'
+      : 'warn';
+    var icon = state.sync.status === 'ok' ? '✓'
+      : state.sync.status === 'syncing' ? '⟳'
+      : 'ℹ';
+    var pat = getClientPat();
+    box.innerHTML = (
+      '<span class="quiz-sync-status ' + cls + '">' +
+        '<span>' + icon + '</span> <span>' + esc(state.sync.label) + '</span>' +
+      '</span>' +
+      '<div class="quiz-sync-actions">' +
+        '<button type="button" class="btn ghost sm" id="quiz-btn-sync-now" style="padding:2px 8px; font-size:.72rem;">Sync now</button>' +
+        '<button type="button" class="btn ghost sm" id="quiz-btn-toggle-sync-settings" style="padding:2px 8px; font-size:.72rem;">' +
+          (pat ? '⚙ Settings' : '🔑 Connect Token') +
+        '</button>' +
+      '</div>'
+    );
+    bindSyncButtons();
+  }
+
+  function bindSyncButtons() {
+    var btnSyncNow = $('#quiz-btn-sync-now');
+    if (btnSyncNow) {
+      btnSyncNow.onclick = function () {
         loadRemoteHistory(function () {
           saveRemoteHistory(loadStore());
         });
-      });
+      };
+    }
+    var btnToggle = $('#quiz-btn-toggle-sync-settings');
+    if (btnToggle) {
+      btnToggle.onclick = function () {
+        state.sync.showSettings = !state.sync.showSettings;
+        render();
+      };
+    }
+    var btnClose = $('#quiz-btn-close-sync-settings');
+    if (btnClose) {
+      btnClose.onclick = function () {
+        state.sync.showSettings = false;
+        render();
+      };
+    }
+    var btnSavePat = $('#quiz-btn-save-pat');
+    if (btnSavePat) {
+      btnSavePat.onclick = function () {
+        var inp = $('#quiz-input-pat');
+        var fb = $('#quiz-sync-feedback');
+        var token = inp ? inp.value.trim() : '';
+        if (!token) {
+          setClientPat('');
+          if (fb) {
+            fb.className = 'quiz-sync-msg';
+            fb.textContent = 'Token cleared.';
+          }
+          render();
+          return;
+        }
+        if (fb) {
+          fb.className = 'quiz-sync-msg';
+          fb.textContent = 'Verifying token with GitHub…';
+        }
+        fetch('https://api.github.com/user', {
+          headers: {
+            'Authorization': 'Bearer ' + token,
+            'Accept': 'application/vnd.github.v3+json'
+          }
+        })
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(function (u) {
+          setClientPat(token);
+          if (fb) {
+            fb.className = 'quiz-sync-msg ok';
+            fb.textContent = '✓ Connected to GitHub as ' + (u.login || 'user') + '! Syncing now…';
+          }
+          state.sync.status = 'ok';
+          state.sync.configured = true;
+          state.sync.label = 'Connected to GitHub (' + (u.login || 'user') + ')';
+          setTimeout(function () {
+            state.sync.showSettings = false;
+            loadRemoteHistory(function () {
+              saveRemoteHistory(loadStore());
+            });
+          }, 800);
+        })
+        .catch(function (err) {
+          if (fb) {
+            fb.className = 'quiz-sync-msg err';
+            fb.textContent = '✕ Token verification failed (' + err.message + '). Check that the token is valid.';
+          }
+        });
+      };
+    }
+    var btnClearPat = $('#quiz-btn-clear-pat');
+    if (btnClearPat) {
+      btnClearPat.onclick = function () {
+        setClientPat('');
+        state.sync.status = 'hint';
+        state.sync.configured = false;
+        state.sync.label = 'Working locally in browser.';
+        state.sync.showSettings = false;
+        render();
+      };
     }
   }
 
@@ -2090,13 +2404,8 @@
       });
     });
 
-    /* Manual sync button */
-    var btnSyncNow = $('#quiz-btn-sync-now');
-    if (btnSyncNow) btnSyncNow.addEventListener('click', function () {
-      loadRemoteHistory(function () {
-        saveRemoteHistory(loadStore());
-      });
-    });
+    /* Sync buttons and settings */
+    bindSyncButtons();
   }
 
   function onKey(e) {

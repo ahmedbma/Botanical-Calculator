@@ -1088,6 +1088,15 @@ a.monogram{text-decoration:none}
 .quiz-sync-status.syncing{color:var(--accent)}
 .quiz-sync-status.warn{color:var(--warn)}
 .quiz-sync-status.danger{color:var(--danger)}
+.quiz-sync-actions{display:inline-flex;align-items:center;gap:6px}
+.quiz-sync-panel{background:var(--card, #fff);border:1px solid var(--line);padding:14px 16px;border-radius:10px;margin:0 0 16px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.quiz-sync-panel h4{margin:0 0 6px;font-size:.92rem;font-weight:600;display:flex;align-items:center;justify-content:space-between}
+.quiz-sync-panel p{margin:0 0 10px;font-size:.82rem;line-height:1.45;color:var(--muted)}
+.quiz-sync-panel .input-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0}
+.quiz-sync-panel input[type="text"],.quiz-sync-panel input[type="password"]{flex:1;min-width:220px;padding:7px 11px;font-size:.82rem;border:1px solid var(--line);border-radius:6px;background:var(--ro-bg);color:var(--ink);font-family:monospace}
+.quiz-sync-msg{font-size:.8rem;margin-top:6px;font-weight:500}
+.quiz-sync-msg.ok{color:var(--accent-deep)}
+.quiz-sync-msg.err{color:var(--danger)}
 
 .btn.sm{padding:5px 12px;font-size:.78rem}
 

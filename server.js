@@ -138,6 +138,59 @@ app.get('/api/quiz-history', async (req, res) => {
   }
 });
 
+// Disable caching on all API responses
+app.use('/api', (req, res, next) => {
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.set('Pragma', 'no-cache');
+  res.set('Expires', '0');
+  next();
+});
+
+// Helper to merge history payloads cleanly
+function mergeHistoryPayloads(existing, incoming) {
+  existing = existing || {};
+  incoming = incoming || {};
+  const res = { ...existing, ...incoming };
+
+  const histMap = new Map();
+  const histList = [...(incoming.history || []), ...(existing.history || [])];
+  histList.forEach(h => {
+    if (!h) return;
+    const k = h.id || `${h.when}-${h.mode}-${h.right}-${h.total}`;
+    if (!histMap.has(k)) histMap.set(k, h);
+  });
+  res.history = Array.from(histMap.values())
+    .sort((a, b) => (b.when || 0) - (a.when || 0))
+    .slice(0, 100);
+
+  const missMap = new Map();
+  const missList = [...(incoming.missed || []), ...(existing.missed || [])];
+  missList.forEach(m => {
+    if (!m) return;
+    const k = m.id || m.key || m.q;
+    if (!k) return;
+    if (!missMap.has(k)) {
+      missMap.set(k, { ...m });
+    } else {
+      const ex = missMap.get(k);
+      ex.missCount = Math.max(ex.missCount || 1, m.missCount || 1);
+      if ((m.lastMissedAt || 0) > (ex.lastMissedAt || 0)) {
+        ex.lastMissedAt = m.lastMissedAt;
+        ex.lastPicked = m.lastPicked || ex.lastPicked;
+        ex.explain = m.explain || ex.explain;
+      }
+    }
+  });
+  res.missed = Array.from(missMap.values());
+
+  res.runs = res.history.length;
+  res.answered = res.history.reduce((sum, h) => sum + (h.total || 0), 0);
+  res.correct = res.history.reduce((sum, h) => sum + (h.right || 0), 0);
+  res.last = res.history[0] || incoming.last || existing.last || null;
+
+  return res;
+}
+
 // POST /api/quiz-history
 app.post('/api/quiz-history', async (req, res) => {
   const payload = req.body || {};
@@ -145,14 +198,16 @@ app.post('/api/quiz-history', async (req, res) => {
     return res.status(400).json({ error: 'Invalid payload: history or missed required' });
   }
 
-  // Always update local cache on server
-  writeLocalHistory(payload);
-
+  let finalPayload = payload;
   if (!GITHUB_PAT) {
+    const local = readLocalHistory();
+    finalPayload = mergeHistoryPayloads(local, payload);
+    writeLocalHistory(finalPayload);
     return res.json({
       success: true,
       synced: false,
       configured: false,
+      data: finalPayload,
       message: 'Saved to server cache. Set GITHUB_PAT in .env to push commits to GitHub.'
     });
   }
@@ -167,12 +222,25 @@ app.post('/api/quiz-history', async (req, res) => {
         'User-Agent': 'Botanical-Calculator-Quiz'
       }
     });
+
     if (getRes.status === 200) {
       const fileInfo = await getRes.json();
       sha = fileInfo.sha;
+      try {
+        const contentStr = Buffer.from(fileInfo.content, 'base64').toString('utf8');
+        const remoteData = JSON.parse(contentStr);
+        finalPayload = mergeHistoryPayloads(remoteData, payload);
+      } catch (e) {
+        finalPayload = payload;
+      }
+    } else {
+      const local = readLocalHistory();
+      finalPayload = mergeHistoryPayloads(local, payload);
     }
 
-    const contentBase64 = Buffer.from(JSON.stringify(payload, null, 2), 'utf8').toString('base64');
+    writeLocalHistory(finalPayload);
+
+    const contentBase64 = Buffer.from(JSON.stringify(finalPayload, null, 2), 'utf8').toString('base64');
     const putRes = await fetch(url, {
       method: 'PUT',
       headers: {
@@ -195,7 +263,8 @@ app.post('/api/quiz-history', async (req, res) => {
         success: true,
         synced: true,
         configured: true,
-        commit: result.commit ? result.commit.sha : null
+        commit: result.commit ? result.commit.sha : null,
+        data: finalPayload
       });
     } else {
       const errJson = await putRes.json().catch(() => ({}));
@@ -203,6 +272,7 @@ app.post('/api/quiz-history', async (req, res) => {
         success: true,
         synced: false,
         configured: true,
+        data: finalPayload,
         error: errJson.message || `HTTP ${putRes.status}`,
         message: 'Saved on server, but GitHub commit failed.'
       });
@@ -212,6 +282,7 @@ app.post('/api/quiz-history', async (req, res) => {
       success: true,
       synced: false,
       configured: true,
+      data: finalPayload,
       error: err.message,
       message: 'Saved on server, but GitHub request failed.'
     });
