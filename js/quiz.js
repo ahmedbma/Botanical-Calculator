@@ -1423,13 +1423,22 @@
       .then(function (res) {
         if (res && res.success && res.data) {
           var local = loadStore();
+          var localHistCount = (local.history || []).length;
+          var localMissCount = (local.missed || []).length;
+          var remoteHistCount = (res.data.history || []).length;
+          var remoteMissCount = (res.data.missed || []).length;
+
           var merged = mergeStore(local, res.data);
           saveStore(merged);
 
           if (res.synced) {
             state.sync.status = 'ok';
             state.sync.configured = true;
-            state.sync.label = 'Synced with GitHub repository (' + (res.source === 'github-empty' ? 'ready' : 'commit saved') + ')';
+            state.sync.label = 'Synced with GitHub repository';
+            // If local device had history items not yet on GitHub, push the merged state immediately!
+            if (localHistCount > remoteHistCount || localMissCount > remoteMissCount) {
+              saveRemoteHistory(merged);
+            }
           } else if (res.configured) {
             state.sync.status = 'warn';
             state.sync.configured = true;
@@ -1810,6 +1819,7 @@
     }).join('');
     return (
       '<h2>Sitting complete</h2>' +
+      syncBarHtml() +
       '<p class="quiz-score">' + right + ' <span>/ ' + total + '</span></p>' +
       '<p class="hint">' + pct + '% · ' +
         (pct >= 80 ? 'Solid. Review any misses and sit a case set next.' :
