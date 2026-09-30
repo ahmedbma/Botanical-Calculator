@@ -1080,6 +1080,15 @@ a.monogram{text-decoration:none}
 .quiz-empty p{margin:0 0 6px}
 .quiz-empty p:last-child{margin-bottom:0}
 
+.quiz-sync-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  padding:8px 14px;margin:0 0 16px;border-radius:8px;background:var(--ro-bg);font-size:.78rem;
+  border:1px solid var(--line)}
+.quiz-sync-status{display:inline-flex;align-items:center;gap:6px;font-weight:600}
+.quiz-sync-status.ok{color:var(--accent-deep)}
+.quiz-sync-status.syncing{color:var(--accent)}
+.quiz-sync-status.warn{color:var(--warn)}
+.quiz-sync-status.danger{color:var(--danger)}
+
 .btn.sm{padding:5px 12px;font-size:.78rem}
 
 @media (max-width:640px){

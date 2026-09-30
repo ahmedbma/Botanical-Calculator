@@ -1163,7 +1163,12 @@
     picked: null,
     revealed: false,
     confirmClearHistory: false,
-    confirmClearMissed: false
+    confirmClearMissed: false,
+    sync: {
+      status: 'idle',
+      label: 'Checking GitHub / cloud sync…',
+      configured: false
+    }
   };
 
   function flattenCases(filterGea) {
@@ -1336,12 +1341,14 @@
     s.best = null;
     s.last = null;
     saveStore(s);
+    saveRemoteHistory(s);
   }
 
   function clearMissed() {
     var s = loadStore();
     s.missed = [];
     saveStore(s);
+    saveRemoteHistory(s);
   }
 
   function removeSingleMissed(idOrKey) {
@@ -1351,6 +1358,174 @@
       return m.id !== idOrKey && m.key !== idOrKey && questionKey(m) !== idOrKey;
     });
     saveStore(s);
+    saveRemoteHistory(s);
+  }
+
+  function mergeStore(local, remote) {
+    local = local || {};
+    remote = remote || {};
+    var res = {};
+    res.runs = Math.max(local.runs || 0, remote.runs || 0);
+    res.answered = Math.max(local.answered || 0, remote.answered || 0);
+    res.correct = Math.max(local.correct || 0, remote.correct || 0);
+
+    var histMap = Object.create(null);
+    var histCombined = (local.history || []).concat(remote.history || []);
+    res.history = [];
+    histCombined.forEach(function (h) {
+      var hk = h.id || (h.when + '-' + h.mode + '-' + h.right + '-' + h.total);
+      if (!histMap[hk]) {
+        histMap[hk] = true;
+        res.history.push(h);
+      }
+    });
+    res.history.sort(function (a, b) { return (b.when || 0) - (a.when || 0); });
+    if (res.history.length > 100) res.history = res.history.slice(0, 100);
+
+    var missMap = Object.create(null);
+    res.missed = [];
+    var missedCombined = (local.missed || []).concat(remote.missed || []);
+    missedCombined.forEach(function (m) {
+      var mk = m.id || m.key || questionKey(m);
+      if (!mk) return;
+      if (!missMap[mk]) {
+        missMap[mk] = m;
+        res.missed.push(m);
+      } else {
+        var existing = missMap[mk];
+        existing.missCount = Math.max(existing.missCount || 1, m.missCount || 1);
+        if ((m.lastMissedAt || 0) > (existing.lastMissedAt || 0)) {
+          existing.lastMissedAt = m.lastMissedAt;
+          existing.lastPicked = m.lastPicked || existing.lastPicked;
+          existing.explain = m.explain || existing.explain;
+        }
+      }
+    });
+
+    res.last = (remote.last && (!local.last || (remote.last.when || 0) >= (local.last.when || 0)))
+      ? remote.last : (local.last || remote.last || null);
+
+    res.best = local.best || remote.best || null;
+    if (local.best && remote.best) {
+      res.best = (local.best.right / (local.best.total || 1) >= remote.best.right / (remote.best.total || 1))
+        ? local.best : remote.best;
+    }
+    return res;
+  }
+
+  function loadRemoteHistory(cb) {
+    state.sync.status = 'syncing';
+    state.sync.label = 'Checking GitHub / server sync…';
+    updateSyncBar();
+
+    fetch('/api/quiz-history')
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res && res.success && res.data) {
+          var local = loadStore();
+          var merged = mergeStore(local, res.data);
+          saveStore(merged);
+
+          if (res.synced) {
+            state.sync.status = 'ok';
+            state.sync.configured = true;
+            state.sync.label = 'Synced with GitHub repository (' + (res.source === 'github-empty' ? 'ready' : 'commit saved') + ')';
+          } else if (res.configured) {
+            state.sync.status = 'warn';
+            state.sync.configured = true;
+            state.sync.label = res.error || 'Server cached (GitHub push issue)';
+          } else {
+            state.sync.status = 'hint';
+            state.sync.configured = false;
+            state.sync.label = 'Saved to cloud server. Add GITHUB_PAT to .env to push commits directly to GitHub repo.';
+          }
+        }
+        if (cb) cb();
+        render();
+      })
+      .catch(function () {
+        state.sync.status = 'hint';
+        state.sync.label = 'Working locally in browser.';
+        if (cb) cb();
+        updateSyncBar();
+      });
+  }
+
+  function saveRemoteHistory(s) {
+    state.sync.status = 'syncing';
+    state.sync.label = 'Saving to server / pushing to GitHub…';
+    updateSyncBar();
+
+    fetch('/api/quiz-history', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(s)
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (res) {
+      if (res && res.synced) {
+        state.sync.status = 'ok';
+        state.sync.configured = true;
+        state.sync.label = 'Pushed to GitHub ' + (res.commit ? '(' + res.commit.slice(0, 7) + ')' : '');
+      } else if (res && res.configured) {
+        state.sync.status = 'warn';
+        state.sync.configured = true;
+        state.sync.label = res.error || 'Saved on server (GitHub push failed)';
+      } else {
+        state.sync.status = 'hint';
+        state.sync.configured = false;
+        state.sync.label = 'Saved to cloud server. (Set GITHUB_PAT in .env to auto-push to GitHub).';
+      }
+      updateSyncBar();
+    })
+    .catch(function () {
+      state.sync.status = 'warn';
+      state.sync.label = 'Saved locally in browser.';
+      updateSyncBar();
+    });
+  }
+
+  function syncBarHtml() {
+    var cls = state.sync.status === 'ok' ? 'ok'
+      : state.sync.status === 'syncing' ? 'syncing'
+      : state.sync.status === 'danger' ? 'danger'
+      : 'warn';
+    var icon = state.sync.status === 'ok' ? '✓'
+      : state.sync.status === 'syncing' ? '⟳'
+      : 'ℹ';
+    return (
+      '<div class="quiz-sync-bar" id="quiz-sync-status-box">' +
+        '<span class="quiz-sync-status ' + cls + '">' +
+          '<span>' + icon + '</span> <span>' + esc(state.sync.label) + '</span>' +
+        '</span>' +
+        '<button type="button" class="btn ghost sm" id="quiz-btn-sync-now" style="padding:2px 8px; font-size:.72rem;">Sync now</button>' +
+      '</div>'
+    );
+  }
+
+  function updateSyncBar() {
+    var box = $('#quiz-sync-status-box');
+    if (box) {
+      var cls = state.sync.status === 'ok' ? 'ok'
+        : state.sync.status === 'syncing' ? 'syncing'
+        : state.sync.status === 'danger' ? 'danger'
+        : 'warn';
+      var icon = state.sync.status === 'ok' ? '✓'
+        : state.sync.status === 'syncing' ? '⟳'
+        : 'ℹ';
+      box.innerHTML = (
+        '<span class="quiz-sync-status ' + cls + '">' +
+          '<span>' + icon + '</span> <span>' + esc(state.sync.label) + '</span>' +
+        '</span>' +
+        '<button type="button" class="btn ghost sm" id="quiz-btn-sync-now" style="padding:2px 8px; font-size:.72rem;">Sync now</button>'
+      );
+      var btn = $('#quiz-btn-sync-now');
+      if (btn) btn.addEventListener('click', function () {
+        loadRemoteHistory(function () {
+          saveRemoteHistory(loadStore());
+        });
+      });
+    }
   }
 
   function persistRun() {
@@ -1434,6 +1609,7 @@
     if (s.history.length > 100) s.history = s.history.slice(0, 100);
 
     saveStore(s);
+    saveRemoteHistory(s);
   }
 
   /* ------------------------------------------------------------------ */
@@ -1471,6 +1647,7 @@
         '<button type="button" class="tab" data-nav-view="history" aria-selected="false">History (' + hist.length + ')</button>' +
         '<button type="button" class="tab" data-nav-view="mistakes" aria-selected="false">Saved Mistakes (' + missed.length + ')</button>' +
       '</div>' +
+      syncBarHtml() +
       '<h2>NPLEX 2 quiz</h2>' +
       '<p class="hint">Multiple-choice items written from this notebook, grouped the way Part II is grouped: ' +
       'diagnosis, materia medica (botanical medicine and homeopathy), other modalities, and medical interventions. ' +
@@ -1719,6 +1896,7 @@
         '<button type="button" class="tab" data-nav-view="history" aria-selected="true">History (' + hist.length + ')</button>' +
         '<button type="button" class="tab" data-nav-view="mistakes" aria-selected="false">Saved Mistakes (' + missed.length + ')</button>' +
       '</div>' +
+      syncBarHtml() +
       '<h2>Quiz History</h2>' +
       '<p class="hint">A complete log of your past quiz sittings, scores, and areas drilled. Saved locally in your browser.</p>' +
       confirmBox +
@@ -1787,6 +1965,7 @@
         '<button type="button" class="tab" data-nav-view="history" aria-selected="false">History (' + hist.length + ')</button>' +
         '<button type="button" class="tab" data-nav-view="mistakes" aria-selected="true">Saved Mistakes (' + missed.length + ')</button>' +
       '</div>' +
+      syncBarHtml() +
       '<h2>Saved Mistakes Bank</h2>' +
       '<p class="hint">Questions you missed are automatically preserved here. Practice them, review their notebook entries, or remove them when mastered.</p>' +
       confirmBox +
@@ -1900,6 +2079,14 @@
         render();
       });
     });
+
+    /* Manual sync button */
+    var btnSyncNow = $('#quiz-btn-sync-now');
+    if (btnSyncNow) btnSyncNow.addEventListener('click', function () {
+      loadRemoteHistory(function () {
+        saveRemoteHistory(loadStore());
+      });
+    });
   }
 
   function onKey(e) {
@@ -1923,6 +2110,7 @@
     casesFlat = flattenCases('all');
     document.addEventListener('keydown', onKey);
     render();
+    loadRemoteHistory();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
