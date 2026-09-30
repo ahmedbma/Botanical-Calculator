@@ -16,15 +16,17 @@ const is = (actual, expected, what) =>
                       : bad(`${what}: page/README says ${expected}, data says ${actual}`);
 
 const html = read('index.html');
+const quizHtml = read('quiz.html');
 const readme = read('README.md');
 
 /* ---- the ?v= cache buster must agree across every local reference ---- */
 {
-  const vs = [...html.matchAll(/(?:css|js)\/[A-Za-z0-9_.-]+\?v=(\d+)/g)].map(m => m[1]);
+  const pages = html + '\n' + quizHtml;
+  const vs = [...pages.matchAll(/(?:css|js)\/[A-Za-z0-9_.-]+\?v=(\d+)/g)].map(m => m[1]);
   const uniq = [...new Set(vs)];
-  if (!vs.length) bad('no ?v= cache buster found in index.html');
+  if (!vs.length) bad('no ?v= cache buster found in index.html / quiz.html');
   else if (uniq.length === 1) ok(`?v=${uniq[0]} on all ${vs.length} local css/js references`);
-  else bad(`?v= disagrees across index.html: ${uniq.join(', ')} — bump them together`);
+  else bad(`?v= disagrees across index.html / quiz.html: ${uniq.join(', ')} — bump them together`);
 }
 
 /* ---- nothing may render-block on a third party ----
@@ -32,9 +34,12 @@ const readme = read('README.md');
    script, so an unreachable Google left the page painted but with no calculator
    ever initialised. Self-hosted now; this keeps it that way. */
 {
-  const hits = [...html.matchAll(/<link[^>]+href="(https?:\/\/[^"]+)"/g)].map(m => m[1]);
-  hits.length ? bad(`index.html loads a stylesheet from off-site: ${hits.join(', ')}`)
-              : ok('no third-party stylesheet — the page still works offline');
+  const pages = [['index.html', html], ['quiz.html', quizHtml]];
+  for (const [name, src] of pages) {
+    const hits = [...src.matchAll(/<link[^>]+href="(https?:\/\/[^"]+)"/g)].map(m => m[1]);
+    hits.length ? bad(`${name} loads a stylesheet from off-site: ${hits.join(', ')}`)
+                : ok(`${name}: no third-party stylesheet`);
+  }
   const fonts = ['cormorant-garamond.woff2', 'cormorant-garamond-italic.woff2', 'jost.woff2']
     .filter(f => !fs.existsSync(path.join(ROOT, 'assets/fonts', f)));
   fonts.length ? bad(`missing self-hosted font(s): ${fonts.join(', ')}`)
@@ -103,17 +108,25 @@ const readme = read('README.md');
      'paediatric conditions (index.html)');
 
   // Data files under js/ must match what the README claims and what exists.
-  const generated = fs.readdirSync(path.join(ROOT, 'js')).filter(f => f !== 'app.js').length;
+  const generated = fs.readdirSync(path.join(ROOT, 'js'))
+    .filter(f => f.endsWith('.js') && !['app.js', 'quiz.js'].includes(f)).length;
   const words = { twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15 };
   const m = readme.match(/The (\w+) data files under `js\/`/);
   is(generated, m ? words[m[1]] : null, 'generated data files under js/');
 
   // Every generated file must be loaded by the page, or it is dead weight.
-  const loaded = new Set([...html.matchAll(/<script src="js\/([A-Za-z0-9_.-]+?)\?v=/g)].map(m => m[1]));
+  // quiz.js is the NPLEX 2 subpage; the data files are shared by both pages.
+  const loaded = new Set([
+    ...html.matchAll(/<script src="js\/([A-Za-z0-9_.-]+?)\?v=/g),
+    ...quizHtml.matchAll(/<script src="js\/([A-Za-z0-9_.-]+?)\?v=/g)
+  ].map(m => m[1]));
   const onDisk = fs.readdirSync(path.join(ROOT, 'js'));
   const unloaded = onDisk.filter(f => !loaded.has(f));
-  unloaded.length ? bad(`js/ files never loaded by index.html: ${unloaded.join(', ')}`)
-                  : ok(`all ${onDisk.length} files in js/ are loaded by index.html`);
+  unloaded.length ? bad(`js/ files never loaded by index.html or quiz.html: ${unloaded.join(', ')}`)
+                  : ok(`all ${onDisk.length} files in js/ are loaded by index.html or quiz.html`);
+
+  if (!/js\/quiz\.js\?v=/.test(quizHtml)) bad('quiz.html does not load js/quiz.js');
+  else ok('quiz.html loads js/quiz.js');
 }
 
 process.exit(failed);

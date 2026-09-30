@@ -27,6 +27,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
 | **Tincture Formulator** | Build a liquid-extract formula from herb shares. Gives ml and gtt per dose, dry-herb equivalent per dose and per day, ml of each extract to dispense, and a running "pour to" column for filling a graduated cylinder. Rounds the course up to a stock bottle size. |
 | **Dose per Herb** | Work out how much of a single herb a patient actually receives from a combination formula, in ml, gtt and mg of dry-herb equivalent. |
 | **Low-Dose Reference** | Maximum single, chronic-daily and acute-daily doses for 31 low-dose (potentially toxic) botanicals. |
+| **NPLEX 2 quiz** | A subpage of multiple-choice items written from this notebook, grouped the way Part II is grouped: diagnosis, materia medica, other modalities and medical interventions. *Drill* is one fact at a time (~the herb names, suffixes, keynotes, urgent findings, vitals). *Cases* is a clinical summary then several questions on that patient. Explanations link back to the tab the fact lives in. Not NABNE items. |
 
 ### Beyond the spreadsheet
 
@@ -45,6 +46,7 @@ Jost; offline the page falls back to system serif and sans stacks and works exac
   same-genus substitute is filled in but flagged as borrowed, and generic plant-part densities are
   one click away.
 - CSV export, print-friendly layout, and autosave to browser storage.
+- **NPLEX 2 quiz.** `quiz.html`, linked from the masthead. Two modes: a generated drill over the datasets, and a hand-written case bank in the NPLEX shape. `/` still focuses site search on the notebook itself.
 
 ## Formulas
 
@@ -79,6 +81,7 @@ be kept up for more than a few days.
 
 ```
 index.html               markup for all fourteen tools
+quiz.html                NPLEX 2 multiple-choice quiz (drill + cases)
 css/styles.css           styling, light/dark, print rules
 js/herbdata.js           herbal reference data as a global (works from file://)
 js/homeopathydata.js     homeopathic remedy data as a global
@@ -94,6 +97,7 @@ js/labrangesdata.js      normal and optimal ranges as a global
 js/dxindexdata.js        the symptom index as a global
 js/pediatricsdata.js     the paediatrics section as a global
 js/app.js                all calculators, the site search, the differentiator, the exam index, the screeners, the formulas, the formulary and the therapeutics tabs
+js/quiz.js               NPLEX 2 quiz: generates the drill from the same globals, plus the case bank
 data/herbdata.json       the same herbal data as plain JSON, for reuse
 data/homeopathy.json     the same homeopathic data as plain JSON, for reuse
 data/physicalexams.json  the same physical exam data as plain JSON, for reuse
@@ -122,9 +126,9 @@ node tools/build-data.js       # regenerate js/*data.js from data/*.json
 tools/check.sh                 # everything CI checks, before you push
 ```
 
-Every local `css/` and `js/` reference in `index.html` carries a `?v=` cache buster. **Bump it whenever
+Every local `css/` and `js/` reference in `index.html` and `quiz.html` carries a `?v=` cache buster. **Bump it whenever
 you change either directory** — without it browsers go on serving the previous copy, so a change looks
-like it silently did not take. `tools/check.sh` fails if the two directories disagree about the number,
+like it silently did not take. `tools/check.sh` fails if the two pages disagree about the number,
 if the generated data is stale, or if the counts quoted in this file have drifted from the data.
 
 ## Data
